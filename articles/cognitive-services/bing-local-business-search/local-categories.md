@@ -6,7 +6,8 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.subservice: bing-local-business
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
 ---

@@ -12,7 +12,7 @@ ms.author: sngun
 
 # Use Azure Cosmos DB change feed to visualize real-time data analytics
 
-The Azure Cosmos DB change feed is a mechanism to get a continuous and incremental feed of records from an Azure Cosmos DB container as those records are being created or modified. Change feed support works by listening to container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. To learn more about change feed, see [working with change feed](change-feed.md) article. 
+The Azure Cosmos DB change feed is a mechanism to get a continuous and incremental feed of records from an Azure Cosmos container as those records are being created or modified. Change feed support works by listening to container for any changes. It then outputs the sorted list of documents that were changed in the order in which they were modified. To learn more about change feed, see [working with change feed](change-feed.md) article. 
 
 This article describes how change feed can be used by an e-commerce company to understand user patterns, perform real-time data analysis and visualization. You will analyze events such as a user viewing an item, adding an item to their cart, or purchasing an item. When one of these events occurs, a new record is created, and the change feed logs that record. Change feed then triggers a series of steps resulting in visualization of metrics that analyze the company performance and activity. Sample metrics that you can visualize include revenue, unique site visitors, most popular items, and average price of the items that are viewed versus added to a cart versus purchased. These sample metrics can help an e-commerce company evaluate its site popularity, develop its advertising and pricing strategies, and make decisions regarding what inventory to invest in.
 
@@ -37,9 +37,9 @@ The following diagram represents the data flow and components involved in the so
    }
    ```
 
-2. **Cosmos DB:** The generated data is stores in an Azure Cosmos DB collection.  
+2. **Cosmos DB:** The generated data is stored in an Azure Cosmos container.  
 
-3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos DB collection. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../azure-functions/functions-overview.md).  
+3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos container. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../azure-functions/functions-overview.md).  
 
 4. **Azure Function:** The Azure Function processes the new data and sends it to an [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
@@ -139,7 +139,7 @@ An Azure Event Hub receives the event data, stores, processes, and forwards the 
 
 ## Set up Azure Function to read the change feed
 
-When a new document is created, or a current document is modified in a Cosmos DB collection, the change feed automatically adds that modified document to its history of collection changes. You will now build and run an Azure Function that processes the change feed. When a document is created or modified in the collection you created, the Azure Function will be triggered by the change feed. Then the Azure Function will send the modified document to the Event Hub.
+When a new document is created, or a current document is modified in a Cosmos container, the change feed automatically adds that modified document to its history of collection changes. You will now build and run an Azure Function that processes the change feed. When a document is created or modified in the collection you created, the Azure Function will be triggered by the change feed. Then the Azure Function will send the modified document to the Event Hub.
 
 1. Return to the repository that you cloned on your device.  
 
@@ -314,7 +314,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 ## Optional: Visualize with an E-commerce site
 
-You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos DB database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
+You will now observe how you can use your new data analysis tool to connect with a real e-commerce site. In order to build the e-commerce site, use an Azure Cosmos database to store the list of product categories (Women's, Men's, Unisex), the product catalog, and a list of the most popular items.
 
 1. Navigate back to the [Azure Portal](https://portal.azure.com/), then to your **Cosmos DB account**, then to **Data Explorer**.  
 

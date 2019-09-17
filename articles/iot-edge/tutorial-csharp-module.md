@@ -34,7 +34,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 This tutorial demonstrates how to develop a module in **C#** using **Visual Studio Code**, and how to deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-windows.md) instead.
 
-Use the following table to understand your options for developing and deploying C modules to Linux: 
+Use the following table to understand your options for developing and deploying C# modules to Linux: 
 
 | C# | Visual Studio Code | Visual Studio | 
 | -- | ------------------ | ------------- |
@@ -291,7 +291,7 @@ Make sure that your IoT Edge device is up and running.
 
 5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
-6. Click the refresh button. You should see the new **CSharpModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**.  
+6. Click the refresh button. You should see the new **CSharpModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**.  
 
 ## View generated data
 

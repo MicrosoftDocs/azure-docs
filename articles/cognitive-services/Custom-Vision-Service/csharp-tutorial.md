@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create an image classification project with the Custom Vision SDK for C#"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Create a project, add tags, upload images, train your project, and make a prediction using the .NET SDK with C#.
 services: cognitive-services
 author: anrothMSFT
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 08/08/2019
 ms.author: anroth
 ---
 # Quickstart: Create an image classification project with the Custom Vision .NET SDK
@@ -19,6 +19,7 @@ This article provides information and sample code to help you get started using 
 ## Prerequisites
 
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 
@@ -47,7 +48,7 @@ The following lines of code execute the primary functionality of the project.
 
 ### Create a new Custom Vision service project
 
-The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
+The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. See the [CreateProject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclientextensions.createproject?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_CustomVisionTrainingClientExtensions_CreateProject_Microsoft_Azure_CognitiveServices_Vision_CustomVision_Training_ICustomVisionTrainingClient_System_String_System_String_System_Nullable_System_Guid__System_String_System_Collections_Generic_IList_System_String__) method to specify other options when you create your project (explained in the [Build a classifier](getting-started-build-a-classifier.md) web portal guide).   
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
 
@@ -57,7 +58,7 @@ The created project will show up on the [Custom Vision website](https://customvi
 
 ### Upload and tag images
 
-The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
+The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_. You can upload up to 64 images in a single batch.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
@@ -98,7 +99,7 @@ CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
 
 ### Submit an image to the default prediction endpoint
 
-In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
+In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console. The value of the publishedModelName variable should correspond to the "Published as" value found on the Custom Vision portal's **Performance** tab. 
 
 ```csharp
 // Make a prediction against the new project

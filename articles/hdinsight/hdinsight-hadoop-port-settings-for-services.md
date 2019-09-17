@@ -1,6 +1,6 @@
 ---
 title: Ports used by Hadoop services on HDInsight - Azure 
-description: A list of ports used by Hadoop services running on HDInsight.
+description: This provides a list of ports used by Apache Hadoop services running in Azure HDInsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -101,7 +101,7 @@ Examples:
 | NodeManager |All worker nodes |30050 |&nbsp; |The address of the container manager |
 | NodeManager web UI |All worker nodes |30060 |HTTP |Resource Manager interface |
 | Timeline address |Head nodes |10200 |RPC |The Timeline service RPC service. |
-| Timeline web UI |Head nodes |8181 |HTTP |The Timeline service web UI |
+| Timeline web UI |Head nodes |8188 |HTTP |The Timeline service web UI |
 
 ### Hive ports
 

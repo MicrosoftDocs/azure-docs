@@ -1,6 +1,6 @@
 ---
 title: What is the Computer Vision API? - Computer Vision
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. 
 services: cognitive-services 
 author: PatrickFarley
@@ -72,6 +72,6 @@ As with all of the Cognitive Services, developers using the Computer Vision serv
 
 Get started with Computer Vision by following a quickstart guide:
 
-- [Quickstart: Analyze an image](quickstarts-sdk/csharp-analyze-sdk.md)
-- [Quickstart: Extract handwritten text](quickstarts-sdk/csharp-hand-text-sdk.md)
-- [Quickstart: Generate a thumbnail](quickstarts-sdk/csharp-thumb-sdk.md)
+- [Quickstart: Computer Vision .NET SDK](quickstarts-sdk/csharp-sdk.md)
+- [Quickstart: Computer Vision Python SDK](quickstarts-sdk/python-sdk.md)
+- [Quickstart: Computer Vision Java SDK](quickstarts-sdk/java-sdk.md)

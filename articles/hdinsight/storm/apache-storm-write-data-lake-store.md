@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use Apache Storm to write to Storage/Data Lake Storage - Azure HDInsight 
+title: Tutorial - Apache Storm writes to Storage/Data Lake Storage - Azure HDInsight
 description: Tutorial - Learn how to use Apache Storm to write to the HDFS-compatible storage for Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 ### Example configuration
 
-The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/1.1.2/flux.html) framework for Apache Storm.
+The following YAML is an excerpt from the `resources/writetohdfs.yaml` file included in the example. This file defines the Storm topology using the [Flux](https://storm.apache.org/releases/current/flux.html) framework for Apache Storm.
 
 ```yaml
 components:

@@ -5,17 +5,18 @@ ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---
 # Azure Key Vault managed storage account - PowerShell
 
 > [!NOTE]
-> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
+> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](../storage/common/storage-auth-aad.md). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
 > - Authenticate your client application using an application or user identity, instead of storage account credentials. 
 > - Use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when running on Azure. Managed identities remove the need for client authentication all together, and storing credentials in or with your application.
 > - Use Role Based Access Control (RBAC) for managing authorization, which is also supported by Key Vault.
+> - AAD access to Storage Account does not work for accessing tables as of yet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,6 +39,18 @@ When you use the managed storage account key feature:
 
 The following example shows you how to allow Key Vault to manage your storage account keys.
 
+## Connect to your Azure account
+
+Authenticate your PowerShell session using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) cmdlet. 
+```azurepowershell-interactive
+Connect-AzAccount
+```
+If you have multiple Azure subscriptions, you can list them using the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) cmdlet, and specify the subscription you wish to use with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0) cmdlet. 
+
+```azurepowershell-interactive
+Set-AzContext -SubscriptionId <subscriptionId>
+```
+
 ## Authorize Key Vault to access to your storage account
 
 > [!IMPORTANT]
@@ -57,8 +70,8 @@ $storageAccountKey = "key1"
 $keyVaultName = "kvContoso"
 $keyVaultSpAppId = "cfa8b339-82a2-471a-a3c9-0fc0be7a4093" # See "IMPORTANT" block above for information on Key Vault Application IDs
 
-# Authenticate your PowerShell session with Azure AD, for use with Azure Resource Manager cmdlets
-$azureProfile = Connect-AzAccount
+# Get your User Id for later commands
+$userId = (Get-AzContext).Account.Id
 
 # Get a reference to your Azure storage account
 $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -StorageAccountName $storageAccountName
@@ -93,7 +106,7 @@ Using the same PowerShell session, update the Key Vault access policy for manage
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
 
-Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $azureProfile.Context.Account.Id -PermissionsToStorage get, list, listsas, delete, set, update, regeneratekey, recover, backup, restore, purge
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -UserPrincipalName $userId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
 ```
 
 Note that permissions for storage accounts aren't available on the storage account "Access policies" page in the Azure portal.
@@ -125,7 +138,7 @@ Tags                :
 
 ### Enable key regeneration
 
-If you want Key Vault to regenerate your storage account keys periodically, you can set a regeneration period. In the following example, we set a regeneration period of three days. After three days, Key Vault will regenerate 'key1' and swap the active key from 'key2' to 'key1'.
+If you want Key Vault to regenerate your storage account keys periodically, you can set a regeneration period. In the following example, we set a regeneration period of three days. After three days, Key Vault will regenerate 'key2' and swap the active key from 'key2' to 'key1'.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

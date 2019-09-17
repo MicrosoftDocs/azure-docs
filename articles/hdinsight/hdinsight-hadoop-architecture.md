@@ -1,6 +1,6 @@
 ---
 title: Apache Hadoop architecture - Azure HDInsight 
-description: Describes Apache Hadoop storage and processing on HDInsight clusters.
+description: Describes Apache Hadoop storage and processing on Azure HDInsight clusters.
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
@@ -40,7 +40,7 @@ The NodeManagers run the tasks that make up the application, then report their p
 
 All HDInsight cluster types deploy YARN. The ResourceManager is deployed for high availability with a primary and secondary instance, which runs on the first and second head nodes within the cluster respectively. Only the one instance of the ResourceManager is active at a time. The NodeManager instances run across the available worker nodes in the cluster.
 
-![YARN on HDInsight](./media/hdinsight-hadoop-architecture/yarn-on-hdinsight.png)
+![YARN on HDInsight](./media/hdinsight-hadoop-architecture/apache-yarn-on-hdinsight.png)
 
 ## Next steps
 

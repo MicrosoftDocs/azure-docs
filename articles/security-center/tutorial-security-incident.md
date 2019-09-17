@@ -31,6 +31,28 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Prerequisites
 To step through the features covered in this tutorial, you must be on Security Center’s Standard pricing tier. You can try Security Center Standard at no cost. To learn more, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/). The quickstart [Onboard your Azure subscription to Security Center Standard](security-center-get-started.md) walks you through how to upgrade to Standard.
 
+## Scenario
+Contoso recently migrated some of their on-premises resources to Azure, including some virtual machine-based line-of-business workloads and SQL databases. Currently, Contoso's Core Computer Security Incident Response Team (CSIRT) has a problem investigating security issues because of security intelligence not being integrated with their current incident response tools. This lack of integration introduces a problem during the Detect stage (too many false positives), as well as during the Assess and Diagnose stages. As part of this migration, they decided to opt in for Security Center to help them address this problem.
+
+The first phase of this migration finished after they onboarded all resources and addressed all of the security recommendations from Security Center. Contoso CSIRT is the focal point for dealing with computer security incidents. The team consists of a group of people with responsibilities for dealing with any security incident. The team members have clearly defined duties to ensure that no area of response is left uncovered.
+
+For the purpose of this scenario, we're going to focus on the roles of the following personas that are part of Contoso CSIRT:
+
+![Incident response lifecycle](./media/tutorial-security-incident/security-center-incident-response.png)
+
+Judy is in security operations. Their responsibilities include:
+
+* Monitoring and responding to security threats around the clock.
+* Escalating to the cloud workload owner or security analyst as needed.
+
+Sam is a security analyst and their responsibilities include:
+
+* Investigating attacks.
+* Remediating alerts.
+* Working with workload owners to determine and apply mitigations.
+
+As you can see, Judy and Sam have different responsibilities, and they must work together to share Security Center information.
+
 ## Triage security alerts
 Security Center provides a unified view of all security alerts. Security alerts are ranked based on the severity and when possible related alerts are combined into a security incident. When triaging alerts and incidents, you should:
 

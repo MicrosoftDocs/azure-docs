@@ -9,7 +9,6 @@ manager: gwallace
 
 ms.assetid:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: cshoe
@@ -19,7 +18,7 @@ ms.author: cshoe
 
 This topic provides general guidance for handling errors that occur when your functions execute. It also provides links to the topics that describe binding-specific errors that may occur. 
 
-## Handing errors in functions
+## Handling errors in functions
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  

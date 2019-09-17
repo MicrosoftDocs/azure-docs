@@ -6,13 +6,15 @@ author: tfitzmac
 keywords: deployment error, azure deployment, deploy to azure
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 02/15/2019
+ms.date: 08/30/2019
 ms.author: tomfitz
 
 ---
 # Troubleshoot common Azure deployment errors with Azure Resource Manager
 
 This article describes some common Azure deployment errors, and provides information to resolve the errors. If you can't find the error code for your deployment error, see [Find error code](#find-error-code).
+
+If you're looking for information about an error code and that information isn't provided in this article, let us know. At the bottom of this page, you can leave feedback. The feedback is tracked with GitHub Issues. 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -24,50 +26,50 @@ This article describes some common Azure deployment errors, and provides informa
 | AccountPropertyCannotBeSet | Check available storage account properties. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | The cluster or region doesn't have resources available or can't support the requested VM size. Retry the request at a later time, or request a different VM size. | [Provisioning and allocation issues for Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md), [Provisioning and allocation issues for Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) and [Troubleshoot allocation failures](../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Wait for concurrent operation to complete. | |
-| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You may receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](resource-manager-register-provider-errors.md) |
-| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-group-authoring-templates.md#resource-location) |
+| AuthorizationFailed | Your account or service principal doesn't have sufficient access to complete the deployment. Check the role your account belongs to, and its access for the deployment scope.<br><br>You might receive this error when a required resource provider isn't registered. | [Azure Role-Based Access Control](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolve registration](resource-manager-register-provider-errors.md) |
+| BadRequest | You sent deployment values that don't match what is expected by Resource Manager. Check the inner status message for help with troubleshooting. | [Template reference](/azure/templates/) and [Supported locations](resource-location.md) |
 | Conflict | You're requesting an operation that isn't allowed in the resource's current state. For example, disk resizing is allowed only when creating a VM or when the VM is deallocated. | |
 | DeploymentActive | Wait for concurrent deployment to this resource group to complete. | |
 | DeploymentFailed | The DeploymentFailed error is a general error that doesn't provide the details you need to solve the error. Look in the error details for an error code that provides more information. | [Find error code](#find-error-code) |
 | DeploymentQuotaExceeded | If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. You can delete entries from the history with [az group deployment delete](/cli/azure/group/deployment#az-group-deployment-delete) for Azure CLI, or [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell. Deleting an entry from the deployment history doesn't affect the deploy resources. | |
-| DnsRecordInUse | The DNS record name must be unique. Either provide a different name, or modify the existing record. | |
+| DnsRecordInUse | The DNS record name must be unique. Enter a different name. | |
 | ImageNotFound | Check VM image settings. |  |
-| InUseSubnetCannotBeDeleted | You may get this error when trying to update a resource, but the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| InUseSubnetCannotBeDeleted | You might get this error when trying to update a resource, and the request is processed by deleting and creating the resource. Make sure to specify all unchanged values. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Get access token for the appropriate tenant. You can only get the token from the tenant that your account belongs to. | |
-| InvalidContentLink | You have most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You may need to pass a SAS token. | [Linked templates](resource-group-linked-templates.md) |
-| InvalidParameter | One of the values you provided for a resource doesn't match the expected value. This error can result from many different conditions. For example, a password may be insufficient, or a blob name may be incorrect. Check the error message to determine which value needs to be corrected. | |
-| InvalidRequestContent | Your deployment values either include values that aren't expected or are missing required values. Confirm the values for your resource type. | [Template reference](/azure/templates/) |
-| InvalidRequestFormat | Enable debug logging when executing the deployment, and verify the contents of the request. | [Debug logging](#enable-debug-logging) |
+| InvalidContentLink | You've most likely attempted to link to a nested template that isn't available. Double check the URI you provided for the nested template. If the template exists in a storage account, make sure the URI is accessible. You might need to pass a SAS token. Currently, you can't link to a template that is in a storage account behind an [Azure Storage firewall](../storage/common/storage-network-security.md). Consider moving your template to another repository, like GitHub. | [Linked templates](resource-group-linked-templates.md) |
+| InvalidParameter | One of the values you provided for a resource doesn't match the expected value. This error can result from many different conditions. For example, a password may be insufficient, or a blob name may be incorrect. The error message should indicate which value needs to be corrected. | |
+| InvalidRequestContent | The deployment values either include values that aren't recognized, or required values are missing. Confirm the values for your resource type. | [Template reference](/azure/templates/) |
+| InvalidRequestFormat | Enable debug logging when running the deployment, and verify the contents of the request. | [Debug logging](#enable-debug-logging) |
 | InvalidResourceNamespace | Check the resource namespace you specified in the **type** property. | [Template reference](/azure/templates/) |
 | InvalidResourceReference | The resource either doesn't yet exist or is incorrectly referenced. Check whether you need to add a dependency. Verify that your use of the **reference** function includes the required parameters for your scenario. | [Resolve dependencies](resource-manager-not-found-errors.md) |
 | InvalidResourceType | Check the resource type you specified in the **type** property. | [Template reference](/azure/templates/) |
 | InvalidSubscriptionRegistrationState | Register your subscription with the resource provider. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Check your template syntax for errors. | [Resolve invalid template](resource-manager-invalid-template-errors.md) |
 | InvalidTemplateCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](resource-manager-invalid-template-errors.md#circular-dependency) |
-| LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group you're deploying to. | |
+| LinkedAuthorizationFailed | Check if your account belongs to the same tenant as the resource group that you're deploying to. | |
 | LinkedInvalidPropertyId | The resource ID for a resource isn't resolving correctly. Check that you provide all required values for the resource ID, including subscription ID, resource group name, resource type, parent resource name (if needed), and resource name. | |
-| LocationRequired | Provide a location for your resource. | [Set location](resource-group-authoring-templates.md#resource-location) |
+| LocationRequired | Provide a location for the resource. | [Set location](resource-location.md) |
 | MismatchingResourceSegments | Make sure nested resource has correct number of segments in name and type. | [Resolve resource segments](resource-manager-invalid-template-errors.md#incorrect-segment-lengths)
-| MissingRegistrationForLocation | Check resource provider registration status, and supported locations. | [Resolve registration](resource-manager-register-provider-errors.md) |
+| MissingRegistrationForLocation | Check resource provider registration status and supported locations. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Register your subscription with the resource provider. | [Resolve registration](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Check resource provider registration status. | [Resolve registration](resource-manager-register-provider-errors.md) |
-| NotFound | You may be attempting to deploy a dependent resource in parallel with a parent resource. Check if you need to add a dependency. | [Resolve dependencies](resource-manager-not-found-errors.md) |
+| NotFound | You might be attempting to deploy a dependent resource in parallel with a parent resource. Check if you need to add a dependency. | [Resolve dependencies](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | The deployment is attempting an operation that exceeds the quota for the subscription, resource group, or region. If possible, revise your deployment to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Make sure a parent resource exists before creating the child resources. | [Resolve parent resource](resource-manager-parent-resource-errors.md) |
-| PasswordTooLong | You may have selected a password with too many characters, or may have converted your password value to a secure string before passing it as a parameter. If the template includes a **secure string** parameter, you don't need to convert the value to a secure string. Provide the password value as text. |  |
+| PasswordTooLong | You might have selected a password with too many characters, or converted your password value to a secure string before passing it as a parameter. If the template includes a **secure string** parameter, you don't need to convert the value to a secure string. Provide the password value as text. |  |
 | PrivateIPAddressInReservedRange | The specified IP address includes an address range required by Azure. Change IP address to avoid reserved range. | [IP addresses](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
 | PrivateIPAddressNotInSubnet | The specified IP address is outside of the subnet range. Change IP address to fall within subnet range. | [IP addresses](../virtual-network/virtual-network-ip-addresses-overview-arm.md) |
-| PropertyChangeNotAllowed | Some properties cannot be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
-| RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you are trying to perform during deployment. Find the policy that blocks the action. If possible, modify your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
+| PropertyChangeNotAllowed | Some properties can't be changed on a deployed resource. When updating a resource, limit your changes to permitted properties. | [Update resource](/azure/architecture/building-blocks/extending-templates/update-resource) |
+| RequestDisallowedByPolicy | Your subscription includes a resource policy that prevents an action you're trying to perform during deployment. Find the policy that blocks the action. If possible, change your deployment to meet the limitations from the policy. | [Resolve policies](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Provide a resource name that doesn't include a reserved name. | [Reserved resource names](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wait for deletion to complete. | |
-| ResourceGroupNotFound | Check the name of the target resource group for the deployment. It must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
+| ResourceGroupNotFound | Check the name of the target resource group for the deployment. The target resource group must already exist in your subscription. Check your subscription context. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Your deployment references a resource that can't be resolved. Verify that your use of the **reference** function includes the parameters required for your scenario. | [Resolve references](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | The deployment is trying to create resources that exceed the quota for the subscription, resource group, or region. If possible, revise your infrastructure to stay within the quotas. Otherwise, consider requesting a change to your quotas. | [Resolve quotas](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Select SKU (such as VM size) that is available for the location you've selected. | [Resolve SKU](resource-manager-sku-not-available-errors.md) |
 | StorageAccountAlreadyExists | Provide a unique name for the storage account. | [Resolve storage account name](resource-manager-storage-account-name-errors.md)  |
 | StorageAccountAlreadyTaken | Provide a unique name for the storage account. | [Resolve storage account name](resource-manager-storage-account-name-errors.md) |
-| StorageAccountNotFound | Check the subscription, resource group, and name of the storage account you're trying to use. | |
+| StorageAccountNotFound | Check the subscription, resource group, and name of the storage account that you're trying to use. | |
 | SubnetsNotInSameVnet | A virtual machine can only have one virtual network. When deploying several NICs, make sure they belong to the same virtual network. | [Multiple NICs](../virtual-machines/windows/multiple-nics.md) |
 | TemplateResourceCircularDependency | Remove unnecessary dependencies. | [Resolve circular dependencies](resource-manager-invalid-template-errors.md#circular-dependency) |
 | TooManyTargetResourceGroups | Reduce number of resource groups for a single deployment. | [Cross resource group deployment](resource-manager-cross-resource-group-deployment.md) |
@@ -241,6 +243,6 @@ Or, suppose you are encountering deployment errors that you believe are related 
 
 ## Next steps
 
-* To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](./resource-manager-tutorial-troubleshoot.md)
+* To go through a troubleshooting tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](./resource-manager-tutorial-troubleshoot.md)
 * To learn about auditing actions, see [Audit operations with Resource Manager](resource-group-audit.md).
 * To learn about actions to determine the errors during deployment, see [View deployment operations](resource-manager-deployment-operations.md).

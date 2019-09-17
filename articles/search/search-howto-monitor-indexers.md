@@ -4,8 +4,8 @@ description: Monitor the status, progress, and results of Azure Search indexers 
 
 ms.date: 06/28/2019
 author: RobDixon22
-manager: HeidiSteen
-ms.author: v-rodixo
+manager: nitinme
+ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api

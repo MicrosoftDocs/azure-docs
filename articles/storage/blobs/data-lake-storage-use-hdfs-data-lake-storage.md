@@ -16,7 +16,7 @@ ms.reviewer: artek
 
 You can access and manage the data in your storage account by using a command line interface just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). This article provides some examples that will help you get started.
 
-HDInsight provides access to the distributed file system that is locally attached to the compute nodes. You can access this file system by using the shell that directly interacts with the HDFS and the other file systems that Hadoop supports.
+HDInsight provides access to the distributed container that is locally attached to the compute nodes. You can access this container by using the shell that directly interacts with the HDFS and the other file systems that Hadoop supports.
 
 For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
@@ -40,11 +40,11 @@ The connection string can be found at the "SSH + Cluster login" section of the H
 >[!IMPORTANT]
 >HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
-## Create a file system
+## Create a container
 
-    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<file-system-name>@<storage-account-name>.dfs.core.windows.net/
+    hdfs dfs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
 
-* Replace the `<file-system-name>` placeholder with the name that you want to give your file system.
+* Replace the `<container-name>` placeholder with the name that you want to give your container.
 
 * Replace the `<storage-account-name>` placeholder with the name of your storage account.
 
@@ -52,7 +52,7 @@ The connection string can be found at the "SSH + Cluster login" section of the H
 
     hdfs dfs -ls <path>
 
-Replace the `<path>` placeholder with the URI of the file system or file system folder.
+Replace the `<path>` placeholder with the URI of the container or container folder.
 
 For example: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windows.net/my-directory-name`
 
@@ -60,7 +60,7 @@ For example: `hdfs dfs -ls abfs://my-file-system@mystorageaccount.dfs.core.windo
 
     hdfs dfs -mkdir [-p] <path>
 
-Replace the `<path>` placeholder with the root file system name or a folder within your file system.
+Replace the `<path>` placeholder with the root container name or a folder within your container.
 
 For example: `hdfs dfs -mkdir abfs://my-file-system@mystorageaccount.dfs.core.windows.net/`
 

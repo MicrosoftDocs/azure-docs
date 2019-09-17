@@ -10,9 +10,9 @@ ms.tgt_pltfrm: ""
 ms.topic: "reference"
 ms.assetid: 351b369f-365e-46c1-82ce-03fc3655cc88
 caps.latest.revision: 17
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: georgewallace
+ms.author: gwallace
+manager: gwallace
 ---
 
 # Azure Cloud Services Definition NetworkTrafficRules Schema

@@ -61,8 +61,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
     href: load-balancer-standard-diagnostics.md
-  - name: Security attributes
-    href: load-balancer-security-attributes.md
+  - name: Built-in security controls
+    href: load-balancer-security-controls.md
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
@@ -123,6 +123,10 @@
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
+  - name: Move across regions
+    items:
+    - name: External Load Balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

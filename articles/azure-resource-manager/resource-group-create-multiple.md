@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/03/2019
 ms.author: tomfitz
 
 ---
@@ -38,13 +38,13 @@ When used with a variable or property, the copy object has the following format:
 
 Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
-If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Copy limits
 
 To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
 
-The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell and the REST API don't support zero for count. Currently, Azure CLI doesn't support zero for count, but that support will be added in a future release.
 
 Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
@@ -136,9 +136,9 @@ Creates these names:
 * storagefabrikam
 * storagecoho
 
-By default, Resource Manager creates the resources in parallel. The order in which they're created isn't guaranteed. However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time.
+By default, Resource Manager creates the resources in parallel. It applies no limit to the number of resources deployed in parallel, other than the total limit of 800 resources in the template. The order in which they're created isn't guaranteed.
 
-To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
+However, you may want to specify that the resources are deployed in sequence. For example, when updating a production environment, you may want to stagger the updates so only a certain number are updated at any one time. To serially deploy more than one instance of a resource, set `mode` to **serial** and `batchSize` to the number of instances to deploy at a time. With serial mode, Resource Manager creates a dependency on earlier instances in the loop, so it doesn't start one batch until the previous batch completes.
 
 For example, to serially deploy storage accounts two at a time, use:
 

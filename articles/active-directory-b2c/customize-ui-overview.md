@@ -8,14 +8,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # About user interface customization in Azure Active Directory B2C
 
-The ability for you to brand and customize the user interface (UI) that Azure Active Directory (Azure AD) B2C serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
+The ability for you to brand and customize the user interface (UI) that Azure Active Directory B2C (Azure AD B2C) serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
 
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
@@ -120,7 +120,7 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 
 ## How do I localize content?
 
-You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the Open ID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
+You localize your HTML content by enabling [language customization](active-directory-b2c-reference-language-customization.md) in your Azure AD B2C tenant. Enabling this feature allows Azure AD B2C to forward the OpenID Connect parameter `ui-locales` to your endpoint. Your content server can use this parameter to provide language-specific HTML pages.
 
 Content can be pulled from different places based on the locale that's used. In your CORS-enabled endpoint, you set up a folder structure to host content for specific languages. You'll call the right one if you use the wildcard value {Culture:RFC5646}. For example, your custom page URI might look like `https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html`. You can load the page in French by pulling content from `https://contoso.blob.core.windows.net/fr/myHTML/unified.html`
 
@@ -130,6 +130,9 @@ For customization examples, download and review these [sample template files](ht
 
 ## Next steps
 
-- If you're using user flows, you can start customizing your UI with the tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
-- If you're using custom policies, you can start customizing the UI with the article: [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- If you're using **user flows**, you can start customizing your UI with the tutorial:
 
+    [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
+- If you're using **custom policies**, you can start customizing the UI with the article:
+
+    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

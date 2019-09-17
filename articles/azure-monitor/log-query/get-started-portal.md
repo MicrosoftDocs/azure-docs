@@ -157,7 +157,7 @@ On a timechart, if there is a sudden spike or step in your data, you may see a h
 ![Smart diagnostics](media/get-started-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
-To pin a diagram or table to one of your shared Azure dashboards, click the pin icon.
+To pin a diagram or table to one of your shared Azure dashboards, click the pin icon. Note that this icon has moved to the top of the Log Analytics window, different from the screenshot below.
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 

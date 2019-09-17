@@ -1,13 +1,13 @@
 ---
 title: Frequently asked questions about backing up Azure VMs with Azure Backup
 description: Answers to common questions about backing up Azure VMs with Azure Backup.
-services: backup
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/28/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
 # Frequently asked questions-Back up Azure VMs
 
@@ -65,7 +65,7 @@ User needs to remove the lock and clear the restore point collection from that r
 
 
 ### Does Azure backup support standard SSD managed disk?
-Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). SSD-managed disks provide a new type of durable storage for Azure VMs. Support for SSD managed disks is provided in the [Instant Restore](backup-instant-restore-capability.md).
+Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
@@ -113,7 +113,13 @@ Yes. Even if you delete the VM, you can go to corresponding backup item in the v
 For Managed Disk Azure VM, restoring to the availability sets is enabled by providing an option in template while restoring as managed Disks. This template has the input parameter called **Availability sets**.
 
 ### How do we get faster restore performances?
-For faster restore performance, we are moving to [Instant Restore](backup-instant-restore-capability.md) capability.
+[Instant Restore](backup-instant-restore-capability.md) capability helps in faster backups and instant restores from the snapshots.
+
+### What happens when we change the key vault settings for the encrypted VM?
+
+After you change the KeyVault settings for the encrypted VM, backups will continue to work with the new set of details, However, after the restore from a recovery point prior to the change, you will have to restore the secrets in a KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
+
+Operations like secret/key roll-over do not require this step and the same KeyVault can be used after restore.
 
 ## Manage VM backups
 

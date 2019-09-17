@@ -405,6 +405,9 @@ If the values are **NO**, it could be due:
 - Alternate Login ID
 - HTTP Proxy not found
 
+## Known issues
+- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
+ 
 ## Next steps
 
 Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
