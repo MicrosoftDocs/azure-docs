@@ -35,9 +35,7 @@ You must meet the following prerequisites before using Translator Text container
 
 ## Request access to the container registry
 
-** :loudspeaker: We need the correct URL to the request form! :eyes: **
-
-You must first complete and submit the [Cognitive Translator Text Containers Request form](https://aka.ms/tranlatortextcontainerspreview/) to request access to the container.
+You must first complete and submit the [Cognitive Translator Text Containers Request form](https://aka.ms/translatorcontainerform) to request access to the container.
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -63,32 +61,20 @@ For every language pair, it's recommended to have 1 GB of memory. By default, th
 
 ## Get the container image with `docker pull`
 
-Container images for Translator Text are available in the following container registry:
+Container images for Translator Text are available in the following container repository. The table also maps the container image tags and their corresponding supported languages.
 
-**`containerpreview.azurecr.io/cognitive-services-translator-text`**
+| Container | Image Tag | Languages Supported |
+|-----------|-----------|---------------------|
+| `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` | `ar_de_en_ru_zh_1.0.0` | `ar-SA`, `zh-CN`, `de-DE`, and `ru-RU` |
+| `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` | `de_en_es_fr_1.0.0` | `de-DE`, `fr-FR`, and `es-ES` |
 
-Below are the available image tags and their corresponding supported languages.
-
-| Image Tag | Languages Supported |
-|-----------|---------------------|
-| `ar_de_en_ru_zh_1.0.0` | `ar-SA`, `zh-CN`, `de-DE`, and `ru-RU` |
-| `de_en_es_fr_1.0.0` | `de-DE`, `fr-FR`, and `es-ES` |
-
-> You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID        REPOSITORY                                                        TAG
->  ebbie78a6abc    containerpreview.azurecr.io/cognitive-services-translator-text    ar_de_en_ru_zh_1.0.0
->  argsi35u7sbs    containerpreview.azurecr.io/cognitive-services-translator-text    de_en_es_fr_1.0.0
->  ```
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
 ### Docker pull for the Translator Text container
 
 To perform the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command, you first need access to the container registry. From the Azure CLI you can login to the Azure Container Registry using the [`az acr login`](https://docs.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-login) command.
 
-```shell
+```azureinteractive
 az acr login --name containerpreview.azurecr.io
 ```
 
@@ -97,7 +83,7 @@ This command will authenticate your current user with the corresponding Azure Co
 > Depending on what language support you need, provide the corresponding `<image-tag>`.
 
 ```Docker
-docker pull containerpreview.azurecr.io/cognitive-services-translator-text:<image-tag>
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-translator-text:<image-tag>
 ```
 
 ## How to use the container
@@ -115,7 +101,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 ```Docker
 docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/cognitive-services-translator-text:ar_de_en_ru_zh_1.0.0 \
+containerpreview.azurecr.io/microsoft/cognitive-services-translator-text:ar_de_en_ru_zh_1.0.0 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}
@@ -137,7 +123,7 @@ For troubleshooting purposes, it may be useful to view the docker logs from the 
 docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Status}}"
 
 CONTAINER ID        IMAGE                                                            STATUS
-ed6f115697f3        containerpreview.azurecr.io/cognitive-services-translator-text   Up 4 minutes
+ed6f115697f3        containerpreview.azurecr.io/microsoft/cognitive-services-translator-text   Up 4 minutes
 ```
 
 Then, run the [docker logs](https://docs.docker.com/engine/reference/commandline/logs/) command with the `<Container ID>` for the corresponding container in question to view its logs.

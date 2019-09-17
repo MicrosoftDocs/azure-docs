@@ -55,6 +55,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |[Text Analytics][ta-containers] |F0, S|**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |[Text Analytics][ta-containers]|F0, S|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics][ta-containers]|F0, S|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](./text-analytics/language-support.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
+|[Translator Text][tt-containers]|F0, S| **Translator Text** | Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. [Request access](https://aka.ms/translatorcontainerform) |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
@@ -78,6 +79,7 @@ Azure Cognitive Services containers are publicly available through your Azure su
 > * [Form Recognizer](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)
 > * [Recognize Text](Computer-vision/computer-vision-how-to-install-containers.md)
 > * [Speech-to-text and Text-to-speech](Speech-Service/speech-container-howto.md#request-access-to-the-container-registry)
+> * [Translator Text](translator/how-to-install-containers.md#request-access-to-the-container-registry)
 
 [!INCLUDE [Container repositories and images](containers/includes/cognitive-services-container-images.md)]
 
