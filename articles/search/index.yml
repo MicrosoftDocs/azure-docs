@@ -33,6 +33,10 @@ landingContent:
         links:
           - text: Full text search engine
             url: search-lucene-query-architecture.md
+      - linkListType: video
+        links:
+          - text: What is Azure Search (1 min 27 sec)
+            url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 
   # Card
   - title: Get started
@@ -61,7 +65,7 @@ landingContent:
             url: search-limits-quotas-capacity.md
 
   # Card
-  - title: Indexing your data
+  - title: Index your data
     linkLists:
       - linkListType: concept
         links:
@@ -93,7 +97,7 @@ landingContent:
         links:
           - text: Skillsets
             url: cognitive-search-defining-skillset.md
-          - text: Knowlede store
+          - text: Knowledge store
             url: knowledge-store-concept-intro.md
           - text: Projections
             url: knowledge-store-projection-overview.md
@@ -111,7 +115,7 @@ landingContent:
             url: cognitive-search-predefined-skills.md
 
   # Card
-  - title: Querying your data
+  - title: Query your data
     linkLists:
       - linkListType: concept
         links:
@@ -131,3 +135,17 @@ landingContent:
         links:
           - text: Search Documents (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+
+  # Card
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: FAQ
+            url: search-faq-frequently-asked-questions.md
+          - text: Troubleshooting
+            url: cognitive-search-concept-troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/azure-search
+          - text: Influence service with UserVoice
+            url: https://feedback.azure.com/forums/263029-azure-search
