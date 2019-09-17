@@ -200,7 +200,7 @@ As a general rule, having the compression method splittable is important, otherw
 
     e. Click **Add**.
 
-		![Apache Hive custom property add](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
+	![Apache Hive custom property add](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
     This will compress the intermediate file using Snappy compression. Once the property is added, it appears in the Custom hive-site pane.
 
