@@ -45,7 +45,7 @@ However, if logging information from Azure Information Protection is going to a 
 
 - Permissions to read and write to the Log Analytics workspace you're using for Sentinel and Azure Information Protection.
 
-- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/en-us/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
+- Azure Information Protection has been added to the Azure portal. If you need help with this step, see [Add Azure Information Protection to the Azure portal](https://docs.microsoft.com/azure/information-protection/quickstart-viewpolicy#add-azure-information-protection-to-the-azure-portal).
 
 ## Connect to Azure Information Protection
 
