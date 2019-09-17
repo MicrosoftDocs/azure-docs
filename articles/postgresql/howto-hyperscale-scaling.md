@@ -15,8 +15,9 @@ scaling to deal with increased load. The Azure portal makes it easy to either
 add new worker nodes or increase existing nodes’ memory, disk, and CPU
 capacity.
 
-To scale worker nodes, go to the **Configure** tab in your Azure Database for
-PostgreSQL server group. Adjust the sliders to change the values:
+To increase the number of worker nodes, go to the **Configure** tab in your
+Hyperscale (Citus) server group. Drag the slider for **Worker node count** to
+change the value.
 
 ![Resource sliders](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
@@ -29,8 +30,8 @@ PostgreSQL server group. Adjust the sliders to change the values:
 > interface. Doing so also requires opening a support ticket.
 
 To take advantage of newly added nodes you must rebalance distributed table
-[shards](concepts-hyperscale-distributed-data.md#shards), meaning move some
-shards from existing nodes to the new ones. To start the shard rebalancer,
+[shards](concepts-hyperscale-distributed-data.md#shards), which means moving
+some shards from existing nodes to the new ones. To start the shard rebalancer,
 connect to the cluster coordinator node with psql and run:
 
 ```sql
