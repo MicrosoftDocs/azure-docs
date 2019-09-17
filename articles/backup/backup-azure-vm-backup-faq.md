@@ -121,6 +121,10 @@ After you change the KeyVault settings for the encrypted VM, backups will contin
 
 Operations like secret/key roll-over do not require this step and the same KeyVault can be used after restore.
 
+### Can I access the VM once restored due to an VM having broken relationship with domain controller
+
+Yes, you access the VM once restored due to an VM having broken relationship with domain controller. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
+
 ## Manage VM backups
 
 ### What happens if I modify a backup policy?
