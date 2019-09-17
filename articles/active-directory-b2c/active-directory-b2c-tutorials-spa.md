@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C
 
-This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in a single-page application (SPA). Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign in and sign up users in a single-page application (SPA). Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -45,7 +45,7 @@ Additionally, you need the following in your local development environment:
 In the second tutorial that you completed as part of the prerequisites, you registered a web application in Azure AD B2C. To enable communication with the sample in the tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory and subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select the *webapp1* application.
 1. Under **Reply URL**, add `http://localhost:6420`.
