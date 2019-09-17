@@ -47,6 +47,7 @@ az group create --name $myResourceGroupName --location eastus
 # Create the Azure AppConfig Service resource and query the hostName
 appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
+  --location eastus \
   --resource-group $myResourceGroupName \
   --query hostName \
   -o tsv)
