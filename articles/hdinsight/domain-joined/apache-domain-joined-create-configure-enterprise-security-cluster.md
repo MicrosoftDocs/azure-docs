@@ -333,10 +333,10 @@ Verify that the certificate is installed in the computer's **Personal** store:
 
 ## Create an ESP-enabled HDInsight cluster
 
-This step requires the following pre-requisites:
+This step requires the following prerequisites:
 
 1. Create a new resource group `HDIFabrikam-WestUS` in the location `West US`.
-1. Create a virtual network that will host ESP enabled HDInsight cluster.
+1. Create a virtual network that will host the ESP-enabled HDInsight cluster.
 
     ```powershell
     $virtualNetwork = New-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS' -Location 'West US' -Name 'HDIFabrikam-HDIVNet' -AddressPrefix 10.1.0.0/16
@@ -344,7 +344,7 @@ This step requires the following pre-requisites:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Create a peer relationship between the Virtual Network that is hosting AADDS (`HDIFabrikam-AADDSVNET`) and the Virtual Network that will host the ESP enabled HDInsight cluster (`HDIFabrikam-HDIVNet`). Use the following powershell code to peer these two virtual networks.
+1. Create a peer relationship between the virtual network that hosts Azure AD DS (`HDIFabrikam-AADDSVNET`) and the virtual network that will host the ESP-enabled HDInsight cluster (`HDIFabrikam-HDIVNet`). Use the following PowerShell code to peer the two virtual networks.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')
@@ -352,7 +352,7 @@ This step requires the following pre-requisites:
     Add-AzVirtualNetworkPeering -Name 'AADDSVNet-HDIVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS')
     ```
 
-1. Create a new Azure Data Lake Storage Gen2 account, **Hdigen2store**, that is configured with the user managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
+1. Create a new Azure Data Lake Storage Gen2 account called **Hdigen2store**. Configure the account with the user-managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 1. Setup custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
     1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servers**.
