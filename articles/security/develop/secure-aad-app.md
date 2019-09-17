@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: fehase
+ms.author: v-fehase
 ---
 # Develop secure app for an Azure AD app
 ## Overview
@@ -551,7 +551,7 @@ To create this workspace
 
    4. On the **Diagnostic settings** page, select the Log Analytics workspace that you created and then select all the metrics that you want to collect and send to Azure Sentinel. Select **Save**.
 
-    ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
+   ![Azure Sentinel connector settings](./media/secure-aad-app/sentinel-connector-settings.png)
 
 
 
