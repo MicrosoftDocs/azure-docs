@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/17/2019
 ms.author: memccror
 
 ---
@@ -41,7 +41,7 @@ If you would like your VMs in your low-priority scale set to be deleted when the
 
 To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to *Low*. All VMs in your scale set will be set to low-priority. To create a scale set with low-priority VMs, use one of the following methods:
 - [Azure portal](#use-the-azure-portal)
-- Azure CLI
+- [Azure CLI](#use-the-azure-cli)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
@@ -134,7 +134,7 @@ No, setting the low-priority flag is only supported at creation time.
 No, a scale set cannot support more than one priority type.
 
 ### How is quota managed for low-priority VMs?
-Low-priority VMs and regular VMs share the same quota pool. 
+Low-priority VMs and regular VMs have separate quota pools. 
 
 ### Can I use autoscale with low-priority scale sets?
 Yes, you can set autoscaling rules on your low-priority scale set. If your VMs are evicted, autoscale can try to create new low-priority VMs. Remember, you are not guaranteed this capacity though. 
