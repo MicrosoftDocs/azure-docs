@@ -212,7 +212,7 @@ If you are planning to use `uuid_generate_v4()` from the uuid-ossp extension, co
 
 
 ## pgAudit
-The pgAudit extension provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit-logs.md). 
+The pgAudit extension provides session and object audit logging. To learn how to use this extension in Azure Database for PostgreSQL, visit the [auditing concepts article](concepts-audit.md). 
 
 ## TimescaleDB
 TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
