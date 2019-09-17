@@ -36,7 +36,7 @@ If the user plans to support multiple languages, they need to have a new QnA Mak
 Verify the primary language with the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).  
-1. Look for and select the Azure Search resource created as part of your QnA Maker resource. The Azure Search resource name will begin with the same name as the QnA Maker resource and will have the type **Search service**. 
+1. Look for and select the Azure Search resource created as part of your QnA Maker resource. The Azure Search resource name will begin with the same name as the QnA Maker resource and will have the type **Search service**. Please keep in mind, only one QnA Maker resource can be linked to one Azure Search resource.
 1. From the **Overview** page of the Search resource, select **Indexes**. 
 1. Select the **testkb** index.
 1. Select the **Fields** tab. 
