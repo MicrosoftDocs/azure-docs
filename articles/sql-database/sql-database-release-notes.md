@@ -50,6 +50,18 @@ This article lists SQL Database features that are currently in public preview. F
 
 ---
 
+## New features
+
+The following features are recently enabled in Managed instance deployment model:
+  - <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a>
+  - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
+  - Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
+  - <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
+  - Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>. 
+  - Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
+  - Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
+  - <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
+
 ## Fixed known issues
 
 - **Aug 2019** - Contained databases are fully supported in managed instance.
