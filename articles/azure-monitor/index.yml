@@ -25,10 +25,8 @@ landingContent:
         links:
           - text: What is Azure Monitor?
             url: overview.md
-          - text: What is Azure Monitor logs?
+          - text: What is Azure Monitor logs / Log Analytics?
             url: overview.md
-          - text: Azure Monitor logs / Log Analytics Hub
-            url: azure-monitor-log-hub.md
           - text: What is Application Insights?
             url: app-insights-overview.md
         
@@ -48,8 +46,12 @@ landingContent:
             url: monitor-quick-resource-metric-alert-portal.md
           - text: Analyze logs
             url: get-started-analytics-portal.md
+          - text: Azure VMs
+            url: log-analytics-quick-collect-azurevm.md
+          - text: Analyze logs
+            url: get-started-analytics-portal.md
 
-  
+  # Card 
   - title: Get started
     linkLists:
       - linkListType: get-started
@@ -64,7 +66,6 @@ landingContent:
             url: file1.md
           - text: linktext2
             url: file2.md
-
   - title: Monitor Applications
     linkLists:
       - linkListType: get-started
@@ -84,9 +85,11 @@ landingContent:
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
 
+
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
   # every possible list type
- - title: All link types
+  - title: All link types
     linkLists:
       - linkListType: architecture
         links:
@@ -108,6 +111,9 @@ landingContent:
         links:
           - text: title1
             url: overview.md
+
+  - title: All link types 2
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: title1
@@ -120,22 +126,28 @@ landingContent:
         links:
           - text: title1
             url: overview.md
-       - linkListType: quickstart
+      - linkListType: quickstart
         links:
           - text: title1
             url: overview.md
+
       - linkListType: reference
         links:
           - text: title1
             url: overview.md
+
+  - title: All link types 3
+    linkLists:
       - linkListType: tutorial
         links:
           - text: title1
             url: overview.md
+
       - linkListType: video
         links:
           - text: title1
             url: overview.md
+
       - linkListType: what-new
         links:
           - text: title1
