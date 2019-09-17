@@ -189,14 +189,16 @@ mstsc /v:<publicIpAddress>
 ## Access SQL Database Server privately from the VM
 
 1. In the Remote Desktop of myVM, open PowerShell.
-2. Enternslookup myserver.database.windows.net You'll receive a message similar to this:
-    Azure PowerShellCopy
+2. Enter `nslookup myserver.database.windows.net`. 
+
+    You'll receive a message similar to this:
+    ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
-    Aliases:  myserver.database.windows.net
+    Aliases:   myserver.database.windows.net
 3. Install SQL Server Management Studio
 4. In Connect to server, enter or select this information:
   	Setting	Value
