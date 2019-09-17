@@ -263,7 +263,7 @@ During the go-live phase, be sure to follow the playbooks you developed during e
 4.	Check the transport and correction system through SAP transaction STMS.
 5.	Perform database backups after the system is released for production.
 6.	Perform VM backups for the SAP application layer VMs after the system is released for production.
-7.	For SAP systems that weren't part of the current go-live phase but that communicate with the SAP systems that you moved into Azure during this go-live phase, you need to reset the host name buffer in SM51. Doing so will remove the old cached IP addresses associated with the names of the application instances you moved to Azure.  
+7.	For SAP systems that weren't part of the current go-live phase but that communicate with the SAP systems that you moved to Azure during this go-live phase, you need to reset the host name buffer in SM51. Doing so will remove the old cached IP addresses associated with the names of the application instances you moved to Azure.  
 
 
 ## Post production
