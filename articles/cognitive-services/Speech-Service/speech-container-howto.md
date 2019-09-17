@@ -61,7 +61,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|cognitive-services-speech-to-text | 2 core<br>2-GB memory | 4 core<br>4-GB memory |
+|cognitive-services-speech-to-text | 2 core<br>2-GB memory  | 4 core<br>4-GB memory  |
 |cognitive-services-text-to-speech | 1 core, 0.5-GB memory| 2 core, 1-GB memory |
 
 * Each core must be at least 2.6 gigahertz (GHz) or faster.
