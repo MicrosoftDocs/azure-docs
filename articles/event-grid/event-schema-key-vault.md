@@ -61,27 +61,29 @@ The following example shows the schema of a **GeofenceEntered** event
 }
 ```
 
-The following example show schema for **GeofenceResult** 
+The following example show schema for **GeofenceResult**.
 
 ```JSON
-{  
-   "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64", 
-   "topic":"/subscriptions/9ddb6ca6-f086-4796-8c53-ea831f1df369/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv", 
-   "subject":"newsecret", 
-   "eventType":"Microsoft.KeyVault.SecretNewVersionCreated", 
-   "eventTime":"2019-07-25T01:08: 33.1036736Z", 
-   "data":"{ 
-"Id":"https://sample-kv.vault.azure.net/secrets/ newsecret /ee059b2bb5bc48398a53b168c6cdcb10", 
-"vaultName":"sample-kv", 
-               "objectType":"Secret", 
- "objectName ":" newsecret ",  
-"version":" ee059b2bb5bc48398a53b168c6cdcb10", 
-"nbf":"1559081980", 
-"exp":"1559082102"}  
-}", 
-   "dataVersion":"1", 
-   "metadataVersion":"1" 
-} 
+[
+   {
+      "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
+      "topic":"/subscriptions/9ddb6ca6-f086-4796-8c53-ea831f1df369/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
+      "subject":"newsecret",
+      "eventType":"Microsoft.KeyVault.SecretNewVersionCreated",
+      "eventTime":"2019-07-25T01:08: 33.1036736Z",
+      "data":{
+         "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
+         "vaultName":"sample-kv",
+         "objectType":"Secret",
+         "objectName ":" newsecret ",
+         "version":" ee059b2bb5bc48398a53b168c6cdcb10",
+         "nbf":"1559081980",
+         "exp":"1559082102"
+      },
+      "dataVersion":"1",
+      "metadataVersion":"1"
+   }
+]
 ```
 
 ## Event properties

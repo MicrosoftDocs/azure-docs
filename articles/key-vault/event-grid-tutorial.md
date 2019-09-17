@@ -13,23 +13,24 @@ ms.author: mbaldwin
 
 ---
 
-# Onboarding to Notifications for Azure Key Vault (PREVIEW)
+# Tutorial: Enable Key Vault monitoring with Azure Event Grid (preview)
 
-Key Vault Notifications is a new feature that is in preview. It is designed to allow users to be notified when the status of a secret stored in key vault has changed. A status change is defined as a secret that is about to expire (within 30 days of expiration), a secret that has expired, or a secret that has a new version available. Notifications for all 3 secret types (key, certificate, and secret) are supported.
+Key Vault integration with Azure Event Grid allows users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault events with Azure Event Grid](event-grid-overview.md).
 
-This feature allows users to 'listen' for status updates to their key vault by leveraging Event Grid instead of having to continuously poll key vault to find out if a status change has occurred.
-
-This feature also allows users to respond to status changes in their key vaults programmatically using Azure Automation.
-
-This document will help walk you through the process of setting up notifications for Key Vault.
+This tutorial will show you how to receive Key Vault notifications through Azure Event Grid, and respond to status changes with Azure Automation.
 
 ## Prerequisites
 
-This feature is currently in preview. You need to request access before proceeding with the steps listed in this document.
+This feature is currently in preview. You must request access before proceeding with the steps listed in this document.  Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id to the intake form and wait for confirmation that your subscriptions have been whitelisted to use this feature before proceeding.
 
-Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id to the intake form and wait for confirmation that your subscriptions have been whitelisted to use this feature before proceeding.
+You must also have the following:
 
-## Feature Overview
+- An Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- The Azure CLI installed on your machine. See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+- A key vault in your Azure Subscription. You can quickly create a new key vault by following the steps in [Set and retrieve a secret from Azure Key Vault using Azure CLI](quick-create-cli.md)
+
+
+## Event Grid 
 
 Event Grid allows you to select an Azure Resource, such as a key vault, to subscribe to and monitor for pre-defined "events". When an event triggers, the result is sent to an endpoint.
 
@@ -37,28 +38,14 @@ An endpoint is a URL that is set up to receive an HTTP POST request from Event G
 
 A runbook is an Azure Automation logic application. It is a process automation tool which will allow you to execute a script based on a trigger. In this example, the trigger will be a webhook, and we will execute a PowerShell script.
 
-## Feature Flow Example
-
 Event Grid is subscribed to the key vault as a "topic resource". One of the keys in the key vault is about to expire. Event Grid is notified of the status change of the key in key vault and makes an HTTP POST to an endpoint. In this example, the endpoint is a webhook connected to a runbook. The webhook is triggered, and the runbook PowerShell script executes. The script will programmatically generate a new version of the key.
 
 ![image](media/image1.png)
 
-## Setup Procedure
 
-This procedure assumes that you have the following prerequisites.
+## Configure the Azure CLI
 
-1.  You have an Azure Subscription
-
-2.  You have Azure CLI Command Prompt installed on your machine
-
-3.  Your Azure Subscription has been whitelisted to use this feature
-    (see prerequisites section above).
-
-4.  You have a key vault in your Azure Subscription.
-
-### Step 1: Configuration
-
-1.  Open the Azure CLI Command Prompt Window and type in the following commands
+Open the Azure CLI Command Prompt Window and type in the following commands
 
     a.  az cloud set \--name AzureCloud
 
@@ -68,7 +55,7 @@ This procedure assumes that you have the following prerequisites.
 
     d.  az provider register \--namespace Microsoft.KeyVault     
 
-### Step 2:Create an Azure Automation Account
+## Create an Azure Automation Account
 
 1.  Go to portal.azure.com and log in to your subscription
 
@@ -84,7 +71,7 @@ This procedure assumes that you have the following prerequisites.
 
 1.  Wait for your automation account to be created.
 
-### Step 3: Create a Runbook and Webhook
+## Create a Runbook and Webhook
 
 ![](media/image3.png)
 
@@ -141,7 +128,7 @@ write-Error "No input data found."
 
     ![](media/image6.png)
 
-### Step 4: Create an Event Grid Subscription
+## Create an Event Grid Subscription
 
 1.  Open the Azure Portal using the following link: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
@@ -171,7 +158,7 @@ write-Error "No input data found."
 
     ![](media/image8.png)
 
-### Step 5: Testing and Verification
+## Test and Verify
 
 > [!NOTE]
 > This test assumes that you have subscribed to the new-version notification for keys in Step 4.
