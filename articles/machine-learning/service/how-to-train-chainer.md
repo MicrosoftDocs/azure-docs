@@ -1,7 +1,7 @@
 ---
 title: Train deep learning neural network with Chainer 
 titleSuffix: Azure Machine Learning
-description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifis handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifies handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
