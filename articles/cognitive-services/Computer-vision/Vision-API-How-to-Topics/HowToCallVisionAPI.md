@@ -24,7 +24,7 @@ This article demonstrates how to call the Computer Vision API by using the REST 
 ## Prerequisites
 
 - An image URL or a path to a locally stored image
-- Supported input methods: a raw image binary in the form of an application or octet stream, or an image URL
+- Supported input methods: a raw image binary in the form of an application/octet-stream, or an image URL
 - Supported image file formats: JPEG, PNG, GIF, and BMP
 - Image file size: 4 MB or less
 - Image dimensions: 50 &times; 50 pixels or greater
@@ -72,7 +72,7 @@ You can pass the subscription key by doing any of the following:
 
 ## Upload an image to the Computer Vision API service
 
-The basic way to perform the Computer Vision API call is by uploading an image directly to return tags, a description, and celebrities. You do this by sending a "POST" request with the application or octet-stream content type together with the data read from the image. For tags and a description, this upload method is the same for all Computer Vision API calls. The only difference is the query parameters that you specify. 
+The basic way to perform the Computer Vision API call is by uploading an image directly to return tags, a description, and celebrities. You do this by sending a "POST" request with the binary image in the HTTP body together with the data read from the image. The upload method is the same for all Computer Vision API calls. The only difference is the query parameters that you specify. 
 
 For a specified image, get tags and a description by using either of the following options:
 
