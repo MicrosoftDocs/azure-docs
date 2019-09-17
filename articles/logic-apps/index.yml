@@ -67,7 +67,7 @@ landingContent:
             url: tutorial-build-schedule-recurring-logic-app-workflow.md
           - text: Create an approval-based workflow
             url: tutorial-process-mailing-list-subscriptions-workflow.md
-          - text: Create a workflow with Azure Functions and Storage
+          - text: Create an Azure Functions and Storage workflow
             url: tutorial-process-email-attachments-workflow.md
       - linkListType: video
         links:
@@ -113,11 +113,11 @@ landingContent:
             url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Connect to virtual networks from Azure Logic Apps
+          - text: Connect to virtual networks from logic apps
             url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: video
         links:
-          - text: Introduction to Azure Integration Service Environment
+          - text: Introduction to Integration Service Environment
             url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
 
   # Card (optional)
@@ -145,7 +145,7 @@ landingContent:
             url: logic-apps-deploy-azure-resource-manager-templates.md
       - linkListType: learn
         links:
-          - text: Create and deploy with Azure Resource Manager templates
+          - text: Create and deploy with Resource Manager templates
             url: https://docs.microsoft.com/learn/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Connect to Azure Storage and deploy with Azure DevOps"
             url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
