@@ -1,46 +1,44 @@
 ---
-title: Advanced Threat Protection for Azure Storage
-description: Configure Azure Storage Advanced Threat Protection to detect anomalies in account activity and notify you of potentially harmful attempts to access your account.
+title: Advanced threat protection for Azure Storage
+description: Configure advanced threat protection for Azure Storage to detect anomalies in account activity and be notified of potentially harmful attempts to access your account.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 09/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ---
 
-# Advanced Threat Protection for Azure Storage
+# Advanced threat protection for Azure Storage
 
-Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without the need to be a security expert or manage security monitoring systems. 
+Advanced threat protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without being a security expert or managing security monitoring systems.
 
-Security alerts are triggered when anomalies in activity occur.  These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
+Security alerts are triggered when anomalies in activity occur. These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
 > [!NOTE]
-> * Advanced Threat Protection for Azure Storage is currently available only for the Blob storage.
-> * For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page]( https://azure.microsoft.com/pricing/details/security-center/).
-> * ATP for Azure storage feature is currently not available in Azure government and sovereign cloud regions.
+> Advanced threat protection for Azure Storage is currently available only for Blob storage. It is not available in Azure government and sovereign cloud regions. For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page]( https://azure.microsoft.com/pricing/details/security-center/).
 
-Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, write, and delete requests to Blob storage for threat detection. To investigate the alerts from Advanced Threat Protection, you can view related storage activity using Storage Analytics Logging. For more information, see how to [configure Storage Analytics logging](storage-monitor-storage-account.md#configure-logging).
+Advanced threat protection for Azure Storage ingests diagnostic logs of read, write, and delete requests to Blob storage for threat detection. To investigate the alerts from advanced threat protection, you can view related storage activity using Storage Analytics Logging. For more information, see **Configure logging** in [Monitor a storage account in the Azure portal](storage-monitor-storage-account.md#configure-logging).
 
-## Set up Advanced Threat Protection 
+## Set up advanced threat protection
 
-### Using the portal
+Advanced threat protection is enabled for your storage account by default. You can configure advanced threat protection by using the Azure portal, Azure Security Center, with Azure Resource Manager templates, with an Azure policy, or with Azure PowerShell.
+
+### Use the Azure portal
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
-
-2. Navigate to the configuration page of the Azure Storage account you want to protect. In the **Settings** page, select **Advanced Threat Protection**.
-
-3. In the **Advanced Threat Protection** configuration blade
-	* Turn **ON** Advanced *Threat Protection*
-	* Click **Save** to save the new or updated Advanced Threat Protection policy. (Prices in the image are for example purposes only.)
+1. Navigate to the configuration page for the Azure Storage account you want to protect. Under **Settings**, select **Advanced security**.
+1. Select the **Settings** link on the advanced security configuration page.
+1. Turn **ON** advanced threat protection.
+1. Click **Save** to save the new or updated policy. (Prices in the image are for example purposes only.)
 
 ![Turn on Azure Storage advanced threat protection](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
 ### Using Azure Security Center
 
-When you subscribe to the Standard tier in Azure Security Center, Advanced Threat Protection is automatically set up on all of your storage accounts. You can enable or disable Advanced Threat Protection for your storage accounts under a specific subscription as follows:
+When you subscribe to the Standard tier in Azure Security Center, advanced threat protection is automatically set up on all of your storage accounts. You can enable or disable advanced threat protection for your storage accounts under a specific subscription as follows:
 
 1. Launch **Azure Security Center** in the [Azure portal](https://portal.azure.com).
 1. From the main menu, click **Pricing & settings**.
@@ -56,20 +54,19 @@ When you subscribe to the Standard tier in Azure Security Center, Advanced Threa
 
 ### Using Azure Resource Manager templates
 
-Use an Azure Resource Manager template to deploy an Azure Storage account with Advanced Threat Protection enabled. 
-For more information, see
-[Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+Use an Azure Resource Manager template to deploy an Azure Storage account with advanced threat protection enabled. For more information, see
+[Storage account with advanced threat protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
 
-### Using Azure Policy
+### Using an Azure Policy
 
-Use an Azure Policy to enable Advanced Threat Protection across storage accounts under a specific subscription or resource group.
+Use an Azure Policy to enable advanced threat protection across storage accounts under a specific subscription or resource group.
 
 1. Launch the Azure **Policy - Definitions** page.
 
 1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
 
      ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
-  
+
 1. Select an Azure subscription or resource group.
 
     ![Select Subscription Or Group](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
@@ -78,19 +75,20 @@ Use an Azure Policy to enable Advanced Threat Protection across storage accounts
 
     ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### Using REST API
-Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific storage account.
+### Using the REST API
 
-* [Advanced Threat Protection - Create](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
-* [Advanced Threat Protection - Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+Use Rest API commands to create, update, or get the advanced threat protection setting for a specific storage account.
+
+* [Advanced threat protection - Create](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced threat protection - Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
 ### Using Azure PowerShell
 
 Use the following PowerShell cmdlets:
 
-  * [Enable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
-  * [Get Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
-  * [Disable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+* [Enable advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+* [Get advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+* [Disable advanced threat protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 
 ## Explore security anomalies
 
@@ -100,10 +98,9 @@ When storage activity anomalies occur, you receive an email notification with in
 * The storage account name
 * The event time
 * The storage type
-* The potential causes 
+* The potential causes
 * The investigation steps
 * The remediation steps
-
 
 The email also includes details on possible causes and recommended actions to investigate and mitigate the potential threat.
 
@@ -120,5 +117,4 @@ Alerts are generated by unusual and potentially harmful attempts to access or ex
 ## Next steps
 
 * Learn more about [Logs in Azure Storage accounts](/rest/api/storageservices/About-Storage-Analytics-Logging)
-
 * Learn more about [Azure Security Center](../../security-center/security-center-intro.md)
