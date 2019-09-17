@@ -35,7 +35,7 @@ This article will help you understand the various settings in the configuration 
 | `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `authorities` | List\<Authority> | No | The list of authorities your app needs |
 | `authorization_user_agent` | AuthorizationAgent (enum) | No | Possible values: `DEFAULT`, `BROWSER`, `WEBVIEW` |
-| `http` | HttpConfiguration | No | HTTP configuration for connecting, read timeout, and so on. |
+| `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` and `read_timeout` |
 | `logging` | LoggingConfiguration | No | Specifies the level of logging detail. Optional configurations include: `pii_enabled` which takes a boolean value, and `log_level` which takes `ERROR`, `WARNING`, `INFO`, or `VERBOSE`. |
 
 ### client_id
@@ -170,7 +170,10 @@ An allow-list of browsers that are compatible with MSAL. These browsers correctl
 ``
 ## The default MSAL configuration file
 
-The default MSAL configuration that ships with MSAL is shown below. This configuration can be supplemented by values that you provide. The values you provide override any defaults.
+The default MSAL configuration that ships with MSAL is shown below. 
+You can see the latest version on [Github](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json).
+
+This configuration is supplemented by values that you provide. The values you provide override the defaults.
 
 ```javascript
 {
@@ -338,7 +341,7 @@ The following example illustrates a basic configuration that specifies the clien
 
 ## How to use a configuration file
 
-1. Create a configuration file. The configuration object is JSON and is defined in a file alongside your app. We recommend that you create your custom configuration file in `res/raw/auth_config.json`. But you can put it anywhere that you wish.
+1. Create a configuration file. We recommend that you create your custom configuration file in `res/raw/auth_config.json`. But you can put it anywhere that you wish.
 2. Tell MSAL where to look for your configuration when you construct the `PublicClientApplication`. For example:
 
    ```java

@@ -41,8 +41,8 @@ An account in the Microsoft identity platform consists of:
   - In these cases an account has both an origin system of record and a system of record within the Microsoft identity platform.
 - The Microsoft identity platform allows one account to be used to access resources belonging to multiple organizations (Azure Active Directory tenants).
   - To record that an account from one system of record (AAD Tenant A) has access to a resource in another system of record (AAD Tenant B), the account must be represented in the tenant where the resource is defined. This is done by creating a local record of the account from system A in system B.
-  - The local record is bound to the original account.
-  - This local record can have different attributes that are appropriate to the local context, such as Local Job Title, Office Location, Contact Information.
+  - The local record, that is the representation of the account, is bound to the original account.
+  - This account representation can have different attributes that are appropriate to the local context, such as Local Job Title, Office Location, Contact Information.
   - MSAL exposes a local record as a Tenant Profile.
 - Because an account may be present in one or more tenants, an account may have have more than one profiles.
 
@@ -100,11 +100,11 @@ In addition to requesting an access token, MSAL always requests an ID token from
 
 The ID token contains a list of claims. claims are name/value pairs about the account, and are used to make the request.
 
-As mentioned previously, each tenant where an account exists may store different information about the account, including but not limited to attributes such as: job title, office location, and s on.
+As mentioned previously, each tenant where an account exists may store different information about the account, including but not limited to attributes such as: job title, office location, and so on.
 
 While an account may be a member or guest in multiple organizations, MSAL doesn't query a service to get a list of the tenants the account is a member of. Instead, MSAL builds up a list of tenants that the account is present in, as a result of token requests that have been made.
 
-The claims exposed on the account object are always the claims from the home tenant/"source of authority" for an account. If that account has not been used to request a token for their home tenant, that MSAL will not claims available via the account object.  For example:
+The claims exposed on the account object are always the claims from the home tenant/{authority} for an account. If that account has not been used to request a token for their home tenant, that MSAL will not claims available via the account object.  For example:
 
 ```java
 // Psuedo Code

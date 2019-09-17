@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 This article describes the different authorization agents that the Microsoft Authentication Library (MSAL) allows your app to use and how to enable them.
 
-Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults.
+Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand  the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
 MSAL supports authorization using a `WebView`, or the system browser.  The following image shows how it looks using the `WebView`, and the system browser with and without CustomTabs:
 
@@ -53,7 +53,7 @@ Additionally, the `WebView` affords apps more sign in look and feel customizatio
 
 ## Default browser plus Chrome custom tabs
 
-By default, MSAL uses the browser and a [custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration:
+By default, MSAL uses the browser and a [custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration in the custom configuration file:
 
 ```json
 "authorization_user_agent" : "BROWSER"
@@ -76,8 +76,10 @@ The order of browsers in the browser list is determined by the operating system.
 
 ### Tested Browsers
 
-|                | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
-| ------------- |:-------------:| -----:|-----:|-----:|-----:|-----:|
+The following browsers have been tested to see if they correctly redirect to the custom point specified by `"redirect_uri"` in your configuration file:
+
+| | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
+| -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | pass | pass |not applicable |not applicable |not applicable |not applicable |
 | Samsung S7 (API 25) | pass* | pass | pass | pass | fail |pass |
 | Huawei (API 26) |pass** | pass | fail | pass | pass |pass |
