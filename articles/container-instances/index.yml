@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: dlepow 
   ms.author: danlep 
-  ms.date: 09/12/2019
+  ms.date: 09/17/2019
 
 
 landingContent:
@@ -22,8 +22,6 @@ landingContent:
         links:
           - text: What is Azure Container Instances?
             url: container-instances-overview.md
-          - text: Container groups
-            url: container-instances-container-groups.md
           - text: FAQ
             url: container-instances-faq.md  
   - title: Get started
@@ -60,7 +58,8 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Configure restart policy
+            url: container-instances-restart-policy.md
           - text: Set environment variables
             url: container-instances-environment-variables.md
-          - text: Set a container entry point
-            url: container-instances-start-command.md          
+                  
