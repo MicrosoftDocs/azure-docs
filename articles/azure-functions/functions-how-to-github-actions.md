@@ -20,11 +20,11 @@ For a Workflow to be executed, you need a `{whatever name you like}.yml` file un
 
 ### Authentication
 
-To give the workflow the ability to deploy to your function app, you will need to set up two things: 1- A service principle 2- A secret under your GitHub repo called **AZURE_CREDENTIALS**
+To give the workflow the ability to deploy to your function app, you will need to set up two things: 1- A service principal 2- A secret under your GitHub repo called **AZURE_CREDENTIALS**
 
-**Setting up a service principle**
+**Setting up a service principal**
 
-you can do that by executing the following [Azure CLI]{https://docs.microsoft.com/cli/azure/}, this can be done from the [Azure Cloud Shell](https://shell.azure.com).
+You can do that by executing the following [Azure CLI]{https://docs.microsoft.com/cli/azure/}, this can be done from the [Azure Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
