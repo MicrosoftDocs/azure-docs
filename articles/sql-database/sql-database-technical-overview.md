@@ -14,7 +14,7 @@ ms.reviewer: carlrab
 ms.date: 04/08/2019
 ---
 
-# What is Azure SQL Database service?
+# What is the Azure SQL Database service?
 
 Azure SQL Database is a general-purpose relational database, provided as a managed service. With it, you can create a highly available and high-performance data storage layer for the applications and solutions in Azure. SQL Database can be the right choice for a variety of modern cloud applications because it enables you to process both relational data and [non-relational structures](sql-database-multi-model-features.md), such as graphs, JSON, spatial, and XML.
 
@@ -63,7 +63,7 @@ SQL Database offers the following purchasing models:
 Azure SQL Database offers three service tiers that are designed for different types of applications:
 - [General Purpose/Standard](sql-database-service-tier-general-purpose.md) service tier designed for common workloads. It offers budget-oriented balanced compute and storage options.
 - [Business Critical/Premium](sql-database-service-tier-business-critical.md) service tier designed for OLTP applications with high transaction rate and lowest-latency I/O. It offers the highest resilience to failures by using several isolated replicas.
-- [HyperScale](sql-database-service-tier-hyperscale.md) service tier designed for very large OLTP database and the ability to auto-scale storage and scale compute fluidly.	
+- [Hyperscale](sql-database-service-tier-hyperscale.md) service tier designed for very large OLTP database and the ability to auto-scale storage and scale compute fluidly.	
 
 ### Elastic pools to maximize resource utilization
 
