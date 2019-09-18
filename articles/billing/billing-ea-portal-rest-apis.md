@@ -4,7 +4,7 @@ description: This article describes the REST APIs for use with your Azure enterp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -64,7 +64,7 @@ The preceding steps give API access key holders with access to cost and pricing 
 
 Pass the API key for each call for authentication and authorization. Pass the following property to HTTP headers:
 
-| Request Header Key | Value |
+| Request header key | Value |
 | --- | --- |
 | Authorization | Specify the value in this format: **bearer {API\_KEY}**
 Example: bearer \&lt;APIKey\&gt; |
@@ -77,7 +77,7 @@ A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consum
 
 When you're using an API, response status codes are shown. The following table describes them.
 
-| Response Status Code | Message | Description |
+| Response status code | Message | Description |
 | --- | --- | --- |
 | 200 | OK | No error |
 | 401 | Unauthorized | API Key not found, Invalid, Expired etc. |
@@ -101,11 +101,11 @@ All Azure services are posted to a catalog in CSV format in an Azure storage blo
 
 The following information describes the properties of API reports.
 
-#### Usage Summary
+#### Usage summary
 
 JSON format is generated from the CSV report. As a result, the format is same as the summary CSV format. The column name is wielded, so you should deserialize into a data table when you consume the JSON summary data.
 
-| CSV Column Name | Json Column Name | Json new Column | Comment |
+| CSV column name | JSON column name | JSON new column | comment |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Account Name | AccountName | AccountName |   |
@@ -168,7 +168,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Cost Center | CostCenters |  CostCenter |
 | Resource Group | ResourceGroup |  ResourceGroup |
 
-#### Price Sheet
+#### Price sheet
 
 | CSV Column Name | Json Column Name | Comment |
 | --- | --- | --- |
