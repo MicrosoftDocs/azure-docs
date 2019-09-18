@@ -16,9 +16,7 @@ ms.author: cithomas
 
 # Application Insights for .NET Core Worker Service applications
 
-.NET Core 3.0 introduces a new type of application template called [Worker Service](https://devblogs.microsoft.com/aspnet/net-core-workers-as-windows-services/). Worker Service template helps you write messaging, background tasks, and other non-HTTP workloads based on [Generic Host](https://docs.microsoft.com/aspnet/core/fundamentals/host/generic-host). These types of applications don't have the notion of an incoming web request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net) or [ASP.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core) applications is not supported.
-
-Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like the ones mentioned above.
+Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like messaging, background tasks, console applications etc. These types of applications don't have the notion of an incoming web request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net) or [ASP.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core) applications is not supported.
 
 The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
