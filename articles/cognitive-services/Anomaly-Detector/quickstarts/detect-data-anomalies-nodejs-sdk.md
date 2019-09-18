@@ -35,7 +35,7 @@ Use the Anomaly Detector client library for Node.js to:
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for the Anomaly Detector using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
-* View your resource on the [Azure Portal](https://portal.azure.com/).
+* View your resource on the [Azure portal](https://portal.azure.com/).
 
 After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`. Then create one for your azure endpoint, called `ANOMALY_DETECTOR_ENDPOINT`.
  
