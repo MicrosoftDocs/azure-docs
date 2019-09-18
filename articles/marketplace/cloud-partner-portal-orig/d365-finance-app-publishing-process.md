@@ -1,6 +1,6 @@
 ---
 title: App Publishing Steps  | Azure Marketplace
-description: Deprecated and linked to corresponding PC articles; previously Steps to publish an application to the Azure Marketplace.
+description: Deprecated and linked to corresponding PC articles; was "Steps to publish an application to the Azure Marketplace."
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: ChJenk
 ms.service: marketplace
@@ -15,4 +15,4 @@ The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports t
 
 ## Next steps
 
-Before you create a new Dynamics 365 Business Central offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory), with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 Business Central offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) to create your offer.
+Before you create a new Dynamics 365 Business Central offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 Business Central offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-business-central-offer) to create your offer.
