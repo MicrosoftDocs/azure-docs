@@ -4,6 +4,7 @@ description: Get answers to common questions about working with Apache Hadoop YA
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
 ---
