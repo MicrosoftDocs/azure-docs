@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 09/18/2019
 ms.author: alkohli
 ---
 
@@ -21,8 +21,8 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 1906 (1.6.948.701)**
-- **Data Box Edge 1906 (1.6.948.701)**
+- **Data Box Gateway 1906 (1.6.978.743)**
+- **Data Box Edge 1906 (1.6.978.743)**
 
 > [!NOTE]
 > Update 1906 can be applied only to Data Box Edge devices that are running general availability (GA) or 1905 version of the software.
@@ -30,6 +30,7 @@ This release corresponds to the software versions:
 ## What's new
 
 - **Bug fix in the recovery key management workflow** -  In the earlier release, there was a bug owing to which the recovery key was not getting applied. This bug is fixed in this release. We strongly recommend that you apply this update as the recovery key allows you to recover the data on the device, in the event the device doesn't boot up. For more information, see how to [save the recovery key when deploying Data Box Edge or Data Box Gateway](data-box-edge-deploy-connect-setup-activate.md#set-up-and-activate-the-physical-device).
+- **Field Programmable Gate Array (FPGA) logging improvements** -  Starting 1905 release, logging and alert enhancements related to FPGA were made. This continues to be a required update for Data Box Edge if you are using the Edge compute feature with the FPGA. For more information, see how to [transform data with Edge compute on your Data Box Edge](data-box-edge-deploy-configure-compute-advanced.md).
 
 ## Known issues in GA release
 
