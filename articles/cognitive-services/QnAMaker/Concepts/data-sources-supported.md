@@ -198,18 +198,14 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
 
-In addition, when you want to import a HTML file with Update/Replace Knowledgebase REST API, you might want to know there are the following conversion rules.
+If you want to add content using update/replace knowledgebase APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
 
-| In a HTML text  | In a JSON given to Update/Replace Knowledgebase REST APIs  | Markdown formats registered in a KB |
+| Preserve HTML  | Representation in the API request  | Representation in KB |
 |-----------|---------|-------------------------|
-|CR LF | \r\n | \n (\r\n is not a markdown format, so is converted to \n.) |
-| LF | \n |      \n           |
-| &lt;br&gt; | &lt;br&gt; (Without an escape character) | \n\n |
-|      | \&lt;br\&gt; (With escape characaters) | &lt;br&gt; |
+| Yes | \&lt;br\&gt; | &lt;br&gt; |
+| Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
 
-If you don't want to convert the original HTML format text, you can do with the following ways in JSON:
-- Convert the html tags '<' to '\&lt;' and '>' to '\&gt;'. 
-- Convert '\r\n' to '\\\\r\\\\n' and '\t' to '\\\\t'.
+Additionally, CR LF(\r\n)re converted to \n in the KB. LF(\n)s kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
 
 ## Editing your knowledge base locally
 
