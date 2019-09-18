@@ -20,11 +20,12 @@ There is no programming required, you visually connect [datasets](#dataset) and 
 
 The visual interface uses your Azure Machine Learning [workspace](concept-workspace.md) to:
 
-+ Write artifacts of [experiment](#experiment) runs into the workspace.
++ Create, edit and run [pipelines](#pipeline) in the workspace.
 + Access [datasets](#dataset).
-+ Use the [compute resources](#compute) in the workspace to run the experiment. 
++ Use the [compute resources](#compute) in the workspace to run the pipeline. 
 + Register [models](concept-azure-machine-learning-architecture.md#models).
-+ [Deploy](#deployment) models as web services on compute resources in the workspace.
++ [Publish](#publish) pipelines as REST endpoints.
++ [Deploy](#deployment) models as pipeline endpoints (for batch inference) or real-time endpoints on compute resources in the workspace.
 
 ![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
 
@@ -32,18 +33,19 @@ The visual interface uses your Azure Machine Learning [workspace](concept-worksp
 
 The visual interface gives you an interactive, visual canvas to quickly build, test, and iterate on a model. 
 
-+ You drag-and-drop [modules](#module) onto the canvas.
-+ Connect the modules together to form an [experiment](#experiment).
-+ Run the experiment using the compute resource of the Machine Learning Service workspace.
-+ Iterate on your model design by editing the experiment and running it again.
-+ When you're ready, convert your **training experiment** to a **predictive experiment**.
-+ [Deploy](#deployment) the predictive experiment as a web service so that your model can be accessed by others.
++ You drag-and-drop [datasets](#datasets) and [modules](#module) onto the canvas.
++ Connect the modules together to form an [pipeline](#pipeline).
++ Run the pipeline using the compute resource of the Machine Learning Service workspace.
++ Iterate on your model design by editing the pipeline and running it again.
++ When you're ready, convert your **training pipeline** to an **inference pipeline**.
++ [Publish](#publish) your pipeline as an REST endpoint if you want to resubmit it without the Python code constructed it.
++ [Deploy](#deployment) the inference pipeline as a pipeline endpoint or real-time endpoint so that your model can be accessed by others.
 
-## Experiment
+## Pipeline
 
-Create an experiment from scratch, or use an existing sample experiment as a template.  Each time you run an experiment, artifacts are stored in your workspace.
+Create an ML [pipeline](concept-azure-machine-learning-architecture.md#ml-pipelines) from scratch, or use an existing sample pipeline as a template. Each time you run a pipeline, artifacts are stored in your workspace. Pipeline runs are grouped into a specific [experiment](concept-azure-machine-learning-architecture.md#experiments).
 
-An experiment consists of datasets and analytical modules, which you connect together to construct a model. Specifically, a valid experiment has these characteristics:
+A pipeline consists of datasets and analytical modules, which you connect together to construct a model. Specifically, a valid pipeline has these characteristics:
 
 * Datasets may be connected only to modules.
 * Modules may be connected to either datasets or other modules.
@@ -55,7 +57,7 @@ To learn how to get started with the visual interface, see [Tutorial: Predict au
 
 ## Dataset
 
-A dataset is data that has been uploaded to the visual interface to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
+A machine learning [dataset](#concept-azure-machine-learning-architecture.md#datasets-and-datastores) makes it easier to access and work with your data. A number of sample datasets are included in visual interface for you to experiment with, and you can [register](#how-to-create-register-datasets.md#create-datasets) more datasets as you need them.
 
 ## Module
 
@@ -69,7 +71,7 @@ For some help navigating through the library of machine learning algorithms avai
 
 ## <a name="compute"></a> Compute resources
 
-Use compute resources from your workspace to run your experiment or host your deployed models as web services. The supported compute targets are:
+Use compute resources from your workspace to run your pipeline and host your deployed models as pipeline endpoints (for batch inference) or real-time endpoints. The supported compute targets are:
 
 
 | Compute target | Training | Deployment |
@@ -79,11 +81,19 @@ Use compute resources from your workspace to run your experiment or host your de
 
 Compute targets are attached to your Machine Learning [workspace](concept-workspace.md). You manage your compute targets in your workspace in the [Azure portal](https://portal.azure.com) or in your [workspace landing page (preview)](https://ml.azure.com).
 
+## Publish
+
+Once you have a pipeline ready, you can publish it as a REST endpoint. A [PublishedPipeline](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) can be submitted without the Python code which constructed it.
+
+In addition, a PublishedPipeline can be used to resubmit a Pipeline with different PipelineParameter values and inputs.
+
 ## Deployment
 
-Once your predictive analytics model is ready, you deploy it as a web service right from the visual interface.
+Once your predictive analytics model is ready, you deploy it as a pipeline endpoint or real-time endpoint right from the visual interface.
 
-The web services provide an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
+The pipeline endpoint is a [PublishedPipeline](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) which you can submit a pipeline run with different PipelineParameter values and inputs for batch inference.
+
+The real-time endpoint provides an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a real-time endpoint returns prediction results to an external application. To make a call to a real-time endpoint, you pass an API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
 
@@ -91,8 +101,17 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
+<<<<<<< HEAD
     * [Sample 1 - Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
     * [Sample 2 - Regression: Predict price and compare algorithms](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
     * [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
     * [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
     * [Sample 5 - Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
+=======
+    * [Sample 1 - Regression: Predict price](ui-sample-regression-predict-automobile-price-basic.md)
+    * [Sample 2 - Regression: Predict price and compare algorithms](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+    * [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+    * [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+    * [Sample 5 - Classification: Predict churn, appetency, and up-selling](ui-sample-classification-predict-churn.md)
+    * [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)
+>>>>>>> 5adc85a3575... add nlp sample, update concept article
