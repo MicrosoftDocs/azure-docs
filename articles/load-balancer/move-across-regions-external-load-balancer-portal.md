@@ -182,19 +182,19 @@ The following steps show how to prepare the external load balancer for the move 
     4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard.  Alternatively, you can click on the **copy to clipboard** button to the right of the **Resource ID** path.
     5. Paste the resource ID into the **value** property into the **Edit Parameters** editor open in the other browser window or tab:
 
-    ```json
-       ```json
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-          "loadBalancers_myLoadbalancer_ext_name": {
-          "value": "<target-external-lb-name>"
-    },
-          "publicIPAddresses_myPubIP_in_externalid": {
-          "value": "<target-publicIP-resource-ID>"
-    },
+		```json
+		   ```json
+		   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+		   "contentVersion": "1.0.0.0",
+		   "parameters": {
+			  "loadBalancers_myLoadbalancer_ext_name": {
+			  "value": "<target-external-lb-name>"
+		},
+			  "publicIPAddresses_myPubIP_in_externalid": {
+			  "value": "<target-publicIP-resource-ID>"
+		},
 
-    ```
+		```
     6. Click **Save** in the online editor.
    
 
