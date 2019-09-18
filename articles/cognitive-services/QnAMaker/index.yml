@@ -54,7 +54,7 @@ landingContent:
           - text: Add a secured SharePoint data source
             url: how-to/add-sharepoint-datasources.md  
 
-  - title: Test, and publish
+  - title: Test and publish
     linkLists:  
       - linkListType: how-to-guide
         links: 
