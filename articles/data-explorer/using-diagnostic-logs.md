@@ -1,19 +1,17 @@
 ---
-title: Set up diagnostic logs for an Azure Data Explorer cluster
+title: Monitor Azure Data Explorer ingestion operations using diagnostic logs
 description: Learn how to set up diagnostic logs for Azure Data Explorer to monitor ingestion operations.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/04/2019
+ms.date: 09/18/2019
 ---
 
-# Monitor Azure Data Explorer ingestion operations
+# Monitor Azure Data Explorer ingestion operations using diagnostic logs (Preview)
 
-Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a table in a database so that you can run queries against it. 
-
-[Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) describe the operation of services or resources. Azure Data Explorer logs insights on ingestion success rate, latency, and detailed information on failures. Export operation logs to Azure Storage, Event Hub, or Log Analytics to monitor ingestion detailed status. Logs from Azure Storage and Azure Event Hub can be routed to a table in your Azure Data Explorer cluster for further analysis.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a table in a database so that you can run queries against it. [Azure Monitor diagnostic logs](/azure/azure-monitor/platform/diagnostic-logs-overview) provide data about the operation of Azure resources. Azure Data Explorer uses diagnostic logs for insights on ingestion successes and failures. You can export operation logs to Azure Storage, Event Hub, or Log Analytics to monitor ingestion status. Logs from Azure Storage and Azure Event Hub can be routed to a table in your Azure Data Explorer cluster for further analysis.
 
 ## Prerequisites
 
@@ -27,46 +25,34 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Set up diagnostic logs for an Azure Data Explorer cluster
 
+Diagnostic logs can be used to configure the collection of the following log data:
+* Successful ingestion operations: These logs have information about successfully completed ingestion operations.
+* Failed ingestion operations: These logs have detailed information about failed ingestion operations including error details. 
+
+The data is then archived into a Storage account, streamed to an Event Hub, or sent to Log Analytics, as per your specifications.
+
 ### Enable diagnostic logs
-
-Diagnostic logs can be used to configure the collection of the following metrics data:
-* Cluster health
-* Query performance
-* Ingestion health and performance
-* Export health and performance  
-
-The data is archived into a storage account, streamed to an event hub, or sent to Log Analytics, as per your specifications.
 
 Diagnostic logs are disabled by default. To enable diagnostic logs, perform the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), select the Azure Data Explorer cluster resource that you want to monitor.
-
-1. Under **Monitoring**, select **Diagnostics logs**.
+1. Under **Monitoring**, select **Diagnostic settings**.
   
-    ![Add diagnostics logs](media/using-diagnostic-logs/add-diagnostic-logs.PNG)
+    ![Add diagnostics logs](media/using-diagnostic-logs/add-diagnostic-logs.png)
 
 1. Select **Add diagnostic setting**.
-
 1. In the **Diagnostics settings** window:
  
-    ![Diagnostics settings configuration](media/using-diagnostic-logs/configure-diagnostics-settings.PNG)
+    ![Diagnostics settings configuration](media/using-diagnostic-logs/configure-diagnostics-settings.png) 
 
-    1. Select one or more targets: a storage account, event hub, or Log Analytics.
-    
-    1. Select metrics to be collected.
-    
-    1. Select **Save** to save the new diagnostics settings and [metrics](using-metrics.md)
+    1. Select **Name** for your diagnostic setting
+    1. Select one or more targets: a Storage account, Event Hub, or Log Analytics.
+    1. Select logs to be collected: `SucceededIngestion` or `FailedIngestion`
+    1. Select [metrics](using-metrics.md) to be collected (optional).   
+    1. Select **Save** to save the new diagnostic logs settings and metrics.
+    1. Create a **New support request** in the Azure portal to request activation of diagnostic logs.
 
-New settings will be set in a few minutes. Logs then appear in the configured archival target, in the **Diagnostics logs** pane.
-
-## Diagnostic logs categories
-
-There are two categories for ingestion operation logs for Azure Data Explorer:
-
-* Succeeded Ingestion Operations: These logs have information about successfully completed ingestion operations.
-* Failed Ingestion Operations: These logs have detailed information about failed ingestion operations including error details. 
-
-See [ingestion logs schema](#ingestion-logs-schema) for more information
+New settings will be set in a few minutes. Logs then appear in the configured archival target (Storage account, Event Hub or Log Analytics). See [ingestion logs schema](#ingestion-logs-schema) for more information
 
 ## Diagnostic logs schema
 
@@ -74,49 +60,20 @@ All [Azure Monitor diagnostic logs share a common top-level schema](/azure/azure
 
 ### Ingestion logs schema
 
-Archive log JSON strings include elements listed in the following table:
+Log JSON strings include elements listed in the following table:
 
 |Name               |Description
 |---                |---
-|time               |Time of the report.
-|resourceId         |Azure Resource Manager resource ID.
-|operationName      |Name of the operation: 'MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION'.
-|operationVersion   |Schema versiom: '1.0' 
-|category           |Category of the operation. 'SucceededIngestion' or 'FailedIngestion'. Properties differ between different categories.
+|time               |Time of the report
+|resourceId         |Azure Resource Manager resource ID
+|operationName      |Name of the operation: 'MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION'
+|operationVersion   |Schema version: '1.0' 
+|category           |Category of the operation. `SucceededIngestion` or `FailedIngestion`. Properties differ for [successful operation](#successful-ingestion-operation-log) or [failed operation](#failed-ingestion-operation-log).
 |properties         |Detailed information of the operation.
 
-Properties of a successful operation include elements listed in the following table:
+#### Successful ingestion operation log
 
-|Name               |Description
-|---                |---
-|succeededOn        |Time of ingestion completion.
-|operationId        |Azure Data Explorer ingestion operation ID.
-|database           |Name of the target database.
-|table              |Name of the target table.
-|ingestionSourceId  |Id of the ingestion data source.
-|ingestionSourcePath|Path of the ingestion data source, blob URI.
-|rootActivityId     |Activity id.
-
-Properties of a failed operation include elements listed in the following table:
-
-|Name               |Description
-|---                |---
-|failedOn           |Time of ingestion completion.
-|operationId        |Azure Data Explorer ingestion operation ID.
-|database           |Name of the target database.
-|table              |Name of the target table.
-|ingestionSourceId  |Id of the ingestion data source.
-|ingestionSourcePath|Path of the ingestion data source, blob URI.
-|rootActivityId     |Activity id.
-|details            |Detailed description of the failure, error message.
-|errorCode          |Error code. 
-|failureStatus      |'Permanent' or 'Transient'. Retry of a transient failure might succeed.
-|originatesFromUpdatePolicy|True if failure originates from an update policy.
-|shouldRetry        |True if retry might succeed.
-
-#### Ingestion logs schema examples
-
-**Example: Successful ingestion operation log**
+**Example:**
 
 ```json
 {
@@ -137,8 +94,21 @@ Properties of a failed operation include elements listed in the following table:
     }
 }
 ```
+**Properties of a successful operation diagnostic log**
 
-**Example: Failed ingestion operation log**
+|Name               |Description
+|---                |---
+|succeededOn        |Time of ingestion completion
+|operationId        |Azure Data Explorer ingestion operation ID
+|database           |Name of the target database
+|table              |Name of the target table
+|ingestionSourceId  |Id of the ingestion data source
+|ingestionSourcePath|Path of the ingestion data source or blob URI
+|rootActivityId     |Activity id
+
+#### Failed ingestion operation log
+
+**Example:**
 
 ```json
 {
@@ -164,3 +134,24 @@ Properties of a failed operation include elements listed in the following table:
     }
 }
 ```
+
+**Properties of a failed operation diagnostic log**
+
+|Name               |Description
+|---                |---
+|failedOn           |Time of ingestion completion
+|operationId        |Azure Data Explorer ingestion operation ID
+|database           |Name of the target database
+|table              |Name of the target table
+|ingestionSourceId  |Id of the ingestion data source
+|ingestionSourcePath|Path of the ingestion data source or blob URI
+|rootActivityId     |Activity id
+|details            |Detailed description of the failure and error message
+|errorCode          |Error code 
+|failureStatus      |`Permanent` or `Transient`. Retry of a transient failure may succeed.
+|originatesFromUpdatePolicy|True if failure originates from an update policy
+|shouldRetry        |True if retry may succeed
+
+## Next steps
+
+[Using metrics](using-metrics.md)
