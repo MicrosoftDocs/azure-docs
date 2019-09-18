@@ -13,17 +13,13 @@ ms.author: mbaldwin
 
 ---
 
-# Tutorial: Enable Key Vault monitoring with Azure Event Grid (preview)
+# How to: Route Key Vault keys events to Automation Runbook (preview)
 
 Key Vault integration with Azure Event Grid enables users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
-This tutorial will show you how to receive Key Vault notifications through Azure Event Grid, and how to respond to status changes with Azure Automation.
+This guide will show you how to receive Key Vault notifications through Azure Event Grid, and how to respond to status changes with Azure Automation.
 
 ## Prerequisites
-
-This feature is currently in preview, and you must request access before proceeding with this tutorial. Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id. You will receive confirmation when your subscriptions have been whitelisted. Whitelisting may take a week or longer.
-
-You must also have the following:
 
 - An Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - The Azure CLI installed on your machine. See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -34,7 +30,7 @@ You must also have the following:
 
 Event Grid allows you to select an Azure Resource, such as a key vault, to subscribe to and monitor for pre-defined "events". When an event triggers, the result is sent to an endpoint. Thw endpoint is a URL that is set up to receive an HTTP POST request from Event Grid.
 
-In this tutorial, Event Grid will be subscribed to the key vault as a "topic resource". When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation logic application, called a "runbook", which execute a PowerShell script. The script programmatically generate a new version of the key.
+In this guide, Event Grid will be subscribed to the key vault as a "topic resource". When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation logic application, called a "runbook", which execute a PowerShell script. The script programmatically generate a new version of the key.
 
 ![image](media/image1.png)
 
@@ -132,7 +128,7 @@ write-Error "No input data found."
 
 1. Name the webhook, set an expiration date, and copy the URL
 
-    a.  Please note that you cannot view the URL after you create it. Make sure you copy to clipboard and save it in a secure location where you can access it for the remainder of the tutorial.
+    a.  Please note that you cannot view the URL after you create it. Make sure you copy to clipboard and save it in a secure location where you can access it for the remainder of this guide.
 
 1. Select Ok, and Click Create
 
