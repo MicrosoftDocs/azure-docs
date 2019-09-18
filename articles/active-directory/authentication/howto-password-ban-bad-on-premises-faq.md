@@ -134,9 +134,9 @@ No.
 
 Audit mode is only supported in the on-premises Active Directory environment. Azure AD is implicitly always in "enforce" mode when it evaluates passwords.
 
-**Q: My users see the traditional Windows error message when a password is rejected by Azure AD Password Protection. Is is possible to customize this error message so that users know what really happened?**
+**Q: My users see the traditional Windows error message when a password is rejected by Azure AD Password Protection. Is it possible to customize this error message so that users know what really happened?**
 
-No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This is true whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
+No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
 ## Additional content
 
