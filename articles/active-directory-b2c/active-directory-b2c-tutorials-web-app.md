@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Enable authentication in a web application - Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Enable authentication in a web application - Azure Active Directory B2C
 description: Tutorial on how to use Azure Active Directory B2C to provide user login for an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a web application using Azure Active Directory B2C
 
-This tutorial shows you how to use Azure Active Directory (Azure AD) B2C to sign in and sign up users in an ASP.NET web application. Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign in and sign up users in an ASP.NET web application. Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 
 In this tutorial, you learn how to:
 
@@ -28,15 +28,15 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
-- Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
+* [Create user flows](tutorial-create-user-flows.md) to enable user experiences in your application.
+* Install [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload.
 
 ## Update the application
 
 In the tutorial that you completed as part of the prerequisites, you added a web application in Azure AD B2C. To enable communication with the sample in this tutorial, you need to add a redirect URI to the application in Azure AD B2C.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select the *webapp1* application.
 5. Under **Reply URL**, add `https://localhost:44316`.
@@ -54,15 +54,21 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 
 The following two projects are in the sample solution:
 
-- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
+- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up and sign in users.
 - **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
 
-You change the sample to use the application that's registered in your tenant, which includes the application ID and the key that you previously recorded. You also configure the user flows that you created. The sample defines the configuration values as settings in the Web.config file. To change the settings:
+You change the sample to use the application that's registered in your tenant, which includes the application ID and the key that you previously recorded. You also configure the user flows that you created. The sample defines the configuration values as settings in the *Web.config* file.
+
+Update the settings in the Web.config file to work with your user flow:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
-2. In the **TaskWebApp** project, open the **Web.config** file. Replace the value for `ida:Tenant` with the name of the tenant that you created. Replace the value for `ida:ClientId` with the application ID that you recorded. Replace the value of `ida:ClientSecret` with the key that you recorded. You must XML-encode the client secret before adding it to your Web.config.
-3. In the **Web.config** file, replace the value for `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`. Replace the value for `ida:EditProfilePolicyId` with `b2c_1_profileediting1`. Replace the value for `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.
-
+1. In the **TaskWebApp** project, open the **Web.config** file.
+    1. Replace the value of `ida:Tenant` and `ida:AadInstance` with the name of the tenant that you created.
+    1. Replace the value of `ida:ClientId` with the application ID that you recorded.
+    1. Replace the value of `ida:ClientSecret` with the key that you recorded. You must XML-encode the client secret before adding it to your Web.config.
+    1. Replace the value of `ida:SignUpSignInPolicyId` with `b2c_1_signupsignin1`.
+    1. Replace the value of `ida:EditProfilePolicyId` with `b2c_1_profileediting1`.
+    1. Replace the value of `ida:ResetPasswordPolicyId` with `b2c_1_passwordreset1`.
 
 ## Run the sample
 

@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/13/2019
 ---
 
 # Replicate data into Azure Database for MariaDB
@@ -32,7 +32,7 @@ The [*mysql system database*](https://mariadb.com/kb/en/library/the-mysql-databa
 - If the master server has SSL enabled, ensure the SSL CA certificate provided for the domain has been included in the `mariadb.az_replication_change_master` stored procedure. Refer to the following [examples](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) and the `master_ssl_ca` parameter.
 - Ensure the master server's IP address has been added to the Azure Database for MariaDB replica server's firewall rules. Update firewall rules using the [Azure portal](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) or [Azure CLI](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
 - Ensure the machine hosting the master server allows both inbound and outbound traffic on port 3306.
-- Ensure the the master server has **Public IP address** or the DNS is public accessible
+- Ensure the the master server has a **public IP address**, the DNS is publicly accessible, or has a fully qualified domain name (FQDN).
 
 ### Other
 - Data-in replication is only supported in General Purpose and Memory Optimized pricing tiers.

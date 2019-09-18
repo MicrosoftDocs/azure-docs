@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
 # Customer intent: As a developer I want storage credentials and SAS tokens to be managed securely by Azure Key Vault.
 ---

@@ -6,7 +6,7 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 

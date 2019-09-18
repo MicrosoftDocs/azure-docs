@@ -79,7 +79,7 @@ To enable the Autoscale feature with load-based scaling, complete the following 
     * **Minimum** number of worker nodes.  
     * **Maximum** number of worker nodes.  
 
-    ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
+    ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/hdinsight-using-autoscale.png)
 
 The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it is created. The minimum number of worker nodes must be greater than zero.
 

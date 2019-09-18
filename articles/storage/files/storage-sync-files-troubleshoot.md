@@ -289,6 +289,7 @@ To see these errors, run the **FileSyncErrorsReport.ps1** PowerShell script (loc
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | The file cannot be synced due to an unexpected error. | If the error persists for several days, please open a support case. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | The file cannot be synced because it's in use. The file will be synced when it's no longer in use. | No action required. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | The file was changed during sync, so it needs to be synced again. | No action required. |
+| 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | The file cannot be synced because the maximum number of conflict files has been reached. Azure File Sync supports 100 conflict files per file. To learn more about file conflicts, see Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | To resolve this issue, reduce the number of conflict files. The file will sync once the number of conflict files is less than 100. |
 
 #### Handling unsupported characters
 If the **FileSyncErrorsReport.ps1** PowerShell script shows failures due to unsupported characters (error code 0x8007007b or 0x80c80255), you should remove or rename the characters at fault from the respective file names. PowerShell will likely print these characters as question marks or empty rectangles since most of these characters have no standard visual encoding. The [Evaluation Tool](storage-sync-files-planning.md#evaluation-cmdlet) can be used to identify characters that are not supported.
@@ -391,6 +392,18 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
     ```
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occured while accessing the storage account.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (decimal)** | -2134364022 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Remediation required** | Yes |
+
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 

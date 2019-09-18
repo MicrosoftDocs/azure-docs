@@ -311,7 +311,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
@@ -321,7 +321,7 @@ Regardless of whether the Trusted IPs feature is enabled, two-step verification 
 ### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Security** >  **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -400,6 +400,8 @@ The feature reduces the number of authentications on web apps, which normally pr
 >The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.
 >
 >If your users select **keep me signed in** on AD FS and also mark their device as trusted for Multi-Factor Authentication, the user isn't automatically verified after the **remember multi-factor authentication** number of days expires. Azure AD requests a fresh two-step verification, but AD FS returns a token with the original Multi-Factor Authentication claim and date, rather than performing two-step verification again. **This reaction sets off a verification loop between Azure AD and AD FS.**
+>
+>The **remember Multi-Factor Authentication** feature is not compatible with B2B users and will not be visible for B2B users when signing into the invited tenants.
 >
 
 ### Enable remember Multi-Factor Authentication

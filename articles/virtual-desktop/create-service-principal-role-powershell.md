@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 04/12/2019
+ms.date: 09/09/2019
 ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments by using PowerShell
@@ -33,9 +33,9 @@ Before you can create service principals and role assignments, you need to do th
     Install-Module AzureAD
     ```
 
-2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)
+2. [Download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview).
 
-3. Follow all instructions in this article in the same PowerShell session. It might not work if you close the window and return to it later.
+3. Follow all instructions in this article in the same PowerShell session. The process might not work if you interrupt your PowerShell session by closing the window and reopening it later.
 
 ## Create a service principal in Azure Active Directory
 
@@ -47,10 +47,9 @@ $aadContext = Connect-AzureAD
 $svcPrincipal = New-AzureADApplication -AvailableToOtherTenants $true -DisplayName "Windows Virtual Desktop Svc Principal"
 $svcPrincipalCreds = New-AzureADApplicationPasswordCredential -ObjectId $svcPrincipal.ObjectId
 ```
-
 ## View your credentials in PowerShell
 
-Before you end your PowerShell session, view your credentials and write them down for future reference. The password is especially important because you won’t be able to retrieve it after you close this PowerShell session.
+Before you create the role assignment for your service principal, view your credentials and write them down for future reference. The password is especially important because you won’t be able to retrieve it after you close this PowerShell session.
 
 Here are the three credentials you should write down and the cmdlets you need to run to get them:
 
@@ -74,19 +73,22 @@ Here are the three credentials you should write down and the cmdlets you need to
 
 ## Create a role assignment in Windows Virtual Desktop Preview
 
-Next you will create an RDS role assignment in Windows Virtual Desktop for the service principal, which will allow the service principal to sign in to Windows Virtual Desktop. Make sure to use an account that has permissions to create RDS role assignments.
+Next, you need to create a role assignment so the service principal can sign in to Windows Virtual Desktop. Make sure to sign in with an account that has permissions to create role assignments.
 
-Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your RDS tenants.
+First, [download and import the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+
+Run the following PowerShell cmdlets to connect to Windows Virtual Desktop and display your tenants.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Get-RdsTenant | FL
+Get-RdsTenant
 ```
 
-Use the TenantName for the correct Tenant and run the following PowerShell cmdlets to create a role assignment for the service principal in the specified tenant.
+When you find the tenant name for the tenant you want to create a role assignment for, use that name in the following cmdlet:
 
 ```powershell
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName "<my-rds-tenantname>"
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## Sign in with the service principal

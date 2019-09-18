@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # What is Azure HPC Cache?
 
-Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, it makes the scalability of cloud computing available even for workflows where your data is stored across WAN links, such as in your local datacenter Network-Attached Storage (NAS) environment.
+Azure HPC Cache speeds access to your data for high-performance computing (HPC) tasks. By caching files in Azure, it makes the scalability of cloud computing available even for workflows where your data is stored across WAN links, such as in your local datacenter network-attached storage (NAS) environment.
 
 Azure HPC Cache is easy to launch and monitor from the Azure portal. Existing NFS storage or new Blob containers can become part of its aggregated namespace, which makes client access simple even if you change the back-end storage target.
 
@@ -51,10 +51,10 @@ Azure HPC Cache is available in these Azure regions:
 * Southeast Asia
 * West US 2
 
-Check the [Azure HPC Cache product page](<https://azure.microsoft.com/services/hpc-cache>) for the latest availability information.
+Check the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) for the latest availability information.
 
 ## Next steps
 
-* Read the [Azure HPC Cache product page](<https://azure.microsoft.com/services/hpc-cache>) to learn more about its capabilities
+* Read the [Azure HPC Cache product page](https://azure.microsoft.com/services/hpc-cache) to learn more about its capabilities
 * Learn about product [prerequisites](hpc-cache-prereqs.md)
 * [Create an Azure HPC Cache](hpc-cache-create.md) from the Azure portal

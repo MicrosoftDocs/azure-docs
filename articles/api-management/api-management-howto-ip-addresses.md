@@ -98,5 +98,6 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
 * Azure Virtual Network is added to or removed from the service.
+* API Management service is switched between External and Internal Vnet deployment mode.
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.

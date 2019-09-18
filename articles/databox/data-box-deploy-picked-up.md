@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 8/27/2019
+ms.date: 09/10/2019
 ms.author: alkohli
 ms.localizationpriority: high
 #Customer intent: As an IT admin, I need to be able to return Data Box to upload on-premises data from my server onto Azure.
@@ -73,7 +73,7 @@ Ensure that the data copy to device is complete and **Prepare to ship** run is s
 
 ::: zone-end
 
-## Ship in US, Canada, Europe
+## [In US, Canada, Europe](#tab/in-us-canada-europe)
 
 Take the following steps if returning the device in US, Canada, or Europe.
 
@@ -90,7 +90,7 @@ Take the following steps if returning the device in US, Canada, or Europe.
 4. Once the Data Box is picked up and scanned by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
 
-## Ship in Australia
+## [In Australia](#tab/in-australia)
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps to ship in Australia.
 
@@ -122,7 +122,7 @@ For inquiry regarding your order via the phone:
 - Send an email for pickup first.
 - Provide your order name on the phone.
 
-## Ship in Japan 
+## [In Japan](#tab/in-japan) 
 
 1. Retain the original box used to ship the device for return shipment.
 2. Power off the device and remove the cables.

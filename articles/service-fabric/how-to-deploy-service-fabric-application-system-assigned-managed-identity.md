@@ -89,15 +89,9 @@ This property declares (to Azure Resource Manager, and the Managed Identity and 
     This is the equivalent mapping of an identity to a service as described above, but from the perspective of the service definition. The identity is referenced here by its friendly name (`WebAdmin`), as declared in the application manifest.
 
 ## Next Steps
-
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
-
 * [Deploy a new](./configure-new-azure-service-fabric-enable-managed-identity.md) Azure Service Fabric cluster with managed identity support 
-
 * [Enable managed identity](./configure-existing-cluster-enable-managed-identity-token-service.md) in an existing Azure Service Fabric cluster
-
 * Leverage a Service Fabric application's [managed identity from source code](./how-to-managed-identity-service-fabric-app-code.md)
-
 * [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
-
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
