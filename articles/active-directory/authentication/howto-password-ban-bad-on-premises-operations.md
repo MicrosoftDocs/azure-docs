@@ -53,7 +53,7 @@ This message is only one example of several possible outcomes. The specific erro
 Affected end users may need to work with their IT staff to understand the new requirements and be more able to choose secure passwords.
 
 > [!NOTE]
-> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected a domain controller.
+> Azure AD Password Protection has no control over the specific error message displayed by the client machine when a weak password is rejected.
 
 ## Enable Mode
 
