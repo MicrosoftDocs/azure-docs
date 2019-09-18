@@ -86,6 +86,8 @@ Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/offi
 
 ## Next steps
 
+[Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
+
 To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
 
 [Learn about Identity Protection](../identity-protection/overview-v2.md)
