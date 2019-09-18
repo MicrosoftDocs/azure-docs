@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/17/2019
+ms.date: 09/18/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -154,30 +154,58 @@ If you used development kit or Truffle to build your smart contract, you can use
 
     [screenshot]
 
-1. Right-click the contract metadata JSON file.
+1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
 1. Choose **Copy contract ABI**. The contract ABI is copied to the clipboard.
 
 Using the contract metadata file:
 
-1. Find the "abi" section
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
+1. Find the **abi** section in the JSON file.
+1. Copy the **abi** JSON array.
 
-The smart contract ABI 
-From devkit - right click contract, get ABI.
-
-Select your compiled contract under the build > contracts folder in the VS Code Explorer pane.
-Right click the contract.sol file.
-Choose copy contract ABI.
-
-The abi section of the contract.json file is copied to your clipboard.
+    [screenshot]
 
 ## Get contract bytecode
 
-from devkit - right click contract, get bytecode
-solc --bin sourcefile.sol
+The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can get contract bytecode using the Azure Blockchain Development Kit for Ethereum or from the Solidity compiler.
+
+Using development kit:
+
+If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract bytecode to the clipboard.
+
+1. In Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
+
+    [screenshot]
+
+1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
+1. Choose **Copy contract bytecode**. The contract bytecode is copied to the clipboard.
+
+Using the Solidity compiler:
+
+`solc --bin <smart contract>.sol`
 
 ## Get contract address
 
-from truffle deployment output. 
-From build>contract> contract.json > networks > number > address file .
+The contract address is the smart contract destination address on the Ethereum blockchain. You use this address to send a transaction or query state of a smart contract. You can get the contract address from the Truffle migration output or the contract metadata file.
+
+From Truffle migrate output:
+
+Truffle displays the contract address after deployment of the smart contract. Copy the **contract address** from the output.
+
+[screenshot]
+
+Using the contract metadata file:
+
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension. 
+1. Find the **networks** section in the JSON file.
+1. Private networks are identified by an integer network ID. Find the address value within the network section.
+1. Copy the **address** value.
+
+    [screenshot]
 
 ## Next steps
+
+Try a tutorial using Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
+
+> [!div class="nextstepaction"]
+> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
