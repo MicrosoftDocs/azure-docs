@@ -26,6 +26,13 @@ With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and the [Azure Ser
 
 You can use triggers that get responses from Service Bus and make the output available to other actions in your logic apps. You can also have other actions use the output from Service Bus actions. If you're new to Service Bus and Logic Apps, review [What is Azure Service Bus?](../service-bus-messaging/service-bus-messaging-overview.md) and [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md)?
 
+> [!IMPORTANT]
+> Use caution when you process messages by using a trigger and action that have the same connector type. 
+> This combination can create an infinite loop, which results in a logic app that never ends.
+> 
+> For example, if you use a Service Bus trigger that receives messages and a Service Bus action that 
+> sends messages to the same queue, this combination creates such a loop.
+
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
