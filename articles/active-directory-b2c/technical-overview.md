@@ -44,7 +44,7 @@ Azure AD B2C defines several types of user accounts. Azure Active Directory, Azu
 * **Guest account** - External users you invite to your tenant as guests. A typical scenario for inviting a guest user to your Azure AD B2C tenant is to share administration responsibilities.
 * **Consumer account** - Consumer accounts are the accounts created in your Azure AD B2C directory when users complete the sign-up user journey in an application you've registered in your tenant.
 
-![Azure AD B2C user management page in the Azure portal](media/technical-overview/user-mng.png)<br/>*Figure: User directory within an Azure AD B2C tenant in the Azure portal*
+![Azure AD B2C user management page in the Azure portal](media/technical-overview/portal-01-users.png)<br/>*Figure: User directory within an Azure AD B2C tenant in the Azure portal*
 
 ### Consumer accounts
 
