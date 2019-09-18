@@ -5,7 +5,7 @@ services: active-directory
 author: msaburnley
 ms.service: active-directory
 ms.topic: include
-ms.date: 09/16/2019
+ms.date: 09/18/2019
 ms.author: ajburnle
 ms.custom: include file
 ---
@@ -35,7 +35,7 @@ Follow these steps if you want your policy to be for users in your directory tha
 Follow these steps if you want your policy to be for users not in your directory that can request this access package. The **users not in your directory** refers to users who are in another Azure AD directory, and may not have yet been invited into your directory. Currently, you can only add users from organizations that have Azure AD. Directories must be configured to be allowed in the **Collaboration restrictions** section of the [External collaboration settings](../articles/active-directory/b2b/allow-deny-list.md).
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration.
+> If a user is not yet in your directory and their request to this access package is approved (or auto-approved), a guest user account will be created in your directory. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently removed. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](./articles/active-directory/b2b/user-properties.md).
 
 1. In the **Users who can request access** section, select **For users not in your directory**.
 
@@ -49,7 +49,7 @@ Follow these steps if you want your policy to be for users not in your directory
 
     ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
 
-1. Enter a domain name and search for an Azure AD directory with that domain name. If you frequently work with an organization the uses Azure AD, you can add it as a [connected directory + domain](#policy-add-connected-directory--domain).
+1. Enter a domain name and search for an Azure AD directory with that domain name. If you frequently work with an organization the uses Azure AD, you can add it as a [connected directory + domain](#policy-a-add-connected-directory--domain) as described in the next section.
 
 1. Click **Add** to add the directory.
 
@@ -57,9 +57,9 @@ Follow these steps if you want your policy to be for users not in your directory
 
 1. Skip down to the [Policy: Request](#policy-request) section.
 
-### Policy: Add connected directory + domain
+### Policy: Add a connected directory + domain
 
-If you frequently work with an organization the uses Azure AD, you add them as a connected directory + domain. Follow these steps to add an external Azure AD directory as a connected directory + domain.
+If you frequently work with an organization the uses Azure AD, you can add them as a connected directory + domain. Follow these steps to add an external Azure AD directory as a connected directory + domain.
 
 1. In the **Users who can request access** section, click **Add connected directory**.
 
@@ -95,6 +95,8 @@ If you frequently work with an organization the uses Azure AD, you add them as a
 1. On the **Review + create** tab, review your directory settings and click **Create**.
 
     ![Access package - Policy - Add connected directory - Review + create tab](./media/active-directory-entitlement-management-policy/add-directory-review-create.png)
+
+1. Skip down to the [Policy: Expiration](#policy-expiration) section.
 
 ### Policy: None (administrator direct assignments only)
 
