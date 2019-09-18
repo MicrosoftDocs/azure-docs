@@ -47,7 +47,7 @@ You can view your available service plans, including the individual licenses, ch
 
 1. Select the **Purchased** link to view the **Products** page and to see the **Assigned**, **Available**, and **Expiring soon** numbers for your license plans.
 
-    ![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-services.png)
+    ![services page, with service license plans and associated license info](media/license-users-groups/license-products-blade-with-products.png)
 
 1. Select a plan name to see its licensed users and groups.
 
@@ -62,7 +62,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Products** page, select the name of the license plan you want to assign to the user.
 
-    ![services page, with highlighted service license plan](media/license-users-groups/license-products-blade-with-service-highlight.png)
+    ![services page, with highlighted service license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
 1. On the license plan overview page, select **Assign**.
 
