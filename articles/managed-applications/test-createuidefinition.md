@@ -85,7 +85,7 @@ For Azure CLI, use:
 
 The script opens a new tab in your browser. It displays the portal with your interface for creating the managed application.
 
-Provide values for the fields. When finished, you see the values that are passed to the template.
+Provide values for the fields. When finished, you see the values that are passed to the template which can be found in your browser's developer tools console.
 
 ![Show values](./media/test-createuidefinition/show-json.png)
 

@@ -1,27 +1,21 @@
 ---
 title: Azure Security Center Troubleshooting Guide | Microsoft Docs
-description: This document helps to troubleshoot issues in Azure Security Center.
+description: This document helps troubleshoot issues in Azure Security Center.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
-ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
+ms.date: 09/10/2019
+ms.author: memildin
 
 ---
 # Azure Security Center Troubleshooting Guide
 This guide is for information technology (IT) professionals, information security analysts, and cloud administrators whose organizations are using Azure Security Center and need to troubleshoot Security Center related issues.
 
 >[!NOTE]
->Beginning in early June 2017, Security Center uses the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more. The information in this article represents Security Center functionality after transition to the Microsoft Monitoring Agent.
+>Security Center uses the Microsoft Monitoring Agent to collect and store data. See [Azure Security Center Platform Migration](security-center-platform-migration.md) to learn more.
 >
 
 ## Troubleshooting guide
@@ -52,9 +46,9 @@ To see which version of the agent you have, open **Task Manager**, in the **Proc
 ## Microsoft Monitoring Agent installation scenarios
 There are two installation scenarios that can produce different results when installing the Microsoft Monitoring Agent on your computer. The supported scenarios are:
 
-* **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
+* **Agent installed automatically by Security Center**: in this scenario you will be able to view the alerts in both locations, Security Center and Log search. You will receive email notifications to the email address that was configured in the security policy for the subscription the resource belongs to.
 .
-* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using agents downloaded and installed manually prior to February 2017, you will be able to view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. In case you filter on the subscription the resource belongs to, you won’t be able to see any alerts. You will receive e-mail notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
+* **Agent manually installed on a VM located in Azure**: in this scenario, if you are using agents downloaded and installed manually prior to February 2017, you can view the alerts in the Security Center portal only if you filter on the subscription the workspace belongs to. If you filter on the subscription the resource belongs to, you won’t see any alerts. You'll receive email notifications to the email address that was configured in the security policy for the subscription the workspace belongs to.
 
 >[!NOTE]
 > To avoid the behavior explained in the second scenario, make sure you download the latest version of the agent.

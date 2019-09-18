@@ -12,7 +12,6 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: cephalin
@@ -98,38 +97,8 @@ When you swap two slots (usually from a staging slot into the production slot), 
 At any point of the swap operation, all work of initializing the swapped apps happens on the source slot. The target slot remains online while the source slot is being prepared and warmed up, regardless of where the swap succeeds or fails. To swap a staging slot with the production slot, make sure that the production slot is always the target slot. This way, the swap operation doesn't affect your production app.
 
 ### Which settings are swapped?
-When you clone configuration from another deployment slot, the cloned configuration is editable. Some configuration elements follow the content across a swap (not slot specific), whereas other configuration elements stay in the same slot after a swap (slot specific). The following lists show the settings that change when you swap slots.
 
-**Settings that are swapped**:
-
-* General settings, such as framework version, 32/64-bit, web sockets
-* App settings (can be configured to stick to a slot)
-* Connection strings (can be configured to stick to a slot)
-* Handler mappings
-* Monitoring and diagnostic settings
-* Public certificates
-* WebJobs content
-* Hybrid connections *
-* Virtual network integration *
-* Service endpoints *
-* Azure Content Delivery Network *
-
-Features marked with an asterisk (*) are planned to be made sticky to the slot. 
-
-**Settings that aren't swapped**:
-
-* Publishing endpoints
-* Custom domain names
-* Private certificates and SSL bindings
-* Scale settings
-* WebJobs schedulers
-* IP restrictions
-* Always On
-* Protocol settings (HTTPS, TLS version, client certificates)
-* Diagnostic log settings
-* Cross-origin resource sharing (CORS)
-
-<!-- VNET and hybrid connections not yet sticky to slot -->
+[!INCLUDE [app-service-deployment-slots-settings](../../includes/app-service-deployment-slots-settings.md)]
 
 To configure an app setting or connection string to stick to a specific slot (not swapped), go to the **Configuration** page for that slot. Add or edit a setting, and then select **deployment slot setting**. Selecting this check box tells App Service that the setting is not swappable. 
 

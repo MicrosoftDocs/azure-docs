@@ -7,7 +7,6 @@ author: juliako
 manager: femila
 editor: ''
 
-ms.assetid: e6bfc068-fa46-4d68-b1ce-9092c8f3a3c9
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
@@ -19,8 +18,6 @@ ms.author: juliako
 ---
 # Overview of Azure on-demand media encoders 
 
-## Encoding overview
-
 > [!NOTE]
 > No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
@@ -31,10 +28,7 @@ Codecs are the software that implements the compression/decompression algorithms
 
 Media Services provides dynamic packaging which allows you to deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG DASH, HLS, Smooth Streaming) without you having to re-package into these streaming formats.
 
-When your AMS account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state.
-
-> [!Note]
-> Billing for streaming endpoints occurs whenever the endpoint is in a **Running** state.
+When your Media Services account is created a **default** streaming endpoint is added to your account in the **Stopped** state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the **Running** state. Billing for streaming endpoints occurs whenever the endpoint is in a **Running** state.
 
 Media Services supports the following on demand encoders that are described in this article:
 
@@ -46,6 +40,7 @@ This article gives a brief overview of on demand media encoders and provides lin
 By default each Media Services account can have one active encoding task at a time. You can reserve encoding units that allow you to have multiple encoding tasks running concurrently, one for each encoding reserved unit you purchase. For information, see [Scaling encoding units](media-services-scale-media-processing-overview.md).
 
 ## Media Encoder Standard
+
 ### How to use
 [How to encode with Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)
 

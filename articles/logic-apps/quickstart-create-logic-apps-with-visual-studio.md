@@ -3,13 +3,14 @@ title: Create automated workflows with Visual Studio - Azure Logic Apps
 description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
 ---
 
@@ -102,6 +103,10 @@ for example:
    ![Create Azure Resource Group project](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
    > [!NOTE]
+   > Resource group names can contain only letters, numbers, 
+   > periods (`.`), underscores (`_`), hyphens (`-`), and 
+   > parentheses (`(`, `)`), but can't *end* with periods (`.`).
+   >
    > If **Cloud** or **Azure Resource Group** doesn't appear, 
    > make sure you install the Azure SDK for Visual Studio.
 

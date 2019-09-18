@@ -487,6 +487,9 @@ In this section, you will configure how user data flows from Workday to Active D
    > [!TIP]
    > When you are configuring the provisioning app for the first time, you will need to test and verify your attribute mappings and expressions to make sure that it is giving you the desired result. Microsoft recommends using the scoping filters under **Source Object Scope** to test your mappings with a few test users from Workday. Once you have verified that the mappings work, then you can either remove the filter or gradually expand it to include more users.
 
+   > [!CAUTION] 
+   > The default behavior of the provisioning engine is to disable/delete users that go out of scope. This may not be desirable in your Workday to AD integration. To override this default behavior refer to the article [Skip deletion of user accounts that go out of scope](../manage-apps/skip-out-of-scope-deletions.md)
+  
 1. In the **Target Object Actions** field, you can globally filter what actions are performed on Active Directory. **Create** and **Update** are most common.
 
 1. In the **Attribute mappings** section, you can define how individual Workday attributes map to Active Directory attributes.
@@ -1351,66 +1354,7 @@ To do this change, you must use [Workday Studio](https://community.workday.com/s
 
 ### Exporting and importing your configuration
 
-This section describes how to use the Microsoft Graph API and Graph Explorer to export your Workday Provisioning attribute mappings and schema to a JSON file and import it back into Azure AD.
-
-#### Step 1: Retrieve your Workday Provisioning App Service Principal ID (Object ID)
-
-1. Launch the [Azure portal](https://portal.azure.com), and navigate to the Properties section of your Workday provisioning application.
-1. In the Properties section of your provisioning app, copy the GUID value associated with the *Object ID* field. This value is also called the **ServicePrincipalId** of your App and it will be used in Graph Explorer operations.
-
-   ![Workday App Service Principal ID](./media/workday-inbound-tutorial/wd_export_01.png)
-
-#### Step 2: Sign into Microsoft Graph Explorer
-
-1. Launch [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
-1. Click on the "Sign-In with Microsoft" button and sign-in using Azure AD Global Admin or App Admin credentials.
-
-    ![Graph Sign-in](./media/workday-inbound-tutorial/wd_export_02.png)
-
-1. Upon successful sign-in, you will see the user account details in the left-hand pane.
-
-#### Step 3: Retrieve the Provisioning Job ID of the Workday Provisioning App
-
-In the Microsoft Graph Explorer, run the following GET query replacing [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-workday-provisioning-app-service-principal-id-object-id).
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
-```
-
-You will get a response as shown below. Copy the "id attribute" present in the response. This value is the **ProvisioningJobId** and will be used to retrieve the underlying schema metadata.
-
-   [![Provisioning Job ID](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
-
-#### Step 4: Download the Provisioning Schema
-
-In the Microsoft Graph Explorer, run the following GET query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps.
-
-```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-Copy the JSON object from the response and save it to a file to create a backup of the schema.
-
-#### Step 5: Import the Provisioning Schema
-
-> [!CAUTION]
-> Perform this step only if you need to modify the schema for configuration that cannot be changed using the Azure portal or if you need to restore the configuration from a previously backed up file with valid and working schema.
-
-In the Microsoft Graph Explorer, configure the following PUT query, replacing [servicePrincipalId] and [ProvisioningJobId] with the ServicePrincipalId and the ProvisioningJobId retrieved in the previous steps.
-
-```http
-    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs/[ProvisioningJobId]/schema
-```
-
-In the "Request Body" tab, copy the contents of the JSON schema file.
-
-   [![Request Body](./media/workday-inbound-tutorial/wd_export_04.png)](./media/workday-inbound-tutorial/wd_export_04.png#lightbox)
-
-In the "Request Headers" tab, add the Content-Type header attribute with value “application/json”
-
-   [![Request Headers](./media/workday-inbound-tutorial/wd_export_05.png)](./media/workday-inbound-tutorial/wd_export_05.png#lightbox)
-
-Click on the "Run Query" button to import the new schema.
+Refer to the article [Exporting and importing provisioning configuration](../manage-apps/export-import-provisioning-configuration.md)
 
 ## Managing personal data
 

@@ -11,7 +11,7 @@ manager: dikamath
 ---
 
 # Monitor VMware Solution by CloudSimple activity
- 
+
 CloudSimple activity logs provide an insight into operations done on CloudSimple portal.  The list includes alerts, events, tasks, and audit.  Use the activity logs to determine who, when and what operations were performed.  Activity logs do not include any read operations done by a user.
 
 ## Sign in to Azure
@@ -33,19 +33,19 @@ To view details about any of the activities on the activity page, select the act
 Click on a column header to sort the display.  You can filter columns for specific values to view.  Download activity report by clicking on **Download as CSV** icon.
 
 ## Alerts
- 
+
 Alerts are notifications of any significant activity in your CloudSimple environment.  Alerts include events that affect billing or user access.
 
-To acknowledge alerts and remove them from the list, select one or more from the list and click **Acknowledge**. 
+To acknowledge alerts and remove them from the list, select one or more from the list and click **Acknowledge**.
 
 The following columns of information are available for alerts. Click on **Edit columns** and select columns you want to view.
 
-| Column | Description | 
------------- | ------------- | 
+| Column | Description |
+------------ | ------------- |
 | Alert Type | Category of alert.|
 | Time | Time the alert occurred. |
 | Severity | Significance of the alert.|
-| Resource Name | Name assigned to the resource, such as the Private Cloud name. | 
+| Resource Name | Name assigned to the resource, such as the Private Cloud name. |
 | Resource Type | Category of resource: Private Cloud, Cloud Rack. |
 | Resource ID | Identifier of the resource. |
 | Description | Description of what triggered the alert. |
@@ -53,27 +53,27 @@ The following columns of information are available for alerts. Click on **Edit c
 
 ## Events
 
-Events show user and system activity on the CloudSimple portal. The Events page lists the activity associated with a specific resource and the severity of the impact. 
+Events show user and system activity on the CloudSimple portal. The Events page lists the activity associated with a specific resource and the severity of the impact.
 
 The following columns of information are available for alerts. Click on **Edit columns** and select columns you want to view.
 
-| Column | Description | 
------------- | ------------- | 
+| Column | Description |
+------------ | ------------- |
 | Time | Date and time the event occurred. |
 | Event Type | Numeric code that identifies the event. |
 | Severity | Event severity.|
-| Resource Name | Name assigned to the resource, such as the Private Cloud name. | 
+| Resource Name | Name assigned to the resource, such as the Private Cloud name. |
 | Resource Type | Category of resource: Private Cloud, Cloud Rack. |
 | Description | Description of what triggered the alert. |
 
 ## Tasks
 
-Tasks are Private Cloud activities that are expected to take 30 seconds or more to complete. (Activities that are expected to take less than 30 seconds are reported only as events.) Open the Tasks pages to track the progress of tasks for your Private Cloud. 
+Tasks are Private Cloud activities that are expected to take 30 seconds or more to complete. (Activities that are expected to take less than 30 seconds are reported only as events.) Open the Tasks pages to track the progress of tasks for your Private Cloud.
 
 The following columns of information are available for alerts. Click on **Edit columns** and select columns you want to view.
 
-| Column | Description | 
------------- | ------------- | 
+| Column | Description |
+------------ | ------------- |
 | Task ID | Unique identifier for the task. |
 | Operation | Action that the task performs. |
 | User | User assigned to complete the task. |
@@ -88,12 +88,12 @@ The following columns of information are available for alerts. Click on **Edit c
 
 ## Audit
 
-Audit logs keep track of user activity. You can use audit logs to monitor user activity for all users. 
+Audit logs keep track of user activity. You can use audit logs to monitor user activity for all users.
 
 The following columns of information are available for alerts. Click on **Edit columns** and select columns you want to view.
 
-| Column | Description | 
------------- | ------------- | 
+| Column | Description |
+------------ | ------------- |
 | Time | Time of the audit entry. |
 | Operation | Action that the task performs. |
 | User | User assigned to the task. |

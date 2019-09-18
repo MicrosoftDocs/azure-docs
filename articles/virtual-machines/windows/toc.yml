@@ -142,8 +142,8 @@
     href: backup-recovery.md
   - name: Infrastructure example
     href: infrastructure-example.md
-  - name: Security attributes
-    href: virtual-machines-windows-security-attributes.md
+  - name: Built-in security controls
+    href: virtual-machines-windows-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -251,6 +251,8 @@
       href: mitigate-se.md
     - name: Scheduled events
       href: scheduled-events.md
+    - name: Monitor scheduled events
+      href: scheduled-event-service.md
     - name: Monitor metadata
       href: instance-metadata-service.md
     - name: Enable nested virtualization

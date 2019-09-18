@@ -8,7 +8,7 @@ editor: tysonn
 ms.service:  azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
 
 ---
@@ -29,7 +29,7 @@ If you are unable to see any data in the Log Analytics workspace at a certain ti
 
 The ContainerInventory table contains information about both stopped and running containers. The table is populated by a workflow inside the agent that queries the docker for all the containers (running and stopped), and forwards that data the Log Analytics workspace.
  
-## How do I resolve **Missing Subscription registration** error?
+## How do I resolve *Missing Subscription registration* error?
 
 If you receive the error **Missing Subscription registration for Microsoft.OperationsManagement**, you can resolve it by registering the resource provider **Microsoft.OperationsManagement** in the subscription where the workspace is defined. The documentation for how to do this can be found [here](../../azure-resource-manager/resource-manager-register-provider-errors.md).
 
@@ -67,7 +67,7 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-For a detailed look at the issue, review the following [github link](https://github.com/moby/moby/issues/22920).
+For a detailed look at the issue, review the following [GitHub link](https://github.com/moby/moby/issues/22920).
 
 ## How do I resolve Azure AD errors when I enable live logs? 
 
@@ -82,6 +82,9 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *.microsoftonline.com        443
+- *.monitoring.azure.com       443
+- login.microsoftonline.com    443
 
 ## Next steps
 

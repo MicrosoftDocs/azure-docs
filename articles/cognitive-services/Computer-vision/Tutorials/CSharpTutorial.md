@@ -28,7 +28,7 @@ Explore a basic Windows application that uses Computer Vision to perform optical
 Before exploring the sample app, ensure that you've met the following prerequisites:
 
 * You must have [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) or later.
-* You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
+* You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key. Take note of the service endpoint URL as well.
 
 ## Get the sample app
 
@@ -74,9 +74,10 @@ You can run the sample app, to see how it interacts with you and with the Comput
 1. When the sample app is displayed, choose **Subscription Key Management** from the navigation pane to display the Subscription Key Management page.
    ![Subscription Key Management page](../Images/Vision_UI_Subscription.PNG)  
 1. Enter your subscription key in **Subscription Key**.
-1. Enter the endpoint URL, omitting the `/vision/v1.0`, of the Computer Vision resource for your subscription key in **Endpoint**.  
-   For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL for the West Central US Azure region:
+1. Enter the endpoint URL in **Endpoint**.  
+   For example, if you're using the subscription key from the Computer Vision free trial, enter the following endpoint URL:
    `https://westcentralus.api.cognitive.microsoft.com`
+   [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. If you don't want to enter your subscription key and endpoint URL the next time you run the sample app, choose **Save Setting** to save the subscription key and endpoint URL to your computer. If you want to delete your previously-saved subscription key and endpoint URL, choose **Delete Setting**.
 
    > [!NOTE]

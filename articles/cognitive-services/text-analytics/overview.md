@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ---
 
@@ -77,7 +77,7 @@ This section has been moved to a separate article for better discoverability. Re
 
 ## Data limits
 
-All of the Text Analytics API endpoints accept raw text data. The current limit is 5,120 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks. If you still require a higher limit, [contact us](https://azure.microsoft.com/overview/sales-number/) so that we can discuss your requirements.
+All of the Text Analytics API endpoints accept raw text data. The current limit is 5,120 characters for each document; if you need to analyze larger documents, you can break them up into smaller chunks.
 
 | Limit | Value |
 |------------------------|---------------|
@@ -89,8 +89,8 @@ Your rate limit will vary with your pricing tier.
 
 | Tier          | Requests per second | Requests per minute |
 |---------------|---------------------|---------------------|
-| Multi-service | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
+| S / Multi-service | 1000                | 1000                |
+| S0 / F0         | 100                 | 300                 |
 | S1            | 200                 | 300                 |
 | S2            | 300                 | 300                 |
 | S3            | 500                 | 500                 |

@@ -4,7 +4,7 @@ description: In this quickstart, you create a storage account and a container in
 author: mhopkins-msft
  
 ms.author: mhopkins
-ms.date: 12/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -155,8 +155,8 @@ The following code downloads the blob uploaded in a previous section. *_DOWNLOAD
 ```python
 # Download the blob(s).
 # Add '_DOWNLOADED' as prefix to '.txt' so you can see both files in Documents.
-full_path_to_file2 = os.path.join(local_path, string.replace(
-    local_file_name, '.txt', '_DOWNLOADED.txt'))
+full_path_to_file2 = os.path.join(local_path, local_file_name.replace(
+   '.txt', '_DOWNLOADED.txt'))
 print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)

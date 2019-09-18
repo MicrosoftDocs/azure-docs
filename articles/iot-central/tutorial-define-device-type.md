@@ -13,6 +13,8 @@ manager: philmea
 
 # Tutorial: Define a new device type in your Azure IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the telemetry, state, properties, and settings for your device type.
 
 To enable you to test your application before you connect a real device, IoT Central generates a simulated device from the device template when you create it.
@@ -42,7 +44,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central.md) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
-1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
+1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
 2. Enter the email address and password you use to access your Azure subscription:
 
@@ -50,7 +52,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 3. To start creating a new Azure IoT Central application, select **New Application**:
 
-    ![Azure IoT Central Application Manager page](./media/tutorial-define-device-type/iotcentralhome.png)
+    ![Azure IoT Central application manager page](./media/tutorial-define-device-type/iotcentralhome.png)
 
 4. To create a new Azure IoT Central application:
     

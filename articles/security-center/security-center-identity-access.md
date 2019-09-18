@@ -122,7 +122,7 @@ Use the table below as a reference to help you understand the available Identity
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
-- [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-recommendations.md)
+- [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 - [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
 

@@ -9,8 +9,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
 robots: noindex

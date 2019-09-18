@@ -6,7 +6,6 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist

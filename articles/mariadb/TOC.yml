@@ -89,6 +89,10 @@
       href: concepts-read-replicas.md  
 - name: How-to guides
   items:
+  - name: Manage a server
+    items:
+    - name: Azure portal
+      href: howto-create-manage-server-portal.md
   - name: Firewall rules
     items:
     - name: Azure portal
@@ -122,7 +126,9 @@
   - name: Auto grow storage
     items:
     - name: Azure portal
-      href: howto-auto-grow-storage-portal.md  
+      href: howto-auto-grow-storage-portal.md
+    - name: Azure CLI
+      href: howto-auto-grow-storage-cli.md  
   - name: Access server logs
     items:
     - name: Slow query logs

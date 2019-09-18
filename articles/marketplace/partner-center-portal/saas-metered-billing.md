@@ -79,7 +79,7 @@ The other attributes of a dimension are specific to each plan and can have diffe
 
 Dimensions also have two special concepts, “enabled” and “infinite”:
 
-* **Enabled** indicates that this plan participates in this dimension.  You might want to leave this un-checked if you are creating a new plan that does not send usage events based on this dimension.  Also, any new dimensions added after a plan was first published will show up as “not enabled” on the already published plan.  A disabled dimension will now show up in any lists of dimensions for a plan seen by customers.
+* **Enabled** indicates that this plan participates in this dimension.  You might want to leave this un-checked if you are creating a new plan that does not send usage events based on this dimension.  Also, any new dimensions added after a plan was first published will show up as “not enabled” on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
 * **Infinite**, represented by the infinity symbol “∞”, indicates that this plan participates in this dimension, but does not meter usage against this dimension.  If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers, with an indication that it will never incur a charge for this plan.
 
 >[!Note] 

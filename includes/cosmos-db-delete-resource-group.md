@@ -17,5 +17,5 @@ When you're done with your web app and Azure Cosmos DB account, you can delete t
 
    ![Metrics in the Azure portal](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
-3. In the next window, type the name of the resource group to delete, and then select **Delete**.
+3. In the next window, enter the name of the resource group to delete, and then select **Delete**.
 

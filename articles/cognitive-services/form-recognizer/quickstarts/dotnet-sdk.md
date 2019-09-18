@@ -17,9 +17,11 @@ Get started with the Form Recognizer client library for .NET. Form Recognizer is
 
 Use the Form Recognizer client library for .NET to:
 
-* Train a custom Form Recognizer model
-* Analyze forms with a custom model
-* Get a list of custom models
+* [Train a custom Form Recognizer model](#train-a-custom-model)
+* [Get a list of extracted keys](#get-a-list-of-extracted-keys)
+* [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
+* [Get a list of custom models](#get-a-list-of-custom-models)
+* [Delete a custom model](#delete-a-custom-model)
 
 [Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
@@ -63,14 +65,7 @@ Build succeeded.
 
 From the project directory, open the _Program.cs_ file in your preferred editor or IDE. Add the following `using` statements:
 
-```csharp
-using Microsoft.Azure.CognitiveServices.FormRecognizer;
-using Microsoft.Azure.CognitiveServices.FormRecognizer.Models;
-
-using System;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_using)]
 
 Then add the following code in the application's **Main** method. You'll define this asynchronous task later on.
 
@@ -110,10 +105,12 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 * [Authenticate the client](#authenticate-the-client)
 * [Train a custom Form Recognizer model](#train-a-custom-model)
+* [Get a list of extracted keys](#get-a-list-of-extracted-keys)
 * [Analyze forms with a custom model](#analyze-forms-with-a-custom-model)
 * [Get a list of custom models](#get-a-list-of-custom-models)
+* [Delete a custom model](#delete-a-custom-model)
 
-### Define variables
+## Define variables
 
 Before you define any methods, add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. 
 
@@ -122,13 +119,13 @@ Before you define any methods, add the following variable definitions to the top
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
-### Authenticate the client
+## Authenticate the client
 
 Below the `Main` method, define the task that is referenced in `Main`. Here, you'll authenticate the client object using the subscription variables you defined above. You'll define the other methods later on.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
-### Train a custom model
+## Train a custom model
 
 The following method uses your Form Recognizer client object to train a new recognition model on the documents stored in your Azure blob container. It uses a helper method to display information about the newly trained model (represented by a [ModelResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelresult?view=azure-dotnet-preview) object), and it returns the model ID.
 
@@ -138,9 +135,18 @@ The following helper method displays information about a Form Recognizer model.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displaymodel)]
 
-### Analyze forms with a custom model
+## Get a list of extracted keys
+
+Once training is completed, the custom model will keep a list of keys that it has extracted from the training documents. It expects future form documents to contain these keys, and it will extract their corresponding values in the Analyze operation. Use the following method to retrieve the list of extracted keys and print it to the console. This is a good way to verify that the training process was effective.
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getkeys)]
+
+## Analyze forms with a custom model
 
 This method uses the Form Recognizer client and a model ID to analyze a PDF form document and extract key/value data. It uses a helper method to display the results (represented by a [AnalyzeResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.analyzeresult?view=azure-dotnet-preview) object).
+
+> [!NOTE]
+> The following method analyzes a PDF form. For similar methods that analyze JPEG and PNG forms, see the full sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/FormRecognizer).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_analyzepdf)]
 
@@ -148,11 +154,17 @@ The following helper method displays information about an Analyze operation.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_displayanalyze)]
 
-### Get a list of custom models
+## Get a list of custom models
 
 You can return a list of all the trained models that belong to your account, and you can retrieve information about when they were created. The list of models is represented by a [ModelsResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.modelsresult?view=azure-dotnet-preview) object.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_getmodellist)]
+
+## Delete a custom model
+
+If you want to delete the custom model from your account, use the following method:
+
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_deletemodel)]
 
 ## Run the application
 
@@ -168,6 +180,8 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+
+Additionally, if you trained a custom model that you want to delete from your account, run the method in [Delete a custom model](#delete-a-custom-model).
 
 ## Next steps
 

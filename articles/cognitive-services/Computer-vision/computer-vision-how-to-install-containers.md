@@ -15,7 +15,8 @@ ms.custom: seodec18
 
 # Install and run Recognize Text containers
 
-The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.  
+The Recognize Text portion of Computer Vision is also available as a Docker container. It allows you to detect and extract printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.
+
 > [!IMPORTANT]
 > The Recognize Text container currently works only with English.
 
@@ -33,7 +34,7 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ## Request access to the private container registry
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### The host computer
 
@@ -41,16 +42,7 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### Container requirements and recommendations
 
-The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
-
-| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
-|-----------|---------|-------------|--|
-|Recognize Text|1 core, 8-GB memory, 0.5 TPS|2 cores, 8-GB memory, 1 TPS|0.5, 1|
-
-* Each core must be at least 2.6 gigahertz (GHz) or faster.
-* TPS - transactions per second
-
-Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+[!INCLUDE [Container requirements and recommendations](includes/container-requirements-and-recommendations.md)]
 
 ## Get the container image with `docker pull`
 

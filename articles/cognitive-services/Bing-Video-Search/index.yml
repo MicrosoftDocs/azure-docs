@@ -2,15 +2,14 @@
 documentType: LandingData
 title: Bing Video Search API Documentation 
 metadata:
-  title: Bing Video Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Video Search API Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
   description: Learn how to use the Bing Video Search API search and find videos from across the Web.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

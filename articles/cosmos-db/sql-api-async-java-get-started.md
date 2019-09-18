@@ -109,7 +109,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Create a database
 
-Create your Azure Cosmos DB database by using the `createDatabaseIfNotExists()` method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
+Create your Azure Cosmos database by using the `createDatabaseIfNotExists()` method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 

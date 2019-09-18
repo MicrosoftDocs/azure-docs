@@ -86,7 +86,7 @@ You can deploy a project as a WebJob by itself, or link it to a web project so t
 
 If you're using Visual Studio 2015, install the [Azure SDK for .NET (Visual Studio 2015)](https://azure.microsoft.com/downloads/).
 
-If you're using Visual Studio 2019, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
+If you're using Visual Studio 2017, install the [Azure development workload](https://docs.microsoft.com/visualstudio/install/install-visual-studio#step-4---choose-workloads).
 
 ### <a id="convert"></a> Enable WebJobs deployment for an existing Console Application project
 

@@ -21,13 +21,11 @@ ms.subservice: diagnostic-extension
 >
 > This page is only relevant if you are using one of these services.
 
-This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
+This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added. Version 1.0 and 1.2 of the schema have been archived and no longer available. 
 
 The configuration file described here is used to set diagnostic configuration settings when the diagnostics monitor starts.  
 
 The extension is used in conjunction with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
-
-
 
 Download the public configuration file schema definition by executing the following PowerShell command:  
 

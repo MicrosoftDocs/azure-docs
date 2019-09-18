@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ROBOTS: NOINDEX
 ---
 # Module: Assign Data to Clusters
 

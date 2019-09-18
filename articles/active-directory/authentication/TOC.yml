@@ -25,7 +25,7 @@
     href: concept-authentication-methods.md
   - name: Passwordless authentication
     href: concept-authentication-passwordless.md
-  - name: Combined registration
+  - name: Security information registration
     href: concept-registration-mfa-sspr-combined.md
   - name: Password reset
     items:
@@ -103,7 +103,7 @@
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
-  - name: Combined registration
+  - name: Security info registration
     items:
     - name: Enable combined registration
       href: howto-registration-mfa-sspr-combined.md

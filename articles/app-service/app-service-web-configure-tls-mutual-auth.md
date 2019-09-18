@@ -11,7 +11,6 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: cephalin
@@ -186,7 +185,7 @@ export class AuthorizationHandler {
             const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
 
             // Validate certificate thumbprint
-            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
             if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
             // Validate time validity

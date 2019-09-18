@@ -12,7 +12,6 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
@@ -68,7 +67,7 @@ To set the server time zone for your web app:
     * Value = *The time zone you want*
 3. Select **Save**.
 
-See the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values.
+For the App services that run on Windows, see the **Timezone** column in the [Default Time Zones](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) article for accepted values. For the App services that run on Linux, set the [TZ database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) as the time zone value. Here is an example of TZ database name: America/Adak.
 
 ## Why do my continuous WebJobs sometimes fail?
 
@@ -93,7 +92,7 @@ Note that to use a dedicated or reserved IP address for inbound calls, your App 
 
 ## Can I export my App Service certificate to use outside Azure, such as for a website hosted elsewhere? 
 
-App Service certificates are considered Azure resources. They are not intended to use outside your Azure services. You cannot export them to use outside Azure. For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
+Yes, you can export them to use outside Azure. For more information, see [FAQs for App Service certificates and custom domains](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
 ## Can I export my App Service certificate to use with other Azure cloud services?
 

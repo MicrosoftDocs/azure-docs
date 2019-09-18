@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 03/20/2019
 ms.author: v-mohabe
 
 ---
@@ -104,7 +104,6 @@ There are four types of icons represented in this list:
 The icon that appears under each recommendation helps you to quickly identify the VM and computer that needs attention, and the type of recommendation. You can also use the filters to search the list by **Resource type** and by **Severity**.
 
 To drill down into the security recommendations for each VM, click on the VM.
-Here you see the security details for the VM or computer. At the bottom you can see the recommended action and the severity of each issue.
 ![Cloud services](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
 
 ### Cloud services
@@ -121,7 +120,7 @@ To see a more prescriptive explanation about this recommendation, click **Update
 ![Update OS version](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### App services
-You need to enable App Service in your subscription in order to view the App Service information. For instructions on how to enable this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
+To view the App Service information, you must enable App Service in your subscription. For instructions on enabling this feature, see [Protect App Service with Azure Security Center](security-center-app-services.md).
 [!NOTE]
 > Monitoring App Service is in preview and available only on the Standard tier of Security Center.
 
@@ -166,7 +165,7 @@ To install the Microsoft Monitoring Agent:
 
    ![Install MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-If you want to set new scale sets to automatically install the Microsoft Monitoring Agent:
+To set new scale sets to automatically install the Microsoft Monitoring Agent:
 1. Go to Azure Policy and click **Definitions**.
 2. Search for the policy **Deploy Log Analytics agent for Windows virtual machine scale sets** and click on it.
 3. Click **Assign**.
@@ -234,7 +233,7 @@ If you want to set all existing scale sets to install the Microsoft Monitoring A
 To learn more about recommendations that apply to other Azure resource types, see the following:
 
 
-* [Understanding Azure Security Center recommendations for virtual machines](security-center-virtual-machine-recommendations.md)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Monitor identity and access in Azure Security Center](security-center-identity-access.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 * [Protecting your Azure SQL service in Azure Security Center](security-center-sql-service-recommendations.md)
