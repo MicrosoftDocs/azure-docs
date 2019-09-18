@@ -96,9 +96,6 @@ See [gathering required parameters](form-recognizer-container-howto.md#gathering
 > [!IMPORTANT]
 > To run the container, specify the `Eula`, `Billing`, and `ApiKey` options; otherwise, the container won't start. For more information, see [Billing](#billing-configuration-setting).
 
-> [!NOTE] 
-> The ApiKey value is the **Key** from the Azure Form Recognizer Resource keys page.
-
 ## Form Recognizer container Docker examples
 
 The following Docker examples are for the Form Recognizer container.
