@@ -44,8 +44,12 @@
       href: ingest-data-event-hub.md
     - name: Event Grid
       href: ingest-data-event-grid.md
+    - name: IoT Hub
+      href: ingest-data-iot-hub.md
     - name: One-click ingestion
       href: ingest-data-one-click.md
+    - name: Streaming ingestion
+      href: ingest-data-streaming.md
     - name: Kafka
       href: ingest-data-kafka.md
     - name: Python
@@ -90,6 +94,12 @@
         href: power-bi-imported-query.md
       - name: SQL query
         href: power-bi-sql-query.md
+    - name: Excel
+      items:
+      - name: connector
+        href: excel-connector.md
+      - name: blank query
+        href: excel-blank-query.md
     - name: Grafana
       href: grafana.md
     - name: ODBC connector
@@ -122,6 +132,8 @@
       href: using-metrics.md
   - name: Integrate with other tools
     items:
+    - name: Bulk copy data using Azure Data Factory template
+      href: data-factory-template.md   
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python

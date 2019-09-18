@@ -1,7 +1,7 @@
 ---
 title: 'Example: Creating a custom cognitive skill with the Bing Entity Search API - Azure Search'
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to a cognitive search indexing pipeline in Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search

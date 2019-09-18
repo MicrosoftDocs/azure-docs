@@ -7,7 +7,6 @@ ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Programmatically create policies and view compliance data
 
@@ -16,8 +15,6 @@ definitions enforce different rules and effects over your resources. Enforcement
 resources stay compliant with your corporate standards and service level agreements.
 
 For information about compliance, see [getting compliance data](getting-compliance-data.md).
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 

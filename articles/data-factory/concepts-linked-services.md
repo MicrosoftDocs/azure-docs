@@ -3,18 +3,14 @@ title: Linked services in Azure Data Factory | Microsoft Docs
 description: 'Learn about linked services in Data Factory. Linked services link compute/data stores to data factory.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-
 ---
 
 # Linked services in Azure Data Factory

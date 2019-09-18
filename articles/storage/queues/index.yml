@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Queue Storage documentation - Azure Storage
+title: Azure Queue storage documentation
 summary: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
 
 metadata:
-  title: Azure Queue Storage documentation - Azure Storage
-  description: Azure Queue Storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
+  title: Azure Queue storage documentation
+  description: Azure Queue storage is a service for storing large numbers of messages. Access messages from anywhere in the world via HTTP or HTTPS.
   services: storage
   ms.service: storage
   ms.subservice: queues
@@ -18,9 +18,8 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
-# Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
+  # Card
   - title: About Azure queues
     linkLists:
       - linkListType: overview
@@ -28,7 +27,7 @@ landingContent:
           - text: What are Azure queues?
             url: storage-queues-introduction.md
 
-  # Card (optional)
+  # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -37,14 +36,6 @@ landingContent:
             url: storage-quickstart-queues-portal.md
           - text: Use .NET to create a queue in Azure Storage
             url: storage-quickstart-queues-dotnet.md
-
-  # Card (optional)
-  - title: Tutorial
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Work with Azure storage queues (.NET)
-            url: storage-tutorial-queues.md
 
   # Card
   - title: Develop with queues
@@ -69,3 +60,11 @@ landingContent:
         links:
           - text: Perform Azure Queue storage operations with Azure PowerShell
             url: storage-powershell-how-to-use-queues.md
+
+  # Card
+  - title: Tutorial
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Work with Azure storage queues (.NET)
+            url: storage-tutorial-queues.md

@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ---
 
-# Use Script Action to install external Python packages for Jupyter notebooks in Apache Spark clusters on HDInsight
+# Script Action to install external Python packages for Jupyter notebooks in Apache Spark on HDInsight
+
 > [!div class="op_single_selector"]
 > * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [Using Script Action](apache-spark-python-package-installation.md)
@@ -91,7 +92,7 @@ There are two types of open-source components that are available in the HDInsigh
 
 	The result looks like this:
 	
-	![TensorFlow code execution](./media/apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+	![TensorFlow code execution](./media/apache-spark-python-package-installation/tensorflow-execution.png "Execute TensorFlow code")
 
 > [!NOTE]  
 > There are two python installations in the cluster. Spark will use the Anaconda python installation located at `/usr/bin/anaconda/bin` and will default to the Python 2.7 environment. To use Python 3.x and install packages in the PySpark3 kernel, use the path to the `conda` executable for that environment and use the `-n` parameter to specify the environment. For example, the command `/usr/bin/anaconda/envs/py35/bin/conda install -c conda-forge ggplot -n py35`, installs the `ggplot` package to the Python 3.5 environment using the `conda-forge` channel.
