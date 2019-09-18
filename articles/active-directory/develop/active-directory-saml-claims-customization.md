@@ -87,7 +87,7 @@ You can also assign any constant (static) value to any claims which you define i
 
 1. Click on the required claim which you want to modify.
 
-1. Enter the constant value in the **Source attribute** as per your organization and click **Save**
+1. Enter the constant value in the **Source attribute** as per your organization and click **Save**.
 
     ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
