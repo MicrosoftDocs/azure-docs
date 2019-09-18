@@ -330,7 +330,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	![Screenshot of Settings section, with On highlighted](./media/amazon-web-service-tutorial/provisioning2.png)
 
 > [!NOTE]
-> Roles will be imported from AWS to Azure AD. Users and groups will not be provisioned back in AWS.
+> Provisioning service wiil only import roles from AWS to Azure AD. This service will not provsioned users and groups from Azure AD to AWS.
 
 ### Create Amazon Web Services (AWS) test user
 
