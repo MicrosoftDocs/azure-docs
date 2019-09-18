@@ -4,7 +4,7 @@ description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/18/2019
 ms.author: v-erkell
 ---
 
@@ -26,15 +26,17 @@ If you don't want to use the loading utility, or if you want to add content to a
 
 ## Pre-load data in Blob storage with CLFSLoad
 
-You can use the [Avere CLFSLoad](https://aka.ms/avere-clfsload) utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a Linux VM and writes data in the proprietary format needed for Azure HPC Cache. This is the most efficient way to populate a Blob storage container for use with the cache.
+You can use the <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad is the most efficient way to populate a Blob storage container for use with the cache.
+
+The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact, or open a support ticket to request assistance.
 
 This option works with new, empty containers only. Create the container before using Avere CLFSLoad.
 
-Detailed information is included in the [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). <!-- caution literal link -->
+Detailed information is included in the Avere CLFSLoad distribution, which is available on request from the Azure HPC Cache team. <!-- [Avere CLFSLoad readme](https://github.com/microsoft/Avere-CLFSLoad/blob/master/README.md). --><!-- caution literal link -->
 
 A general overview of the process:
 
-1. Prepare a Linux system (physical or VM) with Python version 3.6 or later. (Python 3.7 is recommended for better performance.)
+1. Prepare a Linux system (VM or physical) with Python version 3.6 or later. (Python 3.7 is recommended for better performance.)
 1. Install the Avere-CLFSLoad software on the Linux system.
 1. Execute the transfer from the Linux command line.
 
@@ -45,7 +47,7 @@ The Avere CLFSLoad utility needs the following information:
 * A shared access signature (SAS) token that allows the utility to write to the container
 * A local path to the data source - either a local directory that contains the data to copy, or a local path to a mounted remote system with the data.
 
-The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload).
+<!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
 ## Copy data through the Azure HPC Cache
 
