@@ -198,8 +198,8 @@ After you've created **myVm*, connect to it from the internet as follows:
 ## Access the SQL database server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter `myserver.database.windows.net`. 
-`
+2. Enter `nslookup myserver.database.windows.net`. 
+
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown
