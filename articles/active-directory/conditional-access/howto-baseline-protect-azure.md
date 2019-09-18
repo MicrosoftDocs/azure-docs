@@ -47,7 +47,7 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 ## Deployment considerations
 
-Because the **Require MFA for service management** policy applies to all Azure Resource Manager users, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.
+The **Require MFA for service management** policy applies to all Azure Resource Manager users.
 
 ## Enable the baseline policy
 
