@@ -15,13 +15,13 @@ ms.author: mbaldwin
 
 # Tutorial: Enable Key Vault monitoring with Azure Event Grid (preview)
 
-Key Vault integration with Azure Event Grid allows users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault events with Azure Event Grid](event-grid-overview.md).
+Key Vault integration with Azure Event Grid enables users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
-This tutorial will show you how to receive Key Vault notifications through Azure Event Grid, and respond to status changes with Azure Automation.
+This tutorial will show you how to receive Key Vault notifications through Azure Event Grid, and how to respond to status changes with Azure Automation.
 
 ## Prerequisites
 
-This feature is currently in preview. You must request access before proceeding with the steps listed in this document.  Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id to the intake form and wait for confirmation that your subscriptions have been whitelisted to use this feature before proceeding.
+This feature is currently in preview, and you must request access before proceeding with this tutorial. Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id. You will receive confirmation when your subscriptions have been whitelisted. Whitelisting may take a week or longer.
 
 You must also have the following:
 
@@ -30,32 +30,44 @@ You must also have the following:
 - A key vault in your Azure Subscription. You can quickly create a new key vault by following the steps in [Set and retrieve a secret from Azure Key Vault using Azure CLI](quick-create-cli.md)
 
 
-## Event Grid 
+## Concepts
 
-Event Grid allows you to select an Azure Resource, such as a key vault, to subscribe to and monitor for pre-defined "events". When an event triggers, the result is sent to an endpoint.
+Event Grid allows you to select an Azure Resource, such as a key vault, to subscribe to and monitor for pre-defined "events". When an event triggers, the result is sent to an endpoint. Thw endpoint is a URL that is set up to receive an HTTP POST request from Event Grid.
 
-An endpoint is a URL that is set up to receive an HTTP POST request from Event Grid. In this example we will use a web hook from Azure Automation that will trigger a runbook to execute when it receives the POST request.
-
-A runbook is an Azure Automation logic application. It is a process automation tool which will allow you to execute a script based on a trigger. In this example, the trigger will be a webhook, and we will execute a PowerShell script.
-
-Event Grid is subscribed to the key vault as a "topic resource". One of the keys in the key vault is about to expire. Event Grid is notified of the status change of the key in key vault and makes an HTTP POST to an endpoint. In this example, the endpoint is a webhook connected to a runbook. The webhook is triggered, and the runbook PowerShell script executes. The script will programmatically generate a new version of the key.
+In this tutorial, Event Grid will be subscribed to the key vault as a "topic resource". When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation logic application, called a "runbook", which execute a PowerShell script. The script programmatically generate a new version of the key.
 
 ![image](media/image1.png)
 
 
 ## Configure the Azure CLI
 
-Open the Azure CLI Command Prompt Window and type in the following commands
+Open the Azure CLI Command Prompt Window and type in the following commands:
 
-    a.  az cloud set \--name AzureCloud
+```console
+az cloud set --name AzureCloud
+```
 
-    b.  az login
+Sign in to your Azure account using the Azure CLI command [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
 
-    c.  az account set -s Your Subscription ID
+```console
+az login
+```
 
-    d.  az provider register \--namespace Microsoft.KeyVault     
+If necessary, set your subscription using the Azure CLI command [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set). To see a list of subscriptions affiliated with your account, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
+
+```console
+az account set -s <your-subscription-id>
+```
+
+Register the Microsoft.KeyVault resource provider with the Azure CLI command [az register provider](/cli/azure/provider?view=azure-cli-latest#az-provider-register).
+
+```console
+az provider register --namespace Microsoft.KeyVault
+```
 
 ## Create an Azure Automation Account
+
+Next 
 
 1.  Go to portal.azure.com and log in to your subscription
 
