@@ -37,7 +37,7 @@ landingContent:
             url: /azure/architecture/reference-architectures/jenkins/
     
   # Card
-  - title: Install and Configure Ansible
+  - title: Install and configure Jenkins
     linkLists:
       - linkListType: quickstart
         links:
@@ -55,63 +55,63 @@ landingContent:
           url: https://github.com/azure/jenkins
 
   # Card
-  - title: Integrate Jenkins with AKS
+  - title: CI/CD to AKS
     linkLists:
       - linkListType: tutorial
         links:
-          - text: CI/CD to Kubernetes
+          - text: Deploy from GitHub to AKS
             url: /azure/aks/jenkins-continuous-deployment
           - text: Deploy to AKS using blue/green pattern
             url: jenkins-aks-blue-green-deployment.md
-          - text: CI/CD with Azure Dev Spaces
+          - text: Deploy using the Azure Dev Spaces plug-in
             url: tutorial-jenkins-dev-spaces.md  
 
   # Card
-  - title: Integrate Jenkins with App Service
+  - title: CI/CD to App Service
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create Azure resources in a pipeline job
             url: execute-cli-jenkins-pipeline.md
-          - text: Deploy an app from GitHub to App Service
+          - text: Deploy from GitHub to App Service
             url: tutorial-jenkins-deploy-web-app-azure-app-service.md
 
   # Card
-  - title: Use Jenkins with Azure DevOps
+  - title: CI/CD to Azure DevOps
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy Linux virtual machines in Azure
+          - text: Deploy to a Linux VM using Azure DevOps Services
             url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
 
   # Card
-  - title: Deploy to Azure Functions
+  - title: CI/CD to Azure Functions
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy to Azure Functions
+          - text: Deploy to Azure Functions 
             url: jenkins-azure-functions-deploy.md
 
   # Card
-  - title: Storage
+  - title: CI/CD to Azure Storage
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Deploy to Azure Functions
-            url: jenkins-azure-functions-deploy.md
+          - name: Using Azure Storage with a Jenkins C/I solution
+            href: /azure/storage/storage-java-jenkins-continuous-integration-solution
 
   # Card
-  - title: Implement CI/CD to Linux VMs
+  - title: CI/CD to Linux VMs
     linkLists:
       - linkListType: tutorial
         links:
-          - text: CI/CD to Linux VMs
+          - text: Create a dev infrastructure on a Linux VM
             url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
 
   # Card
-  - title: Implement CI/CD to Service Fabric
+  - title: CI/CD to Service Fabric
     linkLists:
       - linkListType: tutorial
         links:
-          - text: CI/CD to Service Fabric
+          - text: Build and deploy an Azure Service Fabric app
             url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
