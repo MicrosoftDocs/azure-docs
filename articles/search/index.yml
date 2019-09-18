@@ -43,11 +43,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Set up Azure Search
+          - text: Create a service
             url: search-create-service-portal.md
-          - text: Set up an index
+          - text: Create an index
             url: search-get-started-portal.md
-          - text: Set up a cognitive search pipeline
+          - text: Create a cognitive search pipeline
             url: cognitive-search-quickstart-blob.md
       - linkListType: learn
         links:
@@ -59,11 +59,11 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Define an index
+          - text: Defining an index
             url: search-what-is-an-index.md
-          - text: Load an index
+          - text: Importing data
             url: search-what-is-data-import.md
-          - text: Use indexers
+          - text: Use an indexer
             url: search-indexer-overview.md
       - linkListType: how-to-guide
         links:
@@ -73,7 +73,7 @@ landingContent:
             url: search-howto-index-json-blobs.md
           - text: SQL data
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
-          - text: Cosmos DB
+          - text: Cosmos DB data
             url: search-howto-index-cosmosdb.md
       - linkListType: reference
         links:
@@ -87,7 +87,7 @@ landingContent:
         links:
           - text: Skillsets
             url: cognitive-search-defining-skillset.md
-          - text: Knowledge store
+          - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
             url: knowledge-store-projection-overview.md
