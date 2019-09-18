@@ -16,9 +16,9 @@ ms.date: 05/10/2019
 
 Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
-Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the completed graph for this experiment:
+Here's the final pipeline graph for this sample:
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
@@ -37,12 +37,12 @@ provides an advanced pipeline that solves the same problem as this pipeline. It 
 
 ## Data
 
-We use the German Credit Card dataset from the UC Irvine repository.
+The sample uses the German Credit Card dataset from the UC Irvine repository.
 The dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
 
-We follow these steps to create the experiment:
+Follow these steps to create the pipeline:
 
 1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
 1. Add an **Edit Metadata** module so we can add meaningful names for each column.
@@ -51,10 +51,6 @@ We follow these steps to create the experiment:
 1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will train the classifier.
 1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data**) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
-
-Here's the complete experiment graph:
-
-![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## Results
 

@@ -18,7 +18,7 @@ Learn how to build a complex machine learning experiment without writing a singl
 
 This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the visual interface to combine data sets and train a model using the scrambled values.
 
-Because we're trying to answer the question "Which one?" this is called a classification problem. However, you can apply the same steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+Because you're trying to answer the question "Which one?" this is called a classification problem, but you can apply the same logic in this project to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
 Here's the completed graph for this experiment:
 
@@ -34,25 +34,25 @@ Here's the completed graph for this experiment:
 
 ## Data
 
-The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+The data for this pipeline is from KDD Cup 2009. It has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## Experiment summary
 
 This visual interface sample experiment shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
 
-First, we do some simple data processing.
+First, do some simple data processing.
 
-- The raw dataset contains lots of missing values. We use the **Clean Missing Data** module to replace the missing values with 0.
+- The raw dataset contains lots of missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
 
     ![Clean the dataset](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
-- The features and the corresponding churn, appetency, and up-selling labels are in different datasets. We use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
+- The features and the corresponding churn, appetency, and up-selling labels are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
 
     ![Add the column dataset](./media/ui-sample-classification-predict-churn/added-column1.png)
 
-- We use the **Split Data** module to split the dataset into train and test sets.
+- Use the **Split Data** module to split the dataset into train and test sets.
 
-    We then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. We build one model per task, that is, one model each to predict up-selling, appetency, and churn.
+    Then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
 
 ## Results
 

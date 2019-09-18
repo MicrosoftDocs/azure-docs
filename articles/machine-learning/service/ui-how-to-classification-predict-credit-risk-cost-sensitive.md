@@ -34,16 +34,16 @@ Here's the completed graph for this experiment:
 
 ## Data
 
-We use the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for more information about the dataset. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+This sample uses the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
 
-In this experiment, we compare two different approaches for generating models to solve this problem:
+In this pipeline, you compare two different approaches for generating models to solve this problem:
 
 - Training with the original dataset.
 - Training with a replicated dataset.
 
-With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+With both approaches, you evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. Test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
 The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
 
@@ -53,20 +53,20 @@ Here's the graph of the experiment:
 
 ## Data processing
 
-We start by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the dataset description on the UCI site. We provide the new column names as comma-separated values in the **New column** name field of the **Metadata Editor**.
+Start by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the dataset description on the UCI site. Provide the new column names as comma-separated values in the **New column** name field of the **Metadata Editor**.
 
-Next, we generate the training and test sets used to develop the risk prediction model. We split the original dataset into training and test sets of the same size by using the **Split Data** module. To create sets of equal size, we set the **Fraction of rows in the first output dataset** option to 0.5.
+Next, generate the training and test sets used to develop the risk prediction model. Split the original dataset into training and test sets of the same size by using the **Split Data** module. To create sets of equal size, set the **Fraction of rows in the first output dataset** option to 0.5.
 
 ### Generate the new dataset
 
-Because the cost of underestimating risk is high, we set the cost of misclassification like this:
+Because the cost of underestimating risk is high, set the cost of misclassification like this:
 
 - For high-risk cases misclassified as low risk: 5
 - For low-risk cases misclassified as high risk: 1
 
-To reflect this cost function, we generate a new dataset. In the new dataset, each high-risk example is replicated five times, but the number of low-risk examples doesn't change. We split the data into training and test datasets before replication to prevent the same row from being in both sets.
+To reflect this cost function, generate a new dataset. In the new dataset, each high-risk example is replicated five times, but the number of low-risk examples doesn't change. Split the data into training and test datasets before replication to prevent the same row from being in both sets.
 
-To replicate the high-risk data, we put this Python code into an **Execute Python Script** module:
+To replicate the high-risk data, put this Python code into an **Execute Python Script** module:
 
 ```Python
 import pandas as pd
@@ -84,20 +84,20 @@ The **Execute Python Script** module replicates both the training and test datas
 
 ### Feature engineering
 
-The **Two-Class Support Vector Machine** algorithm requires normalized data. So we use the **Normalize Data** module to normalize the ranges of all numeric features with a `tanh` transformation. A `tanh` transformation converts all numeric features to values within a range of 0 and 1 while preserving the overall distribution of values.
+The **Two-Class Support Vector Machine** algorithm requires normalized data. So use the **Normalize Data** module to normalize the ranges of all numeric features with a `tanh` transformation. A `tanh` transformation converts all numeric features to values within a range of 0 and 1 while preserving the overall distribution of values.
 
-The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of 0 or 1. So we don't need to normalize these features.
+The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of 0 or 1. So you don't need to normalize these features.
 
 ## Models
 
-Because we apply two classifiers, **Two-Class Support Vector Machine** (SVM) and **Two-Class Boosted Decision Tree**, and also use two datasets, we generate a total of four models:
+Because you applied two classifiers, **Two-Class Support Vector Machine** (SVM) and **Two-Class Boosted Decision Tree**, and two datasets, you generate a total of four models:
 
 - SVM trained with original data.
 - SVM trained with replicated data.
 - Boosted Decision Tree trained with original data.
 - Boosted Decision Tree trained with replicated data.
 
-We use the standard experimental workflow to create, train, and test the models:
+This sample uses the standard data science workflow to create, train, and test the models:
 
 1. Initialize the learning algorithms, using **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 1. Use **Train Model** to apply the algorithm to the data and create the actual model.
@@ -107,9 +107,9 @@ The following diagram shows a portion of this experiment, in which the original 
 
 ![Experiment graph](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-In the evaluation stage of the experiment, we compute the accuracy of each of the four models. For this experiment, we use **Evaluate Model** to compare examples that have the same misclassification cost.
+In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
-The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So we use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
+The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So you can use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
 
 Notice that the replicated test dataset is used as the input for **Score Model**. In other words, the final accuracy scores include the cost for getting the labels wrong.
 

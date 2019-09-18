@@ -16,7 +16,7 @@ ms.date: 05/10/2019
 
 Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
 
-This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because we're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this experiment to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+This pipeline trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
 The fundamental steps of a training machine learning model are:
 
@@ -39,13 +39,13 @@ Here's the final, completed graph of the experiment we'll be working on. We'll p
 
 ## Get the data
 
-In this experiment, we use the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
+This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this pipeline is to predict the price of the car.
 
 ## Pre-process the data
 
 The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the visual interface, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
-We use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
+Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. Then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
 ![Data pre-processing](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
@@ -55,19 +55,19 @@ Machine learning problems vary. Common machine learning tasks include classifica
 
 Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.
 
-We use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
+Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
 ## Test, evaluate, and compare
 
- We split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
+Split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
 
-After the model is trained, we use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models.
+After the model is trained, you can use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models.
 
 **Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
 ![Score result](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
-We then pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
+Pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
 ![Evaluate result](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
