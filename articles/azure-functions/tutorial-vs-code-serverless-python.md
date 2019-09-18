@@ -441,7 +441,7 @@ In this section, you add a storage binding to the HttpExample function created e
         }
     ```
 
-1. Replace the contents of *host.json* with the following, adding the [extension bundles reference](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-register#extension-bundles).
+1. Replace the contents of *host.json* with the following, adding the [extension bundles reference](functions-bindings-register.md#extension-bundles).
 
     ```json
     {
