@@ -135,10 +135,24 @@ run = get_AMLRun()
 ### Run the script in the cloud
 That's it! Now just use the extension to run your script in the cloud! Please note that the following example, takes the liberty of compressing the amount of time it takes to create a new Azure ML workspace and compute, as well as the time it takes to run the training script.
 
-   [![Train in cloud](./media/vscode-tools-for-ai/RunGoldenPath.gif)](./media/vscode-tools-for-ai/RunGoldenPath.gif#lightbox)
+   [![Start an Azure ML experiment](./media/vscode-tools-for-ai/StartGoldenPath.gif)](./media/vscode-tools-for-ai/StartGoldenPath.gif#lightbox)
 
+After clicking the Run Experiment button, answer the prompts as follows:
 
-## Managing and using Azure Machine Learning resources
+1. Choose your Azure subscription
+1. Choose to create a *new* Azure ML workspace
+1. Pick from a set of python environment templates to initialize your cloud VM
+1. Ensure the list of pip and conda packages is correct
+1. Review the default names and specs for the experiment run and click **Submit Experiment**
+1. Sit back and relax while the extension sets everything up for you and runs your script!
+
+[![Train in cloud](./media/vscode-tools-for-ai/RunGoldenPath.gif)](./media/vscode-tools-for-ai/RunGoldenPath.gif#lightbox)
+
+After the run completes, right click on the completed run node and choose **View in Azure Portal**
+
+Your browser will open to the
+
+## Azure Machine Learning in Depth using the Azure ML extension for VS Code
 
 Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources.
 
@@ -146,7 +160,7 @@ Before you start training and deploying machine learning models in Visual Studio
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-   [![Create a workspace](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
+[![Create a workspace](./media/vscode-tools-for-ai/CreateaWorkspace.gif)](./media/vscode-tools-for-ai/CreateaWorkspace.gif#lightbox)
 
 
 1. Right-click your Azure subscription and select **Create Workspace**. By default a name is generated containing the date and time of creation. Change the name to **TeamWorkspace** and press enter.
