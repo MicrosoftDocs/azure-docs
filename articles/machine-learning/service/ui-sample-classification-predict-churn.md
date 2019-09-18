@@ -1,6 +1,6 @@
 ---
 title: "Visual interface example #5: Classification to predict churn + appetency + up-selling"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: This visual interface sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
 ms.service: machine-learning

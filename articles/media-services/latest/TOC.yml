@@ -31,7 +31,11 @@
     href: protect-with-aes128.md       
   - name: Encrypt dynamically with DRM 
     displayName: PlayReady, Widevine, FairPlay
-    href: protect-with-drm.md    
+    href: protect-with-drm.md   
+- name: Samples
+  items:    
+  - name: Media Services samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
   - name: Overview

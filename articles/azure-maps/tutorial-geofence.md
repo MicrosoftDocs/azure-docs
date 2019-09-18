@@ -51,7 +51,7 @@ Open the Postman app and follow the following steps to upload the construction s
     
     The GEOJSON parameter in the URL path represents the data format of the data being uploaded.
 
-3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps subscription key.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps primary subscription key.
    
     ![Key-Value params Postman](./media/tutorial-geofence/postman-key-vals.png)
 

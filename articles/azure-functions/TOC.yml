@@ -98,6 +98,10 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
+  - name: Events and messaging
+    items:
+    - name: Designing for identical input
+      href: functions-idempotent.md
   - name: Triggers and bindings
     items:
     - name: About triggers and bindings

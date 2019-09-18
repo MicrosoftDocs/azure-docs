@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -73,7 +73,7 @@ To delete a project in the current version of Azure Migrate:
 2. In the resource group page, select **Show hidden types**.
 3. Select the migrate project you want to delete. The resource type is Microsoft.Migrate/migrateprojects, and deletes it.
 
-To delete a project in the older version of Azure Migrate: 
+To delete a project in the older version of Azure Migrate:
 
 1. Open the Azure resource group in which the project was created.
 2. Select the migrate project you want to delete. The resource type is Migration project, and deletes it.
@@ -85,7 +85,7 @@ Browse to the Log Analytics workspace attached to the project.
      * If you haven't deleted the Azure Migrate project, you can find the link to the workspace in **Essentials** > **Server Assessment**.
        ![LA Workspace](./media/troubleshooting-general/loganalytics-workspace.png)
 
-     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it. 
+     * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
 
 ## Error "Requests must contain user identity headers"
@@ -148,7 +148,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 ## Error: Appliance might not be registered
 
-- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions. 
+- Error 60052, "The appliance might not be registered successfully to the Azure Migrate project" occurs if the Azure account used to register the appliance has insufficient permissions.
     - Make sure that the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
     - [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about required Azure roles and permissions.
 - Error 60039, "The appliance might not be registered successfully to the Azure Migrate project" can occur if registration fails because the Azure Migrate project used to the register the appliance can't be found.
@@ -157,7 +157,7 @@ If you get this connection error, you might be unable to connect to vCenter Serv
 
 ## Error: Key Vault management operation failed
 
-If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following: 
+If you receive the error 60030 or 60031, "An Azure Key Vault management operation failed", do the following:
 - Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
 - Make sure the account has access to the key vault specified in the error message, and then retry the operation.
 - If the issue persists, contact Microsoft support.
@@ -182,7 +182,7 @@ Error 60025: "An Azure AD operation failed. The error occurred while creating or
 
 ## Discovered VMs not in portal
 
-If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following: 
+If you start discovery so that **Server Assessment** and **Server Migration** show **Discovery in progress**, but don't yet see the VMs in the portal, note the following:
 
 - After starting discovery from the appliance, it takes around 15 minutes for a VMware VM discovery, and around two minutes for each added host for Hyper-V VM discovery.
 - If you continue to see **Discovery in progress** even after these waiting periods, select **Refresh** on the **Servers** tab. This should show the count of the discovered servers in **Server Assessment** and **Server Migration**.
@@ -197,7 +197,7 @@ If you've deployed an appliance that continuously discovers your on-premises env
 
     1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
     2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**. 
+    3. Select **Refresh agent**.
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 ## VM information isn't in the portal
@@ -207,7 +207,7 @@ If you've deployed an appliance that continuously discovers your on-premises env
 
     1. In **Servers** > **Azure Migrate Server Assessment**, select **Overview**.
     2. Under **Manage**, select **Agent Health**
-    3. Select **Refresh agent**. 
+    3. Select **Refresh agent**.
     1. Wait for the refresh operation to complete. You should now see up-to-date information.
 
 
@@ -254,10 +254,6 @@ Could not determine VM suitability because of an internal error | Try creating a
 Could not determine suitability for one or more disks because of an internal error | Try creating a new assessment for the group.
 Could not determine suitability for one or more network adapters because of an internal error | Try creating a new assessment for the group.
 
-## Can't add Enterprise Agreement (EA) in an assessment
-
-Azure Migrate Server Assessment doesn't currently support Enterprise Agreement (EA) pricing. To work around this limitation, use **Pay-As-You-Go** as the Azure offer, and use the **Discount** property to specify any custom discount that you receive. [Learn](https://aka.ms/migrate/selfhelp/eapricing) how to customize an assessment.
-
 ## Linux VMs are "conditionally ready"
 
 Server Assessment marks Linux VMs as  "Conditionally ready" due to a known gap in Server Assessment.
@@ -274,7 +270,7 @@ Azure Migrate Server Assessment might recommend Azure VM SKUs with more cores an
 
 
 - The VM SKU recommendation depends on the assessment properties.
-- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*. 
+- This is affected by the type of assessment you perform in Server Assessment: *Performance-based*, or *As on-premises*.
 - For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. It also adds a comfort factor when determining effective utilization.
 - For on-premises sizing, performance data is not considered, and the target SKU is recommended based on-premises allocation.
 
@@ -283,14 +279,14 @@ To show how this can affect recommendations, let's take an example:
 We have an on-premises VM with four cores and eight GB of memory, with 50% CPU utilization and 50% memory utilization, and a specified comfort factor of 1.3.
 
 -  If the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 GB of memory is recommended.
-- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended. 
+- If the assessment is performance-based, based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and eight GB of memory (nearest supported memory size) is recommended.
 - [Learn more](concepts-assessment-calculation.md#sizing) about assessment sizing.
 
 ## Azure disk SKUs bigger than on-premises
 
 Azure Migrate Server Assessment might recommend a bigger disk based on the type of assessment.
 - Disk sizing in Server Assessment depends on two assessment properties: sizing criteria and storage type.
-- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk. 
+- If the sizing criteria is **Performance-based**, and the storage type is set to **Automatic**, the IOPS and throughput values of the disk are considered when identifying the target disk type (Standard HDD, Standard SSD, or Premium). A disk SKU from the disk type is then recommended, and the recommendation considers the size requirements of the on-premises disk.
 - If the sizing criteria is **Performance-based**, and the storage type is **Premium**, a premium disk SKU in Azure is recommended based on the IOPS, throughput, and size requirements of the on-premises disk. The same logic is used to perform disk sizing when the sizing criteria is **As on-premises** and the storage type is **Standard HDD**, **Standard SSD**, or **Premium**.
 
 As an example, if you have an on-premises disk with 32 GB of memory, but the aggregated read and write IOPS for the disk is 800 IOPS, Server Assessment recommends a premium disk (because of the higher IOPS requirements), and then recommends a disk SKU that can support the required IOPS and size. The nearest match in this example would be P15 (256 GB, 1100 IOPS). Even though the size required by the on-premises disk was 32 GB, Server Assessment recommends a larger disk because of the high IOPS requirement of the on-premises disk.

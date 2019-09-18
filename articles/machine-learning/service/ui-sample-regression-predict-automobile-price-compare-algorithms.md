@@ -1,6 +1,6 @@
 ---
 title: "Visual interface example #3: regression to price and compare algorithms"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: This article shows you how to build a complex machine learning experiment without writing a single line of code using the visual interface. Learn how to train and compare multiple regression models to predict a car's price based on technical features
 services: machine-learning
 ms.service: machine-learning

@@ -1,6 +1,6 @@
 ---
 title: "Visual interface example #4: Classification to predict  credit risk (cost sensitive)"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning

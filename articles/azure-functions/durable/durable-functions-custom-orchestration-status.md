@@ -339,4 +339,4 @@ Clients will get the following response:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about HTTP APIs in Durable Functions](durable-functions-http-api.md)
+> [Learn about durable timers](durable-functions-timers.md)
