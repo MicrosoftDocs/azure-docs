@@ -126,6 +126,21 @@ landingContent:
             url: functions-how-to-azure-devops.md
           - text: Deploy using the Jenkins plugin
             url: /azure/jenkins/jenkins-azure-functions-deploy
+  # Card
+  - title: Performance and monitoring
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Monitor functions
+            url: functions-monitoring.md
+          - text: Optimize performance
+            url: functions-best-practices.md
+          - text: Networking considerations
+            url: functions-networking-options.md
+      - linkListType: how-to-guide
+        links:
+          - text: Troubleshooting
+            url: functions-recover-storage-account.md 
 
   # Card
   - title: Long-running orchestrations
@@ -148,22 +163,7 @@ landingContent:
         links:
           - text: Create a long-running serverless workflow
             url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/index
-  # Card
-  - title: Performance and monitoring
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Monitor functions
-            url: functions-monitoring.md
-          - text: Optimize performance
-            url: functions-best-practices.md
-          - text: Networking considerations
-            url: functions-networking-options.md
-      - linkListType: how-to-guide
-        links:
-          - text: Troubleshooting
-            url: functions-recover-storage-account.md 
-
+ 
   # Card
   - title: Deep dive
     linkLists:
