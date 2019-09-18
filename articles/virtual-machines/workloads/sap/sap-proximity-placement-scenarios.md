@@ -36,13 +36,13 @@ An Azure proximity placement group is a logical construct. When one is defined, 
 - All subsequent VMs deployed that reference the proximity placement group, to place all subsequently deployed Azure VMs in the same datacenter as the first virtual machine.
 
 > [!NOTE]
-> If there is no host hardware deployed that could run a specific VM type in the same datacenter as the first VM was placed in, the deployment of the demanded VM type will not succeed and will end with a failure message. These can be cases where more non-mainstream VMs, like virtual machines with GPUs or HPC VM types should centered around e.g. an M-Series VM that has been deployed as first VM type
+> If there is no host hardware deployed that could run a specific VM type in the datacenter that the first VM was placed in, the deployment of the requested VM type won’t succeed. You’ll get a failure message. This situation can occur with VMs that aren’t mainstream, like VMs with GPUs or HPC VM types, which should  be used with, for example, an M-Series VM that has been deployed as the first VM type.
 
-A single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) can have multiple proximity placement groups assigned to itself. However, one proximity placement group can only be assigned to one Azure resource group.
+A single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
 
-Using proximity placement groups, you should be aware of:
+When you use proximity placement groups, keep these considerations in mind:
 
-- When you drive for the most optimal performance for your SAP system and limit yourself to a single Azure datacenter for this system by using proximity placement groups, you might not be able to combine all types of VM families within such a proximity placement group. Reason is that certain host hardware that is needed to exclusively run a certain VM type may not be present in the datacenter your 'anchor VM' of the placement group got deployed
+- When you aim for optimal performance for your SAP system and limit yourself to a single Azure datacenter for the system by using proximity placement groups, you might not be able to combine all types of VM families within the placement group. This is because the host hardware that’s needed to run a certain VM type might not be present in the datacenter to which the “anchor VM” of the placement group was deployed.
 - In the life cycle of such an SAP system, you could be forced to move the system to another datacenter. Such a move could be forced in cases where you decided that your scale-out HANA DBMS layer should, for example,  move from four nodes to 16 nodes. But there is not enough capacity anymore to get an additional 12 VMs of the type you already used in the same datacenter.
 - Due to decommissioning of hardware, Microsoft might build up capacities for the VM type(s) you used in another datacenter, instead of the same datacenter. Such an occurrence could mean for you to move the all VMs of the proximity placement group into another datacenter.
 
