@@ -35,7 +35,7 @@ The following tutorial walks through the steps in detail.
 
 ## Create an organization and project in Azure DevOps
 
-1. Go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com), select **Sign in** in the upper right corner, and sign into your Microsoft account. 
+1. Go to [visualstudio.microsoft.com](https://visualstudio.microsoft.com), select **Sign in** at upper right, and sign into your Microsoft account. 
    
    ![Sign in to your Microsoft account](./media/group-manager-tasks/signinvs.png)
    
@@ -47,7 +47,7 @@ The following tutorial walks through the steps in detail.
    
 1. If you're prompted to agree to the Terms of Service, Privacy Statement, and Code of Conduct, select **Continue**.
    
-1. In the signup dialog, name your Azure DevOps organization and accept the region assignment, or drop down and select a different region. Then select **Continue**. 
+1. In the signup dialog, name your Azure DevOps organization and accept the host region assignment, or drop down and select a different region. Then select **Continue**. 
 
 1. Under **Create a project to get started**, enter *GroupCommon*, and then select **Create project**. 
    
@@ -63,7 +63,7 @@ Azure Repos hosts the following types of repositories for your group:
 
 - **Group common repositories**: General-purpose repositories that multiple teams within a data science unit can adopt for many data science projects. 
 - **Team repositories**:  Repositories for specific teams within a data science unit. These repositories are specific for a team's needs, and may be used for multiple projects within that team, but are not general enough to be used across multiple teams within a data science unit.
-- **Project repositories**: Repositories for specific projects. Such repositories may not be general enough for multiple projects within an team, or for other teams in a data science unit.
+- **Project repositories**: Repositories for specific projects. Such repositories may not be general enough for multiple projects within a team, or for other teams in a data science unit.
 
 To set up the group common repositories in your project, you: 
 - Rename the default **GroupCommon** repository to **GroupProjectTemplate**
@@ -113,7 +113,7 @@ To import the TDSP team repositories:
 
 1. From the **GroupCommon** project home page, select **Repos** in the left navigation. The default **GroupProjectTemplate** repo opens. 
    
-1. On the **GroupProjectTemplate is empty. Add some code!** page, select **Import**. 
+1. On the **GroupProjectTemplate is empty** page, select **Import**. 
    
    ![Select Import](./media/group-manager-tasks/import-repo.png)
    
