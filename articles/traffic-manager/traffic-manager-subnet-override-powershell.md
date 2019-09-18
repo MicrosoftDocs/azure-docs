@@ -19,7 +19,7 @@ Traffic Manager subnet override allows you to alter the routing method of a prof
 
 When subnet overrides are added to a traffic manager profile, Traffic Manager will first check if there's a subnet override for the end user’s IP address. If one is found, the user’s DNS query will be directed to the corresponding endpoint.  If a mapping isn't found, Traffic Manager will fall back to the profile’s original routing method. 
 
-The IP address ranges can be specified as either CIDR ranges (e.g. 1.2.3.0/24) or as address ranges (for example, 1.2.3.4-5.6.7.8). The IP ranges associated with each endpoint must be unique to that endpoint. Any overlap of IP ranges among different endpoints will cause the profile to be rejected by Traffic Manager.
+The IP address ranges can be specified as either CIDR ranges (for example, 1.2.3.0/24) or as address ranges (for example, 1.2.3.4-5.6.7.8). The IP ranges associated with each endpoint must be unique to that endpoint. Any overlap of IP ranges among different endpoints will cause the profile to be rejected by Traffic Manager.
 
 There are two types of routing profiles that support subnet overrides:
 
