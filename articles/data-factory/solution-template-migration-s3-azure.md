@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
 ---
-# Migrate historical data from Amazon S3 to Azure Data Lake Storage Gen2
+# Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
 Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 
 
@@ -42,7 +42,7 @@ The template contains two parameters:
 - **AWS_S3_bucketName** is your bucket name on AWS S3 where you want to migrate data from. If you want to migrate data from multiple buckets on AWS S3, you can add one more column in your external control table to store the bucket name for each partition, and also update your pipeline to retrieve data from that column accordingly.
 - **Azure_Storage_fileSystem** is your fileSystem name on Azure Data Lake Storage Gen2 where you want to migrate data to.
 
-### For the template to periodically copy delta data from Amazon S3 to Azure Data Lake Storage Gen2
+### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
 
 This template (*template name: copy delta data from AWS S3 to Azure Data Lake Storage Gen2*) uses LastModifiedTime of each file to copy the new or updated files only from AWS S3 to Azure. Be aware if your files or folders has already been time partitioned with timeslice information as part of the file or folder name on AWS S3 (for example, /yyyy/mm/dd/file.csv), you can go to this [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) to get the more performant approach for incremental loading new files. 
 This template assumes that you have written a partition list in an external control table in Azure SQL Database. So it will use a *Lookup* activity to retrieve the partition list from the external control table, iterate over each partition, and make each ADF copy job copy one partition at a time. When each copy job starts to copy the files from AWS S3, it relies on LastModifiedTime property to identify and copy the new or updated files only. Once any copy job completed, it uses *Stored Procedure* activity to update the status of copying each partition in control table.
@@ -123,7 +123,7 @@ The template contains two parameters:
     ![Review the result](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
-### For the template to periodically copy delta data from Amazon S3 to Azure Data Lake Storage Gen2
+### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
 
 1. Create a control table in Azure SQL Database to store the partition list of AWS S3. 
 
