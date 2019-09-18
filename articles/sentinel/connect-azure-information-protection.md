@@ -44,7 +44,7 @@ However, if logging information from Azure Information Protection is going to a 
     > [!NOTE]
     > You cannot use the Azure Information Protection administrator role if your tenant is on the [unified labeling platform](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
     
-    These roles are needed only for configuring the Azure Information Protection connector, and aren't needed when Sentinel is connected to Azure Information Protection.
+    These administrator roles are required only for configuring the Azure Information Protection connector, and aren't required when Sentinel is connected to Azure Information Protection.
 
 - Permissions to read and write to the Log Analytics workspace you're using for Sentinel and Azure Information Protection.
 
