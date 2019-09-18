@@ -59,9 +59,9 @@ landingContent:
       - linkListType: how-to-guide
         links: 
           - text: Test your knowledge base interactively
-            url: how-to/test-knowledge-base
+            url: how-to/test-knowledge-base.md
           - text: Publish a knowledge base
-            url: quickstarts/create-publish-knowledge-base#publish-the-knowledge-base.md
+            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base.md
 
 
   - title: Get answer from knowledge base
