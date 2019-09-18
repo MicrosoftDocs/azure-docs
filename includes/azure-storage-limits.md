@@ -15,7 +15,7 @@ The following table describes default limits for Azure general-purpose v1, v2, a
 | Resource | Default limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
-| Maximum storage account capacity | 2 PB for US and Europe, and 500 TB for all other regions (including the UK)<sup>1</sup>|
+| Maximum storage account capacity | 2 PiB for US and Europe, and 500 TiB for all other regions (including the UK)<sup>1</sup>|
 | Maximum number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
 | Maximum ingress<sup>1</sup> per storage account (US, Europe regions) | 25 Gbps |

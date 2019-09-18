@@ -270,9 +270,9 @@ Here are ways that you can match your on-premises Active Directory accounts with
 
 For more information, see these topics:
 
-* [On-premises data gateway FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Troubleshoot the on-premises data gateway](https://docs.microsoft.com/data-integration/gateway/gateway-service-gateway-tshoot)
-* [Monitor and optimize gateway performance](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [On-premises data gateway FAQ](/data-integration/gateway/service-gateway-onprem-faq)
+* [Troubleshoot the on-premises data gateway](/data-integration/gateway/service-gateway-tshoot)
+* [Monitor and optimize gateway performance](/data-integration/gateway/service-gateway-performance)
 
 ## Next steps
 
