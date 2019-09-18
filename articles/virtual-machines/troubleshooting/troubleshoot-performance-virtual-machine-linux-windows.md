@@ -27,7 +27,7 @@ This article describes virtual machine (VM) generic performance troubleshooting 
 
 To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, click [here](https://azure.microsoft.com/documentation/articles/insights-how-to-use-diagnostics/#change-settings-for-an-existing-resource). If you see the following, then you most likely don't have the diagnostics enabled:
 
-![Monitoring is not enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
+![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
 ### Enable VM Diagnostics through Portal
 
@@ -73,24 +73,24 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### CPU Observe Trends
 
-When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we will use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. This article discusses how to customize the [graphs](https://azure.microsoft.com/documentation/articles/insights-how-to-customize-monitoring/).
+When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform).
 
-Spiking – Spiking could be related to a scheduled task/known event. If you know what this task is, determine whether it runs at the required performance level. If performance is acceptable, you may not need to increase resources.
+Spiking – Spiking could be related to a scheduled task/known event. If you can identify the task, determine whether the task runs at the required performance level. If performance is acceptable, you may not need to increase resources.
 
-Spike up and Constant – This issue could indicate a new workload. If it is not a recognized workload, enable monitoring in the VM to find out what process (or processes) cause this behavior. Once the process is recognized, determine whether the increased consumption is being caused by inefficient code, or normal consumption. If normal consumption, decide wether the process operates at the required performance level.
+Spike up and Constant – Often indicates a new workload. If it's not a recognized workload, enable monitoring in the VM to find out what process (or processes) causes the behavior. Once the process is recognized, determine whether the increased consumption is being caused by inefficient code, or normal consumption. If normal consumption, decide wether the process operates at the required performance level.
 
-Constant – Has your VM always run at this level, or only since the diagnostics have been enabled? If so, identify the process (or processes) causing this issue, and consider adding more of that resource.
+Constant – Determine whether your VM has always run at this level, or if it has only been running at that level since the diagnostics have been enabled. If so, identify the process (or processes) causing the issue, and consider adding more of that resource.
 
-Steadily Increasing – If you see a constant increase in consumption, this could be either inefficient code or a process taking on more user workload.
+Steadily Increasing – A constant increase in consumption is often either inefficient code or a process taking on more user workload.
 
 ### High CPU Utilization Remediation
 
-If your application or process is not running at the correct performance level, and you are seeing 95% + CPU utilization constant, you can perform either of the following tasks:
+If your application or process isn't running at the correct performance level, and you're seeing 95% + CPU utilization constant, you can perform either of the following tasks:
 
 * For immediate relief - Increase the size of the VM to a size with more cores
 * Understand the issue – locate application/process and troubleshoot accordingly.
 
-If you have increased the VM, and the CPU is still running 95%, determine whether this is offering better performance or higher application throughput to an acceptable level. If not, troubleshoot that individual application\process.
+If you have increased the VM, and the CPU is still running 95%, determine whether this setting is offering better performance or higher application throughput to an acceptable level. If not, troubleshoot that individual application\process.
 
 ## Check for Memory Bottleneck
 
@@ -109,7 +109,7 @@ Spike and Constant/Constant Steady Consumption - High memory utilization may not
 
 Steadily Increasing Consumption – A possible application ‘warming up’, this consumption is common among database engines starting up. However, it could also be a sign of a memory leak in an application. Identify the application and understand whether the behavior is expected.
 
-Page or Swap File Usage – Check whether you are using the Windows Paging file (located on D:\) or Linux Swap file (located on `/dev/sdb`) are being heavily used. If you have nothing on these volumes except these files, check for high Read/Writes on those disks. This issue is indicative of low memory conditions.
+Page or Swap File Usage – Check whether you're using the Windows Paging file (located on D:\) or Linux Swap file (located on `/dev/sdb`) are being heavily used. If you have nothing on these volumes except these files, check for high Read/Writes on those disks. This issue is indicative of low memory conditions.
 
 ### High Memory Utilization Remediation
 
@@ -125,7 +125,7 @@ If after upgrading to a larger VM, you discover that you still have a constant s
 
 To check the storage subsystem for the VM, check the diagnostics at the Azure VM level by using the counters in VM Diagnostics and also the Storage Account Diagnostics.
 
-Note that we do not have counters for Zone Redundant and Premium Storage Accounts. For issues related to these counters, raise a support case.
+Note that we don't have counters for Zone Redundant and Premium Storage Accounts. For issues related to these counters, raise a support case.
 
 ### Viewing Storage Account Diagnostics in Monitoring
 
@@ -156,21 +156,21 @@ If you see a drop in availability, there could be an issue with the platform, ch
 * AverageServerLatency
 * TotalRequests
 
-If you see values in the *TimeOutError metrics, an IO operation took too long and timed out. Working through the next steps will help identify potential causes.
+Values in the *TimeOutError metrics indicate that an IO operation took too long and timed out. Working through the next steps will help identify potential causes.
 
-If you see AverageServerLatency increase at the same time at the TimeOutErrors, it could be a platform issue. Raise a new support request in this situation.
+AverageServerLatency increases at the same time at the TimeOutErrors could be a platform issue. Raise a new support request in this situation.
 
-If you see AverageE2ELatency, this represents client latency then verify how the IOPS are being performed by the application. Look for an increase or constantly high TotalRequests metric. This metric represents IOPS. If you are starting to hit the limits of the storage account or single VHD, the latency could be related to throttling.
+AverageE2ELatency represents client latency. Verify how the IOPS are being performed by the application. Look for an increase or constantly high TotalRequests metric. This metric represents IOPS. If you're starting to hit the limits of the storage account or single VHD, the latency could be related to throttling.
 
 #### Check for Azure Storage Throttling - Add the Storage Account Metrics: ThrottlingError
 
-Values for throttling indicates that you are being throttled at storage account level, meaning that your hitting the IOPS limit of the account. You can determine whether you are hitting the IOPs threshold by checking the metric **TotalRequests**.
+Values for throttling indicates that you're being throttled at storage account level, meaning that your hitting the IOPS limit of the account. You can determine whether you're hitting the IOPs threshold by checking the metric **TotalRequests**.
 
 Note that each VHD has a limit of 500 IOPS or 60 MBits, but is bound by the cumulative limit of 20000 IOPS per storage account.
 
-With this metric, you cannot tell which blob is causing the throttling and which are affected by it. However, you are either hitting the IOPS or Ingress/Egress limits of the storage account.
+With this metric, you can't tell which blob is causing the throttling and which are affected by it. However, you're either hitting the IOPS or Ingress/Egress limits of the storage account.
 
-To identify if you are hitting the IOPS limit, go into the Storage Account diagnostics and check the TotalRequests, looking to see if you are approaching 20 thousand TotalRequests. Identify whether this is a change in the pattern, whether this the first time it is being seen, or whether this happens at a certain time.
+To identify if you're hitting the IOPS limit, go into the Storage Account diagnostics and check the TotalRequests, looking to see if you're approaching 20 thousand TotalRequests. Identify either a change in the pattern, whether you're seeing the limit for the first time, or whether this limit happens at a certain time.
 
 #### References
 
@@ -184,7 +184,7 @@ Check the TotalIngress and TotalEgress against the Ingress and Egress limits for
 
 Check Throughput Limits of the VHDs attached to the VM. Add the VM Metrics Disk Read and Write.
 
-Each VHD can support up to 60 MB/s (IOPS are not exposed per VHD). Look at the data to see if you are the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits.
+Each VHD can support up to 60 MB/s (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits.
 
 ### High Disk Utilization/Latency Remediation
 
