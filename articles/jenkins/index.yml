@@ -115,5 +115,5 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-        - text: CI/CD to Service Fabric
-          url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+          - text: CI/CD to Service Fabric
+            url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
