@@ -13,6 +13,9 @@ ms.author: helohr
 
 > Applies to: iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
+>[!NOTE]
+> The ability to access Windows Virtual Desktop resources from the iOS client is currently available in preview. 
+
 You can access Windows Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
 ## Install the iOS Beta client
@@ -46,4 +49,4 @@ Once subscribed to a feed, the feed's contents will update automatically on a re
 
 ## Client documentation
 
-To learn more about how to use the iOS Beta client, check out the [Remote Desktop Services documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios).
+To learn more about how to use the iOS Beta client, check out the [Get started with the iOS client] (https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.
