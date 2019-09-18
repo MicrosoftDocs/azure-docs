@@ -211,7 +211,7 @@ The following steps show how to prepare the internal load balancer for the move 
              }
     ```
  
-6. To edit value of the target virtual network that was moved above, you must first obtain the resource ID and then copy and paste it into the **paramters.json** file. To obtain the ID:
+6. To edit value of the target virtual network that was moved above, you must first obtain the resource ID and then copy and paste it into the **parameters.json** file. To obtain the ID:
     
     1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups** in another browser tab or window.
     2. Locate the target resource group that contains the moved virtual network from the steps above, and click on it.
