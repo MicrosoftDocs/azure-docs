@@ -68,11 +68,11 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
    ![licensing errors and license status](./media/licensing-groups-assign/assignment-errors.png)
 
-1. See more detailed information about license processing under **Azure Active Directory** > **Users and groups** > *group name* > **Audit logs**. Note the following activities:
+1. See more detailed information about license processing under **Azure Active Directory** > **Users and groups** > *group name* > **Audit logs**. Check the following activities:
 
-   - Activity: **Start applying group based license to users**. This is logged when the system picks up the license-assignment change on the group and starts applying it to all user members. It contains information about the change that was made.
+   - Activity: `Start applying group based license to users`. This is logged when the system picks up the license-assignment change on the group and starts applying it to all user members. It contains information about the change that was made.
 
-   - Activity: **Finish applying group based license to users**. This is logged when the system finishes processing all users in the group. It contains a summary of how many users were successfully processed and how many users couldn't be assigned group licenses.
+   - Activity: `Finish applying group based license to users`. This is logged when the system finishes processing all users in the group. It contains a summary of how many users were successfully processed and how many users couldn't be assigned group licenses.
 
    [Read this section](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) to learn more about how audit logs can be used to analyze changes made by group-based licensing.
 
