@@ -340,6 +340,7 @@
       href: reference-entity-simple.md
   - name: Developer resources
     href: developer-reference-resource.md
+    displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell
