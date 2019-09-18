@@ -54,6 +54,10 @@ Status Monitor v2 is located here: https://www.powershellgallery.com/packages/Az
 If your computer has internet access, you can onboard to the PowerShell Gallery by using `-Proxy` parameters.
 You can also manually download the module and either install it on your computer or use it directly.
 Each of these options is described in the [detailed instructions](status-monitor-v2-detailed-instructions.md).
+
+- Does Status Monitor v2 support ASP.NET Core applications?
+
+  *No*. For instructions to enable monitoring of ASP.NET Core applications, see [Application Insights for ASP.NET Core applications](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). There's no need to install StatusMonitor for an ASP.NET Core application. This is true even if ASP.NET Core application is hosted in IIS.
   
 Does Status Monitor v2 support ASP.NET Core applications? 
 

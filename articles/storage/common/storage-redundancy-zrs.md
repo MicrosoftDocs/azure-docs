@@ -18,11 +18,11 @@ ms.subservice: common
 
 ## Support coverage and regional availability
 
-ZRS currently supports standard general-purpose v2 account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
+ZRS currently supports standard general-purpose v2 and FileStorage storage account types. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md).
 
 ZRS is available for block blobs, non-disk page blobs, files, tables, and queues.
 
-ZRS is generally available in the following regions:
+For general-purpose v2 accounts, ZRS is generally available in the following regions:
 
 - Asia Southeast
 - Europe West
@@ -34,6 +34,10 @@ ZRS is generally available in the following regions:
 - US East
 - US East 2
 - US West 2
+
+For FileStorage accounts, ZRS is generally available in the following regions:
+
+- Europe West
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
@@ -60,6 +64,9 @@ There are two primary options for migration to ZRS:
 
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
+
+> [!IMPORTANT]
+> Live migration is not currently supported for premium file shares. Only manually copying or moving data is currently supported.
 
 If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
@@ -111,7 +118,7 @@ There is no data loss associated with the migration. During the migration proces
 
 **Are any updates required to the application(s) once the migration is complete?**
 
-Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS and any other account configuration options remain unchanged and intact.
+Once the migration is complete the replication type of the account(s) will change to "Zone-redundant storage (ZRS)". Service endpoints, access keys, SAS, and any other account configuration options remain unchanged and intact.
 
 **Can I request a live migration of my general-purpose v1 account(s) to ZRS?**
 

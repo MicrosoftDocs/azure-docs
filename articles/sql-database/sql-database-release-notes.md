@@ -20,6 +20,7 @@ This article lists SQL Database features that are currently in public preview. F
 
 | Feature | Details |
 | ---| --- |
+| [Azure private link](https://azure.microsoft.com/updates/private-link-now-available-in-preview/)| Private Link simplifies the network architecture and secures the connection between endpoints in Azure by keeping data on the Azure network, thus eliminating exposure to the internet. Private Link also enables you to create and render your own services on Azure. |
 | Accelerated database recovery with single databases and elastic pools | For information, see [Accelerated Database Recovery](sql-database-accelerated-database-recovery.md).|
 |Approximate Count Distinct|For information, see [Approximate Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch Mode on Rowstore (under compatibility level 150)|For information, see [Batch Mode on Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
@@ -52,15 +53,21 @@ This article lists SQL Database features that are currently in public preview. F
 
 ## New features
 
-The following features are recently enabled in Managed instance deployment model:
-  - <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a>
-  - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers" > Azure monthly credit for Visual Studio subscribers </a>
+### Managed instance H2 2019 updates
+
+- Configure your Managed instance behavior with [Global trace flags](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
+
+### Managed instance H1 2019 updates
+
+The following features are enabled in Managed instance deployment model in H1 2019:
+  - Support for subscriptions with <a href="https://aka.ms/sql-mi-visual-studio-subscribers"> Azure monthly credit for Visual Studio subscribers </a> and increased [regional limits](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
   - Support for <a href="https://docs.microsoft.com/sharepoint/administration/deploy-azure-sql-managed-instance-with-sharepoint-servers-2016-2019"> SharePoint 2016 and SharePoint 2019 </a> and <a href="https://docs.microsoft.com/business-applications-release-notes/october18/dynamics365-business-central/support-for-azure-sql-database-managed-instance"> Dynamics 365 Business Central </a>
-  - <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
-  - Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation of your choice</a>. 
-  - Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
-  - Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
-  - <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Note that Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
+  - Create instances with <a href="https://aka.ms/managed-instance-collation">server-level collation</a> and <a href="https://azure.microsoft.com/updates/managed-instance-time-zone-ga/">time-zone</a> of your choice.
+  - Managed instances are now protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
+  - Configure instances to use [public endpoints](sql-database-managed-instance-public-endpoint-configure.md), [Proxy override](/sql-database-connectivity-architecture.md#connection-policy) connection to get better network performance, <a href="https://aka.ms/four-cores-sql-mi-update"> 4 vCores on Gen5 hardware generation</a> or <a href="https://aka.ms/managed-instance-configurable-backup-retention">Configure backup retention up to 35 days</a> for Point-in-time restore. Long-term backup retention (up to 10 years) is still not enabled so you can use <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">Copy-only backups</a> as an alternative.
+  - New functionalities enable you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-restore your database to another data center using PowerShell</a>, [rename database](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [delete virtual cluster](sql-database-managed-instance-delete-virtual-cluster.md).
+  - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
+  - Managed instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
 
 ## Fixed known issues
 

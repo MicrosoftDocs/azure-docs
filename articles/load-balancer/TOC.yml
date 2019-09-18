@@ -123,6 +123,12 @@
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
+  - name: Move across regions
+    items:
+    - name: External load balancer - Portal
+      href: move-across-regions-external-load-balancer-portal.md
+    - name: External Load Balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
