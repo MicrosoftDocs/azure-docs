@@ -103,6 +103,8 @@
       href: sizes-hpc.md
     - name: Previous generations
       href: sizes-previous-gen.md
+    - name: Isolated sizes
+      href: isolation.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: vCPU quotas
