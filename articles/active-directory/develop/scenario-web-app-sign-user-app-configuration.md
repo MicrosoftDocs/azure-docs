@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that signs-in users using the Microsoft identity platform for developers.
@@ -31,13 +31,15 @@ The libraries used to protect a Web App (and a Web API) are:
 | Platform | Library | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios) |
-| ![.NET](media/sample-v2-code/logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java |
+| ![Java](media/sample-v2-code/logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
+| ![Python](media/sample-v2-code/logo_java.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL for Python - currently in public preview |
 
 Code snippets in this article and the following are extracted from:
 
 - the [ASP.NET Core Web app incremental tutorial, chapter 1](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg).
 - the [ASP.NET Web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect)
-- the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j sample
+- the [Java web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-java-webapp) msal4j web app sample
+- the [Python web application calling Microsoft graph](https://github.com/Azure-Samples/ms-identity-python-webapp) MSAL.Python web app sample
 
 You might want to refer to these tutorials and sample for full implementation details.
 
@@ -55,7 +57,7 @@ Sometimes, applications can be parametrized by the `authority`, which is the con
 
 In ASP.NET Core, these settings are usually located in the `appsettings.json` file, in the "AzureAD" section.
 
-```JSon
+```Json
 {
   "AzureAd": {
     // Azure Cloud instance among:
@@ -82,7 +84,7 @@ In ASP.NET Core, these settings are usually located in the `appsettings.json` fi
 
 In ASP.NET Core, there's another file (`properties\launchSettings.json`) that contains the URL (`applicationUrl`) and the SSL Port (`sslPort`) for your application and various profiles.
 
-```JSon
+```Json
 {
   "iisSettings": {
     "windowsAuthentication": false,
@@ -155,6 +157,18 @@ aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
 ```
 
 In the Azure portal, the reply URIs that you need to register in the **Authentication** page for your application needs to match the redirectUris defined by the application, that is `http://localhost:8080/msal4jsample/secure/aad` and `http://localhost:8080/msal4jsample/graph/users`
+
+# [Python](#tab/python)
+
+Here is the Python configuration file in [app_config.py](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/web_app_sample/app_config.py)
+
+```Python
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
+CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+SCOPE = ["https://graph.microsoft.com/User.Read"]
+REDIRECT_URI = "http://localhost:5000/getAToken"
+```
 
 ---
 
@@ -236,6 +250,45 @@ For details see the `doFilter()` method in [AuthFilter.java](https://github.com/
 > The code of the `doFilter()` is written in a slightly different order, but the flow is the one described.
 
 See [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) for details about the authorization code flow triggered by this method
+
+# [Python](#tab/python)
+
+The Python sample uses Flask. The initialization of flask, and MSAL.Python is done in [app.py#L1-L17](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L1-L17)
+
+```Python
+import uuid
+import flask
+import requests
+from flask import Flask, render_template, session, request
+from flask_session import Session
+import msal
+import app_config
+
+sess = Session()
+app = Flask(__name__)
+app.config.from_object('config.Config')
+sess.init_app(app)
+cache = msal.SerializableTokenCache()
+application = msal.ConfidentialClientApplication(
+    app_config.CLIENT_ID, authority=app_config.AUTHORITY,
+    client_credential=app_config.CLIENT_SECRET,
+    token_cache=cache)
+```
+
+This is MSAL.Python that will take care of letting the user sign-in. See [app.py#L74-84](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/app.py#L74-84)
+
+```Python
+@app.route('/authenticate')
+def authenticate():
+    # Call to the authorize endpoint
+    auth_state = str(uuid.uuid4())
+    session[(request.cookies.get("session")+'state')] = auth_state
+    authorization_url = application.get_authorization_request_url(app_config.SCOPE, state=auth_state,
+                                                                  redirect_uri=app_config.REDIRECT_URI)
+    resp = flask.Response(status=307)
+    resp.headers['location'] = authorization_url
+    return resp
+```
 
 ---
 

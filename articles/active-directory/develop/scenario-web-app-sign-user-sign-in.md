@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a web app that signs-in users using the Microsoft identity platform for developers.
@@ -50,6 +50,10 @@ During the application registration, you'll have registered a **post logout URI*
 # [Java](#tab/java)
 
 During the application registration, you'll register a **post logout URI**. In our tutorial, you registered `http://localhost:8080/msal4jsample/` in the **Logout URL** field of the **Advanced Settings** section in the **Authentication** page.
+
+# [Python](#tab/python)
+
+During the application registration you don't need to register a logout URL. The sample does not implement global sign-out
 
 ---
 
@@ -117,6 +121,41 @@ In our Java quickstart, the sign-out button is located in the main/resources/tem
 ...
 ```
 
+# [Python](#tab/python)
+
+In the Python quickstart, the sign-out button is located in the [templates/display.html](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e1199b4c3cdcb637cf0d8306832efbd85492e123/templates/display.html#L18-L20) file
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Acquire Token Result </title>
+</head>
+<body>
+    {% if cond  %}
+        <p1><b>Your information</b> </p1>
+        <table>
+        {% for key, value in auth_result.items() %}
+           <tr>
+                <th> {{ key }} </th>
+                <td> {{ value }} </td>
+           </tr>
+        {% endfor %}
+        </table>
+        <form action="/logout" >
+            <input type="submit" value=" Logout"/>
+        </form>
+    {% else %}
+        <p1><b> {{auth_result}} </b> </p1>
+        <form action="/authenticate" >
+            <input type="submit" value=" Sign-in"/>
+        </form>
+    {% endif %}
+</body>
+</html>
+```
+
 ---
 
 ### `Signout()` action of the controller
@@ -174,6 +213,14 @@ and providing the post_logout_redirect_uri.
     }
 ```
 
+# [Python](#tab/python)
+
+```Python
+@app.route("/logout")
+def logout():
+    return flask.redirect(flask.url_for('index'))
+```
+
 ---
 
 ### Intercepting the call to the `logout` endpoint
@@ -228,6 +275,10 @@ public class AccountController : Controller
 # [Java](#tab/java)
 
 In our Java quickstart, the post sign out redirect URI just displays the index.html page 
+
+# [Python](#tab/python)
+
+In the Python quickstart, the post sign out redirect URI just displays the index.html page.
 
 ---
 
