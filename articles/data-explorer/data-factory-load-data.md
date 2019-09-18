@@ -22,7 +22,7 @@ When you load data into Azure Data Explorer, Data Factory provides the following
 
 * **Easy setup**: Get an intuitive, five-step wizard with no scripting required.
 * **Rich data store support**: Get built-in support for a rich set of on-premises and cloud-based data stores. For a detailed list, see the table of [Supported data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
-* **Secure and compliant**: Data is transferred over HTTPS or ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
+* **Secure and compliant**: Data is transferred over HTTPS or Azure ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
 * **High performance**: The data-loading speed is up to 1 gigabyte per second (GBps) into Azure Data Explorer. For more information, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
 
 In this article, you use the Data Factory Copy Data tool to load data from Amazon Simple Storage Service (S3) into Azure Data Explorer. You can follow a similar process to copy data from other data stores, such as:
