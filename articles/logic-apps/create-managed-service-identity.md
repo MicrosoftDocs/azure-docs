@@ -299,15 +299,17 @@ Now that your logic app has a managed identity and that identity can access the 
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
-1. Open the **Authentication** list, and select **Managed Identity**.
+1. From the **Authentication type** list, select **Managed Identity**.
 
-1. Select either **System assigned** or **User assigned**. If you select **User assigned**, select the identity that you want to use.
+   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-identity.png)
 
-1. Open the **Add new parameter** list, and select **Audience**.
+1. From the **Identity** list, select either **System-assigned** or the user-assigned identity that you want.
 
-   The **Audience** property now appears as a row in the HTTP action and shows the default resource ID value:
+   ![Select either "System-assigned" or user-assigned identity](./media/create-managed-service-identity/select-either-system-or-user-assigned.png)
 
-   ![Select "Managed Identity"](./media/create-managed-service-identity/select-managed-service-identity.png)
+   After you make your selection, the **Audience** property appears. By default, the property is set to the target resource ID.
+
+   !["Audience" property set to target resource ID](./media/create-managed-service-identity/audience-property.png)
 
    > [!IMPORTANT]
    >
