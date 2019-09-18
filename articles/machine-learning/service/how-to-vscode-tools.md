@@ -55,10 +55,15 @@ To install the Azure Machine Learning extension:
 > [!Tip]
 > Check out the [IntelliCode extension for Visual Studio Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant autocompletions based on the current code context.
 
+## Get started with Azure Machine Learning
+There are multiple ways of running your training script in the Azure cloud. If you're just getting started and have a python script you know run successfully on your local machine, keep reading.
+
+If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [NEED REFERENCE TO USING AZURE ML RESOURCES BELOW](#Foo) below.
+
 ## Run an existing python training script in the Azure cloud
 If you have an existing training script, the Azure Machine Learning extension for VS Code not only provides an excellent editing, debugging and source management experience, but also makes it extremely easy to run and store metrics for that script as an Azure Machine Learning experiment in the cloud.
 
-Here's an example. Download the mnist project at BLAHBLAHBLAH and open the folder you copied it to in VS Code.
+Here's an example. Download the mnist project at [BLAHBLAHBLAH]() and open the folder you copied it to in VS Code.
 
 1. Create a new python environment using your favorite virtual environment package or Anaconda and install the tensorflow and numpy packages.
 
@@ -76,7 +81,8 @@ Now that you know that your script runs correctly, let's run it in the Azure clo
 
 While this could easily be done with no extra modification of **train.py**, doing so would not have the advantage of having Azure keep track of important metrics about each training run.
 
-To modify your project so that Azure can be made aware of your runs:
+### Make Azure aware of your run metrics
+To modify your project so that Azure can be made aware of important information in your runs:
 
 1. Create a file called **amlrun.py** in the same folder as **train.py**
 
@@ -112,7 +118,7 @@ saver = tf.train.Saver()
 run = get_AMLRun()
 ...
 ```
-4. Log important metrics to Azure for each epoch
+4. Log important metrics to Azure with the run.log() function:
 
 ```python
 ...
@@ -127,12 +133,12 @@ run = get_AMLRun()
 ...
 ```
 ### Run the script in the cloud
-That's it! Now just use the extension to run your script in the cloud!
+That's it! Now just use the extension to run your script in the cloud! Please note that the following example, takes the liberty of compressing the amount of time it takes to create a new Azure ML workspace and compute, as well as the time it takes to run the training script.
 
    [![Train in cloud](./media/vscode-tools-for-ai/RunGoldenPath.gif)](./media/vscode-tools-for-ai/RunGoldenPath.gif#lightbox)
 
 
-## Get started with Azure Machine Learning
+## Managing and using Azure Machine Learning resources
 
 Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources.
 
