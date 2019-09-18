@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 ---
 
-# Tutorial: Enable Key Vault monitoring with Azure Event Grid (preview)
+# How to: Route Key Vault keys events to Automation Runbook (preview)
 
 Key Vault integration with Azure Event Grid allows users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault events with Azure Event Grid](event-grid-overview.md).
 
