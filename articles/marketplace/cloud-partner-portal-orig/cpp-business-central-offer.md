@@ -1,7 +1,7 @@
 ---
 title: Dynamics 365 Business Central offer for the Azure Marketplace 
-description: Deprecated and linked to corresponding PC article; was "explains how to create a Dynamics 365 Business Central offer in Cloud Partner Portal."
-services: Dynamics 365 Business Central, AppSource Marketplace, Cloud Partner Portal, Partner Center
+description: Deprecated and linked to corresponding PC articles; previously Explains how to create a Dynamics 365 Business Central offer in Cloud Partner Portal.
+services: Dynamics 365 Business Central, AppSource Marketplace, 
 author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
