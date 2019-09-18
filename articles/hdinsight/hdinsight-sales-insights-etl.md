@@ -61,7 +61,7 @@ Download [Power BI Desktop](https://www.microsoft.com/en-us/download/details.asp
 
 ## Deploy Azure resources needed for the pipeline 
 
-1. Add execute permissions for the script `chmod +x scripts/resources.sh`
+1. Add execute permissions for the script `chmod +x scripts/*.sh`
 1. Use the command `./scripts/resources.sh <RESOURCE_GROUP_NAME> <LOCATION>` to run the script to deploy the following resources in Azure:
 
     1. An Azure Blob Storage account - this account will hold the company sales data
@@ -202,7 +202,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
 LOCATION 'abfs://files@<ADLS GEN2 ACCOUNT NAME>.dfs.core.windows.net/transformed';
---Drop table sales if exists
+
 --Drop table sales if exists
 DROP TABLE sales;
 --Create sales table and populate with data\
