@@ -22,4 +22,4 @@ Utilizing an isolated size guarantees that your virtual machine will be the only
 * Standard_D15_v2
 * Standard_F72s_v2
 
-You can learn more about each Isolated size available [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
+You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
