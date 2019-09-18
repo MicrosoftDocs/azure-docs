@@ -28,7 +28,7 @@ This article shows you how to test auto-provisioning on a simulated IoT Edge dev
 > [!TIP]
 > This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
 >
-> If you're using a physical device, you can skip ahead to the [Retrieve TPM data from a physical device](#retrieve-tpm-data-from-a-physical-device) section in this article.
+> If you're using a physical device, you can skip ahead to the [Retrieve provisioning information from a physical device](#retrieve-provisioning-information-from-a-physical-device) section in this article.
 
 ## Prerequisites
 
@@ -126,7 +126,7 @@ In the virtual machine, build a tool that you can use to retrieve the device's *
 
 1. Run the solution using either of the **Start** commands on the **Debug** menu. The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
 
-## Retrieve TPM data from a physical device
+## Retrieve provisioning information from a physical device
 
 On your device, build a tool that you can use to retrieve the device's provisioning information.
 
