@@ -1,19 +1,41 @@
-# Using MSAL with B2C
+---
+title: Azure AD B2C (Microsoft Authentication Library for Android) | Azure 
+description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for Android (MSAL.Android)
+services: active-directory
+documentationcenter: dev-center-name
+author: brianmel
+manager: omkrishn
+editor: ''
 
-## Recommended Pre-Reading
-- [What is Azure Active Directory B2C?](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Android - MSAL: Configuring your app](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 9/18/2019
+ms.author: brianmel 
+ms.reviewer: rapong
+ms.custom: aaddev
+#Customer intent: As an application developer, I want to learn about specific considerations when using Azure AD B2C and MSAL.Android so I can decide if this platform meets my application development needs and requirements.
+ms.collection: M365-identity-device-management
+---
+
+# Use MSAL for Android with B2C
+
+Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C is an identity management service. By using it, you can customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
 
 ## Configure Known Authorities and Redirect URI
+
 In MSAL for Android, B2C policies (user journeys) are configured as individual authorities.
 
-Suppose we are writing a B2C application that has two policies:
+Given a B2C application that has two policies:
 - Sign-up / Sign-in
-    * Called `B2C_1_SISOPolicy` in our example
+    * Called `B2C_1_SISOPolicy`
 - Edit Profile
-    * Called `B2C_1_EditProfile` in our example
+    * Called `B2C_1_EditProfile`
 
-In this case, our configuration will declare two `authorities` (one per policy), in addition to our `client_id`, and `redirect_uri`. Note the `type` property of each authority is `B2C`.
+The configuration file for the app would declare two `authorities`. One for each policy. The `type` property of each authority is `B2C`.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -33,10 +55,11 @@ In this case, our configuration will declare two `authorities` (one per policy),
 }
 ```
 
-In addition to registering our `redirect_uri` in our app configuration, we must also declare it in our `AndroidManifest.xml` -- this supports redirection during the [authorization code grant flow](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## Initialize IPublicClientApplication
-Construction of `IPublicClientApplication` is handled by a factory method; this is to allow for asynchronous parsing of the application configuration.
+
+`IPublicClientApplication` is constructed by a factory method to allow the application configuration to be parsed asynchronously.
 
 ```java
 PublicClientApplication.create(
@@ -57,8 +80,9 @@ PublicClientApplication.create(
 );
 ```
 
-## Interactively Acquire a Token
-To acquire a token interactively with MSAL, you can build-up your `AcquireTokenParameters` and supply them to `acquireToken`. The request below will use the `default` authority.
+## Interactively acquire a token
+
+To acquire a token interactively with MSAL, build a `AcquireTokenParameters` instance and supply it to `acquireToken`. The token request below uses the `default` authority.
 
 ```java
 IPublicClientApplication pca = ...; // Initialization not shown
@@ -87,9 +111,9 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 pca.acquireToken(parameters);
 ```
 
-## Silently Renew a Token
-Similar to how the interactive request was built-up using the `AcquireTokenParameters` object, `acquireTokenSilent` has an `AcquireTokenSilentParameters` object that specifies the request properties.
+## Silently renew a token
 
+`acquireTokenSilent` has an `AcquireTokenSilentParameters` object that specifies the request properties. Like the interactive token request `aquireToken`, it takes an `AcquireTokenParameters` object:
 
 ```java
 IPublicClientApplication pca = ...; // Initialization not shown
@@ -115,9 +139,9 @@ pca.acquireTokenSilentAsync(parameters);
 ```
 
 ## Specify a policy
-Because policies in B2C are represented as separate authorities, invoking a policy other than the default can be achieved by specifying a `fromAuthority` clause when constructing `acquireToken` or `acquireTokenSilent` parameters.
 
-Example parameters:
+Because policies in B2C are represented as separate authorities, invoking a policy other than the default is achieved by specifying a `fromAuthority` clause when constructing `acquireToken` or `acquireTokenSilent` parameters.  For example:
+
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
     .startAuthorizationFromActivity(activity)
@@ -128,12 +152,13 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
     .build();
 ```
 
-## Handle Password Change Policies
-A sign-up or sign-in user flow with local accounts includes a '**Forgot password?**' link on the first page of the experience. Clicking this link does not automatically trigger a password reset user flow.
+## Handle password change policies
 
-Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by running a specific user flow that resets the password.
+The local account sign-up or sign-in user flow shows a '**Forgot password?**' link. Clicking this link does not automatically trigger a password reset user flow.
 
-To catch a password reset error code, the following implementation can be used inside your `AuthenticationCallback`
+Instead, the error code `AADB2C90118` is returned to your app. Your app should  handle this error code by running a specific user flow that resets the password.
+
+To catch a password reset error code, the following implementation can be used inside your `AuthenticationCallback`:
 
 ```java
 new AuthenticationCallback() {
@@ -159,10 +184,12 @@ new AuthenticationCallback() {
 }
 ```
 
-## Using IAuthenticationResult
-The result of a successful token aqcquisition is the `IAuthenticationResult` object. It will contain your access token as well as user claims and metadata.
+## Use IAuthenticationResult
 
-### Getting the Access Token, Related Properties
+A successful token acquisition results in a `IAuthenticationResult` object. It contains the access token, user claims, and metadata.
+
+### Get the access token and related properties
+
 ```java
 // Get the raw bearer token
 String accessToken = authenticationResult.getAccessToken();
@@ -177,7 +204,8 @@ Date expiry = authenticationResult.getExpiresOn();
 String tenantId = authenticationResult.getTenantId();
 ```
 
-### Getting the Authorized Account
+### Get the authorized account
+
 ```java
 // Get the account from the result
 IAccount account = authenticationResult.getAccount();
@@ -198,10 +226,18 @@ String username = account.getUsername();
 String tenantId = account.getTenantId();
 ```
 
-### IdToken Claims
->Please note: Claims returned in the IdToken are populated by the Security Token Service (STS) and not by MSAL. Depending on the identity provider used (IdP), some claims may be absent. Some IdPs do not currently provide the `preferred_username` claim; because this claim is used by MSAL for caching, a placeholder value is used in its place -- this value is `MISSING FROM THE TOKEN RESPONSE`. For more information on B2C IdToken claims please see [Overview of tokens in Azure Active Directory B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+### IdToken claims
 
-## Managing Accounts and Policies
- Because B2C treats each policy as a separate authority, the access tokens, refresh tokens, and id tokens returned from each policy are considered logically separate entities. In practical terms, this means that each policy returns a separate `IAccount` object whose tokens cannot be used to invoke other policies.
+Claims returned in the IdToken are populated by the Security Token Service (STS), not by MSAL. Depending on the identity provider (IdP) used, some claims may be absent. Some IdPs do not currently provide the `preferred_username` claim. Because this claim is used by MSAL for caching, a placeholder value, `MISSING FROM THE TOKEN RESPONSE`, is used in its place. For more information on B2C IdToken claims, see [Overview of tokens in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
- In simple terms, each policy adds an `IAccount` to the cache for a given user. If a user signs into an application and invokes two policies, they will have 2 IAccounts. Accordingly, if you wish to remove this user from the cache `removeAccount()` must be called once for each policy (two times). When renewing tokens for a policy with `acquireTokenSilent`, the account provided to the `AcquireTokenSilentParameters` must be the same `IAccount` returned from previous invocations of the policy; providing an account returned by another policy will result in an error.
+## Managing accounts and policies
+
+Because B2C treats each policy as a separate authority, the access tokens, refresh tokens, and id tokens returned from each policy are considered logically separate. In practical terms, this means that each policy returns a separate `IAccount` object whose tokens cannot be used to invoke other policies.
+
+Each policy adds an `IAccount` to the cache for each user. If a user signs into an application and invokes two policies, they will have 2 `IAccount`s. If you wish to remove this user from the cache, you must call `removeAccount()` once for each policy (two times).
+
+When you renew tokens for a policy with `acquireTokenSilent`, provide the same `IAccount` that was returned from previous invocations of the policy to  `AcquireTokenSilentParameters`. Providing an account returned by another policy will result in an error.
+
+## Next steps
+
+Learn more about Azure Active Directory B2C (Azure AD B2C) at [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
