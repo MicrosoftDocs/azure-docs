@@ -23,11 +23,21 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 Find reference documentation based on the tool:
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list)
+
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 ## Language Understanding authoring and prediction requests
 
 The Language Understanding service is accessed from an Azure resource you need to create. There are two resources: authoring and prediction endpoint resources. Both of these resources allow you to control your LUIS resources. 
+
+### REST APIs
+
+Both authoring and prediction endpoint APIS are available from REST APIs:
+
+* Authoring [reference documentation](https://go.microsoft.com/fwlink/?linkid=2092087)
+* Prediction runtime [reference documentation](https://go.microsoft.com/fwlink/?linkid=2092356)
+
+### Language-based SDKs
 
 |Language |Reference documentation|Package|Samples|Quickstarts|
 |--|--|--|--|--|
@@ -47,7 +57,7 @@ Bot framework provides [several tools](https://github.com/microsoft/botbuilder-t
 * [LUIS Cli](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - Create and manage your LUIS.ai applications
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- manage parent and child apps
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - Auto generate backing C#/Typescript classes for your LUIS intents and entities.
-* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases)
+* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) - a desktop application that allows bot developers to test and debug bots built using the Bot Framework SDK
 
 
 ## Next steps
