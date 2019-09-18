@@ -55,6 +55,83 @@ To install the Azure Machine Learning extension:
 > [!Tip]
 > Check out the [IntelliCode extension for Visual Studio Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant autocompletions based on the current code context.
 
+## Run an existing python training script in the Azure cloud
+If you have an existing training script, the Azure Machine Learning extension for VS Code not only provides an excellent editing, debugging and source management experience, but also makes it extremely easy to run and store metrics for that script as an Azure Machine Learning experiment in the cloud.
+
+Here's an example. Download the mnist project at BLAHBLAHBLAH and open the folder you copied it to in VS Code.
+
+1. Create a new python environment using your favorite virtual environment package or Anaconda and install the tensorflow and numpy packages.
+
+1. Select the new environment you created as your python interpreter in VS Code.
+
+1. Open **train.py** and run it by opening the debugger and pressing the run button (alternatively just press F5).
+
+[![Run MNIST Training](./media/vscode-tools-for-ai/RunMNIST.gif)](./media/vscode-tools-for-ai/RunMNIST.gif#lightbox)
+
+If everything is installed correctly, the script will run and create a tensorflow model in the outputs folder.
+
+[![Show TensorFlow Model](./media/vscode-tools-for-ai/ShowTensorFlowModel.gif)](./media/vscode-tools-for-ai/ShowTensorFlowModel.gif#lightbox)
+
+Now that you know that your script runs correctly, let's run it in the Azure cloud!
+
+While this could easily be done with no extra modification of **train.py**, doing so would not have the advantage of having Azure keep track of important metrics about each training run.
+
+To modify your project so that Azure can be made aware of your runs:
+
+1. Create a file called **amlrun.py** in the same folder as **train.py**
+
+```python
+import azureml
+from azureml.core import Run
+
+# access the Azure ML run
+# init run param to check if running within AML
+def get_AMLRun():
+    try:
+        run = Run.get_submitted_run()
+        return run
+    except Exception as e:
+        print("Caught = {}".format(e.message))
+        return None
+```
+
+2. Import the amlrun file in **train.py**
+
+```python
+...
+from utils import prepare_data
+import amlrun
+...
+```
+3. Initialize the run object in **train.py**
+
+```python
+...
+init = tf.global_variables_initializer()
+saver = tf.train.Saver()
+run = get_AMLRun()
+...
+```
+4. Log important metrics to Azure for each epoch
+
+```python
+...
+        acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
+
+        # log accuracies to AML logger if using AML
+        if run != None:
+            run.log('Validation Accuracy', np.float(acc_val))
+            run.log('Training Accuracy', np.float(acc_train))
+
+        print(epoch, '-- Training accuracy:', acc_train, '\b Validation
+...
+```
+### Run the script in the cloud
+That's it! Now just use the extension to run your script in the cloud!
+
+   [![Train in cloud](./media/vscode-tools-for-ai/RunGoldenPath.gif)](./media/vscode-tools-for-ai/RunGoldenPath.gif#lightbox)
+
+
 ## Get started with Azure Machine Learning
 
 Before you start training and deploying machine learning models in Visual Studio Code, you need to create an [Azure Machine Learning workspace](concept-workspace.md) in the cloud. This workspace will contain your models and resources.
@@ -100,101 +177,60 @@ To create a compute target:
 
 1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
 
-2. In the tree view, expand your Azure subscription and Azure Machine Learning workspace. In the following example image, the subscription name is **Free Trial**, and the workspace is **TeamWorkspace**.
+1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
 
-3. Under the workspace node, right-click the **Compute** node and choose **Create Compute**.
+1. Under the workspace node, right-click the **Compute** node and choose **Create Compute**.
 
-4. Choose the compute target type from the list.
+1. Choose the compute target type from the list.
 
-5. On the command palette, select a virtual machine size.
+1. In the command palette prompt, select a virtual machine size. Note that you can filter the computes with text, such as "gpu".
 
-6. On the command palette, in the field, enter a name for the compute target.
+1. In the command palette prompt, enter a name for the compute target.
 
-7. In the JSON config file that opens on a new tab, specify any advanced properties. You can specify properties such as a maximum node count.
+1. After entering the name, the compute will be created using default parameters. To change the parameters, right click on the new compute and choose **Edit Compute**.
 
-8. When you finish configuring your compute target, in the lower-right corner of the window, select **Submit**.
+1. In the json that is displayed, make desired changes then click the "Save and continue" CodeLens (using the keyboard you can press **ctrl-shift-p* to invoke the command palette and run the **Azure ML: Save and Continue** command)
 
-Here's an example of how to create an Azure Machine Learning compute (AMLCompute):
+Here's an example of how to create and edit an Azure Machine Learning compute (AMLCompute):
 
 [![Create AML compute in Visual Studio Code](./media/vscode-tools-for-ai/CreateARemoteCompute.gif)](./media/vscode-tools-for-ai/CreateARemoteCompute.gif#lightbox)
 
 #### The run configuration file
 
-The Visual Studio Code extension automatically creates a local compute target and run configurations for your local and docker environments on your local computer. You can find the run configuration files under the associated compute target node.
+To run an Azure Machine Learning experiment on a compute, that compute needs to be configured appropriately. A run configuration file is the mechanism by which this environment is specified.
+
+Here's an example of how to create a run conifiguration for the AmlCompute, created above.
+
+[![Create a run configuration for a compute](./media/vscode-tools-for-ai/CreateARunConfig.gif)](./media/vscode-tools-for-ai/CreateARunConfig.gif#lightbox)
+
+To run Azure ML experiments on your local machine a run configuration file is still required. When creating a local run configuration the python environment used will default to the path to the interpreter you have set within VS Code.
 
 ## Train and tune models
 
-Use Azure Machine Learning for Visual Studio Code (preview) to rapidly iterate on your code, step through and debug, and use your solution for source code control.
+Using the Azure ML extension for VS Code There are multiple ways of running a training script in an experiment.
 
-To run your experiment locally by using Azure Machine Learning:
+1. Right click on the training script and choose **Azure ML: Run as Experiment in Azure**
+1. Cick the Run Experiment toolbar icon.
+1. Right click on a run configuration node.
+1. Use the VS Code command palette to execute **Azure ML: Run Experiment**
 
-1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
+To run an Azure Machine Learning experiment:
+
+1. On the Visual Studio Code activity bar, select the Azure icon.
 
 1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
 
-1. Under the workspace node, expand the **Compute** node and right-click the **Run Config** of the compute you want to use.
+1. Under the workspace node, expand the **Experiments** node and right-click the experiment you want to run.
 
 1. Select **Run Experiment**.
 
-1. From the File Explorer, select the script you want to run.
+1. Choose the name of the python file you want to run to train your model and press enter to submit the run. Note: The file chosen must reside in the folder you currently have open in VS Code.
 
-1. Select **View Experiment Run** to see the integrated Azure Machine Learning portal to monitor your runs and see your trained models.
+1. After the run is submitted, a **Run node** will appear below the experiment you chose. Use this node to monitor the state of your runs. Note: It may be necessary to periodically refresh the window to see the latest status.
 
-Here's an example of how to run an experiment locally:
+Here's an example of how to run an experiment on the compute previously created:
 
-[![Run an experiment locally](./media/vscode-tools-for-ai/RunExperimentLocally.gif)](./media/vscode-tools-for-ai/RunExperimentLocally.gif#lightbox)
-
-### Use remote computes for experiments in Visual Studio Code
-
-To use a remote compute target for training, you need to create a run configuration file. This file tells Azure Machine Learning not only where to run your experiment but also how to prepare the environment.
-
-#### The conda dependencies file
-
-By default, a new conda environment is created for you, and your installation dependencies are managed. However, you must specify your dependencies and their versions in the *aml_config/conda_dependencies.yml* file.
-
-The following snippet from the default *aml_config/conda_dependencies.yml* specifies `tensorflow=1.12.0`. If you don't specify the version of the dependency, the latest version will be used. You can add additional dependencies in the config file.
-
-```yaml
-# The dependencies defined in this file will be automatically provisioned for runs with userManagedDependencies=False.
-
-name: project_environment
-dependencies:
-  # The python interpreter version.
-
-  # Currently Azure ML only supports 3.5.2 and later.
-
-- python=3.6.2
-- tensorflow=1.12.0
-
-- pip:
-    # Required packages for AzureML execution, history, and data preparation.
-
-  - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
-  - --extra-index-url https://pypi.python.org/simple
-  - azureml-defaults
-
-```
-
-To run your experiment with Azure Machine Learning on a remote compute target:
-
-1. On the Visual Studio Code activity bar, select the Azure icon. The Azure Machine Learning sidebar appears.
-
-1. In the tree view, expand your Azure subscription and Azure Machine Learning workspace.
-
-1. In the editor window, right-click your Python script, and select **AML: Run as Experiment in Azure**.
-
-1. On the command palette, select the compute target.
-
-1. On the command palette, in the field, enter the run configuration name.
-
-1. Edit the *conda_dependencies.yml* file to specify the experiment's runtime dependencies. Then in the lower-right corner of the window, select **Submit**.
-
-1. Select **View Experiment Run** to see the integrated Azure Machine Learning portal to monitor your runs and see your trained models.
-
-Here's an example of how to run an experiment on a remote compute target:
-
-[![Run an experiment on a remote target](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif)](./media/vscode-tools-for-ai/runningOnARemoteTarget.gif#lightbox)
-
+[![Run an experiment locally](./media/vscode-tools-for-ai/RunExperiment.gif)](./media/vscode-tools-for-ai/RunExperiment.gif#lightbox)
 
 ## Deploy and manage models
 In Azure Machine Learning, you can deploy and manage your machine learning models in the cloud and at the edge.
