@@ -188,7 +188,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 If you have ExpressRoute and site-to-site coexistence, transit routing isn't supported. For more information, see [Configure ExpressRoute and site-to-site by using PowerShell](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager).
 
-If you have enabled ExpressRoute to connect your local networks to an Azure virtual network, you can enable peering between the virtual networks where you want to have transit routing. To allow your local networks connect to the remote virtual network, you must configure [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity). 
+If you have enabled ExpressRoute to connect your local networks to an Azure virtual network, you can enable peering between the virtual networks where you want to have transit routing. To allow your local networks to connect to the remote virtual network, you must configure [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity). 
 
 > [!Note]
 > Virtual network peering is available only for virtual networks in the same region.
