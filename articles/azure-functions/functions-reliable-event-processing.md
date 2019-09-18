@@ -12,23 +12,23 @@ ms.author: cshoe
 
 # Azure Functions reliable event processing
 
-Event processing is one of the most common scenarios in serverless architecture. This article describes how to create a reliable message processor to avoid losing messages.
+Event processing is one of the most common scenarios in serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
 
 The patterns described in this article demonstrate how to take advantage of dynamic scale and consumption pricing without compromising reliability.
 
 ## Challenges of event streams in distributed systems
 
-Imagine a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Azure Functions instances can consume the incoming 100 events every second.
+Consider a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Functions instances can consume the incoming 100 events every second.
 
 However, consider the following less-optimal conditions:
 
 - What if the event publisher sends a corrupt event?
-- What if your Functions instance has a hiccup and crashes mid-execution?
+- What if your Functions instance encounters unhandled exceptions?
 - What if a downstream system goes offline?
 
 How do you handle these situations while preserving the throughput of your application?
 
-With queues, reliable messaging comes naturally. When paired with an Azure Functions trigger, the function creates a lock on the queue message. If processing fails, the lock is released to allow another instance to retry processing. Processing then continues until either the message is evaluated successfully, or it is added to a poison queue.
+With queues, reliable messaging comes naturally. When paired with a Functions trigger, the function creates a lock on the queue message. If processing fails, the lock is released to allow another instance to retry processing. Processing then continues until either the message is evaluated successfully, or it is added to a poison queue.
 
 Even while a single queue message may remain in a retry cycle, other parallel executions continue to keep to dequeueing remaining messages. The result is that the overall throughput remains largely unaffected by one bad message. However, storage queues don’t guarantee ordering and aren’t optimized for the high throughput demands required by Event Hubs.
 
@@ -78,7 +78,7 @@ Samples that demonstrate how to use exception filters are available in the [Azur
 
 Some issues arise even when an error is not present. For example, consider a failure that occurs in the middle of an execution. In this case, if a function doesn’t complete execution, the offset pointer is never progressed. If the pointer doesn't advance, then any instance that runs after a failed execution continues to read the same messages. This situation provides an "at-least-once" guarantee.
 
-The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the principles of idempotency.
+The assurance that every message is processed at least one time implies that some messages may be processed more than once. Your function apps need to be aware of this possibility and must be built around the [principles of idempotency](./functions-idempotent.md).
 
 ## Stop and restart execution
 
