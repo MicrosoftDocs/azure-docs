@@ -155,7 +155,7 @@
       href: how-to-create-register-datasets.md
   - name: Train models
     items:
-    - name: Different ways to train models
+    - name: Model training
       displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Set up training environments

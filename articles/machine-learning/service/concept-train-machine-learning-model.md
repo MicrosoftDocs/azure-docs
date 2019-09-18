@@ -1,7 +1,7 @@
 ---
 title: Model training methods
-titleSuffix: Azure Machine Learning service
-description: Learn the different methods you can use to train a machine learning model with the Azure Machine Learning service. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogenous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
+titleSuffix: Azure Machine Learning
+description: Learn the different methods you can use to train a ML model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogenous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -13,40 +13,87 @@ ms.date: 09/18/2019
 
 # Train machine learning models with Azure Machine Learning
 
-Azure Machine Learning service provides several ways to train your models. Use the following list to determine which training method is right for you:
+Azure Machine Learning provides several ways to train your models. Use the following list to determine which training method is right for you:
 
-+ **Run configuration**: A low-level method of training, which provides more flexibility and control over the training process.
++ **No code**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI.
 
-+ **Estimator**: A high-level abstraction that makes it easier to use popular machine learning frameworks.
++ **Python**: The Azure Machine Learning SDK provides several methods to train models:
 
-+ **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability.
+    + **Script run**: Script runs are a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training job.
 
-    > [!TIP]
-    > Machine learning pipelines can use run configuration or estimators for training models.
+    + **Estimator**: Estimator classes make it easy to train models based on popular machine learning frameworks.
+
+    + **Automated machine learning**: Automate the time consuming, iterative tasks of model development.
+
+    + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability.
+
+        > [!TIP]
+        > Machine learning pipelines can use run configuration or estimators for training models.
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
-## Run configuration
+## Visual interface
 
-A __run configuration__ defines the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the training environment where your script runs.
+The visual interface (preview) enables you to prepare train machine learning models without writing code.
 
-You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. Without having to change your training script for the new environment.
+__Concepts__
 
-For more information on using run configurations, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md).
++ [What is the visual interface?](ui-concept-visual-interface.md)
+
+__Tutorials and examples__
+
++ [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
++ [Regression: Predict price](ui-sample-regression-predict-automobile-price-basic.md)
++ [Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
++ [Classification: Predict churn, appetency, and up-selling](ui-sample-classification-predict-churn.md)
+
+
+## Script run
+
+A script run uses a [run configuration](concept-azure-machine-learning-architecture.md#run-configurations) to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on a compute target when you submit your script for a training run.
+
+You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use.
+
+For more information on using script runs, see the following articles and examples:
+
+__How to__
+
+* [Set up and use compute targets for model training](how-to-set-up-training-targets.md).
+
+__Tutorials and examples__
+
+* []
 
 ## Estimator
 
-To make it easier to train a model using popular frameworks, the Azure Machine Learning SDK provides __estimators__ for the following frameworks:
+Estimators make it easy to train models using popular ML frameworks.
 
-+ Scikit-learn
-+ TensorFlow
-+ Keras
-+ PyTorch
-+ Chainer
+__How to__
 
-There is also a generic estimator class that can be used for any framework.
+* [Create estimators in training](how-to-train-ml-models.md)
 
-For more information on using estimators, see [Create estimators in training](how-to-train-ml-models.md).
+__Tutorials and examples__
+
+* [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
+* 
+
+## Automated Machine Learning
+
+Define the iterations, hyperparameter settings, featurization and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel and stops once it hits the exit criteria you defined.
+
+__Concepts__
+
+* [What is automated machine learning?](concept-automated-ml.md)
+
+__How to__
+
+* [Configure automated ML experiments in Python](how-to-configure-auto-train.md)
+* [Auto-train a time-series forecast model](how-to-auto-train-forecast.md)
+
+__Tutorials and examples__
+
+* [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
+* [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
 
 ## Machine learning pipeline
 
