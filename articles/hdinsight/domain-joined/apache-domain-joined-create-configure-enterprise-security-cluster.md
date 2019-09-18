@@ -14,11 +14,11 @@ ms.date: 05/09/2019
 
 Enterprise Security Package (ESP) for Azure HDInsight gives you access to Active Directory-based authentication, multiuser support, and role-based access control for your Apache Hadoop clusters in Azure. HDInsight ESP clusters enable organizations that adhere to strict corporate security policies to process sensitive data securely.
 
-Use this guide to configure the necessary resources to allow on-premises users to sign in to an ESP-enabled HDInsight cluster. This guide shows how to create an ESP-enabled Azure HDInsight cluster. It also shows how to create a Windows IaaS VM on which Active Directory and Domain Name System (DNS) are enabled. 
+This guide shows how to create an ESP-enabled Azure HDInsight cluster. It also shows how to create a Windows IaaS VM on which Active Directory and Domain Name System (DNS) are enabled. Use this guide to configure the necessary resources to allow on-premises users to sign in to an ESP-enabled HDInsight cluster.
 
-This server you create will act as a replacement for your *actual* on-premises environment. You'll use it for the setup and configuration steps. Later you'll repeat the steps in your own environment. 
+The server you create will act as a replacement for your *actual* on-premises environment. You'll use it for the setup and configuration steps. Later you'll repeat the steps in your own environment. 
 
-This guide will also help you create a hybrid identity environment by using password hash synchronization with Azure Active Directory (Azure AD). The guide complements [Use ESP in HDInsight](apache-domain-joined-architecture.md).
+This guide will also help you create a hybrid identity environment by using password hash sync with Azure Active Directory (Azure AD). The guide complements [Use ESP in HDInsight](apache-domain-joined-architecture.md).
 
 Before you use this process in your own environment:
 * Set up Active Directory and DNS.
@@ -43,25 +43,25 @@ In this section, you'll use an Azure Quickstart deployment template to create ne
         * **Location**: Central US
         * **Admin Username**: HDIFabrikamAdmin
         * **Admin Password**: \<YOUR_PASSWORD>
-        * **Domain**: HDIFabrikam.com
+        * **Domain Name**: HDIFabrikam.com
         * **Dns Prefix**: hdifabrikam
 
-        ![Template for Create Azure VM with a new Azure AD Forest](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
+        ![Template for Create an Azure VM with a new Azure AD Forest](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-azure-vm-ad-forest.png)
 
     1. Select **Purchase**.
     1. Monitor the deployment and wait for it to finish.
-    1. Make sure the resources are created under the correct resource group, `OnPremADVRG`.
+    1. Make sure the resources are created under the correct resource group, **OnPremADVRG**.
 
 ## Configure users and groups for cluster access
 
 In this section, you'll create the users that will have access to the HDInsight cluster by the end of this guide.
 
 1. Connect to the domain controller by using Remote Desktop.
-    1. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the `OnPremADVRG` resource group.
+    1. If you used the template mentioned at the beginning, the domain controller is a VM called **adVM** in the **OnPremADVRG** resource group.
     1. In the Azure portal, select **Resource groups** > **OnPremADVRG** > **adVM** > **Connect**.
     1. Select the **RDP** tab > **Download RDP File**.
     1. Save the file to your computer and open it.
-    1. When prompted for credentials, use `HDIFabrikam\HDIFabrikamAdmin` as the username. Then enter the password that you chose for the admin account.
+    1. When prompted for credentials, use *HDIFabrikam\HDIFabrikamAdmin* as the username. Then enter the password that you chose for the admin account.
 
 1. When your Remote Desktop session opens on the domain controller VM, on the **Server Manager** dashboard, open **Active Directory Users and Computers**. In the upper-right corner, select **Tools** > **Active Directory Users and Computers**.
 
@@ -77,7 +77,7 @@ In this section, you'll create the users that will have access to the HDInsight 
 
         ![Create the first admin user object](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0020.png)
 
-    1. In the pop-up window that appears, enter a password for the new account. Select **Password never expires**. Select **OK**.
+    1. In the pop-up window that appears, enter a password for the new account. Select **Password never expires** > **OK**.
     1. Select **Finish** to create the new account.
     1. Create another user named *HDIAdmin*.
 
@@ -98,7 +98,7 @@ In this section, you'll create the users that will have access to the HDInsight 
 
         ![Add the member HDIUser to the group HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/active-directory-add-users-to-group.png)
 
-You've now created your Azure AD environment. You've added two users and a user group that can access the HDInsight cluster.
+You've now created your Active Directory environment. You've added two users and a user group that can access the HDInsight cluster.
 
 The users will be synchronized with Azure AD.
 
@@ -120,28 +120,27 @@ The users will be synchronized with Azure AD.
 
 ## Configure your Azure AD tenant
 
-Now you'll configure your Azure AD tenant so that you can synchronize users and groups from the on-premises Azure AD instance to the cloud.
+Now you'll configure your Azure AD tenant so that you can synchronize users and groups from the on-premises Active Directory instance to the cloud.
 
 1. Create an Azure AD tenant administrator.
     1. Sign in to the Azure portal and select your Azure AD tenant, **HDIFabrikam**.
     1. Under **Manage**, select **Users** > **New user**.
     1. Enter the following details for the new user:
-    
         * **Name**: fabrikamazureadmin
         * **User name**: fabrikamazureadmin@hdifabrikam.com
         * **Password**: A secure password of your choice
-    
+
     1. In the **Groups** section, search for **AAD DC Administrators** and click **Select**.
 
         ![The Azure AD Groups dialog box](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
-    1. Open the **Directory role** section, and on the right, select **Global administrator**. Select **Ok**.
+    1. Open the **Directory role** section, and on the right, select **Global administrator** > **Ok**.
 
         ![The Azure AD role dialog box](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
 
     1. Enter a password for the user. Then select **Create**.
 
-1. If you want to change the password for the newly created user \<fabrikamazureadmin@hdifabrikam.com>, use the identity to sign in to the Azure portal. Then you will prompted to change the password.
+1. If you want to change the password for the newly created user \<fabrikamazureadmin@hdifabrikam.com>, use the identity to sign in to the Azure portal. Then you'll be prompted to change the password.
 
 ## Sync on-premises users to Azure AD
 
@@ -161,7 +160,7 @@ Now you'll configure your Azure AD tenant so that you can synchronize users and 
 
 ### Configure a sync with the on-premises domain controller
 
-1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your AD tenant. Then select **Next**. 
+1. On the **Connect to Azure AD** page, enter the username and password of the global administrator for Azure AD. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**. 
 
     ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
@@ -169,22 +168,22 @@ Now you'll configure your Azure AD tenant so that you can synchronize users and 
 
    ![The "Connect to AD DS" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, select **Next**.
-    ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
+   ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
 1. On the **Ready to configure** page, select **Install**.
 
-    ![The "Ready to configure" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
+   ![The "Ready to configure" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
 1. On the **Configuration complete** page, select **Exit**.
-    ![The "Configuration complete" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
+   ![The "Configuration complete" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. After the sync finishes, confirm that the users you created on the IaaS directory are synced to Azure AD.
-    1. Sign in to the Azure portal.
-    1. Select **Azure Active Directory** > **HDIFabrikam** > **Users**.
+   1. Sign in to the Azure portal.
+   1. Select **Azure Active Directory** > **HDIFabrikam** > **Users**.
 
 ### Create a user-assigned managed identity
 
-Create a user-assigned managed identity that will be used to configure Azure AD Domain Services (Azure AD DS). For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
+Create a user-assigned managed identity that you can use to configure Azure AD Domain Services (Azure AD DS). For more information, see [Create, list, delete, or assign a role to a user-assigned managed identity by using the Azure portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md).
 
 1. Sign in to the Azure portal.
 1. Select **Create a resource** and type *managed identity*. Select **User Assigned Managed Identity** > **Create**.
@@ -221,11 +220,11 @@ Follow these steps to enable Azure AD DS. For more information, see [Enable Azur
 
         ![Azure AD DS basic details](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0084.png)
 
-1. On the **Network** page, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created with the PowerShell script. Or choose **Create new** to create a virtual network now.
+1. On the **Network** page, select the network (**HDIFabrikam-VNET**) and the subnet (**AADDS-subnet**) that you created by using the PowerShell script. Or choose **Create new** to create a virtual network now.
 
     ![The "Create virtual network" step](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0086.png)
 
-1. On the **Administrator group** page, you should see a notification that a group named "AAD DC Administrators" has already been created to administer this group. You can choose to modify the membership of this group if you want to, but in this case you don't need to change the membership. Select **OK**.
+1. On the **Administrator group** page, you should see a notification that a group named **AAD DC Administrators** has already been created to administer this group. You can modify the membership of this group if you want to, but in this case you don't need to change it. Select **OK**.
 
     ![View the Azure AD administrator group](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0088.png)
 
@@ -237,11 +236,11 @@ Follow these steps to enable Azure AD DS. For more information, see [Enable Azur
 
     ![The summary of "Enable Azure AD Domain Services"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0092.png)
 
-1. After you enable Azure AD DS, a local DNS server runs on the Azure AD VMs.
+After you enable Azure AD DS, a local DNS server runs on the Azure AD VMs.
 
 ### Configure your Azure AD DS virtual network
 
-Follow the steps in this section to configure your Azure AD DS virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
+Use the following steps to configure your Azure AD DS virtual network (**HDIFabrikam-AADDSVNET**) to use your custom DNS servers.
 
 1. Locate the IP addresses of your custom DNS servers. 
     1. Select the **HDIFabrikam.com** Azure AD DS resource. 
@@ -266,7 +265,7 @@ In our scenario, we configured Azure AD DS to use IP addresses 10.0.0.4 and 10.0
 
 Lightweight Directory Access Protocol (LDAP) is used to read from and write to Azure Active Directory. You can make LDAP traffic confidential and secure by using Secure Sockets Layer (SSL) or Transport Layer Security (TLS) technology. You can enable LDAP over SSL (LDAPS) by installing a properly formatted certificate.
 
-For more information on secure LDAP, see [Configure LDAPS for an Azure AD DS managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
+For more information about secure LDAP, see [Configure LDAPS for an Azure AD DS managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap).
 
 In this section, you create a self-signed certificate, download the certificate, and configure LDAPS for the **HDIFabrikam** Azure AD DS managed domain.
 
@@ -286,21 +285,21 @@ Verify that the certificate is installed in the computer's **Personal** store:
 
 1. Start Microsoft Management Console (MMC).
 1. Add the **Certificates** snap-in that manages certificates on the local computer.
-1. Expand **Certificates (Local Computer)**, expand **Personal**, and then expand **Certificates**. A new certificate should exist in the **Personal** store. This certificate is issued to the fully qualified host name.
+1. Expand **Certificates (Local Computer)** > **Personal** > **Certificates**. A new certificate should exist in the **Personal** store. This certificate is issued to the fully qualified host name.
 
     ![Verify local certificate creation](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
-1. In pane on the right, right-click the certificate that you just created. Point to **All Tasks**, and then select **Export**.
+1. In pane on the right, right-click the certificate that you created. Point to **All Tasks**, and then select **Export**.
 
-1. On the **Export Private Key** page, select **Yes, export the private key**. The private key is required for the encrypted messages to be read from the computer where the key will be imported.
+1. On the **Export Private Key** page, select **Yes, export the private key**. The computer where the key will be imported needs the private key to read the encrypted messages.
 
     ![The Export Private Key page of the Certificate Export Wizard](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
 1. On the **Export File Format** page, leave the default settings, and then select **Next**. 
-1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1** and select **Next**.
+1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
 1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**.
 1. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
-1. Enable LDAPS for an Azure AD AD managed domain.
+1. Enable LDAPS for an Azure AD DS managed domain.
     1. From the Azure portal, select the domain **HDIFabrikam.com**.
     1. Under **Manage**, select **Secure LDAP**.
     1. On the **Secure LDAP** page, under **Secure LDAP**, select **Enable**.
@@ -322,20 +321,20 @@ Verify that the certificate is installed in the computer's **Personal** store:
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | \<Desired Number\> |
+        | Priority | \<Desired number> |
         | Name | Port_LDAP_636 |
 
     ![The "Add inbound security rule" dialog box](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
 
-1. **HDIFabrikamManagedIdentity** is the user-assigned managed identity. The HDInsight Domain Services Contributor role is enabled for the managed identity that will allow this identity to read, create, modify, and delete domain services operations.
+**HDIFabrikamManagedIdentity** is the user-assigned managed identity. The HDInsight Domain Services Contributor role is enabled for the managed identity that will allow this identity to read, create, modify, and delete domain services operations.
 
-    ![Create a user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
+![Create a user-assigned managed identity](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0117.png)
 
 ## Create an ESP-enabled HDInsight cluster
 
 This step requires the following prerequisites:
 
-1. Create a new resource group `HDIFabrikam-WestUS` in the location `West US`.
+1. Create a new resource group *HDIFabrikam-WestUS* in the location **West US**.
 1. Create a virtual network that will host the ESP-enabled HDInsight cluster.
 
     ```powershell
@@ -352,44 +351,43 @@ This step requires the following prerequisites:
     Add-AzVirtualNetworkPeering -Name 'AADDSVNet-HDIVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS')
     ```
 
-1. Create a new Azure Data Lake Storage Gen2 account called **Hdigen2store**. Configure the account with the user-managed identity **HDIFabrikamManagedIdentity**. For more information on creating Data Lake Storage Gen2 accounts enabled with user managed identities, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
+1. Create a new Azure Data Lake Storage Gen2 account called **Hdigen2store**. Configure the account with the user-managed identity **HDIFabrikamManagedIdentity**. For more information, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
-1. Setup custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
+1. Set up custom DNS on the **HDIFabrikam-AADDSVNET** virtual network.
     1. Go to the Azure portal > **Resource groups** > **OnPremADVRG** > **HDIFabrikam-AADDSVNET** > **DNS servers**.
-    1. Select **Custom** and enter `10.0.0.4` and `10.0.0.5`.
+    1. Select **Custom** and enter *10.0.0.4* and *10.0.0.5*.
     1. Select **Save**.
 
-        ![Save custom DNS settings for virtual network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
+        ![Save custom DNS settings for a virtual network](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 
 1. Create a new ESP-enabled HDInsight Spark cluster.
     1. Select **Custom (size, settings, apps)**.
-    2. Enter the desired details for section 1 **Basics**. Ensure that the **Cluster type** is **Spark 2.3 (HDI 3.6)** and the **Resource group** is **HDIFabrikam-CentralUS**
+    2. Enter details for **Basics** (section 1). Ensure that the **Cluster type** is **Spark 2.3 (HDI 3.6)**. Ensure that the **Resource group** is **HDIFabrikam-CentralUS**.
 
-    1. Under section 2 **Security + Networking**, complete the following steps:
-        1. Select **Enabled** under **Enterprise Security Package**.
-        1. Select **Cluster admin user** and select the **HDIAdmin** account that you created earlier as the on-premises admin user. Click **Select**.
+    1. For **Security + networking** (section 2), complete the following steps:
+        1. Under **Enterprise Security Package**, select **Enabled**.
+        1. Select **Cluster admin user** and select the **HDIAdmin** account that you created as the on-premises admin user. Click **Select**.
+        1. Select **Cluster access group** > **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
-        1. Select **Cluster access group** and then select **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
-
-            ![select cluster access group HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
+            ![Select the cluster access group HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**. Select **Create**.
 
-1. Sign in to the Ambari UI for the newly created cluster at `https://CLUSTERNAME.azurehdinsight.net` by using your admin user name `hdiadmin@hdifabrikam.com` and password.
+1. Sign in to the Ambari UI for the newly created cluster at `https://CLUSTERNAME.azurehdinsight.net`. Use your admin username *hdiadmin@hdifabrikam.com* and its password.
 
-    ![Apache Ambari UI sign in window](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
+    ![The Apache Ambari UI sign-in window](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
-1. Select **Roles** from the cluster dashboard.
-1. On the **Roles** page, enter the group **hdiusergroup** to assign it to the **Cluster Administrator** role under **Assign roles to these**.
+1. From the cluster dashboard, select **Roles**.
+1. On the **Roles** page, under **Assign roles to these**, next to the **Cluster Administrator** role, enter the group *hdiusergroup*. 
 
-    ![Assign Cluster Administrator role to hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
+    ![Assign the cluster admin role to hdiusergroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0137.jpg)
 
-1. Open your SSH client and sign in to the cluster by using the **hdiuser** that you created previously in the on-premises Active Directory.
+1. Open your Secure Shell (SSH) client and sign in to the cluster. Use the **hdiuser** that you created in the on-premises Active Directory instance.
 
-    ![Sign in to cluster with SSH client](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
+    ![Sign in to the cluster by using the SSH client](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0139.jpg)
 
-If you are able to sign in with this account, then you have configured your ESP cluster correctly to sync with your on-premises active directory.
+If you can sign in with this account, you've configured your ESP cluster correctly to sync with your on-premises Active Directory instance.
 
 ## Next steps
 
-For more information, see [An introduction to Apache Hadoop security with ESP](hdinsight-security-overview.md).
+Read [An introduction to Apache Hadoop security with ESP](hdinsight-security-overview.md).
