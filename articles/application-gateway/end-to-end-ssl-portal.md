@@ -14,13 +14,13 @@ ms.custom: mvc
 This article shows you how to use the Azure portal to configure end-to-end SSL encryption with an application gateway v1 SKU.  
 
 > [!NOTE]
-> Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration. Portal support for adding trusted root certificates is not available yet. Therefore, in case of v2 SKU see [configure end-to-end SSL using PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> Application Gateway v2 SKU requires trusted root certificates for enabling end-to-end configuration.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Before you begin
 
-To configure end-to-end SSL with an application gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. For end-to-end SSL encryption, the back end must be whitelisted with the application gateway. To do this, upload the public certificate of the back-end servers, also known as authentication certificates, to the application gateway. Adding the certificate ensures that the application gateway only communicates with known back-end instances. This further secures the end-to-end communication.
+To configure end-to-end SSL with an Application Gateway, a certificate is required for the gateway and certificates are required for the back-end servers. The gateway certificate is used to derive a symmetric key as per SSL protocol specification. The symmetric key is then used to encrypt and decrypt the traffic sent to the gateway. For end-to-end SSL encryption, the right back-end servers must be allowed in the application gateway. To do this, upload the public certificate of the back-end servers, also known as Authentication Certificates (v1) or Trusted Root Certificates (v2), to the Application Gateway. Adding the certificate ensures that the Application Gateway only communicates with known back-end instances. This further secures the end-to-end communication.
 
 To learn more, see [SSL termination and end-to-end SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
 
@@ -32,7 +32,7 @@ To create a new application gateway with end-to-end SSL encryption, you'll need 
 
 Refer to this article to understand how to [enable SSL termination while creating a new application gateway](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
 
-### Whitelist certificates for backend servers
+### Add authentication/root certificate of back-end servers
 
 1. Select **All resources**, and then select **myAppGateway**.
 
@@ -40,16 +40,23 @@ Refer to this article to understand how to [enable SSL termination while creatin
 
 3. Select **appGatewayBackendHttpSettings**.
 
-4. Under **Protocol**, select **HTTPS**. A pane for **Backend authentication certificates** will appear. 
+4. Under **Protocol**, select **HTTPS**. A pane for **Backend authentication certificates or Trusted root certificates** will appear. 
 
-5. Under **Backend authentication certificates**, choose **Create new**.
+5. Choose **Create new**.
 
-6. Enter suitable **Name**.
+6. Enter a suitable **Name**.
 
-7. Upload the certificate using the **Upload CER certificate** box.![addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. Select the certificate file using the **Upload CER certificate** box.
 
-   > [!NOTE]
-   > The certificate provided in this step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
+   For Standard and WAF (v1) Application Gateways, you should upload the public key of your backend server certificate in .cer format.
+
+   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+   For Standard_v2 and WAF_v2 Application Gateways, you should upload the **root certificate** of the backend server certificate in .cer format. If the backend certificate is issued by a well-known CA, you can check the "Use Well Known CA certificate" box and there is no need to upload a certificate.
+
+   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
+
+   ![rootcert](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
 8. Select **Save**.
 
@@ -57,7 +64,7 @@ Refer to this article to understand how to [enable SSL termination while creatin
 
 To configure an existing application gateway with end-to-end SSL encryption, you'll need to first enable SSL termination in the listener. This will enable SSL encryption for the communication between the client and application gateway. Then, you'll need to whitelist certificates for backend servers in the HTTP settings to enable SSL encryption for the communication between the application gateway and backend servers, accomplishing end-to-end SSL encryption.
 
-You'll need to use a listener with HTTPS protocol and certificate for enabling SSL termination. You can't change the protocol of an existing listener. So, you can either choose to use an existing listener with HTTPS protocol and certificate, or create a new listener. In case you choose the former, you can ignore the below mentioned steps to **Enable SSL termination in existing application gateway** and directly move to **Whitelist certificates for backend servers** section. If you choose the latter, use these steps.
+You'll need to use a listener with HTTPS protocol and certificate for enabling SSL termination. So, you can either choose to use an existing listener with HTTPS protocol and certificate, or create a new listener. In case you choose the former, you can ignore the below mentioned steps to **Enable SSL termination in existing application gateway** and directly move to **Add authentication/trusted root certificates for back-end servers** section. If you choose the latter, use these steps.
 
 ### Enable SSL termination in existing application gateway
 
@@ -72,13 +79,13 @@ You'll need to use a listener with HTTPS protocol and certificate for enabling S
 5. Upload the PFX certificate that you intend to use for SSL termination between the client and application gateway.
 
    > [!NOTE]
-   > For testing purposes, you can use a self-signed certificate. You should not use self-signed certificate for production workloads. Learn how to [create a self-signed certificate](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > For testing purposes, you can use a self-signed certificate. but not advised for production workloads as they are harder to manage and not completely secure. Learn how to [create a self-signed certificate](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
 
 6. Add other required settings for the **Listener** as per your requirement.
 
 7. Select **OK** to save.
 
-### Whitelist certificates for backend servers
+### Add authentication/trusted root certificates of back-end servers
 
 1. Select **All resources**, and then select **myAppGateway**.
 
@@ -86,16 +93,21 @@ You'll need to use a listener with HTTPS protocol and certificate for enabling S
 
 3. Select **appGatewayBackendHttpSettings**.
 
-4. Under **Protocol**, select **HTTPS**. A pane for **Backend authentication certificates** will appear. 
+4. Under **Protocol**, select **HTTPS**. A pane for **Backend authentication certificates or Trusted root certificates** will appear. 
 
-5. Under **Backend authentication certificates**, choose **Create new**.
+5. Choose **Create new**.
 
 6. Enter suitable **Name**.
 
-7. Upload the certificate using the **Upload CER certificate** box.![addcert](./media/end-to-end-ssl-portal/addcert.png)
+7. Select the certificate file using the **Upload CER certificate** box.
 
-   > [!NOTE]
-   > The certificate provided in this step should be the public key of the .pfx certificate present on the back end. Export the certificate (not the root certificate) installed on the back-end server in Claim, Evidence, and Reasoning (CER) format and use it in this step. This step whitelists the back end with the application gateway.
+   For Standard and WAF (v1) Application Gateways, you should upload the public key of your backend server certificate in .cer format.
+
+   ![addcert](./media/end-to-end-ssl-portal/addcert.png)
+
+   For Standard_v2 and WAF_v2 Application Gateways, you should upload the **root certificate** of the backend server certificate in .cer format. If the backend certificate is issued by a well-known CA, you can check the "Use Well Known CA certificate" box and there is no need to upload a certificate.
+
+   ![addtrustedrootcert](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
 8. Select **Save**.
 
