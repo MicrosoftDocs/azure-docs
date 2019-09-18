@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Ro
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant
-* [A Robin tenant](https://keepersecurity.com/pricing.html?t=e)
+* [A Robin tenant](https://robinpowered.com/pricing/)
 * A user account in Robin with Admin permissions.
 
 ## Assigning users to Robin
@@ -89,7 +89,7 @@ Before configuring Robin for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Robin based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Robin , following the instructions provided in the [Robin Single sign-on tutorial](Leapsome-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Robin , following the instructions provided in the [Robin Single sign-on tutorial](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/robin-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Robin in Azure AD:
 
