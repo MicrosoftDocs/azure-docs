@@ -61,7 +61,7 @@ The migration goal is to use group-based licensing to change user licenses from 
 
 1. Remove the same user batch from the source group. Group-based licensing responds to the change and the *current licenses* are removed from the users.
 
-1. Repeat the process for subsequent batches of users.
+Repeat the process for subsequent batches of users.
 
 ### Migrate the user in the Azure portal
 
