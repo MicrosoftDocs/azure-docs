@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 09/18/2019
 ---
 # Server logs in Azure Database for PostgreSQL - Single Server
 Azure Database for PostgreSQL generates query and error logs. Query and error logs can be used to identify, troubleshoot, and repair configuration errors and suboptimal performance. (Access to transaction logs is not included). 
@@ -22,12 +22,21 @@ If you've enabled logs, you can access them from the Azure Database for PostgreS
 
 
 ## Diagnostic logs
-Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server, you can choose to have them emitted to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how-to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md). 
+Azure Database for PostgreSQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled logs on your PostgreSQL server, you can choose to have them emitted to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), Event Hubs, or Azure Storage. 
 
 > [!IMPORTANT]
 > This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).
 
-The following table describes what's in each log. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary. 
+To enable Diagnostic logs using the Azure portal:
+
+   1. In the portal, go to *Diagnostic Settings* in the navigation menu of your Postgres server.
+   2. Select *Add Diagnostic Setting*.
+   3. Name this setting. 
+   4. Select your preferred downstream location (storage account, event hub, log analytics). 
+   5. Select the data types you want.
+   6. Save your setting.
+
+The following table describes what is in each log. Depending on the output endpoint you choose, the fields included and the order in which they appear may vary. 
 
 |**Field** | **Description** |
 |---|---|
@@ -52,6 +61,9 @@ The following table describes what's in each log. Depending on the output endpoi
 | DatatypeName | Name of the datatype (if applicable) |
 | LogicalServerName | Name of the server | 
 | _ResourceId | Resource URI |
+| Prefix | Log line's prefix |
+
+
 
 ## Next steps
 - Learn more about accessing logs from the [Azure portal](howto-configure-server-logs-in-portal.md) or [Azure CLI](howto-configure-server-logs-using-cli.md).

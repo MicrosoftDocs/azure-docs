@@ -18,7 +18,7 @@ ms.subservice: B2C
 >[!IMPORTANT]
 > Any user flow listed in the article is considered to be in public preview unless identified as **Recommended**. You should only use recommended user flows for your production applications.
 
-User flows in Azure Active Directory (Azure AD) B2C help you to set up common [policies](active-directory-b2c-reference-policies.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. In Azure AD B2C, you can select from a collection of both recommended user flows and preview user flows. 
+User flows in Azure Active Directory B2C (Azure AD B2C) help you to set up common [policies](active-directory-b2c-reference-policies.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. In Azure AD B2C, you can select from a collection of both recommended user flows and preview user flows.
 
 New user flows are added as new versions. As user flows become stable, they'll be recommended for use. User flows are marked as **Recommended** if they've been thoroughly tested. User flows will be considered in preview until marked as recommended. Use a recommended user flow for any production application, but choose from other versions to test new functionality as it becomes available. You shouldn't use older versions of recommended user flows.
 

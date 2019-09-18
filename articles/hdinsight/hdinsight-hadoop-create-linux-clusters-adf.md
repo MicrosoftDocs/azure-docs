@@ -2,8 +2,8 @@
 title: 'Tutorial: On-demand Apache Hadoop clusters in Azure HDInsight - Data Factory'
 description: Tutorial - Learn how to create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory.
 author: hrasheed-msft
-ms.reviewer: jasonh
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 04/18/2019
@@ -199,7 +199,7 @@ In this article, you configure the Hive activity to create an on-demand HDInsigh
 
 6. Select **Author & Monitor** to launch the Azure Data Factory authoring and monitoring portal.
 
-    ![Azure Data Factory overview](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory overview")
+    ![Azure Data Factory portal overview](./media/hdinsight-hadoop-create-linux-clusters-adf/data-factory-portal-overview.png "Azure Data Factory overview")
 
 ## Create linked services
 
@@ -348,7 +348,7 @@ Alternatively, you can delete the entire resource group that you created for thi
 1. On the **Resources** tile, you shall have the default storage account and the data factory listed unless you share the resource group with other projects.
 1. Select **Delete resource group**. Doing so deletes the storage account and the data stored in the storage account.
 
-    ![Delete resource group](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Delete resource group")
+    ![Azure portal delete resource group](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "Delete resource group")
 
 1. Enter the resource group name to confirm deletion, and then select **Delete**.
 
