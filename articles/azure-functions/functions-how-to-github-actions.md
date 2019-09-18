@@ -62,8 +62,38 @@ Setting up the environment can be done using one of the publish setup actions.
 |**JavaScript**     | `actions/setup-node` |
 |**Python**   | `actions/setup-python` |
 
+A snippet from the yaml file for a Node JS app that uses version 10
+
+```yaml
+    - name: 'Login via Azure CLI'
+      uses: Azure/actions/login@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+```
 
 ## Build the function app
+
+This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
+As an example for Node JS
+
+A snippet from the yaml file for a Node JS app
+
+```yaml
+    - name: 'Run npm'
+      shell: bash
+      run: |
+        # If your function app project is not located in your repository's root
+        # Please change your directory for npm in pushd
+        pushd .
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
+```
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language
 
@@ -75,6 +105,17 @@ To deploy your code to a function app, you will need to use the `Azure/functions
 |---------|---------|
 |**_app-name_** | (Mandatory) The name of your function app. |
 |_**slot-name**_ | (Optional) The name of the [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already be defined in your function app. |
+
+
+The following snippet show how to use version 1 of the action
+
+```yaml
+    - name: 'Run Azure Functions Action'
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
+```
 
 ## Next steps
 
