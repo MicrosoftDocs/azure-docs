@@ -43,16 +43,20 @@ landingContent:
         links:
           - text: Create a Jenkins server
             url: install-jenkins-solution-template.md
+      - linkListType: download
+        links:
+        - text: Sample jobs and scripts
+          url: https://github.com/azure/jenkins
+
+  # Card
+  - title: Scale using Jenkins and Azure
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Scale with Azure Container Instances
             url: /azure/container-instances/container-instances-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
           - text: Scale with Azure VM agents
             url: jenkins-azure-vm-agents.md
-      - linkListType: download
-        links:
-        - text: Sample jobs and scripts
-          url: https://github.com/azure/jenkins
 
   # Card
   - title: CI/CD to AKS
