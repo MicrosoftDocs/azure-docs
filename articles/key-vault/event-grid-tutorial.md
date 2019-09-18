@@ -13,17 +13,13 @@ ms.author: mbaldwin
 
 ---
 
-# Tutorial: Enable Key Vault monitoring with Azure Event Grid (preview)
+# How to: Route Key Vault keys events to Automation Runbook (preview)
 
 Key Vault integration with Azure Event Grid allows users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault events with Azure Event Grid](event-grid-overview.md).
 
 This tutorial will show you how to receive Key Vault notifications through Azure Event Grid, and respond to status changes with Azure Automation.
 
 ## Prerequisites
-
-This feature is currently in preview. You must request access before proceeding with the steps listed in this document.  Visit **http://aka.ms/keyvaultnotifications** and submit your Azure subscription id to the intake form and wait for confirmation that your subscriptions have been whitelisted to use this feature before proceeding.
-
-You must also have the following:
 
 - An Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - The Azure CLI installed on your machine. See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
