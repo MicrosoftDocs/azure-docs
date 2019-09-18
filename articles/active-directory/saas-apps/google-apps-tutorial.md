@@ -244,7 +244,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. In G Suite, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
 
-	f. Select **Use a domain specific issuer**. If you select the **Use a domain specific issuer** option, enter `google.com` as **Identifier** value or if you do not select the **Use a domain specific issuer** option, then you need to enter domain specific **Identifier** like `https://google.com/a/<yourdomain.com>` in the **Basic SAML Configuration** section in the Azure AD.
+	f. Select **Use a domain specific issuer**. If you select the **Use a domain specific issuer** option, you need to enter domain specific **Identifier** like `https://google.com/a/<yourdomain.com>` or if you do not select the **Use a domain specific issuer** option, then enter `google.com` as **Identifier** value in the **Basic SAML Configuration** section in the Azure AD.
 
     g. Click **Save Changes**.
 
