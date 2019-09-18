@@ -5,7 +5,7 @@ summary: Enterprise cloud search over private heterogenous content, applying AI 
 
 metadata:
   title: Azure Search documentation
-  description: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
+  description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: cognitive-search
@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
   ms.author: heidist #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/15/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/20/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -31,7 +31,7 @@ landingContent:
             url: cognitive-search-concept-intro.md
       - linkListType: architecture
         links:
-          - text: Full text search engine
+          - text: How full text search works in Azure Search
             url: search-lucene-query-architecture.md
       - linkListType: video
         links:
@@ -123,7 +123,7 @@ landingContent:
             url: search-query-lucene-examples.md
       - linkListType: reference
         links:
-          - text: Search Documents (REST)
+          - text: OData language reference
             url: query-odata-filter-orderby-syntax.md
           - text: Search Documents (REST)
             url: https://docs.microsoft.com/rest/api/searchservice/search-documents
