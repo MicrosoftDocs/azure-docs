@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: QnA Maker Documentation
+title: QnA Maker documentation
 summary: Learn about the QnA Maker service and how this service's knowledge bases work with your questions and answers. 
 
 metadata:
@@ -110,12 +110,12 @@ landingContent:
           - text: Limits of knowledge base
             url: limits.md
           - text: Authoring APIs
-            url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
-            url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime
+            url: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime
           - text: .Net SDK reference documentation 
-            url: https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+            url: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
           - text: Azure PowerShell
-            url: https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
