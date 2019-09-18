@@ -6,7 +6,7 @@ manager: elamalani
 ms.service: vs-appcenter
 ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/10/2019
 ms.author: emalani
 ---
 
@@ -23,7 +23,7 @@ Every mobile application needs a backend that is responsible for data storage, b
 ## Azure Services
 
 1. ### **Azure Functions**
-   [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) is an event-driven compute experience that allows you to execute your code, written in the programming language of your choice, without worrying about servers. Developers dont have to manage the application or the infrastructure to run it on. Functions scale on demand and you pay only for the time your code runs. Azure Functions are a great way to implement an API for a mobile application because they are very easy to implement and maintain, and accessible through HTTP.
+   [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) is an event-driven compute experience that allows you to execute your code, written in the programming language of your choice, without worrying about servers. Developers dont have to manage the application or the infrastructure to run it on. Functions scale on demand and you pay only for the time your code runs. Azure Functions are a great way to implement an API for a mobile application because they are very easy to implement and maintain, and accessible through HTTP. 
 ​
    **Key Features**
    - **Event driven and scalable** where developers can use **triggers and bindings** to define when a function is invoked and to what data it connects.
@@ -34,8 +34,8 @@ Every mobile application needs a backend that is responsible for data storage, b
    - The Functions runtime is **open-source** and available on [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
    - **Enhanced development experience** where developers can code, test and debug locally using their preferred editor or easy-to-use web interface with monitoring with integrated tools and built-in DevOps capabilities
    - **Variety of programming languages** (develop using C#, Node.js, Java, Javascript, or Python) and hosting options.
-   - **Pay-per-use pricing model** - Pay only for the time spent running your code.
-      ​
+   - **Pay-per-use pricing model** - Pay only for the time spent running your code. 
+
    **References**
    - [Azure Portal](https://portal.azure.com) to create Functions app
    - [Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
@@ -44,7 +44,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    - [Samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure-functions&languages=csharp)
 
 2. ### **Azure Kubernetes Service (AKS)**
-   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline.
+   [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. 
    ​
    **Key Features**
    - **Easily migrate existing applications** to Containers and run within AKS.
@@ -52,7 +52,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    - **Secure DevOps for AKS** to achieve balance between speed and security and deliver code faster at scale. 
    - **Scale with ease using AKS and ACI** to provision pods inside ACI that start in seconds. 
    - **IoT device deployment and management** on demand.
-   - **Machine learning model training** with use of tools suc as TensorFlow and KubeFlow.
+   - **Machine learning model training** with use of tools suc as TensorFlow and KubeFlow. 
 
    **References**
    - [Azure Portal](https://portal.azure.com/)
