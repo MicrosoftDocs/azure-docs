@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Azure AD B2C: Frequently asked questions (FAQ)
 
-This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
+This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
 ### Why can't I access the Azure AD B2C extension in the Azure portal?
 

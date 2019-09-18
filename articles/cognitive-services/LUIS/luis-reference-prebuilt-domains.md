@@ -51,10 +51,10 @@ Calendar is anything about personal meetings and appointments, NOT public event 
 Intent Name | Description | Examples
 ---------|----------|---------------
  AcceptEventEntry | Accept a(n) appointment/meeting/event on calendar. | Accept an appointment. <br> Accept the event <br> accept today's meeting.
- Cancel | Cancel the ongoing action by virtual assistant, such as canceling the process of creating a meeting. <br> ***Notice**: This intent mainly includes "Cancel" action in Calendar scenario. If you need general expression on "Cancel", please leverage "Cancel" intent in **Utilities** domain.* | It's ok, just cancel the event. <br> No, I just cancel the appointment.
+ Cancel | Cancel the ongoing action by virtual assistant, such as canceling the process of creating a meeting. <br> _**Notice**: This intent mainly includes "Cancel" action in Calendar scenario. If you need general expression on "Cancel", please leverage "Cancel" intent in **Utilities** domain._ | It's ok, just cancel the event. <br> No, I just cancel the appointment.
  ChangeCalendarEntry | Change or reschedule the calendar entry. | Reschedule my 6 a.m. appointment tomorrow to 2 p.m. <br> Reschedule doctor's appointment for 5 PM <br> Reschedule lunch with jenny olson to Friday. <br> Change event time.
  CheckAvailability | Find availability for an appointment or meeting on the user's calendar or another person's calendar. | When is Jim available to meet? <br> Show when Carol is available tomorrow. <br> Is Chris free on Saturday?
- Confirm | Confirm whether to perform an operation/action based on previous intent. <br> ***Notice**: This intent mainly includes "Confirm" action for Calendar scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain.*| That's correct, please create the meeting <br> Yes, thanks, connect to the meeting.
+ Confirm | Confirm whether to perform an operation/action based on previous intent. <br> _**Notice**: This intent mainly includes "Confirm" action for Calendar scenario. If you need more general expressions on "Confirm", please leverage "Confirm" intent in **Utilities** domain._| That's correct, please create the meeting <br> Yes, thanks, connect to the meeting.
  ConnectToMeeting | Connect to a meeting. | Connect me to 11:00 conference call with Andy. <br> Accept the budget meeting call.
  ContactMeetingAttendees | Contact to the meeting attendees. | Tell the meeting I am running late to 3:00 meeting. <br> Notify colleagues for 8 am meeting that it needs to start at 8:30.
  CreateCalendarEntry | Add a new one-time item to the calendar. | Create a meeting about discussing issues. <br> create a meeting with abc@microsoft.com
@@ -66,10 +66,10 @@ Intent Name | Description | Examples
  FindCalendarDetail | Check and show the details for the schedule. | I need you to provide me the details of the meeting I have scheduled with my colleague Paul.
  FindDuration | Check the duration. | How much time will I have to pick up groceries? <br> How long do I have for lunch?
  FindMeetingRoom | Find the available meeting rooms. | What meet rooms do I have? <br> A new meeting location, find one.
- GoBack | Go back to last step or item.  <br> ***Notice**: Please refer to **Utilities** domain for more GoBack general utterances.* | Previous one <br> Back to last email.
- Reject | The user rejects what virtual assistant proposed. <br> ***Notice**: Please refer to **Utilities** domain for more Reject general utterances.* | Not need to set the event. <br> I have other things to do at that time.
-ShowNext | Check the next event. <br> ***Notice**: Please refer to **Utilities** domain for more ShowNext general utterances.* | Give me my next event. <br> What is next in calendar?
- ShowPrevious | Check the previous event. <br> ***Notice**: Please refer to **Utilities** domain for more ShowPrevious general utterances.* | What is the schedule before that?
+ GoBack | Go back to last step or item.  <br> _**Notice**: Please refer to **Utilities** domain for more GoBack general utterances._ | Previous one <br> Back to last email.
+ Reject | The user rejects what virtual assistant proposed. <br> _**Notice**: Please refer toC **Utilities** domain for more Reject general utterances._ | Not need to set the event. <br> I have other things to do at that time.
+ShowNext | Check the next event. <br> _**Notice**: Please refer to **Utilities** domain for more ShowNext general utterances._ | Give me my next event. <br> What is next in calendar?
+ ShowPrevious | Check the previous event. <br> _**Notice**: Please refer to **Utilities** domain for more ShowPrevious general utterances._ | What is the schedule before that?
  TimeRemaining | Check the remaining time until next event. | Display how much time i have before my meetings. <br> Display the amount of time I have before my next meeting begins.
  
 ### **Entities**

@@ -277,17 +277,109 @@ The following table applies to U-SQL.
 
 - **Cause**: Azure function activity definition is not complete.
 
-- **Recommendation**: Please check the input AzureFunction activity JSON definition has property named 'method'.
+- **Recommendation**: Check if the input AzureFunction activity JSON definition has property named 'method'.
 
 
 ### Error code:  3612
 
 - **Message**: `Azure function activity missing LinkedService definition in JSON.`
 
-- **Cause**: Azure function activity definition is not complete.
+- **Cause**: Azure function activity definition may not be complete.
 
 - **Recommendation**: Please check the input AzureFunction activity JSON definition has linked service details.
 
+
+## Azure Machine Learning
+
+
+### Error code:  4101
+
+- **Message**: `AzureMLExecutePipeline activity '%activityName;' has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of a property.
+
+- **Recommendation**:  Please check if the activity is defined with the correct data.
+
+
+### Error code:  4110
+
+- **Message**: AzureMLExecutePipeline activity missing LinkedService definition in JSON.
+
+- **Cause**: AzureMLExecutePipeline activity definition is not complete.
+
+- **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has linked service details.
+
+
+### Error code:  4111
+
+- **Message**: `AzureMLExecutePipeline activity has wrong LinkedService type in JSON. Expected LinkedService type: '%expectedLinkedServiceType;', current LinkedService type: Expected LinkedService type: '%currentLinkedServiceType;'.`
+
+- **Cause**: Incorrect activity definition.
+
+- **Recommendation**:  Please check if the input AzureMLExecutePipeline activity JSON definition has correct linked service details.
+
+
+### Error code:  4112
+
+- **Message**: `AzureMLService linked service has invalid value for property '%propertyName;'.`
+
+- **Cause**: Bad format or missing definition of a property.
+
+- **Recommendation**:  Please check if the linked service definition has correct data.
+
+
+### Error code:  4121
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Credential used to access Azure ML Service has expired.
+
+- **Recommendation**:  Please verify credential is valid and retry
+
+
+### Error code:  4122
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Credential provided in AzureML Service Linked Service is invalid or does not have permission for the operation.
+
+- **Recommendation**:  Please verify credential in Linked Service is valid and has permission to access AzureML Service.
+
+
+### Error code:  4123
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+
+- **Recommendation**:  Please check the value of activity properties to match expected payload of the published Azure ML pipeline specified in Linked Service.
+
+
+### Error code:  4124
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: The published Azure ML pipeline endpoint does not exist.
+
+- **Recommendation**:  Please verify the published Azure ML pipeline endpoint specified in Linked Service exists in Azure ML Service.
+
+
+### Error code:  4125
+
+- **Message**: `Request sent to AzureML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from AzureML Service: '%externalMessage;'.`
+
+- **Cause**: Server error on Azure ML Service.
+
+- **Recommendation**:  Please retry later. Contact Azure ML Service team for help if issue remains.
+
+
+### Error code:  4126
+
+- **Message**: `AzureML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in AzureMLService for more error loggings.`
+
+- **Cause**: AzureML pipeline run failed.
+
+- **Recommendation**:  Please check in AzureMLService for more error loggings and fix the ML pipeline
 
 
 ## Custom
@@ -311,6 +403,15 @@ The following table applies to Azure Batch.
 - **Cause**: Incorrect Batch access key or pool name.
 
 - **Recommendation**: Verify the pool name and the Batch access key in the linked service.
+
+
+### Error code:  2502
+
+- **Message**: `Cannot access user storage account; please check storage account settings.`
+
+- **Cause**: Incorrect storage account name or access key.
+
+- **Recommendation**: Verify the storage account name and the access key in the linked service.
 
 
 ### Error code:  2504
@@ -467,7 +568,7 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 
 ## Web Activity
 
-### Error code:  2310
+### Error code:  2108
 
 - **Message**:  `Invalid HttpMethod: '...'.`
 
@@ -554,6 +655,25 @@ The following table applies to Spark, Hive, MapReduce, Pig, and Hadoop Streaming
 - **Cause**: The Web Activity body is incorrect.
 
 - **Recommendation**:  Use Fiddler or Postman to check the endpoint.
+
+
+### Error code:  2208
+
+- **Message**:  `Invoking Web Activity failed with HttpStatusCode - {0}.`
+
+- **Cause**: The target service returned failure status.
+
+- **Recommendation**:  Use Fiddler/Postman to validate the request.
+
+
+### Error code:  2308
+
+- **Message**:  `No response from the endpoint. Possible causes: network connectivity, DNS failure, server certificate validation or timeout.`
+
+- **Cause**: There can be multiple reasons for this error like network connectivity, DNS failure, server certificate validation or timeout.
+
+- **Recommendation**:  Use Fiddler/Postman to validate the request.
+
 
 To use Fiddler to create an HTTP session of the monitored web application:
 
