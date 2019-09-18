@@ -65,9 +65,38 @@ Setting up the environment can be done using one of the publish setup actions.
 |Python   | actions/setup-python |
 |Java    | actions/setup-java |
 
+A snippet from the yaml file for a Node JS app that uses version 10
+
+```yaml
+    - name: 'Login via Azure CLI'
+          uses: Azure/actions/login@master
+          with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
+        - name: Setup Node 10.x
+          uses: actions/setup-node@v1
+          with:
+            node-version: '10.x'
+```
+
 **Build the app**
 
-This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language
+This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
+As an example for Node JS
+
+A snippet from the yaml file for a Node JS app
+
+```yaml
+    - name: 'Run npm'
+          shell: bash
+          run: |
+            # If your function app project is not located in your repository's root
+            # Please change your directory for npm in pushd
+            pushd .
+            npm install
+            npm run build --if-present
+            npm run test --if-present
+            popd
+```
 
 ### Deploy
 
@@ -78,6 +107,16 @@ To deploy your code to a function app, you will need to use the `Azure/functions
 |---------|---------|
 |app-name | mandatory: that's the name of the azure function app |
 |slot-name | optional: that's the name of the slot you want to deploy to, it should already be created under `app-name` |
+
+The following snippet show how to use version 1 of the action
+
+```yaml
+    - name: 'Run Azure Functions Action'
+          uses: Azure/functions-action@v1
+          id: fa
+          with:
+            app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
+```
 
 There are a number of samples available under the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples), you can use these samples a starting point for your workflow.
 
