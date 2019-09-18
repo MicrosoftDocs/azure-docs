@@ -96,6 +96,37 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 1. The token can then be passed in the `Authorization` header when the application calls the Time Series Insights API.
 
+## Common headers and parameters
+
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth2.0 Bearer token must be passed in the [Authorization header](/rest/api/apimanagement/authorizationserver/createorupdate) using a client of your choice (Postman, JavaScript, C#). 
+
+Required URL query string parameters:
+
+- `api-version=2018-11-01-preview` – currently the only supported API version.
+
+Required request headers:
+
+- `Authorization` for authentication and authorization, valid OAuth2.0 Bearer token must be passed in the Authorization header. The token must be issued to `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
+
+> [!TIP]
+> See the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md#authentication) tutorial to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
+
+Optional URL query string parameters:
+
+- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only for Get Environment Events and Get Environment Aggregates API. Timeout value should be in ISO 8601 duration format, for example "PT20S" and should be in the range 1-30s. Default value is 30s.
+
+Optional request headers:
+
+- `Content-type` - if specified, only `application/json` is supported.
+- `x-ms-client-request-id` - a client request ID. Service records this value. Allows the service to trace operation across services.
+- `x-ms-client-session-id` - a client session ID. Service records this value. Allows the service to trace a group of related operations across services.
+- `x-ms-client-application-name` - name of the application that generated this request. Service records this value.
+
+Response headers:
+
+- `Content-type` - only `application/json` is supported.
+- `x-ms-request-id` - server-generated request ID. Can be used to contact Microsoft to investigate a request.
+
 ## Next steps
 
 - For sample code that calls the GA Time Series Insights API, see [Query data using C#](./time-series-insights-query-data-csharp.md).
