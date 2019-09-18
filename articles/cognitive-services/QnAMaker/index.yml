@@ -61,7 +61,7 @@ landingContent:
           - text: Test your knowledge base interactively
             url: how-to/test-knowledge-base.md
           - text: Publish a knowledge base
-            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base.md
+            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
 
 
   - title: Get answer from knowledge base
