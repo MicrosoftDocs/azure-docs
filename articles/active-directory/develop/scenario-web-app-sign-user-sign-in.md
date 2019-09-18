@@ -229,30 +229,14 @@ The post logout URI enables applications to participate to the global sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut`. The web app uses it to attempt to avoid the select account dialog to be presented to the user when signing out. This interception is done in the `AddAzureAdV2Authentication` of the `Microsoft.Identity.Web` reusable library. See [StartupHelpers.cs L58-L66](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L58-L66)
+The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut`. See [Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156) for an example of how to subscribe to this event (to clear the token cache)
 
 ```CSharp
-public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(this IServiceCollection services,
-                                                            IConfiguration configuration)
-{
-    ...
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-        ...
-        options.Authority = options.Authority + "/v2.0/";
-        ...
-        // Attempt to avoid displaying the select account dialog when signing out
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            var user = context.HttpContext.User;
-            
-            // Code you'd want to add if your app needs to be aware
-            // of global sign out
-
-            await Task.FromResult(0);
-        };
-    }
-}
+               // Handling the global sign-out
+                options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
+                {
+                    // Forget about the signed-in user
+                };
 ```
 
 # [ASP.NET](#tab/aspnet)
