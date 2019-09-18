@@ -175,8 +175,6 @@ After you add the GUID to your template or in the user agent, and register the G
 
 1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
 
-   ![Select Developer settings](https://partner.microsoft.com/dashboard/account/management)
-
 1. On the **Account settings page**, select **Add Tracking GUID.**
 
 1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
