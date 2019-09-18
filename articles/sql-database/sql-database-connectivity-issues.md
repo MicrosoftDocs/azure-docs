@@ -9,6 +9,7 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
