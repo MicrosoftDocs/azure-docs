@@ -15,12 +15,14 @@ Change feed logs capture change event records for all changes that occur to the 
 
 Unlike change events which enable your applications to react to real-time changes, change feed logs provide an ordered log of change event records. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
 
+> [!NOTE]
+> Change feed logs are in public preview, and are available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
+
+## Enabling change feed logs
+
 Change feed logs aren't enabled by default. You can enable them by using the Azure portal, PowerShell, or the Azure CLI.
 
-See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md) for step-by-step guidance.
-
-> [!NOTE]
-> Change feed logs are in public preview, and are available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](www.microsoft.com).
+Show the steps for each of these here.
 
 ## How change feed logs are organized
 
@@ -43,7 +45,7 @@ Start by processing the index metadata file. Then, for each segment you're inter
 
 The index metadata file describes blah. Start by processing this file.
 
-### Example File
+### Example
 
 ```json
 {
@@ -81,7 +83,7 @@ The index file contains the following top-level data:
 
 Use segment files to process changes at specific time points, or ranges of time points. A segment metadata file describes the details of a segment and points to one or more change feed logs that capture the change event records associated with the time segment.
 
-### Example File
+### Example
 
 ```json
 {
@@ -140,7 +142,7 @@ Each log file contains a series of change event records listed in the order in w
 
 Each change event record captures only information about the event and do not capture details about specific data that was changed. For example, if a word document was replaced by a newer version of that document, the change event record would not capture the specific changes that were made to the document.
 
-### Example File
+### Example
 
 ```json
 {
@@ -174,6 +176,20 @@ Each change event record captures only information about the event and do not ca
 To view the complete schema along with field descriptions here: [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 As you process change event records, disregard records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. The `storageDiagnonstics` property bag is for internal use only and not designed for use by your application.
+
+<a id="region-availability" />
+
+## Region availability
+
+Change feed logs are in public preview, and are available in the following regions:
+
+|||||
+|-|-|-|-|
+|Central US|West Central US|Canada Central|
+|East US|East Asia|North Europe|
+|East US 2|Southeast Asia|West Europe|
+|West US|Australia East|Japan East|
+|West US 2|Brazil South||
 
 ## Next steps
 
