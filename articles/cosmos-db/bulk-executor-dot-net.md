@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 09/01/2019
 ms.author: ramkris
 ms.reviewer: sngun
 ---
@@ -53,7 +53,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    private static readonly int CollectionThroughput = int.Parse(ConfigurationManager.AppSettings["CollectionThroughput"]);
    ```
 
-   The bulk importer creates a new database and a collection with the database name, collection name, and throughput values specified in the App.config file. 
+   The bulk importer creates a new database and a container with the database name, container name, and throughput values specified in the App.config file. 
 
 3. Next the DocumentClient object is initialized with Direct TCP connection mode:  
 

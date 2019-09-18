@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ---

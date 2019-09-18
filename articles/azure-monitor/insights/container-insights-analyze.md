@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/22/2019
+ms.date: 09/17/2019
 ms.author: magoedte
 ---
 
@@ -113,18 +113,18 @@ Azure Monitor for containers also supports Azure Monitor [metrics explorer](../p
 
 In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
-|Namespace | Metric |
-|----------|--------|
+|Namespace | Metric | Description | 
+|----------|--------|-------------|
 | insights.container/nodes | |
-| | cpuUsageMillicores |
-| | cpuUsagePercentage |
-| | memoryRssBytes |
-| | memoryRssPercentage |
-| | memoryWorkingSetBytes |
-| | memoryWorkingSetPercentage |
-| | nodesCount |
+| | cpuUsageMillicores | Aggregated measurement of CPU utilization across the cluster. It is a CPU core split into 1000 units (milli = 1000). Used to determine the usage of cores in a container where many applications might be using one core.| 
+| | cpuUsagePercentage | Aggregated average CPU utilization measured in percentage across the cluster.|
+| | memoryRssBytes | Container RSS memory used in bytes.| 
+| | memoryRssPercentage | Container RSS memory used in percent.|
+| | memoryWorkingSetBytes | Container working set memory used.| 
+| | memoryWorkingSetPercentage | Container working set memory used in percent. | 
+| | nodesCount | A node count from Kubernetes.|
 | insights.container/pods | |
-| | PodCount |
+| | PodCount | A pod count from Kubernetes.|
 
 You can [split](../platform/metrics-charts.md#apply-splitting-to-a-chart) a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension. From a pod, you can segment it by the following dimensions:
 
@@ -165,9 +165,13 @@ From an expanded node, you can drill down from the pod or container that runs on
 
 Select controllers or containers at the top of the page to review the status and resource utilization for those objects. To review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
 
-**Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory, which is the resident memory. This metric shows the actual capacity of available memory.
-
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
+
+**Memory working set** shows both the resident memory and virtual memory (cache) included and is a total of what the application is using. **Memory RSS** shows only main memory (which is nothing but the resident memory in other words). This metric shows the actual capacity of available memory. What is the difference between resident memory and virtual memory?
+
+- Resident memory or main memory, is the actual amount of machine memory available to the nodes of the cluster.
+
+- Virtual memory is reserved hard disk space (cache) used by the operating system to swap data from memory to disk when under memory pressure, and then fetch it back to memory when needed.
 
 By default, performance data is based on the last six hours, but you can change the window by using the **TimeRange** option at the upper left. You also can filter the results within the time range by selecting **Min**, **Avg**, **50th**, **90th**, **95th**, and **Max** in the percentile selector. 
 

@@ -13,7 +13,7 @@ ms.author: azfuncdf
 
 # Function chaining in Durable Functions - Hello sequence sample
 
-Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md)). For more information about Durable Functions, see [Durable Functions patterns and technical concepts](durable-functions-concepts.md).
+Function chaining refers to the pattern of executing a sequence of functions in a particular order. Often the output of one function needs to be applied to the input of another function. This article describes the chaining sequence that you create when you complete the Durable Functions quickstart ([C#](durable-functions-create-first-csharp.md) or [JavaScript](quickstart-js-vscode.md)). For more information about Durable Functions, see [Durable Functions overview](durable-functions-overview.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -136,7 +136,7 @@ As you can see, the `runtimeStatus` of the instance is *Completed* and the `outp
 > [!NOTE]
 > The HTTP POST endpoint that started the orchestrator function is implemented in the sample app as an HTTP trigger function named "HttpStart". You can implement similar starter logic for other trigger types, like `queueTrigger`, `eventHubTrigger`, or `timerTrigger`.
 
-Look at the function execution logs. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [overview](durable-functions-concepts.md). On the other hand, there were only three executions of `E1_SayHello` since those function executions do not get replayed.
+Look at the function execution logs. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [orchestration reliability](durable-functions-orchestrations.md#reliability) topic. On the other hand, there were only three executions of `E1_SayHello` since those function executions do not get replayed.
 
 ## Visual Studio sample code
 

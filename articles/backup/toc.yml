@@ -70,6 +70,8 @@
     href: backup-architecture.md
   - name: Role-Based Access Control
     href: backup-rbac-rs-vault.md
+  - name: Security for cloud workloads
+    href: backup-azure-security-feature-cloud.md
   - name: Security for hybrid backups
     href: backup-azure-security-feature.md
   - name: Configure offline-backup
@@ -78,8 +80,8 @@
     href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
-  - name: Azure Common Security Attributes
-    href: backup-security-attributes.md
+  - name: Built-in security controls
+    href: backup-security-controls.md
 - name: How to
   items:
   - name: Azure Backup Server

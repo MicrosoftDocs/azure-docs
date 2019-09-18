@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/26/2019
+ms.date: 09/04/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
@@ -30,7 +31,7 @@ In this tutorial, you learn how to:
 
 ::: zone target="chromeless"
 
-# Unpack, connect, and unlock Azure Data Box Disk
+## Unpack, connect, and unlock Azure Data Box Disk
 
 ::: zone-end
 
@@ -309,7 +310,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 After the disk is unlocked, you can view the contents of the disk.
 
-For more information on how to set up and unlock the disks, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+For more information on how to set up and unlock disks, go to [Set up Data Box Disk](data-box-disk-deploy-set-up.md).
 
 ::: zone-end
 

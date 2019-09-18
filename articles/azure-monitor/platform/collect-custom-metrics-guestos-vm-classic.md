@@ -5,7 +5,7 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ""
 ---
@@ -29,6 +29,8 @@ The process that's outlined in this article only works on classic virtual machin
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
 - You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+
+- Your VM resource must be in a [region that supports custom metrics](metrics-custom-overview.md#supported-regions).
 
 ## Create a classic virtual machine and storage account
 

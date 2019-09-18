@@ -25,6 +25,11 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+## Prerequisites
+
+If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)
+to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the
@@ -444,7 +449,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](./concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](./concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](./concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](./concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](./concepts/resource-locking.md).

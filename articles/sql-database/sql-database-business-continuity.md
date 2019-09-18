@@ -135,7 +135,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) to enable appropriate rules.
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate
