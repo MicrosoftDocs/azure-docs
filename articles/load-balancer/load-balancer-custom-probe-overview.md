@@ -58,11 +58,11 @@ We can illustrate the behavior further with an example. If you have set the numb
 1. If your application starts producing a failing probe response just before the first probe arrives, the detection of these events will take 10 seconds (2 x 5 second intervals) plus the duration of the the application starting to signal a failure to when the the first probe arrives.  You can assume this detection to take slightly over 10 seconds.
 2. If your application starts producing a failing probe response just after the first probe arrives, the detection of these events will not begin until the next probe arrives (and fails) plus another 10 seconds (2 x 5 second intervals).  You can assume this detection to take just under 15 seconds.
 
-For this example, once detection has occured, the platform will then take a small amount of time to react to this change.  This means a depending on 
+For this example, once detection has occurred, the platform will then take a small amount of time to react to this change.  This means a depending on 
 
 1. when the application begins changing state and
 2. when this change is detected and met the required criteria (number of probes sent at the specified interval) and
-3. when the detection has been communicated across the platfrom 
+3. when the detection has been communicated across the platform 
 
 you can assume the reaction to a failing probe will take between a minimum of just over 10 seconds and a maximum of slightly over 15 seconds to react to a change in the signal from the application.  This example is provided to illustrate what is taking place, however, it is not possible to forecast an exact duration beyond the above rough guidance illustrated in this example.
  
@@ -74,7 +74,7 @@ The protocol used by the health probe can be configured to one of the following:
 - [HTTP endpoints](#httpprobe)
 - [HTTPS endpoints](#httpsprobe)
 
-The available protocols depend on the oad Balancer SKU used:
+The available protocols depend on the Load Balancer SKU used:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ A TCP probe fails when:
 * The TCP listener on the instance doesn't respond at all during the timeout period.  A probe is marked down based on the number of failed probe requests, which were configured to go unanswered before marking down the probe.
 * The probe receives a TCP reset from the instance.
 
-The following illustrates how you could express this kind of probe configuration in a resource manager template:
+The following illustrates how you could express this kind of probe configuration in a Resource Manager template:
 
 ```json
     {
@@ -120,7 +120,7 @@ An HTTP / HTTPS probe fails when:
 * Probe endpoint doesn't respond at all during the 31-second timeout period. Multiple probe requests might go unanswered before the probe gets marked as not running and until the sum of all timeout intervals has been reached.
 * Probe endpoint closes the connection via a TCP reset.
 
-The following illustrates how you could express this kind of probe configuration in a resource manager template:
+The following illustrates how you could express this kind of probe configuration in a Resource Manager template:
 
 ```json
     {
