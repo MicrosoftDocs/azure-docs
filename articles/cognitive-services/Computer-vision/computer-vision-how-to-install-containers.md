@@ -106,7 +106,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 # [Read](#tab/read)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-read \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -116,14 +116,14 @@ ApiKey={API_KEY}
 This command:
 
 * Runs the Read container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 # [Recognize Text](#tab/recognize-text)
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
 Eula=accept \
 Billing={ENDPOINT_URI} \
@@ -133,7 +133,7 @@ ApiKey={API_KEY}
 This command:
 
 * Runs the Recognize Text container from the container image
-* Allocates one CPU core and 4 gigabytes (GB) of memory
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
