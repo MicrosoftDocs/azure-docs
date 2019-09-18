@@ -15,7 +15,7 @@ manager: femila
 
 # How to use Ethereum Blockchain connector with Azure Logic Apps
 
-Use the [Ethereum Blockchain connector](https://docs.microsoft.com/connectors/blockchainethereum/) with [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to perform smart contract actions and respond to smart contract events. For example, you want to provide a web API that returns information from a blockchain ledger. Using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
+Use the [Ethereum Blockchain connector](https://docs.microsoft.com/connectors/blockchainethereum/) with [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) to perform smart contract actions and respond to smart contract events. For example, you want to create a REST-based microservice that returns information from a blockchain ledger. Using a logic app, you can accept HTTP requests that query information stored in a blockchain ledger.
 
 ## Prerequisites
 
@@ -26,7 +26,11 @@ Use the [Ethereum Blockchain connector](https://docs.microsoft.com/connectors/bl
 Azure Logic Apps help you schedule, automate business processes and workflows when you need to integrate systems and services. First, you create a logic that uses the Ethereum Blockchain connector. 
 
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource > Integration > Logic App**.
-1. Under **Create logic app**, provide details where to create your logic app. After you're done, select **Create**. For more information on creating Azure Logic Apps, see [Create Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. Under **Create logic app**, provide details where to create your logic app. After you're done, select **Create**. 
+
+    [screenshot]
+
+    For more information on creating Azure Logic Apps, see [Create Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
 1. After Azure deploys your app, select your logic app resource.
 1. In the Logic Apps Designer, under **Templates**, choose **Blank Logic App**.
 
@@ -52,14 +56,14 @@ Use Ethereum Blockchain event triggers when you want a logic app to run after a 
 
 | Property | Description |
 |----------|-------------|
-| **Contract ABI** | How to [get the contract ABI](#get-contract-abi). |
-| **Smart contract address** | How to [get the contract address](#get-contract-address). |
+| **Contract ABI** | The contract application binary interface (ABI) defines the smart contract interfaces. How to [get the contract ABI](#get-contract-abi). |
+| **Smart contract address** | The contract address is the smart contract destination address on the Ethereum blockchain. How to [get the contract address](#get-contract-address). |
 | **Event name** | Choose a smart contract event to check. The event triggers the logic app. |
 | **Interval** and **Frequency** | Choose how often you want to check for the event. |
 
 ## Use actions
 
-Use the Ethereum Blockchain actions when you want a logic app to perform an action on the blockchain ledger. For example, you want to call a smart contract function when an HTTP request is made to a logic app.
+Use the Ethereum Blockchain actions when you want a logic app to perform an action on the blockchain ledger. For example, you want to create a REST-based microservice that calls a smart contract function when an HTTP request is made to a logic app.
 
 Connector actions require a trigger. You can use an Ethereum Blockchain connector action as the next step after a trigger.
 
@@ -74,9 +78,9 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     | Property | Description |
     |----------|-------------|
-    | **Contract ABI** | How to [get the contract ABI](#get-contract-abi). |
+    | **Contract ABI** | The contract application binary interface (ABI) defines the smart contract interfaces. How to [get the contract ABI](#get-contract-abi). |
     | **Contract bytecode** | The compiled smart contract bytecode. How to [get the contract bytecode](#get-contract-bytecode). |
-    | **Smart contract address** | How to [get the contract address](#get-contract-address). |
+    | **Smart contract address** | The contract address is the smart contract destination address on the Ethereum blockchain. How to [get the contract address](#get-contract-address). |
     | **Smart contract function name** | Choose the smart contract function name for the action. The list is populated from the details in the contract ABI. |
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
@@ -100,14 +104,14 @@ An API connection to a blockchain is required for the Ethereum Blockchain connec
 
 You need the Azure Blockchain Service endpoint address to connect to a blockchain network. You can get endpoint address using the Azure Blockchain Development Kit for Ethereum or the Azure portal.
 
-Using development kit:
+**Using development kit:**
 
-1. Under **Azure Blockchain Service** in Visual Studio Code, right click the consortium.
+1. Under **Azure Blockchain Service** in Visual Studio Code, right-click the consortium.
 1. Select **Copy RPC endpoint**.
 
     [screenshot]
 
-Using Azure portal:
+**Using Azure portal:**
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
@@ -123,7 +127,7 @@ Using Azure portal:
 
 ## Get private key 
 
-Your Ethereum account public and private key is generated from a 12 word mnemonic. Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to a Azure Blockchain Service consortium member. You can get endpoint address using the development kit extension.
+Your Ethereum account public and private keys are generated from a 12 word mnemonic. Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get endpoint address using the development kit extension.
 
 1. In Visual Studio Code, open the command palette (F1).
 1. Choose **Azure Blockchain: Retrieve private key**.
@@ -146,7 +150,7 @@ For more information on the account address and password, see [Ethereum account]
 
 The contract application binary interface (ABI) defines the smart contract interfaces. It describes how to interact with the smart contract. You can get contract ABI using the Azure Blockchain Development Kit for Ethereum or from the Solidity compiler contract metadata file.
 
-Using development kit:
+**Using development kit:**
 
 If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract ABI to the clipboard.
 
@@ -157,7 +161,7 @@ If you used development kit or Truffle to build your smart contract, you can use
 1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
 1. Choose **Copy contract ABI**. The contract ABI is copied to the clipboard.
 
-Using the contract metadata file:
+**Using the contract metadata file:**
 
 1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
 1. Find the **abi** section in the JSON file.
@@ -169,7 +173,7 @@ Using the contract metadata file:
 
 The contract bytecode is the compiled smart contract executed by the Ethereum virtual machine. You can get contract bytecode using the Azure Blockchain Development Kit for Ethereum or from the Solidity compiler.
 
-Using development kit:
+**Using development kit:**
 
 If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract bytecode to the clipboard.
 
@@ -180,7 +184,9 @@ If you used development kit or Truffle to build your smart contract, you can use
 1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
 1. Choose **Copy contract bytecode**. The contract bytecode is copied to the clipboard.
 
-Using the Solidity compiler:
+**Using the Solidity compiler:**
+
+Use the following command and switches to generate the contract bytecode.
 
 `solc --bin <smart contract>.sol`
 
@@ -188,13 +194,13 @@ Using the Solidity compiler:
 
 The contract address is the smart contract destination address on the Ethereum blockchain. You use this address to send a transaction or query state of a smart contract. You can get the contract address from the Truffle migration output or the contract metadata file.
 
-From Truffle migrate output:
+**Using Truffle migrate output:**
 
 Truffle displays the contract address after deployment of the smart contract. Copy the **contract address** from the output.
 
 [screenshot]
 
-Using the contract metadata file:
+**Using the contract metadata file:**
 
 1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension. 
 1. Find the **networks** section in the JSON file.
@@ -205,7 +211,4 @@ Using the contract metadata file:
 
 ## Next steps
 
-Try a tutorial using Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
-
-> [!div class="nextstepaction"]
-> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)
+Watch common [scenarios connecting blockchain using Azure Logic Apps](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true)
