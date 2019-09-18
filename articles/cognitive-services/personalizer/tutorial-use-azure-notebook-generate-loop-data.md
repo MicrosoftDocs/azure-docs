@@ -13,17 +13,56 @@ ms.author: diberry
 #Customer intent: 
 ---
 
-# "Tutorial: Use Personalizer in Azure notebooks 
+# Tutorial: Use Personalizer in Azure notebooks 
 
-## Copy notebook to your account
+This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. 
+
+The four customers are Alice, Bob, Cathy, and Dave. They have coffee preferences based on time of the day (morning, afternoon, evening) and weather (sunny, rainy, snowy). 
+
+To help make this selection, the _system_ also knows details about the coffee, such as the general temperature it is served at (hot, cold), where the coffee is from (Kenya, Brazil, Ethiopia) if it is organic and how dark is the roast. 
+
+The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible. 
+
+## How the simulation works
+
+ At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by reward score of 1). After the model update frequency period and a few thousand requests, the system improves to an accuracy rate of between 70%-80%.  
+
+## Rank and reward calls
+
+For each of the few thousand calls to the Personalizer service, the Azure notebook sends the **Rank** request:
+
+* A unique ID for the Rank/Request event
+* Context - A random choice of the user, weather, and time of day - simulating a user on a website or mobile device
+* Features - _All_ the coffee data - from which to make a suggestion
+
+The system receives the rank of the coffee choices, then compares that prediction with the user's known choice for the same time of day and weather. If the known choice is the same as the predicted choice, the **Reward** of 1 is sent back to Personalizer. Otherwise the reward is 0. 
+
+> [!Note]
+> This is a simulation so the algorithm for the reward is simple. In a real-world scenario, the algorithm should use business logic, possibly with weights for various aspects of the customer's experience, to determine a score _between_ 0 and 1. 
+
+
+## Prerequisites
+
+This [user dataset](~/samples-personalizer/samples/azurenotebook/example.json) is stored in a JSON object. 
+
+This [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json) is stored in a JSON object. 
+
 
 ## Create Personalizer resource
 
-## Edit notebook for key and endpoint
+Get the Personalizer key and endpoint
+
+## Install SDK
+
+## Set up the Azure notebook
+
+Copy sample files
+Edit notebook cell for key and endpoint
 
 ## Run notebook cells
 
-### Install Personalizer SDK
+Validate SDK is installed
+
 
 ### Set constants for experiment
 
@@ -31,10 +70,22 @@ ms.author: diberry
 
 ### Chart results to see improvement with Personalizer
 
-## Use data for offline evaluation
+The chart should look like the image below. 
 
-## Create and apply new learning policy
+![Chart of results from Azure notebook](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
-## Run experiment again to see impact of new learning policy
+This chart shows a low performance period (between 20-30% prediction reward of 1) then after a few thousand requests, a significant performance increase (to around 80% prediction reward of 1) that continues for the duration of the test.
+
+The 80% success indicates a near perfect prediction, which isn't realistic for all Personalizer loops. The other 20% of the time, the loop is exploring by sending back results to the Rank call that are not determined by the currently trained model. 
+
+## Clean up resources
+
+If you do not intend to continue the tutorial series, clean up the following resources:
+
+* Delete your Azure notebook project. 
+* Delete your Personalizer resource. 
 
 ## Next steps
+
+In the next tutorial, use the data for offline evaluation, create and apply a new learning policy. Then run the simulation again to see the improvements. 
+
