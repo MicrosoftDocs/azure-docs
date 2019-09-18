@@ -34,10 +34,17 @@ However, if logging information from Azure Information Protection is going to a 
 
 ## Prerequisites
 
-- One of the following Azure AD administrator roles for your tenant: Azure Information Protection administrator, Security administrator, or Global administrator.
+- One of the following Azure AD administrator roles for your tenant: 
+    - Azure Information Protection administrator
+    - Security administrator
+    - Compliance administrator
+    - Compliance data administrator
+    - Global administrator
     
     > [!NOTE]
-    > You cannot use the Azure Information Protection administrator role if your tenant is on the [unified labeling platform](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+    > You cannot use the Azure Information Protection administrator role if your tenant is on the [unified labeling platform](/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
+    
+    These roles are needed only for configuring the Azure Information Protection connector, and aren't needed when Sentinel is connected to Azure Information Protection.
 
 - Permissions to read and write to the Log Analytics workspace you're using for Sentinel and Azure Information Protection.
 
