@@ -33,7 +33,7 @@ The data is then archived into a Storage account, streamed to an Event Hub, or s
 
 ### Enable diagnostic logs
 
-Diagnostic logs are disabled by default. To enable diagnostic logs, perform the following steps:
+Diagnostic logs are disabled by default. To enable diagnostic logs, do the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), select the Azure Data Explorer cluster resource that you want to monitor.
 1. Under **Monitoring**, select **Diagnostic settings**.
@@ -52,7 +52,7 @@ Diagnostic logs are disabled by default. To enable diagnostic logs, perform the 
     1. Select **Save** to save the new diagnostic logs settings and metrics.
     1. Create a **New support request** in the Azure portal to request activation of diagnostic logs.
 
-New settings will be set in a few minutes. Logs then appear in the configured archival target (Storage account, Event Hub or Log Analytics). See [ingestion logs schema](#ingestion-logs-schema) for more information
+New settings will be set in a few minutes. Logs then appear in the configured archival target (Storage account, Event Hub, or Log Analytics). 
 
 ## Diagnostic logs schema
 
@@ -102,9 +102,9 @@ Log JSON strings include elements listed in the following table:
 |operationId        |Azure Data Explorer ingestion operation ID
 |database           |Name of the target database
 |table              |Name of the target table
-|ingestionSourceId  |Id of the ingestion data source
+|ingestionSourceId  |ID of the ingestion data source
 |ingestionSourcePath|Path of the ingestion data source or blob URI
-|rootActivityId     |Activity id
+|rootActivityId     |Activity ID
 
 #### Failed ingestion operation log
 
@@ -143,9 +143,9 @@ Log JSON strings include elements listed in the following table:
 |operationId        |Azure Data Explorer ingestion operation ID
 |database           |Name of the target database
 |table              |Name of the target table
-|ingestionSourceId  |Id of the ingestion data source
+|ingestionSourceId  |ID of the ingestion data source
 |ingestionSourcePath|Path of the ingestion data source or blob URI
-|rootActivityId     |Activity id
+|rootActivityId     |Activity ID
 |details            |Detailed description of the failure and error message
 |errorCode          |Error code 
 |failureStatus      |`Permanent` or `Transient`. Retry of a transient failure may succeed.
