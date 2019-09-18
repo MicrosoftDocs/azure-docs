@@ -15,21 +15,40 @@ Change feed logs capture change event records for all changes that occur to the 
 
 Unlike change events which enable your applications to react to real-time changes, change feed logs provide an ordered log of change event records. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
 
-## Enabling change feed logs
+Change feed logs aren't enabled by default. You can enable them by using the Azure portal, PowerShell, or the Azure CLI.
 
-The only way to do this is via the Portal or Azure CLI. Currently the portal work is in the backlog so there is no way to do this right now.
+See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md) for step-by-step guidance.
 
-## Finding change feed logs
+> [!NOTE]
+> Change feed logs are in public preview, and are available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](www.microsoft.com).
 
-Located in a container named **$blobchangefeed**. This is created automatically when you enable change feed.
-Change feed log files appear in the **$blobchangefeed/log** path.
+## How change feed logs are organized
+
+A change feed log contains a series of change event records. You can find those logs in a container named **$blobchangefeed**. Also in this container are several metadata files that you can use to identity which logs you are interested in processing. The following table describes each file that you'll find in the **$blobchangefeed** container.
+
+| File    | Purpose    |
+|--------|-----------|
+| **Index metadata file** | This file is named *segments.json* and there is only one of them. Use the data in this file to help you decide which logs you're interested in processing |
+| **Segment metadata file** | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments for easier processing. Each segment contains a metadata file ending with the suffix *meta.json*. |
+| **Change feed log(s)** |  A log file that represents 60 minutes of event activity. log files contain a series of change event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
+
+Something here about the general flow of processing the change feed and what you do first etc. Then, link to the how to article.
+
+## Index metadata file
+
+## Segment metadata file
+
+## Change feed log file
+
+## Pricing
+
+–	Storage : Regular Azure Blob Storage prices apply to retain the Change Feed log files
+–	Reading : Regular Blob API pricing for GetBlob and ListBlob are charged read from the change feed.
+–	Change Tracking : There is a variable cost based on per-volume-of-change-events-tracked if change feed is enabled. ( cost : tbd )
 
 ## Understanding change feed logs
 
-* Organized into segments. 60 minutes apart.
-* Segment index file.
-* Segment metadata files.
-* Change event records. These are in [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format and are stored in Azure Storage Append Blobs in your account.
+
 
 - Only the event information for the change is available in the Change Event Record, not the changed data.
 
@@ -149,15 +168,7 @@ Change Event Record
 
 
 
-## Processing the change feed logs
 
-Some explanation here for the general workflow. Then, link to the how to article.
-
-## Pricing
-
-–	Storage : Regular Azure Blob Storage prices apply to retain the Change Feed log files
-–	Reading : Regular Blob API pricing for GetBlob and ListBlob are charged read from the change feed.
-–	Change Tracking : There is a variable cost based on per-volume-of-change-events-tracked if change feed is enabled. ( cost : tbd )
 
 ## Questions
 
