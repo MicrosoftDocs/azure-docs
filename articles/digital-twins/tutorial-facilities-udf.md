@@ -6,7 +6,7 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
 ---
 
@@ -126,19 +126,16 @@ Also note the section named **roleassignments**. It assigns the Space Administra
     f. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
     ```JavaScript
-        // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
+       // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
         if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
             log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
-
-            // Set up custom notification for air quality
-            parentSpace.Notify(JSON.stringify(availableFresh));
         }
         else {
             log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
             setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-            // Set up custom notification for air quality
+            // Set up custom notification for poor air quality
             parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
         }
     ```
