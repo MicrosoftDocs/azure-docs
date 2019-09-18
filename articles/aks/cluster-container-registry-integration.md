@@ -22,17 +22,8 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 You must have the following:
 
 * **Owner** or **Azure account administrator** role on the **Azure subscription**
-* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
+* You also need the Azure CLI version 2.0.73 or later
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
-
-## Install latest AKS CLI preview extension
-
-You need the **aks-preview 0.4.13** extension or later.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## Create a new AKS cluster with ACR integration
 
