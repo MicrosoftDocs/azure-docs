@@ -55,7 +55,7 @@ To install the Azure Machine Learning extension:
 > [!Tip]
 > Check out the [IntelliCode extension for Visual Studio Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant autocompletions based on the current code context.
 
-## Get started with Azure Machine Learning
+## Quick start with Azure Machine Learning
 There are multiple ways of running your training script in the Azure cloud. If you're just getting started and have a python script you know run successfully on your local machine, keep reading.
 
 If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [NEED REFERENCE TO USING AZURE ML RESOURCES BELOW](#Foo) below.
