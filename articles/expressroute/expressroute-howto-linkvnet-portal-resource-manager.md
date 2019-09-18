@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 09/17/2019
 ms.author: cherylmc
 ms.custom: seodec18
 
@@ -51,11 +51,11 @@ This article helps you create a connection to link a virtual network to an Azure
 1. Ensure that your ExpressRoute circuit and Azure private peering have been configured successfully. Follow the instructions in [Create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and [Configure routing](expressroute-howto-routing-arm.md). Your ExpressRoute circuit should look like the following image:
 
    ![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png)
-   [![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "View Circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#circuit)
+   [![ExpressRoute circuit screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1.png "View Circuit")](./media/expressroute-howto-linkvnet-portal-resource-manager/routing1-exp.png#lightbox)
 2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Click **Connection** > **Add** to open the **Add connection** page, and then configure the values.
 
    ![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png)
-   [![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Add Connection Screenshot")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#connection_add)
+   [![Add connection screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1.png "Add Connection Screenshot")](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub1-exp.png#lightbox)
 3. After your connection has been successfully configured, your connection object will show the information for the connection.
 
    ![Connection object screenshot](./media/expressroute-howto-linkvnet-portal-resource-manager/samesub2.png)
