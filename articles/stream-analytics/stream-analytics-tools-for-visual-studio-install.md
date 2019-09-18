@@ -18,7 +18,7 @@ For more information on using the tools, see [Quickstart: Create an Azure Stream
 
 ## Install
 
-Visual Studio Enterprise (Ultimate/Premium), Professional, and Community editions support the tools. Express edition and Visual Studio 2017 for Mac don't support them.
+Visual Studio Enterprise (Ultimate/Premium), Professional, and Community editions support the tools. Express edition and Visual Studio for Mac don't support them.
 
 We recommend Visual Studio 2019 or Visual Studio 2017.
 
