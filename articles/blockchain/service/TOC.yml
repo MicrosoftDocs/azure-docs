@@ -49,7 +49,7 @@
     href: manage-consortium-powershell.md
   - name: Use Logic Apps
     href: ethereum-logic-app.md
-    - name: Resources
+- name: Resources
   items:
   - name: Blockchain REST API
     href: https://docs.microsoft.com/rest/api/blockchain/

@@ -116,12 +116,12 @@ You need the Azure Blockchain Service endpoint address to connect to a blockchai
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Navigate to your Azure Blockchain Service member. Select **Transaction nodes** and the default transaction node link.
 
-    ![Select default transaction node](./media/connect-metamask/transaction-nodes.png)
+    ![Select default transaction node](./media/ethereum-logic-app/transaction-nodes.png)
 
 1. Select **Connection strings > Access keys**.
 1. Copy the endpoint address from **HTTPS (Access key 1)** or access key 2.
 
-    ![Connection string](./media/connect-metamask/connection-string.png)
+    ![Connection string](./media/ethereum-logic-app/connection-string.png)
 
     The RPC endpoint is the HTTPS URL including the address and access key of your Azure Blockchain Service member transaction node.
 
