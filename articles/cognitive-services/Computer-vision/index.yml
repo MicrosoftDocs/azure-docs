@@ -43,7 +43,8 @@ landingContent:
             url: quickstarts-sdk/csharp-sdk.md
           - text: Using the Python SDK
             url: quickstarts-sdk/python-sdk.md
-
+          - text: Using the Java SDK
+            url: quickstarts-sdk/java-sdk.md
 
   - title: Detect objects in images
     linkLists:
