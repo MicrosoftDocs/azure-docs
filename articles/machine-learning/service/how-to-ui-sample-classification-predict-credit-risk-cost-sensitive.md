@@ -18,7 +18,7 @@ This article shows you how to build a complex machine learning experiment using 
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-If you're just getting started with machine learning, you can take a look at the [basic classifier sample](ui-how-to-classification-predict-credit-risk-basic.md) first.
+If you're just getting started with machine learning, you can take a look at the [basic classifier sample](how-to-ui-sample-classification-predict-credit-risk-basic.md) first.
 
 Here's the completed graph for this experiment:
 
@@ -155,8 +155,8 @@ From these results, you can see that the best accuracy is provided by the model 
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](ui-how-to-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-how-to-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](ui-how-to-classification-predict-credit-risk-basic.md)
-- [Sample 5 - Classification: Predict churn](ui-how-to-classification-predict-churn.md)
-- [Sample 6 - Classification: Predict flight delays](ui-how-to-classification-predict-flight-delay.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
