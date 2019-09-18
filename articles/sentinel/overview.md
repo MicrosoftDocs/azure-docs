@@ -47,13 +47,11 @@ To on-board Azure Sentinel, you first need to [connect to your security sources]
 
 ![Data collectors](./media/collect-data/collect-data-page.png)
 
-## Dashboards
+## Workbooks
 
-After connecting data sources you can choose from a gallery of [expertly created dashboards](quickstart-get-visibility.md#dashboards) that surface insights from your data sources. Each dashboard is fully customizable - you can add your own logic or modify queries, or you can create a dashboard from scratch.
+After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can monitor the data using the Azure Sentinel integration with Azure Monitor Workbooks, which provides versatility in creating custom dashboards. While Workbooks are displayed differently in Azure Sentinel, it may be useful for you to see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/app/usage-workbooks.md). Azure Sentinel allows you to create custom workbooks across your data, and also comes with built-in workbook templates to allow you to quickly gain insights across your data as soon as you connect a data source.
 
-The dashboards are based on Azure Workbooks to provide interactive visualization using advanced analytics to help your security analysts get a better understanding of what’s going on during an attack. They can be easily customized allowing you to create exactly the dashboard you need from the data across Azure Sentinel. The investigation tools enable you to deep dive on any field, from any data, to rapidly develop threat context. For more information on customizing your dashboards with Azure Workbooks see 
-
-![Dashboards](./media/overview/dashboards.png)
+![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
 ## Analytics
 
