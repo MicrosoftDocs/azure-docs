@@ -69,7 +69,7 @@ Within the first 48 hours, the data and alert rules (including real-time automat
 
 -   Bookmarks
 
-Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may brake due to the removed data. You can remove those manually.**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may break due to the removed data. You can remove those manually.**
 
 After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
 

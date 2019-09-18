@@ -27,8 +27,10 @@ If you’re a managed security service provider (MSSP) and you’re using [Azure
    ![Check resource providers](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## How to access Azure Sentinel from other tenants
 1. Under **Directory + subscription**, select the delegated directories, and the subscriptions where your customer’s Azure Sentinel workspaces are located.
+
    ![Generate security incidents](media/multiple-tenants-service-providers/directory-subscription.png)
-2. Open Azure Sentinel. You will see all the workspaces in the selected subscriptions, and you’ll be able to work with them seamlessly, like any workspace in your own tenant.
+
+1. Open Azure Sentinel. You will see all the workspaces in the selected subscriptions, and you’ll be able to work with them seamlessly, like any workspace in your own tenant.
 
 > [!NOTE]
 > You will not be able to connect connectors in Azure Sentinel from within a managed workspace. To connect a connector, you must directly sign into the tenant on which you want to connect a connector and authenticate there with the required permissions.
