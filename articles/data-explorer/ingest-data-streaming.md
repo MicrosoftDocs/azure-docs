@@ -37,8 +37,8 @@ Use the classic (bulk) ingestion instead of streaming ingestion when the amount 
 1. In the [Web UI](https://dataexplorer.azure.com/), define [streaming ingestion policy](/azure/kusto/concepts/streamingingestionpolicy) on table(s) or database(s) that will receive streaming data. 
 
     > [!NOTE]
-    > If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
-    > The applied policy can reference only newly ingested data and not other tables in the database.
+    > * If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
+    > * The applied policy can reference only newly ingested data and not other tables in the database.
 
 ## Use streaming ingestion to ingest data to your cluster
 
