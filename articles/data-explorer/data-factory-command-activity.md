@@ -14,9 +14,7 @@ ms.date: 09/15/2019
 
 # Use Azure Data Factory command activity to run Azure Data Explorer control commands
 
-[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory allows you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands) within an ADF workflow.  
-
-This article teaches you how to create a pipeline with a lookup activity and ForEach containing an Azure Data Explorer command activity.
+[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory allows you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands) within an ADF workflow. This article teaches you how to create a pipeline with a lookup activity and ForEach containing an Azure Data Explorer command activity.
 
 ## Prerequisites
 
@@ -29,7 +27,7 @@ This article teaches you how to create a pipeline with a lookup activity and For
 
 Select the **Author** pencil tool. Create a new pipeline by selecting **+** and then select **Pipeline** from the drop-down.
 
-    ![create new pipeline](media/data-factory-command-activity/create-pipeline.png)
+   ![create new pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## Create a Lookup activity
 
@@ -64,7 +62,7 @@ Select the **Author** pencil tool. Create a new pipeline by selecting **+** and 
 
     ![Edit Azure Data Explorer dataset properties](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
 
-1. When creating a new linked service, the **New Linked Service (Azure Data Explorer)** page opens, where you do the following:
+1. When creating a new linked service, the **New Linked Service (Azure Data Explorer)** page opens:
 
     ![ADX new linked service](media/data-factory-command-activity/adx-new-linked-service.png)
 
@@ -106,7 +104,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
 
    ![ForEach activity](media/data-factory-command-activity/for-each-activity.png)
 
-6.	Select the ForEach activity in the canvas. In **Settings**:
+1.	Select the ForEach activity in the canvas. In **Settings**:
     * Check the **Sequential** checkbox for a sequential processing of the Lookup results, or leave it unchecked to create parallel processing.
     * Set **Batch count**.
     * In **Items**, provide the following reference to the output value:
@@ -117,7 +115,6 @@ Your dataset is now ready, and you can continue editing your pipeline.
 ## Create an Azure Data Explorer Command activity within the ForEach activity
 
 1. Double-click the ForEach activity in the canvas to open it in a new canvas to specify the activities that will be performed.
-
 1. In the **Activities** pane, under **Azure Data Explorer**, select the **Azure Data Explorer Command** activity and drag and drop into the canvas.
 
     ![azure data explorer command activity](media/data-factory-command-activity/adx-command-activity.png)
@@ -139,22 +136,26 @@ Your dataset is now ready, and you can continue editing your pipeline.
     ```
 
     The **Command** instructs Azure Data Explorer to export the results of a given query into a blob storage, in a compressed format. It runs asynchronously (using the async modifier).
-    The query addresses the database column of each row in the Lookup activity result.  The **Command timeout** can be left unchanged.
+    The query addresses the database column of each row in the Lookup activity result. The **Command timeout** can be left unchanged.
 
-   ![command activity](media/data-factory-command-activity/command.png)    
+       ![command activity](media/data-factory-command-activity/command.png)   
+
     > [!NOTE]
     > The command activity has the following limits:
     > * Size limit: 1 MB response size
     > * Time limit: 20 minutes (default), 1 hour (maximum).
     > If needed, you can append a query to the result using [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands), to reduce resulting size/time.
 
+
 1.	Now the pipeline is ready. You can go back to the main pipeline view by clicking the pipeline name.
 
-   ![adx command pipeline](media/data-factory-command-activity/adx-command-pipeline1.png)
+    ![adx command pipeline](media/data-factory-command-activity/adx-command-pipeline.png)
 
-1. You can **Publish All** and then **Add trigger** to run the pipeline. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in **Output** tab.
+1. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in **Output** tab.
 
-   ![azure data explorer command activity output](media/data-factory-command-activity/command-activity-output.png)
+    ![azure data explorer command activity output](media/data-factory-command-activity/command-activity-output.png)
+
+1. You can **Publish All** and then **Add trigger** to run the pipeline. 
 
 ## Control command outputs
 
@@ -208,3 +209,8 @@ In an async control command, the activity polls the operations table, behind the
     ] 
 }
 ``` 
+
+## Next steps
+
+* Learn about the procedure to [copy data to Azure Data Explorer using Azure Data Factory](data-factory-load-data.md).
+* Learn about using [Azure Data Factory template for bulk copy from database to Azure Data Explorer](data-factory-template.md).
