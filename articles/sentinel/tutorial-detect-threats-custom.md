@@ -22,8 +22,8 @@ ms.author: rkarlin
 After you [connected your data sources](quickstart-onboard.md) to Azure Sentinel, you can create custom rules that can search for specific criteria across your environment and generate incidents when the criteria are matched so that you can investigate them. This tutorial helps you create custom rules to detect threats with Azure Sentinel.
 
 This tutorial helps you detect threats with Azure Sentinel.
-> *Create analytic rules
-> *Automate threat responses
+> * Create analytic rules
+> * Automate threat responses
 
 ## Create custom analytic rules
 
