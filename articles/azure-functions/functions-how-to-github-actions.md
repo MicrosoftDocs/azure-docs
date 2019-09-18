@@ -69,13 +69,13 @@ A snippet from the yaml file for a Node JS app that uses version 10
 
 ```yaml
     - name: 'Login via Azure CLI'
-          uses: Azure/actions/login@master
-          with:
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        - name: Setup Node 10.x
-          uses: actions/setup-node@v1
-          with:
-            node-version: '10.x'
+      uses: Azure/actions/login@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Node 10.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
 ```
 
 **Build the app**
@@ -87,15 +87,15 @@ A snippet from the yaml file for a Node JS app
 
 ```yaml
     - name: 'Run npm'
-          shell: bash
-          run: |
-            # If your function app project is not located in your repository's root
-            # Please change your directory for npm in pushd
-            pushd .
-            npm install
-            npm run build --if-present
-            npm run test --if-present
-            popd
+      shell: bash
+      run: |
+        # If your function app project is not located in your repository's root
+        # Please change your directory for npm in pushd
+        pushd .
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+        popd
 ```
 
 ### Deploy
@@ -112,10 +112,10 @@ The following snippet show how to use version 1 of the action
 
 ```yaml
     - name: 'Run Azure Functions Action'
-          uses: Azure/functions-action@v1
-          id: fa
-          with:
-            app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
+      uses: Azure/functions-action@v1
+      id: fa
+      with:
+        app-name: PLEASE_REPLACE_THIS_WITH_YOUR_FUNCTION_APP_NAME
 ```
 
 There are a number of samples available under the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples), you can use these samples a starting point for your workflow.
