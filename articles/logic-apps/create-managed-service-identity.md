@@ -181,61 +181,111 @@ To set up a user-assigned managed identity for your logic app, you must first cr
 
 #### Create user-assigned identity in an Azure Resource Manager template
 
-To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To set up a user-assigned managed identity for your logic app by using a template, add these items to your logic app's resource definition in the template:
+To automate creating and deploying Azure resources such as logic apps, you can use [Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). To set up a user-assigned managed identity for your logic app by using a template, add these items to your logic app's resource definition in the template's `"resources"` section:
 
-* An `"identity"` object that has a `"type"` child property that's set to `"UserAssigned"`
+* An `"identity"` object with the `"type"` property set to `"UserAssigned"`
 
-* A child `"userAssignedIdentities"` object in the `"identity"` object. The child object references a variable named `userAssignedIdentity` that you define in your template's `variables` section. The variable references the name for your user-assigned identity.
+* A child `"userAssignedIdentities"` object that specifies the identity's resource ID, which is another child object that has the `"principalId"` and `"clientId"` properties
 
-For example:
+This example shows a logic app resource definition for an HTTP PUT request and includes a non-parameterized `"identity"` object. The response to the PUT request and subsequent GET operation also have this `"identity"` object:
 
 ```json
 {
-   "apiVersion": "2016-06-01",
-   "type": "Microsoft.logic/workflows",
-   "name": "[variables('logicappName')]",
-   "location": "[resourceGroup().location]",
-   "identity": {
-      "type": "UserAssigned",
-      "userAssignedIdentities": {
-         "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedIdentity'))]": {}
-      }
-   },
-   "properties": {
-      "definition": {
-         "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
-         "actions": {},
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {<template-parameters>},
+   "resources": [
+      {
+         "apiVersion": "2016-06-01",
+         "type": "Microsoft.logic/workflows",
+         "name": "[variables('logicappName')]",
+         "location": "[resourceGroup().location]",
+         "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
+                  "principalId": "<principal-ID>",
+                  "clientId": "<client-ID>"
+               }
+            }
+         },
+         "properties": {
+            "definition": {<logic-app-workflow-definition>}
+         },
          "parameters": {},
-         "triggers": {},
-         "contentVersion": "1.0.0.0",
-         "outputs": {}
-   },
-   "parameters": {},
-   "dependsOn": [
-      "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedIdentity'))]"
-   ]
-}
-```
-
-When Azure creates your logic app, the child `"userAssignedIdentities"` object includes additional properties:
-
-```json
-"identity": {
-   "type": "UserAssigned",
-   "userAssignedIdentities": {
-      "<user-assigned-managed-identity-resource-ID>": {
-         "principalId": "<principal-ID>",
-         "clientId": "<client-ID>"
-      }
-   }
+         "dependsOn": []
+      },
+   ],
+   "outputs": {}
 }
 ```
 
 | Property | Value | Description |
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) for the managed identity in the Azure AD tenant |
+| **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) for the user-assigned managed identity in the Azure AD tenant |
 | **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) for your logic app's new identity that's used for calls during runtime |
 ||||
+
+If your template also includes the managed identity's resource definition, you can parameterize the `"identity"` object. This example shows how the child `"userAssignedIdentities"` object references a `userAssignedIdentity` variable that you define in your template's `variables` section. This variable references the resource ID for your user-assigned identity.
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {
+      "Template_LogicAppName": {
+         "type": "string"
+      },
+      "Template_UserAssignedIdentityName": {
+         "type": "securestring"
+      }
+   },
+   "variables": {
+      "logicAppName": "[parameters(`Template_LogicAppName')]",
+      "userAssignedIdentityName": "[parameters('Template_UserAssignedIdentityName')]"
+   },
+   "resources": [
+      {
+         "apiVersion": "2016-06-01",
+         "type": "Microsoft.logic/workflows",
+         "name": "[variables('logicAppName')]",
+         "location": "[resourceGroup().location]",
+         "identity": {
+            "type": "UserAssigned",
+            "userAssignedIdentities": {
+               "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedIdentityName'))]": {}
+            }
+         },
+         "properties": {
+            "definition": {<logic-app-workflow-definition>}
+         },
+         "parameters": {},
+         "dependsOn": [
+            "[resourceId('Microsoft.ManagedIdentity/userAssignedIdentities/', variables('userAssignedIdentityName'))]"
+         ]
+      },
+      {
+         "apiVersion": "2018-11-30",
+         "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
+         "name": "[parameters('Template_UserAssignedIdentityName')]",
+         "location": "[resourceGroup().location]",
+         "properties": {
+            "tenantId": "<tenant-ID>",
+            "principalId": "<principal-ID>",
+            "clientId": "<client-ID>"
+         }
+      }
+  ]
+}
+```
+
+| Property | Value | Description |
+|----------|-------|-------------|
+| **tenantId** | <*Azure-AD-tenant-ID*> | The Globally Unique Identifier (GUID) that represents the Azure AD tenant where the user-assigned identity is now a member. Inside the Azure AD tenant, the service principal has the same name as the user-assigned identity name. |
+| **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) for the user-assigned managed identity in the Azure AD tenant |
+| **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) for your logic app's new identity that's used for calls during runtime |
+||||
+
 
 <a name="access-other-resources"></a>
 
