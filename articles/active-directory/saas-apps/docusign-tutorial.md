@@ -39,7 +39,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you'll configure and test Azure AD SSO in a test environment to verify that:
 
 * DocuSign supports service provider (SP)-initiated SSO.
 
@@ -56,7 +56,7 @@ To configure the integration of DocuSign into Azure AD, you must add DocuSign fr
 1. Go to **Enterprise Applications** and then select **All Applications**.
 1. To add a new application, select **New application**.
 1. In the **Add from the gallery** section, type **DocuSign** in the search box.
-1. Select **DocuSign** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **DocuSign** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
 ## Configure and test Azure AD single sign-on for DocuSign
@@ -69,7 +69,7 @@ To configure and test Azure AD SSO with DocuSign, complete the following buildin
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure DocuSign SSO](#configure-docusign-sso)** to configure the single sign-on settings on the application side.
-    1. **[Create DocuSign test user](#create-docusign-test-user)** to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
+    - **[Create a DocuSign test user](#create-docusign-test-user)** to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
@@ -82,7 +82,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, follow these steps:
 
 	a. In the **Sign on URL** box, enter a URL using the following pattern:
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
@@ -137,11 +137,11 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign into DocuSign. The browser extension automatically configures the application for you and automates steps 3 through 5.
+2. After you add the extension to the browser, select **Setup DocuSign**. You're directed to the DocuSign application. From there, provide the admin credentials to sign in to DocuSign. The browser extension automatically configures the application and automates steps 3 through 5.
 
 	![Setup configuration](common/setup-sso.png)
 
-3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator. Then, follow these steps:
+3. If you want to set up DocuSign manually, open a new web browser window and sign in to your DocuSign company site as an administrator.
 
 4. In the upper-right corner of the page, select the profile logo, and then select **Go to Admin**.
   
@@ -155,7 +155,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     ![Configuring single sign-on][52]
 
-7. In the **Claim a domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
+7. In the **Claim a Domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
 
     ![Configuring single sign-on][53]
 
@@ -177,7 +177,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     c. In the **Identity Provider Login URL** box, paste the **Login URL** value, which you copied from Azure portal.
 
-    d. In the **Identity Provider Logout URL** box, paste the value of **Logout URL**, which you have copied from Azure portal.
+    d. In the **Identity Provider Logout URL** box, paste the value of **Logout URL**, which you  copied from Azure portal.
 
     e. Select **Sign AuthN request**.
 
@@ -189,7 +189,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 	![Configuring single sign-on][62]
 
-	i. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. It is the default claim name from Azure AD for the email claim. Select **SAVE**.
+	i. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
 
 	![Configuring single sign-on][57]
 
@@ -204,10 +204,10 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 	![Configuring single sign-on][59]
 
-	l. In the **View SAML 2.0 Endpoints** section in the DocuSign admin portal, follow these steps:
-	  1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section on the Azure portal.
+	l. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
+	  1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
 
-	  1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section on the Azure portal.
+	  1. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** box in **Basic SAML Configuration** section in the Azure portal.
 
 	  1. Select **Close**.
 
@@ -218,7 +218,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 In this section, a user named B.Simon is created in DocuSign. DocuSign supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in DocuSign, a new one is created after authentication.
 
 >[!Note]
->If you need to create a user manually, contact [DocuSign support team](https://support.docusign.com/).
+>If you need to create a user manually, contact the [DocuSign support team](https://support.docusign.com/).
 
 ## Test SSO 
 
