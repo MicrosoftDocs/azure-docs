@@ -25,11 +25,6 @@ You can manage backups by using the dashboard and by drilling down to individual
 
 ![Full dashboard view with slider](./media/backup-azure-manage-vms/bottom-slider.png)
 
-## Backup item where primary data source no longer exists
-
-If a resource configured with Azure backup is deleted or moved without stopping protection, scheduled backups continue (failing) even though resource no longer exists. Backup jobs are not shown for this kind of a protected item post the non- existence of the resource. Failed backup job appears and backup pre check shows as ‘critical’ only when an ad-hoc backup is triggered on these resources. These backup items remain active in the system adhering to the backup and retention policy set by the user. The expired recovery points are cleaned as per the set retention policy. The last recovery point is retained forever and the customer is charged as per the backup pricing applicable.
-
-
 ## View VMs on the dashboard
 
 To view VMs on the vault dashboard:
