@@ -81,9 +81,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     
 	| Environment | URL |
     |:--- |:--- |
-    | PC web |`https://ap.sansan.com/v/saml2/<company name>/acs` |
-    | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>/acs` |
-    | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>/acs` |
+    | PC web |`https://ap.sansan.com/v/saml2/<company name>` |
+    | Native Mobile app |`https://internal.api.sansan.com/saml2/<company name>` |
+    | Mobile browser settings |`https://ap.sansan.com/s/saml2/<company name>` |
 
     2. In the **Identifier (Entity ID)** text box, you can set-up multiple identifier values and select any one of them as per the environments.
 
