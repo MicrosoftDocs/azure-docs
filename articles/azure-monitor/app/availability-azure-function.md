@@ -20,8 +20,8 @@ This doc will cover how to create an Azure Function that will run periodically a
 ## Create Timer triggered function
 
 - If you do not have an Application Insights Resource created yet for your timer triggered function:
-    - By default when you are creating your Azure Functions application it will create a Application Insights resource for you.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean up).
+    - By default when you are creating your Azure Functions application it will create an Application Insights resource for you.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (stop before clean-up).
 
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
@@ -38,9 +38,9 @@ This doc will cover how to create an Azure Function that will run periodically a
 
 ## Sample Code
 
-Copy the code below into the run.csx. To do this go into your Azure functions application and select your timer trigger function on the left.
+Copy the code below into the run.csx. To do this, go into your Azure functions application and select your timer trigger function on the left.
 
-![Azure function's run.csx in Azure Portal](media/availability-azure-function/runcsx.png)
+![Azure function's run.csx in Azure portal](media/availability-azure-function/runcsx.png)
 
 > [!NOTE]
 > For the Endpoint Address you can use: [Endpoint Address for Azure Government](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights),the default Application Insights ```EndpointAddress= https://dc.services.visualstudio.com/v2/track```, or your own custom endpoint.
@@ -192,6 +192,6 @@ On the right under view files, select **Add**. Call the new file **function.proj
 
 ```
 
-![On the right select add. Name the file function.proj](media/availability-azure-function/addfile.png)
+![On the right select, add. Name the file function.proj](media/availability-azure-function/addfile.png)
 
 ## Next Steps
