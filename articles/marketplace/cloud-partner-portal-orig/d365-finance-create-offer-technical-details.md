@@ -1,6 +1,6 @@
 ---
 title: How to fill out the Technical Info form 
-description: Deprecated and linked to corresponding PC articles; was "Explains how to enter the values for the on the Technical Info form for a new Dynamics 365 Business Central app."
+description: Deprecated and linked to corresponding PC articles; was "Explains how to enter the values on the Technical Info form for a new Dynamics 365 Business Central app."
 services: Azure, Marketplace, Cloud Partner Portal, 
 author: ChJenk
 ms.service: marketplace
