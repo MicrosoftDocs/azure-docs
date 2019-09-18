@@ -15,29 +15,29 @@ ms.reviewer: douglasl
 manager: craigg
 ---
 # Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory
-This article describes how to run a SQL Server Integration Services (SSIS) package in Azure Data Factory (ADF) pipeline by using the Execute SSIS Package activity. 
+This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory  pipeline by using the Execute SSIS Package activity. 
 
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Create an Azure-SSIS Integration Runtime (IR) if you do not have one already by following the step-by-step instructions in the [Tutorial: Provisioning Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md).
+Create an Azure-SSIS integration runtime (IR) if you don't have one already by following the step-by-step instructions in the [Tutorial: Provisioning Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md).
 
 ## Run a package in the Azure portal
-In this section, you use ADF User Interface (UI)/app to create an ADF pipeline with Execute SSIS Package activity that runs your SSIS package.
+In this section, you use the Data Factory user interface (UI) or app to create a Data Factory pipeline with an Execute SSIS Package activity that runs your SSIS package.
 
 ### Create a pipeline with an Execute SSIS Package activity
-In this step, you use ADF UI/app to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run your SSIS package. 
+In this step, you use the Data Factory UI or app to create a pipeline. You add an Execute SSIS Package activity to the pipeline and configure it to run your SSIS package. 
 
-1. On your ADF overview/home page in Azure portal, click on the **Author & Monitor** tile to launch ADF UI/app in a separate tab. 
+1. On your Data Factory overview or home page in the Azure portal, select the **Author & Monitor** tile to start the Data Factory UI or app in a separate tab. 
 
    ![Data factory home page](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 
-   On the **Let's get started** page, click **Create pipeline**: 
+   On the **Let's get started** page, select **Create pipeline**: 
 
    ![Get started page](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 
-2. In the **Activities** toolbox, expand **General**, then drag & drop an **Execute SSIS Package** activity to the pipeline designer surface. 
+2. In the **Activities** toolbox, expand **General**. Then drag and drop an **Execute SSIS Package** activity to the pipeline designer surface. 
 
    ![Drag an Execute SSIS Package activity to the designer surface](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-designer.png) 
 
@@ -45,72 +45,72 @@ In this step, you use ADF UI/app to create a pipeline. You add an Execute SSIS P
 
    ![Set properties on the General tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
-4. On the **Settings** tab for Execute SSIS Package activity, select an Azure-SSIS IR where you want to run your package. If your package uses Windows authentication to access data stores, e.g. SQL Servers/file shares on premises, Azure Files, etc., check the **Windows authentication** checkbox and enter the values for your package execution credentials (**Domain**/**Username**/**Password**). Alternatively, you can use secrets stored in your Azure Key Vault (AKV) as their values. To do so, click on the **AZURE KEY VAULT** checkbox next to the relevant credential, select/edit your existing AKV linked service or create a new one, and then select the secret name/version for your credential value.  When you create/edit your AKV linked service, you can select/edit your existing AKV or create a new one, but please grant ADF managed identity access to your AKV if you have not done so already. You can also enter your secrets directly in the following format: `<AKV linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, check the **32-Bit runtime** checkbox. 
+4. On the **Settings** tab for Execute SSIS Package activity, select an Azure-SSIS IR where you want to run your package. If your package uses Windows authentication to access data stores, for example, SQL Servers or file shares on-premises or Azure Files, select the **Windows authentication** check box. Enter the values for your package execution credentials (**Domain**/**Username**/**Password**). Alternatively, you can use secrets stored in your Azure Key Vault as their values. To do so, select the **AZURE KEY VAULT** check box next to the relevant credential, select/edit your existing Key Vault linked service or create a new one, and then select the secret name/version for your credential value.  When you create/edit your Key Vault linked service, you can select/edit your existing Key Vault or create a new one, but please grant Data Factory managed identity access to your Key Vault if you have not done so already. You can also enter your secrets directly in the following format: `<Key Vault linked service name>/<secret name>/<secret version>`. If your package needs 32-bit runtime to run, select the **32-Bit runtime** check box. 
 
-   For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with SSIS catalog (SSISDB) hosted by Azure SQL Database server/Managed Instance, you need to specify your package to run that has been deployed into SSISDB. If your Azure-SSIS IR is running and the **Manual entries** checkbox is unchecked, you can browse and select your existing folders/projects/packages/environments from SSISDB. Click the **Refresh** button to fetch your newly added folders/projects/packages/environments from SSISDB, so they are available for browsing and selection. To browse/select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more info, see [Creating/mapping SSIS environments](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   For **Package location**, select **SSISDB**, **File System (Package)**, or **File System (Project)**. If you select **SSISDB** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned with SSIS catalog (SSISDB) hosted by Azure SQL Database server or Managed Instance, specify your package to run that was deployed into SSISDB. If your Azure-SSIS IR is running and the **Manual entries** check box is cleared, browse and select your existing folders, projects, packages, or environments from SSISDB. Select **Refresh** to fetch your newly added folders, projects, packages, or environments from SSISDB, so they're available for browsing and selection. To browse or select the environments for your package executions, you must configure your projects beforehand to add those environments as references from the same folders under SSISDB. For more information, see [Create and map SSIS environments](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
 
-   For **Logging level**, select a predefined scope of logging for your package execution. Check the **Customized** checkbox, if you want to enter your customized logging name instead. 
+   For **Logging level**, select a predefined scope of logging for your package execution. Select the **Customized** check box, if you want to enter your customized logging name instead. 
 
    ![Set properties on the Settings tab - Automatic](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   If your Azure-SSIS IR is not running or the **Manual entries** checkbox is checked, you can enter your package and environment paths from SSISDB directly in the following formats: `<folder name>/<project name>/<package name>.dtsx` and `<folder name>/<environment name>`.
+   If your Azure-SSIS IR isn't running or the **Manual entries** check box is selected, enter your package and environment paths from SSISDB directly in the following formats: `<folder name>/<project name>/<package name>.dtsx` and `<folder name>/<environment name>`.
 
    ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   If you select **File System (Package)** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned without SSISDB, you need to specify your package to run by providing a Universal Naming Convention (UNC) path to your package file (`.dtsx`) in the **Package path**. For example, if you store your package in Azure Files, its package path will be `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
+   If you select **File System (Package)** as your package location, which is automatically selected if your Azure-SSIS IR was provisioned without SSISDB, specify your package to run by providing a Universal Naming Convention (UNC) path to your package file (`.dtsx`) in the **Package path**. For example, if you store your package in Azure Files, its package path is `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
-   If you configure your package in a separate file, you also need to provide a UNC path to your configuration file (`.dtsConfig`) in the **Configuration path**. For example, if you store your configuration in Azure Files, its configuration path will be `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
+   If you configure your package in a separate file, you also need to provide a UNC path to your configuration file (`.dtsConfig`) in the **Configuration path**. For example, if you store your configuration in Azure Files, its configuration path is `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`.
 
    ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   If you select **File System (Project)** as your package location, you need to specify your package to run by providing a UNC path to your project file (`.ispac`) in the **Project path** and a package file (`.dtsx`) from your project in the **Package name**. For example, if you store your project in Azure Files, its project path will be `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
+   If you select **File System (Project)** as your package location, specify your package to run by providing a UNC path to your project file (`.ispac`) in the **Project path** and a package file (`.dtsx`) from your project in the **Package name**. For example, if you store your project in Azure Files, its project path is `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
    ![Set properties on the Settings tab - Manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   Next, you need to specify the credentials to access your project/package/configuration files. If you have previously entered the values for your package execution credentials (see above), you can reuse them by checking the **Same as package execution credentials** checkbox. Otherwise, you need to enter the values for your package access credentials (**Domain**/**Username**/**Password**). For example, if you store your project/package/configuration in Azure Files, the **Domain** is `Azure`; the **Username** is `<storage account name>`; and the **Password** is `<storage account key>`. Alternatively, you can use secrets stored in your AKV as their values (see above). These credentials will be used to access your package and child packages in Execute Package Task, all from their own path/the same project, as well as configurations, including those specified in your packages. 
+   Next, specify the credentials to access your project, package, or configuration files. If you previously entered the values for your package execution credentials (see above), you can reuse them by selecting the **Same as package execution credentials** check box. Otherwise, enter the values for your package access credentials in **Domain**, **Username**, and **Password**. For example, if you store your project, package, or configuration in Azure Files, the **Domain** is `Azure`, the **Username** is `<storage account name>`, and the **Password** is `<storage account key>`. Alternatively, you can use secrets stored in your Key Vault as their values (see above). These credentials are used to access your package and child packages in Execute Package Task, all from their own path or the same project, as well as configurations, which include those specified in your packages. 
    
-   If you have used the **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection level when creating your package via SQL Server Data Tools (SSDT), you need to enter the value for your password in the **Encryption password**. Alternatively, you can use a secret stored in your AKV as its value (see above). If you have used the **EncryptSensitiveWithUserKey** protection level, you need to re-enter your sensitive values in configuration files or on the **SSIS Parameters**/**Connection Managers**/**Property Overrides** tabs (see below). If you have used the **EncryptAllWithUserKey** protection level, it is unsupported, so you need to reconfigure your package to use other protection level via SSDT or `dtutil` command line utility. 
+   If you used the **EncryptAllWithPassword** or **EncryptSensitiveWithPassword** protection level when you created your package via SQL Server Data Tools, enter the value for your password in the **Encryption password**. Alternatively, you can use a secret stored in your Key Vault as its value (see above). If you used the **EncryptSensitiveWithUserKey** protection level, reenter your sensitive values in configuration files or on the **SSIS Parameters**, **Connection Managers**, or **Property Overrides** tabs (see below). If you used the **EncryptAllWithUserKey** protection level, it's unsupported, so you need to reconfigure your package to use another protection level via SQL Server Data Tools or the `dtutil` command line utility. 
    
-   For **Logging level**, select a predefined scope of logging for your package execution. Check the **Customized** checkbox, if you want to enter your customized logging name instead. If you want to log your package executions beyond using the standard log providers that can be specified in your package, you need to specify your log folder by providing its UNC path in the **Logging path**. For example, if you store your logs in Azure Files, your logging path will be `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. A subfolder will be created in this path for each individual package run and named after the Execute SSIS Package activity run ID, in which log files will be generated every five minutes. 
+   For **Logging level**, select a predefined scope of logging for your package execution. Select the **Customized** check box, if you want to enter your customized logging name instead. If you want to log your package executions beyond using the standard log providers that can be specified in your package, specify your log folder by providing its UNC path in the **Logging path**. For example, if you store your logs in Azure Files, your logging path is `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`. A subfolder is created in this path for each individual package run and named after the Execute SSIS Package activity run ID, in which log files are generated every five minutes. 
    
-   Finally, you also need to specify the credentials to access your log folder. If you have previously entered the values for your package access credentials (see above), you can reuse them by checking the **Same as package access credentials** checkbox. Otherwise, you need to enter the values for your logging access credentials (**Domain**/**Username**/**Password**). For example, if you store your logs in Azure Files, the **Domain** is `Azure`; the **Username** is `<storage account name>`; and the **Password** is `<storage account key>`. Alternatively, you can use secrets stored in your AKV as their values (see above). These credentials will be used to store your logs. 
+   Finally, specify the credentials to access your log folder. If you previously entered the values for your package access credentials (see above), you can reuse them by selecting the **Same as package access credentials** check box. Otherwise, enter the values for your logging access credentials in **Domain**, **Username**, and **Password**. For example, if you store your logs in Azure Files, the **Domain** is `Azure`, the **Username** is `<storage account name>`, and the **Password** is `<storage account key>`. Alternatively, you can use secrets stored in your Key Vault as their values (see above). These credentials are used to store your logs. 
    
-   For all UNC paths mentioned above, the fully qualified file name must be less than 260 characters and the directory name must be less than 248 characters.
+   For all UNC paths previously mentioned, the fully qualified file name must be less than 260 characters and the directory name must be less than 248 characters.
 
-5. On the **SSIS Parameters** tab for Execute SSIS Package activity, if your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** checkbox on **Settings** tab is unchecked, the existing SSIS parameters in your selected project/package from SSISDB will be displayed for you to assign values to them. Otherwise, you can enter them one by one to assign values to them manually – Please ensure that they exist and are correctly entered for your package execution to succeed. 
+5. On the **SSIS Parameters** tab for Execute SSIS Package activity, if your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** check box on **Settings** tab is cleared, the existing SSIS parameters in your selected project or package from SSISDB is displayed for you to assign values to them. Otherwise, you can enter them one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. 
    
-   If you have used the **EncryptSensitiveWithUserKey** protection level when creating your package via SSDT and **File System (Package)**/**File System (Project)** is selected as your package location, you also need to re-enter your sensitive parameters to assign values to them in configuration files or on this tab. 
+   If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SQL Server Data Tools and **File System (Package)**/**File System (Project)** is selected as your package location, you also need to reenter your sensitive parameters to assign values to them in configuration files or on this tab. 
    
-   When assigning values to your parameters, you can add dynamic content by using expressions, functions, ADF system variables, and ADF pipeline parameters/variables. Alternatively, you can use secrets stored in your AKV as their values (see above).
+   When you assign values to your parameters, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your Key Vault as their values (see above).
 
    ![Set properties on the SSIS Parameters tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
-6. On the **Connection Managers** tab for Execute SSIS Package activity, if your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** checkbox on **Settings** tab is unchecked, the existing connection managers in your selected project/package from SSISDB will be displayed for you to assign values to their properties. Otherwise, you can enter them one by one to assign values to their properties manually – Please ensure that they exist and are correctly entered for your package execution to succeed. 
+6. On the **Connection Managers** tab for Execute SSIS Package activity, if your Azure-SSIS IR is running, **SSISDB** is selected as your package location, and the **Manual entries** check box on **Settings** tab is cleared, the existing connection managers in your selected project or package from SSISDB is displayed for you to assign values to their properties. Otherwise, you can enter them one by one to assign values to their properties manually. Make sure that they exist and are correctly entered for your package execution to succeed. 
    
-   If you have used the **EncryptSensitiveWithUserKey** protection level when creating your package via SSDT and **File System (Package)**/**File System (Project)** is selected as your package location, you also need to re-enter your sensitive connection manager properties to assign values to them in configuration files or on this tab. 
+   If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SQL Server Data Tools and **File System (Package)**/**File System (Project)** is selected as your package location, you also need to reenter your sensitive connection manager properties to assign values to them in configuration files or on this tab. 
    
-   When assigning values to your connection manager properties, you can add dynamic content by using expressions, functions, ADF system variables, and ADF pipeline parameters/variables. Alternatively, you can use secrets stored in your AKV as their values (see above).
+   When you assign values to your connection manager properties, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables. Alternatively, you can use secrets stored in your Key Vault as their values (see above).
 
    ![Set properties on the Connection Managers tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-7. On the **Property Overrides** tab for Execute SSIS Package activity, you can enter the paths of existing properties in your selected package one by one to assign values to them manually – Please ensure that they exist and are correctly entered for your package execution to succeed, e.g. to override the value of your user variable, enter its path in the following format: `\Package.Variables[User::<variable name>].Value`. 
+7. On the **Property Overrides** tab for Execute SSIS Package activity, enter the paths of existing properties in your selected package one by one to assign values to them manually. Make sure that they exist and are correctly entered for your package execution to succeed. For example, to override the value of your user variable, enter its path in the following format: `\Package.Variables[User::<variable name>].Value`. 
    
-   If you have used the **EncryptSensitiveWithUserKey** protection level when creating your package via SSDT and **File System (Package)**/**File System (Project)** is selected as your package location, you also need to re-enter your sensitive properties to assign values to them in configuration files or on this tab. 
+   If you used the **EncryptSensitiveWithUserKey** protection level when you created your package via SQL Server Data Tools and **File System (Package)** or **File System (Project)** is selected as your package location, you also need to reenter your sensitive properties to assign values to them in configuration files or on this tab. 
    
-   When assigning values to your properties, you can add dynamic content by using expressions, functions, ADF system variables, and ADF pipeline parameters/variables.
+   When you assign values to your properties, you can add dynamic content by using expressions, functions, Data Factory system variables, and Data Factory pipeline parameters or variables.
 
    ![Set properties on the Property Overrides tab](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
-   The values assigned in configuration files and on the *SSIS Parameters* tab can be overridden using the **Connection Managers**/**Property Overrides** tabs, while those assigned on the **Connection Managers** tab can also be overridden using the **Property Overrides** tab.
+   The values assigned in configuration files and on the **SSIS Parameters** tab can be overridden by using the **Connection Managers** or **Property Overrides** tabs, while those assigned on the **Connection Managers** tab can also be overridden by using the **Property Overrides** tab.
 
-8. To validate the pipeline configuration, click **Validate** on the toolbar. To close the **Pipeline Validation Report**, click **>>**.
+8. To validate the pipeline configuration, select **Validate** on the toolbar. To close the **Pipeline Validation Report**, select **>>**.
 
-9. Publish the pipeline to ADF by clicking **Publish All** button. 
+9. To publish the pipeline to Data Factory, select **Publish All**. 
 
 ### Run the pipeline
 In this step, you trigger a pipeline run. 
 
-1. To trigger a pipeline run, click **Trigger** on the toolbar, and click **Trigger now**. 
+1. To trigger a pipeline run, select **Trigger** on the toolbar, and select **Trigger now**. 
 
    ![Trigger now](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-trigger.png)
 
@@ -118,15 +118,15 @@ In this step, you trigger a pipeline run.
 
 ### Monitor the pipeline
 
-1. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information (such as Run Start time). To refresh the view, click **Refresh**.
+1. Switch to the **Monitor** tab on the left. You see the pipeline run and its status along with other information, such as Run Start time. To refresh the view, select **Refresh**.
 
    ![Pipeline runs](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-2. Click **View Activity Runs** link in the **Actions** column. You see only one activity run as the pipeline has only one activity (the Execute SSIS Package activity).
+2. Select the **View Activity Runs** link in the **Actions** column. You see only one activity run because the pipeline has only one activity. It's the Execute SSIS Package activity.
 
    ![Activity runs](./media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-runs.png)
 
-3. You can run the following **query** against the SSISDB database in your Azure SQL server to verify that the package executed. 
+3. Run the following **query** against the SSISDB database in your SQL server to verify that the package executed. 
 
    ```sql
    select * from catalog.executions
@@ -134,29 +134,29 @@ In this step, you trigger a pipeline run.
 
    ![Verify package executions](./media/how-to-invoke-ssis-package-stored-procedure-activity/verify-package-executions.png)
 
-4. You can also get the SSISDB execution ID from the output of the pipeline activity run, and use the ID to check more comprehensive execution logs and error messages in SQL Server Management Studio (SSMS).
+4. You can also get the SSISDB execution ID from the output of the pipeline activity run, and use the ID to check more comprehensive execution logs and error messages in SQL Server Management Studio.
 
    ![Get the execution ID.](media/how-to-invoke-ssis-package-ssis-activity/get-execution-id.png)
 
 ### Schedule the pipeline with a trigger
 
-You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule (hourly, daily, etc.). For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
+You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule, such as hourly or daily. For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
 ## Run a package with PowerShell
-In this section, you use Azure PowerShell to create an ADF pipeline with Execute SSIS Package activity that runs your SSIS package. 
+In this section, you use Azure PowerShell to create a Data Factory pipeline with an Execute SSIS Package activity that runs your SSIS package. 
 
 Install the latest Azure PowerShell modules by following the step-by-step instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps).
 
-### Create an ADF with Azure-SSIS IR
-You can either use an existing ADF that already has Azure-SSIS IR provisioned or create a new ADF with Azure-SSIS IR following the step-by-step instructions in the [Tutorial: Deploy SSIS packages to Azure via PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
+### Create a Data Factory with Azure-SSIS IR
+You can either use an existing Data Factory that already has Azure-SSIS IR provisioned or create a new Data Factory with Azure-SSIS IR. Follow the step-by-step instructions in the [Tutorial: Deploy SSIS packages to Azure via PowerShell](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell).
 
 ### Create a pipeline with an Execute SSIS Package activity 
 In this step, you create a pipeline with an Execute SSIS Package activity. The activity runs your SSIS package. 
 
-1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example:
+1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example.
 
    > [!IMPORTANT]
-   > Replace object names/descriptions/paths, property/parameter values, passwords, and other variable values before saving the file. 
+   > Replace object names, descriptions, and paths; property or parameter values; passwords; and other variable values before you save the file. 
 
    ```json
    {
@@ -263,7 +263,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
    }
    ```
 
-   To execute packages stored in file systems/file shares/Azure Files, you can enter the values for your package/log location properties as follows.
+   To execute packages stored in file systems, file shares, or Azure Files, enter the values for your package or log location properties as follows.
 
    ```json
    {
@@ -312,7 +312,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
    }
    ```
 
-   To execute packages within projects stored in file systems/file shares/Azure Files, you can enter the values for your package location property as follows.
+   To execute packages within projects stored in file systems, file shares, or Azure Files, enter the values for your package location property as follows.
 
    ```json
    {
@@ -354,7 +354,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
                                                   -DefinitionFile ".\RunSSISPackagePipeline.json"
    ```
 
-   Here is the sample output:
+   Here's the sample output:
 
    ```
    PipelineName      : Adfv2QuickStartPipeline
@@ -375,7 +375,7 @@ $RunId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactor
 
 ### Monitor the pipeline
 
-Run the following PowerShell script to continuously check the pipeline run status until it finishes copying the data. Copy/paste the following script in the PowerShell window, and press ENTER. 
+Run the following PowerShell script to continuously check the pipeline run status until it finishes copying the data. Copy or paste the following script in the PowerShell window, and select Enter. 
 
 ```powershell
 while ($True) {
@@ -396,12 +396,12 @@ while ($True) {
 }   
 ```
 
-You can also monitor the pipeline using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
+You can also monitor the pipeline by using the Azure portal. For step-by-step instructions, see [Monitor the pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 ### Schedule the pipeline with a trigger
-In the previous step, you ran the pipeline on-demand. You can also create a schedule trigger to run the pipeline on a schedule (hourly, daily, etc.).
+In the previous step, you ran the pipeline on demand. You can also create a schedule trigger to run the pipeline on a schedule, such as hourly or daily.
 
-1. Create a JSON file named **MyTrigger.json** in **C:\ADF\RunSSISPackage** folder with the following content: 
+1. Create a JSON file named **MyTrigger.json** in the **C:\ADF\RunSSISPackage** folder with the following content: 
 
    ```json
    {
@@ -458,7 +458,7 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
                                       -TriggerRunStartedBefore "2017-12-09"
    ```
 
-   You can run the following query against the SSISDB database in your Azure SQL server to verify that the package executed. 
+   Run the following query against the SSISDB database in your SQL server to verify that the package executed. 
 
    ```sql
    select * from catalog.executions
@@ -466,4 +466,4 @@ In the previous step, you ran the pipeline on-demand. You can also create a sche
 
 ## Next steps
 See the following blog post:
--   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in Data Factory pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
