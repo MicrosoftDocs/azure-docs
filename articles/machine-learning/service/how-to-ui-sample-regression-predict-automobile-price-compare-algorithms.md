@@ -16,7 +16,7 @@ ms.date: 05/10/2019
 
 Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
 
-If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this pipeline.
+If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this experiment.
 
 Here's the completed graph for this experiment:
 
@@ -32,7 +32,7 @@ Here's the completed graph for this experiment:
 
 ## Experiment summary
 
-Use following steps to build the machine learning pipeline:
+Use following steps to build the machine learning experiment:
 
 1. Get the data.
 1. Pre-process the data.
@@ -57,9 +57,9 @@ Machine learning problems vary. Common machine learning tasks include classifica
 
 Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
 
-Because the goal of this pipeline is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
+Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
 
-To compare the performance of different algorithms, we use two nonlinear algorithms, **Boosted Decision Tree Regression** and **Decision Forest Regression**, to build models. Both algorithms have parameters that you can change, but this sample uses the default values for this pipeline.
+To compare the performance of different algorithms, we use two nonlinear algorithms, **Boosted Decision Tree Regression** and **Decision Forest Regression**, to build models. Both algorithms have parameters that you can change, but this sample uses the default values for this experiment.
 
 Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
@@ -69,7 +69,7 @@ You use two different sets of randomly chosen data to train and then test the mo
 
 After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. **Score Model** generates predictions for the test dataset by using the trained model. Then pass the scores to **Evaluate Model** to generate evaluation metrics.
 
-In this pipeline, you use two instances of **Evaluate Model** to compare two pairs of models.
+In this experiment, you use two instances of **Evaluate Model** to compare two pairs of models.
 
 First, compare two algorithms on the training dataset.
 Second, compare two algorithms on the testing dataset.

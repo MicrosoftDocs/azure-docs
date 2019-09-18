@@ -18,9 +18,9 @@ This experiment uses historical flight and weather data to predict if a schedule
 
 This problem can be approached as a classification problem, predicting two classes -- delayed, or on time. To build a classifier, this model using a large number of examples from historic flight data.
 
-Here's the final pipeline graph for this sample:
+Here's the final experiment graph for this sample:
 
-[![Graph of the pipeline](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the experiment](media/ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Prerequisites
 

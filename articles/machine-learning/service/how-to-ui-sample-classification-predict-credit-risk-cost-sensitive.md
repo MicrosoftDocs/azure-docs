@@ -38,7 +38,7 @@ This sample uses the German Credit Card dataset from the UC Irvine repository. T
 
 ## Experiment summary
 
-In this pipeline, you compare two different approaches for generating models to solve this problem:
+In this experiment, you compare two different approaches for generating models to solve this problem:
 
 - Training with the original dataset.
 - Training with a replicated dataset.
@@ -107,7 +107,7 @@ The following diagram shows a portion of this experiment, in which the original 
 
 ![Experiment graph](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
-In the evaluation stage of the pipeline, you compute the accuracy of each of the four models. For this pipeline, use **Evaluate Model** to compare examples that have the same misclassification cost.
+In the evaluation stage of the experiment, you compute the accuracy of each of the four models. For this experiment, use **Evaluate Model** to compare examples that have the same misclassification cost.
 
 The **Evaluate Model** module can compute the performance metrics for as many as two scored models. So you can use one instance of **Evaluate Model** to evaluate the two SVM models and another instance of **Evaluate Model** to evaluate the two Boosted Decision Tree models.
 

@@ -16,7 +16,7 @@ ms.date: 05/10/2019
 
 Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
 
-This pipeline trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
 The fundamental steps of a training machine learning model are:
 
@@ -39,7 +39,7 @@ Here's the final, completed graph of the experiment we'll be working on. We'll p
 
 ## Get the data
 
-This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this pipeline is to predict the price of the car.
+This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
 
 ## Pre-process the data
 

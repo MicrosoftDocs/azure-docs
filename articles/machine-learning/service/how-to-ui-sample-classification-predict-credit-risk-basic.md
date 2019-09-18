@@ -18,7 +18,7 @@ Learn how to build a machine learning classifier without writing a single line o
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the final pipeline graph for this sample:
+Here's the final experiment graph for this sample:
 
 ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
@@ -33,7 +33,7 @@ Here's the final pipeline graph for this sample:
 ## Related sample
 
 [Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced pipeline that solves the same problem as this pipeline. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
+provides an advanced experiment that solves the same problem as this experiment. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
 
 ## Data
 
@@ -42,7 +42,7 @@ The dataset contains 1,000 samples with 20 features and 1 label. Each sample rep
 
 ## Experiment summary
 
-Follow these steps to create the pipeline:
+Follow these steps to create the experiment:
 
 1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
 1. Add an **Edit Metadata** module so we can add meaningful names for each column.
