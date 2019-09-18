@@ -56,12 +56,12 @@ The following diagram shows the top-level tasks for each Team Data Science Proce
 
 The Group Manager or a designated TDSP system administrator completes the following tasks to adopt the TDSP:
 
-- Creates a **group account** on a code hosting platform like Azure Repos, GitHub, or others.
-- Creates a **project template repository** in the Azure DevOps organization, and seeds it from the project template repository developed by the Microsoft TDSP team. The Microsoft TDSP project template repository provides:
+- Creates an Azure DevOps **organization** and a group project within the organization. 
+- Creates a **project template repository** in the Azure DevOps group project, and seeds it from the project template repository developed by the Microsoft TDSP team. The Microsoft TDSP project template repository provides:
   - A **standardized directory structure**, including directories for data, code, and documents.
   - A set of **standardized document templates** to guide an efficient data science process.
 - Creates a **utility repository**, and seeds it from the utility repository developed by the Microsoft TDSP team. The TDSP utility repository from Microsoft provides a set of useful utilities to make the work of a data scientist more efficient. The Microsoft utility repository includes utilities for interactive data exploration, analysis, reporting, and baseline modeling and reporting.
-- Sets up the **security control policy** of the template and utility repositories in the organization account.
+- Sets up the **security control policy** for the organization account.
 
 For detailed instructions, see [Group Manager tasks for a data science team](group-manager-tasks.md).
 
@@ -69,11 +69,11 @@ For detailed instructions, see [Group Manager tasks for a data science team](gro
 
 The Team Lead or a designated project administrator completes the following tasks to adopt the TDSP:
 
-- If Azure Repos is the code hosting platform for versioning and collaboration, creates a **Project** in the group's Azure DevOps organization.
-- Creates the **project template repository** in the project, and seeds it from the organization project template repository set up by the Group Manager or delegate.
-- Creates the **team utility repository**, and adds team-specific utilities to the repository.
+- Creates a team **project** in the group's Azure DevOps organization.
+- Creates the **project template repository** in the project, and seeds it from the group project template repository set up by the Group Manager or delegate.
+- Creates the **team utility repository**, seeds it from the group utility repository, and adds team-specific utilities to the repository.
 - Optionally creates [Azure file storage](https://azure.microsoft.com/services/storage/files/) to store useful data assets for the team. Other team members can mount this shared cloud file store on their analytics desktops.
-- Optionally mounts the Azure file storage on the **DSVM** and adds team data assets to it.
+- Optionally mounts the Azure file storage on the team's **DSVM** and adds team data assets to it.
 - Sets up **security control** by adding team members and configuring their permissions.
 
 For detailed instructions, see [Team Lead tasks for a data science team](team-lead-tasks.md).
@@ -83,7 +83,7 @@ For detailed instructions, see [Team Lead tasks for a data science team](team-le
 
 The Project Lead completes the following tasks to adopt the TDSP:
 
-- Creates a **project repository** under the project, and seeds it from the project template repository.
+- Creates a **project repository** in the team project, and seeds it from the project template repository.
 - Optionally creates **Azure file storage** to store the project's data assets.
 - Optionally mounts the Azure file storage to the **DSVM** and adds project data assets to it.
 - Sets up **security control** by adding project members and configuring their permissions.
@@ -100,10 +100,9 @@ The Project Individual Contributor, usually a Data Scientist, conducts the follo
 
 For detailed instructions for onboarding onto a project, see [Project Individual Contributor tasks for a data science team](project-ic-tasks.md).
 
-
 ## Data science project execution workflow
 
-By following the relevant tutorials, data scientists, project leads, and team leads can create work items to track all tasks and stages for project from beginning to end. Using `git` promotes collaboration among data scientists and ensures that the artifacts generated during project execution are version controlled and shared by all project members. Using Azure DevOps lets you link your Azure Boards work items with your Azure Repo `git` repository branches and easily track what has been done for a work item.
+By following the relevant tutorials, data scientists, project leads, and team leads can create work items to track all tasks and stages for project from beginning to end. Using Azure Repos promotes collaboration among data scientists and ensures that the artifacts generated during project execution are version controlled and shared by all project members. Azure DevOps lets you link your Azure Boards work items with your Azure Repos repository branches and easily track what has been done for a work item.
 
 The following figure outlines the TDSP workflow for project execution:
 
@@ -119,7 +118,7 @@ For detailed instructions on project execution workflow, see [Agile development 
 
 ## TDSP project template repository
 
-Use this [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. The repository gives you a standardized directory structure and document templates you can use for your own TDSP projects.
+Use the Microsoft TDSP team's [project template repository](https://github.com/Azure/Azure-TDSP-ProjectTemplate) to support efficient project execution and collaboration. The repository gives you a standardized directory structure and document templates you can use for your own TDSP projects.
 
 ## Next steps
 
