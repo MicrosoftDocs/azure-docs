@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Use MSAL for Android with B2C
 
-Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C is an identity management service. By using it, you can customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
+Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
 
 ## Configure Known Authorities and Redirect URI
 
@@ -154,7 +154,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 ## Handle password change policies
 
-The local account sign-up or sign-in user flow shows a '**Forgot password?**' link. Clicking this link does not automatically trigger a password reset user flow.
+The local account sign-up or sign-in user flow shows a '**Forgot password?**' link. Clicking this link doesn't automatically trigger a password reset user flow.
 
 Instead, the error code `AADB2C90118` is returned to your app. Your app should  handle this error code by running a specific user flow that resets the password.
 
@@ -228,13 +228,13 @@ String tenantId = account.getTenantId();
 
 ### IdToken claims
 
-Claims returned in the IdToken are populated by the Security Token Service (STS), not by MSAL. Depending on the identity provider (IdP) used, some claims may be absent. Some IdPs do not currently provide the `preferred_username` claim. Because this claim is used by MSAL for caching, a placeholder value, `MISSING FROM THE TOKEN RESPONSE`, is used in its place. For more information on B2C IdToken claims, see [Overview of tokens in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Claims returned in the IdToken are populated by the Security Token Service (STS), not by MSAL. Depending on the identity provider (IdP) used, some claims may be absent. Some IdPs don't currently provide the `preferred_username` claim. Because this claim is used by MSAL for caching, a placeholder value, `MISSING FROM THE TOKEN RESPONSE`, is used in its place. For more information on B2C IdToken claims, see [Overview of tokens in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## Managing accounts and policies
 
-Because B2C treats each policy as a separate authority, the access tokens, refresh tokens, and id tokens returned from each policy are considered logically separate. In practical terms, this means that each policy returns a separate `IAccount` object whose tokens cannot be used to invoke other policies.
+B2C treats each policy as a separate authority. Thus the access tokens, refresh tokens, and ID tokens returned from each policy are not interchangeable. This means each policy returns a separate `IAccount` object whose tokens can't be used to invoke other policies.
 
-Each policy adds an `IAccount` to the cache for each user. If a user signs into an application and invokes two policies, they will have 2 `IAccount`s. If you wish to remove this user from the cache, you must call `removeAccount()` once for each policy (two times).
+Each policy adds an `IAccount` to the cache for each user. If a user signs in to an application and invokes two policies, they'll have two `IAccount`s. To remove this user from the cache, you must call `removeAccount()` for each policy.
 
 When you renew tokens for a policy with `acquireTokenSilent`, provide the same `IAccount` that was returned from previous invocations of the policy to  `AcquireTokenSilentParameters`. Providing an account returned by another policy will result in an error.
 
