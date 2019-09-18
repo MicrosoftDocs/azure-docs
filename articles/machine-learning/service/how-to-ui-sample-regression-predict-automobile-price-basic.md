@@ -27,7 +27,7 @@ The fundamental steps of a training machine learning model are:
 
 Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
-![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Graph of the experiment](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Here's the final, completed graph of the experiment we'll be working on. We'll p
 
 4. Select the **Open** button for the Sample 1 experiment:
 
-    ![Open the experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Open the experiment](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Get the data
 
@@ -47,7 +47,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. Then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
+![Data pre-processing](./media/how-to-ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
 
@@ -65,11 +65,11 @@ After the model is trained, you can use the **Score Model** and **Evaluate Model
 
 **Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
-![Score result](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
+![Score result](./media/how-to-ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
 Pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
-![Evaluate result](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Evaluate result](./media/how-to-ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## Clean up resources
 

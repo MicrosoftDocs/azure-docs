@@ -22,7 +22,7 @@ Because you're trying to answer the question "Which one?" this is called a class
 
 Here's the completed graph for this experiment:
 
-![Experiment graph](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+![Experiment graph](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## Prerequisites
 
@@ -30,7 +30,7 @@ Here's the completed graph for this experiment:
 
 4. Select the **Open** button for the Sample 5 experiment.
 
-    ![Open the experiment](media/ui-sample-classification-predict-churn/open-sample5.png)
+    ![Open the experiment](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 
 ## Data
 
@@ -44,11 +44,11 @@ First, do some simple data processing.
 
 - The raw dataset contains lots of missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
 
-    ![Clean the dataset](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
+    ![Clean the dataset](./media/how-to-ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - The features and the corresponding churn, appetency, and up-selling labels are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
 
-    ![Add the column dataset](./media/ui-sample-classification-predict-churn/added-column1.png)
+    ![Add the column dataset](./media/how-to-ui-sample-classification-predict-churn/added-column1.png)
 
 - Use the **Split Data** module to split the dataset into train and test sets.
 
@@ -58,7 +58,7 @@ First, do some simple data processing.
 
 Visualize the output of the **Evaluate Model** module to see the performance of the model on the test set. For the up-selling task, the ROC curve shows that the model does better than a random model. The area under the curve (AUC) is 0.857. At threshold 0.5, the precision is 0.7, the recall is 0.463, and the F1 score is 0.545.
 
-![Evaluate the results](./media/ui-sample-classification-predict-churn/evaluate-result.png)
+![Evaluate the results](./media/how-to-ui-sample-classification-predict-churn/evaluate-result.png)
 
  You can move the **Threshold** slider and see the metrics change for the binary classification task.
 

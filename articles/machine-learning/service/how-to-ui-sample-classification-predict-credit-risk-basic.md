@@ -20,7 +20,7 @@ Because the question is answering "Which one?" this is called a classification p
 
 Here's the final experiment graph for this sample:
 
-![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
+![Graph of the experiment](media/how-to-ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ Here's the final experiment graph for this sample:
 
 4. Select the **Open** button for the Sample 3 experiment:
 
-    ![Open the experiment](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Open the experiment](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## Related sample
 
@@ -54,7 +54,7 @@ Follow these steps to create the experiment:
 
 ## Results
 
-![Evaluate the results](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
+![Evaluate the results](media/how-to-ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
 In the evaluation results, you can see that the AUC of the model is 0.776. At threshold 0.5, the precision is 0.621, the recall is 0.456, and the F1 score is 0.526.
 
