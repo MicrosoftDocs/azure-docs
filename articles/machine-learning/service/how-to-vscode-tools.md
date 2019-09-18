@@ -150,7 +150,10 @@ After clicking the Run Experiment button, answer the prompts as follows:
 
 After the run completes, right click on the completed run node and choose **View in Azure Portal**
 
-Your browser will open to the
+Your browser will open to the run where you will see the metrics you logged.
+[![Experiment run in portal](./media/vscode-tools-for-ai/ExperimentRunOnPortal.PNG)](./media/vscode-tools-for-ai/ExperimentRunOnPortal.PNG#lightbox)
+
+
 
 ## Azure Machine Learning in Depth using the Azure ML extension for VS Code
 
