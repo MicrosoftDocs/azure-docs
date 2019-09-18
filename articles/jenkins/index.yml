@@ -59,6 +59,14 @@ landingContent:
             url: jenkins-azure-vm-agents.md
 
   # Card
+  - title: CI/CD to Azure Functions
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Deploy to Azure Functions 
+            url: jenkins-azure-functions-deploy.md
+
+  # Card
   - title: CI/CD to AKS
     linkLists:
       - linkListType: tutorial
@@ -91,14 +99,6 @@ landingContent:
         links:
           - text: Deploy to a Linux VM using Azure DevOps Services
             url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
-
-  # Card
-  - title: CI/CD to Azure Functions
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Deploy to Azure Functions 
-            url: jenkins-azure-functions-deploy.md
 
   # Card
   - title: CI/CD to Azure Storage
