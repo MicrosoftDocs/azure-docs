@@ -1,14 +1,10 @@
 ---
 title: Work with Azure Functions Core Tools | Microsoft Docs
 description: Learn how to code and test Azure functions from the command prompt or terminal on your local computer before you run them on Azure Functions.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
-
+manager: gwallace
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
@@ -131,15 +127,19 @@ func init MyFunctionProj
 ```
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
-In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
+In version 2.x, when you run the command you must choose a runtime for your project. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
+Use the up/down arrow keys to choose a language, then press Enter. If you plan to develop JavaScript or TypeScript functions, choose **node**, and then select the language. TypeScript has [some additional requirements](functions-reference-node.md#typescript). 
+
+The output looks like the following example for a JavaScript project:
 
 ```output
 Select a worker runtime: node
@@ -265,15 +265,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. 
 
-```bash
+### Version 2.x
+
+In version 2.x of the runtime, the start command varies, depending on your project language.
+
+#### C\#
+
+```command
+func start --build
+```
+
+#### JavaScript
+
+```command
+func start
+```
+
+#### TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### Version 1.x
+
+Version 1.x of the Functions runtime requires the `host` command, as in the following example:
+
+```command
 func host start
 ```
 
-The `host` command is only required in version 1.x.
-
-`func host start` supports the following options:
+`func start` supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -289,8 +314,6 @@ The `host` command is only required in version 1.x.
 | **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-
-For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 
@@ -384,6 +407,8 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 ## <a name="publish"></a>Publish to Azure
 
 The Azure Functions Core Tools supports two types of deployment: deploying function project files directly to your function app via [Zip Deploy](functions-deployment-technologies.md#zip-deploy) and [deploying a custom Docker container](functions-deployment-technologies.md#docker-container). You must have already [created a function app in your Azure subscription](functions-cli-samples.md#create), to which you'll deploy your code. Projects that require compilation should be built so that the binaries can be deployed.
+
+A project folder may contain language-specific files and directories that shouldn't be published. Excluded items are listed in a .funcignore file in the root project folder.     
 
 ### <a name="project-file-deployment"></a>Deployment (project files)
 

@@ -65,6 +65,6 @@ To learn more about Azure compliance certifications, see the following articles:
 
 * To find out the latest compliance certifications for Azure Cosmos DB, see the [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).  
 
-* For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos DB database security](database-security.md) article.
+* For an overview of Azure Cosmos DB security and the latest improvements, see [Azure Cosmos database security](database-security.md) article.
 
 * For more information about Microsoft certifications, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).

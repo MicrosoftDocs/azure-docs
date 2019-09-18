@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Grant access to an ASP.NET web API using Azure Active Directory B2C
 
-This tutorial shows you how to call a protected web API resource in Azure Active Directory (Azure AD) B2C from an ASP.NET web application.
+This tutorial shows you how to call a protected web API resource in Azure Active Directory B2C (Azure AD B2C) from an ASP.NET web application.
 
 In this tutorial, you learn how to:
 
@@ -36,7 +36,7 @@ Complete the steps and prerequisites in [Tutorial: Enable authenticate in a web 
 Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application. For example, *webapi1*.
@@ -85,7 +85,7 @@ The following two projects are in the sample solution:
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
 2. Open **Web.config** in the **TaskWebApp** project.
-3. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows: 
+3. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
@@ -129,9 +129,9 @@ The following two projects are in the sample solution:
 
 ## Run the sample
 
-You need to run both the **TaskWebApp** and **TaskService** projects. 
+You need to run both the **TaskWebApp** and **TaskService** projects.
 
-1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**. 
+1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**.
 2. Select **Multiple startup projects**.
 3. Change the **Action** for both projects to **Start**.
 4. Click **OK** to save the configuration.
@@ -139,7 +139,7 @@ You need to run both the **TaskWebApp** and **TaskService** projects.
     `https://localhost:44316/` is the web application.
     `https://localhost:44332/` is the web API.
 
-6. In the web application, click **sign-up / sign-in** to sign in to the web application. Use the account that you previously created. 
+6. In the web application, click **sign-up / sign-in** to sign in to the web application. Use the account that you previously created.
 7. After you sign in, click **To-do list** and create a to-do list item.
 
 When you create a to-do list item, the web application makes a request to the web API to generate the to-do list item. You're protected web application is calling the protected web API in your Azure AD B2C tenant.

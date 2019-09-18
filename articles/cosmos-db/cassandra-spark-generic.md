@@ -7,7 +7,7 @@ ms.reviewer: sngun
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/01/2019
 
 ---
 
@@ -27,7 +27,7 @@ This article is one among a series of articles on Azure Cosmos DB Cassandra API 
 * **Azure Cosmos DB helper library for Cassandra API:**
   In addition to the Spark connector, you need another library called [azure-cosmos-cassandra-spark-helper]( https://search.maven.org/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper/1.0.0/jar) from Azure Cosmos DB. This library contains custom connection factory and retry policy classes.
 
-  The retry policy in Azure Cosmos DB is configured to handle HTTP status code 429("Request Rate Large") exceptions. The Azure Cosmos DB Cassandra API translates these exceptions into overloaded errors on the Cassandra native protocol, and you can retry with back-offs. Because Azure Cosmos DB uses provisioned throughput model, request rate limiting exceptions occur when the ingress/egress rates increase. The retry policy protects your spark jobs against data spikes that momentarily exceed the throughput allocated for your collection.
+  The retry policy in Azure Cosmos DB is configured to handle HTTP status code 429("Request Rate Large") exceptions. The Azure Cosmos DB Cassandra API translates these exceptions into overloaded errors on the Cassandra native protocol, and you can retry with back-offs. Because Azure Cosmos DB uses provisioned throughput model, request rate limiting exceptions occur when the ingress/egress rates increase. The retry policy protects your spark jobs against data spikes that momentarily exceed the throughput allocated for your container.
 
   > [!NOTE] 
   > The retry policy can protect your spark jobs against momentary spikes only. If you have not configured enough RUs required to run your workload, then the retry policy is not applicable and the retry policy class rethrows the exception.
@@ -44,8 +44,8 @@ The following table lists Azure Cosmos DB Cassandra API-specific throughput conf
 | spark.cassandra.connection.connections_per_executor_max  | None | Maximum number of connections per node per executor. 10*n is equivalent to 10 connections per node in an n-node Cassandra cluster. So, if you require 5 connections per node per executor for a 5 node Cassandra cluster, then you should set this configuration to 25. Modify this value based on the degree of parallelism or the number of executors that your spark jobs are configured for.   |
 | spark.cassandra.output.concurrent.writes  |  100 | Defines the number of parallel writes that can occur per executor. Because you set "batch.size.rows" to 1, make sure to scale up this value accordingly. Modify this value based on the degree of parallelism or the throughput that you want to achieve for your workload. |
 | spark.cassandra.concurrent.reads |  512 | Defines the number of parallel reads that can occur per executor. Modify this value based on the degree of parallelism or the throughput that you want to achieve for your workload  |
-| spark.cassandra.output.throughput_mb_per_sec  | None | Defines the total write throughput per executor. This parameter can be used as an upper limit for your spark job throughput, and base it on the provisioned throughput of your Cosmos DB Collection.   |
-| spark.cassandra.input.reads_per_sec| None   | Defines the total read throughput per executor. This parameter can be used as an upper limit for your spark job throughput, and base it on the provisioned throughput of your Cosmos DB Collection.  |
+| spark.cassandra.output.throughput_mb_per_sec  | None | Defines the total write throughput per executor. This parameter can be used as an upper limit for your spark job throughput, and base it on the provisioned throughput of your Cosmos container.   |
+| spark.cassandra.input.reads_per_sec| None   | Defines the total read throughput per executor. This parameter can be used as an upper limit for your spark job throughput, and base it on the provisioned throughput of your Cosmos container.  |
 | spark.cassandra.output.batch.grouping.buffer.size |  1000  | Defines the number of batches per single spark task that can be stored in memory before sending to Cassandra API |
 | spark.cassandra.connection.keep_alive_ms | 60000 | Defines the period of time until which unused connections are available. | 
 

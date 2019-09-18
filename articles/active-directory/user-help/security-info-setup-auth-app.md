@@ -74,7 +74,7 @@ Depending on your organization’s settings, you might be able to use an authent
 
     The authenticator app should successfully add your work or school account without requiring any additional information from you. However, if the QR code reader can't read the code, you can select the **Can't scan the QR code link** and manually enter the code and URL into the Microsoft Authenticator app. For more information about manually adding a code, see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
 
-9. Select **Next** on the **Scan the QR code** page on your .
+9. Select **Next** on the **Scan the QR code** page on your computer.
 
     A notification is sent to the Microsoft Authenticator app on your mobile device, to test your account.
 
@@ -141,6 +141,8 @@ You have additional options for how your organization contacts you to verify you
     >If some of these options are missing, it's most likely because your organization doesn't allow those methods. If this is the case, you'll need to choose an available method or contact your administrator for more help.
 
 ## Next steps
+
+- Sign-in using the Microsoft Authenticator app, following steps in the [Sign in using two-step verification or security info](security-info-setup-signin.md) article.
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](user-help-reset-password.md) article.
 

@@ -1,17 +1,17 @@
 ---
-title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+title: 'Quickstart: Create a search index in Node.js using REST APIs - Azure Search'
 description: Node.js sample for Azure Search, demonstrating how to create, load data into, and query from JavaScript.
 author: lobrien
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 09/10/2019
 ms.author: laobri
 ---
-# Quickstart: Create an Azure Search index in Node.js
+# Quickstart: Create an Azure Search index in Node.js using REST APIs
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -20,7 +20,7 @@ ms.author: laobri
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Create a Node.js application that that creates, loads, and queries an Azure Search index. This article demonstrates how to create the application step-by-step. Alternately, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/) and run the application from the command line.
+Create a Node.js application that that creates, loads, and queries an Azure Search index. This article demonstrates how to create the application step-by-step. Alternately, you can [download the source code and data](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) and run the application from the command line.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -30,7 +30,7 @@ The following services, tools, and data are used in this quickstart.
 
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) should be installed by Node.js.
-+ A sample index structure and matching documents are provided in this article, or from the [repo](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/).
++ A sample index structure and matching documents are provided in this article, or from the [**quickstart** directory of the repo](https://github.com/Azure-Samples/azure-search-javascript-samples/).
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 Recommended:
@@ -120,7 +120,7 @@ Replace the `[SERVICE_NAME]` value with the name of your search service. Replace
 
 Create a file **hotels_quickstart_index.json**.  This file defines how Azure Search works with the documents you'll be loading in the next step. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [index attributes](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
 
-Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json). 
+Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
 ```json
 {
@@ -280,14 +280,14 @@ module.exports = AzureSearchClient;
 
 The first responsibility of the class is to know how to construct URLs to which to send the various requests. Build these URLs with instance methods that use the configuration data passed to the class constructor. Notice that the URL they construct is specific to an API version and must have an argument specifying that version (in this application, `2019-05-06`). 
 
-Add the following method inside the class body:
+The first of these methods will return the URL for the index itself. Add the following method inside the class body:
 
 ```javascript
-    getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
+getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}?api-version=${this.apiVersion}`; }
 
 ```
 
-The next responsibility is making an asynchronous request with the Fetch API. The asynchronous static method `request` takes a URL, a string specifying the HTTP method ("GET", "PUT", "POST", "DELETE"), the key to be used in the request, and an optional JSON object. The `headers` variable maps the `queryKey` (whether the admin key or the read-only query key) to the "api-key" HTTP request header. The request options always contain the `method` to be used and the `headers`. If `bodyJson` isn't `null`, the body of the HTTP request is set to the string representation of `bodyJson`. The `request` returns the Fetch API's Promise to execute the HTTP request.
+The next responsibility of `AzureSearchClient` is making an asynchronous request with the Fetch API. The asynchronous static method `request` takes a URL, a string specifying the HTTP method ("GET", "PUT", "POST", "DELETE"), the key to be used in the request, and an optional JSON object. The `headers` variable maps the `queryKey` (whether the admin key or the read-only query key) to the "api-key" HTTP request header. The request options always contain the `method` to be used and the `headers`. If `bodyJson` isn't `null`, the body of the HTTP request is set to the string representation of `bodyJson`. The `request` method returns the Fetch API's Promise to execute the HTTP request.
 
 ```javascript
 static async request(url, method, apiKey, bodyJson = null) {
@@ -319,51 +319,51 @@ static async request(url, method, apiKey, bodyJson = null) {
 }
 ```
 
-For demo purposes, we're just going to throw an exception if the HTTP request is not a success. In a real application, you would probably do some logging and diagnoses of the HTTP status code in the `response` from the search service request. 
+For demo purposes, just throw an exception if the HTTP request is not a success. In a real application, you would probably do some logging and diagnosis of the HTTP status code in the `response` from the search service request. 
     
 ```javascript
-    static throwOnHttpError(response) {
+static throwOnHttpError(response) {
     const statusCode = response.status;
     if (statusCode >= 300){
         console.log(`Request failed: ${JSON.stringify(response, null, 4)}`);
         throw new Error(`Failure in request. HTTP Status was ${statusCode}`);
     }
-    }
+}
 ```
 
-Finally, add the methods that to detect, delete, and create the Azure Search index. These methods all have the same structure:
+Finally, add the methods to detect, delete, and create the Azure Search index. These methods all have the same structure:
 
 * Get the endpoint to which the request will be made.
-* Generate the request with the appropriate endpoint, HTTP verb, API key, and body. `queryAsync()` uses the query key, otherwise the admin key is used.
+* Generate the request with the appropriate endpoint, HTTP verb, API key, and, if appropriate, a JSON body. `indexExistsAsync()` and `deleteIndexAsync()` do not have a JSON body, but `createIndexAsync(definition)` does.
 * `await` the response to the request.  
 * Act on the status code of the response.
 * Return a Promise of some appropriate value (a Boolean, `this`, or the query results). 
 
 ```javascript
-    async indexExistsAsync() { 
-        console.log("\n Checking if index exists...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "GET", this.queryKey);
-        // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
-        const exists = response.status >= 200 && response.status < 300;
-        return exists;
-    }
-    
-    async deleteIndexAsync() {
-        console.log("\n Deleting existing index...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
-        AzureSearchClient.throwOnHttpError(response);
-        return this;
-    }
-    
-    async createIndexAsync(definition) {
-        console.log("\n Creating index...");
-        const endpoint = this.getIndexUrl();
-        const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
-        AzureSearchClient.throwOnHttpError(response);
-        return this;
-    }
+async indexExistsAsync() { 
+    console.log("\n Checking if index exists...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "GET", this.adminKey);
+    // Success has a few likely status codes: 200 or 204 (No Content), but accept all in 200 range...
+    const exists = response.status >= 200 && response.status < 300;
+    return exists;
+}
+
+async deleteIndexAsync() {
+    console.log("\n Deleting existing index...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "DELETE", this.adminKey);
+    AzureSearchClient.throwOnHttpError(response);
+    return this;
+}
+
+async createIndexAsync(definition) {
+    console.log("\n Creating index...");
+    const endpoint = this.getIndexUrl();
+    const response = await AzureSearchClient.request(endpoint, "PUT", this.adminKey, definition);
+    AzureSearchClient.throwOnHttpError(response);
+    return this;
+}
 ```
 
 Confirm that your methods are inside the class and that you're exporting the class. The outermost scope of **AzureSearchClient.js** should be:
@@ -378,7 +378,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-An object-oriented class was a good choice for the potentially reusable **AzureSearchClient.js** module, but isn't necessary for the main program, which we'll put in a file called **index.js**. 
+An object-oriented class was a good choice for the potentially reusable **AzureSearchClient.js** module, but isn't necessary for the main program, which you should put in a file called **index.js**. 
 
 Create **index.js** and begin by bringing in:
 
@@ -393,13 +393,13 @@ const indexDefinition = require('./hotels_quickstart_index.json');
 const AzureSearchClient = require('./AzureSearchClient.js');
 ```
 
-The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, such as environment variables or the command line. We're going to use **nconf** in a basic manner to read the file **azure_search_config.json** and return that file's contents as a dictionary. Using **nconf**'s `get(key)` function, we can do a quick check that the configuration information has been properly customized. Finally, we return the configuration:
+The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, such as environment variables or the command line. This sample uses **nconf** in a basic manner to read the file **azure_search_config.json** and return that file's contents as a dictionary. Using **nconf**'s `get(key)` function, you can do a quick check that the configuration information has been properly customized. Finally, the function returns the configuration:
 
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
     if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
-    throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
+        throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
 }
@@ -408,11 +408,9 @@ function getAzureConfiguration() {
 The `sleep` function creates a `Promise` that resolves after a specified amount of time. Using this function allows the app to pause while waiting for asynchronous index operations to complete and become available. Adding such a delay is typically only necessary in demos, tests, and sample applications.
 
 ```javascript
-function sleep(ms)
-{
+function sleep(ms) {
     return(
-        new Promise(function(resolve, reject)
-        {
+        new Promise(function(resolve, reject) {
             setTimeout(function() { resolve(); }, ms);
         })
     );
@@ -425,8 +423,6 @@ Finally, specify and call the main asynchronous `run` function. This function ca
 * Create a new `AzureSearchClient` instance, passing in values from your configuration
 * Check if the index exists and, if it does, delete it
 * Create an index using the `indexDefinition` loaded from **hotels_quickstart_index.json**
-* Add the documents about hotels you loaded from **hotels.json**
-* Query the Azure Search index using the `doQueriesAsync()` method you wrote
 
 ```javascript
 const run = async () => {
@@ -438,7 +434,6 @@ const run = async () => {
         await exists ? client.deleteIndexAsync() : Promise.resolve();
         // Deleting index can take a few seconds
         await sleep(2000);
-        const indexDefinition = require('./hotels_quickstart_index.json');
         await client.createIndexAsync(indexDefinition);
     } catch (x) {
         console.log(x);
@@ -462,13 +457,13 @@ Use a terminal window for the following commands.
 1. Install the packages for the sample with `npm install`.  This command will download the packages upon which the code depends.
 1. Run your program with `node index.js`.
 
-You should see a series of messages describing the actions being taken by the program. If you want to see more detail of the requests, you can uncomment the [lines at the beginning of the `AzureSearchClient.request()` method](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) in **AzureSearchClient.js**. 
+You should see a series of messages describing the actions being taken by the program. If you want to see more detail of the requests, you can uncomment the [lines at the beginning of the `AzureSearchClient.request()` method]https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/AzureSearchClient.js#L21-L27) in **AzureSearchClient.js**. 
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
 
 ![Screenshot of Azure portal, Search Service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
 
-In the next step, we'll add data to index. 
+In the next step, you'll add data to index. 
 
 ## 2 - Load Documents 
 
@@ -490,7 +485,7 @@ async postDataAsync(hotelsData) {
 }
 ```
 
- Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) or create your own **hotels.json** file with the following content:
+ Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels.json) or create your own **hotels.json** file with the following content:
 
 ```json
 {
@@ -599,11 +594,11 @@ const run = async () => {
 }
 ```
 
-Run the program again with `node index.js`. You should see a slightly different set of messages from those you saw in Step 1. This time, the index _does_ exist, and you should see message about deleting it deleted before the app creates the new index and posts data to it. 
+Run the program again with `node index.js`. You should see a slightly different set of messages from those you saw in Step 1. This time, the index _does_ exist, and you should see message about deleting it before the app creates the new index and posts data to it. 
 
 ## 3 - Search an index
 
-Return to the **Indexes** tab in the **Overview** of your search service on the Azure portal. Your index now contains four documents and consumes some amount of storage (it can take a few minutes for the UI to properly reflect the underlying state of the index). Click on the index name to be taken to the **Search Explorer**. This page allows you to experiment with data queries. Try searching on a query string of `*&$count=true` and you should get back all your documents and the number of results. Try with the query string `historic&highlight=Description&$filter=Rating gt 4` and you should get back a single document, with the word "historic" wrapped in `<em></em>` tags. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Return to the **Indexes** tab in the **Overview** of your search service on the Azure portal. Your index now contains four documents and consumes some amount of storage (it may take a few minutes for the UI to properly reflect the underlying state of the index). Click on the index name to be taken to the **Search Explorer**. This page allows you to experiment with data queries. Try searching on a query string of `*&$count=true` and you should get back all your documents and the number of results. Try with the query string `historic&highlight=Description&$filter=Rating gt 4` and you should get back a single document, with the word "historic" wrapped in `<em></em>` tags. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
 
 Reproduce these queries in code by opening **index.js** and adding this code near the top:
 
@@ -614,7 +609,7 @@ const queries = [
 ];
 ```
 
-In the same **index.js** file, write the `doQueries()` function shown below. This function takes an `AzureSearchClient` object and applies the `AzureSearchClient.queryAsync` method to each of the values in the `queries` array. It uses the `Promise.all()` function to return a single `Promise` that only resolves when all of the queries have resolved. The call to `JSON.stringify(body, null, 4)` formats the query result to be more readable.
+In the same **index.js** file, write the `doQueriesAsync()` function shown below. This function takes an `AzureSearchClient` object and applies the `AzureSearchClient.queryAsync` method to each of the values in the `queries` array. It uses the `Promise.all()` function to return a single `Promise` that only resolves when all of the queries have resolved. The call to `JSON.stringify(body, null, 4)` formats the query result to be more readable.
 
 ```javascript
 async function doQueriesAsync(client) {
@@ -654,7 +649,7 @@ const run = async () => {
 }
 ```
 
-To implement `AzureSearchClient.queryAsync(query)`, edit the file **AzureSearchClient.js**. Searching requires a different endpoint, so add the function `getSearchUrl(searchTerm)` alongside the `getIndexUrl()` and `getPostDataUrl()` methods you've already written.
+To implement `AzureSearchClient.queryAsync(query)`, edit the file **AzureSearchClient.js**. Searching requires a different endpoint, and the search terms become URL arguments, so add the function `getSearchUrl(searchTerm)` alongside the `getIndexUrl()` and `getPostDataUrl()` methods you've already written.
 
 ```javascript
 getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
@@ -672,7 +667,7 @@ async queryAsync(searchTerm) {
 }
 ```
 
-Search is done with the "GET" verb and no body, since the search term is part of the URL. Notice that, unlike the other functions that used `this.adminKey`, `queryAsync(searchTerm)` uses `this.queryKey`. Query keys, as the name implies, can only be used for querying the index and can't be used to modify the index in any way. Query keys are therefore safer to distribute to client applications.
+Search is done with the "GET" verb and no body, since the search term is part of the URL. Notice that `queryAsync(searchTerm)` uses `this.queryKey`, unlike the other functions that used the admin key. Query keys, as the name implies, can only be used for querying the index and can't be used to modify the index in any way. Query keys are therefore safer to distribute to client applications.
 
 Run the program with `node index.js`. Now, in addition to the previous steps, the queries will be sent and the results written to the console.
 

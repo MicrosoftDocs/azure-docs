@@ -10,11 +10,11 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/05/2019
+ms.date: 08/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -26,7 +26,7 @@ Azure provides different types of storage that are suitable for Azure VMs that a
 
 - Standard SSD disk drives (SSD)
 - Premium solid state drives (SSD)
-- Ultra SSD in public preview and not yet supported with production SAP applications
+- [Ultra disk](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-ultra-ssd) 
 
 To learn about these disk types, see the article [Select a disk type](https://docs.microsoft.com/azure/virtual-machines/linux/disks-types)
 
@@ -158,19 +158,21 @@ Check whether the storage throughput for the different suggested volumes meets t
 > The disk configuration recommendations stated are targeting minimum requirements SAP expresses towards  their infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer required a faster reload of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS were not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
 >  
 
-## Azure Ultra SSD storage configuration for SAP HANA
-Microsoft is in the process of introducing a new Azure storage type called [Azure Ultra SSD](https://azure.microsoft.com/updates/ultra-ssd-new-azure-managed-disks-offering-for-your-most-latency-sensitive-workloads/). The big difference between Azure storage offered so far and Ultra SSD is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra SSD:
+## Azure Ultra disk storage configuration for SAP HANA
+Microsoft is in the process of rolling out a new Azure storage type called [Azure Ultra disk](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk). The big difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
 - Storage throughput from 300 MB/sec to 2,000 MB/sec
 
-For details look up the article [Announcing Ultra SSD – the next generation of Azure Disks technology (preview)](https://azure.microsoft.com/blog/announcing-ultra-ssd-the-next-generation-of-azure-disks-technology-preview/)
+Ultra disk gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between Ultra disk and Premium Storage. As a result, you can limit the usage of Ultra disk to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
 
-UltraSSD gives you the possibility to define a single disk that fulfills your size, IOPS, and disk throughput range. Instead of using logical volume managers like LVM or MDADM on top of Azure Premium Storage to construct volumes that fulfill IOPS and storage throughput requirements. You can run a configuration mix between UltraSSD and Premium Storage. As a result, you can limit the usage of UltraSSD to the performance critical /hana/data and /hana/log volumes and cover the other volumes with Azure Premium Storage
+> [!IMPORTANT]
+> Ultra disk is not yet present in all the Azure regions and is also not yet supporting all VM types. For detailed information where Ultra disk is available and which VM families are supported, check the article [What disk types are available in Azure?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types#ultra-disk).
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
+| E64s_v3 | 432 GiB | 1,200 MB/s | 600 GB | 700 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
 | M32ts | 192 GiB | 500 MB/s | 250 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M32ls | 256 GiB | 500 MB/s | 300 GB | 500 MBps | 7500 | 256 GB | 500 MBps  | 2000 |
 | M64ls | 512 GiB | 1000 MB/s | 600 GB | 500 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
@@ -183,10 +185,10 @@ UltraSSD gives you the possibility to define a single disk that fulfills your si
 | M416s_v2 | 5700 GiB | 2,000 MB/s | 7200 GB | 1500M Bps | 9000 | 512 GB | 800 MBps  | 2000 | 
 | M416ms_v2 | 11400 GiB | 2,000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 2000 |   
 
-M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra SSD is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
+M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
-> So far, storage snapshots with UltraSSD storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
+> So far, storage snapshots with Ultra disk storage is not available. This blocks the usage of VM snapshots with Azure Backup Services
 
 ## Next steps
 For more information, see:

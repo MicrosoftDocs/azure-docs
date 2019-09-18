@@ -171,6 +171,9 @@ An AKS cluster takes a few minutes to create.
 
 ## Create an RBAC binding
 
+> [!NOTE]
+> The cluster role binding name is case sensitive.
+
 Before you use an Azure Active Directory account with an AKS cluster, you must create role-binding or cluster role-binding. Roles define the permissions to grant, and bindings apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
 
 First, use the [az aks get-credentials][az-aks-get-credentials] command with the `--admin` argument to sign in to the cluster with admin access.

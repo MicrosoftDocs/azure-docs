@@ -59,7 +59,7 @@
       href: time-series-insights-update-storage-ingress.md
     - name: Use cases
       href: time-series-insights-update-use-cases.md
-    - name: Data modeling
+    - name: Time Series Model
       href: time-series-insights-update-tsm.md
     - name: Data querying
       href: time-series-insights-update-tsq.md
@@ -142,34 +142,6 @@
     items:
     - name: JavaScript Client SDK
       href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
-- name: Related
-  items:
-  - name: Solutions
-    items:
-    - name: IoT Suite preconfigured solutions
-      href: /azure/iot-suite
-    - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
-  - name: Platform services
-    items:
-    - name: IoT Hub
-      href: /azure/iot-hub
-    - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
-    - name: Maps
-      href: /azure/azure-maps
-    - name: Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-    - name: Time Series Insights
-      href: /azure/time-series-insights
-  - name: Edge
-    items:
-    - name: IoT Edge
-      href: /azure/iot-edge
-    - name: IoT device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-  - name: Azure Stream Analytics
-    href: /azure/stream-analytics/
 - name: Resources
   items:
   - name: Customer data requests

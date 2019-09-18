@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 09/18/2019
 ---
 # Apache Spark best practices
 
 This article provides various best practices for using Apache Spark on Azure HDInsight.
 
-## How do I run or submit Spark jobs
+## How do I run or submit Spark jobs?
 
 | Option | Documents |
 |---|---|
@@ -23,7 +23,7 @@ This article provides various best practices for using Apache Spark on Azure HDI
 | Zeppelin notebooks | [Use Apache Zeppelin notebooks with Apache Spark cluster on Azure HDInsight](./apache-spark-zeppelin-notebook.md) |
 | Remote job submission with Livy | [Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster](./apache-spark-livy-rest-interface.md) |
 
-## How do I monitor and debug Spark jobs
+## How do I monitor and debug Spark jobs?
 
 | Option | Documents |
 |---|---|
@@ -32,14 +32,14 @@ This article provides various best practices for using Apache Spark on Azure HDI
 | Azure Toolkit for IntelliJ through VPN | [Use Azure Toolkit for IntelliJ to debug Apache Spark applications remotely in HDInsight through VPN](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md) |
 | Job graph on Apache Spark History Server | [Use extended Apache Spark History Server to debug and diagnose Apache Spark applications](./apache-azure-spark-history-server.md) |
 
-## How do I make my Spark jobs run more efficiently
+## How do I make my Spark jobs run more efficiently?
 
 | Option | Documents |
 |---|---|
 | IO Cache | [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache (Preview)](./apache-spark-improve-performance-iocache.md) |
 | Configuration options | [Optimize Apache Spark jobs](./apache-spark-perf.md) |
 
-## How do I connect to other Azure Services
+## How do I connect to other Azure Services?
 
 | Option | Documents |
 |---|---|
@@ -48,10 +48,14 @@ This article provides various best practices for using Apache Spark on Azure HDI
 | Apache Kafka on HDInsight | [Tutorial: Use Apache Spark Structured Streaming with Apache Kafka on HDInsight](../hdinsight-apache-kafka-spark-structured-streaming.md) |
 | Azure Cosmos DB | [Azure Cosmos DB: Implement a lambda architecture on the Azure platform](../../cosmos-db/lambda-architecture.md) |
 
-## What are my storage options
+## What are my storage options?
 
 | Option | Documents |
 |---|---|
 | Data Lake Storage Gen2 | [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | Data Lake Storage Gen1 | [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-store.md) |
 | Azure Blob Storage | [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md) |
+
+## Next steps
+
+* 

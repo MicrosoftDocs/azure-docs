@@ -339,9 +339,12 @@ The easiest way to configure where databases record metrics is by using the Azur
 
 If you're using elastic pools or managed instances, you also need to configure diagnostics settings in these resources to enable the diagnostics telemetry to stream into the workspace.
 
-### Use the SQL Analytics solution
+### Use the SQL Analytics solution for monitoring and alerting
 
-You can use SQL Analytics as a hierarchical dashboard to view your SQL Database resources. To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md).
+You can use SQL Analytics as a hierarchical dashboard to view your SQL Database resources.
+
+- To learn how to use the SQL Analytics solution, see [Monitor SQL Database by using the SQL Analytics solution](../log-analytics/log-analytics-azure-sql.md).
+- To learn how to setup alerts for SQL Database and managed instance based on SQL Analytics, see [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts).
 
 ## Stream into Event Hubs
 
@@ -547,7 +550,7 @@ Learn more about [Query Store wait statistics data](https://docs.microsoft.com/s
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Time stamp when the log was recorded |
 |Type|Always: AzureDiagnostics |
-|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQ |
+|ResourceProvider|Name of the resource provider. Always: MICROSOFT.SQL |
 |Category|Name of the category. Always: Errors |
 |OperationName|Name of the operation. Always: ErrorEvent |
 |Resource|Name of the resource |
@@ -710,3 +713,7 @@ To learn about Event Hubs, read:
 
 - [What is Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+
+To learn how to setup alerts based on telemetry from log analytics see:
+
+- [Creating alerts for SQL Database and managed instance](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

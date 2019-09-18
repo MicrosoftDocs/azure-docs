@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-After you complete this article, you will have a sign-up and sign-in custom policy with your brand and appearance. With Azure Active Directory B2C (Azure AD B2C), you get nearly full control of the HTML and CSS content that's presented to users. When you use a custom policy, you configure UI customization in XML instead of using controls in the Azure portal. 
+After you complete this article, you'll have a sign-up and sign-in custom policy with your brand and appearance. With Azure Active Directory B2C (Azure AD B2C), you get nearly full control of the HTML and CSS content that's presented to users. When you use a custom policy, you configure UI customization in XML instead of using controls in the Azure portal.
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Create HTML content with your product's brand name in the title.
    </html>
    ```
 
-2. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
+1. Paste the copied snippet in a text editor, and then save the file as *customize-ui.html*.
 
 > [!NOTE]
 > HTML form elements will be removed due to security restrictions if you use login.microsoftonline.com. Please use b2clogin.com if you want to use HTML form elements in your custom HTML content. See [Use b2clogin.com](b2clogin.md) for other benefits.
@@ -56,72 +56,71 @@ Create HTML content with your product's brand name in the title.
 >[!NOTE]
 > In this article, we use Azure Blob storage to host our content. You can choose to host your content on a web server, but you must [enable CORS on your web server](https://enable-cors.org/server.html).
 
-To host this HTML content in Blob storage, do the following:
+To host this HTML content in Blob storage, perform the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the **Hub** menu, select **New** > **Storage** > **Storage account**.
-3. Enter a unique **Name** for your storage account.
-4. **Deployment model** can remain **Resource Manager**.
-5. Change **Account Kind** to **Blob storage**.
-6. **Performance** can remain **Standard**.
-7. **Replication** can remain **RA-GRS**.
-8. **Access tier** can remain **Hot**.
-9. **Storage service encryption** can remain **Disabled**.
-10. Select a **Subscription** for your storage account.
-11. Create a **Resource group** or select an existing one.
-12. Select the **Geographic location** for your storage account.
-13. Click **Create** to create the storage account.  
-    After the deployment is completed, the **Storage account** blade opens automatically.
+1. On the **Hub** menu, select **New** > **Storage** > **Storage account**.
+1. Select a **Subscription** for your storage account.
+1. Create a **Resource group** or select an existing one.
+1. Enter a unique **Name** for your storage account.
+1. Select the **Geographic location** for your storage account.
+1. **Deployment model** can remain **Resource Manager**.
+1. **Performance** can remain **Standard**.
+1. Change **Account Kind** to **Blob storage**.
+1. **Replication** can remain **RA-GRS**.
+1. **Access tier** can remain **Hot**.
+1. Click **Review + create** to create the storage account.
+    After the deployment is completed, the **Storage account** page opens automatically.
 
 ## Create a container
 
-To create a public container in Blob storage, do the following:
+To create a public container in Blob storage, perform the following steps:
 
 1. Under **Blob service** in the left-hand menu, select **Blobs**.
-2. Click **+Container**.
-3. For **Name**, enter *root*. This can be a name of your choosing, for example *wingtiptoys*, but we use *root* in this example for simplicity.
-4. For **Public access level**, select **Blob**, then **OK**.
-5. Click **root** to open the new container.
-6. Click **Upload**.
-7. Click the folder icon next to **Select a file**.
-8. Navigate to and select **customize-ui.html** which you created earlier in the Page UI customization section.
-9. If you want to upload to a subfolder, expand **Advanced** and enter a folder name in **Upload to folder**.
-10. Select **Upload**.
-11. Select the **customize-ui.html** blob that you uploaded.
-12. To the right of the **URL** text box, select the **Copy to clipboard** icon to copy the URL to your clipboard.
-13. In web browser, navigate to the URL you copied to verify the blob you uploaded is accessible. If it is inaccessible, for example if you encounter a `ResourceNotFound` error, make sure the container access type is set to **blob**.
+1. Click **+Container**.
+1. For **Name**, enter *root*. This can be a name of your choosing, for example *wingtiptoys*, but we use *root* in this example for simplicity.
+1. For **Public access level**, select **Blob**, then **OK**.
+1. Click **root** to open the new container.
+1. Click **Upload**.
+1. Click the folder icon next to **Select a file**.
+1. Navigate to and select **customize-ui.html** which you created earlier in the Page UI customization section.
+1. If you want to upload to a subfolder, expand **Advanced** and enter a folder name in **Upload to folder**.
+1. Select **Upload**.
+1. Select the **customize-ui.html** blob that you uploaded.
+1. To the right of the **URL** text box, select the **Copy to clipboard** icon to copy the URL to your clipboard.
+1. In web browser, navigate to the URL you copied to verify the blob you uploaded is accessible. If it is inaccessible, for example if you encounter a `ResourceNotFound` error, make sure the container access type is set to **blob**.
 
 ## Configure CORS
 
-Configure Blob storage for Cross-Origin Resource Sharing by doing the following:
+Configure Blob storage for Cross-Origin Resource Sharing by performing the following steps:
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
-3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
-4. For **Allowed Headers**, enter an asterisk (*).
-5. For **Exposed Headers**, enter an asterisk (*).
-6. For **Max age**, enter 200.
-7. Click **Save**.
+1. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`. You need to use all lowercase letters when entering your tenant name.
+1. For **Allowed Methods**, select both `GET` and `OPTIONS`.
+1. For **Allowed Headers**, enter an asterisk (*).
+1. For **Exposed Headers**, enter an asterisk (*).
+1. For **Max age**, enter 200.
+1. Click **Save**.
 
 ## Test CORS
 
-Validate that you're ready by doing the following:
+Validate that you're ready by performing the following steps:
 
 1. Go to the [www.test-cors.org](https://www.test-cors.org/) website, and then paste the URL in the **Remote URL** box.
-2. Click **Send Request**.  
+1. Click **Send Request**.
     If you receive an error, make sure that your [CORS settings](#configure-cors) are correct. You might also need to clear your browser cache or open an in-private browsing session by pressing Ctrl+Shift+P.
 
 ## Modify the extensions file
 
 To configure UI customization, you copy the **ContentDefinition** and its child elements from the base file to the extensions file.
 
-1. Open the base file of your policy. For example, *TrustFrameworkBase.xml*.
-2. Search for and copy the entire contents of the **ContentDefinitions** element.
-3. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
-4. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element. 
-5. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
-6. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
-    
+1. Open the base file of your policy. For example, *`SocialAndLocalAccounts/`**`TrustFrameworkBase.xml`***. This is one of the policy files included in the custom policy starter pack, which you should have obtained in the prerequisite, [Get started with custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Search for and copy the entire contents of the **ContentDefinitions** element.
+1. Open the extension file. For example, *TrustFrameworkExtensions.xml*. Search for the **BuildingBlocks** element. If the element doesn't exist, add it.
+1. Paste the entire contents of the **ContentDefinitions** element that you copied as a child of the **BuildingBlocks** element.
+1. Search for the **ContentDefinition** element that contains `Id="api.signuporsignin"` in the XML that you copied.
+1. Change the value of **LoadUri** to the URL of the HTML file that you uploaded to storage. For example, `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
+
     Your custom policy should look like the following:
 
     ```xml
@@ -139,22 +138,22 @@ To configure UI customization, you copy the **ContentDefinition** and its child 
     </BuildingBlocks>
     ```
 
-7. Save the extensions file.
+1. Save the extensions file.
 
 ## Upload your updated custom policy
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Identity Experience Framework**.
-2. Click **All Policies**.
-3. Click **Upload Policy**.
-4. Upload the extensions file that you previously changed.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+1. Select **Identity Experience Framework**.
+1. Click **All Policies**.
+1. Click **Upload Policy**.
+1. Upload the extensions file that you previously changed.
 
 ## Test the custom policy by using **Run now**
 
-1. On the **Azure AD B2C** blade, go to **All policies**.
-2. Select the custom policy that you uploaded, and click the **Run now** button.
-3. You should be able to sign up by using an email address.
+1. On the **Azure AD B2C** page, go to **All policies**.
+1. Select the custom policy that you uploaded, and click the **Run now** button.
+1. You should be able to sign up by using an email address.
 
 ## Reference
 
@@ -175,19 +174,20 @@ The sample_templates/wingtip folder contains the following HTML files:
 | *unified.html* | Use this file as a template for a unified sign-up or sign-in page. |
 | *updateprofile.html* | Use this file as a template for a profile update page. |
 
-Here are the steps on how to use the sample. 
-1. Clone the repo on your local machine. Choose a template folder under sample_templates. You can use `wingtip` or `contoso`.
-2. Upload all the files under the `css`, `fonts`, and `images` folders to Blob storage as described in the previous sections. 
-3. Next, open each \*.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
-4. Save the \*.html files and upload them to Blob storage.
-5. Now modify the extensions file as mentioned previously in [Modify the extensions file](#modify-the-extensions-file).
-6. If you see missing fonts, images, or css, please check your references in the extensions policy and the \*.html files.
+Here are the steps on how to use the sample:
 
-### Content defintion IDs
+1. Clone the repo on your local machine. Choose a template folder under sample_templates. You can use `wingtip` or `contoso`.
+1. Upload all the files under the `css`, `fonts`, and `images` folders to Blob storage as described in the previous sections.
+1. Next, open each \*.html file in the root of either `wingtip` or `contoso` (whichever you selected in the first step) and replace all instances of "http://localhost" with the URLs of the css, images, and fonts files you uploaded in step 2.
+1. Save the \*.html files and upload them to Blob storage.
+1. Now modify the extensions file as mentioned previously in [Modify the extensions file](#modify-the-extensions-file).
+1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the \*.html files.
+
+### Content definition IDs
 
 In the Modify your sign-up or sign-in custom policy section, you configured the content definition for `api.idpselections`. The full set of content definition IDs that are recognized by the Azure AD B2C identity experience framework and their descriptions are in the following table:
 
-| Content definition ID | Description | 
+| Content definition ID | Description |
 |-----------------------|-------------|
 | *api.error* | **Error page**. This page is displayed when an exception or an error is encountered. |
 | *api.idpselections* | **Identity provider selection page**. This page contains a list of identity providers that the user can choose from during sign-in. These options are either enterprise identity providers, social identity providers such as Facebook and Google+, or local accounts. |
@@ -202,4 +202,4 @@ In the Modify your sign-up or sign-in custom policy section, you configured the 
 
 ## Next steps
 
-For additional information about UI elements that can be customized, see [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md).
+For more information about UI elements that can be customized, see [reference guide for UI customization for built-in policies](active-directory-b2c-reference-ui-customization.md).

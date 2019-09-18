@@ -74,13 +74,16 @@ Set up file naming:
 
 Choose database settings:
 
+![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
+
 * **Update method**: The default is to allow inserts. Clear **Allow insert** if you want to stop inserting new rows from your source. To update, upsert, or delete rows, first add an alter-row transformation to tag rows for those actions. 
 * **Recreate table**: Drop or create your target table before the data flow finishes.
 * **Truncate table**: Remove all rows from your target table before the data flow finishes.
 * **Batch size**: Enter a number to bucket writes into chunks. Use this option for large data loads. 
 * **Enable staging**: Use PolyBase when you load Azure Data Warehouse as your sink dataset.
+* **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 > [!NOTE]
 > In Data Flow, you can direct Data Factory to create a new table definition in your target database. To create the table definition, set a dataset in the sink transformation that has a new table name. In the SQL dataset, below the table name, select **Edit** and enter a new table name. Then, in the sink transformation, turn on **Allow schema drift**. Set **Import schema** to **None**.

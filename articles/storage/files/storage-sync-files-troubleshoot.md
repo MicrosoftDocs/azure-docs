@@ -392,6 +392,18 @@ This error occurs because the Azure File Sync agent cannot access the Azure file
 2. [Verify the storage account exists.](#troubleshoot-storage-account)
 3. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134364022"></a><a id="storage-unknown-error"></a>**An unknown error occured while accessing the storage account.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c8308a |
+| **HRESULT (decimal)** | -2134364022 |
+| **Error string** | ECS_E_STORAGE_ACCOUNT_UNKNOWN_ERROR |
+| **Remediation required** | Yes |
+
+1. [Verify the storage account exists.](#troubleshoot-storage-account)
+2. [Verify the firewall and virtual network settings on the storage account are configured properly (if enabled)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
 <a id="-1906441138"></a>**Sync failed due to a problem with the sync database.**  
 
 | | |
@@ -630,7 +642,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 |-|-|
 | **HRESULT** | 0x80c8023b |
-| **HRESULT (decimal)** | -2134364145 |
+| **HRESULT (decimal)** | -2134375877 |
 | **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
@@ -680,7 +692,7 @@ This error occurs because the Cloud Tiering filter driver (StorageSync.sys) vers
 | **Error string** | ECS_E_SERVICE_UNAVAILABLE |
 | **Remediation required** | No |
 
-This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service because available again.
+This error occurs because the Azure File Sync service is unavailable. This error will auto-resolve when the Azure File Sync service is available again.
 
 <a id="-2146233088"></a>**Sync failed due to an exception.**  
 
@@ -713,7 +725,7 @@ This error occurs because the storage account has failed over to another region.
 | **Error string** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
 | **Remediation required** | No |
 
-This error occurs because of an internal problem with the sync database. This error will auto-resolve when the Azure File Sync when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
+This error occurs because of an internal problem with the sync database. This error will auto-resolve when sync retries. If this error continues for an extend period of time, create a support request and we will contact you to help you resolve this issue.
 
 <a id="-2134364024"></a>**Sync failed due to change in Azure Active Directory tenant**  
 

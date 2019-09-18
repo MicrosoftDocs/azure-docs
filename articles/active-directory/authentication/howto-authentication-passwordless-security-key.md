@@ -51,7 +51,7 @@ To target specific device groups to enable the credential provider, use the foll
    1. Name: Security Keys for Windows Sign-In
    1. Description: Enables FIDO Security Keys to be used during Windows Sign In
    1. Platform: Windows 10 and later
-   1. Platform type: Custom
+   1. Profile type: Custom
    1. Custom OMA-URI Settings:
       1. Name: Turn on FIDO Security Keys for Windows Sign-In
       1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin

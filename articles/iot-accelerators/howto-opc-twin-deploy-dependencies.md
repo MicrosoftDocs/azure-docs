@@ -12,11 +12,11 @@ manager: philmea
 
 # Deploying dependencies for local development
 
-This article explains how to deploy only the Azure Platform Services need to do local development and debugging.   At the end, you will have a resource group deployed that contains everything you need for local development and debugging.
+This article explains how to deploy only the Azure Platform Services needed to do local development and debugging.   At the end, you will have a resource group deployed that contains everything you need for local development and debugging.
 
 ## Deploy Azure platform services
 
-1. Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed.  Open a command prompt or terminal and run:
+1. Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed.  Open a command prompt or terminal and run:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
@@ -39,7 +39,7 @@ Ensure you use a short and simple resource group name.  The name is used also to
 
 ### Azure Active Directory (AAD) registration
 
-The deployment script tries to register AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, this might fail.   There are 3 options:
+The deployment script tries to register AAD applications in Azure Active Directory.  Depending on your rights to the selected AAD tenant, this might fail.   There are three options:
 
 1. If you chose a AAD tenant from a list of tenants, restart the script and choose a different one from the list.
 2. Alternatively, deploy a private AAD tenant, restart the script and select to use it.

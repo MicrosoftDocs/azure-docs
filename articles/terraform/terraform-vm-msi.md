@@ -80,7 +80,7 @@ Contributor permission helps MSI on VM to use Terraform to create resources outs
 
 `. ~/tfEnv.sh`
 
-The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
+The previous script uses the [AZ CLI v 2.0 interactive log-in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#sign-in-interactively) mechanism to authenticate with Azure and assign the virtual machine Managed Identity contributor permission on the entire subscription. 
 
  The VM has a Terraform remote state back end. To enable it on your Terraform deployment, copy the remoteState.tf file from tfTemplate directory to the root of the Terraform scripts.  
 

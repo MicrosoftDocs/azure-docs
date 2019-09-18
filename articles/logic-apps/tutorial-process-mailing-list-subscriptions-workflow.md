@@ -6,6 +6,7 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
@@ -40,8 +41,7 @@ When you're done, your logic app looks like this workflow at a high level:
 ![High-level finished logic app](./media/tutorial-process-mailing-list-subscriptions-workflow/tutorial-overview.png)
 
 If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a> 
-before you begin.
+[sign up for a free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
@@ -51,14 +51,13 @@ If you don't have an account, [sign up for a free account](https://login.mailchi
 and learn [how to create  a list](https://us17.admin.mailchimp.com/lists/#). 
 
 * An email account with Office 365 Outlook or Outlook.com, 
-which support approval workflows. This article uses Office 365 Outlook. 
+which supports approval workflows. This article uses Office 365 Outlook. 
 If you use a different email account, the general steps stay the same, 
 but your UI might appear slightly different.
 
 ## Sign in to the Azure portal
 
-Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
-with your Azure account credentials.
+Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
 
 ## Create your logic app
 
@@ -240,7 +239,7 @@ sign in with your MailChimp credentials.
    | Setting | Value | Description | 
    | ------- | ----- | ----------- | 
    | **List Id** | test-members-ML | The name for your MailChimp mailing list | 
-   | **Status** | subscribed | The subscription status for the new member. For more information, see <a href="https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/" target="_blank">Manage subscribers with the MailChimp API</a>. | 
+   | **Status** | subscribed | The subscription status for the new member. For more information, see [Manage subscribers with the MailChimp API](https://developer.mailchimp.com/documentation/mailchimp/guides/manage-subscribers-with-the-mailchimp-api/). | 
    | **Email Address** | <*new-member-email-address*> | From either the parameter list or dynamic content list, select **From** under **When a new mail arrives**, which passes in the email address for the new member. 
    |  |  |  | 
 

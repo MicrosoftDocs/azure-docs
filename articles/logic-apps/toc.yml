@@ -15,7 +15,7 @@
     href: quickstart-create-logic-apps-visual-studio-code.md  
 - name: Tutorials
   items:
-  - name: Check traffic regularly
+  - name: Create schedule-based workflows
     href: tutorial-build-schedule-recurring-logic-app-workflow.md
   - name: Manage mailing list requests
     href: tutorial-process-mailing-list-subscriptions-workflow.md
@@ -263,8 +263,6 @@
         href: ../connectors/connectors-create-api-salesforce.md
       - name: SAP (New)
         href: logic-apps-using-sap-connector.md
-      - name: SAP
-        href: logic-apps-using-sap-connector-old.md
       - name: SendGrid
         href: ../connectors/connectors-create-api-sendgrid.md
       - name: SFTP

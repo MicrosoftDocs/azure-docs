@@ -1,5 +1,5 @@
 ---
-title: Create a Java app on Service Fabric in Azure | Microsoft Docs
+title: 'Quickstart: Create a Java app on Azure Service Fabric'
 description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: java
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 
 ---
-# Quickstart: Deploy a Java reliable services application to Service Fabric
+# Quickstart:  Deploy a Java app to Azure Service Fabric on Linux
+
+This quickstart shows how to deploy your first Java application to Azure Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
 
 Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
-
-This quickstart shows how to deploy your first Java application to Service Fabric using the Eclipse IDE on a Linux developer machine. When you're finished, you have a voting application with a Java web front end that saves voting results in a stateful back-end service in the cluster.
 
 ![Application Screenshot](./media/service-fabric-quickstart-java/votingapp.png)
 

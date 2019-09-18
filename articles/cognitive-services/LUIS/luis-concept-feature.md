@@ -63,7 +63,7 @@ Because the words or phrases for the body of water are synonymous and can be use
 
 ### Non-interchangeable lists
 
-A non-interchangeable phrase list is a signal that boosts detection to LUIS. The phrase list indicates words or phrases that are more significant that other words. This helps with both determining intent and entity detection. For example, say you have a subject domain like travel that is global (meaning across cultures but still in a single language). There are words and phrases that are important to the app but are not synonymous. 
+A non-interchangeable phrase list is a signal that boosts detection to LUIS. The phrase list indicates words or phrases that are more significant than other words. This helps with both determining intent and entity detection. For example, say you have a subject domain like travel that is global (meaning across cultures but still in a single language). There are words and phrases that are important to the app but are not synonymous. 
 
 For another example, use a non-interchangeable phrase list for rare, proprietary, and foreign words. LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app). The non-interchangeable setting indicates that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
 
