@@ -83,8 +83,8 @@ landingContent:
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
       - linkListType: video
         links:
-          - text: Build Python functions
-            url: https://azure.microsoft.com/resources/videos/azure-friday-live-building-serverless-python-apps-with-azure-functions/
+          - text: Build functions using VS Code
+            url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/
   # Card
   - title: Connect to services
     linkLists:
