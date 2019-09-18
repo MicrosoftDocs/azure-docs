@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # What is Azure Active Directory B2C?
 
-Azure Active Directory (Azure AD) B2C is a business-to-consumer identity management service. This service enables you to customize and control how users securely interact with your web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. The important key in the implementation of these protocols is the security tokens and their claims that enable you to provide secure access to resources.
+Azure Active Directory B2C (Azure AD B2C) is a business-to-consumer identity management service. This service enables you to customize and control how users securely interact with your web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. The important key in the implementation of these protocols is the security tokens and their claims that enable you to provide secure access to resources.
 
 A *user journey* is a request that specifies a policy, which controls the behavior of how the user and your application interact with Azure AD B2C. Two paths are available to you for defining user journeys in Azure AD B2C.
 

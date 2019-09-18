@@ -57,8 +57,8 @@
         href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
-      - name: Azure common security attributes
-        href: api-management-security-attributes.md
+      - name: Built-in security controls
+        href: api-management-security-controls.md
 - name: How-to guides
   items:
       - name: Define APIs

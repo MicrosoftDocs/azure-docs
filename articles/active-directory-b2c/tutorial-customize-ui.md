@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Customize the interface of user experiences in Azure Active Directory B2C
 
-For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory (Azure AD) B2C. The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
+For more common user experiences, such as sign-up, sign-in, and profile editing, you can use [user flows](active-directory-b2c-reference-policies.md) in Azure Active Directory B2C (Azure AD B2C). The information in this tutorial helps you to learn how to [customize the user interface (UI)](customize-ui-overview.md) of these experiences using your own HTML and CSS files.
 
 In this article, you learn how to:
 
@@ -39,7 +39,7 @@ You create an Azure storage account and container and then place basic HTML and 
 Although you can store your files in many ways, for this tutorial, you store them in [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure subscription. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
+2. Make sure you're using the directory that contains your Azure subscription. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your subscription. This directory is different than the one that contains your Azure B2C tenant.
 3. Choose All services in the top-left corner of the Azure portal, search for and select **Storage accounts**.
 4. Select **Add**.
 5. Under **Resource group**, select **Create new**, enter a name for the new resource group, and then click **OK**.

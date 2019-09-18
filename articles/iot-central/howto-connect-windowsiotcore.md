@@ -38,13 +38,27 @@ For full details on the configuration of the device template, see [Windows IoT C
 
 ## Add a real device
 
-In your Azure IoT Central application, use the **Device Explorer** page to add a real device from the **Windows 10 IoT Core** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**). For more information, see [get connection information](howto-generate-connection-string.md#get-connection-information).
+In your Azure IoT Central application, use the **Device Explorer** page to add a real device from the **Windows 10 IoT Core** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**).
 
 ## Prepare the device
 
-For the device to connect to IoT Central, it needs a connection string.
+For the device to connect to IoT Central, it needs a connection string:
 
-[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+1. Use the `dps-keygen` command-line utility to generate a connection string:
+
+    To install the [key generator utility](https://github.com/Azure/dps-keygen), run the following command:
+
+    ```cmd/sh
+    npm i -g dps-keygen
+    ```
+
+1. To generate a connection string, run the following command using the connection details you noted previously:
+
+    ```cmd/sh
+    dps-keygen -di:<Device ID> -dk:<Primary or Secondary Key> -si:<Scope ID>
+    ```
+
+1. Copy the connection string from the `dps-keygen` output to use in your device code.
 
 For the device code to access the connection string, save it in a file called **connection.string.iothub** in the folder `C:\Data\Users\DefaultAccount\Documents\` on your Windows 10 IoT Core device.
 

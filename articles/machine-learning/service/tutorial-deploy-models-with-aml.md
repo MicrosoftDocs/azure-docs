@@ -1,7 +1,7 @@
 ---
 title: "Image classification tutorial: Deploy models"
-titleSuffix: Azure Machine Learning service
-description: This tutorial shows how to use Azure Machine Learning service to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
+titleSuffix: Azure Machine Learning
+description: This tutorial shows how to use Azure Machine Learning to deploy an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is the second of a two-part series.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -20,7 +20,7 @@ This tutorial is **part two of a two-part tutorial series**. In the [previous tu
 
 Now you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/). A web service is an image, in this case a Docker image. It encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service for the following tasks:
+In this part of the tutorial, you use Azure Machine Learning for the following tasks:
 
 > [!div class="checklist"]
 > * Set up your testing environment.
@@ -375,7 +375,7 @@ service.delete()
 
 ## Next steps
 
-+ Learn about all of the [deployment options for Azure Machine Learning service](how-to-deploy-and-where.md).
++ Learn about all of the [deployment options for Azure Machine Learning](how-to-deploy-and-where.md).
 + Learn how to [create clients for the web service](how-to-consume-web-service.md).
 +  [Make predictions on large quantities of data](how-to-run-batch-predictions.md) asynchronously.
 + Monitor your Azure Machine Learning models with [Application Insights](how-to-enable-app-insights.md).

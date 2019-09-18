@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/24/2019
 ---
+
 # Use MirrorMaker to replicate Apache Kafka topics with Kafka on HDInsight
 
 Learn how to use Apache Kafka's mirroring feature to replicate topics to a secondary cluster. Mirroring can be ran as a continuous process, or used intermittently as a method of migrating data from one cluster to another.
@@ -78,7 +79,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Click **Add**.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
 
-        ![add vnet peering](./media/apache-kafka-mirroring/add-vnet-peering.png)
+        ![add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Configure IP advertising:
     1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.

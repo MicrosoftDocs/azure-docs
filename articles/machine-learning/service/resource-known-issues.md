@@ -1,7 +1,7 @@
 ---
 title: Known issues & troubleshooting
-titleSuffix: Azure Machine Learning service
-description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Get a list of the known issues, workarounds, and troubleshooting for Azure Machine Learning.
 services: machine-learning
 author: j-martens
 ms.author: jmartens
@@ -13,9 +13,9 @@ ms.date: 08/09/2019
 ms.custom: seodec18
 
 ---
-# Known issues and troubleshooting Azure Machine Learning service
+# Known issues and troubleshooting Azure Machine Learning
 
-This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
+This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
 ## Visual interface issues
 
@@ -85,7 +85,7 @@ Databricks and Azure Machine Learning issues.
 
 ### Failure when installing packages
 
-Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning service SDK. You might experience this issue with other libraries, too. Example:
+Azure Machine Learning SDK installation fails on Azure Databricks when more packages are installed. Some packages, such as `psutil`, can cause conflicts. To avoid installation errors, install packages by freezing the library version. This issue is related to Databricks and not to the Azure Machine Learning SDK. You might experience this issue with other libraries, too. Example:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -141,7 +141,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
 
 > [!NOTE]
-> Azure Machine Learning service logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+> Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 ## Activity logs
 
@@ -172,3 +172,43 @@ For example, you will receive an error if you try to create or attach a compute 
 If you receive an error `Unable to upload project files to working directory in AzureFile because the storage is overloaded`, apply following workarounds.
 
 If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
+
+## Webservices in Azure Kubernetes Service failures 
+
+Many webservice failures in Azure Kubernetes Service can be debugged by connecting to the cluster using `kubectl`. You can get the `kubeconfig.json` for an Azure Kubernetes Service Cluster by running
+
+```bash
+az aks get-credentials -g <rg> -n <aks cluster name>
+```
+
+## Updating Azure Machine Learning components in AKS cluster
+
+Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these clusters by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+
+```python
+compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
+compute_target.detach()
+compute_target.wait_for_completion(show_output=True)
+
+attach_config = AksCompute.attach_configuration(resource_group=resourceGroup, cluster_name=kubernetesClusterName)
+
+## If SSL is enabled.
+attach_config.enable_ssl(
+    ssl_cert_pem_file="cert.pem",
+    ssl_key_pem_file="key.pem",
+    ssl_cname=sslCname)
+
+attach_config.validate_configuration()
+
+compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceName, attach_configuration=attach_config)
+compute_target.wait_for_completion(show_output=True)
+```
+
+If you no longer have the SSL certificate and private key, or you are using a certificate generated by Azure Machine Learning, you can retrieve the files prior to detaching the cluster by connecting to the cluster using `kubectl` and retrieving the secret `azuremlfessl`.
+
+```bash
+kubectl get secret/azuremlfessl -o yaml
+```
+
+>[!Note]
+>Kubernetes stores the secrets in base-64 encoded format. You will need to base-64 decode the `cert.pem` and `key.pem` components of the secrets prior to providing them to `attach_config.enable_ssl`. 

@@ -1,7 +1,7 @@
 ---
 title: Train deep learning neural network with Chainer 
-titleSuffix: Azure Machine Learning service
-description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifis handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
+titleSuffix: Azure Machine Learning
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifies handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 08/02/2019
 #Customer intent: As a Python Chainer developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
-# Train and register Chainer models at scale with Azure Machine Learning service
+# Train and register Chainer models at scale with Azure Machine Learning
 
 In this article, learn how to run your [Chainer](https://chainer.org/) training scripts at enterprise scale using Azure Machine Learning's [Chainer estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) class. 
 The example training script in this article uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the Chainer Python library running on top of [numpy](https://www.numpy.org/).
@@ -22,7 +22,7 @@ Whether you're training a deep learning Chainer model from the ground-up or you'
 
 Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
@@ -57,7 +57,7 @@ print("SDK version:", azureml.core.VERSION)
 
 ### Initialize a workspace
 
-The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
+The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
 Create a workspace object by reading the `config.json` file created in the [prerequisites section](#prerequisites):
 
@@ -81,7 +81,7 @@ In this tutorial, the training script **chainer_mnist.py** is already provided f
 
 To use Azure ML's tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
 
-The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#upload-dataset-and-scripts) to make data available during training.
+The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md) to make data available during training.
 
 Copy the training script **chainer_mnist.py** into your project directory.
 
@@ -206,7 +206,7 @@ for f in run.get_file_names():
 
 ## Next steps
 
-In this article, you trained and registered a deep learning, neural network using Chainer on Azure Machine Learning service. To learn how to deploy a model, continue on to our  [model deployment](how-to-deploy-and-where.md) article.
+In this article, you trained and registered a deep learning, neural network using Chainer on Azure Machine Learning. To learn how to deploy a model, continue on to our  [model deployment](how-to-deploy-and-where.md) article.
 
 * [Tune hyperparameters](how-to-tune-hyperparameters.md)
 
