@@ -53,7 +53,7 @@ When you meet the requirements, you can follow [Tutorial: Connect virtual networ
 
 To check the peering configuration, use the following method:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions).
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions).
 2. In the box that contains the text **Search resources** at the top of the portal, type **virtual networks**. When **Virtual networks** appears in the search results, select it.
 3. In the **Virtual networks** blade that appears, select the virtual network for which you want to create a peering.
 4. In the pane that appears for the virtual network, select **Peerings** in the **Settings** section.
@@ -195,7 +195,7 @@ If you have enabled ExpressRoute to connect your local networks to an Azure virt
 
 To check whether you have configured transit routing for virtual network peering, follow these instructions:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions).
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions).
 2. [Create a peering between VNetA and VNetB](https://docs.microsoft.com/azure/virtual-network/virtual-network-create-peering) as shown in the earlier diagram. 
 3. In the pane that appears for the virtual network, select **Peerings** in the **Settings** section.
 4. Select the peering you want to view. Then, select **Configuration** to validate that you have enabled **Allow Gateway Transit** on the VNetA network connected to the ExpressRoute circuit and **Use Remote Gateway** on the remote VNetB network not connected to the ExpressRoute circuit.
@@ -209,7 +209,7 @@ When virtual networks are peered, you can also configure the gateway in the peer
 
 To check whether you have configured a transit route for virtual network peering, follow these instructions:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions).
+1. Sign in to the [Azure portal](https://portal.azure.com/) by using an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions).
 2. In the box that contains the text **Search resources** at the top of the portal, type **virtual networks**. When **Virtual networks** appears in the search results, select it.
 3. In the **Virtual networks** blade that appears, select the virtual network for which you want to check the peering setting.
 4. In the pane that appears for the virtual network that you selected, select **Peerings** in the **Settings** section.
@@ -247,9 +247,9 @@ To configure a VPN connection that uses BGP, see [How to configure BGP on Azure 
 
 Enable BGP on the virtual network gateway by creating an autonomous system (AS) number for it. Basic gateways don't support BGP. To check the SKU of the gateway, go to the **Overview** section of the **VPN Gateway** blade in the Azure portal. If your SKU is **Basic**, you have to change the SKU (see [Resizing the gateway](https://docs.microsoft.com/powershell/module/azurerm.network/resize-azurermvirtualnetworkgateway?view=azurermps-4.1.0&viewFallbackFrom=azurermps-4.0.0)) to **VpnGw1**. 
 
-Checking the SKU will cause 20 to 30 minutes of downtime. As soon as the Gateway has the correct SKU, you can add the AS number by using the [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) PowerShell commandlet. After you configure the AS number, a BGP peer IP for the gateway will be provided automatically.
+Checking the SKU will cause 20 to 30 minutes of downtime. As soon as the gateway has the correct SKU, you can add the AS number by using the [Set-AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-3.8.0) PowerShell commandlet. After you configure the AS number, a BGP peer IP for the gateway will be provided automatically.
 
-You must manually provide `LocalNetworkGateway` with an AS number and a BGP peer address. You can set the `ASN` and `-BgpPeeringAddress` values by using either the [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) or the [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) PowerShell commandlet. Some AS numbers are reserved for Azure, and you can't use them as described at [About BGP with Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview#bgp-faq).
+You must manually provide `LocalNetworkGateway` with an AS number and a BGP peer address. You can set the `ASN` and `-BgpPeeringAddress` values by using either the [New-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-4.1.0) or the [Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-4.1.0) PowerShell commandlet. Some AS numbers are reserved for Azure, and you can't use them as described in [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md#faq).
 
 The connection object must have BGP enabled. You can set the `-EnableBGP` value to `$True` through [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0) or [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-4.1.0).
 
@@ -296,7 +296,7 @@ To delete and create a gateway, follow these steps:
    * [Delete a virtual network gateway by using the Azure portal](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-portal)
    * [Delete a virtual network gateway by using PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-powershell)
    * [Delete a virtual network gateway by using PowerShell (classic)](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-delete-vnet-gateway-classic-powershell)
-3. Follow the steps in [Create the VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal#a-namevnetgatewaya4-create-the-vpn-gateway) to create the new gateway of the desired type and complete the VPN setup.
+3. Follow the steps in [Create the VPN gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway) to create the new gateway of the desired type and complete the VPN setup.
 
 > [!Note]
 > This process will take around 60 minutes.
