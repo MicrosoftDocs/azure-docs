@@ -100,6 +100,8 @@
     href: acs-aks-migration.md
   - name: Supported Kubernetes version
     href: supported-kubernetes-versions.md
+  - name: Security Hardening in host OS
+    href: security-hardened-vm-host-image.md
 - name: How-to guides
   items:
   - name: Cluster operations
