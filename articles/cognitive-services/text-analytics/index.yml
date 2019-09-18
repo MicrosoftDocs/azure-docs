@@ -70,7 +70,7 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: REST API
+        - text: REST API console
           url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
         - text: .NET client library
           url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
