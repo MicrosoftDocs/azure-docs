@@ -11,11 +11,11 @@ services: iot-edge
 ms.custom: seodec18
 ---
 
-# Create and provision a simulated TPM Edge device on Windows
+# Create and provision a simulated IoT Edge device with a virtual TPM on Windows
 
 Azure IoT Edge devices can be auto-provisioned using the [Device Provisioning Service](../iot-dps/index.yml) just like devices that are not edge-enabled. If you're unfamiliar with the process of auto-provisioning, review the [auto-provisioning concepts](../iot-dps/concepts-auto-provisioning.md) before continuing.
 
-This article shows you how to test auto-provisioning on a simulated Edge device with the following steps:
+This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
 * Create an instance of IoT Hub Device Provisioning Service (DPS).
 * Create a simulated device on your Windows machine with a simulated Trusted Platform Module (TPM) for hardware security.
@@ -42,7 +42,7 @@ After you have the Device Provisioning Service running, copy the value of **ID S
 > [!TIP]
 > If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 >
-> Follow the instructions in the article [How to manage device enrollments with Azure Portal](../iot-dps/how-to-manage-enrollments) to create your enrollment in DPS and then proceed with the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section in this article to continue.
+> Follow the instructions in the article [How to manage device enrollments with Azure Portal](../iot-dps/how-to-manage-enrollments.md) to create your enrollment in DPS and then proceed with the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section in this article to continue.
 
 ## Simulate a TPM device
 
