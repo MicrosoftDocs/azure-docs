@@ -65,7 +65,7 @@ landingContent:
   # Card
   - title: Develop functions
     linkLists:
-      - linkListType: Concept
+      - linkListType: concept
         links:
           - text: Supported languages
             url: supported-languages.md
@@ -88,7 +88,7 @@ landingContent:
   # Card
   - title: Connect to services
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Event-driven triggers
             url: functions-triggers-bindings.md
@@ -134,7 +134,7 @@ landingContent:
         links:
           - text: Durable Functions
             url: durable/durable-functions-overview.md
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Durable Functions types and features
             url: durable/durable-functions-types-features-overview.md
@@ -151,7 +151,7 @@ landingContent:
   # Card
   - title: Performance and monitoring
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Monitor functions
             url: functions-monitoring.md
@@ -167,7 +167,7 @@ landingContent:
   # Card
   - title: Deep dive
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links: 
           - text: Route requests with Proxies
             url: functions-proxies.md 
