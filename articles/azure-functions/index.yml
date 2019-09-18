@@ -31,7 +31,7 @@ landingContent:
           - text: Hosting options
             url: functions-scale.md
       - linkListType: learn
-        Links:
+        links:
           - text: Choose a serverless compute option
             url: /learn/modules/choose-azure-service-to-integrate-and-automate-business-processes/index 
       - linkListType: video
