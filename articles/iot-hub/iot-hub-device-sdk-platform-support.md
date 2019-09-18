@@ -41,8 +41,8 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) has t
 
 | OS                  | TLS library                                      | Additional requirements |
 |---------------------|--------------------------------------------------|-------------------------|
-| Linux               | One of the tested TLS stacks (openSSL, WolfSSL)  | Berkely sockets</br></br>Portable Operating System Interface (POSIX) |
-| OSX 10.13.4         | openssl or Native OSX                            |                         |
+| Linux               | OpenSSL or WolfSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX) |
+| OSX 10.13.4         | OpenSSL or Native OSX                            |                         |
 | Windows 10 family   | SChannel                                         |                         |
 
 **Note** To be removed:
@@ -88,7 +88,7 @@ The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-
 | Linux               | .NET standard 2.0 |
 | Windows 10 family   | .NET standard 2.0 |
 
-The IoT Hub .NET (C#) device SDK is supported on runtimes compliant with .NET Standard 2.0. For detailed information, see [OS and hardware compatibility](https://github.com/azure/azure-iot-sdk-csharp#os-platforms-and-hardware-compatibility) in the C SDK readme on GitHub. 
+The IoT Hub .NET (C#) device SDK is supported on runtimes compliant with .NET Standard 2.0. For detailed information, see [OS and hardware compatibility](https://github.com/azure/azure-iot-sdk-csharp#os-platforms-and-hardware-compatibility) in the .NET (C#) SDK readme on GitHub. You can find additional information about platform compatibility support for the .NET standard 2.0 in the [.NET standard 2.0 documentation on GitHub](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md).
 
 > [!NOTE]
 > Due to the high number of supported platforms, Microsoft limits is testing to the following DevOps Hosted agents: "Windows Server 2016 with Visual Studio 2017" and "Ubuntu 16.04". For details, see [Use a Microsoft-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent).
@@ -125,7 +125,6 @@ The [Azure IoT Hub Java device SDK](https://github.com/Azure/azure-iot-sdk-java)
 | OS                  | Java version |
 |---------------------|--------------|
 | Android API 19 +    | Java 8       |
-| Android Things      | Java 8       |
 | Linux               | Java 8       |
 | Windows 10 family   | Java 8       |
 
