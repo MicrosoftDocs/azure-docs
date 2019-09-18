@@ -12,13 +12,15 @@ ms.custom: include file
 
 ### Policy: For users in your directory
 
-Follow these steps if you want your policy to be for users in your directory that can request this access package.  The **users in your directory** refers to both internal users as well as external users that have been previously invited to the directory, either through them requesting entitlement management with another access package or being invited with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+Follow these steps if you want your policy to be for users in your directory that can request this access package. When defining the policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
-    Note that the **For users in your directory** setting includes both member users and guest users that have been added to your directory. If you want to only include member users and not guest users, select **For users in your directory** and then select a group of your member users. If necessary, you can create a dynamic group of your member users (user.userType -eq "Member"). For more information, see [Dynamic membership rules for groups in Azure Active Directory](../articles/active-directory/users-groups-roles/groups-dynamic-membership.md).
+    When you select this option, new options appear to further refine who in your directory can request this access package. You can select specific users and groups, all member users (excluding guests), and all users (including guests). Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
 
-1. In the **Select users and groups** section, click **Add users and groups**.
+    ![Access package - Policy - Users who can request access](./media/active-directory-entitlement-management-policy/policy-users-in-your-directory.png)
+
+1. If you click **Specific users and groups**, click **Add users and groups**.
 
 1. In the Select users and groups pane, select the users and groups you want to add.
 
@@ -39,7 +41,7 @@ Follow these steps if you want your policy to be for users not in your directory
 
     When you select this option, new options appear. You can select specific external Azure AD directories and domains or you can select all external Azure AD directories and domains that you previously added. A connected directory + domain is an external Azure AD directory and domain that you frequently collaborate with.
 
-    ![Access package - Policy - Users who can request access](./media/active-directory-entitlement-management-policy/policy-users-who-can-request-access.png)
+    ![Access package - Policy - Users who can request access](./media/active-directory-entitlement-management-policy/policy-users-not-in-your-directory.png)
 
 1. Click **Specific connected directories + domains** or **Any users from a connected directory + domain**.
 
