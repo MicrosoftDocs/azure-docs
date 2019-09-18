@@ -161,24 +161,24 @@ landingContent:
             url: functions-networking-options.md
       - linkListType: how-to-guide
         links:
-          - name: Troubleshooting
-            href: functions-recover-storage-account.md 
+          - text: Troubleshooting
+            url: functions-recover-storage-account.md 
 
   # Card
   - title: Deep dive
     linkLists:
       - linkListType: concepts
         links: 
-          - name: Route requests with Proxies
-            href: functions-proxies.md 
+          - text: Route requests with Proxies
+            url: functions-proxies.md 
       - linkListType: tutorial
         links: 
-          - name: Machine learning with TensorFlow
-            href: functions-machine-learning-tensorflow.md
-          - name: Run functions on IoT Edge device
-            href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
-          - name: Run functions on a custom Linux image
-            href: functions-create-function-linux-custom-image.md
+          - text: Machine learning with TensorFlow
+            url: functions-machine-learning-tensorflow.md
+          - text: Run functions on IoT Edge device
+            url: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+          - text: Run functions on a custom Linux image
+            url: functions-create-function-linux-custom-image.md
       - linkListType: learn
         links:
           - text: Use SignalR for notifications
@@ -190,8 +190,8 @@ landingContent:
         links:
           - text: Azure Functions samples
             url: /samples/browse/?products=azure-functions
-          - name: Azure Serverless Community Library
-            href: https://www.serverlesslibrary.net/
+          - text: Azure Serverless Community Library
+            url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
       - linkListType: how-to-guide
@@ -205,12 +205,12 @@ landingContent:
         links:
           - text: Supported bindings
             url: functions-triggers-bindings.md
-          - name: Application settings
-            href: functions-app-settings.md
-          - name: Hosting configuration
-            href: functions-host-json.md 
-          - name: Functions pricing
-            href: https://azure.microsoft.com/pricing/details/functions/
+          - text: Application settings
+            url: functions-app-settings.md
+          - text: Hosting configuration
+            url: functions-host-json.md 
+          - text: Functions pricing
+            url: https://azure.microsoft.com/pricing/details/functions/
   # Card
   - title: Languages
     linkLists:
