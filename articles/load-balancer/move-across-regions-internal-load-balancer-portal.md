@@ -38,14 +38,14 @@ The following steps show how to prepare the internal load balancer for the move 
 
 ### Export the virtual network template and deploy from the Azure portal
 
-. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source virtual network and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 6. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
     
-     ```json
+    ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
         "contentVersion": "1.0.0.0",
@@ -217,9 +217,9 @@ The following steps show how to prepare the internal load balancer for the move 
     2. Locate the target resource group that contains the moved virtual network from the steps above, and click on it.
     3. Select > **Settings** > **Properties**.
     4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard.  Alternatively, you can click on the **copy to clipboard** button to the right of the **Resource ID** path.
-    5. Paste the resource ID into the **value** property into the **Edit Parameters** editor open in the other browser window or tab:
+    5. Paste the resource ID into the **defaultValue** property into the **Edit Parameters** editor open in the other browser window or tab:
    
-    ```json
+        ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
          "contentVersion": "1.0.0.0",
          "parameters": {
@@ -231,7 +231,7 @@ The following steps show how to prepare the internal load balancer for the move 
              "defaultValue": "<target-vnet-resource-ID>",
              "type": "String"
              }
-    ```
+        ```
     6. Click **Save** in the online editor.
 
 7. Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
