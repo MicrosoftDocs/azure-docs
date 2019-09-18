@@ -11,7 +11,7 @@ ms.custom: include file
 ---
 
 > [!IMPORTANT]
-> Use caution when you process messages by using a trigger and action that have the same connector type. 
+> Use caution when you process messages by using a trigger and action with the same connector type. 
 > This combination can create an infinite loop, which results in a logic app that never ends.
 >
 > For example, if you use a trigger that receives messages and an action that sends messages to a 
