@@ -43,6 +43,16 @@ landingContent:
             url: terratest-in-terraform-modules.md
             
   # Card
+  - title: Manage AKS
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a Kubernetes cluster with AKS
+            url: terraform-create-k8s-cluster-with-tf-and-aks.md
+          - text: Create a Kubernetes cluster with Application Gateway
+            url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
+
+  # Card
   - title: Manage infrastructure
     linkLists:
       - linkListType: quickstart
@@ -61,16 +71,6 @@ landingContent:
             url: terraform-create-vm-scaleset-network-disks-hcl.md
           - text: Provision VM scale set from a Packer custom image
             url: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
-
-  # Card
-  - title: Manage AKS
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Create a Kubernetes cluster with AKS
-            url: terraform-create-k8s-cluster-with-tf-and-aks.md
-          - text: Create a Kubernetes cluster with Application Gateway
-            url: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
 
   # Card
   - title: Manage networks
