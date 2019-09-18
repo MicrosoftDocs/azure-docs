@@ -134,11 +134,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your Sonarqube company site as an administrator.
 
-2. Install the saml plugin from the sonarqube market place.
+2. Install the SAML plugin from the sonarqube market place.
 
-3. On the top left of the page, click on **Admin** and then navigate to **Saml**.
+3. On the top left of the page, click on **ADMIN** and then navigate to **SAML**.
 
-4. On the **Saml** page, perform the following steps:
+4. On the **SAML** page, perform the following steps:
 
 	![Sonarqube configuration](./media/sonarqube-tutorial/config01.png)
 
@@ -150,7 +150,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	d. In **Provider ID** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	e. In **SAML login url** text box, paste the valu of **Login URL**, which you have copied from Azure portal.
+	e. In **SAML login url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
 	f. Open the Base64 encoded certificate in notepad, copy its content and paste it into the **Provider certificate** text box.
 
