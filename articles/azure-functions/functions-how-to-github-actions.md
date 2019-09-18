@@ -62,7 +62,7 @@ Setting up the environment can be done using one of the publish setup actions.
 |**JavaScript**     | `actions/setup-node` |
 |**Python**   | `actions/setup-python` |
 
-A snippet from the yaml file for a Node JS app that uses version 10
+A snippet from the yaml file for a JavaScript app that uses version 10
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -80,7 +80,7 @@ A snippet from the yaml file for a Node JS app that uses version 10
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 As an example for Node JS
 
-A snippet from the yaml file for a Node JS app
+A snippet from the yaml file for a JavaScript app
 
 ```yaml
     - name: 'Run npm'
