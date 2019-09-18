@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -78,13 +78,13 @@ There are two projects in the sample solution:
 
 The following two projects are in the sample solution:
 
-- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
-- **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
+* **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
+* **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
 
 ### Configure the web application
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
-1. Open **Web.config** in the **TaskWebApp** project.
+1. In the **TaskWebApp** project, open **Web.config**.
 1. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows:
 
     ```csharp
@@ -101,7 +101,7 @@ The following two projects are in the sample solution:
 
 ### Configure the web API
 
-1. Open **Web.config** in the **TaskService** project.
+1. In the **TaskService** project, open **Web.config**.
 1. Configure the API to use your tenant.
 
     ```csharp
@@ -109,19 +109,19 @@ The following two projects are in the sample solution:
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-1. Set the client ID to the registered Application ID for your API.
+1. Set the client ID to the Application ID of your registered web API application, *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-1. Update the user flow setting with the name of the sign up and sign-in user flow.
+1. Update the user flow setting with the name of your sign-up and sign-in user flow, *B2C_1_signupsignin1*.
 
     ```csharp
     <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-1. Configure the scopes setting to match what you created in the portal.
+1. Configure the scopes setting to match those you created in the portal.
 
     ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
@@ -143,7 +143,7 @@ You need to run both the **TaskWebApp** and **TaskService** projects.
 1. In the web application, select **sign-up / sign-in** to sign in to the web application. Use the account that you previously created.
 1. After you sign in, select **To-do list** and create a to-do list item.
 
-When you create a to-do list item, the web application makes a request to the web API to generate the to-do list item. You're protected web application is calling the protected web API in your Azure AD B2C tenant.
+When you create a to-do list item, the web application makes a request to the web API to generate the to-do list item. Your protected web application is calling the web API protected by Azure AD B2C.
 
 ## Next steps
 
