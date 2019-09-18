@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Custom policies are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. User flows are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
+Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. User flows are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
 
 ## Comparing user flows and custom policies
 
