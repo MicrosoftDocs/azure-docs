@@ -75,9 +75,9 @@ landingContent:
           - text: "Quickstart: Using REST and C#"
             url: quickstarts/get-answer-from-knowledge-base-csharp.md     
           - text: "Quickstart: Using NuGet and C#"
-            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base    
-      -linkListType: how-to-guide
-        links: 
+            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base   
+      - linkListType: how-to-guide
+        links:              
           - text: Get an answer with metadata
             url: how-to/metadata-generateanswer-usage.md
 
