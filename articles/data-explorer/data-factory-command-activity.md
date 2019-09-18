@@ -25,13 +25,14 @@ ms.date: 09/15/2019
 
 ## Create a new pipeline
 
-Select the **Author** pencil tool. Create a new pipeline by selecting **+** and then select **Pipeline** from the drop-down.
+1. Select the **Author** pencil tool. 
+1. Create a new pipeline by selecting **+** and then select **Pipeline** from the drop-down.
 
    ![create new pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## Create a Lookup activity
 
-1. In the **Activities** pane, under **General**, select the **Lookup** activity and drag and drop into the main canvas on the right.
+1. In the **Activities** pane, under **General**, select the **Lookup** activity. Drag and drop it into the main canvas on the right.
  
     ![select lookup activity](media/data-factory-command-activity/select-activity.png)
 
@@ -54,11 +55,11 @@ Select the **Author** pencil tool. Create a new pipeline by selecting **+** and 
 
 1. The new Azure Data Explorer dataset parameters are visible in **Settings**. To update the parameters, select **Edit**.
 
-    ![lookup settings with ADX dataset](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
+    ![lookup settings with Azure Data Explorer dataset](media/data-factory-command-activity/lookup-settings-with-adx-dataset.png)
 
 1. The **AzureDataExplorerTable** new tab opens in the main canvas. 
     * Select **General** and edit the dataset name. 
-    * Select **Connection** to edit the dataset properties. Select the **Linked service** from the drop-down. Alternatively, select **+ New** to create a new linked service.
+    * Select **Connection** to edit the dataset properties. Select the **Linked service** from the drop-down. Instead, select **+ New** to create a new linked service.
 
     ![Edit Azure Data Explorer dataset properties](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
 
@@ -70,7 +71,7 @@ Select the **Author** pencil tool. Create a new pipeline by selecting **+** and 
    * In **Connect via integration runtime**, change current settings, if needed. 
    * In **Account selection method** select your cluster using one of two methods: 
         * Select the **From Azure subscription** radio button and select your **Azure subscription** account. Then, select your **Cluster**. Note the drop-down will only list clusters that belong to the user.
-        * Alternatively, select **Enter manually** radio button and enter your **Endpoint** (cluster URL).
+        * Instead, select **Enter manually** radio button and enter your **Endpoint** (cluster URL).
     * Specify the **Tenant**.
     * Enter **Service principal ID**. The principal ID must have the adequate permissions, according to the permission level required by the command being used.
     * Select **Service principal key** button and enter **Service Principal Key**.
@@ -92,7 +93,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
     | summarize count() by Database
     ```
 
-1. Change the **Query timeout** or **No truncation** and **First row only** properties, as needed. In this flow we keep the default and uncheck the checkboxes. 
+1. Change the **Query timeout** or **No truncation** and **First row only** properties, as needed. In this flow, we keep the default and uncheck the checkboxes. 
 
     ![Final settings of lookup activity](media/data-factory-command-activity/lookup-activity-final-settings.png)
 
@@ -102,7 +103,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
     * In the **Activities** pane, under **Iteration & Conditionals**, select the **ForEach** activity and drag and drop into the canvas.
     * Draw a line between the output of the Lookup activity and the input of the ForEach activity in the canvas to connect them.
 
-   ![ForEach activity](media/data-factory-command-activity/for-each-activity.png)
+        ![ForEach activity](media/data-factory-command-activity/for-each-activity.png)
 
 1.	Select the ForEach activity in the canvas. In **Settings**:
     * Check the **Sequential** checkbox for a sequential processing of the Lookup results, or leave it unchecked to create parallel processing.
@@ -110,14 +111,14 @@ Your dataset is now ready, and you can continue editing your pipeline.
     * In **Items**, provide the following reference to the output value:
     *@activity('Lookup1').output.value*
 
-   ![ForEach activity settings](media/data-factory-command-activity/for-each-activity-settings.png)
+       ![ForEach activity settings](media/data-factory-command-activity/for-each-activity-settings.png)
 
 ## Create an Azure Data Explorer Command activity within the ForEach activity
 
-1. Double-click the ForEach activity in the canvas to open it in a new canvas to specify the activities that will be performed.
+1. Double-click the ForEach activity in the canvas to open it in a new canvas to specify the activities within ForEach.
 1. In the **Activities** pane, under **Azure Data Explorer**, select the **Azure Data Explorer Command** activity and drag and drop into the canvas.
 
-    ![azure data explorer command activity](media/data-factory-command-activity/adx-command-activity.png)
+    ![Azure Data Explorer command activity](media/data-factory-command-activity/adx-command-activity.png)
 
 1.	In **Connection**, select the same Linked Service previously created.
 
@@ -149,7 +150,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
 
 1.	Now the pipeline is ready. You can go back to the main pipeline view by clicking the pipeline name.
 
-    ![adx command pipeline](media/data-factory-command-activity/adx-command-pipeline.png)
+    ![Azure Data Explorer command pipeline](media/data-factory-command-activity/adx-command-pipeline.png)
 
 1. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in **Output** tab.
 
@@ -163,7 +164,7 @@ The structure of the command activity output is detailed below. This output can 
 
 ### Returned value of a non-async control command
 
-In a non-async control command, the structure of the returned value is similar to the structure of the Lookup activity result. The `count` field indicates the number of returned records, A fixed array field `value` contains a list of records. 
+In a non-async control command, the structure of the returned value is similar to the structure of the Lookup activity result. The `count` field indicates the number of returned records. A fixed array field `value` contains a list of records. 
 
 ```json
 { 
