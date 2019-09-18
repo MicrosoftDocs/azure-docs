@@ -1,39 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: IoT Plug and Play Preview Documentation
+summary: IoT Plug and Play Preview lets you define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code.
+
 metadata:
-  title: IoT Plug and Play Preview Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Learn how to use IoT Plug and Play with the help of tutorials, API references, videos, and other documentation.
-  author: dominicbetts
-  manager: philmea
-  ms.service: iot-pnp
+  title: IoT Plug and Play Preview Documentation
+  description: IoT Plug and Play Preview lets you define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code.
   services: iot-pnp
+  ms.service: iot-pnp
   ms.topic: landing-page
-  ms.date: 07/23/2019
+  author: dominicbetts
   ms.author: dobett
-abstract:
-  description: Learn how to use IoT Plug and Play Preview to define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code. Tutorials, API references, videos, and other documentation help you connect devices to cloud solutions such as Azure IoT Central or partner applications. 
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: media/index/video-thumb-pnp-introduction.png
-      width: 250  
-    title: Introduction to IoT Plug and Play. (11:54)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
-    width: 250
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to <a href="quickstart-create-pnp-device">use a device capability model to create a device</a>.
-  - type: paragraph
-    text: Learn how to <a href="quickstart-connect-pnp-device-solution">connect a device to your solution</a>.
-- title: Step-by-Step Tutorials
-  items:
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-pnp-visual-studio-code">Create a device using Visual Studio Code</a>
-    - html: <a href="tutorial-build-device-certification">Build a device ready for certification</a>
-    - html: <a href="tutorial-certification-test">Certify your device</a>
+  manager: philmea
+  ms.date: 09/17/2019
+
+landingContent:
+  - title: Overview
+    linkLists:
+    - linkListType: overview
+      links:
+        - text: What is IoT Plug and Play Preview?
+          url: overview-iot-plug-and-play.md
+    - linkListType: concept
+      links:
+        - text: Developer guide
+          url: concepts-developer-guide.md
+        - text: Common interfaces
+          url: concepts-common-interfaces.md
+    - linkListType: video
+      links:
+        - text: Introduction to IoT Plug and Play
+          url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
+landingContent:
+  - title: Develop IoT Plug and Play devices
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Use a device capability model to create a device
+          url: quickstart-create-pnp-device.md
+        - text: Connect a device to IoT Hub
+          url: quickstart-connect-pnp-device.md
+        - text: Connect a device to IoT Central
+          url: ../iot-central/quick-create-pnp-device-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - linkListType: tutorial
+      links:
+        - text: Create and test a device capability model using Visual Studio Code
+          url: tutorial-pnp-visual-studio-code.md
+    - linkListType: how-to-guide
+      links:
+        - text: Use Azure IoT Tools for Visual Studio Code
+          url: howto-develop-with-vs-vscode.md
+landingContent:
+  - title: Certify your IoT Plug and Play device
+    linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Onboard to the Azure Certified for IoT portal
+          url: howto-onboard-portal.md
+    - linkListType: tutorial
+      links:
+        - text: Build a device that's ready for certification
+          url: tutorial-build-device-certification.md
+        - text: Certify your device
+          url: tutorial-certification-test.md
+landingContent:
+  - title: Develop solutions
+    linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Interact with a device that's connected to your solution
+          url: quickstart-connect-pnp-device-solution.md
+    - linkListType: concept
+      links:
+        - text: Model discovery
+          url: concepts-model-discovery.md
+    - linkListType: how-to-guide
+      links: 
+        - text: Connect to devices
+          url: howto-develop-solution.md
+landingContent:
+  - title: Tools
+    linkLists:
+    - linkListType: how-to-guide
+      links: 
+        - text: Visual Studio Code
+          url: howto-develop-with-vs-vscode.md
+        - text: IoT explorer
+          url: howto-install-iot-explorer.md
+        - text: Azure CLI
+          url: howto-install-pnp-cli.md
