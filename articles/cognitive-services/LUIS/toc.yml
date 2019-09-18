@@ -338,7 +338,7 @@
       href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
-  - name: Developer resources and references
+  - name: Developer resources
     href: developer-reference-resource.md
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
