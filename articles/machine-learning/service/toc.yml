@@ -155,8 +155,11 @@
       href: how-to-create-register-datasets.md
   - name: Train models
     items:
+    - name: Different ways to train models
+      displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+      href: concept-train-machine-learning-model.md
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+      displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
     - name: Use estimators to train
       items:
