@@ -83,7 +83,8 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
                 using (_telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
                 {
                     _logger.LogWarning("warning level log - calling bing.com");
-                    var res = httpClient.GetAsync("https://bing.com").Result.StatusCode;
+                    var res = await httpClient.GetAsync("https://bing.com");
+                    _logger.LogWarning("warning level log - calling bing completed with status:" + res.StatusCode);
                     _logger.LogWarning("warning level log - calling bing.com completed with status:" + res);
                 }
 
@@ -317,12 +318,12 @@ To configure any default `TelemetryModule`, use the extension method `ConfigureT
 
                     services.AddApplicationInsightsTelemetryWorkerService();
 
-                    // The following configures DependencyTrackingTelemetryModule.
+                    // The following configures QuickPulseTelemetryModule.
                     // Similarly, any other default modules can be configured.
-                    services.ConfigureTelemetryModule<DependencyTrackingTelemetryModule>((module, o) =>
-                                    {
-                                        module.EnableW3CHeadersInjection = true;
-                                    });
+                    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) =>
+                    {
+                        module.AuthenticationApiKey = "keyhere";
+                    });
 
                     // The following removes PerformanceCollectorModule to disable perf-counter collection.
                     // Similarly, any other default modules can be removed.
@@ -347,7 +348,7 @@ using Microsoft.ApplicationInsights.Channel;
         // This can also be applied to ServerTelemetryChannel.
         services.AddSingleton(typeof(ITelemetryChannel), new InMemoryChannel() {MaxTelemetryBufferCapacity = 19898 });
 
-        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryWorkerService();
     }
 ```
 
@@ -358,7 +359,7 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryWorkerService();
     }
 
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, TelemetryConfiguration configuration)
@@ -383,7 +384,7 @@ Package installed:
 ```csharp
 class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             // Create the DI container.
             IServiceCollection services = new ServiceCollection();
@@ -412,8 +413,8 @@ class Program
             // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
             var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
 
-            var res = new HttpClient().GetAsync("https://bing.com").Result.StatusCode; // this dependency will be captured by Application Insights.
-            logger.LogWarning("Response from bing is:" + res); // this will be captured by Application Insights.
+            var res = await new HttpClient().GetAsync("https://bing.com"); // this dependency will be captured by Application Insights.
+            logger.LogWarning("Response from bing is:" + res.StatusCode); // this will be captured by Application Insights.
 
             telemetryClient.TrackEvent("sampleevent");
 
@@ -486,7 +487,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
         // and that the application has read/write permissions.
         services.AddSingleton(typeof(ITelemetryChannel),
                                 new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
-        services.AddApplicationInsightsTelemetry();
+        services.AddApplicationInsightsTelemetryWorkerService();
     }
 ```
 
