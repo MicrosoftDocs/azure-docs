@@ -242,7 +242,7 @@ categories[].name	 | `string`	| The name from the 86-category taxonomy list.
 categories[].score	| `number`	| The confidence score, between 0 and 1.
 categories[].detail	 | `object?`      | (Optional) The detail object.
 
-If multiple categories match (for example, the 86-category classifier returns a score for both "people_" and "people_young," when model=celebrities), the details are attached to the most general level match ("people_," in that example.)
+If multiple categories match (for example, the 86-category classifier returns a score for both "people_" and "people_young," when model=celebrities), the details are attached to the most general level match ("people_," in that example).
 
 ## Error responses
 
