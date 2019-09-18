@@ -17,7 +17,7 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
-  - name: Set and retrieve a secret - Resource Manager Template
+  - name: Set and retrieve a secret - template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
 - name: Tutorials
@@ -28,19 +28,19 @@
       href: tutorial-net-create-vault-azure-web-app.md
   - name: Azure Virtual Machine
     items:
-    - name: Linux Virtual Machine 
-      items: 
+    - name: Linux Virtual Machine
+      items:
         - name: .NET
           href: tutorial-net-linux-virtual-machine.md
         - name: Python
           href: tutorial-python-linux-virtual-machine.md
-    - name: Windows Virtual Machine 
-      items: 
+    - name: Windows Virtual Machine
+      items:
         - name: .NET
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
-  - name: Storage Account Keys 
+  - name: Storage Account Keys
     items:
       - name: Managed storage account keys using Azure CLI
         href: key-vault-ovw-storage-keys.md
@@ -61,7 +61,7 @@
   - name: Basic concepts
     href: basic-concepts.md
   - name: Security
-    items: 
+    items:
       - name: Security overview
         href: overview-security.md
       - name: Built-in security controls
@@ -153,7 +153,7 @@
     - name: Service authentication using .NET
       href: service-to-service-authentication.md
     - name: Use the Key Vault Connected Service
-      href: vs-key-vault-add-connected-service.md      
+      href: vs-key-vault-add-connected-service.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -162,7 +162,7 @@
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: Customer Data 
+  - name: Customer Data
     href: key-vault-customer-data.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
@@ -171,7 +171,7 @@
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault/
   - name: Service limits
-    href: key-vault-service-limits.md  
+    href: key-vault-service-limits.md
   - name: Service status
     href: https://azure.microsoft.com/status/
   - name: Service updates
