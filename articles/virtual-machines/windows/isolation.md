@@ -4,7 +4,7 @@ description: Learn about VM isolation works in Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-windows
