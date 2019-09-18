@@ -4,26 +4,26 @@ description: Use Azure Resource Manager template to move Azure internal Load Bal
 author: asudbring
 ms.service: load-balancer
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/17/2019
 ms.author: allensu
 ---
 
-# Move Azure internal Load Balancer to another region
+# Move Azure internal Load Balancer to another region using PowerShell
 
 There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you may want to create an internal load balancer with the same configuration for testing. You may also want to move a internal load balancer to another region as part of disaster recovery planning.
 
-Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer.  You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
+Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer.  You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
 
 ## Prerequisites
 
 - Make sure that the Azure internal load balancer is in the Azure region from which you want to move.
 
-- Azure internal load balancers cannot be moved between regions.  You will have to associate the new load balancer to resources in the target region.
+- Azure internal load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
 
 - To export a internal load balancer configuration and deploy a template to create a internal load balancer in another region, you'll need the Network Contributor role or higher.
    
-- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups, virtual machines, and virtual networks.
+- Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups, virtual machines, and virtual networks.
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
 
@@ -31,173 +31,193 @@ Azure internal load balancers can't be moved from one region to another. You can
 
 
 ## Prepare and move
-The following steps show how to prepare the internal load balancer for the move using an Resource Manager template, and move the internal load balancer configuration to the target region using the portal and a script.  As part of this process, the virtual network configuration of the internal load balancer must be included and must me done first before moving the internal load balancer.
+The following steps show how to prepare the internal load balancer for the move using an Resource Manager template, and move the internal load balancer configuration to the target region using Azure PowerShell.  As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-### Export the virtual network template and deploy from a script
+### Export the virtual network template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
     
     ```azurepowershell-interactive
     Connect-AzAccount
     ```
-
-2. Obtain the subscription ID where you wish to deploy the target internal load balancer virtual network with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2.  Obtain the resource ID of the virtual network you want to move to the target region and place it in a variable using [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
 
     ```azurepowershell-interactive
-    Get-AzSubscription
+    $sourceVNETID = (Get-AzVirtualNetwork -Name <source-virtual-network-name> -ResourceGroupName <source-resource-group-name>).Id
+
     ```
-3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-4. Locate the Resource Group that contains the source internal load balancer virtual network and click on it.
-5. Select > **Settings** > **Export template**.
-6. Choose **Download** in the **Export template** blade.
-7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
-8. To edit the parameter of the internal load balancer virtual network name, open the **parameters.json** file and edit the **value** property:
+3. Export the source virtual network to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+   
+   ```azurepowershell-interactive
+   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
+   ```
+
+4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
+   
+   ```azurepowershell
+   notepad <source-resource-group-name>.json
+   ```
+
+5. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
+    
+    ```json
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentmyResourceGroupVNET.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualNetworks_myVNET1_name": {
+        "defaultValue": "<target-virtual-network-name>",
+        "type": "String"
+        }
+    ```
+
+6.  To edit the target region where the VNET will be moved, change the **location** property under resources:
 
     ```json
-         {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "virtualNetworks_myVNET2_name": {
-                "value": "null"
-            }
-          }
-         }
-    ```
- 
-9. Change the **null** value in the .json file to a name of your choice for the target internal load balancer virtual network. Save the **parameters.json** file. Ensure you enclose the name in quotes.
-
-10. To edit the target region where the internal load balancer virtual network configuration will be moved, open the **template.json** file:
-
-    ```json
-        
-            "resources": [
-            {
-            "type": "Microsoft.Network/virtualNetworks",
-            "apiVersion": "2019-06-01",
-            "name": "[parameters('virtualNetworks_myVNET2_name')]",
-            "location": "TARGET REGION",
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "e190ae85-61ad-4055-a944-f7878030486f",
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "10.1.0.0/16"
-                    ]
-                   }
-            }
-            }
+    "resources": [
+                {
+                    "type": "Microsoft.Network/virtualNetworks",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('virtualNetworks_myVNET1_name')]",
+                    "location": "<target-region>",
+                    "properties": {
+                        "provisioningState": "Succeeded",
+                        "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                        "addressSpace": {
+                            "addressPrefixes": [
+                                "10.0.0.0/16"
+                            ]
+                        },
 
     ```
-
-11. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+  
+7. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-   
-12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+8.  You can also change other parameters in the **\<resource-group-name>.json** file if you choose, and are optional depending on your requirements:
 
-* **Address Space** - The address space of the VNET can be altered in the template before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the template.json file:
-            
-    ```json
-            
-            "resources": [
-                          {
-                          "type": "Microsoft.Network/virtualNetworks",
-                          "apiVersion": "2019-06-01",
-                          "name": "[parameters('virtualNetworks_myVNET1_name')]",
-                            "location": "TARGET REGION",
-                            "properties": {
-                               "provisioningState": "Succeeded",
-                               "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
-                               "addressSpace": {
-                                 "addressPrefixes": [
-                                 "10.0.0.0/16"
-                                 ]
-                           },
-                          
-    ```
-* **Subnet** - The subnet name as well as the subnet address space can be changed or added to by modifying the **subnets** section of the **template.json** file. The name of the subnet can be changed by altering the **name** property in the **template.json** file.  The subnet address space can be changed by altering the **addressPrefix** property in the **template.json** file:
-    
-    ```json
-                 "subnets": [
-                        {
-                            "name": "subnet-1",
-                            "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "addressPrefix": "10.0.0.0/24",
-                                "delegations": [],
-                                "privateEndpointNetworkPolicies": "Enabled",
-                                "privateLinkServiceNetworkPolicies": "Enabled"
-                            }
-                        },
-                        {
-                            "name": "GatewaySubnet",
-                            "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "addressPrefix": "10.0.1.0/29",
-                                "serviceEndpoints": [],
-                                "delegations": [],
-                                "privateEndpointNetworkPolicies": "Enabled",
-                                "privateLinkServiceNetworkPolicies": "Enabled"
-                            }
-                        }
-                    ],
-    ```
-    In the **template.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+    * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **\<resource-group-name>.json** file:
 
-    ```json
-             "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.1.0/29",
-                                    "serviceEndpoints": [],
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            },
-                            {
-                                "type": "Microsoft.Network/virtualNetworks/subnets",
-                                "apiVersion": "2019-06-01",
-                                "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
-                                "dependsOn": [
-                                    "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
-                                ],
-                                "properties": {
-                                    "provisioningState": "Succeeded",
-                                    "addressPrefix": "10.0.0.0/24",
-                                    "delegations": [],
-                                    "privateEndpointNetworkPolicies": "Enabled",
-                                    "privateLinkServiceNetworkPolicies": "Enabled"
-                                }
-                            }
+        ```json
+                "resources": [
+                    {
+                    "type": "Microsoft.Network/virtualNetworks",
+                    "apiVersion": "2019-06-01",
+                    "name": "[parameters('virtualNetworks_myVNET1_name')]",
+                    "location": "<target-region",
+                    "properties": {
+                    "provisioningState": "Succeeded",
+                    "resourceGuid": "6e2652be-35ac-4e68-8c70-621b9ec87dcb",
+                    "addressSpace": {
+                        "addressPrefixes": [
+                        "10.0.0.0/16"
                         ]
+                    },
+
+        ```
+
+    * **Subnet** - The subnet name and the subnet address space can be changed or added to by modifying the **subnets** section of the **\<resource-group-name>.json** file. The name of the subnet can be changed by altering the **name** property. The subnet address space can be changed by altering the **addressPrefix** property in the **\<resource-group-name>.json** file:
+
+        ```json
+                "subnets": [
+                    {
+                    "name": "subnet-1",
+                    "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                    "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.0.0.0/24",
+                    "delegations": [],
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                    }
+                    },
+                    {
+                    "name": "GatewaySubnet",
+                    "etag": "W/\"d9f6e6d6-2c15-4f7c-b01f-bed40f748dea\"",
+                    "properties": {
+                    "provisioningState": "Succeeded",
+                    "addressPrefix": "10.0.1.0/29",
+                    "serviceEndpoints": [],
+                    "delegations": [],
+                    "privateEndpointNetworkPolicies": "Enabled",
+                    "privateLinkServiceNetworkPolicies": "Enabled"
+                    }
+                    }
+
+                ]
+        ```
+
+         In the **\<resource-group-name>.json** file, to change the address prefix, it must be edited in two places, the section listed above and the **type** section listed below.  Change the **addressPrefix** property to match the one above:
+
+        ```json
+         "type": "Microsoft.Network/virtualNetworks/subnets",
+           "apiVersion": "2019-06-01",
+           "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/GatewaySubnet')]",
+              "dependsOn": [
+                 "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                   ],
+              "properties": {
+                 "provisioningState": "Succeeded",
+                 "addressPrefix": "10.0.1.0/29",
+                 "serviceEndpoints": [],
+                 "delegations": [],
+                 "privateEndpointNetworkPolicies": "Enabled",
+                 "privateLinkServiceNetworkPolicies": "Enabled"
+                  }
+                 },
+                  {
+                  "type": "Microsoft.Network/virtualNetworks/subnets",
+                  "apiVersion": "2019-06-01",
+                  "name": "[concat(parameters('virtualNetworks_myVNET1_name'), '/subnet-1')]",
+                     "dependsOn": [
+                        "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_myVNET1_name'))]"
+                          ],
+                     "properties": {
+                        "provisioningState": "Succeeded",
+                        "addressPrefix": "10.0.0.0/24",
+                        "delegations": [],
+                        "privateEndpointNetworkPolicies": "Enabled",
+                        "privateLinkServiceNetworkPolicies": "Enabled"
+                         }
+                  }
+         ]
+        ```
+
+9.  Save the **\<resource-group-name>.json** file.
+
+10. Create a resource group in the target region for the target VNET to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)
+    
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
     ```
-
-13. Save the **template.json** file.
-
-14. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and internal load balancer virtual network into the target region:
+    
+11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
-    ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion
+    New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
     ```
-### Export the internal load balancer template and deploy from a script
+12. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
+    
+    ```azurepowershell-interactive
+
+    Get-AzResourceGroup -Name <target-resource-group-name>
+
+    ```
+
+    ```azurepowershell-interactive
+
+    Get-AzVirtualNetwork -Name <target-virtual-network-name> -ResourceGroupName <target-resource-group-name>
+
+    ```
+### Export the internal load balancer template and deploy from Azure PowerShell
 
 1. Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
     
