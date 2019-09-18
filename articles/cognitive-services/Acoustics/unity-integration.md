@@ -27,34 +27,34 @@ Software requirements:
 
     ![The Unity Import Package menu](media/import-package.png)  
 
-1. Choose **ProjectAcoustics.unitypackage**
+1. Choose **ProjectAcoustics.unitypackage**.
 
-1. Select the **Import** button to integrate the Unity package into your project. 
+1. Select the **Import** button to integrate the Unity package into your project.
 
     ![Unity Import Package dialog box](media/import-dialog.png)  
 
-If you're importing the plug-in into an existing project, your project may already have an *mcs.rsp* file in the project root. THis file specifies options to the C# compiler. You need to merge the contents of that file with the mcs.rsp file that comes with the Project Acoustics plug-in.
+If you're importing the plug-in into an existing project, your project may already have an *mcs.rsp* file in the project root. This file specifies options to the C# compiler. Merge the contents of that file with the mcs.rsp file that comes with the Project Acoustics plug-in.
 
 ## Enable the plug-in
 The bake portion of the acoustics toolkit requires the .NET 4.*x* scripting runtime version. Package import updates your Unity player settings. Restart Unity for this setting to take effect.
 
 ![The Unity Player Settings panel](media/player-settings.png)
 
-![Screenshot of Unity Player Settings panel with .NET 4.5 selected](media/net45.png)
+![The Unity Player Settings panel with .NET 4.5 selected](media/net45.png)
 
 ## Set up audio DSP
-Project Acoustics includes audio runtime DSP that integrates into the Unity audio engine spatializer framework. It includes both HRTF-based and panning spatialization. Enable the Project Acoustics DSP by opening the Unity audio settings using **Edit > Project Settings > Audio**, then selecting **Project Acoustics** as the **Spatializer Plugin** for your project. Make sure the **DSP Buffer Size** is set to *Best performance*.
+Project Acoustics includes audio runtime DSP that integrates into the Unity audio engine spatializer framework. It includes both HRTF-based and panning spatialization. To enable the Project Acoustics DSP, go to **Edit > Project Settings > Audio** to open the Unity audio settings. Select **Project Acoustics** as the **Spatializer Plugin** for your project. Make sure that **DSP Buffer Size** is set to *Best performance*.
 
-![Screenshot of Unity Project Settings menu](media/project-settings.png)  
+![Unity Project Settings menu](media/project-settings.png)  
 
 ![The Unity Spatializer settings panel with Project Acoustics spatializer selected](media/choose-spatializer.png)
 
-Then, open the Audio Mixer (**Window > Audio Mixer**). Make sure that you have at least one Mixer, with one group. If you don't, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Only one Project Acoustics Mixer is supported at a time.
+Next, open the Audio Mixer (**Window > Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
 
 ![The Unity Audio Mixer hosting Project Acoustics mixer](media/audio-mixer.png)
 
 ## Enable acoustics on sound sources
-Create an audio source. Select the **Spatialize** checkbox at the bottom of the AudioSource's inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
+Create an audio source: Select the **Spatialize** checkbox at the bottom of the AudioSource's inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
 
 ![The Unity Audio Source panel](media/audio-source.png)
 
