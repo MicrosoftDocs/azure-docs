@@ -69,5 +69,5 @@ For many businesses, the decision to transition to a cloud service is as much ab
 ## Next Steps
 
 * See [Azure Database for MySQL Pricing](https://azure.microsoft.com/pricing/details/mysql/)
-* Get started by [creating your first server](https://review.docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+* Get started by [creating your first server](https://review.docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
