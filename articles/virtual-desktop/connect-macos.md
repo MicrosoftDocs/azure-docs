@@ -13,6 +13,9 @@ ms.author: helohr
 
 > Applies to macOS 10.12 or later.
 
+>[!NOTE]
+> The ability to access Windows Virtual Desktop resources from the macOS client is currently available in preview. 
+
 You can access Windows Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 
 ## Install the client
@@ -38,4 +41,4 @@ Once you've subscribed to a feed, the feed's content will update automatically o
 
 ## Client documentation
 
-To learn more about the macOS client, check out the [Remote Desktop Services documentation](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac).
+To learn more about the macOS client, check out the [Get started with the macOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) documentation.
