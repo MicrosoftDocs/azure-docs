@@ -389,7 +389,7 @@ Search-AzGraph -Query "where type =~ 'microsoft.network/publicipaddresses' | whe
 
 ## <a name="unassociated-nsgs"/>Show unassociated network security groups
 
-This query returns Network Security Groups (NSGs) that are not associated to a network interface or subnet.
+This query returns Network Security Groups (NSGs) that aren't associated to a network interface or subnet.
 
 ```kusto
 where type =~ "microsoft.network/networksecuritygroups"
