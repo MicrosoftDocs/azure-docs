@@ -5,6 +5,7 @@ services: traffic-manager
 documentationcenter: ''
 author: asudbring
 manager: twooley
+ms.topic: article
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: allensu

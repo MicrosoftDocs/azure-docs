@@ -57,8 +57,6 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md  
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
-  - name: Traffic Manager subnet override
-    href: traffic-manager-subnet-override.md
   - name: FAQs
     href: traffic-manager-FAQs.md
 - name: How To
@@ -91,6 +89,10 @@
     href: traffic-manager-powershell-arm.md
   - name: Point your Internet domain to Traffic Manager
     href: traffic-manager-point-internet-domain.md
+  - name: Subnet override
+    items:
+    - name: Configure subnet override - PowerShell
+      href: traffic-manager-subnet-override-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot degraded state on Azure Traffic Manager
