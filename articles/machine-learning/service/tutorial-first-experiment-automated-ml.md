@@ -1,6 +1,6 @@
 ---
 title: Create your first automated machine learning experiment
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
 ms.service: machine-learning
@@ -23,7 +23,7 @@ With automated machine learning, you can automate away time intensive tasks. Aut
 In this tutorial, you learn how to do the following tasks:
 
 > [!div class="checklist"]
-> * Create an Azure Machine Learning service workspace.
+> * Create an Azure Machine Learning workspace.
 > * Run an automated machine learning experiment.
 > * View experiment details.
 > * Deploy the model.
@@ -64,7 +64,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Enter **my-1st-automl-experiment** as the experiment name.
 
-1. Select **Create a new compute**. 
+1. Select **Create a new compute**. A compute is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
 
     1. Configure your compute context for this experiment.
         
@@ -144,9 +144,10 @@ As the experiment progresses, the screen updates the **Iteration chart** and **I
 
 ## Deploy the model
 
-By using automated machine learning in the workspace landing page, you can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
+By using automated machine learning in the workspace landing page, you can deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
+For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
 
-In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
+In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
 1. On the **Run Detail** page, select the **Deploy Best Model** button in the top-right corner.
 
@@ -159,7 +160,7 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     Scoring script| Autogenerate
     Environment script| Autogenerate
     
-1. Select **Deploy**.
+1. Select **Deploy**.  
 
     A deployment complete message appears when deployment successfully finishes.
     

@@ -34,7 +34,7 @@
     href: protect-with-drm.md   
 - name: Samples
   items:    
-  - name: Media Services v3 samples
+  - name: Media Services samples
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
