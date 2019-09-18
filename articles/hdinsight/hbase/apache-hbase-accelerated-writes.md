@@ -5,11 +5,9 @@ services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
 ---
-
 # Azure HDInsight Accelerated Writes for Apache HBase
 
 This article provides background on the **Accelerated Writes** feature for Apache HBase in Azure HDInsight, and how it can be used effectively to improve write performance. **Accelerated Writes** uses [Azure premium SSD managed disks](../../virtual-machines/linux/disks-types.md#premium-ssd) to improve performance of the Apache HBase Write Ahead Log (WAL). To learn more about Apache HBase, see [What is Apache HBase in HDInsight](apache-hbase-overview.md).
@@ -50,6 +48,7 @@ flush 'mytable'
 disable 'mytable'
 ```
 
+Additionally, please follow similar steps when scaling down your cluster - i.e. flush and disable your tables and stop incoming data. Note, you will not be allowed to scale down to less than three nodes. This will ensure a graceful scaledown and avoid the possibility of namenode going into safemode due to lingering under-replicated or temporary files. In the rare event that namenode does go into safemode after scaledown, use hdfs commands to re-replicate the underreplicated blocks and get hdfs out of safe mode; this will ensure HBase restarts smoothly.
 ## Next steps
 
 * Official Apache HBase documentation on the [Write Ahead Log feature](https://hbase.apache.org/book.html#wal)
