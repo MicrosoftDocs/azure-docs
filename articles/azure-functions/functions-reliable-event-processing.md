@@ -32,9 +32,9 @@ With queues, reliable messaging comes naturally. When paired with a Functions tr
 
 Even while a single queue message may remain in a retry cycle, other parallel executions continue to keep to dequeueing remaining messages. The result is that the overall throughput remains largely unaffected by one bad message. However, storage queues don’t guarantee ordering and aren’t optimized for the high throughput demands required by Event Hubs.
 
-By contrast, Azure Event Hubs doesn't include a locking concept. To allow for features like high throughput, multiple consumer groups, and replay-ability, Event Hubs events behave more like a video player. Events are read from a single point in the stream per partition. From the pointer you can read forwards or backwards from that location, but you have to choose to move the pointer for events to process.
+By contrast, Azure Event Hubs doesn't include a locking concept. To allow for features like high-throughput, multiple consumer groups, and replay-ability, Event Hubs events behave more like a video player. Events are read from a single point in the stream per partition. From the pointer you can read forwards or backwards from that location, but you have to choose to move the pointer for events to process.
 
-When errors occur in a stream, if you decide to keep the pointer in the same spot, processing against events remains halted until the pointer is advanced. In other words, if the pointer is stopped to deal with one bad event, the unprocessed events begin piling up.
+When errors occur in a stream, if you decide to keep the pointer in the same spot, event processing is blocked  until the pointer is advanced. In other words, if the pointer is stopped to deal with problems processing a single event, the unprocessed events begin piling up.
 
 Azure Functions avoids deadlocks by advancing the stream's pointer regardless of success or failure. Since the pointer keeps advancing, your functions need to deal with failures appropriately.
 
@@ -42,8 +42,8 @@ Azure Functions avoids deadlocks by advancing the stream's pointer regardless of
 
 Azure Functions consumes Event Hub events while cycling through the following steps:
 
-1. A pointer is created and persisted in Azure Storage for each partition of the Event Hub.
-2. When new Event Hub messages are received (in a batch by default), the host attempts to trigger the function with the batch of messages.
+1. A pointer is created and persisted in Azure Storage for each partition of the event hub.
+2. When new messages are received (in a batch by default), the host attempts to trigger the function with the batch of messages.
 3. If the function completes execution (with or without exception) the pointer advances and a checkpoint is saved to the storage account.
 4. If conditions prevent the function execution from completing, the host fails to progress the pointer. If the pointer isn't advanced, then later checks end up processing the same messages.
 5. Repeat steps 2–4
@@ -55,11 +55,11 @@ This behavior reveals a few important points:
 
 ## Handling exceptions
 
-As a general rule, every function should include a `try/catch` block at the highest level of code. Specifically, all Event Hubs functions should have a `catch` block. Now if an exception is thrown, the catch block can handle error before the pointer progresses.
+As a general rule, every function should include a `try/catch` block at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
 
 ### Retry mechanisms and policies
 
-Some exceptions are transient in nature. That is, some exception may not reappear if an operation is attempted again a few moments later. There are a number of tools available that allow you to define robust retry-policies, which also help preserve processing order.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. There are a number of tools available that allow you to define robust retry-policies, which can also help preserve processing order.
 
 Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 
