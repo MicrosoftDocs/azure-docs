@@ -46,9 +46,9 @@ landingContent:
           - text: Create a Jenkins server
             url: install-jenkins-solution-template.md
       - linkListType: tutorial
+        links:
           - text: Scale with Azure Container Instances
             url: /azure/container-instances/container-instances-jenkins
-            maintainContext: true
           - text: Scale with Azure VM agents
             url: jenkins-azure-vm-agents.md
       - linkListType: download
