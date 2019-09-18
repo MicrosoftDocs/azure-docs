@@ -29,9 +29,9 @@ Before you use this process in your own environment:
 
 ## Create an on-premises environment
 
-In this section, you'll use an Azure Quickstart deployment template to create new VMs, configure DNS, and add a new Azure AD forest.
+In this section, you'll use an Azure Quickstart deployment template to create new VMs, configure DNS, and add a new Active Directory forest.
 
-1. Go to the Quickstart deployment template to [Create an Azure VM with a new Azure AD forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/).
+1. Go to the Quickstart deployment template to [Create an Azure VM with a new Active Directory forest](https://azure.microsoft.com/resources/templates/active-directory-new-domain/).
 
 1. Select **Deploy to Azure**.
 1. Sign in to your Azure subscription.
@@ -122,7 +122,7 @@ The users will be synchronized with Azure AD.
 
 Now you'll configure your Azure AD tenant so that you can synchronize users and groups from the on-premises Active Directory instance to the cloud.
 
-1. Create an Azure AD tenant administrator.
+1. Create an Active Directory tenant administrator.
     1. Sign in to the Azure portal and select your Azure AD tenant, **HDIFabrikam**.
     1. Under **Manage**, select **Users** > **New user**.
     1. Enter the following details for the new user:
@@ -166,7 +166,7 @@ Now you'll configure your Azure AD tenant so that you can synchronize users and 
 
 1. On the **Connect to Active Directory Domain Services** page, enter the username and password for an enterprise admin account. Use the username `HDIFabrikam\HDIFabrikamAdmin` and its password that you created earlier. Then select **Next**. 
 
-   ![The "Connect to AD DS" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
+   ![The "Connect to Azure AD" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. On the **Azure AD sign-in configuration** page, select **Next**.
    ![The "Azure AD sign-in configuration" page](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
 
@@ -364,16 +364,16 @@ This step requires the following prerequisites:
     1. Select **Custom (size, settings, apps)**.
     2. Enter details for **Basics** (section 1). Ensure that the **Cluster type** is **Spark 2.3 (HDI 3.6)**. Ensure that the **Resource group** is **HDIFabrikam-CentralUS**.
 
-    1. For **Security + networking** (section 2), complete the following steps:
-        1. Under **Enterprise Security Package**, select **Enabled**.
-        1. Select **Cluster admin user** and select the **HDIAdmin** account that you created as the on-premises admin user. Click **Select**.
-        1. Select **Cluster access group** > **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
+    1. For **Security + networking** (section 2), fill in the following details:
+        * Under **Enterprise Security Package**, select **Enabled**.
+        * Select **Cluster admin user** and select the **HDIAdmin** account that you created as the on-premises admin user. Click **Select**.
+        * Select **Cluster access group** > **HDIUserGroup**. Any user that you add to this group in the future will be able to access HDInsight clusters.
 
             ![Select the cluster access group HDIUserGroup](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0129.jpg)
 
     1. Complete the other steps of the cluster configuration and verify the details on the **Cluster summary**. Select **Create**.
 
-1. Sign in to the Ambari UI for the newly created cluster at `https://CLUSTERNAME.azurehdinsight.net`. Use your admin username *hdiadmin@hdifabrikam.com* and its password.
+1. Sign in to the Ambari UI for the newly created cluster at `https://CLUSTERNAME.azurehdinsight.net`. Use your admin username `hdiadmin@hdifabrikam.com` and its password.
 
     ![The Apache Ambari UI sign-in window](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 
