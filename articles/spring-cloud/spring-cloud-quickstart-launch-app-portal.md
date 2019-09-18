@@ -1,5 +1,5 @@
 ---
-title: Launch a Java Spring application on Azure using the Azure portal | Microsoft Docs
+title: Launch a Spring application on Azure using the Azure portal | Microsoft Docs
 description: In this quickstart, you deploy a sample application to the Azure Spring Cloud on the Azure portal.
 services: spring-cloud
 author: v-vasuke
@@ -12,22 +12,20 @@ ms.date: 07/17/2019
 ms.author: v-vasuke
 
 ---
-# Quickstart: Launch a Java Spring application on Azure using the Azure portal
+# Quickstart: Launch a Spring Cloud application on Azure using the Azure portal
 
-Azure Spring Cloud enables you to easily run a Spring Cloud based microservices on Azure.
+Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
-This quickstart shows you how to deploy an existing Java Spring Cloud application to Azure. When you're finished, the provided sample application will be accessible on the web and ready to be managed via the Azure portal.
+This quickstart shows you how to deploy an existing Spring Cloud application to Azure. [Here is a link](https://github.com/xscript/PiggyMetrics) to the sample application code used in this tutorial. When you're finished, the provided sample application will be accessible on the web and ready to be managed via the Azure portal.
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 Using this application you learn how to:
 
 > [!div class="checklist"]
-> * Provision a service instance 
+> * Provision a service instance
 > * Set a configuration server for an instance
-> * Build a microservices application locally
-> * Deploy each microservice
-> * Edit environment variables for applications
+> * Build and deploy microservice applications using the Azure CLI
 > * Assign public IP for your application gateway
 
 ## Prerequisites
@@ -61,10 +59,8 @@ az extension add -y --source https://github.com/VSChina/azure-cli-extensions/rel
 - Subscription: Select the subscription you want to be billed for this resource.
 - Resource group: Creating new resource groups for new resources is generally considered the best practice.
 - Location: Location of your service instance. Only West Europe and East US are supported at this time. 
--	VM Size: VM node size used for the underlying Kubernetes cluster. Only Standard D3 v2 (4 vCPU, 14 GiB RAM) is supported at this time.
--	VM Count: Number of VMs running in the underlying Kubernetes cluster. After provisioning, you can scale out and in as necessary.
 
-The service instance can take up to 10 minutes to be fully deployed. When it is, you will be able to see the **Overview** page for the service instance.
+Normally, the service instance takes about 5 minutes to be fully deployed. When it is deployed, you will be able to see the **Overview** page for the service instance.
 
 ## Setup your configuration server
 
