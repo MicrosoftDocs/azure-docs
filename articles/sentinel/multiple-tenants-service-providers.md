@@ -19,11 +19,11 @@ ms.author: rkarlin
 ---
 # Work with multiple tenants in Azure Sentinel 
 
-If you’re an managed security service provider (MSSP) and you’re using [Azure Lighthouse](../lighthouse/overview.md) to manage your customers’ security operations centers (SOC), you will be able to manage your customers’ Azure Sentinel resources without connecting directly to the customer’s tenant, from your own Azure tenant. 
+If you’re a managed security service provider (MSSP) and you’re using [Azure Lighthouse](../lighthouse/overview.md) to manage your customers’ security operations centers (SOC), you will be able to manage your customers’ Azure Sentinel resources without connecting directly to the customer’s tenant, from your own Azure tenant. 
 
 ## Prerequisites
 - [Onboard Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
-- For this to work properly, your tenant must be registered to the Azure Sentinel Resource Provider on at least one subscription. If you have a running Azure Sentinel in your tenant you are ready to get started. If not, in the Azure Portal, select **Subscriptions** followed by **Resource providers** and then search for `Microsoft.Security.Insights` and select **Register**.
+- For this to work properly, your tenant must be registered to the Azure Sentinel Resource Provider on at least one subscription. If you have a registered Azure Sentinel in your tenant, you are ready to get started. If not, in the Azure portal, select **Subscriptions** followed by **Resource providers** and then search for `Microsoft.Security.Insights` and select **Register**.
    ![Check resource providers](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## How to access Azure Sentinel from other tenants
 1. Under **Directory + subscription**, select the delegated directories, and the subscriptions where your customer’s Azure Sentinel workspaces are located.

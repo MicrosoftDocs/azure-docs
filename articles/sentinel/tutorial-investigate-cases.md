@@ -70,7 +70,8 @@ To use the investigation graph:
 
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
-   > [!IMPORTANT] You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
+   > [!IMPORTANT] 
+   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
 
    ![View map](media/tutorial-investigate-cases/map1.png)
 

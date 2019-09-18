@@ -23,7 +23,7 @@ If you no longer want to use the Azure Sentinel, this article explains how to re
 
 ## How to delete Azure Sentinel
 
-In the background when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the solution. In the Azure portal, you need to delete the SecurityInsights solution.
+In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the solution. In the Azure portal, you need to delete the SecurityInsights solution.
 
 1.  Go to **Workspace settings** and then **Solutions**.
 
@@ -71,7 +71,7 @@ Within the first 48 hours, the data and alert rules (including real-time automat
 
 Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may brake due to the removed data. You can remove those manually.**
 
-From the time you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
+After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
 > If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
