@@ -178,7 +178,7 @@ and providing the post_logout_redirect_uri.
 
 ### Intercepting the call to the `logout` endpoint
 
-The post logout uri enables applications to participate to the global sign-out.
+The post logout URI enables applications to participate to the global sign-out.
 
 # [ASP.NET Core](#tab/aspnetcore)
 

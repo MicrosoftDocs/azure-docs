@@ -160,7 +160,7 @@ In the Azure portal, the reply URIs that you need to register in the **Authentic
 
 ## Initialization code
 
-The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenIDConnect middleware. Today the ASP.NET / ASP.NET Core template generate web applications for the Azure AD v1.0 endpoint. Therefore, a bit of configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by spring with the cooperation of the application.
+The initialization code is different depending on the platform. For ASP.NET Core and ASP.NET, signing in users is delegated to the OpenIDConnect middleware. Today the ASP.NET / ASP.NET Core template generate web applications for the Azure AD v1.0 endpoint. Therefore, a bit of configuration is required to adapt them to the Microsoft identity platform (v2.0) endpoint. In the case of Java, it's handled by Spring with the cooperation of the application.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -223,12 +223,12 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
 
 # [Java](#tab/java)
 
-The Java sample uses the Spring framework. The application is protected because you implement a Filter, which gets each Http response. In the Java Web app quickstart, this is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. The filter process the OAuth 2.0 authorization code flow and therefore:
+The Java sample uses the Spring framework. The application is protected because you implement a `Filter`, which gets each HTTP response. In the Java Web app quickstart, this is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. The filter process the OAuth 2.0 authorization code flow and therefore:
 
 - verifies if the user is authenticated (`isAuthenticated()` method)
 - if the user is not authenticated, it computes the url of the Azure AD authorize endpoints, and redirects the browser to this URI
 - when the response arrives, containing the auth code flow it let's msal4j acquiring the token.
-- when it finally receives the token from the token endpoint (on the redirect Uri), the user is signed in.
+- when it finally receives the token from the token endpoint (on the redirect URI), the user is signed in.
 
 For details see the `doFilter()` method in [AuthFilter.java](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
 
