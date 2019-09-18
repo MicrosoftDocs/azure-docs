@@ -12,7 +12,7 @@ ms.author: aelnably
 
 # Continuous delivery by using GitHub Action
 
-You can automatically deploy your function to an Azure Functions app by using [GitHub Actions](https://github.com/features/actions). As GitHub Actions still in a closed beta, you'll need to sign up [here]{https://github.com/features/actions}.
+You can automatically deploy your function to an Azure Functions app by using [GitHub Actions](https://github.com/features/actions). As GitHub Actions still in a closed beta, you'll need to sign up [here](https://github.com/features/actions).
 
 ## Create a Workflow
 
@@ -24,7 +24,7 @@ To give the workflow the ability to deploy to your function app, you will need t
 
 **Setting up a service principal**
 
-You can do that by executing the following [Azure CLI]{https://docs.microsoft.com/cli/azure/}, this can be done from the [Azure Cloud Shell](https://shell.azure.com).
+You can do that by executing the following [Azure CLI](https://docs.microsoft.com/cli/azure/), this can be done from the [Azure Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
@@ -79,7 +79,7 @@ To deploy your code to a function app, you will need to use the `Azure/functions
 |app-name | mandatory: that's the name of the azure function app |
 |slot-name | optional: that's the name of the slot you want to deploy to, it should already be created under `app-name` |
 
-There are a number of samples available under the [Azure GitHub Actions workflow samples repo]{https://github.com/Azure/actions-workflow-samples}, you can use these samples a starting point for your workflow.
+There are a number of samples available under the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples), you can use these samples a starting point for your workflow.
 
 ## Next steps
 
