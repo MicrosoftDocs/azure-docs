@@ -7,7 +7,7 @@ manager: carmonm
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
 ---
 # How to restore Azure VM data in Azure portal
