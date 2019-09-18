@@ -66,7 +66,7 @@ Once your table properties are set correctly, execute the Hive warehouse migrati
 1. Execute the following command from the shell. Replace `${{STACK_VERSION}}` with the version string from the previous step:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0. 
