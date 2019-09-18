@@ -17,9 +17,16 @@ ms.author: diberry
 
 This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. 
 
-The four customers are Alice, Bob, Cathy, and Dave. They have coffee preferences based on time of the day (morning, afternoon, evening) and weather (sunny, rainy, snowy). 
+|Customers|Time of Day|Weather|
+|--|--|--|
+|Alice<br>Bob<br>Cathy<br>Dave|Morning<br>afternoon<br>evening|Sunny<br>rainy<br>snowy| 
 
-To help make this selection, the _system_ also knows details about the coffee, such as the general temperature it is served at (hot, cold), where the coffee is from (Kenya, Brazil, Ethiopia) if it is organic and how dark is the roast. 
+
+To help Personalizer make this selection for each person, the _system_ also knows details about the coffee.
+
+|Temperature|Place of origin|Roast|Organic|
+|--|--|--|--|
+|Hot<br>cold|Kenya<br>Brazil<br>Ethiopia|Dark<br>light|Organic<br>not organic|
 
 The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible. 
 
