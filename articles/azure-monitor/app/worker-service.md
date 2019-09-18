@@ -25,25 +25,34 @@ The new SDK does not do any telemetry collection by itself. Instead, it brings i
 
 ## Supported scenarios
 
-The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced (.NET Core 3.0 Worker Service)[https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances/], [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework) etc.
+The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced [.NET Core 3.0 Worker Service](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework) etc.
 
 ## Prerequisites
 
 - A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
-## Enable Application Insights for .NET Core 3.0 Worker Service Application
+## How to use the Application Insights SDK for Worker Services
 
-1. Install .NET Core 3.0 Preview from https://dotnet.microsoft.com/download/dotnet-core/3.0
-2. Create a new Worker Service project either by using Visual Studio new project template or command line `dotnet new worker`
-3. Install the [Application Insights SDK NuGet package for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService).
-
-    The following code sample shows the changes to be added to your project's `.csproj` file.
+1. Install the nuget (https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+   The following shows the changes to be added to your project's `.csproj` file.
 
     ```xml
         <ItemGroup>
           <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
         </ItemGroup>
     ```
+
+1. Call `AddApplicationInsightsTelemetryWorkerService(string instrumentationKey)` extension method on `IServiceCollection`, providing the instrumentation key. This should be called at the beginning of the application. The exact location depends on the type of application.
+
+1. Retrieve an `ILogger` instance or `TelemetryClient` instance from the Dependency Injection (DI) container by calling `serviceProvider.GetRequiredService<TelemetryClient>();` or using Constructor Injection. This step will trigger setting up of `TelemetryConfiguration` and auto collection modules.
+
+Specific instructions for each type of application is described in the following sections.
+
+## .NET Core 3.0 Worker Service Application
+
+1. Install .NET Core 3.0 Preview from https://dotnet.microsoft.com/download/dotnet-core/3.0
+2. Create a new Worker Service project either by using Visual Studio new project template or command line `dotnet new worker`
+3. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
 4. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `CreateHostBuilder()` method in your `Program.cs` class, as in this example:
 
@@ -76,14 +85,15 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
         {
             while (!stoppingToken.IsCancellationRequested)
             {
-                _logger.LogWarning("Worker running at: {time}", DateTimeOffset.Now);
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
                 using (_telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
                 {
-                    _logger.LogWarning("warning level log - calling bing.com");
+                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                    _logger.LogInformation("Calling bing.com");
                     var res = await httpClient.GetAsync("https://bing.com");
-                    _logger.LogWarning("warning level log - calling bing completed with status:" + res.StatusCode);
-                    _logger.LogWarning("warning level log - calling bing.com completed with status:" + res);
+                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                    telemetryClient.TrackEvent("Bing call event completed");
                 }
 
                 await Task.Delay(1000, stoppingToken);
@@ -126,15 +136,153 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
     > [!NOTE]
     > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
+## Background tasks with hosted services in ASP.NET Core application
+ [This](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) document describes how to create backgrounds tasks in ASP.NET Core 2.1/2.2 application.
+
+1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+2. Add `services.AddApplicationInsightsTelemetryWorkerService();` to the `ConfigureServices()` method, as in this example:
+
+    ```csharp
+        public static async Task Main(string[] args)
+        {
+            var host = new HostBuilder()
+                .ConfigureAppConfiguration((hostContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: true);
+                })
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddLogging();
+                    services.AddHostedService<TimedHostedService>();
+
+                    // instrumentation key is read automatically from appsettings.json
+                    services.AddApplicationInsightsTelemetryWorkerService();
+                })
+                .UseConsoleLifetime()
+                .Build();
+
+            using (host)
+            {
+                // Start the host
+                await host.StartAsync();
+
+                // Wait for the host to shutdown
+                await host.WaitForShutdownAsync();
+            }
+        }
+    ```
+
+Following is the code for `TimedHostedService` where the background task logic resides.
+
+    ```csharp
+        public class TimedHostedService : IHostedService, IDisposable
+        {
+            private readonly ILogger _logger;
+            private Timer _timer;
+            private TelemetryClient _telemetryClient;
+            private static HttpClient httpClient = new HttpClient();
+    
+            public TimedHostedService(ILogger<TimedHostedService> logger, TelemetryClient tc)
+            {
+                _logger = logger;
+                this._telemetryClient = tc;
+            }
+    
+            public Task StartAsync(CancellationToken cancellationToken)
+            {
+                _logger.LogInformation("Timed Background Service is starting.");
+    
+                _timer = new Timer(DoWork, null, TimeSpan.Zero,
+                    TimeSpan.FromSeconds(1));
+    
+                return Task.CompletedTask;
+            }
+    
+            private void DoWork(object state)
+            {
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+    
+                using (_telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
+                {
+                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                    _logger.LogInformation("Calling bing.com");
+                    var res = await httpClient.GetAsync("https://bing.com");
+                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                    telemetryClient.TrackEvent("Bing call event completed");
+                }
+            }
+        }
+```
+
+3. Set up the instrumentation key.
+   Use the same `appsettings.json` from the .NET Core 3.0 Worker Service example above.   
+
+## .NET Core/.NET Framework Console application
+
+As mentioned in the beginning of this article, the new package can be used to enable Application Insights Telemetry from even a regular console application.
+
+1. Install the Microsoft.ApplicationInsights.WorkerService(https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
+
+2. Modify Program.cs as below example.
+
+```csharp
+class Program
+    {
+        static async Task Main(string[] args)
+        {
+            // Create the DI container.
+            IServiceCollection services = new ServiceCollection();
+
+            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
+            // Hence instrumentation key must be specified here.
+            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
+
+            // Build ServiceProvider.
+            IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+            // Obtain logger instance from DI.
+            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
+            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
+
+            while (true) // This app runs indefinitely. replace with actual application termination logic.
+            {
+                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                using (telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
+                {
+                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                    _logger.LogInformation("Calling bing.com");
+                    var res = await httpClient.GetAsync("https://bing.com");
+                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                    telemetryClient.TrackEvent("Bing call event completed");
+                }
+
+                await Task.Delay(1000, stoppingToken);
+            }
+
+            // Explicitly call Flush() followed by sleep is required in Console Apps.
+            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+            telemetryClient.Flush();
+            Task.Delay(5000).Wait();
+        }
+    }
+```
+
+This console application also uses the same default `TelemetryConfiguration`, and it can be customized in the same way as the examples in earlier section.
+
 ## Run your application
 
-Run your application. The example worker from above makes an http call every second to bing.com, and also emits two warning level messages using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship.
+Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits a warning level messages using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship.
+
+This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with [application insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same operation_id. As sampling is based on operation_id, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
 Following lists the full telemetry automatically collected by Application Insights.
 
 ### Live Metrics
 
-It might take a few minutes before telemetry starts appearing in the portal and analytics. To quickly make sure everything is working, it's best to use [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) when your worker is running. In all the platforms, Live Metrics portal would show CPU usage of the running process in near real time.
+[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights is setup correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real time.
 
 ### ILogger logs
 
@@ -183,13 +331,13 @@ By default, the SDK collects the following counters (available only in .NET Core
 
 ### Manually tracking additional telemetry
 
-While the SDK automatically collects telemetry as explained above, in most cases user will need to send additional telemetry to Application Insights service. The recommended way to track additional telemetry is by obtaining an instance of `TelemetryClient` from Dependency Injection, and then calling one of the supported `TrackXXX()` methods on it. Another typical use case is [custom tracking of operations](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking). This approach is demonstrated in the Worker example above. This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with application insights data model - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same operation_id. As sampling is based on operation_id, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
+While the SDK automatically collects telemetry as explained above, in most cases user will need to send additional telemetry to Application Insights service. The recommended way to track additional telemetry is by obtaining an instance of `TelemetryClient` from Dependency Injection, and then calling one of the supported `TrackXXX()` methods on it. Another typical use case is [custom tracking of operations](https://docs.microsoft.com/azure/azure-monitor/app/custom-operations-tracking). This approach is demonstrated in the Worker examples above.
 
 ## Configure the Application Insights SDK
 
 The default `TelemetryConfiguration` used by the worker service SDK is similar to the automatic configuration used in a ASP.NET or ASP.NET Core application, minus the TelemetryInitializers used to enrich telemetry from `HttpContext`.
 
-You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section inside the `Program.cs` class if using .NET Core 3.0 Worker Service templates. In ASP.NET Core 2.1/2.2 apps, which uses background services, SDK configuration is done inside `Startup.ConfigureServices()` method. The following sections offer more information.
+You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed below.
 
 > [!NOTE]
 > While using this SDK, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported, and changes will not be reflected.
@@ -214,7 +362,7 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
 
 Please note that `ApplicationInsightsServiceOptions` in this SDK is in the namespace `Microsoft.ApplicationInsights.WorkerService` as opposed to `Microsoft.ApplicationInsights.AspNetCore.Extensions` in the ASP.NET Core SDK.
 
-Full List of settings in `ApplicationInsightsServiceOptions`
+Commonly used settings in `ApplicationInsightsServiceOptions`
 
 |Setting | Description | Default
 |---------------|-------|-------
@@ -229,24 +377,20 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for ASP.NET Core Applications.
 
-For more information, see [Configure adaptive sampling for ASP.NET Core applications](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications).
+// TODO use actual example here.
 
 ### Adding TelemetryInitializers
 
 Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) when you want to define properties that are sent with all telemetry.
 
-Add any new `TelemetryInitializer` to the `DependencyInjection` container as shown in the following code from .NET Core 3.0 Worker service template. The SDK automatically picks up any `TelemetryInitializer` that's added to the `DependencyInjection` container.
+Add any new `TelemetryInitializer` to the `DependencyInjection` container and SDK will automatically add them to the `TelemetryConfiguration`.
 
 ```csharp
-     public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<Worker>();
-
-                    services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-                    services.AddApplicationInsightsTelemetryWorkerService();
-                });
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
+        services.AddApplicationInsightsTelemetryWorkerService();
+    }
 ```
 
 ### Removing TelemetryInitializers
@@ -254,25 +398,21 @@ Add any new `TelemetryInitializer` to the `DependencyInjection` container as sho
 Telemetry initializers are present by default. To remove all or specific telemetry initializers, use the following sample code *after* you call `AddApplicationInsightsTelemetryWorkerService()`.
 
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<Worker>();
+   public void ConfigureServices(IServiceCollection services)
+   {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        // Remove a specific built-in telemetry initializer
+        var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
+                            (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
+        if (tiToRemove != null)
+        {
+            services.Remove(tiToRemove);
+        }
 
-                    services.AddApplicationInsightsTelemetryWorkerService();
-                    // Remove a specific built-in telemetry initializer
-                    var tiToRemove = services.FirstOrDefault<ServiceDescriptor>
-                                        (t => t.ImplementationType == typeof(AspNetCoreEnvironmentTelemetryInitializer));
-                    if (tiToRemove != null)
-                    {
-                        services.Remove(tiToRemove);
-                    }
-
-                    // Remove all initializers
-                    // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
-                    services.RemoveAll(typeof(ITelemetryInitializer));
-                });
+        // Remove all initializers
+        // This requires importing namespace by using Microsoft.Extensions.DependencyInjection.Extensions;
+        services.RemoveAll(typeof(ITelemetryInitializer));
+   }
 ```
 
 ### Adding telemetry processors
@@ -280,17 +420,13 @@ Telemetry initializers are present by default. To remove all or specific telemet
 You can add custom telemetry processors to `TelemetryConfiguration` by using the extension method `AddApplicationInsightsTelemetryProcessor` on `IServiceCollection`. You use telemetry processors in [advanced filtering scenarios](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) to allow for more direct control over what's included or excluded from the telemetry you send to the Application Insights service. Use the following example.
 
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<Worker>();
-
-                    services.AddApplicationInsightsTelemetryWorkerService();
-                    services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
-                    // If you have more processors:
-                    services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
-                });
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.AddApplicationInsightsTelemetryProcessor<MyFirstCustomTelemetryProcessor>();
+        // If you have more processors:
+        services.AddApplicationInsightsTelemetryProcessor<MySecondCustomTelemetryProcessor>();
+    }
 ```
 
 ### Configuring or removing default TelemetryModules
@@ -308,13 +444,9 @@ The following automatic-collection modules are enabled by default. These modules
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
 ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureServices((hostContext, services) =>
-                {
-                    services.AddHostedService<Worker>();
-
-                    services.AddApplicationInsightsTelemetryWorkerService();
+    public void ConfigureServices(IServiceCollection services)
+    {
+                services.AddApplicationInsightsTelemetryWorkerService();
 
                     // The following configures QuickPulseTelemetryModule.
                     // Similarly, any other default modules can be configured.
@@ -325,15 +457,16 @@ To configure any default `TelemetryModule`, use the extension method `ConfigureT
 
                     // The following removes PerformanceCollectorModule to disable perf-counter collection.
                     // Similarly, any other default modules can be removed.
-                    var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>(t => t.ImplementationType == typeof(PerformanceCollectorModule));
+                    var performanceCounterService = services.FirstOrDefault<ServiceDescriptor>
+                                                (t => t.ImplementationType == typeof(PerformanceCollectorModule));
                     if (performanceCounterService != null)
                     {
                         services.Remove(performanceCounterService);
                     }
-                });
+    }
 ```
 
-### Configuring a telemetry channel
+### Configuring telemetry channel
 
 The default channel is `ServerTelemetryChannel`. You can override it as the following example shows.
 
@@ -367,90 +500,7 @@ If you want to disable telemetry conditionally and dynamically, you may resolve 
     }
 ```
 
-## Setting up Application Insights in a .NET Core/.NET Framework Console application
 
-As mentioned in the beginning of this article, the new package can be used to enable Application Insights Telemetry from even a regular console application. Install the package, and use the example given below.
-
-Package installed:
-
-```xml
-<ItemGroup>
-  <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
-</ItemGroup>
-```
-
-```csharp
-class Program
-    {
-        static async Task Main(string[] args)
-        {
-            // Create the DI container.
-            IServiceCollection services = new ServiceCollection();
-
-            // Add or configure channel
-            services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { StorageFolder = @"C:\temp\aisdkstorage" });
-
-            // Add custom TelemetryInitializer
-            services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
-
-            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-            // Hence instrumentation key must be specified here.
-            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
-
-            // Add custom TelemetryProcessor
-            services.AddApplicationInsightsTelemetryProcessor<MyCustomTelemetryProcessor>();
-
-            // Example on Configuring TelemetryModules.
-            services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((mod, opt) => mod.AuthenticationApiKey = "putactualauthenticationkey" );
-
-            // Build ServiceProvider.
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-            // Obtain logger instance from DI.
-            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
-            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
-            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
-
-            var res = await new HttpClient().GetAsync("https://bing.com"); // this dependency will be captured by Application Insights.
-            logger.LogWarning("Response from bing is:" + res.StatusCode); // this will be captured by Application Insights.
-
-            telemetryClient.TrackEvent("sampleevent");
-
-            // Explicitly call Flush() followed by sleep is required in Console Apps.
-            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
-            telemetryClient.Flush();
-            Task.Delay(5000).Wait();
-        }
-    }
-
-    internal class MyCustomTelemetryInitializer : ITelemetryInitializer
-    {
-        public void Initialize(ITelemetry telemetry)
-        {
-            // Replace with actual properties.
-            (telemetry as ISupportProperties).Properties["MyCustomKey"] = "MyCustomValue";
-        }
-    }
-
-    internal class MyCustomTelemetryProcessor : ITelemetryProcessor
-    {
-        ITelemetryProcessor next;
-
-        public MyCustomTelemetryProcessor(ITelemetryProcessor next)
-        {
-            this.next = next;
-
-        }
-        public void Process(ITelemetry item)
-        {
-            // Example processor - not filtering out anything.
-            // This should be replaced with actual logic.
-            this.next.Process(item);
-        }
-    }
-```
-
-This console application also uses the same default `TelemetryConfiguration`, and it can be customized in the same way as the examples in earlier section.
 
 ## Frequently asked questions
 
