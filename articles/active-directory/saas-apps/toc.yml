@@ -985,6 +985,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
@@ -1035,6 +1037,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RENRAKU
+        href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
       - name: Reviewsnap
