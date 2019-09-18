@@ -35,7 +35,6 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
 1. [Download the hotel review data saved in a CSV file (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data originates from Kaggle.com and contains customer feedback about hotels.
 1. [Sign in to the Azure portal](https://portal.azure.com), and navigate to your Azure storage account.
-1. 
 1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) To do this, in the left navigation bar for your storage account, click **Blobs**, and then click **+ Container** on the command bar.
 1. For the new container **Name**, enter `hotel-reviews`.
 1. Select any **Public Access Level**. We used the default.
@@ -54,7 +53,7 @@ Download the [Postman collection source code](https://github.com/Azure-Samples/a
 
 ### Set Postman variables to connect to your resources
 
-You can leave the names of the resources that you'll create as-is, but you'll need to change `search-service-name` and `storage-account-name` to the values you chose in Step 1. You'll find the value for `admin-key` in the Search Service's **Keys** tab. Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab.  
+You can leave the names of the resources that you'll create as-is, but you'll need to change `search-service-name` and `storage-account-name` to the values you chose in [Step 1](#1---create-services). You'll find the value for `admin-key` in the Search Service's **Keys** tab. Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab.  
 
 | Variable    | Where to get it |
 |-------------|-----------------|
@@ -80,8 +79,8 @@ Creating a Knowledge Store requires you to issue four HTTP requests:
 
 The [source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) contains a Postman collection with these four requests. To issue the requests, switch to the request's tab in Postman, and add `api-key` and `Content-Type` request headers. Set the value of `api-key` to `{{admin-key}}`. Set the value `Content-type` to `application/json`. 
 
-[!div class="mx-imgBorder"]
-![Screenshot showing Postman's interface for headers](media/knowledge-store-create-rest/postman-headers-ui.png)
+> [!div class="mx-imgBorder"]
+> ![Screenshot showing Postman's interface for headers](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
 > You will need to set `api-key` and `Content-type` headers in all of your requests. If a variable is recognized by Postman, it will render in 
@@ -90,7 +89,7 @@ The [source code](https://github.com/Azure-Samples/azure-search-postman-searches
 
 ## 4 - Create an Azure Search index
 
-You need to create an Azure Search index to represent the data which you are interested in searching, filtering, and performing enhancements on. You'll do this by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman will replace symbols enclosed in double curly-brackets, such as `{{search-service-name}}`, `{{index-name}}`, and `{{api-version}}` with the values specified in Step 3. If you are using another tool to issue your REST commands, you'll have to substitute those variables yourself.
+You need to create an Azure Search index to represent the data which you are interested in searching, filtering, and performing enhancements on. You'll do this by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman will replace symbols enclosed in double curly-brackets, such as `{{search-service-name}}`, `{{index-name}}`, and `{{api-version}}` with the values specified in [Step 3](#3---configure-postman). If you are using another tool to issue your REST commands, you'll have to substitute those variables yourself.
 
 Specify the structure of your Azure Search index in the body of the request. In Postman, after setting the `api-key` and `Content-type` headers,switch to the **Body** pane of the request. You should see the following JSON, but if not, choose **Raw** and **JSON (application/json)** and paste the following as the body:
 
@@ -133,7 +132,7 @@ Press the **Send** button to issue the PUT request. You should receive the statu
 
 ## 5 - Create the Datasource
 
-Now, you need to connect Azure Search to the hotel data you stored in Step 2. This is done with a POST to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Again, you'll need to set the `api-key` and `Content-Type` headers as specified previously. 
+Now, you need to connect Azure Search to the hotel data you stored in [Step 2](#2---store-the-data). This is done with a POST to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Again, you'll need to set the `api-key` and `Content-Type` headers as specified previously. 
 
 In Postman, open the "Create Datasource" request. Switch to the **Body** pane, which should have the following code:
 
@@ -151,7 +150,8 @@ Press the **Send** button to issue the POST request.
 
 ## 6 - Create the Skillset 
 
-The next step is to specify the Skillset, which specifies both the enhancements to be applied and the Knowledge Store where the results will be stored. In Postman, open the "Create the Skillset" tab. Set the `api-key` and `Content-type` headers as you've done previously. 
+The next step is to specify the Skillset, which specifies both the enhancements to be applied and the Knowledge Store where the results will be stored. In Postman, open the "Create the Skillset" tab. This request sends a PUT to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
+Set the `api-key` and `Content-type` headers as you've done previously. 
 
 There are two large top-level objects: `"skills"` and `"knowledgeStore"`. Each object within the `"skills"` object is an enrichment service. Each enrichment service has `"inputs"` and `"outputs"`. Notice how the `LanguageDetectionSkill` has an output `targetName` of `"Language"`. The value of this node is used by most of the other skills as an input, with the source as `document/Language`. This capability of using the output of one node as the input to another is even more evident in the `ShaperSkill`, which specifies how the data will flow into the tables of the knowledge store.
 
@@ -291,7 +291,7 @@ The final step is to create the indexer, which actually reads the data and activ
 
 The `"parameters/configuration"` object controls how the indexer ingests the data. In this case, the input data are in a single document with a header line and comma-separated values. The document key is a unique identifier for the document, which prior to encoding is the URL of the source document. Finally, the skillset output values such as languade code, sentiment, and key phrases, are mapped to their appropriate locations in the document. Notice that while there is a single value for `Language`, `Sentiment` is applied to each element in the array of `pages`. `Keyphrases` is itself an array and is also applied to each element in the `pages` array.
 
-After you've set the `api-key` and `Content-type` headers and confirmed that the Body of the request is similar to the source code that follows, press **Send** in Postman. This will create and run the indexer. 
+After you've set the `api-key` and `Content-type` headers and confirmed that the Body of the request is similar to the source code that follows, press **Send** in Postman. Postman will PUT the request to `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search will create and run the indexer. 
 
 ```json
 {
