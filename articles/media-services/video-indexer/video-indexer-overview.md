@@ -15,20 +15,13 @@ ms.author: juliako
 
 # What is Video Indexer?
 
-Video Indexer is the Azure Media Services AI solution and part of the Azure Cognitive Services brand. The service provides an orchestration of multiple and customizable machine learning models based on multiple channels (voice, vocals, visual), to extract deep insights with no need for data analysis or coding skills. Video Indexer enables deep search, reduces operational costs, enables new monetization opportunities, new user experiences, and more, on large archives of videos with low entry barriers. 
-Video Indexer capabilities come in three different ways: 
+Azure Media Services Video Indexer is a AI solution built on Azure Cognitive Services. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, new user experiences, and more, on large archives of videos with low entry barriers. 
 
-* Video Indexer portal - an easy to use solution that allows you to evaluate the product, manage the account and customize models. 
+To start extracting insights with Video Indexer, you need to create an account and upload videos. When you upload your videos to Video Indexer, it analyses both visuals and audio by running different AI models. As Video Indexer analyzes your video, the insights that are extracted by the models.
 
-    For more information about the portal, see [Get started with the Video Indexer website](video-indexer-get-started.md).  
-* API integration - all of Video Indexer’s capabilities are available through a REST API to allow you to integrate the solution into your applications and infrastructure. 
+![Flow diagram](./media/video-indexer-overview/model-chart.png)
 
-    To get started as a developer, see [Use Video Indexer REST API](video-indexer-use-apis.md). 
-* Emendable widget - allows you to embed the video indexer insights, player, and editor experiences into your application. 
-
-    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md). 
-
-## Scenarios
+## What can I do with Video Indexer?
 
 Video Indexer's insights can be applied to many scenarios, among them are:
 
@@ -39,13 +32,7 @@ Video Indexer's insights can be applied to many scenarios, among them are:
 * *Content moderation*: use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization’s values. You can automatically block certain videos or alert your users regarding the content. 
 * *Recommendations*: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend users the most relevant videos and highlight the part of the video that will match their needs. 
 
-## How does it work?
-
-When you upload your videos to Video Indexer, it analyses both visuals and audio by running different AI models. The insights that are extracted by the models are added as metadata for the video, visible in the portal or available as a JSON file. 
-
-![Flow diagram](./media/video-indexer-overview/model-chart.png)
-
-## Feature set
+## Features
 
 Following is the list of insights you can retrieve from your videos using Video Indexer video and audio models described below:
 
@@ -88,6 +75,22 @@ When indexing by one channel partial result for those models will be available
 * Topic inference: Makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
 * Artifacts: Extracts rich set of "next level of details" artifacts for each of the models.
 * Sentiment analysis: Identifies positive, negative, and neutral sentiments from speech and visual text.
+
+## How can I get started with Video Indexer?
+
+You can access Video Indexer capabilities using three different ways: 
+
+* Video Indexer portal - an easy to use solution that allows you to evaluate the product, manage the account and customize models. 
+
+    For more information about the portal, see [Get started with the Video Indexer website](video-indexer-get-started.md).  
+* API integration - all of Video Indexer’s capabilities are available through a REST API to allow you to integrate the solution into your applications and infrastructure. 
+
+    To get started as a developer, see [Use Video Indexer REST API](video-indexer-use-apis.md). 
+* Emendable widget - allows you to embed the video indexer insights, player, and editor experiences into your application. 
+
+    For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md). 
+
+If you are using the webiste, the insights are added as metadata and visible in the portal. If you are using APIs, the insights are available as a JSON file. 
 
 ## Next steps
 
