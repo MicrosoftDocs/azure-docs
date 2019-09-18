@@ -100,7 +100,7 @@ can start troubleshooting the issue.
 
 > [!NOTE]
 > The default probe request is sent in the format of
-<protocol>://127.0.0.1:<port>/, for example, <http://127.0.0.1/> for
+\<protocol\>://127.0.0.1:\<port\>/, for example, <http://127.0.0.1/> for
 an http probe on port 80 and considers only a response of HTTP Status
 codes 200-399 as healthy response. The protocol and the destination port
 are inherited from HTTP Settings. If you want Application Gateway to
@@ -108,8 +108,8 @@ probe on a different protocol, hostname, or path and accept a different
 status code as healthy, configure a custom probe and associate it with
 the HTTP Settings.
 
-### Error Messages
-
+Error Messages
+------------------------
 #### Backend Server timeout
 
 **Message:** Time taken by the backend to respond to application
