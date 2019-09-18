@@ -1,5 +1,5 @@
 ---
-title: Spark best practices on Azure HDInsight
+title: Apache Spark best practices on Azure HDInsight
 description: Learn best practices for using Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -58,4 +58,5 @@ This article provides various best practices for using Apache Spark on Azure HDI
 
 ## Next steps
 
-* 
+* [Configure Apache Spark settings](apache-spark-settings.md)
+* [Optimize Apache Spark jobs in HDInsight](apache-spark-perf.md)
