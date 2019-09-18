@@ -33,6 +33,8 @@ landingContent:
         links:
           - text: Install and configure Terraform
             url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
+          - text: Create a Terraform configuration for Azure
+            url: terrafom-quickstart.md
           - text: Install the Terraform Visual Studio Code extension
             url: terraform-vscode-extension.md
           - text: Create a Terraform base template using Yeoman
@@ -43,6 +45,10 @@ landingContent:
   # Card
   - title: Manage infrastructure
     linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create a Linux VM
+            url: /azure/virtual-machines/linux/terraform-create-complete-vm?/azure/terraform/toc.json&bc=/azure/bread/toc.json
       - linkListType: tutorial
         links:
           - text: Create a Terraform VM with MSI enabled
