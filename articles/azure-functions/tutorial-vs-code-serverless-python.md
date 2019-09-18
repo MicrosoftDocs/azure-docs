@@ -441,6 +441,18 @@ In this section, you add a storage binding to the HttpExample function created e
         }
     ```
 
+1. Replace the contents of *host.json* with the following, adding the [extension bundles reference](functions-bindings-register.md#extension-bundles).
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
+    ```
+
 1. Now that you've configured the binding, you can use it in your function code. Again, the newly defined binding appears in your code as an argument to the `main` function in *\_\_init\_\_.py*. For example, you can modify the *\_\_init\_\_.py* file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
 
     ```python
