@@ -10,7 +10,7 @@ ms.author: allensu
 
 # Move Azure internal Load Balancer to another region using PowerShell
 
-There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you may want to create an internal load balancer with the same configuration for testing. You may also want to move a internal load balancer to another region as part of disaster recovery planning.
+There are various scenarios in which you'd want to move your existing internal load balancer from one region to another. For example, you may want to create an internal load balancer with the same configuration for testing. You may also want to move an internal load balancer to another region as part of disaster recovery planning.
 
 Azure internal load balancers can't be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing configuration and virtual network of an internal load balancer.  You can then stage the resource in another region by exporting the load balancer and virtual network to a template, modifying the parameters to match the destination region, and then deploy the templates to the new region.  For more information on Resource Manager and templates, see [Export resource groups to templates](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates)
 
@@ -21,7 +21,7 @@ Azure internal load balancers can't be moved from one region to another. You can
 
 - Azure internal load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
 
-- To export a internal load balancer configuration and deploy a template to create a internal load balancer in another region, you'll need the Network Contributor role or higher.
+- To export an internal load balancer configuration and deploy a template to create an internal load balancer in another region, you'll need the Network Contributor role or higher.
    
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups, virtual machines, and virtual networks.
 
@@ -31,7 +31,7 @@ Azure internal load balancers can't be moved from one region to another. You can
 
 
 ## Prepare and move
-The following steps show how to prepare the internal load balancer for the move using an Resource Manager template, and move the internal load balancer configuration to the target region using Azure PowerShell.  As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
+The following steps show how to prepare the internal load balancer for the move using a Resource Manager template, and move the internal load balancer configuration to the target region using Azure PowerShell.  As part of this process, the virtual network configuration of the internal load balancer must be included and must be done first before moving the internal load balancer.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
