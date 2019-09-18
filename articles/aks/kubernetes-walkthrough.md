@@ -230,7 +230,7 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 ![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
-When the AKS cluster was created, [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview?) was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
+When the AKS cluster was created, [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
 ## Delete the cluster
 
