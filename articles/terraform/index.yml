@@ -33,12 +33,6 @@ landingContent:
         links:
           - text: Install and configure Terraform
             url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
-
-    # Card
-  - title: Use Terraform tools
-    linkLists:
-      - linkListType: tutorial
-        links:
           - text: Install the Terraform Visual Studio Code extension
             url: terraform-vscode-extension.md
           - text: Create a Terraform base template using Yeoman
