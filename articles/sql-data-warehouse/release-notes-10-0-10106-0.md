@@ -5,7 +5,7 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: 
-ms.date: 07/03/2019
+ms.date: 09/18/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
@@ -14,7 +14,7 @@ manager: craigg
 
 # Azure SQL Data Warehouse release notes
 
-This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+This article summarizes the new features and improvements in the recent releases of [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md) (Azure SQL DW). The article also lists notable content updates that aren't directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
 
 ## Check your Azure SQL Data Warehouse version
 
@@ -30,6 +30,7 @@ Use the date identified to confirm which release has been applied to your Azure 
 
 | Service improvements | Details |
 | --- | --- |
+|**Azure Private Link (GA)**|With [Azure Private Link](https://microsoft.sharepoint.com/:w:/r/teams/AzureSQLDataWarehouse/_layouts/15/Doc.aspx?sourcedoc={f90b6cab-69d1-4f46-9033-c8a12628d2fa}&action=edit&wdLOR=c1B584C01%2D9270%2D4C3E%2D866F%2DD3FBB569FD5C&wdPid=14d06d3f), you can create a private endpoint in your Virtual Network (VNet) and map it to your Azure SQL DW. These resources are then accessible over a private IP address in your VNet, enabling connectivity from on-premises through Azure ExpressRoute private peering and/or VPN gateway. Overall, this simplifies the network configuration by not requiring you to open it up to public IP addresses. This also enables protection against data exfiltration risks. For more details, see [overview](/azure/private-link/private-link-overview) and [SQL DW documentation](/azure/sql-database/sql-database-private-endpoint-overview).|
 |**Data Discovery & Classification (GA)**|[Data discovery and classification](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) feature is now Generally Available. This feature provides advanced capabilities for **discovering, classifying, labeling & protecting** sensitive data in your databases.|
 |**Azure Advisor one-click Integration**|SQL Data Warehouse now directly integrates with Azure Advisor recommendations in the overview blade along with providing a one-click experience. You can now discover recommendations in the overview blade instead of navigating to the Azure advisor blade. Find out more about recommendations [here](sql-data-warehouse-concept-recommendations.md).|
 |**EXECUTE AS (Transact-SQL)**| [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) T-SQL support is now available in SQL Data Warehouse enabling customers to set the execution context of a session to the specified user.|
