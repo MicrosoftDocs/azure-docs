@@ -40,7 +40,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 Install the following software:
 
-- Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
+- Python 3.6.x as required by Azure Functions. [Python 3.6.9](https://www.python.org/downloads/release/python-369/) is the latest 3.6.x version.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Visual Studio Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
@@ -439,6 +439,18 @@ In this section, you add a storage binding to the HttpExample function created e
           "queueName": "outqueue",
           "connection": "AzureWebJobsStorage"
         }
+    ```
+
+1. Replace the contents of *host.json* with the following, adding the [extension bundles reference](functions-bindings-register.md#extension-bundles).
+
+    ```json
+    {
+        "version": "2.0",
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[1.*, 2.0.0)"
+        }
+    }
     ```
 
 1. Now that you've configured the binding, you can use it in your function code. Again, the newly defined binding appears in your code as an argument to the `main` function in *\_\_init\_\_.py*. For example, you can modify the *\_\_init\_\_.py* file in HttpExample to match the following, which shows using the `msg` argument to write a timestamped message with the name used in the request. The comments explain the specific changes:
