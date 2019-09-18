@@ -40,7 +40,7 @@ If you don't have an Azure subscription, [sign up now](https://azure.microsoft.c
 
 Install the following software:
 
-- Python 3.6.x as required by Azure Functions. [Python 3.6.8](https://www.python.org/downloads/release/python-368/) is the latest 3.6.x version.
+- Python 3.6.x as required by Azure Functions. [Python 3.6.9](https://www.python.org/downloads/release/python-369/) is the latest 3.6.x version.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - The [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) as described on [Visual Studio Code Python Tutorial - Prerequisites](https://code.visualstudio.com/docs/python/python-tutorial).
 - The [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions). For general information, visit the [vscode-azurefunctions GitHub repository](https://github.com/Microsoft/vscode-azurefunctions).
