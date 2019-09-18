@@ -151,84 +151,62 @@ az group deployment create --name ADFDeployment \
     --parameters "@adfparameters.json"
 ```
 
-### Trigger the Pipelines
+## Trigger the Pipelines
+
 To trigger the pipelines you can either:
-1.  Run the following commands to trigger the ADF pipelines in PowerShell mode. 
 
-This pipeline moves the data from blob storage to Data Lake Storage Gen2 Storage
-```powershell
-Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "CopyPipeline_k8z" 
-```
-This pipeline applies the spark transformations on the data and may take a few minutes. 
-```powershell
-Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "sparkTransformPipeline"
-```
-2. You can also open the Data Factory, select Author & Monitor, and trigger the copy pipeline, then the spark pipeline from the portal. [Here](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) is a tutorial that shows you how to trigger pipelines from the portal. 
+1.  Run the following commands to trigger the ADF pipelines in PowerShell mode. This pipeline moves the data from blob storage to Data Lake Storage Gen2 Storage.
 
-To verify that the pipelines executed you can either 
+    ```powershell
+    Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "CopyPipeline_k8z" 
+    ```
+
+    This pipeline applies the spark transformations on the data and may take a few minutes. 
+
+    ```powershell
+    Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "sparkTransformPipeline"
+    ```
+
+1. You can also open the Data Factory, select Author & Monitor, and trigger the copy pipeline, then the spark pipeline from the portal. See [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) for information on triggering pipelines through the portal. 
+
+To verify that the pipelines have executed you can do either of the following:
+
 1. Navigate to the monitor section on ADF through the portal. 
 2. Go to your Data Lake Storage Gen 2 storage account storage explorer, go to the `files` FileSystem, and navigate to the `transformed` folder and check its contents to see if the pipeline succeeded.
 
-For other ways to transform data using HDInsight check out this article on using [Jupyter notebook](https://docs.microsoft.com/en-us/azure/hdinsight/spark/apache-spark-load-data-run-query)
+For other ways to transform data using HDInsight check out this article on using [Jupyter notebook](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-load-data-run-query)
 
 ## Create a table on the Interactive Query cluster to view data on Power BI
 
-Now, SSH into the LLAP cluster using the following command and then enter your password. If you have not altered the `resourcesparameters.json` file this should be `Thisisapassword1`. 
+1. Copy the query.hql file to the LLAP cluster using SCP:
 
-```
-ssh sshuser@<clustername>-ssh.azurehdinsight.net
-```
+    ```
+    scp scripts/query.hql sshuser@<clustername>-ssh.azurehdinsight.net:/home/sshuser/
+    ```
 
-Next, create a file that will contain the Hive query to create a table. 
-```
-nano query.hql
-```
-Copy the contents below into `query.hql` and substitute your storage account name in the angle brackets. 
-```
-DROP TABLE sales_raw;
--- Creates an external table over the csv file
-CREATE EXTERNAL TABLE sales_raw(
-  QUANT INT,
-  REGION STRING,
-  STORE STRING,
-  SALEDATE STRING,
-  DEP STRING,
-  ITEM STRING,
-  UNITSOLD INT,
-  UNITPRICE INT,
-  REVENUE INT)
---Format and location of the file
-ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LINES TERMINATED BY '\n'
-STORED AS TEXTFILE
-LOCATION 'abfs://files@<ADLS GEN2 ACCOUNT NAME>.dfs.core.windows.net/transformed';
+2. SSH into the LLAP cluster using the following command and then enter your password. If you have not altered the `resourcesparameters.json` file this should be `Thisisapassword1`.
 
---Drop table sales if exists
-DROP TABLE sales;
---Create sales table and populate with data\
---pulled in from csv file (via external table defined previously)
-CREATE TABLE sales AS
-SELECT QUANT AS quant,
-	REGION AS region,
-	STORE as store,
-	CAST(SALEDATE as DATE) as saledate, 
-	DEP as dep,
-	ITEM as item,
-	UNITSOLD as unitsold,
-	UNITPRICE as unitprice,
-	REVENUE as revenue
-FROM sales_raw;
-```
-Run the following command to execute the script
-```
-beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
-```
+    ```
+    ssh sshuser@<clustername>-ssh.azurehdinsight.net
+    ```
+
+3. Run the following command to execute the script
+
+    ```
+    beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
+    ```
 
 This script will create a table on the Interactive Query cluster that you can access from Power BI. 
 
-Open up Power BI Desktop and select Get Data. Search for HDInsight Interactive Query cluster and paste the URI for your cluster there. It should be in the format `https://<LLAP CLUSTER NAME>.azurehdinsight.net` Type `default` for the database. 
+## Create a Power BI dashboard from sales data
 
-Once the data is loaded, you can experiment with the dashboard you would like to create. Here is an example dashboard with the given data. 
+1. Open up Power BI Desktop
+1. Select **Get Data**.
+1. Search for **HDInsight Interactive Query cluster**.
+1. Paste the URI for your cluster there. It should be in the format `https://<LLAP CLUSTER NAME>.azurehdinsight.net` Type `default` for the database.
+1. Enter the username and password that you use to access the cluster.
+
+Once the data is loaded, you can experiment with the dashboard you would like to create. Here is an example dashboard with the given data.
 
 ![Sales insights Power BI dashboard](./media/hdinsight-sales-insights-etl/dashboard.png)
 
