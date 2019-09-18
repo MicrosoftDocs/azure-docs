@@ -153,4 +153,4 @@ Log JSON strings include elements listed in the following table:
 
 ## Next steps
 
-[Using metrics](using-metrics.md)
+[Use metrics to monitor cluster health](using-metrics.md)
