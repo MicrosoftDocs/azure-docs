@@ -4,7 +4,7 @@ description: Learn about community-suggested third-party VPN or firewall device 
 services: vpn-gateway
 documentationcenter: ''
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-vpn-gateway
 
