@@ -94,6 +94,10 @@
     href: key-vault-security-attributes.md  
 - name: How-to guides
   items:
+  - name: Security
+    items:
+    - name: Recommendations
+      href: security-recommendations.md
   - name: Azure Key Vault logging
     href: key-vault-logging.md
   - name: Access behind firewalls
