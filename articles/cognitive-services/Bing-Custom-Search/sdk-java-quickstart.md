@@ -42,6 +42,9 @@ After you get a key from your trial subscription or resource, [create an environ
 
 ### Create a new Gradle project
 
+> [!TIP]
+> If you're not using Gradle, you can find the client library details for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
+
 In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
@@ -56,7 +59,9 @@ gradle init --type basic
 
 When prompted to choose a **DSL**, select **Kotlin**.
 
-Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in this build configuration:
+## Install the client library 
+
+Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in this build configuration. Be sure to include the client library under `dependencies`:
 
 ```kotlin
 plugins {
@@ -78,7 +83,7 @@ dependencies {
 Create a folder for your sample app. From your working directory, run the following command:
 
 ```console
-mkdir -p src/main/java
+mkdir src/main/java
 ```
 
 Navigate to the new folder and create a file called *BingCustomSearchSample.java*. Open it and add the package statement, the following `import` statements:
@@ -97,20 +102,6 @@ In the class, create a `main` method and variables for your resource's Azure end
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=main)]
 
-
-### Install the client library
-
-This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
-
-In your project's *build.gradle.kts* file, be sure to include the client library under `dependencies`. 
-
-```kotlin
-dependencies {
-    compile("org.slf4j:slf4j-simple:1.7.25")
-    compile("com.microsoft.azure.cognitiveservices:azure-cognitiveservices-customsearch:1.0.2")
-}
-```
-
 ## Object model
 
 The Bing Custom Search client is a [BingCustomSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) object that's created from the [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager?view=azure-java-stable) object's [authenticate()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomSearchManager_authenticate_String_) method. You can send a search request using the client's [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) method.
@@ -126,7 +117,7 @@ These code snippets show you how to do the following tasks with the Bing Custom 
 
 ## Authenticate the client
 
-If your main method doesn't include the below statement, create a [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) object, and call its `authenticate()` function with your key.
+Your main method should include a [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) object that takes your key, and calls its `authenticate()`.
 
 ```java
 BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
@@ -140,7 +131,7 @@ Use the client's [BingCustomInstances.search()](https://docs.microsoft.com/java/
 
 ## Run the application
 
-You can build the app with:
+from your project's main directory, build the app with:
 
 ```console
 gradle build
