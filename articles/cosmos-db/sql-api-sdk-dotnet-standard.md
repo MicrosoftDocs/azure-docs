@@ -36,9 +36,7 @@ ms.author: dech
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
-
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
-
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
