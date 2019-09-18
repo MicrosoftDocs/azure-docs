@@ -23,8 +23,6 @@ landingContent:
             url: overview.md
       - linkListType: reference
         links:
-          - text: Ansible module and version matrix
-            url: ansible-matrix.md
           - text: Jenkins Plugins for Azure
             url: jenkins-plugins.md
           - text: Azure Roadmap
