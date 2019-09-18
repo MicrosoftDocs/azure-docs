@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -31,6 +31,8 @@ You must meet the following prerequisites before using Recognize Text containers
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+[!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ## Request access to the private container registry
 
@@ -72,16 +74,9 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 
 ## Run the container with `docker run`
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. The command uses the following parameters:
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. Refer to [gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
 
-| Placeholder | Value |
-|-------------|-------|
-|{API_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
-|{ENDPOINT_URI} | The billing endpoint URI value. Example is: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
-
-You need to add the `vision/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example.
-
-Replace these parameters with your own values in the following example `docker run` command.
+[Examples](computer-vision-resource-container-configuration.md#recognize-text-container-docker-examples) of the `docker run` command are available.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
