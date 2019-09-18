@@ -50,7 +50,7 @@ Azure deploys resources to a subnet within a Virtual Network, so you need to cre
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
-  -Name mySubnet ` 
+  -Name mySubnet `
   -AddressPrefix 10.0.0.0/24 `
   -PrivateEndpointNetworkPoliciesFlag "Disabled" `
   -VirtualNetwork $virtualNetwork
@@ -95,6 +95,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Create a  SQL Database Server by using the New-AzSqlServer command. Remember that the name of your SQL Database server must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
 
+```azurepowershell-interactive
 $adminSqlLogin = "SqlAdmin"
 $password = "ChangeYourAdminPassword1"
 
@@ -108,7 +109,7 @@ New-AzSqlDatabase  -ResourceGroupName "myResourceGroup" `
     -DatabaseName "myda"`
     -RequestedServiceObjectiveName "S0" `
     -SampleName "AdventureWorksLT"
-
+```
 
 ## Create a Private Endpoint
 
@@ -116,20 +117,20 @@ Private Endpoint for the SQL Database Server in your Virtual Network with [New-A
 
 ```azurepowershell
 
-$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" ` 
-  -PrivateLinkServiceId $server.ResourceId ` 
+$privateEndpointConnection = New-AzPrivateLinkServiceConnection -Name "myConnection" `
+  -PrivateLinkServiceId $server.ResourceId `
   -GroupId "sqlServer" 
  
 $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  "myResourceGroup" -Name "MyVirtualNetwork"  
  
-$subnet = $virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
+$subnet = $virtualNetwork `
+  | Select -ExpandProperty subnets `
   | Where-Object  {$_.Name -eq 'mysubnet'}  
  
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" ` 
-  -Name "myPrivateEndpoint" ` 
-  -Location "westcentralus" ` 
-  -Subnet  $subnet` 
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName "myResourceGroup" `
+  -Name "myPrivateEndpoint" `
+  -Location "westcentralus" `
+  -Subnet  $subnet`
   -PrivateLinkServiceConnection $privateEndpointConnection
 ``` 
 
@@ -138,12 +139,12 @@ Create a private DNS zone for SQL Database Server domain and create an associati
 
 ```azurepowershell
 
-$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" ` 
+$zone = New-AzPrivateDnsZone -ResourceGroupName "myResourceGroup" `
   -Name "privatelink.database.windows.net" 
  
-$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" ` 
-  -ZoneName "privatelink.database.windows.net"` 
-  -Name "mylink" `  
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName "myResourceGroup" `
+  -ZoneName "privatelink.database.windows.net"`
+  -Name "mylink" `
   -VirtualNetworkId $virtualNetwork.Id  
  
 $networkInterface = Get-AzResource -ResourceId $privateEndpoint.NetworkInterfaces[0].Id -ApiVersion "2019-04-01" 
@@ -153,8 +154,8 @@ foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) {
 Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
 $recordName = $fqdn.split('.',2)[0] 
 $dnsZone = $fqdn.split('.',2)[1] 
-New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  ` 
--ResourceGroupName "myResourceGroup" -Ttl 600 ` 
+New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink.database.windows.net"  `
+-ResourceGroupName "myResourceGroup" -Ttl 600 `
 -PrivateDnsRecords (New-AzPrivateDnsRecordConfig -IPv4Address $ipconfig.properties.privateIPAddress)  
 } 
 } 
@@ -165,9 +166,9 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
 
 ```azurepowershell
-Get-AzPublicIpAddress ` 
-  -Name myPublicIpAddress ` 
-  -ResourceGroupName myResourceGroup ` 
+Get-AzPublicIpAddress `
+  -Name myPublicIpAddress `
+  -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
 Open a command prompt on your local computer. Run the mstsc command. Replace <publicIpAddress> with the public IP address returned from the last step: 
