@@ -3,8 +3,8 @@ title: Download the Azure SDK for PHP
 description: Learn how to download and install the Azure SDK for PHP.
 documentationcenter: php
 services: app-service\web
-author: allclark
-manager: douge
+author: msangapu
+manager: gwallace
 editor: ''
 
 ms.assetid: bac355ac-4c25-42f4-8273-c5112eafa8d4
@@ -15,6 +15,7 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: yaya
+ROBOTS: NOINDEX
 
 ---
 # Download the Azure SDK for PHP
