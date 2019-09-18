@@ -53,7 +53,7 @@ When your job uses SQL database for output, use explicit repartitioning to match
 
 When there are more than 8 input partitions, inheriting the input partitioning scheme might not be an appropriate choice. Consider using [INTO](/stream-analytics-query/into-azure-stream-analytics.md#into-shard-count) in your query to explicitly specify the number of output writers. 
 
-The following example reads from the input, regardless of it being naturally partitioned, and repartitions the stream tendfold according to the DeviceID dimension and flushes the data to output. 
+The following example reads from the input, regardless of it being naturally partitioned, and repartitions the stream tenfold according to the DeviceID dimension and flushes the data to output. 
 
 ```sql
 SELECT * INTO [output] FROM [input] PARTITION BY DeviceID INTO 10
