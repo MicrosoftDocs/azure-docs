@@ -5,7 +5,7 @@ summary: Learn about the QnA Maker service and how this service's knowledge base
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/16/2019
+  ms.date: 09/18/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -52,7 +52,18 @@ landingContent:
           - text: Add chit-chit
             url: how-to/chit-chat-knowledge-base.md     
           - text: Add a secured SharePoint data source
-            url: how-to/add-sharepoint-datasources.md                     
+            url: how-to/add-sharepoint-datasources.md  
+
+  - title: Test, and publish
+    linkLists:  
+      - linkListType: how-to-guide
+        links: 
+          - text: Test your knowledge base interactively
+            url: how-to/test-knowledge-base
+          - text: Publish a knowledge base
+            url: quickstarts/create-publish-knowledge-base#publish-the-knowledge-base.md
+
+
   - title: Get answer from knowledge base
     linkLists:
       - linkListType: get-started
@@ -64,7 +75,22 @@ landingContent:
           - text: "Quickstart: Using REST and C#"
             url: quickstarts/get-answer-from-knowledge-base-csharp.md     
           - text: "Quickstart: Using NuGet and C#"
-            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base       
+            url: quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base    
+      -linkListType: how-to-guide
+        links: 
+          - text: Get an answer with metadata
+            url: how-to/metadata-generateanswer-usage.md
+
+
+  - title: Improve knowledge base
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use active learning to improve your knowledge base
+            url: how-to/improve-knowledge-base.md
+          - text: Get analytics on your knowledge base
+            url: how-to/get-analytics-knowledge-base.md
+                 
   - title: QnA Maker bots
     linkLists:
       - linkListType: get-started
@@ -74,14 +100,15 @@ landingContent:
             url: tutorials/create-qna-bot.md
           - text: ".Net: Create a bot with QnA Maker and Language Understanding"
             url: tutorials/integrate-qnamaker-luis.md
-          - text: ".Net sample: QnA Maker support bot"
-            url: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support
           - text: Other bot samples
             url: https://github.com/Microsoft/BotBuilder-Samples/blob/master/README.md
+
   - title: Reference
     linkLists:   
       - linkListType: reference
         links: 
+          - text: Limits of knowledge base
+            url: limits.md
           - text: Authoring APIs
             url: https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase
           - text: Generate Answer APIs
