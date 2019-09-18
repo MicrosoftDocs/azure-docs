@@ -25,12 +25,6 @@ landingContent:
         links:
           - text: Jenkins Plugins for Azure
             url: jenkins-plugins.md
-          - text: Azure Roadmap
-            url: https://azure.microsoft.com/roadmap/
-          - text: Jenkins home
-            url: https://jenkins.io/
-          - text: Jenkins X Home
-            url: https://jenkins-x.io
       - linkListType: architecture
         links:
           - text: Jenkins architecture
