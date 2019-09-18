@@ -21,7 +21,7 @@ Azure Key Vault enables Microsoft Azure applications and users to store and use 
 - Certificates: Supports certificates, which are built on top of keys and secrets and add an automated renewal feature.
 - Azure Storage: Can manage keys of an Azure Storage account for you. Internally, Key Vault can list (sync) keys with an Azure Storage Account, and regenerate (rotate) the keys periodically. 
 
-For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-whatis)
+For more general information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
 ## Azure Key Vault
 

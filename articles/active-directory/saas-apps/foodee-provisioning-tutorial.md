@@ -31,9 +31,9 @@ This article shows you how to configure Azure Active Directory (Azure AD) in Foo
 
 This tutorial assumes that you've met the following prerequisites:
 
-* An Azure AD tenant, installed
-* [A Foodee tenant](https://Foodee.com/pricing/), installed
-* A user account in Foodee with administrator permissions
+* An Azure AD tenant
+* [A Foodee tenant](https://www.food.ee/about/)
+* A user account in Foodee with Admin permissions
 
 ## Assign users to Foodee 
 

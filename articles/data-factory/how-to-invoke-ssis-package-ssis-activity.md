@@ -263,7 +263,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
    }
    ```
 
-To execute packages stored in file systems/file shares/Azure Files, you can enter the values for your package/log location properties as follows.
+   To execute packages stored in file systems/file shares/Azure Files, you can enter the values for your package/log location properties as follows.
 
    ```json
    {
@@ -312,7 +312,7 @@ To execute packages stored in file systems/file shares/Azure Files, you can ente
    }
    ```
 
-To execute packages within projects stored in file systems/file shares/Azure Files, you can enter the values for your package location property as follows.
+   To execute packages within projects stored in file systems/file shares/Azure Files, you can enter the values for your package location property as follows.
 
    ```json
    {
