@@ -51,7 +51,7 @@ For pricing information for each redundancy option, see [Azure Storage Pricing](
 For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Azure Premium Storage supports only locally redundant storage (LRS).
+> Azure Premium Storage currently supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
 
