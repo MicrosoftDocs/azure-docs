@@ -31,7 +31,6 @@ landingContent:
       links:
         - text: Introduction to IoT Plug and Play
           url: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
-landingContent:
   - title: Develop IoT Plug and Play devices
     linkLists:
     - linkListType: quickstart
@@ -50,7 +49,6 @@ landingContent:
       links:
         - text: Use Azure IoT Tools for Visual Studio Code
           url: howto-develop-with-vs-vscode.md
-landingContent:
   - title: Certify your IoT Plug and Play device
     linkLists:
     - linkListType: how-to-guide
@@ -63,7 +61,6 @@ landingContent:
           url: tutorial-build-device-certification.md
         - text: Certify your device
           url: tutorial-certification-test.md
-landingContent:
   - title: Develop solutions
     linkLists:
     - linkListType: quickstart
@@ -78,7 +75,6 @@ landingContent:
       links: 
         - text: Connect to devices
           url: howto-develop-solution.md
-landingContent:
   - title: Tools
     linkLists:
     - linkListType: how-to-guide
