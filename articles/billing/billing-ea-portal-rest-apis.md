@@ -105,7 +105,7 @@ The following information describes the properties of API reports.
 
 JSON format is generated from the CSV report. As a result, the format is same as the summary CSV format. The column name is wielded, so you should deserialize into a data table when you consume the JSON summary data.
 
-| CSV column name | JSON column name | JSON new column | comment |
+| CSV column name | JSON column name | JSON new column | Comment |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Account Name | AccountName | AccountName |   |
@@ -141,7 +141,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 
 #### Azure Marketplace report
 
-| CSV Column Name | Json Column Name | Json new Column |
+| CSV column name | JSON column name | JSON new column |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Account Name | AccountName | AccountName |
@@ -170,7 +170,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 
 #### Price sheet
 
-| CSV Column Name | Json Column Name | Comment |
+| CSV column name | JSON column name | Comment |
 | --- | --- | --- |
 | Service | Service |  No change to price |
 | Unit of Measure | UnitOfMeasure |   |
