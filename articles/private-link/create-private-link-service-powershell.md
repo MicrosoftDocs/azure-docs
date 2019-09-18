@@ -1,10 +1,10 @@
 ---
 title: 'Create an Azure private link service using Azure PowerShell| Microsoft Docs'
 description: Learn how to create an Azure private link service using Azure PowerShell
-services: virtual-network
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
