@@ -53,12 +53,6 @@ Run the `npm init` command to create a node application with a `package.json` fi
 npm init
 ```
 
-Install the csv-parse library.
-
-```console
-npm i csv-parse
-``` 
-
 Create a file named `index.js` and import the following libraries:
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
@@ -69,10 +63,10 @@ Create variables your resource's Azure endpoint and key. If you created the envi
 
 ### Install the client library
 
-Install the `ms-rest-azure` and `azure-cognitiveservices-anomalydetector` NPM packages:
+Install the `ms-rest-azure` and `azure-cognitiveservices-anomalydetector` NPM packages. The csv-parse library is also used in this quickstart:
 
 ```console
-npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure
+npm install  @azure/cognitiveservices-anomalydetector ms-rest-azure csv-parse
 ```
 
 Your app's `package.json` file will be updated with the dependencies.
