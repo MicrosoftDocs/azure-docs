@@ -1,5 +1,5 @@
 ---
-title: Container requirements and recommendations.
+title: Container requirements and recommendations
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: IEvangelist

@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Configure Computer Vision Docker containers
 
-The Computer Vision container's runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
+You configure the Computer Vision container's runtime environment by using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
 
 ## Configuration settings
 
@@ -58,7 +58,7 @@ Remember to add the `vision/v1.0` routing to the endpoint URI as shown in the fo
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## Http proxy credentials settings
+## HTTP proxy credentials settings
 
 [!INCLUDE [Container shared configuration HTTP proxy settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -155,4 +155,4 @@ The following Docker examples are for the Recognize Text container.
 
 ## Next steps
 
-* Review [How to install and run containers](computer-vision-how-to-install-containers.md)
+* Review [How to install and run containers](computer-vision-how-to-install-containers.md).

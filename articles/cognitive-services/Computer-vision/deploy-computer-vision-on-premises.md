@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ---
 
@@ -87,7 +87,7 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 # [Read](#tab/read)
 
-Start by creating a folder named *read*, copy, and paste the following YAML content into a new file named `Chart.yml`.
+Start by creating a folder named *read*, then paste the following YAML content into a new file named *Chart.yml*.
 
 ```yaml
 apiVersion: v1

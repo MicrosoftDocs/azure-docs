@@ -15,7 +15,9 @@ ms.custom: seodec18
 
 # Install and run Computer Vision containers
 
-There are two Docker containers available for Computer Vision. The **Recognize Text** and **Read** containers. The Recognize Text container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container however, also detects *handwritten text* in images and provides PDF/TIFF/multi-page support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
+Containers enable you to run the Computer Vision APIs in your own environment. Containers are great for specific security and data governance requirements. In this article you'll learn how to download, install, and run a Computer Vision container.
+
+There are two Docker containers available for Computer Vision: *Recognize Text* and *Read*. The *Recognize Text* container allows you to detect and extract *printed text* from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The *Read* container, however; also detects *handwritten text* in images and provides PDF/TIFF/multi-page support. For more information, see the [Read API](concept-recognizing-text.md#read-api) documentation.
 
 > [!IMPORTANT]
 > The Recognize Text container is being deprecated in favor of the Read container. The Read container is a superset of its predecessor the Recognize Text container, and consumers should migrate to using the Read container. Both containers work only with English.
@@ -115,9 +117,9 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Read container from the container image
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Runs the Read container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 # [Recognize Text](#tab/recognize-text)
@@ -132,9 +134,9 @@ ApiKey={API_KEY}
 
 This command:
 
-* Runs the Recognize Text container from the container image
-* Allocates 8 CPU core and 16 gigabytes (GB) of memory
-* Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Runs the Recognize Text container from the container image.
+* Allocates 8 CPU core and 16 gigabytes (GB) of memory.
+* Exposes TCP port 5000 and allocates a pseudo-TTY for the container.
 * Automatically removes the container after it exits. The container image is still available on the host computer.
 
 ***
@@ -162,11 +164,11 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 You can use the `POST /vision/v2.0/read/core/asyncBatchAnalyze` and `GET /vision/v2.0/read/operations/{operationId}` operations in concert to asynchronously read an image, similar to how the Computer Vision service uses those corresponding REST operations. The asynchronous POST method will return an `operationId` that is used as the identifer to the HTTP GET request.
 
-From the swagger UI, find the `asyncBatchAnalyze` method and click to expand it in the browser. Then click "Try it out", and "Choose file" - we'll use the image below:
+From the swagger UI, select the `asyncBatchAnalyze` to expand it in the browser. Then select **Try it out** > **Choose file**. In this example, we'll use the following image:
 
 ![tabs vs spaces](media/tabs-vs-spaces.png)
 
-When the asynchronous POST successfully executes, it returns an **HTTP 202** status code. As part of the response there is an `operation-location` header that holds the result endpoint for the request.
+When the asynchronous POST has run successfully, it returns an **HTTP 202** status code. As part of the response, there is an `operation-location` header that holds the result endpoint for the request.
 
 ```http
  content-length: 0
@@ -175,7 +177,7 @@ When the asynchronous POST successfully executes, it returns an **HTTP 202** sta
  server: Kestrel
 ```
 
-The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the given image above:
+The `operation-location` is the fully qualified URL and is accessed via an HTTP GET. Here is the JSON response from executing the `operation-location` URL from the preceding image:
 
 ```json
 {
@@ -316,7 +318,7 @@ export interface Word {
 }
 ```
 
-For an example use-case, see the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and click "Run" to visualize its ease-of-use.
+For an example use-case, see the [TypeScript sandbox here](https://aka.ms/ts-read-api-types) and select "Run" to visualize its ease-of-use.
 
 # [Recognize Text](#tab/recognize-text)
 
