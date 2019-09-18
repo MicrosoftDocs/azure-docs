@@ -46,7 +46,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Scale with Azure Container Instances
-            url: /azure/container-instances/container-instances-jenkins
+            url: /azure/container-instances/container-instances-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
           - text: Scale with Azure VM agents
             url: jenkins-azure-vm-agents.md
       - linkListType: download
@@ -60,7 +60,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy from GitHub to AKS
-            url: /azure/aks/jenkins-continuous-deployment
+            url: /azure/aks/jenkins-continuous-deployment?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
           - text: Deploy to AKS using blue/green pattern
             url: jenkins-aks-blue-green-deployment.md
           - text: Deploy using the Azure Dev Spaces plug-in
@@ -82,7 +82,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy to a Linux VM using Azure DevOps Services
-            url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins
+            url: /azure/virtual-machines/linux/tutorial-build-deploy-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
 
   # Card
   - title: CI/CD to Azure Functions
@@ -97,8 +97,8 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - name: Using Azure Storage with a Jenkins C/I solution
-            href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          - text: Using Azure Storage with a Jenkins C/I solution
+            url: /azure/storage/storage-java-jenkins-continuous-integration-solution?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
 
   # Card
   - title: CI/CD to Linux VMs
@@ -106,7 +106,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a dev infrastructure on a Linux VM
-            url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd
+            url: /azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
 
   # Card
   - title: CI/CD to Service Fabric
@@ -114,4 +114,4 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Build and deploy an Azure Service Fabric app
-            url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins
+            url: /azure/service-fabric/service-fabric-cicd-your-linux-applications-with-jenkins?toc=/azure/jenkinstoc.json&bc=/azure/bread/toc.json
