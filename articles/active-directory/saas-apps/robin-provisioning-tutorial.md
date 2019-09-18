@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Robin, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Robin for provisioning
+## Set up Robin for provisioning
 
 1. Sign in to your [Robin Admin Console](https://dashboard.robinpowered.com/login). Navigate to **Manage > Integrations > SCIM > Manage**.
 
@@ -89,7 +89,7 @@ Before configuring Robin for automatic user provisioning with Azure AD, you need
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Robin based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Robin , following the instructions provided in the [Robin Single sign-on tutorial](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/robin-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Robin , following the instructions provided in the [Robin Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 ### To configure automatic user provisioning for Robin in Azure AD:
 
