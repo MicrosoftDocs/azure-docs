@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Search documentation # < 60 chars
-summary: Enterprise cloud search over private heterogenous content, applying AI enrichment if your content is unstructured or unsearchable in its raw form. Learn how to build a single fast index, searchable using simple-to-advanced query syntax for a broad range of scenarios. 
-
+summary: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form.
 metadata:
   title: Azure Search documentation
   description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
