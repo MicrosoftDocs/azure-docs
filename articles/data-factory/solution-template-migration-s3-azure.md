@@ -25,41 +25,42 @@ Use the templates to migrate petabytes of data consisting of hundreds of million
 
 Data partition is recommended especially when migrating more than 10 TB of data. To partition the data, leverage the ‘prefix’ setting to filter the folders and files on Amazon S3 by name, and then each ADF copy job can copy one partition at a time. You can run multiple ADF copy jobs concurrently for better throughput.
 
-Data migration normally requires one-time historical data migration plus periodically synchronizing the changes from AWS S3 to Azure. The following two templates cover both scenarios.
+Data migration normally requires one-time historical data migration plus periodically synchronizing the changes from AWS S3 to Azure. There are two templates below where one template covers one-time historical data migration and another template covers synchronizing the changes from AWS S3 to Azure.
 
 ### For the template to migrate historical data from Amazon S3 to Azure Data Lake Storage Gen2
 
-This template (Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2) assumes that you have writen a partition list in an external control table in Azure SQL Database. So it will use a Lookup activity to retrieve the patition list from the external control table, iterate over each partition, make each ADF copy job copy one partition at a time. Once any copy job completed, it uses Stored Procedure activity to update the status of copying each parition in control table.
+This template (*template name: migrate historical data from AWS S3 to Azure Data Lake Storage Gen2*) assumes that you have written a partition list in an external control table in Azure SQL Database. So it will use a Lookup activity to retrieve the partition list from the external control table, iterate over each partition and make each ADF copy job copy one partition at a time. Once any copy job completed, it uses Stored Procedure activity to update the status of copying each partition in control table.
 
 The template contains five activities:
-- **Lookup** retrieves the partitions which has not been copied to Azure Data Lake Storage Gen2 from an external control table. The table name is "s3_partition_control_table" and the query to load data from the table is "SELECT PartitionPrefix FROM s3_partition_control_table WHERE SuccessOrFailure = 0".
-- **ForEach** gets the partition list from the Lookup activity and iterates each partition to the TriggerCopy activity. You can set the batchCount to run multiple ADF copy jobs concurrently. We have set 2 in this template.
-- **ExecutePipeline** executes CopyFolderPartitionFromS3 pipeline. The reason we create another pipeline to make each copy job copy a parition is because it will make you easy to rerun the failed copy job to reload that specific partition again from AWS S3. All other copy jobs loading other partitions will not be impacted.
+- **Lookup** retrieves the partitions which have not been copied to Azure Data Lake Storage Gen2 from an external control table. The table name is *s3_partition_control_table* and the query to load data from the table is *"SELECT PartitionPrefix FROM s3_partition_control_table WHERE SuccessOrFailure = 0"*.
+- **ForEach** gets the partition list from the *Lookup activity* and iterates each partition to the *TriggerCopy activity*. You can set the *batchCount* to run multiple ADF copy jobs concurrently. We have set 2 in this template.
+- **ExecutePipeline** executes *CopyFolderPartitionFromS3 pipeline*. The reason we create another pipeline to make each copy job copy a partition is because it will make you easy to rerun the failed copy job to reload that specific partition again from AWS S3. All other copy jobs loading other partitions will not be impacted.
 - **Copy** copies each partition from AWS S3 to Azure Data Lake Storage Gen2.
-- **SqlServerStoredProcedure** update the status of copying each parition in control table.
+- **SqlServerStoredProcedure** update the status of copying each partition in control table.
 
 The template contains two parameters:
-- *AWS_S3_bucketName* is your bucket name on AWS S3 where you want to migrate data from. If you want to migrate data from multiple buckets on AWS S3, you can add one more column in your external control table to store the bucket name for each partition, and also update your pipeline to retrive data from that column accordingly.
+- *AWS_S3_bucketName* is your bucket name on AWS S3 where you want to migrate data from. If you want to migrate data from multiple buckets on AWS S3, you can add one more column in your external control table to store the bucket name for each partition, and also update your pipeline to retrieve data from that column accordingly.
 - *Azure_Storage_fileSystem* is your fileSystem name on Azure Data Lake Storage Gen2 where you want to migrate data to.
 
 ### For the template to periodically copy delta data from Amazon S3 to Azure Data Lake Storage Gen2
 
-This template (Copy delta data from AWS S3 to Azure Data Lake Storage Gen2) assumes that you have writen a partition list in an external control table in Azure SQL Database. So it will use a Lookup activity to retrieve the patition list from the external control table, iterate over each partition, make each ADF copy job copy one partition at a time. When each copy job start to copy the files from AWS S3, it relies on LastModifiedTime property to identify and copy the new or updated files only. Once any copy job completed, it uses Stored Procedure activity to update the status of copying each parition in control table.
+This template (*template name: copy delta data from AWS S3 to Azure Data Lake Storage Gen2*) uses LastModifiedTime of each file to identify and copy the new or updated files only from AWS S3 to Azure. Be aware if your files or folders has already been time partitioned with timeslice information as part of the file or folder name on AWS S3 (for example, /yyyy/mm/dd/file.csv), you can go to this [tutorial](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md) to get the more performant approach for incremental loading new files. 
+This template assumes that you have written a partition list in an external control table in Azure SQL Database. So it will use a Lookup activity to retrieve the partition list from the external control table, iterate over each partition and make each ADF copy job copy one partition at a time. When each copy job starts to copy the files from AWS S3, it relies on LastModifiedTime property to identify and copy the new or updated files only. Once any copy job completed, it uses Stored Procedure activity to update the status of copying each partition in control table.
 
 The template contains seven activities:
-- **Lookup** retrieves the partitions which has not been copied to Azure Data Lake Storage Gen2 from an external control table. The table name is "s3_partition_delta_control_table" and the query to load data from the table is "select distinct PartitionPrefix from s3_partition_delta_control_table".
-- **ForEach** gets the partition list from the Lookup activity and iterates each partition to the TriggerDeltaCopy activity. You can set the batchCount to run multiple ADF copy jobs concurrently. We have set 2 in this template.
-- **ExecutePipeline** execute DeltaCopyFolderPartitionFromS3 pipeline. The reason we create another pipeline to make each copy job copy a parition is because it will make you easy to rerun the failed copy job to reload that specific partition again from AWS S3. All other copy jobs loading other partitions will not be impacted.
-- **Lookup** retrieves the last copy job run time from the external control table so that the new or updated files can be identified via LastModifiedTime. The table name is "s3_partition_delta_control_table" and the query to load data from the table is "select max(JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix = '@{pipeline().parameters.prefixStr}' and SuccessOrFailure = 1".
-- **Copy** copies delta data for each partition from AWS S3 to Azure Data Lake Storage Gen2. The property of modifiedDatetimeStart is set to the last copy job run time. The property of modifiedDatetimeEnd is set to the current copy job run time. Be aware the time is applied to UTC time zone.
-- **SqlServerStoredProcedure** update the status of copying each parition and copy run time in control table when it succeeds. The columne of SuccessOrFailure is set to 1.
-- **SqlServerStoredProcedure** update the status of copying each parition and copy run time in control table when it fails. The columne of SuccessOrFailure is set to 0.
+- **Lookup** retrieves the partitions from an external control table. The table name is *s3_partition_delta_control_table* and the query to load data from the table is *"select distinct PartitionPrefix from s3_partition_delta_control_table"*.
+- **ForEach** gets the partition list from the Lookup activity and iterates each partition to the *TriggerDeltaCopy activity*. You can set the *batchCount* to run multiple ADF copy jobs concurrently. We have set 2 in this template.
+- **ExecutePipeline** execute *DeltaCopyFolderPartitionFromS3 pipeline*. The reason we create another pipeline to make each copy job copy a partition is because it will make you easy to rerun the failed copy job to reload that specific partition again from AWS S3. All other copy jobs loading other partitions will not be impacted.
+- **Lookup** retrieves the last copy job run time from the external control table so that the new or updated files can be identified via LastModifiedTime. The table name is *s3_partition_delta_control_table* and the query to load data from the table is *"select max(JobRunTime) as LastModifiedTime from s3_partition_delta_control_table where PartitionPrefix = '@{pipeline().parameters.prefixStr}' and SuccessOrFailure = 1"*.
+- **Copy** copies new or changed files only for each partition from AWS S3 to Azure Data Lake Storage Gen2. The property of *modifiedDatetimeStart* is set to the last copy job run time. The property of *modifiedDatetimeEnd* is set to the current copy job run time. Be aware the time is applied to UTC time zone.
+- **SqlServerStoredProcedure** update the status of copying each partition and copy run time in control table when it succeeds. The column of SuccessOrFailure is set to 1.
+- **SqlServerStoredProcedure** update the status of copying each partition and copy run time in control table when it fails. The column of SuccessOrFailure is set to 0.
 
 The template contains two parameters:
-- *AWS_S3_bucketName* is your bucket name on AWS S3 where you want to migrate data from. If you want to migrate data from multiple buckets on AWS S3, you can add one more column in your external control table to store the bucket name for each partition, and also update your pipeline to retrive data from that column accordingly.
+- *AWS_S3_bucketName* is your bucket name on AWS S3 where you want to migrate data from. If you want to migrate data from multiple buckets on AWS S3, you can add one more column in your external control table to store the bucket name for each partition, and also update your pipeline to retrieve data from that column accordingly.
 - *Azure_Storage_fileSystem* is your fileSystem name on Azure Data Lake Storage Gen2 where you want to migrate data to.
 
-## How to use this solution template
+## How to use these two solution templates
 
 ### For the template to migrate historical data from Amazon S3 to Azure Data Lake Storage Gen2 
 
@@ -67,8 +68,8 @@ The template contains two parameters:
 
 > [!NOTE]
 > The table name is s3_partition_control_table.
-> The schema of the control table is PartitionPrefix and SuccessOrFailure, where PartitionPrefix is the prefix setting in S3 to filter the folders and files in Amazon S3 by name, and SuccessOrFailure is the status of copying each parition: 0 means this partition has not been copied to Azure and 1 means this partition has been copied to Azure successfully.
-> There are 5 paritions defined in control table and the default status of copying each parition is 0.
+> The schema of the control table is PartitionPrefix and SuccessOrFailure, where PartitionPrefix is the prefix setting in S3 to filter the folders and files in Amazon S3 by name, and SuccessOrFailure is the status of copying each partition: 0 means this partition has not been copied to Azure and 1 means this partition has been copied to Azure successfully.
+> There are 5 partitions defined in control table and the default status of copying each partition is 0.
 
 ```sql
 	CREATE TABLE [dbo].[s3_partition_control_table](
@@ -128,8 +129,8 @@ The template contains two parameters:
 
 > [!NOTE]
 > The table name is s3_partition_delta_control_table.
-> The schema of the control table is PartitionPrefix, JobRunTime and SuccessOrFailure, where PartitionPrefix is the prefix setting in S3 to filter the folders and files in Amazon S3 by name, JobRunTime is the datetime value when copy job run, and SuccessOrFailure is the status of copying each parition: 0 means this partition has not been copied to Azure and 1 means this partition has been copied to Azure successfully.
-> There are 5 paritions defined in control table. The default value for JobRunTime can be the time when one-time historical data migration starts. The default status of copying each parition is 1.
+> The schema of the control table is PartitionPrefix, JobRunTime and SuccessOrFailure, where PartitionPrefix is the prefix setting in S3 to filter the folders and files in Amazon S3 by name, JobRunTime is the datetime value when copy job run, and SuccessOrFailure is the status of copying each partition: 0 means this partition has not been copied to Azure and 1 means this partition has been copied to Azure successfully.
+> There are 5 partitions defined in control table. The default value for JobRunTime can be the time when one-time historical data migration starts. The default status of copying each partition is 1.
 
 ```sql
 	CREATE TABLE [dbo].[s3_partition_delta_control_table](
