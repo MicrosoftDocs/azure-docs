@@ -29,7 +29,7 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
 
-**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage.
+**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage and Page Blob is not a supported storage option.
 
 For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
