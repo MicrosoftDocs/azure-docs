@@ -29,73 +29,62 @@ A change feed log contains a series of change event records. You can find those 
 | File    | Purpose    |
 |--------|-----------|
 | **Index metadata file** | This file is named *segments.json* and there is only one of them. Use the data in this file to help you decide which logs you're interested in processing |
-| **Segment metadata file** | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments for easier processing. Each segment contains a metadata file ending with the suffix *meta.json*. |
-| **Change feed log(s)** |  A log file that represents 60 minutes of event activity. log files contain a series of change event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
+| **Segment metadata file** | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments for easier processing. Each segment contains a metadata file ending with the suffix *meta.json*. This file contains a path to the associated change feed log for that segment. |
+| **Change feed log(s)** |  One or more log files that represent 60 minutes of event activity. log files contain a series of change event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
 
-Something here about the general flow of processing the change feed and what you do first etc. Then, link to the how to article.
+Put an image here of a directory that contains these files....
+
+Start by processing the index metadata file. Then, for each segment you're interested in, read the segment metadata file to obtain the path to the change feed log. Obtain all of the change event records in that segment by reading the associated change feed logs. To see an example of doing this by using in a .NET client application, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+
+> [!NOTE]
+> Changes are batched and appended to change feed logs every 60 - 120 seconds. If your application has to respond to changes immediately, use [Azure Storage events](storage-blob-event-overview.md) instead.
 
 ## Index metadata file
 
+The index metadata file describes blah. Start by processing this file.
+
+### Example File
+
+```json
+{
+    "version": 0,
+    "lastConsumable": "2019-02-23T01:10:00.000Z",
+    "storageDiagnostics": {
+        "version": 0,
+        "lastModifiedTime": "2019-02-23T02:24:00.556Z",
+        "data": {
+            "aid": "55e551e3-8006-0000-00da-ca346706bfe4",
+            "lfz": "2019-02-22T19:10:00.000Z"
+        }
+    }
+}
+
+```
+
+### File properties
+
+The index file contains the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| version | string | Description |
+| lastConsumable | string | The date of the last segment that your application can consume. Segments that are dated beyond this date haven't been finalized and shouldn't be consumed by your application.  |
+| storageDiagnostics | string | Description |
+| storageDiagnostics.version | string | Description |
+| storageDiagnostics.lastModifiedTime  | string | The date that this metadata file was last updated. |
+| storageDiagnostics.data | object | Description |
+| Data | string | Description |
+| Data.aid | string | Description |
+| Data.lfz | string | Description |
+
 ## Segment metadata file
 
-## Change feed log file
+Use segment files to process changes at specific time points, or ranges of time points. A segment metadata file describes the details of a segment and points to one or more change feed logs that capture the change event records associated with the time segment.
 
-## Pricing
+### Example File
 
-–	Storage : Regular Azure Blob Storage prices apply to retain the Change Feed log files
-–	Reading : Regular Blob API pricing for GetBlob and ListBlob are charged read from the change feed.
-–	Change Tracking : There is a variable cost based on per-volume-of-change-events-tracked if change feed is enabled. ( cost : tbd )
-
-## Understanding change feed logs
-
-
-
-- Only the event information for the change is available in the Change Event Record, not the changed data.
-
-
-The tracked change event records are stored as the ordered list of Blob Change Event records in the order ( per Blob key ) in which they were modified. The change event records are stored using Apache Avro file format in Azure Storage Append Blobs in the same Account in a special Change Feed container. 
-
-Change records are segregated into hour long portions called ‘Segments’. There is an index maintained of the available hour Segments sorted by time order. You can use the ‘Segments’ to consume the changes at the time points. This capability allows changes from large collections to be incrementally and for required approximate time-ranges. Note that the Segment boundary timesamp is approximate and can contain change records with timestamps from the previous or next hour window with a bound of 15min.
-
-Changes are batched and appened to the change feed at approximately 60-120 sec frequency. For more latency sensitive applications requiring reaction to events within a second, the sister feature of ‘change events’ can be used via EventGrid. Streaming applications can continously poll for newer changes in the feed based on this frequency.
-
-Changes are available as records serialized using Apache Avro 1.8.2 file format persisted into AppendBlobs.
-
-•	All Change Feed artifact files are stored in special container called $blobchangefeed under your Account. This will be created automatically when you enable Change Feed. The Account cannot delete or modify any Blob objects within this container. All objects are read-only in this special container (specification below).
-•	Change Feed log files are placed under the $blobchangefeed/log path. Although you can list them and read them directly, for regular usage, you would go through the ‘Segment’ index described below.
-•	Change Event Records are written in the log files using Apache Avro 1.8.2 file format specification and are stored in Azure Storage Append Blobs in your account.
-•	The log files which contain the changes are segregated into hour long sections called Segments. The ‘Segment’ index is under the $blobchangefeed/idx path. You would use a Blob List API on this path to see the Segments available sorted by time.
-•	The manifest file (meta.json) for each Segment has details of where the log files for Segment are located. Each Segment can have multiple log files ( due to internal Sharding ). So you have to consume all the log files in a Segment to process all the changes.
-•	The ‘Segment’ index is under the $blobchangefeed/idx path. You would use a Blob List API on this path to see the Segments available sorted by time.
-
-$blobchangefeed container
-Name                                                                    Blob Type    Blob Tier      Length  Content Type    
-----------------------------------------------------------------------  -----------  -----------  --------  ----------------
-$blobchangefeed/idx/segments/1601/01/01/0000/meta.json                  BlockBlob                      584  application/json
-$blobchangefeed/idx/segments/2019/02/22/1810/meta.json                  BlockBlob                      584  application/json
-$blobchangefeed/idx/segments/2019/02/22/1910/meta.json                  BlockBlob                      584  application/json
-$blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlob                      584  application/json
-$blobchangefeed/idx/segments/2019/02/24/1210/meta.json                  BlockBlob                      585  application/json
-$blobchangefeed/log/00/2019/02/22/1810/00000.avro                       AppendBlob                   12297  avro/binary     
-$blobchangefeed/log/00/2019/02/22/1910/00000.avro                       AppendBlob                 1751255  avro/binary     
-$blobchangefeed/log/00/2019/02/23/0110/00000.avro                       AppendBlob                 2517329  avro/binary     
-$blobchangefeed/log/00/2019/02/24/1210/00000.avro                       AppendBlob                 2460321  avro/binary     
-$blobchangefeed/log/01/2019/02/22/1810/00000.avro                       AppendBlob                    9072  avro/binary     
-$blobchangefeed/log/01/2019/02/22/1910/00000.avro                       AppendBlob                 1774781  avro/binary     
-$blobchangefeed/log/01/2019/02/23/0110/00000.avro                       AppendBlob                 2647207  avro/binary     
-$blobchangefeed/log/01/2019/02/24/1210/00000.avro                       AppendBlob                 2507923  avro/binary     
-$blobchangefeed/meta/segments.json                                      BlockBlob                      225  application/json
-Order of Change Event Records
-•	All changes are ordered by modification order per blob-key.
-•	All changes in a prior Segment are ‘before’ any subsequent Segments
-•	With an Segment’s log file, the changes will be in order of read ( per blob-key )
-•	Due to Sharding, if there are multiple log files within a Segment, then each Sharded file will contain mutually-exclusive blob-keys (hash-distributed) and each file can be processed indepedently without violating order per blob-key
-Segments
-•	Log is arranged in Segments containing changes for the approximate hour. The ‘time’ is when the change happened (not when it was published)
-•	Segment index is useful as means to start iteration or restrict the scope of consumption of change events
-•	For each Segment there is a manifest metadata file which desribes the Segment and points to the location path in your account which contains the files which have the changes
-•	The property-bag called ‘StorageDiagnostics’ is for internal use only and should not be relied upon by the customer. There is no gurantee or schema-contract on this property-bag.
- 	{
+```json
+{
     "version": 0,
     "begin": "2019-02-22T18:10:00.000Z",
     "intervalSecs": 3600,
@@ -120,61 +109,71 @@ Segments
         }
     }
 }
-•	Segments uses a concept of ‘finalization’. Segments which are beyond the indicated ‘LastConsumable’ should not be consumed (although visible in the index). This information is kept updated in the Segment.json file.
- 	 {
-   "version": 0,
-   "lastConsumable": "2019-02-23T01:10:00.000Z",
-   "storageDiagnostics": {
-       "version": 0,
-       "lastModifiedTime": "2019-02-23T02:24:00.556Z",
-       "data": {
-           "aid": "55e551e3-8006-0000-00da-ca346706bfe4",
-           "lfz": "2019-02-22T19:10:00.000Z"
-       }
-   }
-}
-Change Event Record
-•	This conforms to v1 schema
-•	Is in Apache Avro 1.8.2 file format ( Avro files hold the schema and self-contained )
-•	Schema elements are defined in EventGrid Change Event Schema
-•	All records with ‘eventType’ as ‘Control’ should be IGNORED by the consumer. These are internal system records which do not refer to any real change. There may or may not be be a few records of ‘Control’ eventType within a log file.
-•	The property-bag called ‘StorageDiagnostics’ is for internal use only and should not be relied upon by the customer. There is no gurantee or schema-contract on this property-bag.
-•	Event Record Schema v1
-•	Example
- 	{
-  "schemaVersion": 1,
-  "topic": "/subscriptions/dd40261b-437d-43d0-86cf-ef222b78fd15/resourceGroups/sadodd/providers/Microsoft.Storage/storageAccounts/SADODD-DEV-09",
-  "subject": "/blobServices/default/containers/apitestcontainerver/blobs/F_0003",
-  "eventType": "BlobCreated",
-  "eventTime": "2019-02-22T18:12:01.079Z",
-  "id": "55e5531f-8006-0000-00da-ca3467000000",
-  "data": {
-    "api": "PutBlob",
-    "clientRequestId": "edf598f4-e501-4750-a3ba-9752bb22df39",
-    "requestId": "00000000-0000-0000-0000-000000000000",
-    "etag": "0x8D698F13DCB47F6",
-    "contentType": "application/octet-stream",
-    "contentLength": 128,
-    "blobType": "BlockBlob",
-    "url": "",
-    "sequencer": "000000000000000100000000000000060000000000006d8a",
-    "storageDiagnostics": {
-      "bid": "11cda41c-13d8-49c9-b7b6-bc55c41b3e75",
-      "seq": "(6,5614,28042,28038)",
-      "sid": "591651bd-8eb3-c864-1001-fcd187be3efd"
-    }
+
+```
+
+### File properties
+
+The index file contains the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| version | string | Description |
+| begin | string | Description  |
+| intervalSecs | string | Description |
+| status | string | Description |
+| config  | string | Description |
+| config.version | object | Description |
+| config.configVersionEtag | object | Description |
+| config.numShards | object | Description |
+| config.recordsFormat | object | Description |
+| config.formatSchemaVersion | object | Description |
+| config.shardDistFnVersion | object | Description |
+| chunkFilePaths | string | Description |
+| storageDiagnostics | string | For internal use only and not designed for use by your application. |
+
+## Change feed log file
+
+Change feed logs are stored as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) that have the *.avro* file extension (For example: `00000.avro`).
+
+Each log file contains a series of change event records listed in the order in which events occurred. Change event records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format.
+
+Each change event record captures only information about the event and do not capture details about specific data that was changed. For example, if a word document was replaced by a newer version of that document, the change event record would not capture the specific changes that were made to the document.
+
+### Example File
+
+```json
+{
+     "schemaVersion": 1,
+     "topic": "/subscriptions/dd40261b-437d-43d0-86cf-ef222b78fd15/resourceGroups/sadodd/providers/Microsoft.Storage/storageAccounts/SADODD-DEV-09",
+     "subject": "/blobServices/default/containers/apitestcontainerver/blobs/F_0003",
+     "eventType": "BlobCreated",
+     "eventTime": "2019-02-22T18:12:01.079Z",
+     "id": "55e5531f-8006-0000-00da-ca3467000000",
+     "data": {
+         "api": "PutBlob",
+         "clientRequestId": "edf598f4-e501-4750-a3ba-9752bb22df39",
+         "requestId": "00000000-0000-0000-0000-000000000000",
+         "etag": "0x8D698F13DCB47F6",
+         "contentType": "application/octet-stream",
+         "contentLength": 128,
+         "blobType": "BlockBlob",
+         "url": "",
+         "sequencer": "000000000000000100000000000000060000000000006d8a",
+         "storageDiagnostics": {
+             "bid": "11cda41c-13d8-49c9-b7b6-bc55c41b3e75",
+             "seq": "(6,5614,28042,28038)",
+             "sid": "591651bd-8eb3-c864-1001-fcd187be3efd"
+         }
   }
 }
+```
 
+### File properties
 
+To view the complete schema along with field descriptions here: [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
-
-
-## Questions
-
-Question: For public preview, what regions and what opt-in process.
-Question: Is this enabled for HNS accounts?
-Question: Read-only and durable. Does this mean that you can't delete them?
+As you process change event records, disregard records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. The `storageDiagnonstics` property bag is for internal use only and not designed for use by your application.
 
 ## Next steps
 
