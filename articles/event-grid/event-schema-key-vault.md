@@ -31,46 +31,16 @@ An Azure Key Vault account emits the following event types:
 
 ## Event examples
 
-The following example shows the schema of a **GeofenceEntered** event
-
-```JSON
-{   
-   "id":"7f8446e2-1ac7-4234-8425-303726ea3981", 
-   "topic":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Maps/accounts/{accountName}", 
-   "subject":"/spatial/geofence/udid/{udid}/id/{eventId}", 
-   "data":{   
-      "geometries":[   
-         {   
-            "deviceId":"device_1", 
-            "udId":"1a13b444-4acf-32ab-ce4e-9ca4af20b169", 
-            "geometryId":"2", 
-            "distance":-999.0, 
-            "nearestLat":47.618786, 
-            "nearestLon":-122.132151 
-         } 
-      ], 
-      "expiredGeofenceGeometryId":[   
-      ], 
-      "invalidPeriodGeofenceGeometryId":[   
-      ] 
-   }, 
-   "eventType":"Microsoft.Maps.GeofenceEntered", 
-   "eventTime":"2018-11-08T00:54:17.6408601Z", 
-   "metadataVersion":"1", 
-   "dataVersion":"1.0" 
-}
-```
-
-The following example show schema for **GeofenceResult**.
+The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**.
 
 ```JSON
 [
    {
       "id":"00eccf70-95a7-4e7c-8299-2eb17ee9ad64",
-      "topic":"/subscriptions/9ddb6ca6-f086-4796-8c53-ea831f1df369/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
+      "topic":"/subscriptions/{subscription-id}/resourceGroups/sample-rg/providers/Microsoft.KeyVault/vaults/sample-kv",
       "subject":"newsecret",
       "eventType":"Microsoft.KeyVault.SecretNewVersionCreated",
-      "eventTime":"2019-07-25T01:08: 33.1036736Z",
+      "eventTime":"2019-07-25T01:08:33.1036736Z",
       "data":{
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "vaultName":"sample-kv",
