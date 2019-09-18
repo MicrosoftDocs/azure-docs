@@ -191,4 +191,5 @@ The template contains two parameters:
 	
 ## Next steps
 
-- [Introduction to Azure Data Factory](introduction.md)
+- [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)
+- [Move files](solution-template-move-files.md)
