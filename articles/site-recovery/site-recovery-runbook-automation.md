@@ -5,7 +5,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 09/18/2019
 ms.author: rajanaki
 ---
 
@@ -110,7 +110,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 2. To create a recovery plan, click **+Recovery Plan**. [Learn more](/site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
 3. In the recovery plan page, click **Customize**
 
-    ![Click the Customize button](media/site-recovery-runbook-automation-new/customize-rp.png)
+    ![Click the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
 
 2. Click the ellipses (...) next to **Group 1: Start** > **Add post action**.
 3. In **Insert action**, verify that **Script** is selected, and specify a name for the script (**Hello World**).
