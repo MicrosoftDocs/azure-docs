@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 09/18/2019
 ms.custom: seodec18
 ---
 
@@ -98,22 +98,23 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 ## Common headers and parameters
 
-To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth2.0 Bearer token must be passed in the [Authorization header](/rest/api/apimanagement/authorizationserver/createorupdate) using a client of your choice (Postman, JavaScript, C#). 
+This section describes common HTTP request headers and parameters used to make queries against the Time Series Insights GA and Preview APIs. API-specific requirements are covered in greater detail in the [Time Series Insights REST API reference documentation](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-Required URL query string parameters:
+### Authentication
 
-- `api-version=2018-11-01-preview` – currently the only supported API version.
+To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
 
-Required request headers:
-
-- `Authorization` for authentication and authorization, valid OAuth2.0 Bearer token must be passed in the Authorization header. The token must be issued to `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
+> [!IMPORTANT]
+> The token must be issued to exactly `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
 
 > [!TIP]
 > See the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md#authentication) tutorial to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
-Optional URL query string parameters:
+### HTTP headers
 
-- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only for Get Environment Events and Get Environment Aggregates API. Timeout value should be in ISO 8601 duration format, for example "PT20S" and should be in the range 1-30s. Default value is 30s.
+Required request headers:
+
+- `Authorization` for authentication and authorization, valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued to exactly `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
 
 Optional request headers:
 
@@ -126,6 +127,17 @@ Response headers:
 
 - `Content-type` - only `application/json` is supported.
 - `x-ms-request-id` - server-generated request ID. Can be used to contact Microsoft to investigate a request.
+
+### HTTP parameters
+
+Required URL query string parameters:
+
+- `api-version=2016-12-12`
+- `api-version=2018-11-01-preview`
+
+Optional URL query string parameters:
+
+- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only for Get Environment Events and Get Environment Aggregates API. Timeout value should be in ISO 8601 duration format, for example "PT20S" and should be in the range 1-30 s. Default value is 30 s.
 
 ## Next steps
 
