@@ -100,7 +100,7 @@ def get_AMLRun():
 ```python
 ...
 from utils import prepare_data
-import amlrun
+from amlrun import get_AMLRun
 ...
 ```
 3. Initialize the run object in **train.py**
