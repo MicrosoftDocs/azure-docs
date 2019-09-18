@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/18/2019
 ms.author: dapine
 ms.custom: seodec18
 ---
@@ -92,8 +92,10 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The endpoint key of the Cognitive Services resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The billing endpoint value including region.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|
+| **{API_KEY}** | The endpoint key of the `Computer Vision` resource on the Azure `Computer Vision` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Computer Vision` Overview page.| See [gathering required parameters](computer-vision-how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](computer-vision-how-to-install-containers.md#billing).
