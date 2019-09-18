@@ -55,7 +55,7 @@ After you have a template, you can enable the DNS service with the following ste
 
 1. Check that the `apiversion` is set to `2017-07-01-preview` or later for the `Microsoft.ServiceFabric/clusters` resource, and, if not, update it as shown in the following example:
 
-  ```json
+    ```json
     {
         "apiVersion": "2017-07-01-preview",
         "type": "Microsoft.ServiceFabric/clusters",
@@ -63,21 +63,22 @@ After you have a template, you can enable the DNS service with the following ste
         "location": "[parameters('clusterLocation')]",
         ...
     }
-  ```
+    ```
 
 2. Now enable the DNS service in one of the following ways:
 
    - To enable the DNS service with default settings, add it to the `addonFeatures` section inside the `properties` section as shown in the following example:
 
-    ```json
-        "properties": {
-          ...
-          "addonFeatures": [
-            "DnsService"
-          ],
-          ...
-        }
-    ```
+        ```json
+          "properties": {
+            ...
+            "addonFeatures": [
+              "DnsService"
+              ],
+            ...
+          }
+        ```
+
    - To enable the service with other than default settings, add a `DnsService` section to the `fabricSettings` section inside the `properties` section. In this case, you don't need to add the DnsService to `addonFeatures`. To learn more about the properties that can be set for the DNS Service, see [DNS Service settings](./service-fabric-cluster-fabric-settings.md#dnsservice).
 
        ```json
