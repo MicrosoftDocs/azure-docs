@@ -28,7 +28,7 @@ Entities (sometimes referred to as entity *instances*) are accessed via a unique
 
 For example, a *counter* entity function might be used for keeping score in an online game. Each instance of the game will have a unique entity ID, such as `@Counter@Game1`, `@Counter@Game2`, and so on. All operations that target a particular entity require specifying an entity ID as a parameter.
 
-## Programing models
+## Programming models
 
 Durable entities support two different programming models. The first model is a dynamic "functional" model where the entity is defined by a single function. The second model is an object-oriented model where the entity is defined by a class and methods. These models and the programming models for interacting with entities are described in the next sections.
 

@@ -55,7 +55,7 @@ For more information, see the [requirements and constraints](https://docs.micros
 To configure virtual network peering for virtual networks in different subscriptions or Active Directory tenants, follow the steps in [Create peering in different subscriptions for Azure CLI](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli).
 
 > [!Note]
-> To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering%23permissions).
+> To configure network peering, you must have **Network Contributor** permissions in both subscriptions. For more information, see [Peering permissions](virtual-network-manage-peering.md#permissions).
 
 ## Scenario 2: Configure virtual network peering with Hub-spoke topology that uses on-premises resources
 
@@ -101,7 +101,7 @@ To learn more about Global Peering requirements and restraints, see [Virtual net
 
 ## Scenario 4: I have a connectivity issue between two peered virtual networks
 
-Sign-in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#roles-permissions). Select the virtual network, select **Peering**, then check the **Status** field. What is the status?
+Sign-in to the [Azure portal](https://portal.azure.com/) with an account that has the necessary [roles and permissions](virtual-network-manage-peering.md#permissions). Select the virtual network, select **Peering**, then check the **Status** field. What is the status?
 
 ### Connection Type 1: The peering status shows 'Connected'
 
