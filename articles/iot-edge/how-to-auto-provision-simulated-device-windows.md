@@ -1,5 +1,5 @@
 ---
-title: Auto-provision Windows devices with DPS - Azure IoT Edge | Microsoft Docs 
+title: Automatically provision Windows devices with DPS - Azure IoT Edge | Microsoft Docs 
 description: Use a simulated device on your Windows machine to test automatic device provisioning for Azure IoT Edge with Device Provisioning Service
 author: kgremban
 manager: philmea
@@ -22,6 +22,12 @@ This article shows you how to test auto-provisioning on a simulated Edge device 
 * Create an individual enrollment for the device.
 * Install the IoT Edge runtime and connect the device to IoT Hub.
 
+> [!NOTE]
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
+
+> [!TIP]
+> This article describes testing auto-provisioning by using TPM attestation on virtual devices, but much of it applies when using physical TPM hardware as well.
+
 ## Prerequisites
 
 * A Windows development machine. This article uses Windows 10.
@@ -33,9 +39,14 @@ Create a new instance of the IoT Hub Device Provisioning Service in Azure, and l
 
 After you have the Device Provisioning Service running, copy the value of **ID Scope** from the overview page. You use this value when you configure the IoT Edge runtime.
 
+> [!TIP]
+> If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
+>
+> Follow the instructions in the article [How to manage device enrollments with Azure Portal](../iot-dps/how-to-manage-enrollments) to create your enrollment in DPS and then proceed with the [Install the IoT Edge runtime](#install-the-iot-edge-runtime) section in this article to continue.
+
 ## Simulate a TPM device
 
-Create a simulated TPM device on your Windows development machine. Retrieve the **Registration ID** and **Endorsement Key** for your device, and use them to create an individual enrollment entry in DPS.
+Create a simulated TPM device on your Windows development machine. Retrieve the **Registration ID** and **Endorsement key** for your device, and use them to create an individual enrollment entry in DPS.
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md).
 
@@ -69,7 +80,7 @@ Install the IoT Edge runtime on the device that is running the simulated TPM. Yo
 
 For more detailed information about installing IoT Edge on Windows, including prerequisites and instructions for tasks like managing containers and updating IoT Edge, see [Install the Azure IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
 
-1. Run PowerShell as an administrator. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
+1. Open a PowerShell window in administrator mode. Be sure to use an AMD64 session of PowerShell when installing IoT Edge, not PowerShell (x86).
 
 1. The **Deploy-IoTEdge** command checks that your Windows machine is on a supported version, turns on the containers feature, and then downloads the moby runtime and the IoT Edge runtime. The command defaults to using Windows containers.
 
@@ -100,7 +111,6 @@ Get-Service iotedge
 ```
 
 Examine service logs from the last 5 minutes.
-
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
