@@ -30,7 +30,7 @@ landingContent:
       links:
         - text: Understanding text using Cognitive Services
           url: https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player
-    - linkListType: reference
+    - linkListType: whats-new
       links:
         - text: What's new?
           url: whats-new.md
@@ -70,7 +70,7 @@ landingContent:
   linkLists:
     - linkListType: reference
       links:
-        - text: REST API console
+        - text: REST API
           url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
         - text: .NET client library
           url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
