@@ -39,7 +39,7 @@ You can view your available service plans, including the individual licenses, ch
 
 ### To find your service plan and plan details
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the Azure AD organization.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
 
 1. Select **Azure Active Directory**, and then select **Licenses**.
 

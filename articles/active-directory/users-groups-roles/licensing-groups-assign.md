@@ -34,21 +34,21 @@ In this example, the tenant contains a security group called **HR Department**. 
 
 1. Sign in to the [**Azure AD admin center**](https://aad.portal.azure.com) with a license administrator account. To manage licenses, the account must be a license administrator, user administrator, or global administrator.
 
-1. Select **Licenses** to open a pane where you can see and manage all licensable products in the tenant.
+1. Select **Licenses** to open a page where you can see and manage all licensable products in the tenant.
 
-1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the pane.
+1. Under **All products**, select both Office 365 Enterprise E5 and Enterprise Mobility + Security E3 by selecting the product names. To start the assignment, select **Assign** at the top of the page.
 
    ![Select products to assign licenses](./media/licensing-groups-assign/all-products-assign.png)
   
-1. On the **Assign license** pane, select **Users and groups** to open a list of users and groups.
+1. On the **Assign license** page, select **Users and groups** to open a list of users and groups.
 
-1. Select a user or group, and then use the **Select** button at the bottom of the pane to confirm your selection.
+1. Select a user or group, and then use the **Select** button at the bottom of the page to confirm your selection.
 
-1. On the **Assign license** pane, click **Assignment options**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **License options**.
+1. On the **Assign license** page, click **Assignment options**, which displays all service plans included in the two products that we selected previously. Find **Yammer Enterprise** and turn it **Off** to disable that service from the product license. Confirm by clicking **OK** at the bottom of **License options**.
 
    ![select service plans for licenses](./media/licensing-groups-assign/assignment-options.png)
   
-1. To complete the assignment, on the **Assign license** pane, click **Assign** at the bottom of the pane.
+1. To complete the assignment, on the **Assign license** page, click **Assign** at the bottom of the page.
 
 1. A notification is displayed in the upper-right corner that shows the status and outcome of the process. If the assignment to the group couldn't be completed (for example, because of pre-existing licenses in the group), click the notification to view details of the failure.
 
@@ -58,7 +58,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. Go to **Azure Active Directory** > **Groups**. Select the group that licenses were assigned to.
 
-1. On the group pane, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
+1. On the group page, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
    - List of product licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
@@ -79,12 +79,12 @@ When assign licenses to a group, Azure AD processes all existing members of that
 ## Step 3: Check for license problems and resolve them
 
 1. Go to **Azure Active Directory** > **Groups**, and find the group that licenses were assigned to.
-1. On the group pane, select **Licenses**. The notification on top of the pane shows that there are 10 users that licenses couldn't be assigned to. Open it to see a list of all users in a licensing error state for this group.
+1. On the group page, select **Licenses**. The notification on top of the page shows that there are 10 users that licenses couldn't be assigned to. Open it to see a list of all users in a licensing error state for this group.
 1. The **Failed assignments** column tells us that both product licenses couldn't be assigned to the users. The **Top reason for failure** column contains the cause of the failure. In this case, it's **Conflicting service plans**.
 
    ![licenses that couldn't be assigned](./media/licensing-groups-assign/failed-assignments.png)
 
-1. Select a user to open the **Licenses** pane. This pane shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
+1. Select a user to open the user's **Licenses** page. This page shows all licenses that are currently assigned to the user. In this example, the user has the Office 365 Enterprise E1 license that was inherited from the **Kiosk users** group. This conflicts with the E3 license that the system tried to apply from the **HR Department** group. As a result, none of the licenses from that group has been assigned to the user.
 
    ![View all license conflicts for a user](./media/licensing-groups-assign/user-license-view.png)
 
