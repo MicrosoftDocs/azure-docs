@@ -59,7 +59,7 @@ As a general rule, every function should include a `try/catch` block at the high
 
 ### Retry mechanisms and policies
 
-Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. There are a number of tools available that allow you to define robust retry-policies, which can also help preserve processing order.
+Some exceptions are transient in nature and don't reappear when an operation is attempted again moments later. This is why the first step is always to retry the operation. You could write retry processing rules yourself, but they are so commonplace that a number of tools available. Using these libraries allow you to define robust retry-policies, which can also help preserve processing order.
 
 Introducing fault-handling libraries to your functions allow you to define both basic and advanced retry policies. For instance, you could implement a policy that follows a workflow illustrated by the following rules:
 
