@@ -58,9 +58,6 @@ When prompted to choose a **DSL**, select **Kotlin**.
 
 Locate *build.gradle.kts* and open it with your preferred IDE or text editor. Then copy in this build configuration:
 
-
-[!code-kotlin[kotlin file](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/build.gradle.kts?name=gradleBuild)]
-
 ```kotlin
 plugins {
     java
