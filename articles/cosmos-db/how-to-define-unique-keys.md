@@ -52,27 +52,19 @@ client.CreateDocumentCollectionAsync(UriFactory.CreateDatabaseUri("database"), n
 
 ## Use the .NET SDK V3
 
-When creating a new container using the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), a `UniqueKeyPolicy` object can be used to define unique key constraints.
+When creating a new container using the [.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/), use the SDK's fluent API to declare unique keys in a concise and readable way.
 
 ```csharp
-UniqueKey uniqueKey1 = new UniqueKey();
-uniqueKey1.Paths.Add("/firstName");
-uniqueKey1.Paths.Add("/lastName");
-uniqueKey1.Paths.Add("/emailAddress");
-
-UniqueKey uniqueKey2 = new UniqueKey();
-uniqueKey1.Paths.Add("/address/zipCode");
-
-UniqueKeyPolicy uniqueKeyPolicy = new UniqueKeyPolicy();
-uniqueKeyPolicy.UniqueKeys.Add(uniqueKey1);
-uniqueKeyPolicy.UniqueKeys.Add(uniqueKey2);
-
-await client.GetDatabase("database").CreateContainerAsync(new ContainerProperties
-{
-    Id = "container",
-    PartitionKeyPath = "/myPartitionKey",
-    UniqueKeyPolicy = uniqueKeyPolicy
-});
+await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
+    .WithUniqueKey()
+        .Path("/firstName")
+        .Path("/lastName")
+        .Path("/emailAddress")
+    .Attach()
+    .WithUniqueKey()
+        .Path("/address/zipCode")
+    .Attach()
+    .CreateIfNotExistsAsync();
 ```
 
 ## Use the Java SDK

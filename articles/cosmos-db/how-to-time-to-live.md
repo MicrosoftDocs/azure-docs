@@ -38,7 +38,7 @@ Use the following steps to enable time to live on a container with no expiration
 
 ## Enable time to live on a container using SDK
 
-### <a id="dotnet-enable-noexpiry"></a>.NET SDK V2
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -52,7 +52,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition);
 ```
 
-### <a id="dotnet-enable-noexpiry"></a>.NET SDK V3
+### <a id="dotnet-enable-noexpiry"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
 
 ```csharp
 // Create a new container with TTL enabled and without any expiration value
@@ -68,7 +68,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 
 To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted.
 
-### <a id="dotnet-enable-withexpiry"></a>.NET SDK V2
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -82,7 +82,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     collectionDefinition;
 ```
 
-### <a id="dotnet-enable-withexpiry"></a>.NET SDK V3
+### <a id="dotnet-enable-withexpiry"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
 
 ```csharp
 // Create a new container with TTL enabled and a 90 day expiration
@@ -149,7 +149,7 @@ Use the following steps to enable time to live on an item:
    }
    ```
 
-### <a id="dotnet-set-ttl-item"></a>.NET SDK
+### <a id="dotnet-set-ttl-item"></a>.NET SDK (any)
 
 ```csharp
 // Include a property that serializes to "ttl" in JSON
@@ -190,7 +190,7 @@ const itemDefinition = {
 
 You can reset the time to live on an item by performing a write or update operation on the item. The write or update operation will set the `_ts` to the current time, and the TTL for the item to expire  will begin again. If you wish to change the TTL of an item, you can update the field just as you update any other field.
 
-### <a id="dotnet-extend-ttl-item"></a>.NET SDK V2
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -204,7 +204,7 @@ readDocument.ttl = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-### <a id="dotnet-extend-ttl-item"></a>.NET SDK V3
+### <a id="dotnet-extend-ttl-item"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -219,7 +219,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 If time to live has been set on an item and you no longer want that item to expire, then you can get the item, remove the TTL field, and replace the item on the server. When the TTL field is removed from the item, the default TTL value assigned to the container is applied to the item. Set the TTL value to -1 to prevent an item from expiring and to not inherit the TTL value from the container.
 
-### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V2
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -234,7 +234,7 @@ readDocument.ttl = null; // inherit the default TTL of the container
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V3
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -249,7 +249,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 
 To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will never expire, even if there are they have explicitly overridden the previous default TTL value.
 
-### <a id="dotnet-disable-ttl"></a>.NET SDK V2
+### <a id="dotnet-disable-ttl"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null
@@ -259,7 +259,7 @@ collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
 ```
 
-### <a id="dotnet-disable-ttl"></a>.NET SDK V3
+### <a id="dotnet-disable-ttl"></a>.NET SDK V3 (Microsoft.Azure.Cosmos)
 
 ```csharp
 // Get the container, update DefaultTimeToLive to null
