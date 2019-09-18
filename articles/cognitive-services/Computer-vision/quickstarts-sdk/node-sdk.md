@@ -17,8 +17,8 @@ Get started with the Computer Vision client library for Node.js. Follow these st
 
 Use the Computer Vision client library for Node.js to:
 
-* TBD
-* TBD
+* [Analyze an image](#analyze-an-image)
+* [Read printed and handwritten text](#read-printed-and-handwritten-text)
 
 [Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -104,31 +104,143 @@ Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](do
 
 ## Analyze an image
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+The code in this section analyzes remote images to extract various visual features. You can do these operations as part of the **analyzeImage** method of the client object, or you can call them using individual methods. See the [reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision) for details.
 
-```javascript
-```
+> [!NOTE]
+> You can also analyze a local image. See the sample code on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
+### Get image description
 
-    Call the `example()` function.
+The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
 
--->
+First, define the URL of an image to analyze:
 
-Read printed and handwritten text
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe_image)]
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+Then add the following code to get the image description and print it to the console.
 
-```javascript
-```
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_describe)]
 
-<!-- 
-    If this code sample is in a function, tell the reader to call it. For example:
+### Get image category
 
-    Call the `example()` function.
+The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
 
--->
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories)]
+
+Define the helper function `formatCategories`:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_categories_format)]
+
+### Get image tags
+
+The following code gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tags)]
+
+Define the helper function `formatTags`:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_tagsformat)]
+
+### Detect objects
+
+The following code detects common objects in the image and prints them to the console. See [Object detection](../concept-object-detection.md) for more details.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objects)]
+
+Define the helper function `formatRectObjects`:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_objectformat)]
+
+### Detect brands
+
+The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_brands)]
+
+### Detect faces
+
+The following code returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_faces)]
+
+Define the helper function `formatRectFaces`:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_formatfaces)]
+
+### Detect adult or racy content
+
+The following code prints the detected presence of adult or racy content in the image. See [Adult and racy content](../concept-detecting-adult-content.md) for more details.
+
+Define the URL of the image to use:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)] 
+
+Then add the following code to detect adult content and print the results to the console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)] 
+
+### Get image color scheme
+
+The following code prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
+
+Define the helper function `printColorScheme` to print the details of the color scheme to the console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
+
+### Get domain-specific content
+
+Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+
+First, define the URL of an image to analyze:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_domain_image)]
+
+The following code parses data about detected landmarks in the image.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks)]
+
+Define the helper function `formatRectDomain` to parse the location data about detected landmarks.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks_rect)]
+
+### Get the image type
+
+The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
+
+Define the helper function `describeType`:
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype_describe)]
+
+## Read printed and handwritten text
+
+Computer Vision can read visible text in an image and convert it to a character stream.
+
+> [!NOTE]
+> You can also read text from a local image. See the sample code on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
+
+### Set up test images
+
+Save a reference the URL of the images you want to extract text from.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
+
+### Call the Recognize API
+
+Add the code below, which calls the `recognizeText` function for the given images.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
+
+Define the `recognizeText` function. This calls the **recognizeText** method on the client object, which returns an operation ID and starts an asynchronous process to read the content of the image. Then it uses the operation ID to check the operation at one-second intervals until the results are returned. It then returns the extracted results.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
+
+Then, define the helper function `printRecText`, which prints the results of a Recognize operation to the console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_print)]
 
 ## Run the application
 
@@ -145,18 +257,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## Troubleshooting
-
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
-
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Next article]()
+>[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision)
 
-* [What is the Computer Vision API?](../overview.md)
-* [Article2](../overview.md)
-* [Article3](../overview.md)
-* The source code for this sample can be found on [GitHub]().
+* [What is the Computer Vision API?](../Home.md)
+* The source code for this sample can be found on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
