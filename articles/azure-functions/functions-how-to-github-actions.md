@@ -78,7 +78,6 @@ A snippet from the yaml file for a JavaScript app that uses version 10
 ## Build the function app
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
-As an example for Node JS
 
 A snippet from the yaml file for a JavaScript app
 
