@@ -194,7 +194,7 @@ When using Azure Firewall, you must configure a network rule to allow traffic to
 - `mlworkspace.azure.ai`
 - `*.aether.ms`
 
-When adding the rule, set the __Protocol__ to any, and the destination port to `*`.
+When adding the rule, set the __Protocol__ to any, and the ports to `*`.
 
 For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
