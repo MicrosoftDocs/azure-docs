@@ -36,23 +36,8 @@ ms.author: dech
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](/dotnet/standard/net-standard)|
 
-## Release notes
+
 [!INCLUDE[Release notes](~/samples-cosmosdb-dotnet-v3/changelog.md)]
-
-
-## Release & Retirement dates
-Microsoft provides notification at least **12 months** in advance of retiring an SDK in order to smooth the transition to a newer/supported version.
-
-New features and functionality and optimizations are only added to the current SDK, as such it is recommended that you always upgrade to the latest SDK version as early as possible. 
-
-Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
-
-<br/>
-
-| Version | Release Date | Retirement Date |
-| --- | --- | --- |
-| [3.1.0](#3.1.0) |July 29, 2019 |--- |
-| [3.0.0](#3.0.0) |July 15, 2019 |--- |
 
 
 ## FAQ
