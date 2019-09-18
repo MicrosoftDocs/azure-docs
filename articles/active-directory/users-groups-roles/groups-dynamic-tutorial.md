@@ -52,7 +52,7 @@ First, you'll create a group for your guest users who all are from a single part
    
 4. Select **Owners** and in the **Add Owners** blade search for any desired owners. Click on the desired owners to add to the selection.
 5. Click **Select** to close the **Add Owners** blade.  
-6. Select **Edit dynamic query**, and in the **Dynamic user members** box.
+6. Select **Edit dynamic query** in the **Dynamic user members** box.
 7. On the **Dynamic membership rules** blade:
 
    * In the **Property** field, click on the existing value and select **userType**. 
