@@ -74,18 +74,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section:
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    In the **Sign-on URL** text box, type a URL:
-    `https://login.druva.com/api/commonlogin/samlconsume`
+	In the **Identifier (Entity ID)** text box, type: DCP-login
+	
+	In the **Reply URL (Assertion Consumer Service URL)** text box, validate the url and mark as default: `https://cloud.druva.com/wrsaml/consume`
 
 1. Druva application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
 	![image](./media/druva-tutorial/edited-attribute.png)
 
-1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon**. Delete all existing claims using three dots icon on the right side of each claim. 
+
+1. Add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Name | Source Attribute|
 	| ------------------- | -------------------- |
