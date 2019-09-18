@@ -15,16 +15,17 @@ ms.author: diberry
 
 # Tutorial: Use Personalizer in Azure notebooks 
 
-This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. 
+This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. The users and their preferences are known and stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
 
-|Customers|Time of Day|Weather|
+A summary of the user information is:
+
+|Customers|Times of Day|Types of weather|
 |--|--|--|
 |Alice<br>Bob<br>Cathy<br>Dave|Morning<br>afternoon<br>evening|Sunny<br>rainy<br>snowy| 
 
+To help Personalizer make the correct coffee selection for each person, the _system_ also knows details about the coffee.
 
-To help Personalizer make this selection for each person, the _system_ also knows details about the coffee.
-
-|Temperature|Place of origin|Roast|Organic|
+|Types of temperature|Places of origin|Types of roast|Organic|
 |--|--|--|--|
 |Hot<br>cold|Kenya<br>Brazil<br>Ethiopia|Dark<br>light|Organic<br>not organic|
 
@@ -32,7 +33,14 @@ The **purpose** of the Personalizer loop is to find the best match between the u
 
 ## How the simulation works
 
- At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by reward score of 1). After the model update frequency period and a few thousand requests, the system improves to an accuracy rate of between 70%-80%.  
+ At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by reward score of 1). After the model update frequency period, the system improves to an accuracy rate of between 70%-80% for the next set of suggestions.  
+
+|#|Groups of rank and reward calls|
+|--|--|
+|First 2,000 requests|20%-30% success |
+|Second 2,000 requests|70%-80% success |
+
+Success is shown as a prediction score of 1.  
 
 ## Rank and reward calls
 
