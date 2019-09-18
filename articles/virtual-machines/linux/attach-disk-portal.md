@@ -177,6 +177,16 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+#### Alternate method using parted
+The fdisk utility needs interactive input and hence is not ideal for use within automation scripts. However, the [parted](https://www.gnu.org/software/parted/) utility can be scripted and hence lends itself better in automation scenarios. The parted utility can be used to partition and to format a data disk. For the walkthrough below, we use a new data disk /dev/sdc and format it using the [XFS](https://xfs.wiki.kernel.org/) filesystem.
+
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+
+As seen above, we use the [partprobe](https://linux.die.net/man/8/partprobe) utility to make sure the kernel is immediately aware of the new partition and filesystem. Failure to use partprobe can cause the blkid or lslbk commands to not return the UUID for the new filesystem immediately.
+
 ### Mount the disk
 Create a directory to mount the file system using `mkdir`. The following example creates a directory at */datadrive*:
 
