@@ -18,7 +18,7 @@ A _device capability model_ (DCM) describes the capabilities of an IoT Plug and 
 
 ## Prerequisites
 
-This quickstart assumes you're using Ubuntu Linux with a desktop environment - if you're using a different distribution you may need to adjust some of the steps.
+This quickstart assumes you're using Ubuntu Linux with a desktop environment. The steps in this tutorial were tested using Ubuntu 18.04.
 
 To complete this quickstart, you need to install the following software on your local Linux machine:
 
@@ -56,11 +56,15 @@ You can find your _company model repository connection string_ in the [Azure Cer
 
 You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+If you're using the Azure CLI locally, the `az` version should be **2.0.73** or later, the Azure Cloud Shell uses the latest version. Use the `az --version` command to check the version installed on your machine.
+
 Add the Microsoft Azure IoT Extension for Azure CLI:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
+
+The steps in this quickstart require version **0.8.0** or later of the extension. Use the `az extension list` command to check the version you have installed, and the `az extension update` command to update if necessary.
 
 If don't have an IoT hub, create one using the following commands, replacing `{YourIoTHubName}` with a unique name of your choice. If you're running these commands locally, first sign in to your Azure subscription using `az login`. If you're running these commands in the Azure cloud shell, you're signed in automatically:
 
@@ -72,7 +76,7 @@ If don't have an IoT hub, create one using the following commands, replacing `{Y
 
 The previous commands create a resource group called `pnpquickstarts_rg` and an IoT hub in the central US region.
 
-> [!NOTE]
+> [!IMPORTANT]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
 Run the following command to create a device identity for a device called `mypnpdevice` in your IoT hub. Replace the `{YourIoTHubName}` placeholder with the name of your IoT hub:
@@ -187,7 +191,7 @@ You use the device SDK to build the generated device code stub. The application 
 
 ### Publish device model files to model repository
 
-To validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
+To validate the device code with the **az** CLI, you need to publish the files to the model repository.
 
 1. With the `pnp_app` folder open in VS code, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
@@ -210,14 +214,13 @@ After the device client sample starts, you can check it's working with the Azure
 Use the following command to view the telemetry the sample device is sending:
 
 ```azurecli-interactive
-az iot dt monitor-events --interface sensor --device-id mypnpdevice --hub-name {YourIoTHubName} --source private --repo-login "{Your company model repository connection string}"
+az iot hub monitor-events --hub-name {your IoT hub} --device-id {your device ID}
 ```
 
 Use the following command to view all the properties sent by the device:
 
 ```azurecli-interactive
-az iot dt list-properties --device-id mypnpdevice --hub-name {YourIoTHubName} --source private --re
-po-login "{Your company model repository connection string}"
+az iot dt list-properties --device-id mypnpdevice --hub-name {Your IoT hub name} --source private --repo-login "{Your company model repository connection string}"
 ```
 
 ## Next steps

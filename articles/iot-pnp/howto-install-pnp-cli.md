@@ -131,15 +131,15 @@ Invoke a command:
 az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### Telemetry
+#### Digital twin events
 
-Monitor all IoT Plug and Play telemetry from a specific device and interface going to the **$Default** event hub endpoint:
+Monitor all IoT Plug and Play digital twin events from a specific device and interface going to the **$Default** event hub endpoint:
 
 ```cmd/sh
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
 ```
 
-Monitor all IoT Plug and Play telemetry from a specific device and interface going a specific consumer group:
+Monitor all IoT Plug and Play digital twin events from a specific device and interface going a specific consumer group:
 
 ```cmd/sh
 az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
