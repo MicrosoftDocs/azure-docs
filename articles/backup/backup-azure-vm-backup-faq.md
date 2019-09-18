@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/17/2019
 ms.author: dacurwin
 ---
 # Frequently asked questions-Back up Azure VMs
@@ -120,6 +120,10 @@ For Managed Disk Azure VM, restoring to the availability sets is enabled by prov
 After you change the KeyVault settings for the encrypted VM, backups will continue to work with the new set of details, However, after the restore from a recovery point prior to the change, you will have to restore the secrets in a KeyVault before you can create the VM from it. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-restore-key-secret)
 
 Operations like secret/key roll-over do not require this step and the same KeyVault can be used after restore.
+
+### Can I access the VM once restored due to an VM having broken relationship with domain controller?
+
+Yes, you access the VM once restored due to an VM having broken relationship with domain controller. For more information refer this [article](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#post-restore-steps)
 
 ## Manage VM backups
 
