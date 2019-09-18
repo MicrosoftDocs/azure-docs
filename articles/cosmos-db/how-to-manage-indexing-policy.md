@@ -378,7 +378,7 @@ ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocume
 // Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
 // Add an included path
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 // Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
 // Add a spatial index
@@ -409,7 +409,7 @@ ContainerResponse containerResponse = await client.GetContainer("database", "con
 // Set the indexing mode to consistent
 containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
 // Add an included path
-containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/age/*" });
+containerResponse.Resource.IndexingPolicy.IncludedPaths.Add(new IncludedPath { Path = "/*" });
 // Add an excluded path
 containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/name/*" });
 // Add a spatial index
@@ -440,7 +440,7 @@ When defining a custom indexing policy while creating a new container, the SDK V
 await client.GetDatabase("database").DefineContainer(name: "container", partitionKeyPath: "/myPartitionKey")
     .WithIndexingPolicy()
         .WithIncludedPaths()
-            .Path("/age/*")
+            .Path("/*")
         .Attach()
         .WithExcludedPaths()
             .Path("/name/*")
