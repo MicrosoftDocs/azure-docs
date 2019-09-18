@@ -58,7 +58,7 @@ The following steps show how to prepare the internal load balancer for the move 
 4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
    
    ```azurepowershell
-   notepad <source-resource-group-name>.json
+   notepad.exe <source-resource-group-name>.json
    ```
 
 5. To edit the parameter of the virtual network name, change the property **defaultValue** of the source virtual network name to the name of your target virtual network, ensure the name is in quotes:
@@ -225,165 +225,172 @@ The following steps show how to prepare the internal load balancer for the move 
     Connect-AzAccount
     ```
 
-2. Obtain the subscription ID where you wish to deploy the target internal load balancer with [Get-AzSubscription](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0):
+2. Obtain the resource ID of the internal load balancer you want to move to the target region and place it in a variable using [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
 
     ```azurepowershell-interactive
-    Get-AzSubscription
+    $sourceIntLBID = (Get-AzLoadBalancer -Name <source-internal-lb-name> -ResourceGroupName <source-resource-group-name>).Id
+
     ```
-3. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-4. Locate the Resource Group that contains the source internal load balancer and click on it.
-5. Select > **Settings** > **Export template**.
-6. Choose **Download** in the **Export template** blade.
-7. Locate the .zip file downloaded from the portal containing the template and unzip to a folder of your choice.  In this zip file is the .json files needed for the template and a shell script and PowerShell script to deploy the template.
-8. To edit the parameter of the internal load balancer name, open the **parameters.json** file and edit the first **value** property:
+3. Export the source internal load balancer configuration to a .json file into the directory where you execute the command [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup?view=azps-2.6.0):
+   
+   ```azurepowershell-interactive
+   Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceIntLBID -IncludeParameterDefaultValue
+   ```
+4. The file downloaded will be named after the resource group the resource was exported from.  Locate the file that was exported from the command named **\<resource-group-name>.json** and open it in an editor of your choice:
+   
+   ```azurepowershell
+   notepad.exe <source-resource-group-name>.json
+   ```
+
+5. To edit the parameter of the internal load balancer name, change the property **defaultValue** of the source internal load balancer name to the name of your target internal load balancer, ensure the name is in quotes:
 
     ```json
-          {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
             "loadBalancers_myLoadBalancer_name": {
-                "value": "null"
-            },
+            "defaultValue": "<target-external-lb-name>",
+            "type": "String"
+             },
             "virtualNetworks_myVNET2_externalid": {
-                "value": "null"
-            }
+             "defaultValue": "<target-vnet-resource-ID>",
+             "type": "String"
              }
-            }
-
     ```
  
-9. Change the **null** value in the .json file to a name of your choice for the target internal load balancer. Save the **parameters.json** file. Ensure you enclose the name in quotes.
-10. To edit value of the virtual network internal ID, you must first obtain the ID and then copy and paste it into the **parameters.json** file.  To obtain the ID, login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
-11. Locate the resource group in the **target region** that contains the virtual network that you deployed above and click on it.
-12. Select **Settings** > **Properties** of the virtual network.
-13. Copy the full path of the **Resource ID** of the virtual network by clicking on the copy button in the properties page next to the path.
-14. In the **parameters.json** file, paste the **Resource ID** in place of the **null** value in the second **value** property, ensure you enclose the path in quotes:
-
-    ```json
-             {
-            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-            "contentVersion": "1.0.0.0",
-            "parameters": {
-                "loadBalancers_myLoadBalancer_name": {
-                    "value": "myLoadBalancer"
-                },
-                "virtualNetworks_myVNET2_externalid": {
-                    "value": "/subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-MOVE/providers/Microsoft.Network/virtualNetworks/myVNET"
-                }
-              }
-             }
+6. To edit value of the target virtual network that was moved above, you must first obtain the resource ID and then copy and paste it into the **\<resource-group-name>.json** file.  To obtain the ID, use [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork?view=azps-2.6.0):
    
+   ```azurepowershell-interactive
+    $targetVNETID = (Get-AzVirtualNetwork -Name <target-vnet-name> -ResourceGroupName <target-resource-group-name>).Id
+    ```
+    Type the variable and hit enter to display the resource ID.  Highlight the ID path and copy it to the clipboard:
+
+    ```powershell
+    PS C:\> $targetVNETID
+    /subscriptions/7668d659-17fc-4ffd-85ba-9de61fe977e8/resourceGroups/myResourceGroupVNET-Move/providers/Microsoft.Network/virtualNetworks/myVNET2-Move
     ```
 
-16. Save the **parameters.json** file.
-17. To edit the target region where the internal load balancer configuration will be moved, open the **template.json** file:
+7.  In the **\<resource-group-name>.json** file, paste the **Resource ID** from the variable in place of the **defaultValue** in the second parameter for the target virtual network ID, ensure you enclose the path in quotes:
+   
+    ```json
+         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+         "contentVersion": "1.0.0.0",
+         "parameters": {
+            "loadBalancers_myLoadBalancer_name": {
+            "defaultValue": "<target-external-lb-name>",
+            "type": "String"
+             },
+            "virtualNetworks_myVNET2_externalid": {
+             "defaultValue": "<target-vnet-resource-ID>",
+             "type": "String"
+             }
+    ```
+
+8. To edit the target region where the internal load balancer configuration will be moved, change the **location** property under **resources** in the **\<resource-group-name>.json** file:
 
     ```json
-          "resources": [
+        "resources": [
             {
                 "type": "Microsoft.Network/loadBalancers",
                 "apiVersion": "2019-06-01",
                 "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
-                "location": "TARGET REGION",
+                "location": "<target-internal-lb-region>",
                 "sku": {
-                    "name": "Basic",
+                    "name": "Standard",
                     "tier": "Regional"
-                }
+                },
     ```
 
-18. Edit the **location** property in the **template.json** file to the target region. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
+11. To obtain region location codes, you can use the Azure PowerShell cmdlet [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation?view=azps-1.8.0) by running the following command:
 
     ```azurepowershell-interactive
 
     Get-AzLocation | format-table
     
     ```
-19. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
+12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
     
-* **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
+    * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **\<resource-group-name>.json** file:
 
-    ```json
-             "resources": [
-            {
-                "type": "Microsoft.Network/loadBalancers",
-                "apiVersion": "2019-06-01",
-                "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
-                "location": "TARGET REGION",
-                "sku": {
-                    "name": "Basic",
-                    "tier": "Regional"
-                }
-    ```
-     
-    For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
+        ```json
+        "resources": [
+        {
+            "type": "Microsoft.Network/loadBalancers",
+            "apiVersion": "2019-06-01",
+            "name": "[parameters('loadBalancers_myLoadBalancer_name')]",
+            "location": "<target-internal-lb-region>",
+            "sku": {
+                "name": "Standard",
+                "tier": "Regional"
+            },
+        ```
+      For more information on the differences between basic and standard sku load balancers, see [Azure Standard Load Balancer overview](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
 
-* **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **template.json** file:
+    * **Load balancing rules** - You can add or remove load balancing rules in the configuration by adding or removing entries to the **loadBalancingRules** section of the **\<resource-group-name>.json** file:
 
-    ```json
-            "loadBalancingRules": [
-                        {
-                            "name": "MyLoadBalancerRule",
-                            "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "frontendIPConfiguration": {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                                },
-                                "frontendPort": 80,
-                                "backendPort": 80,
-                                "enableFloatingIP": false,
-                                "idleTimeoutInMinutes": 4,
-                                "protocol": "Tcp",
-                                "enableTcpReset": false,
-                                "loadDistribution": "Default",
-                                "backendAddressPool": {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/backendAddressPools/myBackendPool')]"
-                                },
-                                "probe": {
-                                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/MyHealthProbe')]"
-                                }
-                            }
-                        }
-                ]
-
-    ```
-       
-    For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-
-* **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **template.json** file:
-
-    ```json
-            "probes": [
-                        {
-                            "name": "MyHealthProbe",
-                            "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
-                            "properties": {
-                                "provisioningState": "Succeeded",
-                                "protocol": "Tcp",
-                                "port": 80,
-                                "intervalInSeconds": 15,
-                                "numberOfProbes": 2
-                            }
-                        }
-                    ]
-    ```
-       
-    For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
-
-* **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **template.json** file:
-
-    ```json
-             "inboundNatRules": [
+        ```json
+        "loadBalancingRules": [
                     {
-                        "name": "MyInboundNATRule",
-                        "etag": "W/\"7ce9154f-27c9-44b0-9d76-70cb095d91d7\"",
+                        "name": "myInboundRule",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "frontendIPConfiguration": {
-                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
                             },
-                            "frontendPort": 3389,
+                            "frontendPort": 80,
+                            "backendPort": 80,
+                            "enableFloatingIP": false,
+                            "idleTimeoutInMinutes": 4,
+                            "protocol": "Tcp",
+                            "enableTcpReset": false,
+                            "loadDistribution": "Default",
+                            "disableOutboundSnat": true,
+                            "backendAddressPool": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/backendAddressPools/myBEPoolInbound')]"
+                            },
+                            "probe": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/probes/myHTTPProbe')]"
+                            }
+                        }
+                    }
+                ]
+        ```
+       For more information on load balancing rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
+
+    * **Probes** - You can add or remove a probe for the load balancer in the configuration by adding or removing entries to the **probes** section of the **\<resource-group-name>.json** file:
+
+        ```json
+        "probes": [
+                    {
+                        "name": "myHTTPProbe",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "Http",
+                            "port": 80,
+                            "requestPath": "/",
+                            "intervalInSeconds": 15,
+                            "numberOfProbes": 2
+                        }
+                    }
+                ],
+        ```
+       For more information on Azure Load Balancer health probes, see [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)
+
+    * **Inbound NAT rules** - You can add or remove inbound NAT rules for the load balancer by adding or removing entries to the **inboundNatRules** section of the **\<resource-group-name>.json** file:
+
+        ```json
+        "inboundNatRules": [
+                    {
+                        "name": "myInboundNATRule",
+                        "etag": "W/\"39e5e9cd-2d6d-491f-83cf-b37a259d86b6\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "frontendIPConfiguration": {
+                                "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
+                            },
+                            "frontendPort": 4422,
                             "backendPort": 3389,
                             "enableFloatingIP": false,
                             "idleTimeoutInMinutes": 4,
@@ -392,43 +399,60 @@ The following steps show how to prepare the internal load balancer for the move 
                         }
                     }
                 ]
-    ```
-       
-    To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **template.json** file:
+        ```
+        To complete the addition or removal of an inbound NAT rule, the rule must be present or removed as a **type** property at the end of the **\<resource-group-name>.json** file:
 
-    ```json
-            {
-                "type": "Microsoft.Network/loadBalancers/inboundNatRules",
-                "apiVersion": "2019-06-01",
-                "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/MyInboundNATRule')]",
-                "dependsOn": [
-                    "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
-                ],
-                "properties": {
-                    "provisioningState": "Succeeded",
-                    "frontendIPConfiguration": {
-                        "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/LoadBalancerFrontEnd')]"
-                    },
-                    "frontendPort": 3389,
-                    "backendPort": 3389,
-                    "enableFloatingIP": false,
-                    "idleTimeoutInMinutes": 4,
-                    "protocol": "Tcp",
-                    "enableTcpReset": false
-                }
+        ```json
+        {
+            "type": "Microsoft.Network/loadBalancers/inboundNatRules",
+            "apiVersion": "2019-06-01",
+            "name": "[concat(parameters('loadBalancers_myLoadBalancer_name'), '/myInboundNATRule')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name'))]"
+            ],
+            "properties": {
+                "provisioningState": "Succeeded",
+                "frontendIPConfiguration": {
+                    "id": "[concat(resourceId('Microsoft.Network/loadBalancers', parameters('loadBalancers_myLoadBalancer_name')), '/frontendIPConfigurations/myfrontendIPinbound')]"
+                },
+                "frontendPort": 4422,
+                "backendPort": 3389,
+                "enableFloatingIP": false,
+                "idleTimeoutInMinutes": 4,
+                "protocol": "Tcp",
+                "enableTcpReset": false
             }
-    ```
-       
-    For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-
+        }
+        ```
+        For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
     
-20. Save the **template.json** file.
-21. Change to the directory where you unzipped the template files and saved the parameters.json file and run the following command to deploy the template and internal load balancer virtual network into the target region:
+13. Save the **\<resource-group-name>.json** file.
+    
+10. Create or a resource group in the target region for the target internal load balancer to be deployed using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). The existing resource group from above can also be reused as part of this process:
+    
+    ```azurepowershell-interactive
+    New-AzResourceGroup -Name <target-resource-group-name> -location <target-region>
+    ```
+11. Deploy the edited **\<resource-group-name>.json** file to the resource group created in the previous step using [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-2.6.0):
 
     ```azurepowershell-interactive
 
-    ./deploy.ps1 -subscription "Azure Subscription" -resourceGroupName myresourcegroup -resourceGroupLocation targetregion
+    New-AzResourceGroupDeployment -ResourceGroupName <target-resource-group-name> -TemplateFile <source-resource-group-name>.json
     
+    ```
+
+12. To verify the resources were created in the target region, use [Get-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azresourcegroup?view=azps-2.6.0) and [Get-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/get-azloadbalancer?view=azps-2.6.0):
+    
+    ```azurepowershell-interactive
+
+    Get-AzResourceGroup -Name <target-resource-group-name>
+
+    ```
+
+    ```azurepowershell-interactive
+
+    Get-AzLoadBalancer -Name <target-publicip-name> -ResourceGroupName <target-resource-group-name>
+
     ```
 
 ## Discard 
