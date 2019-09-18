@@ -114,7 +114,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 ## Remove a license
 
-You can remove a license from either a user or a group from the **Licenses** page.
+You can remove a license from a user's Azure AD user page, the group page for a group assignemnt, or from the Azure AD **Licenses** page.
 
 ### To remove a license from a user
 
@@ -125,7 +125,7 @@ You can remove a license from either a user or a group from the **Licenses** pag
     ![Licensed users page with Remove license option highlighted](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
 > [!IMPORTANT]
-> Licenses inherited by a user from a group can't be removed directly. Instead, you have to remove the user from the group from which they're inheriting the license.
+> Licenses that a user inherits from a group can't be removed directly. Instead, you have to remove the user from the group from which they're inheriting the license.
 
 ### To remove a license from a group
 
