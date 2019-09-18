@@ -25,7 +25,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum number of distinct (logical) partition keys | Unlimited |
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
-| Maximum Attachment Size per Account | 2 GB |
+| Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB | 
 
 > [!NOTE]
 > For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](synthetic-partition-keys.md)
