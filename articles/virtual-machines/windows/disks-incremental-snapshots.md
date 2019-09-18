@@ -9,5 +9,4 @@ ms.author: rogarana
 ms.subservice: disks
 ---
 
-
 [!INCLUDE [virtual-machines-disks-incremental-snapshot](../../../includes/virtual-machines-disks-incremental-snapshot.md)]
