@@ -14,9 +14,11 @@ ms.date: 09/17/2019
 ms.author: iainfou
 ---
 
-# Join a Windows Server virtual machine to a managed domain using a Resource Manager template
+# Join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain using a Resource Manager template
 
-This article shows you how to join a Windows Server virtual machine to an Azure AD Domain Services managed domain using Resource Manager templates.
+To automate the deployment and configuration of Azure virtual machines (VMs), you can use a Resource Manager template. These templates let you reproduce consistent deployments each time. Extensions can also be included in templates to automatically configure a VM as part of the deployment. One useful extension is to join the VM to a domain, which can be used with Azure Active Directory Domain Services (Azure AD DS) managed domains.
+
+This article shows you how to create and join a Windows Server VM to an Azure AD DS managed domain using Resource Manager templates. You also learn how to join an existing Windows Server VM to an Azure AD DS domain.
 
 ## Prerequisites
 
@@ -32,7 +34,9 @@ To complete this tutorial, you need the following resources and privileges:
 
 ## Azure Resource Manager template overview
 
-The following JSON example uses the *Microsoft.Compute/virtualMachines/extensions* resource type to install the *JsonADDomainExtension*. Parameters are used that you specify at deployment time. When the extension is deployed, the VM is joined to the specified Azure AD DS managed domain.
+Resource Manager templates let you define Azure infrastructure in code. The required resources, network connections, or configuration of VMs can all be defined in a template. These templates create consistent, reproducible deployments each time, and can be versioned as you make changes. For more information, see [Azure Resource Manager templates overview][template-overview].
+
+Each resource is defined in a template using JSON. The following JSON example uses the *Microsoft.Compute/virtualMachines/extensions* resource type to install the Active Directory domain join extension. Parameters are used that you specify at deployment time. When the extension is deployed, the VM is joined to the specified Azure AD DS managed domain.
 
 ```json
  {
@@ -62,7 +66,14 @@ The following JSON example uses the *Microsoft.Compute/virtualMachines/extension
     }
 ```
 
+This VM extension can be deployed even if you don't create a VM in the same template. The examples in this article show both of the following approaches:
+
+* [Create a Windows Server VM and join to a managed domain](#create-a-windows-server-vm-and-join-to-a-managed-domain)
+* [Join an existing Windows Server VM to a managed domain](#join-an-existing-windows-server-vm-to-a-managed-domain)
+
 ## Create a Windows Server VM and join to a managed domain
+
+If you need a Windows Server VM, you can create and configure one using a Resource Manager template. When the VM is deployed, an extension is then installed to join the VM to an Azure AD DS managed domain. If you already have a VM you wish to join to an Azure AD DS managed domain, skip to [Join an existing Windows Server VM to a managed domain](#join-an-existing-windows-server-vm-to-a-managed-domain).
 
 To create a Windows Server VM then join it to an Azure AD DS managed domain, complete the following steps:
 
@@ -95,7 +106,9 @@ It takes a few minutes for the deployment to complete successfully. When finishe
 
 ## Join an existing Windows Server VM to a managed domain
 
-If you have an existing VM, or group of VMs, that you wish to join to an Azure AD DS managed domain, you can use a Resource Manager template to deploy the VM extension. To join an existing Windows Server VM to an Azure AD DS managed domain, complete the following steps:
+If you have an existing VM, or group of VMs, that you wish to join to an Azure AD DS managed domain, you can use a Resource Manager template to deploy the VM extension.
+
+To join an existing Windows Server VM to an Azure AD DS managed domain, complete the following steps:
 
 1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Select the option to **Deploy to Azure**.
 1. On the **Custom deployment** page, enter the following information to join the VM to the Azure AD DS managed domain:
@@ -120,14 +133,12 @@ It takes a few moments for the deployment to complete successfully. When finishe
 
 ## Next steps
 
-You can use either of the following options to perform the steps outlined in this document:
-
-* **Azure PowerShell**: [Install and configure](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure CLI**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
-
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+In this article, you used the Azure portal to configure and deploy resources using templates. You can also deploy resources with Resource Manager templates using [Azure PowerShell][deploy-powershell] or the [Azure CLI][deploy-cli].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
+[template-overview]: ../azure-resource-manager/template-deployment-overview.md
+[deploy-powershell]: ../azure-resource-manager/resource-group-template-deploy.md
+[deploy-cli]: ../azure-resource-manager/resource-group-template-deploy-cli.md
