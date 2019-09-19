@@ -90,7 +90,7 @@ You can access Video Indexer capabilities using three different ways:
 
     For more information, see [Embed visual widgets in your application](video-indexer-embed-widgets.md). 
 
-If you are using the webiste, the insights are added as metadata and visible in the portal. If you are using APIs, the insights are available as a JSON file. 
+If you are using the website, the insights are added as metadata and visible in the portal. If you are using APIs, the insights are available as a JSON file. 
 
 ## Next steps
 
