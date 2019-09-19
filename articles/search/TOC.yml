@@ -379,6 +379,8 @@
     items:
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
+  - name: Common Errors and Warnings
+    href: cognitive-search-common-errors-warnings.md
 - name: Resources
   items:
   - name: Azure Community Support
