@@ -17,12 +17,15 @@ ms.author: mahender
 ms.custom: seodec18
 
 ---
+
 # How to configure your App Service application to use Microsoft Account login
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This topic shows you how to configure Azure App Service to use Microsoft Account as an authentication provider. 
 
 ## <a name="register-microsoft-account"> </a>Register your app with Microsoft Account
+
 1. Sign in to the [Azure portal], and navigate to your application. 
 
 <!-- Copy your **URL**, which you will use later to configure your app with Microsoft Account. -->
@@ -35,11 +38,11 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
    > [!NOTE]
    > Use the HTTPS scheme in the URL.
 
-1. select **Register**. 
+1. Select **Register**.
 
 1. Copy the **Application (Client) ID**. You need it later. 
-   
-7. From the left navigation of the new app registration, select **Certificates & secrets** > **New client secret**. Supply a description, select the validity duration, and select **Add**.
+
+1. From the left navigation of the new app registration, select **Certificates & secrets** > **New client secret**. Supply a description, select the validity duration, and select **Add**.
 
 1. Copy the value that appears in the **Certificates & secrets** page. Once you leave the page, it will not be displayed again.
 
@@ -47,6 +50,7 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
     > The password is an important security credential. Do not share the password with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
+
 1. In the [Azure portal], navigate to your application. From the left navigation, click **Authentication / Authorization**.
 
 2. If the Authentication / Authorization feature is not enabled, select **On**.
@@ -55,12 +59,12 @@ This topic shows you how to configure Azure App Service to use Microsoft Account
 
     By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
 
-4. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
+1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Microsoft Account**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Microsoft account for authentication.
 
 > [!NOTE]
 > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
 
-5. Click **Save**.
+1. Select **Save**.
 
 You are now ready to use Microsoft Account for authentication in your app.
 
