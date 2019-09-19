@@ -11,7 +11,7 @@ metadata:
   author: nitinme
   ms.author: nitinme
   manager: nitinme
-  ms.date: 09/12/2019
+  ms.date: 09/16/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -52,7 +52,7 @@ conceptualContent:
           text: Face
         - url: ./form-recognizer/index.yml
           itemType: overview
-          text: Form Recognition (Preview)
+          text: Form Recognizer (Preview)
         - url: ./ink-recognizer/index.yml
           itemType: overview
           text: Ink Recognizer (Preview)
@@ -92,7 +92,7 @@ conceptualContent:
         - url: ./translator-speech/overview.md
           itemType: overview
           text: Translator Speech (Retiring)           
-    - title: Decision Services 
+    - title: Decision 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
         - url: ./anomaly-detector/index.yml
@@ -137,12 +137,12 @@ conceptualContent:
         - url: ./bing-web-search/index.yml
           itemType: overview
           text: Web Search   
-    - title: Containers
+    - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers..
       links: 
         - url: ./cognitive-services-container-support.md
           itemType: overview
-          text: Containers for Cognitive Services
+          text: Cognitive Service Containers
         - url: ./containers/container-reuse-recipe.md
           itemType: overview
           text: Create containers for reuse

@@ -128,7 +128,9 @@
       href: dealing-with-duplicates.md
   - name: Monitor
     items:
-    - name: Using metrics to monitor cluster health
+    - name: Use diagnostic logs to monitor ingestion
+      href: using-diagnostic-logs.md
+    - name: Use metrics to monitor cluster health
       href: using-metrics.md
   - name: Integrate with other tools
     items:

@@ -3,6 +3,7 @@ title: Azure Storage migration FAQ | Microsoft Docs
 description: Answers to common questions about migrating Azure Storage
 services: storage
 author: genlin
+manager: dcscontentpm
 ms.service: storage
 ms.topic: article
 ms.date: 10/31/2018
