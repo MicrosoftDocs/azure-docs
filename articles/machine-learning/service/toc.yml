@@ -40,6 +40,10 @@
     - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
+  - name: Machine Learning CLI
+    items:
+    - name: 1. Train a model
+      href: tutorial-train-model-cli.md
   - name: Automated machine learning
     items:
     - name: Classification (Bank data)

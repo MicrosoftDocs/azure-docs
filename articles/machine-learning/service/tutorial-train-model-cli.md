@@ -280,8 +280,7 @@ The first command downloads the registered model to the current directory. The f
 > [!TIP]
 > An important concept is that a model registration is not limited to one model. You can specify a directory instead of a file, and the contents of the directory are stored in the model registration.
 
-## Deploy the model
-
+## Clean up resources
 
 
 
