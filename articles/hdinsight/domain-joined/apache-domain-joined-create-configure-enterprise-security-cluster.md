@@ -109,12 +109,13 @@ The users will be synchronized with Azure AD.
 1. Under **Organization name**, enter *HDIFabrikam*.
 1. Under **Initial domain name**, enter *HDIFabrikamoutlook*.
 1. Select **Create**.
+
+    ![Create an Azure AD directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
+
 1. On the left side of the Azure portal, select **Azure Active Directory**.
 1. If necessary, select **Switch directory** to change to the new **HDIFabrikamoutlook** directory.
 1. Under **Manage**, select **Custom domain names** > **Add custom domain**.
 1. Under **Custom domain name**, enter *HDIFabrikam.com* and select **Add domain**.
-
-![Create an Azure AD directory](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-new-directory.png)
 
 ![Create a custom domain](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-custom-domain.png)
 
