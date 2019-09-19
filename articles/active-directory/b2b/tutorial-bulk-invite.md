@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 9/19/2019
 
 ms.author: mimart
 author: msmimart
@@ -34,7 +34,7 @@ If you use Azure Active Directory (Azure AD) B2B collaboration to work with exte
 > * Upload the .csv file to Azure AD
 > * Verify the users were added to the directory
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don’t have Azure Active Directory, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
 
@@ -42,21 +42,29 @@ You need two or more test email accounts that you can send the invitations to. T
 
 ## Invite guest users in bulk
 
-1.	Sign in to the Azure portal with an account that is a User administrator in the organization.
-2.	In the navigation pane, select **Azure Active Directory**.
-3.	Under **Manage**, select **Users** > **Bulk invite**.
-4.	On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties. 
-    
+1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+2. In the navigation pane, select **Azure Active Directory**.
+3. Under **Manage**, select **Users** > **Bulk invite**.
+4. On the **Bulk invite users (Preview)** page, select **Download** to get a valid .csv file with invitation properties.
+
     ![Bulk invite download button](media/tutorial-bulk-invite/bulk-invite-button.png)
 
-5.	Open the .csv file and add a line for each guest user (required values are **Email address to invite** and **Redirection url**). Then save the file.
-   
+5. Open the .csv file and add a line for each guest user. Required values are:
+
+   * **Email address to invite** - the user who will receive an invitation
+
+   * **Redirection url** - the URL to which the invited user is forwarded after accepting the invitation
+
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-6. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
-7.	When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
-8.	When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
-9. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section.
+> [!NOTE]
+> Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
+
+6. Save the file.
+7. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
+8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
+9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section.
    
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-operation-results.png)
 
