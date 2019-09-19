@@ -29,9 +29,9 @@ landingContent:
     linkLists:
     - linkListType: quickstart
       links:
-        - text: Connect a device to IoT Hub
+        - text: Connect a sample device to IoT Hub
           url: quickstart-connect-pnp-device.md
-        - text: Connect a device to IoT Central
+        - text: Connect a sample device to IoT Central
           url: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - text: Use a device capability model to create a device
           url: quickstart-create-pnp-device.md
@@ -45,10 +45,10 @@ landingContent:
           url: tutorial-certification-test.md
     - linkListType: how-to-guide
       links:
-        - text: Onboard to the Azure Certified for IoT portal
-          url: howto-onboard-portal.md
         - text: Use Azure IoT Tools for Visual Studio Code
           url: howto-develop-with-vs-vscode.md
+        - text: Onboard to the Azure Certified for IoT portal
+          url: howto-onboard-portal.md
     - linkListType: concept
       links:
         - text: Common interfaces
@@ -67,5 +67,5 @@ landingContent:
           url: concepts-common-interfaces.md
     - linkListType: how-to-guide
       links: 
-        - text: Connect to devices
+        - text: Connect to devices from your solution
           url: howto-develop-solution.md
