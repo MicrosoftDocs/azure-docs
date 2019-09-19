@@ -15,7 +15,7 @@ ms.date: 09/18/2019
 
 Azure Machine Learning provides several ways to train your models. Use the following list to determine which training method is right for you:
 
-+ **No code**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI.
++ **Visual interface**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI.
 
 + **Python**: The Azure Machine Learning SDK provides several methods to train models:
 
@@ -28,7 +28,7 @@ Azure Machine Learning provides several ways to train your models. Use the follo
     + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability.
 
         > [!TIP]
-        > Machine learning pipelines can use run configuration or estimators for training models.
+        > Machine learning pipelines can use script runs, estimators, and automated ML as steps in a pipeline.
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
@@ -56,44 +56,28 @@ You may start with a run configuration for your local computer, and then switch 
 
 For more information on using script runs, see the following articles and examples:
 
-__How to__
-
-* [Set up and use compute targets for model training](how-to-set-up-training-targets.md).
-
-__Tutorials and examples__
-
-* []
+* [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md).
+* [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
+* [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
 
 ## Estimator
 
 Estimators make it easy to train models using popular ML frameworks.
 
-__How to__
-
-* [Create estimators in training](how-to-train-ml-models.md)
-
-__Tutorials and examples__
-
+* [How to: Create estimators in training](how-to-train-ml-models.md)
 * [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
-* 
+* [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 
 ## Automated Machine Learning
 
-Define the iterations, hyperparameter settings, featurization and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel and stops once it hits the exit criteria you defined.
-
-__Concepts__
+Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined.
 
 * [What is automated machine learning?](concept-automated-ml.md)
-
-__How to__
-
-* [Configure automated ML experiments in Python](how-to-configure-auto-train.md)
-* [Auto-train a time-series forecast model](how-to-auto-train-forecast.md)
-
-__Tutorials and examples__
-
+* [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
+* [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
 * [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
+* [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 
 ## Machine learning pipeline
 
@@ -106,13 +90,13 @@ The key features of machine learning pipelines are:
 + Collaboration: ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.
 
 > [!TIP]
-> Machine learning pipelines can use run configuration or estimators for training models.
+> Machine learning pipelines can use script runs, estimators, and automated ML as steps in a pipeline.
 
-Machine learning pipelines are constructed from multiple steps, which are distinct computational units in the pipeline. Each step can run independently, and use isolated compute resources. Multiple data scientists can work on the same pipeline at the same time without over-taxing compute resources. It also makes it easy to use different compute types/sizes for each step.
+For more information, see the following articles and examples:
 
-While machine learning pipelines can train models, they can also prepare data before training and deploy models after training. One of the primary uses for pipelines is batch scoring.
-
-For more information, see [Pipelines: Optimize machine learning workflows](concept-ml-pipelines.md).
+* [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md).
+* [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+* [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 ## Next steps
 
