@@ -1,6 +1,6 @@
 ---
 title: Create automated ML experiments
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -29,7 +29,7 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in the Azure portal](how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure portal](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
@@ -551,13 +551,13 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+Display the URL to view feature importance using the run object:
 
 ```
 automl_run.get_portal_url()
 ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
+You can visualize the feature importance chart in your workspace in the Azure portal or from your [workspace landing page (preview)](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

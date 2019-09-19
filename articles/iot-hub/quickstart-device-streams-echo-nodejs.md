@@ -49,7 +49,7 @@ You can download Node.js for multiple platforms from [Nodejs.org](https://nodejs
 
 You can verify the current version of Node.js on your development machine using the following command:
 
-```
+```cmd/sh
 node --version
 ```
 
@@ -115,7 +115,7 @@ Assuming the device-side application is running, follow the steps below to run t
 
 * Provide your service credentials and device ID as environment variables.
  
-   ```
+   ```cmd/sh
    # In Linux
    export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
    export STREAMING_TARGET_DEVICE="MyDevice"
@@ -129,7 +129,7 @@ Assuming the device-side application is running, follow the steps below to run t
 
 * Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
 
-   ```
+   ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
     
    # Install the preview service SDK, and other dependencies

@@ -258,7 +258,7 @@ Azure Marketplace is designed for IT professionals and cloud developers, interes
 
 **Why should I publish my application on Azure Marketplace and how does it benefit me?**
 
-Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure's network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world's leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) to help boost awareness of their offers in Azure's marketplace.
+Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure's network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world's leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) to help boost awareness of their offers in Azure's marketplace.
 
 **What is the differentiating factor between Azure Marketplace and AppSource?**
 

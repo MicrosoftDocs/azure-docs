@@ -272,27 +272,11 @@ take significant time to complete.
 
 ## Firewall configuration: IP addresses
 
-All logic apps in the same region use the same IP address ranges. 
-To support the calls that your logic apps directly make with 
-[HTTP](../connectors/connectors-native-http.md), 
-[HTTP + Swagger](../connectors/connectors-native-http-swagger.md), 
-and other HTTP requests, set up your firewalls with *all* the 
-[inbound](#inbound) *and* [outbound](#outbound) IP addresses 
-used by the Logic Apps service, based on the regions where your 
-logic apps exist. These addresses appear under the **Inbound** 
-and **Outbound** headings in this section, and are sorted by region. 
+All logic apps in the same region use the same IP address ranges. To support the calls that your logic apps directly make with [HTTP](../connectors/connectors-native-http.md), [HTTP + Swagger](../connectors/connectors-native-http-swagger.md), and other HTTP requests, set up your firewalls with *all* the [inbound](#inbound) *and* [outbound](#outbound) IP addresses used by the Logic Apps service, based on the regions where your logic apps exist. These addresses appear under the **Inbound** and **Outbound** headings in this section, and are sorted by region. 
 
-To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
-set up your firewall with *all* the [outbound](#outbound) IP addresses 
-used by these connectors, based on the regions where your logic apps exist. 
-These addresses appear under the **Outbound** heading in this section, 
-and are sorted by region.
+To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, set up your firewall with *all* the [outbound](#outbound) IP addresses used by these connectors, based on the regions where your logic apps exist. These addresses appear under the **Outbound** heading in this section, and are sorted by region. For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
-
-For [Azure Government](../azure-government/documentation-government-overview.md) 
-and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), 
-reserved IP addresses for connectors aren't currently available.
+For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
 > [!IMPORTANT]
 >
@@ -301,16 +285,11 @@ reserved IP addresses for connectors aren't currently available.
 > include and match the IP addresses in these lists for the 
 > regions where your logic apps exist.
 
-Logic Apps doesn't support directly connecting to Azure storage 
-accounts through firewalls. To access these storage accounts, 
-use either option here:
+Logic Apps doesn't support directly connecting to Azure storage accounts through firewalls. To access these storage accounts, use either option here:
 
-* Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-which can connect to resources in an Azure virtual network.
+* Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
 
-* If you already use API Management, you can use 
-this service for this scenario. For more info, see 
-[Simple enterprise integration architecture](https://aka.ms/aisarch).
+* If you already use API Management, you can use this service for this scenario. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 <a name="inbound"></a>
 

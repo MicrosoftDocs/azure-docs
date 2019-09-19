@@ -5,9 +5,7 @@ services: notification-hubs
 documentationcenter: android
 author: jwargo
 manager: patniko
-editor: spelluru
 
-ms.assetid: 23bde1ea-f978-43b2-9eeb-bfd7b9edc4c1
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
@@ -17,7 +15,7 @@ ms.date: 06/19/2019
 ms.author: jowargo
 ---
 
-# Get started with Notification Hubs using Baidu
+# Deprecated: Get started with Notification Hubs using Baidu
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 

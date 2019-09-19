@@ -17,7 +17,8 @@ Azure Data Explorer connector for Spark implements data source and data sink for
 Writing to Azure Data Explorer can be done in batch and streaming mode.
 Reading from Azure Data Explorer supports column pruning and predicate pushdown, which reduces the volume of transferred data by filtering out data in Azure Data Explorer.
 
-Azure Data Explorer Spark connector is an [open source project](https://github.com/Azure/azure-kusto-spark) that can run on any Spark cluster.
+Azure Data Explorer Spark connector is an [open source project](https://github.com/Azure/azure-kusto-spark) that can run on any Spark cluster. The Azure Data Explorer Spark connector makes Azure Data Explorer a valid data store for standard Spark source
+and sink operations such as write, read and writeStream. 
 
 > [!NOTE]
 > Although some of the examples below refer to an [Azure Databricks](https://docs.azuredatabricks.net/) Spark cluster, Azure Data Explorer Spark connector does not take direct dependencies on Databricks or any other Spark distribution.

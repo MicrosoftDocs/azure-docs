@@ -1,9 +1,9 @@
 ---
-title: Create a Node.js web app
-description: Node.js deployment to Azure App Services
-author: KarlErickson
-ms.author: karler
-ms.date: 07/18/2019
+title: Create a Node.js web app - Azure App Service
+description: How to deploy a Node.js app to Azure App Service
+author: msangapu
+ms.author: msangapu
+ms.date: 08/12/2019
 ms.topic: quickstart
 ms.service: app-service
 ms.devlang: javascript

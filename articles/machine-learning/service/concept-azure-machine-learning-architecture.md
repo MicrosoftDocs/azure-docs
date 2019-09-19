@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
-titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terms, concepts, and workflows that make up the Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn about the architecture, terms, concepts, and workflows that make up Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-# As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
+# As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
 ---
 
-# How Azure Machine Learning service works: Architecture and concepts
+# How Azure Machine Learning works: Architecture and concepts
 
-Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
-![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## Workflow
 
@@ -44,10 +44,10 @@ Use these tools for Azure Machine Learning:
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
++ Use the [visual interface (preview) for Azure Machine Learning](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
 > [!NOTE]
-> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+> Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## Glossary
 
@@ -72,7 +72,7 @@ Use these tools for Azure Machine Learning:
 
 ### Workspaces
 
-[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 ### Experiments
 
@@ -84,13 +84,13 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
 
-A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
+A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
+Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
+For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
-The **model registry** keeps track of all the models in your Azure Machine Learning service workspace.
+The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
 
 Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
 
@@ -121,12 +121,12 @@ For more information, see the following articles:
 
 * [Train ML Models with estimators](how-to-train-ml-models.md).
 * [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
-* [Train and register TensorFlow models at scale with Azure Machine Learning service](how-to-train-tensorflow.md).
-* [Train and register Chainer models at scale with Azure Machine Learning service](how-to-train-chainer.md).
+* [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
+* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
 
 ### Datasets and datastores
 
-**Azure Machine Learning Datasets** (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
+**Azure Machine Learning Datasets** (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
 
 Datasets provide methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
@@ -144,7 +144,7 @@ Learn more about the [available compute targets for training and deployment](con
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 
 ### Runs
 
@@ -190,7 +190,7 @@ Azure Machine Learning can create two types of images:
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
 
-The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+Azure Machine Learning provides a base image, which is used by default. You can also provide your own custom images.
 
 ### Image registry
 
@@ -236,8 +236,8 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 
 ### Next steps
 
-To get started with Azure Machine Learning service, see:
+To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

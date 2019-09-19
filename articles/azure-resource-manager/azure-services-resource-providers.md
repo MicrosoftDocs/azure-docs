@@ -97,9 +97,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Management Groups](/azure/governance/management-groups/) |

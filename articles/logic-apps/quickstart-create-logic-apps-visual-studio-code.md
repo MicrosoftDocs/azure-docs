@@ -57,7 +57,7 @@ and their structure, which uses JavaScript Object Notation (JSON)
 
 * Download and install these tools, if you don't have them already: 
 
-  * [Visual Studio Code version 1.25.1 or later]("https://code.visualstudio.com/), which is free
+  * [Visual Studio Code version 1.25.1 or later](https://code.visualstudio.com/), which is free
 
   * Visual Studio Code extension for Azure Logic Apps
 

@@ -1,5 +1,5 @@
 ---
-title: Support matrix for the Microsoft Azure Recovery Services (MARS) agent - Azure Backup
+title: Support matrix for the Microsoft Azure Recovery Services (MARS) agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
 author: dcurwin
 ms.service: backup

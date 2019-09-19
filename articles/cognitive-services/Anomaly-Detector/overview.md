@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 03/26/2019
+ms.date: 09/05/2019
 ms.author: aahi
 ---
 
@@ -71,6 +71,11 @@ After signing up:
 * Please refer to this paper [Time-Series Anomaly Detection Service at Microsoft](https://arxiv.org/abs/1906.03821) (accepted by KDD 2019) for the cutting-edge SR-CNN algorithms developed by Microsoft.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]
+
+## Join the Anomaly Detector community
+
+* Join the [Anomaly Detector Advisors group on Microsoft Teams](https://aka.ms/AdAdvisorsJoin)
+* See selected [user generated content](user-generated-content.md)
 
 ## Next steps
 

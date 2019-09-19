@@ -109,6 +109,8 @@
         href: apptio-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
+      - name: ARC Facilities
+        href: arc-facilities-tutorial.md
       - name: Arc Publishing - SSO
         href: arc-tutorial.md
       - name: ArcGIS Enterprise
@@ -305,6 +307,8 @@
         href: complianceelf-tutorial.md
       - name: Concur
         href: concur-tutorial.md
+      - name: Concur Travel and Expense
+        href: concur-travel-and-expense-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
       - name: Confirmit Horizons
@@ -981,6 +985,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
@@ -1031,6 +1037,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RENRAKU
+        href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
       - name: Reviewsnap
@@ -1377,6 +1385,8 @@
         href: work-com-tutorial.md
       - name: Workable
         href: workable-tutorial.md
+      - name: WorkBoard
+        href: workboard-tutorial.md
       - name: Workday
         href: workday-tutorial.md
       - name: Workfront
@@ -1494,18 +1504,28 @@
         href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
+      - name: Elium
+        href: elium-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
+      - name: Flock
+        href: flock-provisioning-tutorial.md
+      - name: Foodee
+        href: foodee-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Insight4GRC
+        href: insight4grc-provisioning-tutorial.md
+      - name: iPass SmartConnect
+        href: ipass-smartconnect-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1540,6 +1560,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: Robin
+        href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
       - name: Salesforce
@@ -1562,6 +1584,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
@@ -1572,6 +1596,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
+      - name: Visitly
+        href: visitly-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
       - name: Workteam
@@ -1580,6 +1606,8 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
+      - name: Wrike
+        href: wrike-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
