@@ -4,7 +4,7 @@ description: Learn how to troubleshoot an application gateway by using an Intern
 services: vpn-gateway
 documentationCenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 
