@@ -16,9 +16,11 @@ ms.author: iainfou
 ---
 # Troubleshoot common secure LDAP configuration issues with Azure Active Directory Domain Services
 
-This article provides resolutions for common issues when you [configure secure LDAP](tutorial-configure-ldaps.md) for Azure Active Directory Domain Services (Azure AD DS).
+Applications and services that use lightweight directory access protocol (LDAP) to communicate with Azure Active Directory Domain Services (Azure AD DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
-## AADDS101: Secure LDAP Network Security Group configuration
+This article helps you understand and resolve common alerts with secure LDAP access in Azure AD DS.
+
+## AADDS101: Secure LDAP network security group configuration
 
 **Alert message**
 

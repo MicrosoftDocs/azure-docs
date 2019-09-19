@@ -18,7 +18,7 @@ ms.author: iainfou
 
 To let applications and services correctly communicate with Azure Active Directory Domain Services (Azure AD DS), specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of an Azure AD DS managed domain shows an alert if the required network security group rules aren't in place.
 
-This article helps you troubleshoot and resolve alerts for network security group configuration issues.
+This article helps you understand and resolve common alerts for network security group configuration issues.
 
 ## Alert AADDS104: Network error
 
