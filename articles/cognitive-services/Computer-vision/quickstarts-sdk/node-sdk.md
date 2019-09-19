@@ -98,7 +98,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
-Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) object with your key and endpoint, and use it to create a [ComputerVisionClient]() object.
+Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) object with your key and endpoint, and use it to create a [ComputerVisionClient]() object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
 
@@ -107,7 +107,7 @@ Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](do
 The code in this section analyzes remote images to extract various visual features. You can do these operations as part of the **analyzeImage** method of the client object, or you can call them using individual methods. See the [reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision) for details.
 
 > [!NOTE]
-> You can also analyze a local image. See the sample code on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
+> You can also analyze a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
 ### Get image description
 
@@ -220,7 +220,7 @@ Define the helper function `describeType`:
 Computer Vision can read visible text in an image and convert it to a character stream.
 
 > [!NOTE]
-> You can also read text from a local image. See the sample code on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
+> You can also read text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
 
 ### Set up test images
 
@@ -263,4 +263,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 >[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision)
 
 * [What is the Computer Vision API?](../Home.md)
-* The source code for this sample can be found on [GitHub](github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
