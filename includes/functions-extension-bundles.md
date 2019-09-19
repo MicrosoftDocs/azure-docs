@@ -15,7 +15,7 @@ To enable extension bundles, open the host.json file and update its contents to 
     "version": "2.0",
     "extensionBundle": {
         "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[1.*, 2.0.0)"
+        "version": "[1.*, 2.0.0]"
     }
 }
 ```
