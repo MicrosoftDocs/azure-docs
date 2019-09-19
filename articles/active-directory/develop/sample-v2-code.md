@@ -23,8 +23,6 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform code samples (v2.0 endpoint)
 
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
-
 You can use Microsoft identity platform to:
 
 - Add authentication and authorization to your web applications and web APIs.
