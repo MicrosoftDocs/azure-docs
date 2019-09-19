@@ -66,7 +66,7 @@ landingContent:
         links:
           - text: Index from Blob storage
             url: search-howto-indexing-azure-blob-storage.md
-          - text: INdex JSON blobs
+          - text: Index JSON blobs
             url: search-howto-index-json-blobs.md
           - text: Index from Azure SQL Database
             url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
