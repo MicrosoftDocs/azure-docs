@@ -81,6 +81,8 @@ More Azure Key Vault template samples can be found [here](https://azure.microsof
 
     ![Resource Manager template, Key Vault integration, deploy portal notification](./media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
 
+The Azure portal is used to deploy the template. In addition to the Azure portal, you can also use the Azure PowerShell, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/resource-group-template-deploy.md).
+
 ## Validate the deployment
 
 You can either use the Azure portal to check the key vault and the secret, or use the following Azure CLI or Azure PowerShell script to list the secret created.
