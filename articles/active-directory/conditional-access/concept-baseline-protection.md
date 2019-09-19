@@ -26,7 +26,7 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 >
 > Disabled baseline policies have been automatically been removed from Azure portal and can no longer be enabled. Any enabled baseline policies will be visible in Azure Portal and will continue to be enforced in your environment until January 31st, 2020. 
 > 
-> Organizations must migrate to [Security Defaults]() or create [custom Conditional Access policies](concept-conditional-access-policy-common.md) to enable similar security settings before January 31st, 2020. 
+> Organizations must migrate to [Security Defaults](concept-conditional-access-security-defaults.md) or create [custom Conditional Access policies](concept-conditional-access-policy-common.md) to enable similar security settings before January 31st, 2020. 
 
 ## Baseline policies
 
