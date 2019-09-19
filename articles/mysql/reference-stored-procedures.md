@@ -1,5 +1,5 @@
 ---
-title: Azure Database for MySQL Stored Procedures
+title: Azure Database for MySQL stored procedures
 description: This article introduces stored procedures specific to Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
@@ -10,7 +10,9 @@ ms.date: 09/19/2019
 
 # Azure Database for MySQL Stored Procedures
 
-## Data-in Replication Stored Procedures
+Stored procedures are available on Azure Database for MySQL servers to help manage your MySQL server. This includes managing your server's connections, queries, and setting up Data-in Replication.  
+
+## Data-in Replication stored procedures
 
 Data-in Replication allows you to synchronize data from a MySQL server running on-premises, in virtual machines, or database services hosted by other cloud providers into the Azure Database for MySQL service.
 
@@ -26,7 +28,7 @@ The following stored procedures are used to set up or remove Data-in Replication
 
 To set up data-in replication between a master and a replica in Azure Database for MySQL, refer to [how to configure data-in replication](howto-data-in-replication.md).
 
-## Other Stored Procedures
+## Other stored procedures
 
 The following stored procedures are available in Azure Database for MySQL to manage your server.
 
@@ -35,3 +37,7 @@ The following stored procedures are available in Azure Database for MySQL to man
 |*mysql.az_kill*|processlist_id|N/A|Equivalent to [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the connection associated with the provided processlist_id after terminating any statement the connection is executing.|
 |*mysql.az_kill_query*|processlist_id|N/A|Equivalent to [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) command. Will terminate the statement the connection is currently executing. Leaves the connection itself alive.|
 |*mysql.az_load_timezone*|N/A|N/A|Loads time zone tables to allow the `time_zone` parameter to be set to named values (ex. "US/Pacific").|
+
+## Next steps
+- Learn how to set up [Data-in Replication](howto-data-in-replication.md)
+- Learn how to use the [time zone tables](howto-server-parameters.md#working-with-the-time-zone-parameter)
