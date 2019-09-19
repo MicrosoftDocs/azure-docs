@@ -1,19 +1,108 @@
-### YamlMime:YamlDocument
+### YamlMime:Landing
+
+title: Azure Lighthouse documentation
+summary: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
+
+
 documentType: LandingData
 title: Azure Lighthouse Documentation
 metadata:
   title: Azure Lighthouse Documentation
   description: Learn how to manage customer resources at scale
-  author: JnHs
-  manager: carmonm
   ms.service: lighthouse
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  author: JnHs
   ms.author: jenhayes
+  ms.date: 07/11/2019
+  
+
+landingContent:
+  - title: About Azure Lighthouse
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Lighthouse?
+            url: ./overview.md
+      - linkListType: concept
+        links:
+          - text: Azure delegated resource management
+            url: ./concepts/azure-delegated-resource-management.md
+          - text: Cross-tenant management experiences
+            url: ./concepts/cross-tenant-management-experience.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a customer to Azure delegated resource management
+            url: ./how-to/onboard-customer.md
+      - linkListType: concept
+        links:
+          - text: Cloud Solution Provider program considerations
+            url: ./concepts/cloud-solution-provider.md
+          - text: Recommended security practices
+            url: ./concepts/recommended-security-practices.md
+
+  - title: Marketplace offers
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Managed Services offers in Azure Marketplace
+            url: ./concepts/managed-services-offers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Publish Managed Services offers
+            url: ./how-to/publish-managed-services-offers.md
+
+  - title: Azure portal experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request product features
+            url: https://feedback.azure.com/forums/922753
+
+  - title: Reference - Downloads
+    linkLists:
+      - linkListType: download
+        links:
+          - text: OpenAPI - 2019-04-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+          - text: SDK for .NET - NuGet
+            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
+          - text: SDK for Java - Maven
+            url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+          - text: SDK for Ruby - Gem
+            url: https://rubygems.org/gems/azure_mgmt_resourcegraph
+
+  - title: Reference - SDKs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.resourcegraph/
+          - text: Azure CLI
+            url: /cli/azure/ext/resource-graph/graph
+          - text: .NET
+            url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+          - text: Go
+            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
+          - text: Java
+            url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+          - text: Node
+            url: /javascript/api/@azure/arm-resourcegraph
+          - text: Python
+            url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
 abstract:
-  description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
+  description: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
 sections:
 - title: Concepts
   items:
