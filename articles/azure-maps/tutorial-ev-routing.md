@@ -3,7 +3,7 @@ title: Electric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
 description: EV Routing using Azure Maps routing APIs and Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/12/2019
+ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -79,18 +79,15 @@ You need to install packages at the project level in order to run the code in th
 Run the following script to load all of the required modules and frameworks.
 
 ```python
-import os
-import json
 import time
 import aiohttp
-import requests
 import urllib.parse
 from IPython.display import Image, display
 ```
 
 ## Request for reachable range boundary
 
-In our scenario, package delivery company has some electric vehicles in their fleet. During the day electric vehicles need to be recharged without having to return to the warehouse. Every time the current charge goes below 45 kWH (electric vehicle is low on charge), we need to search for a set of charging stations that are within the reachable range and get the boundary information for that range. Because company prefers to use routes balanced by economy and speed, the requested routeType is 'eco'. The following script calls the [Get route range API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) of the Azure Maps routing service with parameters for the vehicle's consumption model and parses the response to create a polygon object of the geojson format representing the car's maximum reachable range.
+In our scenario, package delivery company has some electric vehicles in their fleet. During the day electric vehicles need to be recharged without having to return to the warehouse. Every time the current remaining charge for the electric vehicle gets less than an hour (electric vehicle is low on charge), we need to search for a set of charging stations that are within the reachable range and get the boundary information for that range. Because company prefers to use routes balanced by economy and speed, the requested routeType is 'eco'. The following script calls the [Get route range API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) of the Azure Maps routing service with parameters for the vehicle's consumption model and parses the response to create a polygon object of the geojson format representing the car's maximum reachable range.
 
 Run the script below to get bounds for the electric vehicle's reachable range.
 
@@ -120,26 +117,22 @@ boundsData = {
                    ]
                 }
              }
-
-
-polyBoundsCenter = list(routeRangeResponse["reachableRange"]["center"].values())
 ```
 
 ## Search electric vehicle charging stations within reachable range
 
-Once we have the reachable range (isochrone) for the electric vehicle,  we can search for charging stations in that range. The following script calls the Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) to search for electric vehicle charging stations within bounds of the car's maximum reachable range, and then parses the response to an array of reachable locations.
+Once we have the reachable range (isochrone) for the electric vehicle, we can search for charging stations in that range. The following script calls the Azure Maps [Post Search Inside Geometry API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry) to search for electric vehicle charging stations within bounds of the car's maximum reachable range, and then parses the response to an array of reachable locations.
 
 Run the following script to search for electric vehicle charging stations within reachable range.
 
 ```python
-searchPolyResponse = await (await session.post(url = "https://atlas.microsoft.com/search/geometry/json?subscription-key={}&api-version=1.0&query=electric vehicle station".format(subscriptionKey), json = boundsData)).json() 
+searchPolyResponse = await (await session.post(url = "https://atlas.microsoft.com/search/geometry/json?subscription-key={}&api-version=1.0&query=electric vehicle station&idxSet=POI&limit=50".format(subscriptionKey), json = boundsData)).json() 
 
 reachableLocations = []
 for loc in range(len(searchPolyResponse["results"])):
                 location = list(searchPolyResponse["results"][loc]["position"].values())
                 location[0], location[1] = location[1], location[0]
                 reachableLocations.append(location)
-
 ```
 
 ## Upload reachable range and charging points to Azure Maps Data service
@@ -168,7 +161,6 @@ rangeData = {
 uploadRangeResponse = await session.post("https://atlas.microsoft.com/mapData/upload?subscription-key={}&api-version=1.0&dataFormat=geojson".format(subscriptionKey), json = rangeData)
 
 rangeUdidRequest = uploadRangeResponse.headers["Location"]+"&subscription-key={}".format(subscriptionKey)
-# getRangeUdid = await (await session.get(rangeUdidRequest)).json()
 
 while True:
     getRangeUdid = await (await session.get(rangeUdidRequest)).json()
@@ -203,21 +195,44 @@ while True:
         break
     else:
         time.sleep(0.2)
-
 poiUdid = getPoiUdid["udid"]
 ```
 
 ## Render charging stations and reachable range on map
 
-Once we have the data uploaded to the data service, we will now run the following script to call the Azure Maps Get Map Image service, [Get Map Image API](https://docs.microsoft.com/en-us/rest/api/maps/render/getmapimage) to render the charging points and maximum reachable boundary on the static map image. 
+Once we have the data uploaded to the data service, we will now run the following script to call the Azure Maps Get Map Image service, [Get Map Image API](https://docs.microsoft.com/en-us/rest/api/maps/render/getmapimage) to render the charging points and maximum reachable boundary on the static map image.
 
 ```python
-path = "lc1773c6|fcdcbdba|lw3|la0.80|fa0.40||udid-{}".format(rangeUdid)
-pins = "default|la-35+50|ls12|lc003C62|co197cd9||udid-{}".format(poiUdid)
+# Get bounds for bounding box
+def getBounds(polyBounds):
+    maxLon = max(map(lambda x: x[0], polyBounds))
+    minLon = min(map(lambda x: x[0], polyBounds))
 
-staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&pins={}&path={}&center=-118.36669921875,34.17318076114497&zoom=7".format(subscriptionKey,pins,path))
+    maxLat = max(map(lambda x: x[1], polyBounds))
+    minLat = min(map(lambda x: x[1], polyBounds))
+    
+    # Buffer the bounding box by 10% to account for the pixel size of pins at the ends of the route.
+    lonBuffer = (maxLon-minLon)*0.1
+    minLon -= lonBuffer
+    maxLon += lonBuffer
+
+    latBuffer = (maxLat-minLat)*0.1
+    minLat -= latBuffer
+    maxLat += latBuffer
+    
+    return [minLon, maxLon, minLat, maxLat]
+
+minLon, maxLon, minLat, maxLat = getBounds(polyBounds)
+
+path = "lcff3333|lw3|la0.80|fa0.35||udid-{}".format(rangeUdid)
+pins = "custom|an15 53||udid-{}||https://raw.githubusercontent.com/Azure-Samples/AzureMapsCodeSamples/master/AzureMapsCodeSamples/Common/images/icons/ev_pin.png".format(poiUdid)
+
+encodedPins = urllib.parse.quote(pins, safe='')
+
+# For the center point note that the longitude comes before the latitude.
+staticMapResponse =  await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&pins={}&path={}&bbox={}&zoom=12".format(subscriptionKey,encodedPins,path,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+
 poiRangeMap = await staticMapResponse.content.read()
-
 
 display(Image(poiRangeMap))
 ```
@@ -235,7 +250,7 @@ Run the following script to find the closest reachable charging station that can
 locationData = {
             "origins": {
               "type": "MultiPoint",
-              "coordinates": [[-122.1386142, 47.6422088]]
+              "coordinates": [[currentLocation[1],currentLocation[0]]]
             },
             "destinations": {
               "type": "MultiPoint",
@@ -243,8 +258,10 @@ locationData = {
             }
          }
 
-searchPolyRes = await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={}&api-version=1.0&waitForResults=false".format(subscriptionKey), json = locationData) 
+searchPolyRes = await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={}&api-version=1.0&routeType=shortest&waitForResults=false".format(subscriptionKey), json = locationData) 
+
 routeMatrixResponse = await (await session.get(searchPolyRes.headers["Location"])).json()
+
 
 distances = []
 for dist in range(len(reachableLocations)):
@@ -257,14 +274,13 @@ closestChargeLoc = ",".join(str(i) for i in reachableLocations[minDistIndex])
 
 ## Calculate route to the closest charging station
 
-After we have found the closest charging station, next we will call the [Get Route Directions API](https://docs.microsoft.com/en-us/rest/api/maps/route/getroutedirections) to request the detailed route from the electric vehicle's current location to the charging station.
+Now that we have found the closest charging station, next we will call the [Get Route Directions API](https://docs.microsoft.com/en-us/rest/api/maps/route/getroutedirections) to request the detailed route from the electric vehicle's current location to the charging station.
 
 First, you need to run the following script to get the route, and parse the response to create a geojson object of the route.
 
 ```python
-routeResponse = await (await session.get("https://atlas.microsoft.com/route/directions/json?subscription-key={}&api-version=1.0&query={}:{}".format(subscriptionKey, currentLocation, closestChargeLoc))).json()
+routeResponse = await (await session.get("https://atlas.microsoft.com/route/directions/json?subscription-key={}&api-version=1.0&query={}:{}".format(subscriptionKey, str(currentLocation[0])+","+str(currentLocation[1]), closestChargeLoc))).json()
 
-routeResponse
 route = []
 for loc in range(len(routeResponse["routes"][0]["legs"][0]["points"])):
                 location = list(routeResponse["routes"][0]["legs"][0]["points"][loc].values())
@@ -297,17 +313,32 @@ while True:
 
 udid = udidRequest["udid"]
 
-origin = currentLocation.split(",")
-destination = closestChargeLoc.split(",")
+destination = route[-1]
+
+destination[1], destination[0] = destination[0], destination[1]
 
 path = "lc0f6dd9|lw5||udid-{}".format(udid)
-pins = "default|la-35+50|ls12|codb1818||{} {}|{} {}".format(origin[1],origin[0],destination[1],destination[0])
+pins = "default|codb1818||{} {}|{} {}".format(str(currentLocation[1]),str(currentLocation[0]),destination[1],destination[0])
 
-staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&&path={}&pins={}&center=-118.34609985351562,34.04469442222683&zoom=10".format(subscriptionKey,path,pins))
+
+# Get bounds for bounding box.
+minLat, maxLat = (float(destination[0]),currentLocation[0]) if float(destination[0])<currentLocation[0] else (currentLocation[0], float(destination[0]))
+minLon, maxLon = (float(destination[1]),currentLocation[1]) if float(destination[1])<currentLocation[1] else (currentLocation[1], float(destination[1]))
+
+#Buffer the bounding box by 10% to account for the pixel size of pins at the ends of the route.
+lonBuffer = (maxLon-minLon)*0.1
+minLon -= lonBuffer
+maxLon += lonBuffer
+
+latBuffer = (maxLat-minLat)*0.1
+minLat -= latBuffer
+maxLat += latBuffer
+
+staticMapResponse = await session.get("https://atlas.microsoft.com/map/static/png?api-version=1.0&subscription-key={}&&path={}&pins={}&bbox={}&zoom=16".format(subscriptionKey,path,pins,str(minLon)+", "+str(minLat)+", "+str(maxLon)+", "+str(maxLat)))
+
 staticMapImage = await staticMapResponse.content.read()
 
 await session.close()
-
 display(Image(staticMapImage))
 ```
 
@@ -315,7 +346,7 @@ display(Image(staticMapImage))
 
 ## Next steps
 
-In this tutorial you learned how to call directly Azure Maps REST APIs and visualize Azure Maps data using Python.
+In this tutorial you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data using Python.
 
 For a complete list of Azure Maps REST APIs, see:
 
