@@ -101,12 +101,8 @@ You'll see the **Getting started** screen, since this is your first experiment w
         Column headers| All files have same headers
         Skip rows | None
 
-        >[!NOTE]
-        > If any of the settings on this form are updated the preview will update accordingly.
-
         Select **Next**.
     
-
     1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
 
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
@@ -127,7 +123,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
     Concurrency| Select **5** for the number of max concurrent iterations.
 
    >[!NOTE]
-   > For this experiment, you don't set a metric or max cores per iterations threshold. You also don't block algorithms from being tested.
+   > For this experiment, you don't set a metric score or max cores per iterations threshold. You also don't block algorithms from being tested.
 
 1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
 
@@ -137,20 +133,25 @@ You'll see the **Getting started** screen, since this is your first experiment w
 >
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the iteration results as they complete while the others are still running. 
 
-##  View experiment details
+##  Explore iteration results
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete, and orders them by metric score. By default, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
+   
+The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
+
+![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## Deploy the model
 
-By using automated machine learning in the workspace landing page, you can deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
-For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+Automated machine learning in the workspace landing page allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+
+Once the run is complete, navigate back to the **Iteration chart** and **Iterations list** detail page. 
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. On the **Run Detail** page, select the **Deploy Best Model** button in the top-right corner.
+1. Select the **Deploy Best Model** button in the top-right corner.
 
 1. Populate the **Deploy Best Model** pane as follows:
 
