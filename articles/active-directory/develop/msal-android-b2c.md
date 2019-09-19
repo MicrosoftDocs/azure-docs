@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 Microsoft Authentication Library (MSAL) enables application developers to authenticate users with social and local identities by using [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C is an identity management service. Use it to customize and control how customers sign up, sign in, and manage their profiles when they use your applications.
 
-## Configure Known Authorities and Redirect URI
+## Configure known authorities and redirect URI
 
 In MSAL for Android, B2C policies (user journeys) are configured as individual authorities.
 

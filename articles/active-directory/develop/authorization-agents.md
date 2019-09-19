@@ -90,6 +90,6 @@ The following browsers have been tested to see if they correctly redirect to the
 | Nexus (API 28) |pass | pass | pass | pass | fail |pass |
 |MI | pass | pass | pass | pass | fail |pass |
 
-*Samsung's built-in browser is Samsung Internet.
-**Huawei's built-in browser is Huawei Browser.
+*Samsung's built-in browser is Samsung Internet.  
+**Huawei's built-in browser is Huawei Browser.  
 ***The default browser can't be changed inside the Oppo device setting.

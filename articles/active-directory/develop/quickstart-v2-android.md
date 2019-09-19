@@ -29,11 +29,11 @@ This quickstart uses a code sample to demonstrate how an Android application can
 > [!NOTE]
 > **Prerequisites**
 > * Android Studio 
-> * Android 16+ is required 
+> * Android 16+ is required
 
 ## Step 1: Get the sample app
 
-1. [Clone the code from ](https://github.com/Azure-Samples/ms-identity-android-java.git)
+1. [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git)
 
 ## Step 2: Register your application
 
@@ -109,9 +109,9 @@ To register an application object, and add that application object's registratio
 
 1. Substitute the package name with what you registered in the Azure portal for the `android:host=` value.  In this case, it will be: `com.azuresamples.msalandroidapp`.
 
-> [!IMPORTANT]
-> The **android:path** value **must** have a leading "/" character, or you'll get a red line beneath the value and the sample app won't run.
- 
+    > [!IMPORTANT]
+    > The **android:path** value **must** have a leading "/" character, or you'll get a red line beneath the value and the sample app won't run.
+     
 1. Substitute the key hash you got by running keytool earlier and entered in the Azure portal, for the `android:path=` value. The Signature Hash should not be URL encoded.
 
 ## Step 4: Run the sample app
@@ -167,7 +167,7 @@ dependencies {
 
 This instructs Gradle to download and build MSAL from maven central.
 
-### MSAL Imports
+### MSAL imports
 
 The imports that are relevant to the MSAL library are `com.microsoft.identity.client.*`.  For example, you'll see `import com.microsoft.identity.client.PublicClientApplication;` which is the namespace for the `PublicClientApplication` class, which represents your public client application.
 

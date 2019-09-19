@@ -131,7 +131,7 @@ For clients that support multiple national clouds, specify `true`. The Microsoft
 
 A boolean that indicates whether you're using a Microsoft Identity broker compatible in-broker redirect URI. Set to `false` if you don't want to use the broker within your app.
 
-> Note: If you're using the AAD Authority with Audience set to `"MicrosoftPersonalAccount"`, the broker won't be used.
+If you're using the AAD Authority with Audience set to `"MicrosoftPersonalAccount"`, the broker won't be used.
 
 ### http
 
@@ -148,7 +148,7 @@ The following global settings are for logging:
 
 | Property | Data Type  | Required | Notes |
 | ----------|-------------|-----------|---------|
-| `pii_enabled`  | boolean | No | Whether to emit personally identifiable information |
+| `pii_enabled`  | boolean | No | Whether to emit personal data |
 | `log_level`   | boolean | No | Which log messages to output |
 | `logcat_enabled` | boolean | No | Whether to output to log cat in addition to the logging interface |
 

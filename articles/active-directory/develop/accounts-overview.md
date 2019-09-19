@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Accounts & tenant profiles
 
-## Introduction
+This article provides an overview of what an account is in the Microsoft identity platform.
 
 The Microsoft Authentication Library (MSAL) API replaces the term *user* with the term *account*. One reason is that a user (human or software agent) may have, or can use, multiple accounts. Those accounts may be in their own organization, and those issued by other organizations that the user is a member of.
 

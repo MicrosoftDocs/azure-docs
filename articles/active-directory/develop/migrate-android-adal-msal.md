@@ -72,7 +72,8 @@ In your app registration in the portal, you will see an **API permissions** tab.
 
 With ADAL and the AAD v1 endpoint, user consent to resources they own was granted on first use. With MSAL and the Microsoft identity platform, consent can be requested incrementally. Incremental consent is useful for permissions that a user may consider high privilege, or may otherwise question if not provided with a clear explanation of why the permission is required. In ADAL, those permissions may have resulted in the user abandoning signing in to your app.
 
->NOTE: We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
+> [!TIP]
+> We recommend the use of incremental consent in scenarios where you need to provide additional context to your user about why your app needs a permission.
 
 ### Admin consent
 
@@ -153,7 +154,7 @@ Once a successful `acquireToken` call is made, you will see a reference to an `I
 
 If you have an app that accesses claims about an account from each of the tenants in which the account is represented, you can cast `IAccount` objects to `IMultiTenantAccount`. This interface provides a map of `ITenantProfiles`, keyed by tenant ID, that allows you to access the claims that belong to the account in each of the tenants you've requested a token from, relative to the current account.
 
-> NOTE: The claims at the root of the `IAccount` and `IMultiTenantAccount` always contains the claims from the home tenant. If you have not yet made a request for a token within the home tenant, this collection will be empty.
+The claims at the root of the `IAccount` and `IMultiTenantAccount` always contain the claims from the home tenant. If you have not yet made a request for a token within the home tenant, this collection will be empty.
 
 ## Other changes
 
