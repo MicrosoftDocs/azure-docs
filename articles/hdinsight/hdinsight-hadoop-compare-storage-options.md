@@ -8,6 +8,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/17/2019
 ---
+
 # Compare storage options for use with Azure HDInsight clusters
 
 You can choose between a few different Azure storage services when creating HDInsight clusters:
@@ -28,7 +29,7 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
 
-**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage.
+**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage and Page Blob is not a supported storage option.
 
 For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
@@ -123,7 +124,7 @@ If you choose to secure your storage account with the **Firewalls and virtual ne
 
 The following diagram provides an abstract view of the HDInsight architecture of Azure Storage:
 
-![Diagram showing how Hadoop clusters use the HDFS API to access and store structured and unstructured data in Blob storage](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage Architecture")
+![HDInsight Storage Architecture](./media/hdinsight-hadoop-compare-storage-options/storage-architecture.png "HDInsight Storage Architecture")
 
 HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the fully qualified URI, for example:
 
