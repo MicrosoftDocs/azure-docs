@@ -94,7 +94,6 @@ The commands in this section complete the following actions:
 - Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourKeyVaultName>`.
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
-- Retrieve the actual access token from the Key Vault secret that corresponds to the shared access signature definition.
 
 ### Create a shared access signature token
 

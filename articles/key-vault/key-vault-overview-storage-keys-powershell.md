@@ -183,16 +183,13 @@ Tags                :
 
 You can also ask Key Vault to generate shared access signature tokens. A shared access signature provides delegated access to resources in your storage account. You can grant clients access to resources in your storage account without sharing your account keys. A shared access signature provides you with a secure way to share your storage resources without compromising your account keys.
 
-> [NOTE] 
 The commands in this section complete the following actions:
 
-- Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account $storageAccountName in your key vault $keyVaultName.
+- Set an account shared access signature definition. 
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
-- Retrieve the actual access token from the Key Vault secret that corresponds to the shared access signature definition.
 
 ### Set variables
-
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourStorageAccountName> and <YourKeyVaultName> placeholders.
 
@@ -218,7 +215,7 @@ $sasToken = New-AzStorageAccountSasToken -Service blob,file,Table,Queue -Resourc
 The value of $sasToken will look similar to this.
 
 ```console
-?sv=2018-11-09&sig=aL4QgnlRW92xr2sUTRdeSCOJO%2B5FpvXpmPDEEftIiUU%3D&spr=https&st=2019-09-18T18%3A25%3A00Z&se=2019-10-19T18%3A25%3A00Z&srt=sco&ss=bfqt&sp=racupwdl
+?sv=2018-11-09&sig=5GWqHFkEOtM7W9alOgoXSCOJO%2B55qJr4J7tHQjCId9S%3D&spr=https&st=2019-09-18T18%3A25%3A00Z&se=2019-10-19T18%3A25%3A00Z&srt=sco&ss=bfqt&sp=racupwdl
 ```
 
 ### Generate a shared access signature definition
