@@ -13897,7 +13897,7 @@
     },
     {
       "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     },
     {
