@@ -35,6 +35,7 @@
 - name: Samples
   items:    
   - name: Media Services samples
+    displayNameL .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
