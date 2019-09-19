@@ -3,11 +3,13 @@ title: Azure HDInsight management IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user defined routes for virtual networking with Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/19/2019
 ---
+
 # HDInsight management IP addresses
 
 If you use network security groups (NSGs) or user defined routes (UDRs) to control inbound traffic to your HDInsight cluster, you must ensure that your cluster can communicate with critical Azure health and management services.  Some of the IP addresses for these services are region specific, and some of them apply to all Azure regions. You may also need to allow traffic from the Azure DNS service if you aren't using custom DNS.
