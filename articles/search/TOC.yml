@@ -239,6 +239,8 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
+    - name: Troubleshoot enrichment issues
+      href: cognitive-search-common-errors-warnings.md
   - name: Knowledge store (preview)
     items:
     - name: Create a knowledge store in Azure portal
@@ -379,8 +381,6 @@
     items:
     - name: Named Entity Recognition
       href: cognitive-search-skill-named-entity-recognition.md
-  - name: Common Errors and Warnings
-    href: cognitive-search-common-errors-warnings.md
 - name: Resources
   items:
   - name: Azure Community Support
