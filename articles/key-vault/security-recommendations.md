@@ -6,7 +6,7 @@ author: barclayn
 manager: rkarlin
 ms.service: key-vault
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: security-recommendations
 
@@ -25,7 +25,6 @@ Some of the recommendations included in this article can be automatically monito
 
 | Category | Recommendation | Comments | Security Center |
 |-|-|----|--|
-| General | Stay up-to-date | Use the latest versions of supported platforms, programming languages, protocols, and frameworks.  | - |
 | Data protection |Enable soft delete | [Soft delete](key-vault-ovw-soft-delete.md) allows you to recover deleted vaults and vault objects |  - |
 | Data protection | Limit access to vault data  | Follow the principle of least privilege and limit which members of your organization have access to vault data |  - |
 | Identity and access management | Limit the number of users with contributor access | If a user has Contributor permissions to a key vault management plane, the user can grant themselves access to the data plane by setting a Key Vault access policy. You should tightly control who has Contributor role access to your key vaults. Ensure that only those with a need for access authorized persons can access and manage your vaults. You can read [Secure access to a key vault](key-vault-secure-your-key-vault.md) | - |
