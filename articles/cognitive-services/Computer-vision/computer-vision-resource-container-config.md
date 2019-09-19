@@ -107,7 +107,7 @@ The following Docker examples are for the Read container.
 
   ```
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  mcr.microsoft.com/azure-cognitive-services/read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -117,7 +117,7 @@ The following Docker examples are for the Read container.
 
   ```
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-read \
+  mcr.microsoft.com/azure-cognitive-services/read \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} \
