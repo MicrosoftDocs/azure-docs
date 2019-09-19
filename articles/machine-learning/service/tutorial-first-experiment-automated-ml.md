@@ -62,7 +62,10 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Select **Create experiment**. 
 
-1. Enter **my-1st-automl-experiment** as the experiment name.
+1. Enter the following experiment name:
+   ```text
+   my-1st-automl-experiment
+   ```
 
 1. Select **Create a new compute**. A compute is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
 
@@ -81,9 +84,11 @@ You'll see the **Getting started** screen, since this is your first experiment w
     >[!NOTE]
     >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
 
-1. Select **Upload from local file**. From here, you create a new dataset with the **bankmarketing_train.csv** file you previously downloaded for this tutorial. 
+1. Select **Upload from local file** to begin creating a new dataset. 
 
-    1. Select **Browse** and then select the **bankmarketing_train.csv** file on your local computer. 
+    1. Select **Browse**.
+    
+    1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Give your dataset a unique name and provide an optional description. 
 
