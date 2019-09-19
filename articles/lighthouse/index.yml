@@ -75,8 +75,6 @@ landingContent:
             url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
           - text: SDK for Python - PyPi
             url: https://pypi.org/project/azure-mgmt-managedservices/
-          - text: SDK for Ruby - Gem
-            url: https://rubygems.org/gems/azure_mgmt_resourcegraph
 
   - title: Reference - SDKs
     linkLists:
