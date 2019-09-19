@@ -223,16 +223,24 @@
       items:
         - name: Overview
           href: msal-overview.md
+        - name: Accounts & Tenant Profiles
+          href: accounts-overview.md
+        - name: Brokered auth
+          href: brokered-auth.md
         - name: Migration
           items:
           - name: Migrate to MSAL.NET
             href: msal-net-migration.md
           - name: Migrate to MSAL.js
             href: msal-compare-msal-js-and-adal-js.md
+          - name: Migrate to MSAL for Android
+            href: migrate-android-adal-msal.md
           - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
             href: msal-net-migration-ios-broker.md
         - name: Supported authentication flows
           href: msal-authentication-flows.md
+        - name: Single and multi account public client apps
+          href: single-multi-account.md
         - name: Acquire and cache tokens
           items:
           - name: Acquire and cache tokens
@@ -257,6 +265,8 @@
           href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
+        - name: Authorization agents (Android)
+          href: authorization-agents.md
         - name: Single sign-on (JS)
           href: msal-js-sso.md
         - name: Prompt behavior (JS)
@@ -265,6 +275,8 @@
           href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
+          - name: Android
+            href: msal-android-b2c.md
           - name: JavaScript
             href: msal-b2c-overview.md
           - name: .NET
@@ -417,6 +429,8 @@
       href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Application manifest
       href: reference-app-manifest.md
+    - name: Android MSAL configuration file
+      href: msal-configuration.md
     - name: Authentication and authorization error codes
       href: reference-aadsts-error-codes.md
     - name: Breaking changes
