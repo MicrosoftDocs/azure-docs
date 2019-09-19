@@ -81,7 +81,7 @@ ms.date: 09/15/2019
 
 1. Once you’ve set up a linked service, In **AzureDataExplorerTable** > **Connection**, add **Table** name. Select **Preview data**, to make sure that the data is presented properly.
 
-Your dataset is now ready, and you can continue editing your pipeline.
+   Your dataset is now ready, and you can continue editing your pipeline.
 
 ### Add a query to your lookup activity
 
@@ -139,7 +139,7 @@ Your dataset is now ready, and you can continue editing your pipeline.
     The **Command** instructs Azure Data Explorer to export the results of a given query into a blob storage, in a compressed format. It runs asynchronously (using the async modifier).
     The query addresses the database column of each row in the Lookup activity result. The **Command timeout** can be left unchanged.
 
-       ![command activity](media/data-factory-command-activity/command.png)   
+    ![command activity](media/data-factory-command-activity/command.png)   
 
     > [!NOTE]
     > The command activity has the following limits:
