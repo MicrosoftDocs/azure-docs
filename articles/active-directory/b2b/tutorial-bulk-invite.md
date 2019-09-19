@@ -57,39 +57,38 @@ You need two or more test email accounts that you can send the invitations to. T
 
     ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-invite-csv.png)
 
-> [!NOTE]
-> Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
+   > [!NOTE]
+   > Don't use commas in the **Customized invitation message** because they'll prevent the message from being parsed successfully.
 
 6. Save the file.
 7. On the **Bulk invite users (Preview)** page, under **Upload your csv file**, browse to the file. When you select the file, validation of the .csv file starts. 
 8. When the file contents are validated, you’ll see **File uploaded successfully**. If there are errors, you must fix them before you can submit the job.
 9. When your file passes validation, select **Submit** to start the Azure bulk operation that adds the invitations. 
-10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section.
-   
-    ![Example of a CSV file with guest users entered](media/tutorial-bulk-invite/bulk-operation-results.png)
+10. To view the job status, select **Click here to view the status of each operation**. Or, you can select **Bulk operation results (Preview)** in the **Activity** section. For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
 
-   For details about each line item within the the bulk operation, select the values under the **# Success**, **# Failure**, or **Total Requests** columns. If failures occurred, the reasons for failure will be listed.
+    ![Example of bulk operation results](media/tutorial-bulk-invite/bulk-operation-results.png)
 
-10. When the job completes, you'll see a notification that the bulk operation succeeded. 
-
+11. When the job completes, you'll see a notification that the bulk operation succeeded.
 
 ## Verify guest users in the directory
 
-Check to see that the guest users you added exist in the directory either in the Azure portal or by using PowerShell. 
+Check to see that the guest users you added exist in the directory either in the Azure portal or by using PowerShell.
 
 ### View guest users in the Azure portal
 
-1.	Sign in to the Azure portal with an account that is a User administrator in the organization.
-2.	In the navigation pane, select **Azure Active Directory**.
-3.	Under **Manage**, select **Users**.
-4.	Under **Show**, select **Guest users only** and verify the users you added are listed.
+1. Sign in to the Azure portal with an account that is a User administrator in the organization.
+2. In the navigation pane, select **Azure Active Directory**.
+3. Under **Manage**, select **Users**.
+4. Under **Show**, select **Guest users only** and verify the users you added are listed.
 
 ### View guest users with PowerShell
 
 Run the following command:
+
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
+
 You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
@@ -101,12 +100,12 @@ Or you can run the following PowerShell command to delete a user account:
 ```powershell
  Remove-AzureADUser -ObjectId "<UPN>"
 ```
+
 For example: `Remove-AzureADUser -ObjectId "lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com"`
 
-
 ## Next steps
+
 In this tutorial, you sent bulk invitations to guest users outside of your organization. Next, learn how the invitation redemption process works.
 
 > [!div class="nextstepaction"]
 > [Learn about the Azure AD B2B collaboration invitation redemption process](redemption-experience.md)
-
