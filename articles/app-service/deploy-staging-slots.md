@@ -13,7 +13,7 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 09/19/2019
 ms.author: cephalin
 
 ---
@@ -216,6 +216,9 @@ You can also customize the warm-up behavior with one or both of the following [a
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: The path to ping to warm up your site. Add this app setting by specifying a custom path that begins with a slash as the value. An example is `/statuscheck`. The default value is `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Valid HTTP response codes for the warm-up operation. Add this app setting with a comma-separated list of HTTP codes. An example is `200,202` . If the returned status code isn't in the list, the warmup and swap operations are stopped. By default, all response codes are valid.
 
+> [!NOTE]
+> `<applicationInitialization>` is part each app start-up, where as these two app settings apply only to slot swaps.
+
 If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ## Monitor a swap
@@ -364,6 +367,8 @@ Here are some common swap errors:
     </conditions>
     ```
 - Some [IP restriction rules](app-service-ip-restrictions.md) might prevent the swap operation from sending HTTP requests to your app. IPv4 address ranges that start with `10.` and `100.` are internal to your deployment. You should allow them to connect to your app.
+
+- After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` app setting](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig) on *all slots*. However, this app setting does *not* work with Windows Communication Foundation (WCF) apps.
 
 ## Next steps
 [Block access to non-production slots](app-service-ip-restrictions.md)
