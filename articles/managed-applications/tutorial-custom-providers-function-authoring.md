@@ -336,7 +336,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 
 The updated **Run** method now includes the *tableStorage* input binding that you added for Azure Table storage. The first part of the method reads the `x-ms-customproviders-requestpath` header and uses the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom provider and specifies the path of the incoming request.
 
-By using the parsed resource ID, you can now generate the **partitionKey** and **rowKey** values for the data to look up or to store custom resources.
+By using the parsed resource ID, you can generate the **partitionKey** and **rowKey** values for the data to look up or to store custom resources.
 
 After you add the methods and classes, you need to update the **using** methods for the function app. Add the following code to the top of the C# file:
 
