@@ -62,17 +62,17 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Select **Create experiment**. 
 
-1. Enter **my-1st-automl-experiment** as the experiment name.
+1. Enter this experiment name: `my-1st-automl-experiment`
 
 1. Select **Create a new compute**. A compute is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
 
     1. Configure your compute context for this experiment.
         
-        Field | Value
-        ----|---
-        Compute name |  Enter a unique name that identifies your compute context. For this example, use **automl-compute**.
-        Virtual machine size| Select the virtual machine size for your compute. Use the default, **Standard_DS12_V2**.
-        Additional settings| *Min node*: 1. To enable data profiling, you must have one or more nodes. <br> *Max node*: 6.
+        Field | Description | Value for tutorial
+        ----|---|---
+        Compute name |A unique name that identifies your compute context.|automl-compute
+        Virtual machine size| Select the virtual machine size for your compute.|Standard_DS12_V2
+        Min / Max nodes:| To enable data profiling, you must have one or more nodes.|Min nodes: 1<br>Max nodes: 6.
  
     1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
 
@@ -81,9 +81,11 @@ You'll see the **Getting started** screen, since this is your first experiment w
     >[!NOTE]
     >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
 
-1. Select **Upload from local file**. From here, you create a new dataset with the **bankmarketing_train.csv** file you previously downloaded for this tutorial. 
+1. Select **Upload from local file** to begin creating a new dataset. 
 
-    1. Select **Browse** and then select the **bankmarketing_train.csv** file on your local computer. 
+    1. Select **Browse**.
+    
+    1. Choose the **bankmarketing_train.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
     1. Give your dataset a unique name and provide an optional description. 
 
@@ -127,18 +129,17 @@ You'll see the **Getting started** screen, since this is your first experiment w
    >[!NOTE]
    > For this experiment, you don't set a metric or max cores per iterations threshold. You also don't block algorithms from being tested.
 
-1. Select **Start** to run the experiment.
+1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
 
-   When the experiment starts, you see a blank screen with a status message at the top.
-
-The experiment preparation process takes several minutes. When that process finishes, the status message changes to **Run is Running**.
+>[!IMPORTANT]
+> Preparation takes **10-15 minutes** to prepare the experiment run. 
+> Once running, it takes **2-3 minutes more for each iteration**.  
+>
+> In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the iteration results as they complete while the others are still running. 
 
 ##  View experiment details
 
 As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
-
->[!WARNING]
-> Training jobs take several minutes for each pipeline to finish running.
 
 [![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
