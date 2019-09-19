@@ -298,8 +298,7 @@ Verify that the certificate is installed in the computer's **Personal** store:
 
 1. On the **Export File Format** page, leave the default settings, and then select **Next**. 
 1. On the **Password** page, type a password for the private key. For **Encryption**, select **TripleDES-SHA1**. Then select **Next**.
-1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**.
-1. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
+1. On the **File to Export** page, type the path and the name for the exported certificate file, and then select **Next**. The file name has to have a .pfx extension. This file is configured in the Azure portal to establish a secure connection.
 1. Enable LDAPS for an Azure AD DS managed domain.
     1. From the Azure portal, select the domain **HDIFabrikam.com**.
     1. Under **Manage**, select **Secure LDAP**.
