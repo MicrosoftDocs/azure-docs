@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unreal-Wwise Quickstart
-In this quickstart, you'll experiment with Project Acoustics design controls by using sample content for the Unreal Engine and Wise.
+In this quickstart, you'll experiment with Project Acoustics design controls by using sample content for the Unreal Engine and Wwise.
 
 Software requirements for using the sample content:
 * [Unreal Engine](https://www.unrealengine.com/) 4.22
@@ -28,30 +28,30 @@ Download the [Project Acoustics Unreal and Wwise sample package](https://www.mic
 - The Project Acoustics Wwise plug-in
 
 ## Set up the Project Acoustics sample project
-To set up the Project Acoustics Unreal-Wwise sample project, first install the Project Acoustics plug-in into Wwise. Next, deploy the Wwise binaries to the Unreal project. Then, adjust the Wwise Unreal plug-in to support Project Acoustics.
+First install the Project Acoustics plug-in into Wwise. Next, deploy the Wwise binaries to the Unreal project. Then, adjust the Wwise Unreal plug-in to support Project Acoustics.
 
 ### Install the Project Acoustics Wwise plug-in
-Open Wwise Launcher. On the **Plugins** tab, under **Install New Plugins**, select **Add From Directory**. Choose the `AcousticsWwisePlugin\ProjectAcoustics` directory that was included in the package that you downloaded.
+Open Wwise Launcher. On the **Plugins** tab, under **Install New Plug-ins**, select **Add From Directory**. Choose the *AcousticsWwisePlugin\ProjectAcoustics* directory that was included in the package that you downloaded.
 
 ![The option to install the Wwise plug-in in Wwise Launcher](media/wwise-install-new-plugin.png)
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
 1. In Wwise Launcher, select the **Unreal Engine** tab. 
-1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project `.uproject` file in the package `AcousticsSample\AcousticsGame\AcousticsGame.uproject`.
+1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.uproject* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
    ![The Unreal tab in Wwise Launcher](media/wwise-unreal-tab.png)
 
 3. Next to the Project Acoustics sample project, select **Integrate Wwise in Project**.
 
-   ![The Wwise Launcher shows the Acoustics Game Unreal project](media/wwise-acoustics-game-project.png)
+   ![The Wwise Launcher shows the Acoustics Game Unreal project with the Integrate option highlighted.](media/wwise-acoustics-game-project.png)
 
 ### Extend Wwise Unreal plug-in functionality
-The Project Acoustics Unreal plug-in requires that additional behavior is exposed from the Wwise Unreal plug-in API. Run the batch file that came with the Project Acoustics Unreal plug-in to automate these modifications:
-* Inside `AcousticsGame\Plugins\ProjectAcoustics\Resources`, run `PatchWwise.bat`.
+The Project Acoustics Unreal plug-in needs additional behavior exposed from the Wwise Unreal plug-in API. Run the batch file that came with the Project Acoustics Unreal plug-in to automate these modifications.
+* Inside *AcousticsGame\Plugins\ProjectAcoustics\Resources*, run *PatchWwise.bat*.
 
-    ![Screenshot of Windows Explorer window showing script to patch Wwise project](media/patch-wwise-script.png)
+    ![The script to patch the Wwise project highlighted in a Windows Explorer window](media/patch-wwise-script.png)
 
-* If you don't have the DirectX SDK installed: Depending on the version of Wwise you're using, you might need to comment out the line that contains `DXSDK_DIR` in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`:
+* If you don't have the DirectX SDK installed: Depending on the version of Wwise you're using, you might need to comment out the line that contains `DXSDK_DIR` in *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*:
 
     ![The code editor showing "DXSDK" commented out](media/directx-sdk-comment.png)
 
