@@ -116,9 +116,9 @@ Undelete followed by resume operation will protect the resource again. Resume op
 
 Recovery Services vault cannot be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted after 14 days of delete operation. You can delete the vault only after all the soft deleted items have been purged.  
 
-#### How can I delete the data earlier than the 14 days soft-delete period after deletion?
+#### Can I delete the data earlier than the 14 days soft-delete period after deletion?
 
-There is no way to purge the data before 14 days of soft delete period. It is a security feature enabled to protect the data from malicious admins and safeguard the user from not losing the data as soon as the deletion is done. Users should wait for 14 days for the data to be purged before performing any other action on the VM. There is no overhead for this additional retention as it comes at no cost to the customer.
+No. You cannot force delete the soft-deleted items, they are automatically deleted after 14 days. This security feature is enabled to safeguard the backed-up data from accidental or malicious deletes.  You should wait for 14 day before performing any other action on the VM.  Soft-deleted items will not be charged.  If you need re-protecting the VMs marked for soft-delete within 14 days to a new vault then contact Microsoft support.
 
 #### Can soft delete operations be performed in PowerShell or CLI?
 
