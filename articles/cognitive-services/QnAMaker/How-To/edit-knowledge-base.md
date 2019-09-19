@@ -48,7 +48,7 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
 ## Add a QnA pair
 
-On the **Settings** page, select **Add QnA pair** to add a new row to the knowledge base table.
+On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
 
 ![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

@@ -9,7 +9,6 @@ editor:
 
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: multiple

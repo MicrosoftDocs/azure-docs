@@ -48,7 +48,7 @@
   - name: Guest OS firewall is blocking inbound traffic
     href: guest-os-firewall-blocking-inbound-traffic.md
   - name: Guest OS firewall is misconfigured
-    href: guest-os-firewall-misconfigured.md 
+    href: guest-os-firewall-misconfigured.md
   - name: Troubleshoot RDP error caused by netvsc.sys
     href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
@@ -96,20 +96,28 @@
   href: reset-network-interface.md
 - name: Restarting or resizing a VM
   href: restart-resize-error-troubleshooting.md
-- name: Use the serial console
+- name: Serial Console
   items:
-  - name: Linux VM
+  - name: Serial Console overview
+    href: serial-console-overview.md
+  - name: Serial Console for Linux
     href: serial-console-linux.md
     items:
     - name: Serial Console GRUB/Single user mode
       href: serial-console-grub-single-user-mode.md
     - name: Serial Console NMI/SysRq
       href: serial-console-nmi-sysrq.md
-  - name: Windows VM
+  - name: Serial Console for Windows
     href: serial-console-windows.md
     items:
     - name: CMD and PowerShell commands
       href: serial-console-cmd-ps-commands.md
+  - name: Enabling and disabling Serial Console
+    href: serial-console-enable-disable.md
+  - name: Power options within Serial Console
+    href: serial-console-power-options.md
+  - name: Common Serial Console errors
+    href: serial-console-errors.md
 - name: Errors when deleting storage resources
   href: storage-resource-deletion-errors.md
 - name: Errors when deleting classic storage resources
@@ -153,6 +161,8 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
+  - name: Azure Virtual Machine boot error
+    href: troubleshoot-vm-boot-error.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors

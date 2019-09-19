@@ -3,13 +3,14 @@ title: Create automated workflows with Visual Studio - Azure Logic Apps
 description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ms.date: 04/25/2019
 ---
 

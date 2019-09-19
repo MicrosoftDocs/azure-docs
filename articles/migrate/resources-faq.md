@@ -22,7 +22,38 @@ See the [list for VMware](https://docs.microsoft.com/azure/migrate/migrate-suppo
 
 Azure Migrate provides a centralized hub to start your migration, execute and track discovery and assessment of machines and workloads, and execute and track the migration of machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Azure Migrate Server Migration uses Azure Site Recovery on the backend to enable migration scenarios for lift-and-shift migration of on-premises machines.
 
-## Azure Migrate appliance (VMware/physical servers)
+### How do I delete an Azure Migrate project
+
+To delete an Azure Migrate project and its associated resources including sites, recovery services vaults, migrate vaults, key vaults, assessment projects etc, go to "Resource groups" page on the Azure portal, select the resource group where the migrate project was created and select "Show hidden types". Then select the migrate project and its associated resources listed below and delete them. Alternatively, if the resource group is exclusively used by the migrate project and its associated resources, you can delete the entire resource group. Note that this list is an exhaustive list of all resource types created for all scenarios (discovery, assessment and migration). You will only find the resources that were created for your scenario in the resource group.
+
+#### Resources created for discovered, assessed or migrated servers on VMware or physical servers [Resource (Type)]:
+
+- "Appliancename"kv (Key vault)
+- "Appliancename"site (Microsoft.OffAzure/VMwareSites)
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- "ProjectName"project (Microsoft.Migrate/assessmentProjects)
+- "ProjectName"rsvault (Recovery Services vault)
+- "ProjectName"-MigrateVault-* (Recovery Services vault)
+- migrateappligwsa* (Storage account)
+- migrateapplilsa* (Storage account)
+- migrateapplicsa* (Storage account)
+- migrateapplikv* (Key vault)
+- migrateapplisbns16041 (Service Bus Namespace)
+
+Note: Delete storage accounts and key vaults with caution as they may contain application data and security keys respectively.
+
+#### Resources created for discovered, assessed or migrated servers on Hyper-V [Resource (Type)]:
+
+- "ProjectName" (Microsoft.Migrate/migrateprojects)
+- "ProjectName"project (Microsoft.Migrate/assessmentProjects)
+- HyperV*kv (Key vault)
+- HyperV*site (Microsoft.OffAzure/HyperVSites)
+- "ProjectName"-MigrateVault-* (Recovery Services vault) 
+
+Note: Delete the key vault with caution as it may contain security keys.
+
+
+## Azure Migrate appliance
 
 ### How does the Azure Migrate appliance connect to Azure?
 
@@ -82,6 +113,9 @@ For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hype
 ### How many VMs can I discover with a single migration appliance?
 
 You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single migration appliance. If you have more machines in your on-premises environment, learn how to scale [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
+
+### Can I delete the Azure Migrate appliance from the project?
+Currently deletion of appliance from the project is not supported. The only way to delete the appliance is to delete the resource group which has the Azure Migrate project, associated with the appliance but that will also delete other registered appliances, the discovered inventory, assessments and all other Azure artifacts associated with the project in the resource group.
 
 ## Azure Migrate Server Assessment
 
@@ -152,7 +186,7 @@ To use dependency visualization, you need to download and install agents on each
 
 You need to install the following agents on each machine:
 - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows).
-- [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure).
+- [Dependency agent](../azure-monitor/platform/agents-overview.md#dependency-agent).
 - If you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 You don't need these agents unless you're using dependency visualization.
@@ -167,7 +201,7 @@ No, the dependency visualization can't be exported. But because Azure Migrate us
 
 ### How can I automate the installation of Microsoft Monitoring Agent (MMA) and the Dependency agent?
 
-Use this [script to install the agents](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples). Follow these [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) by using the command line or automation. For
+Use this [script to install the Dependency agent](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Follow these [instructions to install MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) by using the command line or automation. For
 MMA, use [this script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
 In addition to scripts, you can also use deployment tools like System Center Configuration Manager and [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) to deploy the agents.
@@ -179,8 +213,7 @@ In addition to scripts, you can also use deployment tools like System Center Con
 
 ### What operating systems are supported by the Dependency agent?
 
-- View the list of [Windows operating systems supported by the Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
-- View the list of [Linux operating systems supported by the Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+View the list of [Windows and Linux operating systems that Azure Monitor for VMs supports](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems).
 
 ### Can I visualize dependencies in Azure Migrate for more than an hour?
 No. You can visualize dependencies for up to an hour. You can go back to a particular date in history, as far back as a month, but the maximum duration for visualization is an hour. For example, you can use the time duration in the dependency map to view dependencies for yesterday, but you can view it only for a one-hour window. However, you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.

@@ -18,10 +18,6 @@ When moving a virtual network, you must also move its dependent resources. For V
 
 To move a virtual machine with a network interface card, you must move all dependent resources. Move the virtual network for the network interface card, all other network interface cards for the virtual network, and the VPN gateways.
 
-## State of dependent resources
-
-If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move. To avoid this problem, move your resources to a resource group that doesn't have a virtual network.
-
 ## Peered virtual network
 
 To move a peered virtual network, you must first disable the virtual network peering. Once disabled, you can move the virtual network. After the move, reenable the virtual network peering.

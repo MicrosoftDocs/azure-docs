@@ -96,7 +96,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Enterprise Integration
 
-* [Logic Apps](documentation-government-services-integration.md#logic-apps)
+* [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)
 * [Service Bus](documentation-government-networking.md#support-for-service-bus)
 * [StorSimple](documentation-government-services-storage.md)
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)

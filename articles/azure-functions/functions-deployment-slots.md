@@ -8,7 +8,6 @@ manager: gwallace
 keywords: azure functions, functions
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe

@@ -10,7 +10,6 @@ ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: cephalin
@@ -88,11 +87,8 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 ## More resources
 
-For videos about scaling App Service apps, see the following resources:
- 
-* [When to Scale Azure Websites - with Stefan Schackow](https://azure.microsoft.com/resources/videos/azure-web-sites-free-vs-standard-scaling/)
-* [Auto Scaling Azure Websites, CPU or Scheduled - with Stefan Schackow](https://azure.microsoft.com/resources/videos/auto-scaling-azure-web-sites/)
-* [How Azure Websites Scale - with Stefan Schackow](https://azure.microsoft.com/resources/videos/how-azure-web-sites-scale/)
+[Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md)  
+[Configure PremiumV2 tier for App Service](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
