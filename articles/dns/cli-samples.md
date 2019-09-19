@@ -9,9 +9,9 @@ ms.date: 09/20/2019
 ms.author: victorh
 
 ---
-# Azure CLI samples for DNS
+# Azure CLI examples for Azure DNS
 
-The following table includes a link to an Azure CLI script.
+The following table includes links to Azure CLI examples for Azure DNS.
 
 | | |
 |-|-|
