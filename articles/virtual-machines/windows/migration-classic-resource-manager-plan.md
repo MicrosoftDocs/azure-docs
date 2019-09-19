@@ -4,7 +4,7 @@ description: Planning for migration of IaaS resources from classic to Azure Reso
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
@@ -111,7 +111,7 @@ The following were issues discovered in many of the larger migrations. This is n
 
 - **Availability Sets** - For a virtual network (vNet) to be migrated to Azure Resource Manager, the Classic deployment (i.e. cloud service) contained VMs must all be in one availability set, or the VMs must all not be in any availability set. Having more than one availability set in the cloud service is not compatible with Azure Resource Manager and will halt migration.  Additionally, there cannot be some VMs in an availability set, and some VMs not in an availability set. To resolve this, you will need to remediate or reshuffle your cloud service.  Plan accordingly as this might be time consuming.
 
-- **Web/Worker Role Deployments** -  Cloud Services containing web and worker roles cannot migrate to Azure Resource Manager. The web/worker roles must first be removed from the virtual network before migration can start.  A typical solution is to just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit, or to migrate the code to newer PaaS App Services (this discussion is beyond the scope of this document). In the former redeploy case, create a new Classic virtual network, move/redeploy the web/worker roles to that new virtual network, then delete the deployments from the virtual network being moved. No code changes required. The new [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md) capability can be used to peer together the classic virtual network containing the web/worker roles and other virtual networks in the same Azure region such as the virtual network being migrated (**after virtual network migration is completed as peered virtual networks cannot be migrated**), hence providing the same capabilities with no performance loss and no latency/bandwidth penalties. Given the addition of [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md), web/worker role deployments can now easily be mitigated and not block the migration to Azure Resource Manager.
+- **Web/Worker Role Deployments** -  Cloud Services containing web and worker roles cannot migrate to Azure Resource Manager. To migrate the contents of your web and worker roles, you will need to migrate the code itself to newer PaaS App Services (this discussion is beyond the scope of this document). If you want to leave the web/worker roles as is but migrate classic VMs to the Resource Manager deployment model, the web/worker roles must first be removed from the virtual network before migration can start.  A typical solution is to just move web/worker role instances to a separate Classic virtual network that is also linked to an ExpressRoute circuit. In the former redeploy case, create a new Classic virtual network, move/redeploy the web/worker roles to that new virtual network, and then delete the deployments from the virtual network being moved. No code changes required. The new [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md) capability can be used to peer together the classic virtual network containing the web/worker roles and other virtual networks in the same Azure region such as the virtual network being migrated (**after virtual network migration is completed as peered virtual networks cannot be migrated**), hence providing the same capabilities with no performance loss and no latency/bandwidth penalties. Given the addition of [Virtual Network Peering](../../virtual-network/virtual-network-peering-overview.md), web/worker role deployments can now easily be mitigated and not block the migration to Azure Resource Manager.
 
 - **Azure Resource Manager Quotas** - Azure regions have separate quotas/limits for both Classic and Azure Resource Manager. Even though in a migration scenario new hardware isn't being consumed *(we're swapping existing VMs from Classic to Azure Resource Manager)*, Azure Resource Manager quotas still need to be in place with enough capacity before migration can start. Listed below are the major limits we've seen cause problems.  Open a quota support ticket to raise the limits.
 
@@ -201,7 +201,7 @@ Things to consider:
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
 - [Role Based Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/template-deployment-overview.md).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
 - [Azure Policies](../../governance/policy/overview.md)

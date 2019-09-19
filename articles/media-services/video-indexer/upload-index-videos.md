@@ -26,15 +26,15 @@ The article shows how to use the [Upload video](https://api-portal.videoindexer.
 Once your video has been uploaded, Video Indexer, optionally encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
 ## Uploading considerations
-
-- When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
-- The upload size with the URL option is limited to 30GB
-- The request URL length is limited to 2048 characters
-- The upload size with the byte array option is limited to 2GB
-- The byte array option times out after 30 min
-- The URL provided in the `videoURL` param needs to be encoded
-- Indexing Media Services assets has the same limitation as indexing from URL
-- Video Indexer has a max duration limit of 4 hours for a single file
+ 
+- When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher).
+- The upload size with the URL option is limited to 30GB.
+- The request URL length is limited to 6144 characters where the query string URL length is limited to 4096 characters .
+- The upload size with the byte array option is limited to 2GB.
+- The byte array option times out after 30 min.
+- The URL provided in the `videoURL` param needs to be encoded.
+- Indexing Media Services assets has the same limitation as indexing from URL.
+- Video Indexer has a max duration limit of 4 hours for a single file.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -60,7 +60,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
         |---|---|
         |id|The video ID|
         |state|The video state|  
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
   - Properties
     
@@ -71,7 +71,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
       |knownPersonId|The person ID that is unique within a face model|
       |personName|The name of the person|
         
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### Notes
 
@@ -155,9 +155,9 @@ public async Task Sample()
     // as an alternative to specifying video URL, you can upload a file.
     // remove the videoUrl parameter from the query params below and add the following lines:
     //FileStream video =File.OpenRead(Globals.VIDEOFILE_PATH);
-    //byte[] buffer =newbyte[video.Length];
+    //byte[] buffer =new byte[video.Length];
     //video.Read(buffer, 0, buffer.Length);
-    //content.Add(newByteArrayContent(buffer));
+    //content.Add(new ByteArrayContent(buffer));
 
     queryParams = CreateQueryString(
         new Dictionary<string, string>()

@@ -3,7 +3,7 @@ title: Key Vault .NET 2.x API Release Notes| Microsoft Docs
 description: .NET developers will use this API to code for Azure Key Vault
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 editor: bryanla
 
 ms.service: key-vault
@@ -44,12 +44,12 @@ Key Vault certificates manage x509 certificates and supports the following behav
 
 * *Secret* changed to *SecretBundle*
 * *Dictionary* changed to *IDictionary*
-* *List<T>, string []* changed to *IList<T>*
+* *List\<T>, string []* changed to *IList\<T>*
 * *NextList* changed to  *NextPageLink*
 
 ## Return types
 
-* **KeyList** and **SecretList** now returns *IPage<T>* instead of *ListKeysResponseMessage*
+* **KeyList** and **SecretList** now returns *IPage\<T>* instead of *ListKeysResponseMessage*
 * The generated **BackupKeyAsync** now returns *BackupKeyResult*, which contains *Value* (back-up blob). Previously, the method was wrapped and returned just the value.
 
 ## Exceptions

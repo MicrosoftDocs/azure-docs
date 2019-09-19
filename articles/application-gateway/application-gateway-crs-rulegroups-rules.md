@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Web application firewall CRS rule groups and rules

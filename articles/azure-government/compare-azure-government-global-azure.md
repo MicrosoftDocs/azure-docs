@@ -4,7 +4,7 @@ description: This article compares Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: monhaber
+author: dumartinmsft
 manager: femila
 
 ms.service: azure-government
@@ -13,7 +13,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 5/19/2019
-ms.author: monhaber
+ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
@@ -96,7 +96,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Enterprise Integration
 
-* [Logic Apps](documentation-government-services-integration.md#logic-apps)
+* [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)
 * [Service Bus](documentation-government-networking.md#support-for-service-bus)
 * [StorSimple](documentation-government-services-storage.md)
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)

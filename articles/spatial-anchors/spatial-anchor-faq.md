@@ -1,6 +1,6 @@
 ---
 title: Frequently asked questions about Azure Spatial Anchors | Microsoft Docs
-description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view. 
+description: Azure Spatial Anchors is a managed cloud service and developer platform that enables cross-device, multi-user, mixed reality experiences across HoloLens, iOS and Android devices. These FAQs address questions about the service from a technical point of view.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -74,7 +74,7 @@ Azure Spatial Anchors adheres to the [Azure Service Agreement Terms](https://go.
 General Availability (GA) dates will be announced soon.
 
 **Q: Do you have any throttling limits in place?**
- 
+
 **A**: Yes, we have throttling limits.  We don’t expect you’ll hit them for typical application development and testing. For production deployments, we are ready to support our customers’ high-scale requirements. [Contact us](mailto:azuremrs@microsoft.com) to discuss. During this phase of Preview, we have not yet published our tiering and pricing structure, but we expect to do so soon.
 
 **Q: In what regions is Azure Spatial Anchors available?**
@@ -116,8 +116,8 @@ Get started with [development here](index.yml).
 
 **Q: Does it work with Unreal?**
 
-**A:** We expect to have support for Unreal soon.
+**A:** Support for Unreal will be considered in the future.
 
-**Q: Does it work with Xamarin?**
+**Q: What ports and protocols does Azure Spatial Anchors use?**
 
-**A:** Yes. While we don't provide a Xamarin SDK, we expect developers can use Azure Spatial Anchors in their Xamarin apps by integrating with the Azure Spatial Anchors API.
+**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), which communicates using HTTPS over port 443.

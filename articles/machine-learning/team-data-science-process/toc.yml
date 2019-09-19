@@ -94,7 +94,7 @@
       - name: R Server on HDInsight
         href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Get started using R Server on HDInsight
-        href: /azure/hdinsight/r-server/r-server-get-started?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Azure Machine Learning workspace
       href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Analyze business needs
@@ -115,7 +115,7 @@
         - name: Use Storage Explorer
           href: move-data-to-azure-blob-using-azure-storage-explorer.md
         - name: Use AzCopy
-          href: move-data-to-azure-blob-using-azcopy.md
+          href: https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10
         - name: Use Python
           href: /azure/storage/blobs/storage-python-how-to-use-blob-storage?context=azure/machine-learning/team-data-science-process/context/ml-context
         - name: Use SSIS

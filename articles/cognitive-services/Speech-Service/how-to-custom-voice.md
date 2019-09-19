@@ -1,6 +1,6 @@
 ---
-title: "What is Custom Voice? - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "What is Custom Voice? - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom speech-to-text experience."
 services: cognitive-services
 author: erhopf
@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
 # Get started with Custom Voice
 
-Custom Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
+[Custom Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
 
 ## What's in Custom Voice?
 
 Before starting with Custom Voice, you'll need an Azure account and a Speech Services subscription. Once you've created an account, you can prepare your data, train and test your models, evaluate voice quality, and ultimately deploy your custom voice model.
 
-The diagram below highlights the steps to create a custom voice model using the Custom Voice portal. Use the links to learn more.
+The diagram below highlights the steps to create a custom voice model using the [Custom Voice portal](https://aka.ms/customvoice). Use the links to learn more.
 
 ![Custom Voice architecture diagram](media/custom-voice/custom-voice-diagram.png)
 

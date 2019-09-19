@@ -2,16 +2,15 @@
 title: Language detection cognitive search skill - Azure Search
 description: Evaluates unstructured text, and for each record, returns a language identifier with a score indicating the strength of the analysis in an Azure Search enrichment pipeline.
 services: search
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 
 ms.service: search
-ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 #	Language detection cognitive skill
 
@@ -31,7 +30,7 @@ Language detection leverages Bing's natural language processing libraries, which
 Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## Data limits
-The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
+The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, you may use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
 ## Skill inputs
 

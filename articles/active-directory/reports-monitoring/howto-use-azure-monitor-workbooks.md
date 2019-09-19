@@ -3,7 +3,7 @@
 title: Use Azure Monitor workbooks for Azure Active Directory reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
@@ -14,7 +14,7 @@ ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 ---
 
@@ -46,6 +46,15 @@ To use Monitor workbooks, you need:
 
 - A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
+## Roles
+You must be in one of the following roles as well as have [access to underlying Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) workspace to manage the workbooks:
+- 	Global Admin
+- 	Security Admin
+- 	Security Reader
+- 	Report Reader
+- 	Application Admin
+
+
 ## Workbook access 
 
 To access workbooks:
@@ -54,7 +63,7 @@ To access workbooks:
 
 2. On the left navigation pane, select **Azure Active Directory**.
 
-3. In the **Monitoring** section, select **Insights**. 
+3. In the **Monitoring** section, select **Workbooks**. 
 
     ![Select Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 

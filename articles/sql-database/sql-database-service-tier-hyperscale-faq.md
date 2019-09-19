@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 05/06/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
@@ -32,14 +31,14 @@ The Hyperscale service tier is only available for single databases using the vCo
 
 ### How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers
 
-The vCore-based service tiers are primarily differentiated based upon availability, storage type and IOPs.
+The vCore-based service tiers are primarily differentiated based upon availability, storage type, and IOPs.
 
 - The General Purpose service tier is appropriate for most business workloads, offering a balanced set of compute and storage options where IO latency or failover times are not the priority.
 - The Hyperscale service tier is optimized for very large database workloads.
 - The Business Critical service tier is appropriate for business workloads where IO latency is a priority.
 
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---:|:---:|:---:|:---:|:---:|
 | **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
 |  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
 | **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
@@ -47,10 +46,10 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 | **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Unknown yet | 5000 IOPS with 200,000 maximum IOPS|
+| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
 |**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
-|**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7-35 days (7 days by default), constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
+|**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
 
 \* Elastic pools not supported in the Hyperscale service tier
 
@@ -73,7 +72,7 @@ The Azure SQL Database Hyperscale tier is currently available in the regions lis
 
 Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
 
-### What are the performance characteristic of a Hyperscale database
+### What are the performance characteristics of a Hyperscale database
 
 The SQL Database Hyperscale architecture provides high performance and throughput while supporting large database sizes. 
 
@@ -86,9 +85,9 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
   With  Hyperscale, you can scale up the primary compute size in terms of resources like CPU, memory and then scale down, in constant time. Because the storage is shared, scaling up and scaling down is not a size of data operation.  
 - **Scaling In/Out**
 
-  With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a fail over from the primary.
+  With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a failover from the primary.
 
-  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.
+  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.
 
 ## Deep dive questions
 
@@ -114,7 +113,7 @@ SQL Database Hyperscale supports all SQL Server workloads, but it is primarily o
 
 ### How can I choose between Azure SQL Data Warehouse and SQL Database Hyperscale
 
-If you are currently running interactive analytics queries using SQL Server as a data warehouse, SQL Database Hyperscale is a great option because you can host relatively small data warehouses (such as a few TB up to 10’s of TB) at a lower cost and you can migrate your data warehouse workload to SQL Database Hyperscale without T-SQL code changes.
+If you are currently running interactive analytics queries using SQL Server as a data warehouse, SQL Database Hyperscale is a great option because you can host relatively small data warehouses (such as a few TB up to 10s of TB) at a lower cost and you can migrate your data warehouse workload to SQL Database Hyperscale without T-SQL code changes.
 
 If you are running data analytics on a large scale with complex queries and using Parallel Data Warehouse (PDW), Teradata or other Massively Parallel Processor (MPP)) data warehouses, SQL Data Warehouse may be the best choice.
   
@@ -126,7 +125,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -134,7 +133,7 @@ No.
 
 ### How many read-scale replicas are supported
 
-The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)..
+The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### For high availability, do I need to provision additional compute nodes
 
@@ -343,7 +342,7 @@ End-user. Not automatic.
 
 Yes. Temp db will scale up automatically as the compute grows.  
 
-### Can I provision multiple primary computes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
+### Can I provision multiple primary compute nodes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
 
 No. Only the primary compute node accepts read/write requests. Secondary compute nodes only accept read-only requests.
 
@@ -355,7 +354,7 @@ We create 2 replicas for Hyperscale databases by default. If you want to adjust 
 
 ### How do I connect to these secondary compute nodes
 
-You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.  
+You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
 
 ### Can I create a dedicated endpoint for the read-scale replica
 
@@ -363,11 +362,11 @@ No. You can only connect to read-scale replica by specifying `ApplicationIntent=
 
 ### Does the system do intelligent load balancing of the read workload
 
-No. The read only workload is re-directed to a random read-scale replica.
+No. The read-only workload is redirected to a random read-scale replica.
 
 ### Can I scale up/down the secondary compute nodes independently of the primary compute
 
-No. The secondary compute nodes are also used for HA, so they need to be the same configuration as the primary, in case of a failover.
+No. The secondary compute nodes are also used for HA, so they need to be the same configuration as the primary, in the case of a failover.
 
 ### Do I get different temp db sizing for my primary compute and my additional secondary compute nodes
 

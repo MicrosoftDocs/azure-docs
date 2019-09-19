@@ -4,18 +4,18 @@ description: Learn how to cluster an SAP ASCS/SCS instance on a Windows failover
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.assetid: 5e514964-c907-4324-b659-16dd825f6f87
 ms.service: virtual-machines-windows
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/05/2017
+ms.date: 07/24/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -290,9 +290,11 @@ A scale-out file share offers a highly available and horizontally scalable SAPMN
 
 Storage Spaces Direct is used as a shared disk for a scale-out file share. You can use Storage Spaces Direct to build highly available and scalable storage using servers with local storage. Shared storage that is used for a scale-out file share, like for SAP global host files, is not a single point of failure.
 
-> [!IMPORTANT]
->If you *do not* plan to set up disaster recovery, we recommend using a scale-out file share as a solution for a highly available file share in Azure.
->
+When choosing Storage Spaces Direct, consider these use cases:
+
+- The virtual machines used to build the Storage Spaces Direct cluster need to be deployed in an Azure availability set.
+- For disaster recovery of a Storage Spaces Direct Cluster, you can use [Azure Site Recovery Services](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#replicated-machines---storage).
+- It is not supported to stretch the Storage Space Direct Cluster across different Azure Availability Zones.
 
 ### SAP prerequisites for scale-out file shares in Azure
 
@@ -314,7 +316,6 @@ To use a scale-out file share, your system must meet the following requirements:
 * For good network performance between VMs, which is needed for Storage Spaces Direct disk sync, use a VM type that has at least a “high” network bandwidth.
     For more information, see the [DSv2-Series][dv2-series] and [DS-Series][ds-series] specifications.
 * We recommend that you reserve some unallocated capacity in the storage pool. Leaving some unallocated capacity in the storage pool gives volumes space to repair "in place" if a drive fails. This improves data safety and performance.  For more information, see [Choosing volume size][choosing-the-size-of-volumes-s2d].
-* Scale-out file share Azure VMs must be deployed in their own Azure availability set.
 * You don't need to configure the Azure internal load balancer for the scale-out file share network name, such as for \<SAP global host\>. This is done for the \<ASCS/SCS virtual host name\> of the SAP ASCS/SCS instance or for the DBMS. A scale-out file share scales out the load across all cluster nodes. \<SAP global host\> uses the local IP address for all cluster nodes.
 
 
@@ -336,17 +337,11 @@ You can deploy SAP ASCS/SCS instances in one cluster, with their own SAP \<SID\>
 _**Figure 5:** An SAP ASCS/SCS instance and a scale-out file share deployed in two clusters_
 
 > [!IMPORTANT]
-> In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set. This ensures distributed placement of the cluster VMs across the underlying Azure infrastructure.
+> In the Azure cloud, each cluster that is used for SAP and scale-out file shares must be deployed in its own Azure availability set or across Azure Availability Zones. This ensures distributed placement of the cluster VMs across the underlying Azure infrastructure. Availability Zone deployments are supported with this technology.
 >
 
 ## Generic file share with SIOS DataKeeper as cluster shared disks
 
-
-> [!IMPORTANT]
-> We recommend a scale-out file share solution for a highly available file share.
->
-> If you plan to also set disaster recovery for your highly available file share, you must use a generic file share and SISO DataKeeper for your cluster shared disks.
->
 
 A generic file share is another option for achieving a highly available file share.
 

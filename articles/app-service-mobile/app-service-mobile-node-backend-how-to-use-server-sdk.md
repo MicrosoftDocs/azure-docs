@@ -992,7 +992,7 @@ api.get.access = 'authenticated';
 module.exports = api;
 ```
 
-## <a name="Debugging"></a>Debugging, Easy Tables, and Easy APIs
+## <a name="Debugging"></a>Debugging
 
 ### <a name="howto-diagnostic-logs"></a>Debug, diagnose, and troubleshoot Mobile Apps
 
@@ -1006,55 +1006,6 @@ To get started in troubleshooting your Node.js Mobile Apps back end, see the fol
 Node.js applications have access to a wide range of diagnostic log tools. Internally, the Mobile Apps
 Node.js SDK uses [Winston] for diagnostic logging. Logging is automatically enabled when you enable debug mode or set the `MS_DebugMode` app setting to true in the [Azure portal]. Generated logs appear in the diagnostic
 logs in the [Azure portal].
-
-### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Work with Easy Tables in the Azure portal
-
-You can use Easy Tables to create and work with tables right in the portal. You can upload dataset to Easy Tables
-in CSV format. Note that you cannot use property names (in your CSV dataset) that conflict with system property names
-of the Mobile Apps back end. The system property names are:
-* createdAt
-* updatedAt
-* deleted
-* version
-
-You can even edit table operations by using App Service Editor. When you select **Easy tables** in your back-end site
-settings, you can add, modify, or delete a table. You can also see data in the table.
-
-![Work with Easy Tables](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
-
-The following commands are available on the command bar for a table:
-
-* **Change permissions**: Modify the permission for read, insert, update, and delete operations on the table.
- Options are to allow anonymous access, to require authentication, or to disable all access to the operation.
-* **Edit script**: The script file for the table is opened in App Service Editor.
-* **Manage schema**: Add or delete columns, or change the table index.
-* **Clear table**: Truncate an existing table by deleting all data rows but leaving the schema unchanged.
-* **Delete rows**: Delete individual rows of data.
-* **View streaming logs**: Connect to the streaming log service for your site.
-
-### <a name="work-easy-apis"></a>Work with Easy APIs in the Azure portal
-
-You can use Easy APIs to create and work with custom APIs right in the portal. You can edit API
-scripts by using App Service Editor.
-
-When you select **Easy APIs** in your back-end site settings, you can add, modify, or delete a custom API
-endpoint.
-
-![Work with Easy APIs](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-apis.png)
-
-In the portal, you can change the access permissions for an HTTP action, edit the API script file in
-App Service Editor, or view the streaming logs.
-
-### <a name="online-editor"></a>Edit code in App Service Editor
-
-By using the Azure portal, you can edit your Node.js back-end script files in App Service Editor without having to
-download the project to your local computer. To edit script files in the online editor:
-
-1. In pane for your Mobile Apps back end, select **All settings** > either **Easy tables** or **Easy APIs**. Select a
- table or API, and then select **Edit script**. The script file opens in App Service Editor.
-
-   ![App Service Editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-1. Make your changes to the code file in the online editor. Changes are saved automatically as you type.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

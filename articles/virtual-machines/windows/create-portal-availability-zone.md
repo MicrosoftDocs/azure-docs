@@ -4,13 +4,13 @@ description: Create a Windows VM in an availability zone with the Azure portal
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -71,4 +71,4 @@ You can confirm the zone settings for these resources in the portal.
 
 ## Next steps
 
-In this article, you learned how to create a VM in an availability zone. Learn more about [regions and availability](regions-and-availability.md) for Azure VMs.
+In this article, you learned how to create a VM in an availability zone. Learn more about [availability](availability.md) for Azure VMs.

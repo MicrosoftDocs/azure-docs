@@ -192,6 +192,9 @@ Running the script action again does __not__ update the key, as the script check
 
 To work around this problem, you must remove the existing entry for the storage account. Use the following steps to remove the existing entry:
 
+> [!IMPORTANT]  
+> Rotating the storage key for the primary storage account attached to a cluster is not supported.
+
 1. In a web browser, open the Ambari Web UI for your HDInsight cluster. The URI is `https://CLUSTERNAME.azurehdinsight.net`. Replace `CLUSTERNAME` with the name of your cluster.
 
     When prompted, enter the HTTP login user and password for your cluster.

@@ -1,5 +1,5 @@
 ---
-title: Manage logic apps with Visual Studio - Azure Logic Apps
+title: Manage logic apps by using Visual Studio - Azure Logic Apps
 description: Manage logic apps and other Azure assets with Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
@@ -47,10 +47,7 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure that 
-    > you select the **Azure development** workload. 
-    > For Visual Studio 2019, Cloud Explorer can open 
-    > the Logic App Designer in the Azure portal, but can't 
-    > yet open the embedded Logic App Designer. 
+    > you select the **Azure development** workload.
     > For more information, see 
     > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
@@ -120,12 +117,15 @@ or **Resource Types**, follow these steps:
 
 In Visual Studio, you can open logic apps previously created 
 and deployed either directly through the Azure portal 
-or as Azure Resource Manager projects with Visual Studio.
+or as Azure Resource Group projects with Visual Studio.
 
 1. Open Cloud Explorer, and find your logic app. 
 
 1. On the logic app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
@@ -138,7 +138,7 @@ select **Open with Logic App Editor**.
    If you want to create a deployment template for the logic app, 
    learn [how to download an Azure Resource Manager template](#download-logic-app) 
    for that logic app. Learn more about 
-   [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment).
+   [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
@@ -150,21 +150,18 @@ and save them as [Azure Resource Manager](../azure-resource-manager/resource-gro
 templates. You can then locally edit the templates with Visual Studio 
 and customize logic apps for different deployment environments. 
 Downloading logic apps automatically *parameterizes* their 
-definitions inside [Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+definitions inside [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md), 
 which also use JavaScript Object Notation (JSON).
 
 1. In Visual Studio, open Cloud Explorer, 
 then find and select the logic app 
 that you want to download from Azure.
 
-   > [!NOTE]
-   > For Visual Studio 2019, Cloud Explorer can open 
-   > the Logic App Designer in the Azure portal, 
-   > but can't yet open the embedded Logic App Designer 
-   > for downloading your logic app.
-
 2. On that app's shortcut menu, 
 select **Open with Logic App Editor**.
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
    The Logic App Designer opens and shows the logic app. 
    To review logic app's underlying definition and structure, 
@@ -183,9 +180,35 @@ Your logic app definition appears in the `resources`
 subsection inside the Resource Manager template. 
 You can now edit the logic app definition 
 and Resource Manager template with Visual Studio. 
-You can also add the template as an Azure Resource 
-Manager project to a Visual Studio solution. 
-Learn about [Resource Manager projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+You can also add the template as an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) to a Visual Studio solution. 
+Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md). 
+
+<a name="link-integration-account"></a>
+
+## Link to integration account
+
+To build logic apps for business-to-business (B2B) enterprise integration scenarios, you can link your logic app to a previously created [integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) that exists in the same region as your logic app. An integration account contains B2B artifacts, such as trading partners, agreements, schemas, and maps, and lets your logic app use B2B connectors for XML validation and flat file encoding or decoding. Although you can [create this link by using the Azure portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), you can also use Visual Studio after meeting the [prerequisites](#requirements), and your logic app exists as a JSON (.json) file inside an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Learn about [Azure Resource Group projects for logic apps in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+
+1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
+
+1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+
+   ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
+1. To make sure that the Logic App Designer has focus, select the designer's tab or surface so that the Properties pane shows the **Integration Account** property for your logic app.
+
+   ![Properties pane shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+
+1. Open the **Integration Account** list, and select the integration account that you want to link to your logic app, for example:
+
+   ![Open "Integration Account" property list](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
+
+1. When you're done, remember to save your Visual Studio solution.
+
+When you set the **Integration Account** property in Visual Studio and save your logic app as an Azure Resource Manager template, that template also includes a parameter declaration for the selected integration account. For more information about template parameters and logic apps, see [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
 
 <a name="refresh"></a>
 

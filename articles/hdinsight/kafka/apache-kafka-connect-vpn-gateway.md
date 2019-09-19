@@ -51,7 +51,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
      > * Each client must connect using a VPN software client.
      > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
-For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
+For more information on using HDInsight in a virtual network, see [Plan a virtual network for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md).
 
 ## <a id="on-premises"></a> Connect to Apache Kafka from an on-premises network
 
@@ -247,7 +247,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config.png)
+    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
@@ -269,7 +269,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-button.png)
+    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 
@@ -277,7 +277,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 10. To restart Kafka, use the __Restart__ button and select __Restart All Affected__. Confirm the restart, and then use the __OK__ button after the operation has completed.
 
-    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-button.png)
+    ![Restart button with restart all affected highlighted](./media/apache-kafka-connect-vpn-gateway/restart-required-button.png)
 
 11. To disable maintenance mode, use the __Service Actions__ button and select __Turn Off Maintenance Mode__. Select **OK** to complete this operation.
 
@@ -363,7 +363,7 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 ## Next steps
 
-For more information on using HDInsight with a virtual network, see the [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md) document.
+For more information on using HDInsight with a virtual network, see the [Plan a virtual network deployment for Azure HDInsight clusters](../hdinsight-plan-virtual-network-deployment.md) document.
 
 For more information on creating an Azure Virtual Network with Point-to-Site VPN gateway, see the following documents:
 

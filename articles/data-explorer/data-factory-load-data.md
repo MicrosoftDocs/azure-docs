@@ -114,6 +114,8 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 Azure Data Explorer new linked service is created to copy the data into the Azure Data Explorer destination table (sink) specified below.
 
+#### Create the Azure Data Explorer linked service
+
 1. In the **Destination data store** page, you can use an existing data store connection or specify a new data store by clicking **+ Create new connection**.
 
     ![Destination data store page](media/data-factory-load-data/destination-create-connection.png)
@@ -138,7 +140,9 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
     * Select **Finish** to complete linked service creation.
 
     > [!NOTE]
-    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Do not use the **Azure Key Vault** method.
+    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Do not use the **Azure Key Vault** method.
+
+#### Configure the Azure Data Explorer data connection
 
 1. The **Destination data store** opens. The Azure Data Explorer data connection you created is available for use. Select **Next** to configure the connection.
 

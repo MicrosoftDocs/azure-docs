@@ -29,7 +29,7 @@ Deny assignments are created and managed by Azure to protect resources. For exam
 
 ## Compare role assignments and deny assignments
 
-Deny assignments follow a similar pattern as deny assignments, but also have some differences.
+Deny assignments follow a similar pattern as role assignments, but also have some differences.
 
 | Capability | Role assignment | Deny assignment |
 | --- | --- | --- |

@@ -14,7 +14,7 @@ ms.author: cawa
 
 # Use Application Change Analysis (preview) in Azure Monitor
 
-When a live site issue or outage occurs, quickly determining the root cause is critical. Standard monitoring solutions might alert you to a problem. They might even indicate which component is failing. But this alert won't always immediately explain the failure's cause. You know your site worked five minutes ago, and now it's broken. What changed in the last five minutes? This is the question that Application Change Analysis is designed to answer in Azure Monitor. 
+When a live site issue or outage occurs, quickly determining the root cause is critical. Standard monitoring solutions might alert you to a problem. They might even indicate which component is failing. But this alert won't always immediately explain the failure's cause. You know your site worked five minutes ago, and now it's broken. What changed in the last five minutes? This is the question that Application Change Analysis is designed to answer in Azure Monitor.
 
 Building on the power of [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), Change Analysis provides insights into your Azure application changes to increase observability and reduce MTTR (mean time to repair).
 
@@ -44,6 +44,11 @@ Change Analysis captures the deployment and configuration state of an applicatio
 ### Dependency changes
 
 Changes to resource dependencies can also cause issues in a web app. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
+Currently the following dependencies are supported:
+- Web Apps
+- Azure Storage
+- Azure SQL
+
 
 ## Change Analysis for the Web Apps feature
 
@@ -57,21 +62,18 @@ In Azure Monitor, Change Analysis is currently built into the self-service **Dia
 
     ![Screenshot of the "Availability and Performance" troubleshooting options](./media/change-analysis/availability-and-performance.png)
 
-1. Select **Application Crashes**.
+1. Select **Application Changes**. Not that the feature is also available in **Application Crashes**.
 
-   ![Screenshot of the "Application Crashes" button](./media/change-analysis/application-crashes-tile.png)
+   ![Screenshot of the "Application Crashes" button](./media/change-analysis/application-changes.png)
 
 1. To enable Change Analysis, select **Enable now**.
 
-   ![Screenshot of "Application Crashes" options](./media/change-analysis/application-crashes.png)
+   ![Screenshot of "Application Crashes" options](./media/change-analysis/enable-changeanalysis.png)
 
-1. To take advantage of the full Change Analysis functionality, turn on **Change Analysis**, **Scan for code changes**, and **Always on**. Then select **Save**.
+1. Turn on **Change Analysis** and select **Save**.
 
     ![Screenshot of the "Enable Change Analysis" user interface](./media/change-analysis/change-analysis-on.png)
 
-    - Enable **Change Analysis** to detect resource-level changes. 
-    - Enable **Scan for code changes** to see deployment files and site configuration changes. 
-    - Enable **Always on** to optimize the performance of change scanning. But keep in mind that this setting might result in additional billing charges.
 
 1. To access Change Analysis, select **Diagnose and solve problems** > **Availability and Performance** > **Application Crashes**. You'll see a graph that summarizes the type of changes over time along with details on those changes:
 
@@ -80,59 +82,42 @@ In Azure Monitor, Change Analysis is currently built into the self-service **Dia
 
 ### Enable Change Analysis at scale
 
-If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. In this case, follow these alternative instructions.
+If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 
-### Register the Change Analysis resource provider for your subscription
+Pre-requisites:
+* PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
 
-1. Register the Change Analysis feature flag (preview). Because the feature flag is in preview, you need to register it to make it visible to your subscription:
+Run the following script:
 
-   1. Open [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/).
+```PowerShell
+# Log in to your Azure subscription
+Connect-AzAccount
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/cloud-shell.png)
+# Get subscription Id
+$SubscriptionId = Read-Host -Prompt 'Input your subscription Id'
 
-   1. Change the shell type to **PowerShell**.
+# Make Feature Flag visible to the subscription
+Set-AzContext -SubscriptionId $SubscriptionId
 
-      ![Screenshot of change Cloud Shell](./media/change-analysis/choose-powershell.png)
+# Register resource provider
+Register-AzResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis"
 
-   1. Run the following PowerShell command:
 
-        ``` PowerShell
-        Set-AzContext -Subscription <your_subscription_id> #set script execution context to the subscription you are trying to enable
-        Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.ChangeAnalysis" -ListAvailable #Check for feature flag availability
-        Register-AzureRmProviderFeature -FeatureName PreviewAccess -ProviderNamespace Microsoft.ChangeAnalysis #Register feature flag
-        ```
-    
-1. Register the Change Analysis resource provider for the subscription.
+# Enable each web app
+$webapp_list = Get-AzWebApp | Where-Object {$_.kind -eq 'app'}
+foreach ($webapp in $webapp_list)
+{
+    $tags = $webapp.Tags
+    $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
+    Set-AzResource -ResourceId $webapp.Id -Tag $tags -Force
+}
 
-   - Go to **Subscriptions**, and select the subscription you want to enable in the change service. Then select resource providers:
+```
 
-        ![Screenshot showing how to register the Change Analysis resource provider](./media/change-analysis/register-rp.png)
 
-       - Select **Microsoft.ChangeAnalysis**. Then at the top of the page, select **Register**.
-
-       - After the resource provider is enabled, you can set a hidden tag on the web app to detect changes at the level of deployment. To set a hidden tag, follow the instructions under **Unable to fetch Change Analysis information**.
-
-   - Alternatively, you can use a PowerShell script to register the resource provider:
-
-        ```PowerShell
-        Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState #Check if RP is ready for registration
-    
-        Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.ChangeAnalysis" #Register the Change Analysis RP
-        ```
-
-        To use PowerShell to set a hidden tag on a web app, run the following command:
-    
-        ```powershell
-        $webapp=Get-AzWebApp -Name <name_of_your_webapp>
-        $tags = $webapp.Tags
-        $tags[“hidden-related:diagnostics/changeAnalysisScanEnabled”]=$true
-        Set-AzResource -ResourceId <your_webapp_resourceid> -Tag $tag
-        ```
-
-     > [!NOTE]
-     > After you add the hidden tag, you might still need to wait up to 4 hours before you start seeing changes. Results are delayed because Change Analysis scans your web app only every 4 hours. The 4-hour schedule limits the scan's performance impact.
 
 ## Next steps
 
-- Monitor App Service more effectively by [enabling Application Insights features](azure-web-apps.md) in Azure Monitor.
+- Enable Application Insights for [Azure App Services apps](azure-web-apps.md).
+- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](azure-vm-vmss-apps.md).
 - Learn more about [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), which helps power Change Analysis.

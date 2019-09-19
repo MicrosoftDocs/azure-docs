@@ -1,19 +1,19 @@
 ---
-title: Create and use Azure Web Application Firewall (WAF) custom rules
-description: This article provides information on how to create Web Application Firewall (WAF) custom rules in Azure Application Gateway.
+title: Create and use Azure Web Application Firewall (WAF) v2 custom rules
+description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Create and use Web Application Firewall custom rules
+# Create and use Web Application Firewall v2 custom rules
 
-The Azure Application Gateway web application firewall (WAF) provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
+The Azure Application Gateway Web Application Firewall (WAF) v2 provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 
-This article shows you some example custom rules that you can create and use with your WAF. To learn how to deploy a WAF with a custom rule using Azure PowerShell, see [Configure Web Application Firewall custom rules using Azure PowerShell](configure-waf-custom-rules.md).
+This article shows you some example custom rules that you can create and use with your v2 WAF. To learn how to deploy a WAF with a custom rule using Azure PowerShell, see [Configure Web Application Firewall custom rules using Azure PowerShell](configure-waf-custom-rules.md).
 
 >[!NOTE]
 > If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
@@ -122,7 +122,7 @@ And the corresponding JSON:
 
 ## Example 2
 
-You want to block all requests from IP addresses in the range 198.168.5.4/24.
+You want to block all requests from IP addresses in the range 198.168.5.0/24.
 
 In this example, you'll block all traffic that comes from an IP addresses range. The name of the rule is *myrule1* and the priority is set to 100.
 
@@ -135,7 +135,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
@@ -161,7 +161,7 @@ Here's the corresponding JSON:
             "matchVariable": "RemoteAddr",
             "operator": "IPMatch",
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -171,11 +171,11 @@ Here's the corresponding JSON:
 ```
 
 Corresponding CRS rule:
-  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.4/24" "id:7001,deny"`
+  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.4/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.4/24 are blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 
@@ -190,7 +190,7 @@ $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $False
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -223,9 +223,9 @@ Here's the corresponding JSON:
             { 
               "matchVariable": "RemoteAddr", 
               "operator": "IPMatch", 
-              "negateCondition": true, 
+              "negateCondition": false, 
               "matchValues": [ 
-                "192.168.5.4/24" 
+                "192.168.5.0/24" 
               ] 
             }, 
             { 
@@ -247,7 +247,7 @@ Here's the corresponding JSON:
 
 ## Example 4
 
-For this example, you want to block if the request is either outside of the IP address range *192.168.5.4/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
+For this example, you want to block if the request is either outside of the IP address range *192.168.5.0/24*, or the user agent string isn't *chrome* (meaning the user isn’t using the Chrome browser). Since this logic uses **or**, the two conditions are in separate rules as seen in the following example. *myrule1* and *myrule2* both need to match to block the traffic.
 
 Logic: **not** (p **and** q) = **not** p **or not** q.
 
@@ -262,7 +262,7 @@ $variable2 = New-AzApplicationGatewayFirewallMatchVariable `
 $condition1 = New-AzApplicationGatewayFirewallCondition `
    -MatchVariable $variable1 `
    -Operator IPMatch `
-   -MatchValue "192.168.5.4/24" `
+   -MatchValue "192.168.5.0/24" `
    -NegationCondition $True
 
 $condition2 = New-AzApplicationGatewayFirewallCondition `
@@ -303,7 +303,7 @@ And the corresponding JSON:
             "operator": "IPMatch",
             "negateCondition": true,
             "matchValues": [
-              "192.168.5.4/24"
+              "192.168.5.0/24"
             ]
           }
         ]
@@ -488,14 +488,6 @@ Corresponding JSON:
     ]
   }
 ```
-
-Corresponding ModSecurity rule:
-
-`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
 
 ## Next steps
 

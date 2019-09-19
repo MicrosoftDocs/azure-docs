@@ -61,6 +61,8 @@
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
     href: load-balancer-standard-diagnostics.md
+  - name: Built-in security controls
+    href: load-balancer-security-controls.md
 - name: How to
   items:
   - name: Create a zone redundant public Standard Load Balancer
@@ -121,6 +123,16 @@
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
+  - name: Move across regions
+    items:
+    - name: External load balancer - Portal
+      href: move-across-regions-external-load-balancer-portal.md
+    - name: External load balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
+    - name: Internal load balancer - Portal
+      href: move-across-regions-internal-load-balancer-portal.md
+    - name: Internal load balancer - PowerShell
+      href: move-across-regions-internal-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer
@@ -188,6 +200,8 @@
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
+  - name: Azure Load Balancer feedback
+    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

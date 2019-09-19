@@ -1,5 +1,5 @@
 ---
-title: How to select permissions for a given API | Microsoft Docs
+title: Configure endpoints | Microsoft Docs
 description: How to find the authentication endpoints for a custom application you are developing or registering with Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -8,12 +8,13 @@ manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 07/15/2019
 ms.author: ryanwi
 
 ms.collection: M365-identity-device-management

@@ -8,7 +8,6 @@ ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/20/2019
 ---
 # Tutorial: Managed instance security in Azure SQL Database using Azure AD server principals (logins)
@@ -50,10 +49,13 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 ## Limiting access to your managed instance
 
-Managed instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a managed instance from outside the managed instance network. Much like an isolated SQL Server on-premises environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
+Managed instances can be accessed through a private IP address. Much like an isolated SQL Server on-premises environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
+
+It is also possible to configure a service endpoint on the Managed instance, which allows for public connections, in the same fashion as Azure SQL Database. 
+For more information, see the following article, [Configure public endpoint in Azure SQL Database managed instance](sql-database-managed-instance-public-endpoint-configure.md).
 
 > [!NOTE] 
-> Since managed instances can only be accessed inside of its VNET, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+> Even with service endpoints enabled [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md) to manage connectivity.
 
 ## Create an Azure AD server principal (login) for a managed instance using SSMS
 

@@ -1,15 +1,15 @@
 ---
 title: How to test a knowledge base - QnA Maker
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Test your knowledge base interactively in QnA Maker

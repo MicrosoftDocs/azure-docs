@@ -1,11 +1,11 @@
 ---
-title: "Classification: Predict credit risk (cost sensitive)"
-titleSuffix: Azure Machine Learning service
+title: "Visual interface example #4: Classification to predict  credit risk (cost sensitive)"
+titleSuffix: Azure Machine Learning
 description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
@@ -159,3 +159,4 @@ Explore the other samples available for the visual interface:
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

@@ -1,64 +1,88 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Form Recognizer Documentation 
-metadata:
-  title: API Documentation - Form Recognizer - Azure Cognitive Services  | Microsoft Docs
-  description: Learn how to use Form Recognizer to intelligently extract key-value data from your form documents.
-  services: cognitive-services
-  author: PatrickFarley
-  manager: cgronlun
+### YamlMime:Landing
 
-  ms.service: cognitive-services
+title: Form Recognizer documentation # < 60 chars
+summary: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.  # < 160 chars
+
+metadata:
+  title: Form Recognizer documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
+  description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. # Required; article description that is displayed in search results. < 160 chars.
+  services: cognitive-services
+  ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: form-recognizer
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 04/16/2019
-  ms.author: pafarley
-ms.custom: seodec18
-abstract:
-  description: Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
-sections:
-- items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 3
-      items:
-        - href: /azure/cognitive-services/form-recognizer/overview
-          html: <p>Learn about Form Recognizer.</p>
-          image:
-            src: ../media/index/i_overview.svg
-          title: What is Form Recognizer?
-        - href: /azure/cognitive-services/form-recognizer/form-recognizer-container-howto
-          html: <p>Learn how to use the Form Recognizer container to parse form and table data.</p>
-          image:
-            src: ../media/index/i_get-started.svg
-          title: Install and run containers
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Train a Form Recognizer model and extract data from forms using:'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/logos/logo-curl.svg
-      text: cURL
-      href: quickstarts/curl-train-extract.md
-    - image: 
-        src: ./media/logos/logo-python.svg
-      text: Python
-      href: quickstarts/python-train-extract.md
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: APIs
-      html: <p><a href="https://aka.ms/form-recognizer/api">Form Recognizer API</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">Azure CLI</a></p>
+  ms.topic: landing-page # Required
+  author: PatrickFarley #Required; your GitHub user alias, with correct capitalization.
+  ms.author: pafarley #Required; microsoft alias of author; optional team alias.
+  ms.date: 09/05/2019 #Required; mm/dd/yyyy format.
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card 
+  - title: About Form Recognizer
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Form Recognizer?
+            url: overview.md
+      - linkListType: video
+        links:
+          - text: AI-powered process automation with Form Recognizer
+            url: https://channel9.msdn.com/Shows/AI-Show/Learn-about-AI-powered-robotic-process-automation-with-Form-Recognizer
+
+  - title: Train a custom model and extract data
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/dotnet-sdk.md
+          - text: Using the REST API (Python)
+            url: quickstarts/python-train-extract.md
+          - text: Using the REST API (cURL)
+            url: quickstarts/curl-train-extract.md
+
+  - title: Extract data from receipts
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the .NET SDK
+            url: quickstarts/dotnet-sdk.md
+
+  - title: Build a training data set
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Build a training data set
+            url: build-training-data-set.md
+
+  - title: Use containers
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Install and run containers
+            url: form-recognizer-container-howto.md
+      - linkListType: how-to-guide
+        links:
+          - text: Configure containers
+            url: form-recognizer-container-configuration.md
+      - linkListType: deploy
+        links:
+          - text: Use container instances
+            url: deploy-form-recognizer-on-container-instances.md
+
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Form Recognizer API
+            url: https://aka.ms/form-recognizer/api
+          - text: .NET SDK
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+          - text: Azure Command-Line Interface (CLI)
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+
+
+      

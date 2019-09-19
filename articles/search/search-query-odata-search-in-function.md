@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: "brjohnstmsft"
 ms.author: "brjohnst"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -34,7 +34,7 @@ However, there is a shorter way to write this, using the `search.in` function:
 > Besides being shorter and easier to read, using `search.in` also provides [performance benefits](#bkmk_performance) and avoids certain [size limitations of filters](search-query-odata-filter.md#bkmk_limits) when there are hundreds or even thousands of values to include in the filter. For this reason, we strongly recommend using `search.in` instead of a more complex disjunction of equality expressions.
 
 > [!NOTE]
-> Version 4.01 of the OData standard has recently introduced the [`in` operator](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), which has similar behavior as the `search.in` function in Azure Search. However, Azure Search does not support this operator, so you must use the `search.in` function instead.
+> Version 4.01 of the OData standard has recently introduced the [`in` operator](https://docs.oasis-open.org/odata/odata/v4.01/cs01/part2-url-conventions/odata-v4.01-cs01-part2-url-conventions.html#_Toc505773230), which has similar behavior as the `search.in` function in Azure Search. However, Azure Search does not support this operator, so you must use the `search.in` function instead.
 
 ## Syntax
 

@@ -249,9 +249,6 @@
     - name: Ensure storage file encryption
       displayName: deny, all
       href: samples/ensure-storage-file-encryption.md
-    - name: Require storage account encryption
-      displayName: deny, builtin
-      href: samples/require-storage-account-encryption.md
 - name: Concepts
   items:
   - name: Azure Policy definition structure
@@ -260,6 +257,9 @@
   - name: Understand Policy effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Azure Policy for Kubernetes
+    displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
+    href: ./concepts/rego-for-aks.md
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
@@ -271,6 +271,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Create a Guest Configuration policy
+    displayName: powershell, dsc, chef, linux, windows
+    href: ./how-to/guest-configuration-create.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md

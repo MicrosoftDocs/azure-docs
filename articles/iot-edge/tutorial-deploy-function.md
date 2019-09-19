@@ -4,7 +4,7 @@ description: In this tutorial, you develop an Azure function as an IoT Edge modu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 06/25/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
@@ -14,9 +14,10 @@ ms.custom: "mvc, seodec18"
 
 # Tutorial: Deploy Azure functions as IoT Edge modules
 
-You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows](quickstart.md) or [Linux](quickstart-linux.md) quickstarts. In this tutorial, you learn how to:     
+You can use Azure Functions to deploy code that implements your business logic directly to your Azure IoT Edge devices. This tutorial walks you through creating and deploying an Azure function that filters sensor data on the simulated IoT Edge device. You use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device on [Windows](quickstart.md) or [Linux](quickstart-linux.md) quickstarts. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > * Use Visual Studio Code to create an Azure function.
 > * Use VS Code and Docker to create a Docker image and publish it to a container registry.
 > * Deploy the module from the container registry to your IoT Edge device.
@@ -132,14 +133,14 @@ Let's add some additional code so that the module processes the messages at the 
 
                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
                    {
-                       // Send the message to the output as the temperature value is greater than the threashold.
+                       // Send the message to the output as the temperature value is greater than the threshold.
                        var filteredMessage = new Message(messageBytes);
                        // Copy the properties of the original message into the new Message object.
                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
                        {filteredMessage.Properties.Add(prop.Key, prop.Value);}
                        // Add a new property to the message to indicate it is an alert.
                        filteredMessage.Properties.Add("MessageType", "Alert");
-                       // Send the message.       
+                       // Send the message.
                        await output.AddAsync(filteredMessage);
                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
                    }
@@ -156,12 +157,12 @@ Let's add some additional code so that the module processes the messages at the 
        class Machine
        {
            public double temperature {get; set;}
-           public double pressure {get; set;}         
+           public double pressure {get; set;}
        }
        class Ambient
        {
            public double temperature {get; set;}
-           public int humidity {get; set;}         
+           public int humidity {get; set;}
        }
    }
    ```
@@ -172,17 +173,17 @@ Let's add some additional code so that the module processes the messages at the 
 
 In the previous section, you created an IoT Edge solution and added code to the **CSharpFunction** to filter out messages where the reported machine temperature is less than the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry.
 
-In this section, you provide the credentials for your container registry twice. The first is to sign in locally from your development machine so that Visual Studio Code can push images to your registry. The second is in the **.env** file of your IoT Edge solution, which gives your IoT Edge device permissions to pull images from your registry. 
+In this section, you provide the credentials for your container registry for the second time (the first was in the **.env** file of your IoT Edge solution) by signing in locally from your development machine so that Visual Studio Code can push images to your registry.
 
 1. Open the VS Code integrated terminal by selecting **View** > **Terminal**. 
 
 2. Sign in to your container registry by entering the following command in the integrated terminal. Use the username and login server that you copied from your Azure container registry earlier.
-     
+
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
 
-    When you're prompted for the password, paste the password for your container registry and press **Enter**.
+    When you're prompted for the password, paste the password (it won't be visible in the terminal window) for your container registry and press **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
@@ -212,7 +213,7 @@ You can use the Azure portal to deploy your function module to an IoT Edge devic
 
 3. Browse to the solution folder that contains the **CSharpFunction**. Open the config folder, select the **deployment.json** file, and then choose **Select Edge Deployment Manifest**.
 
-4. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. It may take a few moments for the new modules to show up. Your IoT Edge device has to retrieve its new deployment information from IoT Hub, start the new containers, and then report the status back to IoT Hub. 
+4. Refresh the **Azure IoT Hub Devices** section. You should see the new **CSharpFunction** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**. It may take a few moments for the new modules to show up. Your IoT Edge device has to retrieve its new deployment information from IoT Hub, start the new containers, and then report the status back to IoT Hub. 
 
    ![View deployed modules in VS Code](./media/tutorial-deploy-function/view-modules.png)
 

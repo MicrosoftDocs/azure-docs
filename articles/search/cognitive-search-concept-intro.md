@@ -1,15 +1,14 @@
 ---
-title: Cognitive search, data extraction, natural language AI process - Azure Search
+title: Introduction to cognitive search and AI enrichment - Azure Search
 description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
-ms.devlang: NA
+ms.subservice: cognitive-search
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # What is "cognitive search" in Azure Search?
 
@@ -29,7 +28,27 @@ Natural language and image processing is applied during the data ingestion phase
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
-## Components of cognitive search
+
+## When to use cognitive search
+
+Cognitive search, using pre-built skills, is well suited for the following application scenarios:
+
++ Scanned documents (JPEG) that you want to make full-text searchable. You can attach an optical character recognition (OCR) skill to identify, extract, and ingest text from JPEG files.
+
++ PDFs with combined image and text. Text in PDFs can be extracted during Azure Search indexing without the use of cognitive search, but the addition of image and natural language processing can often produce a better outcome than a standard indexing provides.
+
++ Multi-lingual content against which you want to apply language detection and possibly text translation.
+
++ Unstructured or semi-structured documents containing content that has inherent meaning or context that is hidden in the larger document. 
+
+  Blobs in particular often contain a large body of content that is packed into a singled "field". By attaching image and natural language processing skills to an indexer, you can create new information that is extant in the raw content, but not otherwise surfaced as distinct fields. Some ready-to-use built-in cognitive skills that can help: key phrase extraction, sentiment analysis, and entity recognition (people, organizations, and locations).
+
+  Additionally, pre-built skills can also be used restructure content through text split, merge, and shape operations.
+
+Custom skills can support more complex scenarios, such as recognizing forms, or custom entity detection using a model that you provide and wrap in the [custom skill web interface](cognitive-search-custom-skill-interface.md). Several examples of custom skills include [Forms Recognizer](/azure/cognitive-services/form-recognizer/overview), integration of the [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example), and [custom entity recognition](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+
+
+## Component pipeline of cognitive search
 
 A cognitive search pipeline is based on [Azure Search *indexers*](search-indexer-overview.md) that crawl data sources and provide end-to-end index processing. Skills are now attached to indexers, intercepting and enriching documents according to the skillset you define. Once indexed, you can access content via search requests through all [query types supported by Azure Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
 
@@ -95,9 +114,9 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
-+ [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
++ [Example: Creating a custom skill for cognitive search (C#)](cognitive-search-create-custom-skill-example.md)
 
-We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises.
+We recommend the Free service for learning purposes, however the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises, or delete the indexer you used in the quickstart or tutorial.
 
 **Step 3: Review the API**
 
@@ -108,9 +127,9 @@ This step uses the REST APIs to build a cognitive search solution. Only two APIs
 | REST API | Description |
 |-----|-------------|
 | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external data source providing source data used to create enriched documents.  |
-| [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
+| [Create Skillset (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | This API is specific to cognitive search. It is a resource coordinating the use of [predefined skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. |
 | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
-| [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets.  |
+| [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets. This existing API is extended for cognitive search scenarios with the inclusion of a skillset property. |
 
 **Checklist: A typical workflow**
 

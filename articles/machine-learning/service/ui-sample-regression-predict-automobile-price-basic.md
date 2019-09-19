@@ -1,11 +1,11 @@
 ---
-title: "Regression: Predict price"
-titleSuffix: Azure Machine Learning service
+title: "Visual interface example #1: regression to predict price"
+titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: article
+ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
@@ -83,3 +83,4 @@ Explore the other samples available for the visual interface:
 - [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
+- [Sample 6 - Classification: Predict flight delays](ui-sample-classification-predict-flight-delay.md)

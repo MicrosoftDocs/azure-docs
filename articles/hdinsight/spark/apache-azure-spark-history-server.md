@@ -1,14 +1,15 @@
 ---
-title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
+title: Extended Spark History Server to debug Spark applications - Azure HDInsight
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/04/2019
 ---
+
 # Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
 This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
@@ -41,23 +42,23 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 + Check the **Inputs**, **Outputs**, and **Table Operations** by selecting the tabs separately.
 
-    ![Data tabs](./media/apache-azure-spark-history-server/sparkui-data-tabs.png)
+    ![Data tabs](./media/apache-azure-spark-history-server/apache-spark-data-tabs.png)
 
 + Copy all rows by clicking button **Copy**.
 
-    ![Data copy](./media/apache-azure-spark-history-server/sparkui-data-copy.png)
+    ![Data copy](./media/apache-azure-spark-history-server/apache-spark-data-copy.png)
 
 + Save all data as CSV file by clicking button **csv**.
 
-    ![Data save](./media/apache-azure-spark-history-server/sparkui-data-save.png)
+    ![Data save](./media/apache-azure-spark-history-server/apache-spark-data-save.png)
 
 + Search by entering keywords in field **Search**, the search result will display immediately.
 
-    ![Data search](./media/apache-azure-spark-history-server/sparkui-data-search.png)
+    ![Data search](./media/apache-azure-spark-history-server/apache-spark-data-search.png)
 
 + Click the column header to sort table, click the plus sign to expand a row to show more details, or click the minus sign to collapse a row.
 
-    ![Data table](./media/apache-azure-spark-history-server/sparkui-data-table.png)
+    ![Data table](./media/apache-azure-spark-history-server/apache-spark-data-table.png)
 
 + Download single file by clicking button **Partial Download** that place at the right, then the selected file will be downloaded to local, if the file does not exist any more, it will open a new tab to show the error messages.
 
@@ -69,7 +70,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
 
 + Click the number below the table to navigate pages when too many rows to display in one page. 
 
-    ![Data page](./media/apache-azure-spark-history-server/sparkui-data-page.png)
+    ![Data page](./media/apache-azure-spark-history-server/apache-spark-data-page.png)
 
 + Hover on the question mark beside Data to show the tooltip, or click the question mark to get more information.
 
@@ -87,7 +88,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + By default, it will show all jobs, and it could be filtered by **Job ID**.
 
-    ![graph job ID](./media/apache-azure-spark-history-server/sparkui-graph-jobid.png)
+    ![graph job ID](./media/apache-azure-spark-history-server/apache-spark-graph-jobid.png)
 
 + By default, **Progress** is selected, user could check the data flow by selecting **Read/Written** in the dropdown list of **Display**.
 
@@ -205,15 +206,15 @@ To revert to community version, do the following steps:
 5. The property sets to **false** now.
 6. Click **Save** to save the configuration.
 
-    ![feature turns off](./media/apache-azure-spark-history-server/sparkui-turn-off.png)
+    ![feature turns off](./media/apache-azure-spark-history-server/apache-spark-turn-off.png)
 
 7. Click **Spark2** in left panel, under **Summary** tab, click **Spark2 History Server**.
 
-    ![restart server1](./media/apache-azure-spark-history-server/sparkui-restart-1.png) 
+    ![restart server1](./media/apache-azure-spark-history-server/apache-spark-restart1.png) 
 
 8. Restart history server by clicking **Restart** of **Spark2 History Server**.
 
-    ![restart server2](./media/apache-azure-spark-history-server/sparkui-restart-2.png)  
+    ![restart server2](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 
 9. Refresh the Spark history server web UI, it will be reverted to community version.
 
@@ -230,7 +231,7 @@ If you run into history server error, follow the steps to provide the event:
 
 3. Provide the title and description of error, drag the zip file to the edit field, then click **Submit new issue**.
 
-    ![file issue](./media/apache-azure-spark-history-server/sparkui-file-issue.png)
+    ![file issue](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
 
 ### 3. Upgrade jar file for hotfix scenario
@@ -294,7 +295,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **To use the bash file from Azure portal**
 
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+1. Launch [Azure portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**: select **Custom**.
@@ -308,12 +309,12 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
    + Check on **Head** and **Worker**.
    + **Parameters**: set the parameters follow the bash usage.
 
-     ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/sparkui-upload2.png)
+     ![upload log or upgrade hotfix](./media/apache-azure-spark-history-server/apache-spark-upload1.png)
 
 
 ## Known issues
 
-1.	Currently, it only works for Spark 2.3 cluster.
+1.	Currently, it only works for Spark 2.3 and 2.4 cluster.
 
 2.	Input/output data using RDD will not show in data tab.
 

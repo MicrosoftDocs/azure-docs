@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 08/12/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # About ExpressRoute Direct
 
-ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100-Gbps connectivity, which supports Active/Active connectivity at scale.
+ExpressRoute Direct gives you the ability to connect directly into Microsoft’s global network at peering locations strategically distributed across the world. ExpressRoute Direct provides dual 100 Gbps or 10 Gbps connectivity, which supports Active/Active connectivity at scale.
 
 Key features that ExpressRoute Direct provides include, but aren't limited to:
 
@@ -35,10 +35,10 @@ Before using ExpressRoute Direct, you must first enroll your subscription. To en
 
 | **ExpressRoute using a service provider** | **ExpressRoute Direct** | 
 | --- | --- |
-| Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100-Gbps infrastructure and full management of all layers
+| Utilizes service providers to enable fast onboarding and connectivity into existing infrastructure | Requires 100 Gbps/10 Gbps infrastructure and full management of all layers
 | Integrates with hundreds of providers including Ethernet and MPLS | Direct/Dedicated capacity for regulated industries and massive data ingestion |
-| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs: 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - limited to a total of 200 Gbps
-| Optimized for single tenant | Optimized for single tenant/Cloud Service providers/multiple business units
+| Circuits SKUs from 50 Mbps to 10 Gbps | Customer may select a combination of the following circuit SKUs on 100 Gbps ExpressRoute Direct: <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> Customer may select a combination of the following circuit SKUs on 10 Gbps ExpressRoute Direct:<ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+| Optimized for single tenant | Optimized for single tenant with multiple business units and multiple work environments
 
 ## ExpressRoute Direct circuits
 
@@ -50,7 +50,28 @@ The functionality in most scenarios is equivalent to circuits that utilize an Ex
 
 ## Circuit SKUs
 
-ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 Gbps** only and can have multiple virtual circuits with bandwidths of 5 Gbps, 10 Gbps, 40 Gbps, 100 Gbps - up to 200 Gbps in any combination. 
+ExpressRoute Direct supports massive data ingestion scenarios into Azure storage and other big data services. ExpressRoute circuits on 100 Gbps ExpressRoute Direct now also support **40 Gbps** and **100 Gbps** circuit SKUs. The physical port pairs are **100 or 10 Gbps** only and can have multiple virtual circuits. Circuit sizes:
+
+| **100 Gbps ExpressRoute Direct** | **10 Gbps ExpressRoute Direct** | 
+| --- | --- |
+| **Subscribed Bandwidth**: 200 Gbps | **Subscribed Bandwidth**: 20 Gbps |
+| <ul><li>5 Gbps</li><li>10 Gbps</li><li>40 Gbps</li><li>100 Gbps</li></ul> | <ul><li>1 Gbps</li><li>2 Gbps</li><li>5 Gbps</li><li>10 Gbps</li></ul>
+
+## Technical Requirements
+
+* Microsoft Enterprise Edge Router (MSEE) Interfaces:
+    * Dual 10 or 100 Gigabit Ethernet ports only across router pair
+    * Single Mode LR Fiber connectivity
+    * IPv4 and IPv6
+    * IP MTU 1500 bytes
+
+* Switch/Router Layer 2/Layer 3 Connectivity:
+    * Must support 1 802.1Q (Dot1Q) tag or two Tag 802.1Q (QinQ) tag encapsulation
+    * Ethertype = 0x8100
+    * Must add the outer VLAN tag (STAG) based on the VLAN ID specified by Microsoft - *applicable only on QinQ*
+    * Must support multiple BGP sessions (VLANs) per port and device
+    * IPv4 and IPv6 connectivity. *For IPv6 no additional sub-interface will be created. IPv6 address will be added to existing sub-interface*. 
+    * Optional: [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) support, which is configured by default on all Private Peerings on ExpressRoute circuits
 
 ## VLAN Tagging
 

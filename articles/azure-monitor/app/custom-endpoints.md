@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
 ---
 
@@ -20,6 +20,9 @@ To send data from Application Insights to certain regions, you'll need to overri
 ## SDK code changes
 
 ### .NET with applicationinsights.config
+
+> [!NOTE]
+> The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
 
 ```xml
 <ApplicationInsights>
@@ -41,7 +44,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 </ApplicationInsights>
 ```
 
-### .NET Core
+### ASP.NET Core
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
@@ -58,15 +61,66 @@ The values for Live Metrics and the Profile Query Endpoint can only be set via c
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //Place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QuickPulse_Endpoint_Address");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
 
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+    //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
+```
+
+### Azure Functions v2.x
+
+Install the following packages in your function project:
+
+- Microsoft.ApplicationInsights version 2.10.0
+- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
+
+Then, add (or modify) the startup code for your function application:
+
+```csharp
+[assembly: WebJobsStartup(typeof(Example.Startup))]
+namespace Example
+{
+  class Startup : FunctionsStartup
+  {
+      public override void Configure(IWebJobsBuilder builder)
+      {
+          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
+                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
+          if (quickPulseFactory != null)
+          {
+              builder.Services.Remove(quickPulseFactory);
+          }
+
+          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
+          if (appIdFactory != null)
+          {
+              builder.Services.Remove(appIdFactory);
+          }
+
+          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
+          if (channelFactory != null)
+          {
+              builder.Services.Remove(channelFactory);
+          }
+
+          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
+              new QuickPulseTelemetryModule
+              {
+                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
+              });
+
+          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+
+          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+      }
+  }
+}
 ```
 
 ### Java
@@ -118,8 +172,8 @@ appInsights.Configuration.start();
 The endpoints can also be configured through environment variables:
 
 ```
-Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
-Profile Endpoint: “Profile_Query_Endpoint_address”
+Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
+Profile Endpoint: "Profile_Query_Endpoint_address"
 Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 ```
 
@@ -127,22 +181,40 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 ```javascript
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-(
-	{
-	instrumentationKey:"INSTRUMENTATION_KEY",
-	endpointUrl: "TelemetryChannel_Endpoint_Address"
-  }
-);
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+    var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+    {
+      instrumentationKey:"INSTRUMENTATION_KEY",
+      endpointUrl: "TelemetryChannel_Endpoint_Address"
+    }
+    );window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
-
 ```
 
 ## Regions that require endpoint modification
 
-Currently the only region that requires endpoint modifications is [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-## Next step
+|Region |  Endpoint Name | Value |
+|-----------------|:------------|:-------------|
+| Azure China | Telemetry Channel | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
+| Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
+| Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+If you currently use the [Application Insights REST API](https://dev.applicationinsights.io/
+) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
+
+|Region |  Endpoint Name | Value |
+|-----------------|:------------|:-------------|
+| Azure China | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
+
+> [!NOTE]
+> Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.
+
+## Next steps
 
 - To learn more about the custom modifications for Azure Government, consult the detailed guidance for [Azure monitoring and management](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
+- To learn more about Azure China, consult the [Azure China Playbook](https://docs.microsoft.com/azure/china/).
