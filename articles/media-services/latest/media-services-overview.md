@@ -68,7 +68,7 @@ The tutorials show scenario-based procedures for some of the top Media Services 
     
 ### Samples
 
-Use [https://docs.microsoft.com/samples/browse/?products=azure-media-services] to browse Azure Media Services code samples.
+Use (this samples browser)[https://docs.microsoft.com/samples/browse/?products=azure-media-services] to browse Azure Media Services code samples.
 
 ### How-to guides
 
