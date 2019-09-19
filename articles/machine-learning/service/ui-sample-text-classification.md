@@ -33,7 +33,7 @@ The fundamental steps of a training machine learning model with text data are:
 
 Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
-![Graph of the experiment](\media\ui-sample-text-classification\nlp_modules_overall.PNG)
+![Graph of the experiment](./media/ui-sample-text-classification/nlp_modules_overall.PNG)
 
 ## Data
 
@@ -50,7 +50,7 @@ Note that for some companies an article could not be found, so the number of rec
 
 ## Pre-process the text data
 
-We use the **Preprocess Text** module to preprocess the text data, including detect the sentences, tokenize sentences and so on. You would found all supported options in the **Preprocess Text** article. 
+We use the **Preprocess Text** module to preprocess the text data, including detect the sentences, tokenize sentences and so on. You would found all supported options in the [**Preprocess Text**](../algorithm-module-reference/preprocess-text.md) article. 
 After pre-processing tex data, we use the **Split Data** module to randomly divide the input data so that the training dataset contains 50% of the original data and the testing dataset contains 50% of the original data.
 
 
@@ -58,7 +58,7 @@ After pre-processing tex data, we use the **Split Data** module to randomly divi
 In this sample, we will use two methods performing feature engineering.
 
 ### Feature Hashing
-We used the **Feature Hashing** module to convert the plain text of the articles to integers and used the integer values as input features to the model. 
+We used the [**Feature Hashing**](../algorithm-module-reference/feature-hashing.md) module to convert the plain text of the articles to integers and used the integer values as input features to the model. 
 
 The **Feature Hashing** module can be used to convert variable-length text documents to equal-length numeric feature vectors, using the 32-bit murmurhash v3 hashing method provided by the Vowpal Wabbit library. The objective of using feature hashing is dimensionality reduction; also feature hashing makes the lookup of feature weights faster at classification time because it uses hash value comparison instead of string comparison.
 
@@ -68,7 +68,7 @@ In the sample experiment, we set the number of hashing bits to 14 and set the nu
 
 An n-gram is a contiguous sequence of n terms from a given sequence of text. An n-gram of size 1 is referred to as a unigram; an n-gram of size 2 is a bigram; an n-gram of size 3 is a trigram. N-grams of larger sizes are sometimes referred to by the value of n, for instance, "four-gram", "five-gram", and so on.
 
-We used **Extract N-Gram Feature from Text** module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
+We used [**Extract N-Gram Feature from Text**](../algorithm-module-reference/extract-n-gram-features-from-text.md)module as another solution for feature engineering. This module first extracts the set of n-grams, in addition to the n-grams, the number of documents where each n-gram appears in the text is counted(DF). In this sample, TF-IDF metric is used to calculate feature values. Then, it converts unstructured text data into equal-length numeric feature vectors where each feature represents the TF-IDF of an n-gram in a text instance.
 
 After converting text data into numeric feature vectors, A **Select Column** module is used to remove the text data from the dataset. 
 
@@ -88,7 +88,7 @@ After the model is trained, we would use the **Score Model** and **Evaluate Mode
 For **Feature Hashing** module, it is easy to perform feature engineer on scoring flow as training flow. Use **Feature Hashing** module directly to process the input text data.
 
 For **Extract N-Gram Feature from Text** module, we would connect the **Result Vocabulary output** from the training dataflow to the **Input Vocabulary** on the scoring dataflow, and set the **Vocabulary mode** parameter to **ReadOnly**.
-![Graph of n-gram score](\media\ui-sample-text-classification\n-gram.PNG)
+![Graph of n-gram score](./media/ui-sample-text-classification/n-gram.PNG)
 
 After finishing the engineering step, **Score Model** could be used to generate predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
