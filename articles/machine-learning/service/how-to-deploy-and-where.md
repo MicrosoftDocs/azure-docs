@@ -208,7 +208,7 @@ The following table describes the value of AZUREML_MODEL_DIR depending on the nu
 | Single model | The path to the folder containing the model. |
 | Multiple models | The path to the folder containing all models. Models are located by name and version in this folder (`$MODEL_NAME/$VERSION`) |
 
-To get the path to a file in a model, combine the environment variable with the filename you are looking for.
+To get the path to a file in a model, combine the environment variable with the filename you're looking for.
 The filenames of the model files are preserved during registration and deployment. 
 
 **Single model example**
@@ -224,8 +224,6 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 ##### get_model_path
 
 When you register a model, you provide a model name used for managing the model in the registry. You use this name with the [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) to retrieve the path of the model file(s) on the local file system. If you register a folder or a collection of files, this API returns the path to the directory that contains those files.
-
-When you register a model, you give it a name, which corresponds to where the model is placed, either locally or during service deployment.
 
 > [!IMPORTANT]
 > If you trained a model using automated machine learning, a `model_id` value is used as the model name. For an example of registering and deploying a model trained with automated ml, see [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-with-deployment).
