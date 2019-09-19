@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/12/2019
 ms.author: ellbe
 ---
 
@@ -55,4 +55,5 @@ Model dominant language is available in the insights JSON as the `sourceLanguage
 
 ## Next steps
 
-[Overview](video-indexer-overview.md)
+* [Overview](video-indexer-overview.md)
+* [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md)

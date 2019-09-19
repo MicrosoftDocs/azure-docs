@@ -584,6 +584,8 @@
       href: solution-template-bulk-copy-with-control-table.md
     - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Migrate data from Amazon S3 to Azure Storage
+      href: solution-template-migration-s3-azure.md
     - name: Move files
       href: solution-template-move-files.md
     - name: Transform data with Databricks
@@ -614,6 +616,12 @@
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
+  - name: SSIS migration from on-premises
+    items:
+    - name: SSIS migration overview
+      href: scenario-ssis-migration-overview.md
+    - name: SSISDB migration to Azure SQL Database managed instance
+      href: scenario-ssis-migration-ssisdb-mi.md
 - name: Reference
   items:
   - name: .NET

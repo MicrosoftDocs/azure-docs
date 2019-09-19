@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/27/2019
+ms.date: 09/16/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
-This article provides an overview of the resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
+This article provides an overview of the technical characteristics and resource limits for Azure SQL Database managed instance, and provides information about how to request an increase to these limits.
 
 > [!NOTE]
-> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md).
+> For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md). For general differencess between service tiers in single database and managed instance see [Service tier comparison](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
 ## Instance-level resource limits
 
@@ -37,36 +37,38 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 
 > [!IMPORTANT]
 > - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
-> - Gen4 hardware at this time is available in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
+> - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
 
 ### Service tier characteristics
 
-Managed instance has two service tiers: General Purpose and Business Critical. These tiers provide different capabilities, as described in the table below:
+Managed instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](sql-database-service-tiers-general-purpose-business-critical.md), as described in the table below:
 
 | **Feature** | **General Purpose** | **Business Critical** |
 | --- | --- | --- |
 | Number of vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 |
-| Max memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. |
-| Max instance reserved storage size | - 2 TB for 4 vCores (Gen5 only)<br/>- 8 TB for other sizes | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
-| Max database size | 8 TB | 4 TB |
-| Max number of databases per instance | 100 | 100 |
-| Max number of database files per instance | Up to 280 | 32,767 files per database |
-| Max file size | 8 TB | 4 TB |
+| Max memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. |
+| Max instance storage size (reserved) | - 2 TB for 4 vCores (Gen5 only)<br/>- 8 TB for other sizes | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
+| Max database size | Up to currently available instance size (max 2 TB - 8 TB depending on the number of vCores). | Up to currently available instance size (max 1 TB - 4 TB depending on the number of vCores). |
+| Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance size.<br/>Add more vCores to get more TempDB space. | Up to currently available instance size. TempDB log file size is currently limited to 24GB/vCore. |
+| Max number of databases per instance | 100, unless the instance storage size limit has been reached. | 100, unless the instance storage size limit has been reached. |
+| Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
+| Max file size | Limited to 8 TB, currently available instance size (max 2 TB - 8 TB), and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to 4 TB and currently available instance size (up to 1 TB - 4 TB). |
+| Max log file size | Limited to 2 TB, currently available instance size, and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to 2 TB and currently available instance size. |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
-| Log write throughput limit | 3 MB/s per vCore<br/>Max 22 MB/s per instance | 4 MB/s per vCore<br/>Max 48 MB/s per instance|
-| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | N/A |
+| Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
+| Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Not limited. |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
-| Max tempDB size | 192 - 1,920 GB (24 GB per vCore)<br/>Add more vCores to get more TempDB space. | Limited by the max instance storage size. TempDB log file size is currently limited to 24GB/vCore. |
 | In-memory OLTP | Not supported | Available |
 | Max sessions | 30000 | 30000 |
 | [Read-only replicas](sql-database-read-scale-out.md) | 0 | 1 (included in price) |
-| Pricing/billing | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | [vCore and reserved storage](https://azure.microsoft.com/pricing/details/sql-database/managed/) is charged. <br/>IOPS is not charged.<br/>Backup storage is not yet charged. | 
-| Discount models | [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions| [Reserved instances](sql-database-reserved-capacity.md)<br/>[Azure Hybrid Benefit](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (not available on dev/test subscriptions)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) and [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0023p/) Dev/Test subscriptions|
 
 > [!NOTE]
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 > - Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
 > You can create another readable replica in different Azure region using Auto-failover groups.
+
+> [!NOTE]
+> Find more information about the [resource limits in managed instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
 
 ## Supported regions
 
@@ -85,10 +87,10 @@ Managed instance currently supports deployment only on the following types of su
 
 ## Regional resource limitations
 
-Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region depending on a type of subscription type:
+Supported subscription types can contain a limited number of resources per region. Managed instance has two default limits per Azure region (that can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance)) depending on a type of subscription type:
 
 - **Subnet limit**: The maximum number of subnets where managed instances are deployed in a single region.
-- **vCore limit**: The maximum number of vCores that can be deployed across all instances in a single region.
+- **vCore unit limit**: The maximum number of vCore units that can be deployed across all instances in a single region. One GP vCore uses one vCore unit and one BC vCore takes 4 vCore units. The total number of instances is not limited as long as it is within the vCore unit limit.
 
 > [!Note]
 > These limits are default settings and not technical limitations. The limits can be increased on-demand by creating a special [support request in the Azure portal](#obtaining-a-larger-quota-for-sql-managed-instance) if you need more managed instances in the current region. As an alternative, you can create new managed instances in another Azure region without sending support requests.

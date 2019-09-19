@@ -177,7 +177,7 @@ In this section, we stream data into the **hvactable** that you already created 
 
 1. The output shows the schema of **HVAC.csv**. The **hvactable** has the same schema as well. The output lists the columns in the table.
 
-    ![Schema of table](./media/apache-spark-connect-to-sql-database/schema-of-table.png "Schema of table")
+    ![Schema of table](./media/apache-spark-connect-to-sql-database/hdinsight-schema-table.png "Schema of table")
 
 1. Finally, use the following snippet to read data from the HVAC.csv and stream it into the **hvactable** in Azure SQL database. Paste the snippet in a code cell, replace the placeholder values with the values for your Azure SQL database, and then press **SHIFT + ENTER** to run.
 
