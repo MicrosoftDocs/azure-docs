@@ -103,7 +103,7 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
     ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * If you want to update an existing application, select appropriate as per your requirement.
+    * If you want to update an existing application, select appropriate option as per your requirement.
     * If you want to remove an existing application from the Azure AD gallery, select **Remove my application listing from the gallery**.
     * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
