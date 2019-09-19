@@ -161,7 +161,7 @@ There are two ways to delete a VM's backup data:
 
 ### Backup item where primary data source no longer exists
 
-If a resource configured with Azure backup is deleted or moved without stopping protection, scheduled backups continue (failing) even though resource no longer exists. Backup jobs are not shown for this kind of a protected item post the non- existence of the resource. Failed backup job appears and backup pre check shows as ‘critical’ only when an ad-hoc backup is triggered on these resources. These backup items remain active in the system adhering to the backup and retention policy set by the user. The expired recovery points are cleaned as per the set retention policy. The last recovery point is retained forever and the customer is charged as per the backup pricing applicable.
+If a resource configured with Azure backup is deleted or moved without stopping protection, scheduled backups continue (while failing) even though the resource no longer exists. Backup jobs are not shown for this kind of protected item after the resource ceases to exist. Failed backup jobs appear and backup pre-check shows as ‘critical’ only when an ad-hoc backup is triggered on these resources. These backup items remain active in the system adhering to the backup and retention policy set by the user. The expired recovery points are cleaned according to the set retention policy. The last recovery point is retained forever and the customer is charged according to the backup pricing applicable.
 
 
 ## Next steps
