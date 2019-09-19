@@ -24,12 +24,7 @@ Azure Storage regularly verifies the integrity of data stored using cyclic redun
 
 When you create a storage account, you can select one of the following redundancy options:
 
-- [Locally redundant storage (LRS)](storage-redundancy-lrs.md)
-- [Zone-redundant storage (ZRS)](storage-redundancy-zrs.md)
-- [Geo-redundant storage (GRS)](storage-redundancy-grs.md)
-- [Read-access geo-redundant storage (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
-- [Geo-zone-redundant storage (GZRS)](storage-redundancy-gzrs.md)
-- [Read-access geo-zone-redundant storage (RA-GZRS)](storage-redundancy-gzrs.md)
+[!INCLUDE [azure-storage-redundancy](../../../includes/azure-storage-redundancy.md)]
 
 The following table provides a quick overview of the scope of durability and availability that each replication strategy will provide you for a given type of event (or event of similar impact).
 
@@ -51,7 +46,7 @@ For pricing information for each redundancy option, see [Azure Storage Pricing](
 For information about Azure Storage guarantees for durability and availability, see the [Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
-> Azure Premium Storage supports only locally redundant storage (LRS).
+> Azure Premium Storage currently supports only locally redundant storage (LRS).
 
 ## Changing replication strategy
 
