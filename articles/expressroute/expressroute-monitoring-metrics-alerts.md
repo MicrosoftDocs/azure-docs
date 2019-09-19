@@ -27,16 +27,16 @@ Once a metric is selected, the default aggregation will be applied. Optionally, 
 
 |  **Category** |  **Metric** | **Dimension(s)** |  **Feature(s)** |
 | --- | --- | --- | --- |
-|Availability| ARP Availability |* Peer (Primary/Secondary ExpressRoute router)<br>* Peering Type (Private/Public/Microsoft)  |ExpressRoute|
-|Availability|Bgp Availability |* Peer (Primary/Secondary ExpressRoute router)<br>* Peering Type|ExpressRoute |
-|Traffic|BitsInPerSecond|* Peering Type (ExpressRoute)<br>* Link (ExpressRoute Direct)| *ExpressRoute<br>* ExpressRoute Direct|
-|Traffic|BitsOutPerSecond| * Peering Type (ExpressRoute)<br>* Link (ExpressRoute Direct) | *ExpressRoute<br>* ExpressRoute Direct|
-|Traffic|GlobalReachBitsInPerSecond|Peered Circuit Skey (Service Key) |Global Reach |
-|Traffic|GlobalReachBitsOutPerSecond|Peered Circuit Skey (Service Key) |Global Reach|
-|Physical Connectivity|AdminState|Link|ExpressRoute Direct|
-|Physical Connectivity|LineProtocol|Link |ExpressRoute Direct|
-|Physical Connectivity|RxLightLevel|* Link<br>* Lane |ExpressRoute Direct|
-|Physical Connectivity|TxLightLevel|* Link<br>* Lane |ExpressRoute Direct|
+|Availability| ARP Availability |<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|<ui><li>ExpressRoute</ui></li>|
+|Availability|Bgp Availability |<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|<ui><li>ExpressRoute</ui></li>|
+|Traffic|BitsInPerSecond|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|Traffic|BitsOutPerSecond| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|Traffic|GlobalReachBitsInPerSecond|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|<ui><li>Global Reach</ui></li>|
+|Traffic|GlobalReachBitsOutPerSecond|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|<ui><li>Global Reach</ui></li>|
+|Physical Connectivity|AdminState|<ui><li>Link</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
+|Physical Connectivity|LineProtocol|<ui><li>Link</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
+|Physical Connectivity|RxLightLevel|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
+|Physical Connectivity|TxLightLevel|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
