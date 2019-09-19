@@ -55,16 +55,34 @@ landingContent:
           url: tutorials/tutorial-power-bi-key-phrases.md
         - text: Use Flask to translate text, analyze sentiment, and synthesize speech
           url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+    
+- title: Sentiment analysis   
+  linkLists:
     - linkListType: how-to-guide
       links:
         - text: Sentiment analysis
           url: how-tos/text-analytics-how-to-sentiment-analysis.md
-        - text: Entity recognition
-          url: how-tos/text-analytics-how-to-entity-linking.md
-        - text: Keyword extraction
-          url: how-tos/text-analytics-how-to-keyword-extraction.md
+
+- title: Language detection 
+  linkLists:
+    - linkListType: how-to-guide
+      links:
         - text: Language detection
           url: how-tos/text-analytics-how-to-language-detection.md
+
+- title: Keyword extraction   
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Keyword extraction
+          url: how-tos/text-analytics-how-to-keyword-extraction.md
+
+- title: Entity recognition
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Entity recognition
+          url: how-tos/text-analytics-how-to-entity-linking.md
 
 - title: Reference
   linkLists:
