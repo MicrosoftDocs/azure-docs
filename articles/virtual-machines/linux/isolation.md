@@ -48,9 +48,6 @@ For details see below:
 | Dec 30th, 2020	| Retire D/DS15i_v2(all customers except who bought 3-year RI of D/DS15_v2)| 
 | Dec 30th, 2022	 | Retire D/DS15i_v2 when 3-year RIs done | 
 
-## Exceptions(TBD)
-•	Service Fabric
-
 ## FAQs
 ### Reserved Instances - Bill
 ### Q: I already purchased 1- or 3-year Reserved Instance for D15_v2 or Ds15_v2. How will the discount be applied to my VM usage?
