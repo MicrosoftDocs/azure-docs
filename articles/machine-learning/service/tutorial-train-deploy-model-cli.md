@@ -217,22 +217,6 @@ The `-t` parameter stores a reference to this run in a JSON file, and will be us
 As the training run processes, it streams information from the training session on the remote compute resource. Part of the information is similar to the following text:
 
 ```text
-alpha is 0.00, and mse is 3424.32
-alpha is 0.05, and mse is 3408.92
-alpha is 0.10, and mse is 3372.65
-alpha is 0.15, and mse is 3345.15
-alpha is 0.20, and mse is 3325.29
-alpha is 0.25, and mse is 3311.56
-alpha is 0.30, and mse is 3302.67
-alpha is 0.35, and mse is 3297.66
-alpha is 0.40, and mse is 3295.74
-alpha is 0.45, and mse is 3296.32
-alpha is 0.50, and mse is 3298.91
-alpha is 0.55, and mse is 3303.14
-alpha is 0.60, and mse is 3308.70
-alpha is 0.65, and mse is 3315.36
-alpha is 0.70, and mse is 3322.90
-alpha is 0.75, and mse is 3331.17
 alpha is 0.80, and mse is 3340.02
 alpha is 0.85, and mse is 3349.36
 alpha is 0.90, and mse is 3359.09
