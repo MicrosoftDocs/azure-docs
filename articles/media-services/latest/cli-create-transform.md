@@ -29,6 +29,7 @@ The Azure CLI script in this article shows how to create a transform. Transforms
 
 > [!NOTE]
 > You can only specify a path to a custom Standard Encoder preset JSON file for [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). See the [encode with a custom transform](custom-preset-cli-howto.md) example.
+>
 > You cannot pass a file name when using [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset).
 
 ## Example script
