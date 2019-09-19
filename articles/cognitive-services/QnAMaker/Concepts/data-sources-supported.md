@@ -205,7 +205,7 @@ If you want to add content using update/replace knowledgebase APIs and the conte
 | Yes | \&lt;br\&gt; | &lt;br&gt; |
 | Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
 
-Additionally, CR LF(\r\n)re converted to \n in the KB. LF(\n)s kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
+Additionally, CR LF(\r\n) are converted to \n in the KB. LF(\n) is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
 
 ## Editing your knowledge base locally
 
