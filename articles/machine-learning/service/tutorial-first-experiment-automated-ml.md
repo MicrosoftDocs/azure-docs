@@ -62,8 +62,8 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Select **Create experiment**. 
 
-1. Enter the following experiment name:
-   ```text
+1. Enter this experiment name:
+   ```Experiment name
    my-1st-automl-experiment
    ```
 
