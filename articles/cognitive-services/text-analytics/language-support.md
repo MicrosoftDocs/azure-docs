@@ -42,16 +42,17 @@ Language support is initially rolled out in preview, graduating to generally ava
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
 | Arabic      | `ar`          |           |             | ✔ \*                     | |
 | Czech       | `cs`          |           |             | ✔ \*                     | |
-| Chinese-Simplified | `zh-CN`| ✔ \***     |             | ✔         |    |
+| Chinese-Simplified | `zh-hans`| ✔ \***     |             | ✔         |    |
+| Chinese-Traditional | `zh-hant`| ✔ \***     |             |          |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
+| English     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| French      | `fr`          | ✔        | ✔           |  ✔            |     |
+| French      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
 | German      | `de`          | ✔ \*     | ✔           |  ✔           |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
 | Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
-| Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
+| Italian     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
 | Japanese    | `ja`          | ✔ \***         | ✔           |  ✔ \*          |     |
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norwegian  (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |

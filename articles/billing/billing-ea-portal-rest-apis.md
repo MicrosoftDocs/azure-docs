@@ -4,7 +4,7 @@ description: This article describes the REST APIs for use with your Azure enterp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -26,7 +26,7 @@ Microsoft Enterprise Azure customers can get usage and billing information throu
 
 **Marketplace Store Charge -** The [Marketplace Store Charge API](billing-enterprise-api-marketplace-storecharge.md) returns usage-based marketplace charges, broken down day for the specified billing period or start and end dates. For more information, see [Reporting APIs for Enterprise customers - Marketplace Store Charge](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge).
 
-**Price Sheet -** The [Price Sheet API](/billing-enterprise-api-pricesheet.md) provides the applicable rate for each meter for an enrollment and billing period. For more information, see [Reporting APIs for Enterprise customers - Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
+**Price Sheet -** The [Price Sheet API](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) provides the applicable rate for each meter for an enrollment and billing period. For more information, see [Reporting APIs for Enterprise customers - Price Sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet).
 
 **Billing Periods -** The [Billing Periods API](billing-enterprise-api-billing-periods.md) returns a list of billing periods that have consumption data for an enrollment in reverse chronological order. Each period contains a property pointing to the API route for the four sets of data, BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. For more information, see [Reporting APIs for Enterprise customers - Billing Periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods).
 
@@ -64,7 +64,7 @@ The preceding steps give API access key holders with access to cost and pricing 
 
 Pass the API key for each call for authentication and authorization. Pass the following property to HTTP headers:
 
-| Request Header Key | Value |
+| Request header key | Value |
 | --- | --- |
 | Authorization | Specify the value in this format: **bearer {API\_KEY}**
 Example: bearer \&lt;APIKey\&gt; |
@@ -77,7 +77,7 @@ A Swagger endpoint is available at [Enterprise Reporting v3 APIs](https://consum
 
 When you're using an API, response status codes are shown. The following table describes them.
 
-| Response Status Code | Message | Description |
+| Response status code | Message | Description |
 | --- | --- | --- |
 | 200 | OK | No error |
 | 401 | Unauthorized | API Key not found, Invalid, Expired etc. |
@@ -101,11 +101,11 @@ All Azure services are posted to a catalog in CSV format in an Azure storage blo
 
 The following information describes the properties of API reports.
 
-#### Usage Summary
+#### Usage summary
 
 JSON format is generated from the CSV report. As a result, the format is same as the summary CSV format. The column name is wielded, so you should deserialize into a data table when you consume the JSON summary data.
 
-| CSV Column Name | Json Column Name | Json new Column | Comment |
+| CSV column name | JSON column name | JSON new column | Comment |
 | --- | --- | --- | --- |
 | AccountOwnerId | AccountOwnerLiveId | AccountOwnerLiveId |   |
 | Account Name | AccountName | AccountName |   |
@@ -141,7 +141,7 @@ JSON format is generated from the CSV report. As a result, the format is same as
 
 #### Azure Marketplace report
 
-| CSV Column Name | Json Column Name | Json new Column |
+| CSV column name | JSON column name | JSON new column |
 | --- | --- | --- |
 | AccountOwnerId | AccountOwnerId | AccountOwnerId |
 | Account Name | AccountName | AccountName |
@@ -168,9 +168,9 @@ JSON format is generated from the CSV report. As a result, the format is same as
 | Cost Center | CostCenters |  CostCenter |
 | Resource Group | ResourceGroup |  ResourceGroup |
 
-#### Price Sheet
+#### Price sheet
 
-| CSV Column Name | Json Column Name | Comment |
+| CSV column name | JSON column name | Comment |
 | --- | --- | --- |
 | Service | Service |  No change to price |
 | Unit of Measure | UnitOfMeasure |   |
