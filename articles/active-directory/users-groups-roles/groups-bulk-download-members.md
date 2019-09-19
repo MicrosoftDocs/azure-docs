@@ -39,7 +39,7 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 ## Bulk download service limits
 
-Each bulk activity to download a list of group members can run for up to one hour. This enables you to download of a list of at least 500,000 members.
+Each bulk activity to download a list of group members can run for up to one hour. This enables you to download a list of at least 500,000 members.
 
 ## Next steps
 
