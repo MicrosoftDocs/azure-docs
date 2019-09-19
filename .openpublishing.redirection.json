@@ -116,6 +116,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-dmz-nsg-asm.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter",
       "redirect_document_id": true
