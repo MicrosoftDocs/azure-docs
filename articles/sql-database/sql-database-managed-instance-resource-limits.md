@@ -49,11 +49,11 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 | Max memory | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Add more vCores to get more memory. |
 | Max instance storage size (reserved) | - 2 TB for 4 vCores (Gen5 only)<br/>- 8 TB for other sizes | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB for 4, 8, 16 vCores<br/>- 2 TB for 24 vCores<br/>- 4 TB for 32, 40, 64, 80 vCores |
 | Max database size | Up to currently available instance size (max 2 TB - 8 TB depending on the number of vCores). | Up to currently available instance size (max 1 TB - 4 TB depending on the number of vCores). |
-| Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance size.<br/>Add more vCores to get more TempDB space. | Up to currently available instance size. TempDB log file size is currently limited to 24GB/vCore. |
+| Max tempDB size | Limited to 24 GB/vCore (96 - 1,920 GB) and currently available instance storage size.<br/>Add more vCores to get more TempDB space. | Up to currently available instance storage size. TempDB log file size is currently limited to 24GB/vCore. |
 | Max number of databases per instance | 100, unless the instance storage size limit has been reached. | 100, unless the instance storage size limit has been reached. |
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
-| Max file size | Limited to 8 TB, currently available instance size (max 2 TB - 8 TB), and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to 4 TB and currently available instance size (up to 1 TB - 4 TB). |
-| Max log file size | Limited to 2 TB, currently available instance size, and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to 2 TB and currently available instance size. |
+| Max data file size | Limited to currently available instance storage size (max 2 TB - 8 TB) and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to currently available instance storage size (up to 1 TB - 4 TB). |
+| Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
 | Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Not limited. |
@@ -63,6 +63,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 | [Read-only replicas](sql-database-read-scale-out.md) | 0 | 1 (included in price) |
 
 > [!NOTE]
+> - **Currently available instance storage size** is the difference between reserved instance size and the used storage space.
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 > - Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
 > You can create another readable replica in different Azure region using Auto-failover groups.
