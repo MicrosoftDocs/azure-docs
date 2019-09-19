@@ -20,7 +20,7 @@ Use the Computer Vision client library for Node.js to:
 * [Analyze an image](#analyze-an-image)
 * [Read printed and handwritten text](#read-printed-and-handwritten-text)
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## Prerequisites
 
@@ -80,9 +80,8 @@ The following classes and interfaces handle some of the major features of the Co
 
 |Name|Description|
 |---|---|
-| [ComputerVisionClient]() | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to do most image operations.|
-|[ComputerVisionClientExtensions]()| This class contains additional methods for the **ComputerVisionClient**.|
-|[VisualFeatureTypes]()| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of VisualFeatureTypes values depending on your needs. |
+| [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | This class is needed for all Computer Vision functionality. You instantiate it with your subscription information, and you use it to do most image operations.|
+|[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| This enum defines the different types of image analysis that can be done in a standard Analyze operation. You specify a set of **VisualFeatureTypes** values depending on your needs. |
 
 ## Code examples
 
@@ -98,13 +97,13 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_vars)]
 
-Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) object with your key and endpoint, and use it to create a [ComputerVisionClient]() object.
+Instantiate a client with your endpoint and key. Create a [ApiKeyCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.apikeycredentials?view=azure-python) object with your key and endpoint, and use it to create a [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) object.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_client)]
 
 ## Analyze an image
 
-The code in this section analyzes remote images to extract various visual features. You can do these operations as part of the **analyzeImage** method of the client object, or you can call them using individual methods. See the [reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision) for details.
+The code in this section analyzes remote images to extract various visual features. You can do these operations as part of the **analyzeImage** method of the client object, or you can call them using individual methods. See the [reference documentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) for details.
 
 > [!NOTE]
 > You can also analyze a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js) for scenarios involving local images.
@@ -260,7 +259,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision)
+>[Computer Vision API reference (Node.js)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest)
 
 * [What is the Computer Vision API?](../Home.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/ComputerVision/ComputerVisionQuickstart.js).
