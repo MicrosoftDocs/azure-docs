@@ -62,7 +62,9 @@ Setting up the environment can be done using one of the publish setup actions.
 |**JavaScript**     | `actions/setup-node` |
 |**Python**   | `actions/setup-python` |
 
-A snippet from the yaml file for a JavaScript app that uses version 10
+A snippet from the yaml file for:
+
+**JavaScript**
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -75,11 +77,54 @@ A snippet from the yaml file for a JavaScript app that uses version 10
         node-version: '10.x'
 ```
 
+**Python**
+
+```yaml
+    - name: 'Login via Azure CLI'
+      uses: Azure/actions/login@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Python 3.6
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6
+```
+
+**Dot Net**
+
+```yaml
+    - name: 'Login via Azure CLI'
+      uses: Azure/actions/login@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Dotnet 2.2.300
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '2.2.300'
+```
+
+**Java**
+
+```yaml
+    - name: 'Login via Azure CLI'
+      uses: Azure/actions/login@master
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+    - name: Setup Java 1.8.x
+      uses: actions/setup-java@v1
+      with:
+        # If your pom.xml <maven.compiler.source> version is not in 1.8.x
+        # Please change the Java version to match the version in pom.xml <maven.compiler.source>
+        java-version: '1.8.x'
+```
+
 ## Build the function app
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-A snippet from the yaml file for a JavaScript app
+A snippet from the yaml file for:
+
+**JavaScript app**
 
 ```yaml
     - name: 'Run npm'
@@ -94,7 +139,46 @@ A snippet from the yaml file for a JavaScript app
         popd
 ```
 
-This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language
+**Python**
+
+```yaml
+    - name: 'Run pip'
+      shell: bash
+      run: |
+        # If your function app project is not located in your repository's root
+        # Please change your directory for pip in pushd
+        pushd .
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt --target=".python_packages/lib/python3.6/site-packages"
+        popd
+```
+
+**Dot Net**
+
+```yaml
+    - name: 'Run dotnet build'
+      shell: bash
+      run: |
+        # If your function app project is not located in your repository's root
+        # Please consider using pushd to change your path
+        pushd .
+        dotnet build --configuration Release --output ./output
+        popd
+```
+
+**Java**
+
+```yaml
+    - name: 'Run mvn'
+      shell: bash
+      run: |
+        # If your function app project is not located in your repository's root
+        # Please change your directory for maven build in pushd
+        pushd . ./POM_ARTIFACT_ID
+        mvn clean package
+        mvn azure-functions:package
+        popd
+```
 
 ## Deploy the function app
 
