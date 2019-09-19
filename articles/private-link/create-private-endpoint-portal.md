@@ -2,10 +2,10 @@
 
 title: 'Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal
-services: virtual-network
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can prvately connect to it.
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
@@ -198,8 +198,8 @@ After you've created **myVm*, connect to it from the internet as follows:
 ## Access the SQL database server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
-2. Enter `myserver.database.windows.net`. 
-`
+2. Enter `nslookup myserver.database.windows.net`. 
+
     You'll receive a message similar to this:
     ```azurepowershell
     Server:  UnKnown

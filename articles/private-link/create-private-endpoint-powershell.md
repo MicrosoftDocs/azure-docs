@@ -1,10 +1,10 @@
 ---
 title: 'Create an Azure Private Endpoint using Azure PowerShell| Microsoft Docs'
 description: Learn about Azure Private Link
-services: virtual-network
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private endpoint
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
@@ -183,20 +183,23 @@ mstsc /v:<publicIpAddress>
 2. Enter the user name and password you specified when creating the VM.
   > [!NOTE]
   > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
+  
 3. Select **OK**. 
 4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
 ## Access SQL Database Server privately from the VM
 
 1. In the Remote Desktop of myVM, open PowerShell.
-2. Enternslookup myserver.database.windows.net You'll receive a message similar to this:
-    Azure PowerShellCopy
+2. Enter `nslookup myserver.database.windows.net`. 
+
+    You'll receive a message similar to this:
+    ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
-    Aliases:  myserver.database.windows.net
+    Aliases:   myserver.database.windows.net
 3. Install SQL Server Management Studio
 4. In Connect to server, enter or select this information:
   	Setting	Value
