@@ -27,7 +27,7 @@
         href: tutorial-train-models-with-aml.md
       - name: 2. Deploy a model
         href: tutorial-deploy-models-with-aml.md
-    - name: Regression (NYC Taxi data)
+    - name: Regression with Automated ML (NYC Taxi data)
       items:
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
@@ -45,7 +45,7 @@
     - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
-  - name: Automated machine learning
+  - name: Automated ML (interface)
     items:
     - name: Classification (Bank data)
       displayName: automl, automated, auto ml, portal, ui
@@ -55,26 +55,6 @@
   - name: Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
-  - name: Visual interface experiments
-    items:
-    - name: "Predict price"
-      displayName: regression, studio
-      href:  ui-sample-regression-predict-automobile-price-basic.md
-    - name: "Predict price (advanced)"
-      displayName: regression, studio
-      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-    - name: "Predict credit risk"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-credit-risk-basic.md
-    - name: "Predict credit risk (advanced)"
-      displayName: classification, studio
-      href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - name: "Predict churn"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-churn.md
-    - name: "Predict flight delays"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
@@ -175,6 +155,27 @@
         href: how-to-train-pytorch.md
       - name: Use Chainer
         href: how-to-train-chainer.md
+    - name: Use visual interface
+      displayName: sample visual interface experiments
+      items:
+      - name: "Predict price"
+        displayName: regression, studio
+        href:  how-to-ui-sample-regression-predict-automobile-price-basic.md
+      - name: "Predict price (advanced)"
+        displayName: regression, studio
+        href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+      - name: "Predict credit risk"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-credit-risk-basic.md
+      - name: "Predict credit risk (advanced)"
+        displayName: classification, studio
+        href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+      - name: "Predict churn"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-churn.md
+      - name: "Predict flight delays"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-flight-delay.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
