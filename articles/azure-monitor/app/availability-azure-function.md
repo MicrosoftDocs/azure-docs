@@ -15,7 +15,7 @@ ms.author: lagayhar
 
 # Availability with Azure Functions
 
-This doc will cover how to create an Azure Function that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
+This article will cover how to create an Azure Function that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
 
 ## Create Timer triggered function
 
@@ -25,7 +25,7 @@ This doc will cover how to create an Azure Function that will run periodically a
 
 - If you have an Application Insights Resource:
     - By default Azure Functions creates an Application Insights resource but if you would like to use one of your already created resources you will need to specify that during creation.
-    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) with the following chances.
+    - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) with the following choices.
         -  Click the Application Insights section before selecting **Create**.
 
             ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-function/create-function-app.png)
@@ -38,12 +38,12 @@ This doc will cover how to create an Azure Function that will run periodically a
 
 ## Sample Code
 
-Copy the code below into the run.csx. To do this, go into your Azure functions application and select your timer trigger function on the left.
+Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure functions application and select your timer trigger function on the left.
 
 ![Azure function's run.csx in Azure portal](media/availability-azure-function/runcsx.png)
 
 > [!NOTE]
-> For the Endpoint Address you can use: [Endpoint Address for Azure Government](https://docs.microsoft.com/en-us/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights),the default Application Insights ```EndpointAddress= https://dc.services.visualstudio.com/v2/track```, or your own custom endpoint.
+> For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
 
 ```C#
 using System;
@@ -61,7 +61,7 @@ using Microsoft.Extensions.Logging;
 // [CONFIGURATION_REQUIRED] configure test timeout accordingly for which your request should run
 private static readonly HttpClient HttpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
 
-// The Application Insights Instrumentation Key can be change by going the overview page of your Function App, selecting configuration, and changing the value of APPINSIGHTS_INSTRUMENTATIONKEY
+// The Application Insights Instrumentation Key can be change by going the overview page of your Function App, selecting configuration, and changing the value of the APPINSIGHTS_INSTRUMENTATIONKEY Application setting.
 private static readonly string InstrumentationKey = Environment.GetEnvironmentVariable("APPINSIGHTS_INSTRUMENTATIONKEY");
 
 // [CONFIGURATION_REQUIRED] Configure EndpointAddress
@@ -84,7 +84,7 @@ public static async void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, I
     // REGION_NAME is a default environment variable that comes with App Service
     string location = Environment.GetEnvironmentVariable("REGION_NAME");
 
-    // [CONFIGURATION_REQUIRED] configure {uri} and {contentMatch} accordingly for your web app. {uri} is the website that you are testing the availability of. If {contentMatch} is present on the page, the test will succeed, otherwise it will fail.  
+    // [CONFIGURATION_REQUIRED] configure {uri} and {contentMatch} accordingly for your web app. {uri} is the website that you are testing the availability of, make sure to include http:// ot https:// in your url. If {contentMatch} is present on the page, the test will succeed, otherwise it will fail.  
     await AvailabilityTestRun(
         name: testName,
         location: location,
@@ -193,5 +193,19 @@ On the right under view files, select **Add**. Call the new file **function.proj
 ```
 
 ![On the right select, add. Name the file function.proj](media/availability-azure-function/addfile.png)
+
+## Check Availability
+
+To make sure everything is working, you can look at the graph in the Availability tab of your Application Insights resource.
+
+![Availability tab with successful results](media/availability-azure-function/availtab.png)
+
+When you set up your test using Azure Functions you will notice, that unlike using **Add test** in the Availability tab, the name of your test will not appear and you will not be able to interact with it. The results are visualized but you get a summary view instead of the same detailed view you get when you create an availability test via the portal.
+
+To see the end-to-end transaction details, select **Successful** or **Failed** under drill into, then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
+
+![Select a sample availability test](media/availability-azure-function/sample.png)
+
+![End-to-end transaction details](media/availability-azure-function/end-to-end.png)
 
 ## Next Steps
