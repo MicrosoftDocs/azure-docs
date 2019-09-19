@@ -86,6 +86,11 @@ If you are a hybrid customer using Exchange Server on-premises and Skype for Bus
 
 Before you can begin enabling modern authentication on-premises, please be sure that you have met the pre-requisites. You’re now ready to enable modern authentication on-premises.
 
+Steps for enabling modern authentication can be found in the following articles:
+
+* [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [How to use Modern Authentication (ADAL) with Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+
 ## Next steps
 
 - [How to configure Exchange Server on-premises to use Hybrid Modern Authentication](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
