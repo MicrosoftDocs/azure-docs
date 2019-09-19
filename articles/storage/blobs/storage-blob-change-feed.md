@@ -11,9 +11,9 @@ ms.subservice: blobs
 
 # Change feed in Azure Blob Storage
 
-Change feed logs capture change event records for all changes that occur to the blobs and the blob metadata in your storage account. The logs that contain these records are stored as blobs in your account. They are durable, immutable, and read-only, and you can manage their lifetime based on your requirements.
+Change feed logs record all changes that occur to the blobs and the blob metadata in your storage account. The logs that contain these records are stored as blobs in your account. They are durable, immutable, and read-only, and you can manage their lifetime based on your requirements.
 
-Unlike change events which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
+Unlike *Blob Storage events* which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
 
 > [!NOTE]
 > The change feed is in public preview, and is available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
@@ -30,15 +30,13 @@ The change feed consists of several metadata and log files. You can find of thes
 
 | File    | Purpose    |
 |--------|-----------|
-| **Index file** | This file is named *segments.json* and there is only one of them. Use the data in this file to help you decide which logs to process. |
-| **Segment files** | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments. Each segment contains a metadata file that ends with the suffix *meta.json*. This file contains a path to the associated change feed logs for that segment. |
-| **Log files** |  Log files contain a series of event records. Each log file represents 60 minutes of event activity. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
+| Index file | This file is named *segments.json* and there is only one of them. Use the data in this file to help you decide which logs to process. |
+| Segment files | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments. Each segment contains a metadata file that ends with the suffix *meta.json*. This file contains a path to the associated change feed logs for that segment. |
+| Log files |  Log files contain a series of event records. Each log file represents 60 minutes of event activity. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
 
-Put an image here of a directory that contains these files....
+Start by reading the index metadata file. Use that file to determine the last consumable segment. Then, read the meta file for each segment of interest. These files contain  the path to each change feed logs for that segment. Read log files to iterate through all of the change event records.
 
-Start by processing the index metadata file. Then, for each segment you're interested in, read the segment metadata file to obtain the path to each change feed log in that segment. Log files use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. There are several libraries available to process files in that format. This article shows examples that use the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications.
-
-The following sections describe the contents of each file and how to process them.
+There are several libraries available to process files that use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. This article shows examples that use the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications.
 
 ## Index file
 
