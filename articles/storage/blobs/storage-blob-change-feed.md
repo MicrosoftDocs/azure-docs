@@ -79,6 +79,40 @@ The index file contains the following top-level data:
 | Data.aid | string | Description |
 | Data.lfz | string | Description |
 
+### Code example
+
+This example processes the index metadata file by using a .NET client application.
+
+> [!NOTE]
+> This example depends the on [System.Json](https://www.nuget.org/packages/System.Json/) NuGet package.
+
+```csharp
+using System.Json;
+
+class Storage
+{
+    public async Task<string> ProcessIndexFile(CloudBlobClient cloudBlobClient)
+   {
+        CloudBlobContainer container =
+            cloudBlobClient.GetContainerReference("$blobchangefeed");
+
+        CloudBlockBlob cloudBlockBlob =
+            container.GetBlockBlobReference("meta/segments.json");
+
+        Stream stream = await cloudBlockBlob.OpenReadAsync();
+
+        using (StreamReader streamReader = new StreamReader(stream))
+        {
+            string line = await streamReader.ReadToEndAsync();
+            JsonObject result = JsonValue.Parse(line) as JsonObject;
+
+            return (string)result["lastConsumable"];
+        }
+    }
+}
+
+```
+
 ## Segment metadata file
 
 Use segment files to process changes at specific time points, or ranges of time points. A segment metadata file describes the details of a segment and points to one or more change feed logs that capture the change event records associated with the time segment.
@@ -134,6 +168,73 @@ The index file contains the following top-level data:
 | chunkFilePaths | string | Description |
 | storageDiagnostics | string | For internal use only and not designed for use by your application. |
 
+### Code example
+
+This example processes the segment metadata files by using a .NET client application.
+
+> [!NOTE]
+> This examples depends the on [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Packages.
+
+```csharp
+
+using System.Json;
+using Avro.File;
+using Avro.Generic;
+
+class Storage
+{
+    public async Task GetCreatedFiles(CloudBlobClient cloudBlobClient, 
+        DateTimeOffset lastChecked, DateTimeOffset lastConsumable)
+    {
+        CloudBlobContainer container =
+            cloudBlobClient.GetContainerReference("$blobchangefeed");
+
+        CloudBlobDirectory segmentDirectory = container.GetDirectoryReference("idx");
+
+        BlobContinuationToken blobContinuationToken = null;
+
+        do
+        {
+            var resultSegment = await segmentDirectory.ListBlobsSegmentedAsync
+                (true, BlobListingDetails.All, null, blobContinuationToken, null, null);
+
+            blobContinuationToken = resultSegment.ContinuationToken;
+
+            foreach (CloudBlockBlob item in resultSegment.Results)
+            {
+                await item.FetchAttributesAsync();
+
+                DateTimeOffset lastModified = (DateTimeOffset)item.Properties.LastModified;
+
+                if ((lastChecked < lastModified) && (lastConsumable > lastModified))
+                {
+                    CloudBlockBlob cloudBlockBlob =
+                        container.GetBlockBlobReference(item.Name);
+
+                    Stream stream = await cloudBlockBlob.OpenReadAsync();
+
+                    using (StreamReader streamReader = new StreamReader(stream))
+                    {
+                        string line = await streamReader.ReadToEndAsync();
+
+                        JsonObject result = JsonValue.Parse(line) as JsonObject;
+
+                        JsonArray chunkFilePaths = result["chunkFilePaths"] as JsonArray;
+
+                        foreach (string filePath in chunkFilePaths)
+                        {
+                            await ParseAvroFile(cloudBlobClient, filePath);
+                        }
+                    }
+                }
+            }
+        } while (blobContinuationToken != null);
+
+    }
+}
+
+```
+
 ## Change feed log file
 
 Change feed logs are stored as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs) that have the *.avro* file extension (For example: `00000.avro`).
@@ -169,6 +270,7 @@ Each change event record captures only information about the event and do not ca
          }
   }
 }
+
 ```
 
 ### File properties
@@ -176,6 +278,57 @@ Each change event record captures only information about the event and do not ca
 To view the complete schema along with field descriptions here: [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 As you process change event records, disregard records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. The `storageDiagnonstics` property bag is for internal use only and not designed for use by your application.
+
+### Code example
+
+This example processes the change feed log file by using a .NET client application.
+
+> [!NOTE]
+> This examples depends the on [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Packages.
+
+```csharp
+using System.Json;
+using Avro.File;
+using Avro.Generic;
+
+class Storage
+{
+    public async Task ParseAvroFile(CloudBlobClient cloudBlobClient, string chunkFilePath)
+    {
+        CloudBlobContainer container =
+            cloudBlobClient.GetContainerReference("$blobchangefeed");
+
+        string blobPath = 
+            chunkFilePath.Substring(("$blobchangefeed/").Count()) + "00000.avro";
+
+        CloudAppendBlob cloudAppendBlob =
+            container.GetAppendBlobReference(blobPath);
+
+        Stream stream = await cloudAppendBlob.OpenReadAsync();
+
+        var dataFileReader = DataFileReader<GenericRecord>.OpenReader(stream);
+
+        object tempDataField;
+
+        foreach (var record in dataFileReader.NextEntries)
+        {
+            record.TryGetValue("eventType", out tempDataField);
+
+            if (((Avro.Generic.GenericEnum)tempDataField).Value == "BlobCreated")
+            {
+                record.TryGetValue("data", out tempDataField);
+
+                Avro.Generic.GenericRecord dataRecord = (Avro.Generic.GenericRecord)tempDataField;
+
+                dataRecord.TryGetValue("url", out tempDataField);
+
+                Console.WriteLine((string)tempDataField);
+            }
+        }
+    }
+}
+
+```
 
 <a id="region-availability" />
 
