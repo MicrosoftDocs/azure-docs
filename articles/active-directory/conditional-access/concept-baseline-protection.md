@@ -87,6 +87,10 @@ Using any of these tools to perform resource management is a highly privileged a
 
 To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
+## Enabling
+
+Organizations must migrate to [Security Defaults](concept-conditional-access-security-defaults.md) or create [custom Conditional Access policies](concept-conditional-access-policy-common.md) to enable similar security settings before January 31st, 2020.
+
 ## Next steps
 
 For more information, see:
