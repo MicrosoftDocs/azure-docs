@@ -271,7 +271,7 @@
       href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
   - name: App settings reference
     href: functions-app-settings.md
-  - name: Bindings
+  - name: Triggers and bindings
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
