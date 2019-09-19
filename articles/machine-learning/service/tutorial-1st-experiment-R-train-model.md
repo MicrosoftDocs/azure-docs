@@ -1,18 +1,17 @@
 ---
-title: "Tutorial: Train your first ML model"
+title: "Tutorial: Train your first ML model with R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a scikit-learn model based on the diabetes data set.
+description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a scikit-learn model using R and the diabetes data set.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
-ms.reviewer: trbye
-ms.date: 09/03/2019
+author: j-martens
+ms.author: jmartens
+ms.date: 10/28/2019
 ---
 
-# Tutorial: Train your first ML model
+# Tutorial: Train your first ML model using R & Azure Machine Learning
 
 This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
