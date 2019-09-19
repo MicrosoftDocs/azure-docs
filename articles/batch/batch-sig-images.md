@@ -144,7 +144,7 @@ If you plan to create a pool with hundreds or thousands of VMs or more using a S
 
 * **Shared Image Gallery replica numbers.**  For every pool with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 5 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
-* **Resize timeout** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
+* **Resize timeout.** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
 
 ## Next steps
 
