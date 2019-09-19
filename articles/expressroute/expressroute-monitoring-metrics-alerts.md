@@ -33,13 +33,24 @@ To navigate to **Metrics**, click the ExpressRoute page for the circuit that you
       * Dimensions Available:
         * Peer (Primary/Secondary ExpressRoute router)
         * Peering Type (Private/Public/Microsoft)
+    * Rx and Tx Light Levels
+      * Dimensions Available:
+        * ExpressRoute Direct
+    * Admin State
+      * Dimensions Available: 
+        * ExpressRoute Direct
+    * Line Protocol
+      * Dimensions Available
+        * ExpressRoute Direct
 * **Traffic**
     * BitsInPerSecond
       * Dimensions Available:
         * Peering Type (Private/Public/Microsoft)
+        * ExpressRoute Direct
     * BitsOutPerSecond
       * Dimensions Available:
         * Peering Type (Private/Public/Microsoft)
+        * ExpressRoute Direct
     * GlobalReachBitsInPerSecond
       * Dimensions Available:
         * Peered Circuit Skey (Service Key)
