@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using on-device sensors
 
-Azure Spatial Anchors can be configured to associate on-device, positioning sensor data with the anchors you create. [Coarse re-localization](concepts/coarse-reloc.md) consists in using this sensor data pretty much as a *fingerprint*, to quickly determine whether there are any anchors nearby your device.
+Azure Spatial Anchors can associate on-device, positioning sensor data with the anchors you create. This data can also be used to quickly determine whether there are any anchors nearby your device. For more information see [Coarse relocalization](concepts/coarse-reloc.md).
 
 ## Next steps
 To learn more, continue by choosing your development environment:

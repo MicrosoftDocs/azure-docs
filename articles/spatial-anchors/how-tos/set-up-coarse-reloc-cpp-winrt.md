@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# How to create and locate anchors using Coarse re-localization in C#
+# How to create and locate anchors using on-device sensors in C#
 
 > [!div  class="op_single_selector"]
 > * [C#/Unity](set-up-coarse-reloc-csharp.md)
