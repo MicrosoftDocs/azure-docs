@@ -75,14 +75,26 @@ landingContent:
             url: https://azure.microsoft.com/resources/videos/ignite-2018-be-the-scheduler-hero-with-azure-logic-apps
 
   # Card (optional)
-  - title: Access on-premises data
+  - title: Access on-premises data or virtual networks
     linkLists:
+      - linkListType: concept
+        links:
+          - text: What is an on-premises data gateway?
+            url: https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem
+          - text: What is an integration service environment?
+            url: connect-virtual-network-vnet-isolated-environment-overview.md
       - linkListType: how-to-guide
         links:
           - text: Install on-premises data gateway
             url: logic-apps-gateway-install.md
           - text: Connect to on-premises data sources
             url: logic-apps-gateway-connection.md
+          - text: Connect to virtual networks
+            url: connect-virtual-network-vnet-isolated-environment-overview.md
+      - linkListType: video
+        links:
+          - text: Introduction to Integration Service Environment
+            url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
 
   # Card (optional)
   - title: Build B2B enterprise integrations
@@ -105,26 +117,14 @@ landingContent:
             url: https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration
 
   # Card (optional)
-  - title: Connect to virtual networks
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: About integration service environments
-            url: connect-virtual-network-vnet-isolated-environment-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Connect to virtual networks from logic apps
-            url: connect-virtual-network-vnet-isolated-environment-overview.md
-      - linkListType: video
-        links:
-          - text: Introduction to Integration Service Environment
-            url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
-
-  # Card (optional)
-  - title: Secure logic apps
+  - title: Manage and secure logic apps
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Manage logic apps - Visual Studio
+            url: manage-logic-apps-with-visual-studio.md
+          - text: Manage integration service environment
+            url: ise-manage-integration-service-environment.md
           - text: Secure access and data
             url: logic-apps-securing-a-logic-app.md
           - text: Authenticate with managed identities
@@ -151,16 +151,6 @@ landingContent:
             url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
           - text: "Sample: Connect to Azure Service Bus and deploy with Azure DevOps"
             url: https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/
-
-  # Card (optional)
-  - title: Manage logic apps
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Manage logic apps - Visual Studio
-            url: manage-logic-apps-with-visual-studio.md
-          - text: Manage integration service environment
-            url: ise-manage-integration-service-environment.md
 
   # Card (optional)
   - title: More information
