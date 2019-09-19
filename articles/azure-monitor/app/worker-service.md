@@ -292,11 +292,11 @@ Following lists the full telemetry automatically collected by Application Insigh
 
 ### ILogger logs
 
-Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger#control-logging-level) to customize log levels which are captured by Application Insights.
+Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize log levels which are captured by Application Insights.
 
 ### Dependencies
 
-Dependency collection is enabled by default. [This](asp-net-dependencies#automatically-tracked-dependencies) article explains the depenencies which are automatically collected, and also contain steps to do manual tracking.
+Dependency collection is enabled by default. [This](asp-net-dependencies.md#automatically-tracked-dependencies) article explains the depenencies which are automatically collected, and also contain steps to do manual tracking.
 
 ### EventCounter
 
