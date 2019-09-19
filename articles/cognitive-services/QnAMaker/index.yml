@@ -23,6 +23,8 @@ landingContent:
         links:
           - text: What is QnA Maker
             url: overview/overview.md
+          - text: QnA Maker portal
+            url: https://www.qnamaker.ai
       - linkListType: concept
         links:
           - text: Development lifecycle
