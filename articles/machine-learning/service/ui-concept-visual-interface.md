@@ -21,7 +21,7 @@ There is no programming required, you visually connect [datasets](#datasets) and
 The visual interface uses your Azure Machine Learning [workspace](concept-workspace.md) to:
 
 + Create, edit and run [pipelines](#pipeline) in the workspace.
-+ Access [datasets](#dataset).
++ Access [datasets](#datasets).
 + Use the [compute resources](#compute) in the workspace to run the pipeline. 
 + Register [models](concept-azure-machine-learning-architecture.md#models).
 + [Publish](#publish) pipelines as REST endpoints.
