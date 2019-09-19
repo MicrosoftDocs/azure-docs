@@ -317,7 +317,7 @@ destination = route[-1]
 
 destination[1], destination[0] = destination[0], destination[1]
 
-path = "lc0f6dd9|lw5||udid-{}".format(udid)
+path = "lc0f6dd9|lw6||udid-{}".format(udid)
 pins = "default|codb1818||{} {}|{} {}".format(str(currentLocation[1]),str(currentLocation[0]),destination[1],destination[0])
 
 
