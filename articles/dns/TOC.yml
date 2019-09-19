@@ -11,17 +11,19 @@
   items:
   - name: Public DNS
     items:
-    - name: Name resolution - portal
+    - name: Create a public zone - portal
       href: dns-getstarted-portal.md
-    - name: Name resolution - PowerShell
+    - name: Create a public zone - PowerShell
       href: dns-getstarted-powershell.md
-    - name: Name resolution - CLI
+    - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
   - name: Private DNS
     items:
-    - name: Create private zone - CLI
+    - name: Create a private zone - portal
+      href: private-dns-getstarted-portal.md
+    - name: Create a private zone - CLI
       href: private-dns-getstarted-cli.md
-    - name: Create private zone - PowerShell
+    - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
 - name: Tutorials
   items:
