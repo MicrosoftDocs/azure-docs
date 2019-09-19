@@ -294,7 +294,7 @@ The IotEdgeModule1 code receives messages through its input queue and passes the
 
 3. Watch the **Output** section in Visual Studio to see messages arriving at your IoT hub. 
 
-   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. If you 
+   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. 
 
    ![View incoming device to cloud messages](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 
