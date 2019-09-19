@@ -62,17 +62,20 @@ landingContent:
         links:
           - text: Watch how to get started
             url: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
+ 
   # Card
   - title: Develop functions
     linkLists:
       - linkListType: concept
         links:
+          - text: Developer guide
+            url: functions-reference.md
           - text: Supported languages
             url: supported-languages.md
-          - text: Local development options
-            url: functions-develop-local.md
       - linkListType: how-to-guide
         links:
+          - text: Local development
+            url: functions-develop-local.md
           - text: Test functions
             url: functions-test-a-function.md
           - text: Error handling
@@ -83,8 +86,9 @@ landingContent:
             url: /learn/modules/develop-test-deploy-azure-functions-with-visual-studio/index
       - linkListType: video
         links:
-          - text: Build functions using VS Code
+          - text: Develop with Visual Studio Code
             url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/
+ 
   # Card
   - title: Connect to services
     linkLists:
@@ -143,7 +147,7 @@ landingContent:
             url: functions-recover-storage-account.md 
 
   # Card
-  - title: Long-running orchestrations
+  - title: Long-running functions
     linkLists:
       - linkListType: overview
         links:
@@ -163,26 +167,7 @@ landingContent:
         links:
           - text: Create a long-running serverless workflow
             url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/index
- 
-  # Card
-  - title: Deep dive
-    linkLists:
-      - linkListType: concept
-        links: 
-          - text: Route requests with Proxies
-            url: functions-proxies.md 
-      - linkListType: tutorial
-        links: 
-          - text: Machine learning with TensorFlow
-            url: functions-machine-learning-tensorflow.md
-          - text: Run functions on IoT Edge device
-            url: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
-          - text: Run functions on a custom Linux image
-            url: functions-create-function-linux-custom-image.md
-      - linkListType: learn
-        links:
-          - text: Use SignalR for notifications
-            url: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr/index
+
   # Card
   - title: Samples
     linkLists:
@@ -198,46 +183,3 @@ landingContent:
         links:
           - text: Azure CLI samples
             url: functions-cli-samples.md
-  # Card
-  - title: Reference
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Supported bindings
-            url: functions-triggers-bindings.md
-          - text: Application settings
-            url: functions-app-settings.md
-          - text: Hosting configuration
-            url: functions-host-json.md 
-          - text: Functions pricing
-            url: https://azure.microsoft.com/pricing/details/functions/
-  # Card
-  - title: Languages
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: C# (class library)
-            url: functions-dotnet-class-library.md
-          - text: C# script (.csx)
-            url: functions-reference-csharp.md
-          - text: Java
-            url: functions-reference-java.md 
-          - text: JavaScript
-            url: functions-reference-node.md   
-          - text: PowerShell
-            url: functions-reference-powershell.md
-          - text: Python
-            url: functions-reference-python.md
-          - text: TypeScript
-            url: functions-reference-node.md#typescript
-  # Card
-  - title: Development environments
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Visual Studio Code
-            url: functions-develop-vs-code.md
-          - text: Visual Studio
-            url: functions-develop-vs.md
-          - text: Command line 
-            url: functions-run-local.md

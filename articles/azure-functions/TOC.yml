@@ -8,6 +8,8 @@
     href: durable/durable-functions-overview.md 
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
+  - name: Hosting plan options
+    href: functions-scale.md
 - name: Quickstarts
   expanded: true
   items:
@@ -21,7 +23,7 @@
     href: functions-create-first-function-powershell.md
   - name: Create function - Python
     href: functions-create-first-function-python.md
-  - name: Integrate
+  - name: Connect to services
     items:
     - name: Storage - C#
       href: functions-add-output-binding-storage-queue-vs.md
@@ -74,8 +76,6 @@
   - name: Compare versions 1.x and 2.x
     href: functions-versions.md
     displayName: migrate, migration
-  - name: Scale and hosting
-    href: functions-scale.md
   - name: Premium plan
     href: functions-premium-plan.md
   - name: Deployments
