@@ -213,10 +213,14 @@ Users with this role have access to all administrative features in Azure Active 
 Users with this role can read everything that a Global Administrator can, but not edit anything. Think of this role as a read-only counterpart of Global Administrator. These users have read-only access to all features in Azure Active Directory, as well as Microsoft 365 services like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
 
 > [!NOTE]
-> Global Reader role has following limitations -
->* SharePoint Admin Center does not support Global Reader role. 
->* Global Reader cannot read provisioning mode of an enterprise app, cusomter lockbox requests, Privileged Access Management (PAM) and sensitivity labels.
->
+> Global Reader role has following limitations now -
+>* SharePoint Admin Center - SharePoint Admin Center does not support Global Reader role. So, you will not see 'SharePoint' in left pane under Admin Centers in [M365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage). You will get access denied when to go to https://{tenant name}-admin.sharepoint.com. 
+>* [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global Reader cannot read provisioning mode of an enterprise app.
+>* [M365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader cannot read cusomter lockbox requests. You will not find Customer lockbox requests tab under Support in left pane of M365 Admin Center.
+>* [M365 Security Center](https://security.microsoft.com/homepage) - Global Reader cannot read sensitivity and retention labels. You will not find Sensitivity labels, Retention labels and Label analytics tabs in left pane under Classification in M365 Security Center.
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services) does not support Global Reader.
+> 
+> Support for these features will come over time.
 >
 
 ### [Guest Inviter](#guest-inviter-permissions)
