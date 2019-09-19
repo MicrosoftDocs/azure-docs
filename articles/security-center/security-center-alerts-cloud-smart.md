@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/02/2019
+ms.date: 07/02/2019
 ms.author: memildin
 ---
 # Cloud smart alert correlation in Azure Security Center (incidents)
