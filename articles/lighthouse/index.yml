@@ -9,6 +9,7 @@ metadata:
   description: Learn how to manage customer resources at scale
   ms.service: lighthouse
   ms.topic: landing-page
+  ms.collection: collection
   author: JnHs
   ms.author: jenhayes
   ms.date: 07/11/2019
@@ -39,10 +40,10 @@ landingContent:
             url: ./samples/index.md
       - linkListType: concept
         links:
-          - text: Cloud Solution Provider program considerations
-            url: ./concepts/cloud-solution-provider.md
           - text: Recommended security practices
             url: ./concepts/recommended-security-practices.md
+          - text: Cloud Solution Provider program considerations
+            url: ./concepts/cloud-solution-provider.md
 
   - title: Marketplace offers
     linkLists:
