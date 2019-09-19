@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Language Understanding (LUIS) Documentation
+title: Language Understanding (LUIS) documentation
 summary: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
 
 metadata:
@@ -24,7 +24,7 @@ landingContent:
 
       - linkListType: overview
         links:
-          - text: What is language understanding
+          - text: What is language understanding?
             url: what-is-luis.md
           - text: What's new
             url: whats-new.md
