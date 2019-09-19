@@ -48,7 +48,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
-|**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
+|**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 4 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
 
 \* Elastic pools not supported in the Hyperscale service tier
