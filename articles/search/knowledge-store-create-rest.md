@@ -49,11 +49,18 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
 ## 3 - Configure Postman
 
-Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. In the resulting Edit dialog, navigate to the **Variables** tab. 
+Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. 
 
-### Set Postman variables to connect to your resources
+![Postman app showing navigation](media/knowledge-store-create-rest/postman-edit-menu.png "Navigate to the Edit menu in Postman")
 
-You can leave the names of the resources that you'll create as-is, but you'll need to change `search-service-name` and `storage-account-name` to the values you chose in [Step 1](#1---create-services). You'll find the value for `admin-key` in the Search Service's **Keys** tab. Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab.  
+In the resulting Edit dialog, navigate to the **Variables** tab. 
+
+The **Variables** tab allows you to add values that Postman will swap in every time it encounters them within double braces. For example, Postman will replace the symbol `{{admin-key}}` with the "Current Value" of the `admin-key`. Postman will make this substitution in URLs, headers, the request body, and so forth. 
+
+You'll find the value for `admin-key` in the Search Service's **Keys** tab. You'll need to change `search-service-name` and `storage-account-name` to the values you chose in [Step 1](#1---create-services). Set `storage-connection-string` from the value in the Storage Account's **Access Keys** tab. The other values you can leave unchanged.
+
+![Postman app variables tab](media/knowledge-store-create-rest/postman-variables-window.png "Postman's variables window")
+
 
 | Variable    | Where to get it |
 |-------------|-----------------|
