@@ -22,7 +22,7 @@ The following table lists the specific platform logs that are available at diffe
 | Azure Tenant | [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md)  | Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant.   |
 
 
-![Platform logs overview](media/resource-logs-overview/logs-overview.png)
+![Platform logs overview](media/platform-logs-overview/logs-overview.png)
 
 ## Viewing platform logs
 You can view the [Activity log](activity-log-view.md) and [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md) in the Azure portal. You must send Resource logs to a [destination](#destinations) to view them.
