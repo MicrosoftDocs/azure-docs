@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/16/2019
+ ms.date: 09/19/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -58,10 +58,26 @@ az vm create \
 
 ## Use Azure PowerShell
 
-The process to create a low-priority VM using Azure PowerShell is the same as creating other VMs, just add the '-Priority' parameter to the [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) portion of the script and set it to *Low*:
+Register the feature.
+
+```powershell
+Register-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Microsoft.Compute
+```
+
+It takes a few minutes for the registration to complete. Use [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) to check on the status of the feature registration.
+
+```powershell
+Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Microsoft.Compute
+```
+
+Create a low priority VM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority low` and set `-MaxPrice` to either:
+- `-1` so the VM is not evicted based on price.
+- a dollar amount, up to 4 digits. For example `-MaxPrice .0123` means that the VM will be deallocated once the price for a low priority VM goes about $.0123 per hour.
+
+This example creates a low priority VM that will not be deallocated based on pricing (only when Azure needs the capacity back).
 
 ```azurepowershell-interactive
-$resourceGroup = "myResourceGroup"
+$resourceGroup = "myLowPriRG"
 $location = "eastus"
 $vmName = "myLowPriVM"
 $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
@@ -80,12 +96,19 @@ $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Loc
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 # Create a virtual machine configuration and set this to be a low-priority VM
-$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Low" | `
+$vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D1 -Priority "Low" -MaxPrice -1| `
 Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
 Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter -Version latest | `
 Add-AzVMNetworkInterface -Id $nic.Id
 
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+```
+
+Query to see the max price for all of the VMs in the resource group.
+
+```powershell
+Get-AzVM -ResourceGroupName $resourceGroup | `
+   Select-Object Name,@{Name="maxPrice"; Expression={$_.BillingProfile.MaxPrice}}
 ```
 
 ## Use Azure Resource Manager Templates
