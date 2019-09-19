@@ -21,7 +21,7 @@ Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsigh
 The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
 > [!NOTE]
-> This article is about a new package from Application Insights for Worker Services. This package is available as a beta package today. This document will be updated when a stable package is available.
+> This article is about a new package from Application Insights SDK for Worker Services. This package is available as a beta package today. This document will be updated when a stable package is available.
 
 ## Supported scenarios
 
@@ -34,7 +34,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 ## How to use the Application Insights SDK for Worker Services
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
-   The following shows the changes to be added to your project's `.csproj` file.
+   The following shows the changes which need to be added to your project's `.csproj` file.
 
 ```xml
     <ItemGroup>
@@ -52,7 +52,7 @@ Specific instructions for each type of application is described in the following
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
-1. Download and install [].NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
+1. Download and install [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
 2. Create a new Worker Service project either by using Visual Studio new project template or command line `dotnet new worker`
 3. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
 
@@ -71,6 +71,9 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
 5. Modify your `Worker.cs` as per below example.
 
 ```csharp
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.DataContracts;
+
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
@@ -179,6 +182,9 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
 Following is the code for `TimedHostedService` where the background task logic resides.
 
 ```csharp
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.DataContracts;
+
     public class TimedHostedService : IHostedService, IDisposable
     {
         private readonly ILogger _logger;
@@ -232,7 +238,10 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
 2. Modify Program.cs as below example.
 
 ```csharp
-class Program
+    using Microsoft.ApplicationInsights;
+    using Microsoft.ApplicationInsights.DataContracts;
+
+    class Program
     {
         static async Task Main(string[] args)
         {
@@ -282,9 +291,9 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation alo works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
 
-This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with [application insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
+This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
-Following lists the full telemetry automatically collected by Application Insights.
+The following lists the full telemetry automatically collected by Application Insights.
 
 ### Live Metrics
 
@@ -302,7 +311,7 @@ Dependency collection is enabled by default. [This](asp-net-dependencies.md#auto
 
 [EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, CPU etc.
 
-By default, the SDK collects the following counters (available only in .NET Core 3.0 or above), and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
+By default, the SDK collects the following counters (available only in .NET Core 3.0 or above), and these counters can be queried either in Metrics Explorer or by using an Analytics query targeting the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
 
 |Category | Counter|
 |---------------|-------|
@@ -334,7 +343,7 @@ While the SDK automatically collects telemetry as explained above, in most cases
 
 The default `TelemetryConfiguration` used by the worker service SDK is similar to the automatic configuration used in a ASP.NET or ASP.NET Core application, minus the TelemetryInitializers used to enrich telemetry from `HttpContext`.
 
-You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed below.
+You can customize the Application Insights SDK for Worker Service to change the default configuration. Users of the Application Insights ASP.NET Core SDK might be familiar with changing configuration by using ASP.NET Core built-in [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). The WorkerService SDK is also based on similar principles. Make almost all configuration changes in the `ConfigureServices()` section by calling appropriate methods on `IServiceCollection`, as detailed below.
 
 > [!NOTE]
 > While using this SDK, changing configuration by modifying `TelemetryConfiguration.Active` isn't supported, and changes will not be reflected.
@@ -344,6 +353,8 @@ You can customize the Application Insights SDK for Worker Service to change the 
 You can modify a few common settings by passing `ApplicationInsightsServiceOptions` to `AddApplicationInsightsTelemetryWorkerService`, as in this example:
 
 ```csharp
+    using Microsoft.ApplicationInsights.WorkerService;
+
     public void ConfigureServices(IServiceCollection services)
     {
         Microsoft.ApplicationInsights.WorkerService.ApplicationInsightsServiceOptions aiOptions
@@ -372,9 +383,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Sampling
 
-The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for ASP.NET Core Applications.
-
-// TODO use actual example here.
+The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for [ASP.NET Core Applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### Adding TelemetryInitializers
 
@@ -383,6 +392,8 @@ Use [telemetry initializers](https://docs.microsoft.com/azure/azure-monitor/app/
 Add any new `TelemetryInitializer` to the `DependencyInjection` container and SDK will automatically add them to the `TelemetryConfiguration`.
 
 ```csharp
+    using Microsoft.ApplicationInsights.Extensibility;
+
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<ITelemetryInitializer, MyCustomTelemetryInitializer>();
@@ -441,6 +452,9 @@ The following automatic-collection modules are enabled by default. These modules
 To configure any default `TelemetryModule`, use the extension method `ConfigureTelemetryModule<T>` on `IServiceCollection`, as shown in the following example.
 
 ```csharp
+    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
+    using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
+
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddApplicationInsightsTelemetryWorkerService();
