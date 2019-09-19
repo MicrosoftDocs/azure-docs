@@ -102,6 +102,8 @@
     - name: Previous generations
       href: sizes-previous-gen.md  
       displayName: D-series Ds-series A-series Basic      
+    - name: Isolated sizes
+      href: isolation.md
     - name: Azure compute units (ACU)
       href: acu.md 
     - name: Benchmark scores
@@ -142,8 +144,8 @@
     href: backup-recovery.md
   - name: Infrastructure example
     href: infrastructure-example.md
-  - name: Security attributes
-    href: virtual-machines-windows-security-attributes.md
+  - name: Built-in security controls
+    href: virtual-machines-windows-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -257,6 +259,14 @@
       href: instance-metadata-service.md
     - name: Enable nested virtualization
       href: nested-virtualization.md
+  - name: Monitor VMs
+    items:
+    - name: Azure Monitor for VMs
+      href: ../../azure-monitor/insights/vminsights-overview.md
+    - name: Create metric alerts
+      href: ../../azure-monitor/platform/alerts-metric.md
+    - name: Create log alerts
+      href: ../../azure-monitor/platform/alerts-log.md
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations

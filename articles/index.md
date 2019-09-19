@@ -377,7 +377,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
@@ -854,6 +854,12 @@ featureFlags:
                                             <a href="/azure/container-instances/">
                                                 <img src="media/index/ContainerInstances.svg" alt="" />
                                                 <p>Container Instances</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>Cognitive Services</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1647,6 +1653,12 @@ featureFlags:
                                             <a href="/azure/bastion/">
                                                 <img src="media/index/web_connect.svg" alt="" />
                                                 <p>Azure Bastion</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private-link.svg" alt="" />
+                                                <p>Azure Private Link</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2762,6 +2774,25 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3007,6 +3038,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>Easily run containers with a single command</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5506,6 +5556,25 @@ featureFlags:
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/private-link.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Private Link</h3>
+                                                    <p>Privately access services hosted on the Azure platform, keeping your data within the Microsoft network</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -6344,7 +6413,7 @@ featureFlags:
                                                     Azure for Node.js Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Get started</a>
+                                                    <a href="/azure/javascript/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API reference</a>

@@ -117,7 +117,7 @@
     - name: Manage disenrollment
       href: how-to-revoke-device-access-portal.md 
     - name: Manage deprovisioning
-      href: how-to-unprovision-devices.md    
+      href: how-to-unprovision-devices.md      
   - name: Manage Device Provisioning Service
     items:
     - name: Configure Device Provisioning Service using Azure CLI
@@ -142,6 +142,8 @@
     href: how-to-legacy-device-symm-key.md
   - name: Use SDK tools for development
     href: how-to-use-sdk-tools.md
+  - name: Troubleshooting
+    href: how-to-troubleshoot-dps.md 
 - name: Reference
   items:
   - name: REST API

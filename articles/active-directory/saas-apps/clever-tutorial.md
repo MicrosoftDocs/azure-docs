@@ -118,8 +118,9 @@ To configure Azure AD single sign-on with Clever, perform the following steps:
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| clever.teacher.credentials.district_username|user.userprincipalname|
+	| clever.teacher.credentials.district_username|user.userprincipalname |
 	| clever.student.credentials.district_username| user.userprincipalname |
+	| clever.staff.credentials.district_username| user.userprincipalname |
 	| Firstname  | user.givenname |
 	| Lastname  | user.surname |
 

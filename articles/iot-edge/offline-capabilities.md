@@ -105,7 +105,7 @@ One way to create this trust relationship is described in detail in the followin
 
 ## Specify DNS servers 
 
-To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. See two options to [set the DNS server in the troubleshooting article](troubleshoot.md#resolution-7).
+To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. To set your DNS server for IoT Edge, see the resolution for [Edge Agent module continually reports 'empty config file' and no modules start on device](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) in the troubleshooting article.
 
 ## Optional offline settings
 
@@ -169,7 +169,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
             "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
             "createOptions": {
                 "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
                     "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
         },
         "type": "docker",

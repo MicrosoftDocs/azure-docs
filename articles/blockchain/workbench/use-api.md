@@ -1,20 +1,20 @@
 ---
-title: Using Azure Blockchain Workbench REST API 
-description: Scenarios for how to use the Azure Blockchain Workbench REST API
+title: Using Azure Blockchain Workbench Preview REST API 
+description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
 #customer intent: As a developer, I want to understand the  Azure Blockchain Workbench REST API to so that I can integrate apps with Blockchain Workbench.
 ---
-# Using the Azure Blockchain Workbench REST API
+# Using the Azure Blockchain Workbench Preview REST API
 
-Azure Blockchain Workbench REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. For example, suppose a developer wants to create a custom blockchain client. This blockchain client allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following actions:
+Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. This document walks you through several key methods of the Workbench REST API. For example, suppose a developer wants to create a custom blockchain client. This blockchain client allows signed in users to view and interact with their assigned blockchain applications. The client allows users to view contract instances and take actions on smart contracts. The client uses the Workbench REST API in the context of the signed-in user to do the following actions:
 
 * List applications
 * List workflows for an application

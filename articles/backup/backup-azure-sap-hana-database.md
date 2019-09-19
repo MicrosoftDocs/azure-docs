@@ -23,8 +23,8 @@ ms.author: dacurwin
 **Support** | **Details**
 --- | ---
 **Supported geos** | Australia South East, East Australia <br> Brazil South <br> Canada Central, Canada East <br> South East Asia, East Asia <br> East US, East US 2, West Central US, West US, West US 2, North Central US, Central US, South Central US<br> India Central, India South <br> Japan East, Japan West<br> Korea Central, Korea South <br> North Europe, West Europe <br> UK South, UK West
-**Supported VM operating systems** | SLES 12 with SP2 or SP3.
-**Supported HANA versions** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS03
+**Supported VM operating systems** | SLES 12 with SP2, SP3 or SP4.
+**Supported HANA versions** | SDC on HANA 1.x, MDC on HANA 2.x <= SPS04 Rev 42
 
 ### Current limitations
 
