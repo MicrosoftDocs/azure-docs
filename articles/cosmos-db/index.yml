@@ -93,26 +93,6 @@ landingContent:
           - text: Migrate to a partitioned container
             url: migrate-containers-partitioned-to-nonpartitioned.md
 
-  # Card (optional)
-  - title: Provisioned Throughput 
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: Request Units 
-            url: request-units.md
-          - text: Database and container level throughput
-            url: set-throughput.md
-      - linkListType: how-to-guide
-        links:
-          - text: Estimate the required throughput
-            url: estimate-ru-with-capacity-planner.md
-          - text: Provision throughput on a database
-            url: how-to-provision-database-throughput.md
-          - text: Provision throughput on a container
-            url: how-to-provision-container-throughput.md
-          - text: Get the request unit charges 
-            url: find-request-unit-charge.md
-
   # Card
   - title: Create and manage Cosmos DB resources
     linkLists:
@@ -152,6 +132,26 @@ landingContent:
             url: manage-with-cli.md  
           - text: Manage using Resource Manager(ARM) templates 
             url: manage-sql-with-resource-manager.md 
+
+  # Card (optional)
+  - title: Provisioned Throughput 
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Request Units 
+            url: request-units.md
+          - text: Database and container level throughput
+            url: set-throughput.md
+      - linkListType: how-to-guide
+        links:
+          - text: Estimate the required throughput
+            url: estimate-ru-with-capacity-planner.md
+          - text: Provision throughput on a database
+            url: how-to-provision-database-throughput.md
+          - text: Provision throughput on a container
+            url: how-to-provision-container-throughput.md
+          - text: Get the request unit charges 
+            url: find-request-unit-charge.md
 
   # Card
   - title: Build an app with SQL API 
