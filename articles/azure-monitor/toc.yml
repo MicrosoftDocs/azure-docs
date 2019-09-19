@@ -515,7 +515,9 @@
         - name: Azure Diagnostics extension
           items:
           - name: Overview
-            href: platform/diagnostics-extension-overview.md  
+            href: platform/diagnostics-extension-overview.md
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
           - name: Windows 
             items:   
             - name: Version history
@@ -651,8 +653,6 @@
           href: platform/resource-logs-overview.md 
         - name: Collect in Azure Monitor Logs
           href: platform/resource-logs-collect-workspace.md
-        - name: Collect from Azure Storage
-          href: platform/azure-storage-iis-table.md
         - name: Archive to storage
           href: platform/resource-logs-collect-storage.md
         - name: Stream to Event Hubs
