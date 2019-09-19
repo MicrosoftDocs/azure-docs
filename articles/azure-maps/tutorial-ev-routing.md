@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Electric Vehicle Routing using Azure Notebooks (Python)
 
-Azure Maps is a portfolio of geospatial service APIs natively integrated into Azure that enable developers, enterprises and ISVs to create location aware apps and IoT, mobility, logistics and asset tracking solutions.  Also, users can leverage our services to support their scenarios, for example, around data analysis and machine learning (ML).  In order to perform data analysis, users can call directly Azure Maps REST APIs and visualize Azure Maps data using Python. Azure Maps offers a robust set of [routing APIs]([https://docs.microsoft.com/rest/api/maps/route) that allows users to calculate routes between the desired set of points based on various conditions such as vehicle type or reachable area. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to drive time.
+Azure Maps is a portfolio of geospatial service APIs natively integrated into Azure that enable developers, enterprises, and ISVs to create location aware apps and IoT, mobility, logistics, and asset tracking solutions.  Also, users can leverage our services to support their scenarios, for example, around data analysis and machine learning (ML).  In order to perform data analysis, users can call directly Azure Maps REST APIs and visualize Azure Maps data using Python. Azure Maps offers a robust set of [routing APIs]([https://docs.microsoft.com/rest/api/maps/route) that allows users to calculate routes between the desired set of points based on various conditions such as vehicle type or reachable area. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to drive time.
 
 In this tutorial you will:
 
@@ -61,7 +61,7 @@ In order to better understand the functionality implemented in the notebook file
 
 ## Install project level packages
 
-You need to install packages at the project level in order to run the code in the notebook. Follow the steps below to install the required packages:
+in order to run the code in the notebook, you need to install packages at the project level. Follow the steps below to install the required packages:
 
 1. Download the "requirements.txt" file from the repo and upload it to your project.
 2. On the project dashboard, select **Project Settings**. 
@@ -87,7 +87,7 @@ from IPython.display import Image, display
 
 ## Request for reachable range boundary
 
-In our scenario, package delivery company has some electric vehicles in their fleet. During the day electric vehicles need to be recharged without having to return to the warehouse. Every time the current remaining charge for the electric vehicle gets less than an hour (electric vehicle is low on charge), we need to search for a set of charging stations that are within the reachable range and get the boundary information for that range. Because company prefers to use routes balanced by economy and speed, the requested routeType is 'eco'. The following script calls the [Get route range API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) of the Azure Maps routing service with parameters for the vehicle's consumption model and parses the response to create a polygon object of the geojson format representing the car's maximum reachable range.
+In our scenario, package delivery company has some electric vehicles in their fleet. During the day, electric vehicles need to be recharged without having to return to the warehouse. Every time the current remaining charge for the electric vehicle gets less than an hour (electric vehicle is low on charge), we need to search for a set of charging stations that are within the reachable range and get the boundary information for that range. Because company prefers to use routes balanced by economy and speed, the requested routeType is 'eco'. The following script calls the [Get route range API](https://docs.microsoft.com/rest/api/maps/route/getrouterange) of the Azure Maps routing service with parameters for the vehicle's consumption model and parses the response to create a polygon object of the geojson format representing the car's maximum reachable range.
 
 Run the script below to get bounds for the electric vehicle's reachable range.
 
@@ -346,7 +346,7 @@ display(Image(staticMapImage))
 
 ## Next steps
 
-In this tutorial you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data using Python.
+In this tutorial, you learned how to call Azure Maps REST APIs directly and visualize Azure Maps data using Python.
 
 For a complete list of Azure Maps REST APIs, see:
 
