@@ -218,7 +218,7 @@ Users with this role can read everything that a Global Administrator can, but no
 >* [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global Reader cannot read provisioning mode of an enterprise app.
 >* [M365 Admin Center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global Reader cannot read cusomter lockbox requests. You will not find Customer lockbox requests tab under Support in left pane of M365 Admin Center.
 >* [M365 Security Center](https://security.microsoft.com/homepage) - Global Reader cannot read sensitivity and retention labels. You will not find Sensitivity labels, Retention labels and Label analytics tabs in left pane under Classification in M365 Security Center.
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/microsoft-identity-manager/pam/privileged-identity-management-for-active-directory-domain-services) does not support Global Reader.
+>* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) does not support Global Reader.
 > 
 > Support for these features will come over time.
 >
