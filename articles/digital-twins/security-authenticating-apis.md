@@ -29,7 +29,7 @@ To integrate an application or service with Azure AD, a developer must first reg
 * Web application to web API: A web application needs to get resources from a web API secured by Azure AD.
 * Daemon or server application to web API: A daemon application or a server application with no web UI needs to get resources from a web API secured by Azure AD.
 
-The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For details on the library and code samples, see [this the ADAL Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+The Windows Azure Authentication Library offers many ways to acquire Active Directory tokens. For details on the library and code samples, see [the ADAL.NET Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
 
 ## Call Digital Twins from a middle-tier web API
 
