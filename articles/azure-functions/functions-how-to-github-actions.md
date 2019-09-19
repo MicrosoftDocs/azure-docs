@@ -62,7 +62,7 @@ Setting up the environment can be done using one of the publish setup actions.
 |**JavaScript**     | `actions/setup-node` |
 |**Python**   | `actions/setup-python` |
 
-A snippet from the yaml file for:
+The following example is a fragment of the .yaml file for a function app that uses:
 
 **JavaScript**
 
@@ -122,9 +122,9 @@ A snippet from the yaml file for:
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-A snippet from the yaml file for:
+The following example is a fragment of the .yaml file for a function app that uses:
 
-**JavaScript app**
+**JavaScript**
 
 ```yaml
     - name: 'Run npm'
@@ -190,7 +190,7 @@ To deploy your code to a function app, you will need to use the `Azure/functions
 |_**slot-name**_ | (Optional) The name of the [deployment slot](functions-deployment-slots.md) you want to deploy to. The slot must already be defined in your function app. |
 
 
-The following snippet show how to use version 1 of the action
+The following example uses version 1 of the `functions-action`:
 
 ```yaml
     - name: 'Run Azure Functions Action'
@@ -202,7 +202,7 @@ The following snippet show how to use version 1 of the action
 
 ## Next steps
 
-There are a number of samples available in the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples). You can use these samples a starting point for your workflow.
+To view a complete workflow .yaml, see one of the files in the [Azure GitHub Actions workflow samples repo](https://github.com/Azure/actions-workflow-samples) that have `functionapp` in the name. You can use these samples a starting point for your workflow.
 
 > [!div class="nextstepaction"]
 > [Learn more about GitHub Actions](https://help.github.com/en/articles/about-github-actions)
