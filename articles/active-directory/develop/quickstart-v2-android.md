@@ -33,7 +33,7 @@ This quickstart uses a code sample to demonstrate how an Android application can
 
 ## Step 1: Get the sample app
 
-1. [Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git)
+[Clone the code](https://github.com/Azure-Samples/ms-identity-android-java.git).
 
 ## Step 2: Register your application
 
