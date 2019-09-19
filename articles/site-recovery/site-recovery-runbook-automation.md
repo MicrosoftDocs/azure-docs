@@ -104,7 +104,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 
 
-## Add a runbook to a recovery plan
+## Customize the recovery plan
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
 2. To create a recovery plan, click **+Recovery Plan**. [Learn more](/site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
