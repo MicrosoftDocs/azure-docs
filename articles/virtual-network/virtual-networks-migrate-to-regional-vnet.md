@@ -4,7 +4,7 @@ description: Learn how to migrate a virtual network (classic) from an affinity g
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

@@ -238,7 +238,7 @@ You must already have a subnet that is tagged with the particular Virtual Networ
 3. Set the **Allow access to Azure services** control to OFF.
 
     > [!IMPORTANT]
-    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
+    > If you leave the control set to ON, your Azure SQL Database server accepts communication from any subnet inside the Azure boundary i.e. originating from one of the IP addresses that is recognized as those within ranges defined for Azure data centers. Leaving the control set to ON might be excessive access from a security point of view. The Microsoft Azure Virtual Network service endpoint feature, in coordination with the virtual network rule feature of SQL Database, together can reduce your security surface area.
 
 4. Click the **+ Add existing** control, in the **Virtual networks** section.
 

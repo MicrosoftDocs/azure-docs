@@ -8,12 +8,12 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/01/2019
 ---
 
 # Manage your integration service environment (ISE) in Azure Logic Apps
 
-To check the network health for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) and manage the logic apps, connections, integration accounts, and custom connectors that exist in your ISE, follow the steps in this topic.
+To check the network health for your [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) and manage the logic apps, connections, integration accounts, and connectors that exist in your ISE, follow the steps in this topic. To add these artifacts to your ISE, see [Add artifacts to your integration service environment](../logic-apps/add-artifacts-integration-service-environment-ise.md).
 
 ## View your ISE
 
@@ -41,31 +41,49 @@ On your ISE menu, under **Settings**, select **Network health**. This pane shows
 
 ## Manage your logic apps
 
+You can view and manage the logic apps that are in your ISE.
+
 1. On your ISE menu, under **Settings**, select **Logic apps**.
 
-   ![Find logic apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
+   ![View logic apps](./media/ise-manage-integration-service-environment/ise-find-logic-apps.png)
 
-1. To remove logic apps from your ISE when no longer needed, select those logic apps, and then select **Delete**.
+1. To remove logic apps that you no longer need in your ISE, select those logic apps, and then select **Delete**. To confirm that you want to delete, select **Yes**.
 
 <a name="find-api-connections"></a>
 
 ## Manage API connections
 
-1. To view the API connections that were created by logic apps running in your ISE, on your ISE menu, under **Settings**, select **API connections**.
+You can view and manage the connections that were created by the logic apps running in your ISE.
 
-   ![Find API connections](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+1. On your ISE menu, under **Settings**, select **API connections**.
 
-1. To remove connections from your ISE when no longer needed, select those connections, and then select **Delete**.
+   ![View API connections](./media/ise-manage-integration-service-environment/ise-find-api-connections.png)
+
+1. To remove connections that you no longer need in your ISE, select those connections, and then select **Delete**. To confirm that you want to delete, select **Yes**.
+
+<a name="manage-api-connectors"></a>
+
+## Manage ISE connectors
+
+You can view and manage the API connectors that are deployed to your ISE.
+
+1. On your ISE menu, under **Settings**, select **Managed connectors**.
+
+   ![View managed connectors](./media/ise-manage-integration-service-environment/ise-view-managed-connectors.png)
+
+1. To remove connectors that you don't want available in your ISE, select those connectors, and then select **Delete**. To confirm that you want to delete, select **Yes**.
 
 <a name="find-custom-connectors"></a>
 
 ## Manage custom connectors
 
-1. To view custom connectors that were created in your ISE, on your ISE menu, under **Settings**, select **Custom connectors**.
+You can view and manage the custom connectors that you deployed to your ISE.
+
+1. On your ISE menu, under **Settings**, select **Custom connectors**.
 
    ![Find custom connectors](./media/ise-manage-integration-service-environment/ise-find-custom-connectors.png)
 
-1. To remove custom connectors from your ISE when no longer needed, select those connectors, and then select **Delete**.
+1. To remove custom connectors that you no longer need in your ISE, select those connectors, and then select **Delete**. To confirm that you want to delete, select **Yes**.
 
 <a name="find-integration-accounts"></a>
 

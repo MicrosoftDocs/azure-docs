@@ -44,6 +44,7 @@ You will need to create a Computer Vision resource for your Azure account; this 
 1. Then go to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
     ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
+    
     [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 
