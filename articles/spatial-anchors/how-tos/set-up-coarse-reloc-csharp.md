@@ -1,6 +1,6 @@
 ---
-title: How to create and locate anchors using on-device sensors | Microsoft Docs
-description: In-depth explanation of how to create and locate anchors using on-device sensors.
+title: How to create and locate anchors using on-device sensors in C# | Microsoft Docs
+description: In-depth explanation of how to create and locate anchors using on-device sensors in C#.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -31,8 +31,6 @@ To complete this guide, make sure you have:
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
 
-Learn more about the [FusedLocationProvider](https://fix.me) class.
-
 ```csharp
 // Create the sensor fingerprint provider
 FusedLocationProvider sensorProvider = new FusedLocationProvider();
@@ -54,8 +52,6 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 ```
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-session.md)]
-
-Learn more about the [NearDeviceCriteria](https://fix.me) class.
 
 ```csharp
 // Set the session's sensor fingerprint provider

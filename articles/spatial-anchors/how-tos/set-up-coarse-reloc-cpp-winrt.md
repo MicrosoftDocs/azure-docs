@@ -1,6 +1,6 @@
 ---
-title: How to create and locate anchors using on-device sensors | Microsoft Docs
-description: In-depth explanation of how to create and locate anchors using on-device sensors.
+title: How to create and locate anchors using on-device sensors in C++/WinRT | Microsoft Docs
+description: In-depth explanation of how to create and locate anchors using on-device sensors in C++/WinRT.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -10,7 +10,7 @@ ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
 ---
-# How to create and locate anchors using on-device sensors in C#
+# How to create and locate anchors using on-device sensors in C++/WinRT
 
 > [!div  class="op_single_selector"]
 > * [C#/Unity](set-up-coarse-reloc-csharp.md)
@@ -30,8 +30,6 @@ To complete this guide, make sure you have:
 - Read through the [Create and locate anchors how-to](../create-locate-anchors-overview.md).
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-provider.md)]
-
-Learn more about the [FusedLocationProvider](https://fix.me) class.
 
 ```cpp
 // Create the ASA factory
@@ -60,8 +58,6 @@ sensors.KnownBeaconProximityUuids(uuids);
 ```
 
 [!INCLUDE [Configure Provider](../../../includes/spatial-anchors-set-up-coarse-reloc-configure-session.md)]
-
-Learn more about the [NearDeviceCriteria](https://fix.me) class.
 
 ```cpp
 // Set the session's sensor fingerprint provider

@@ -139,7 +139,7 @@ The following table summarizes the expected search space for each of the sensors
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7 m GPS standard deviation and 5 m visibility radius. |
+| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7-m GPS standard deviation and 5-m visibility radius. |
 | WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
 | BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
