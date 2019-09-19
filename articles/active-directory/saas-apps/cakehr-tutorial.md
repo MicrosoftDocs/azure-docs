@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/18/2019
+ms.date: 09/19/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -82,11 +82,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    a. In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<yourcakedomain>.cake.hr/`
 
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<yourcakedomain>.cake.hr/services/saml/consume`
 	> [!NOTE]
-	> The value is not real. Update the value with the actual Sign-On URL. Contact [CakeHR Client support team](mailto:info@cake.hr) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign-On URL and Reply URL. Contact [CakeHR Client support team](mailto:info@cake.hr) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -134,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new web browser window and sign into your CakeHR company site as an administrator.
 
-2. On the top-right corner of the page, click on **profile** and then navigate to **Settings**.
+2. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
 
     ![CakeHR configuration](./media/cakehr-tutorial/config01.png)
 
@@ -146,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
      b. In the **Authentication URL** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
-     c. In the **Key fingerprint (SHA1 format)**, paste the **THUMBPRINT** value, which you have copied from Azure portal.
+     c. In the **Key fingerprint (SHA1 format)** text box, paste the **THUMBPRINT** value, which you have copied from Azure portal.
 
      d. Check the **Enable Single Sign on** box.
 
@@ -164,7 +166,7 @@ To enable Azure AD users to sign in to CakeHR, they must be provisioned into Cak
 
     ![CakeHR configuration](./media/cakehr-tutorial/config03.png)
 
-3. On the **Add New Employee** pop-up, perform the following steps:
+3. On the **Add new employee** pop-up, perform the following steps:
 
      ![CakeHR configuration](./media/cakehr-tutorial/config04.png)
 
