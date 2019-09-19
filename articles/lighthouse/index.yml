@@ -34,16 +34,16 @@ landingContent:
         links:
           - text: Onboard a customer to Azure delegated resource management
             url: ./how-to/onboard-customer.md
-      - linkListType: deploy
-        links:
-          - text: Index of Azure Lighthouse samples
-            url: ./samples/index.md
       - linkListType: concept
         links:
           - text: Recommended security practices
             url: ./concepts/recommended-security-practices.md
           - text: Cloud Solution Provider program considerations
             url: ./concepts/cloud-solution-provider.md
+      - linkListType: deploy
+        links:
+          - text: Index of Azure Lighthouse samples
+            url: ./samples/index.md
 
   - title: Marketplace offers
     linkLists:
@@ -69,12 +69,12 @@ landingContent:
     linkLists:
       - linkListType: download
         links:
-          - text: OpenAPI - 2019-04-01
-            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01
+          - text: OpenAPI - 2019-06-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
           - text: SDK for .NET - NuGet
-            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/
-          - text: SDK for Java - Maven
-            url: https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar
+            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+          - text: SDK for Python - PyPi
+            url: https://pypi.org/project/azure-mgmt-managedservices/
           - text: SDK for Ruby - Gem
             url: https://rubygems.org/gems/azure_mgmt_resourcegraph
 
@@ -83,19 +83,15 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure PowerShell
-            url: /powershell/module/az.resourcegraph/
+            url: /powershell/module/az.managedservices/
           - text: Azure CLI
-            url: /cli/azure/ext/resource-graph/graph
+            url: /cli/azure/managedservices
+          - text: REST
+            url: /rest/api/managedservices/
           - text: .NET
-            url: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
-          - text: Go
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph
-          - text: Java
-            url: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
-          - text: Node
-            url: /javascript/api/@azure/arm-resourcegraph
+            url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
-            url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+            url: /python/api/azure-mgmt-managedservices
 
   - title: Get involved
     linkLists:
