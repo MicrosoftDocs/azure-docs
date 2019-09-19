@@ -205,4 +205,5 @@ Remove-AzResourceGroup -Name MyAzureResourceGroup
 
 ## Next steps
 
-* [Using Azure DNS for private domains](private-dns-overview.md)
+> [!div class="nextstepaction"]
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)

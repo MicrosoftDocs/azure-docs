@@ -179,4 +179,5 @@ When no longer needed, delete the **MyAzureResourceGroup** resource group to del
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Using Azure DNS for private domains](private-dns-overview.md)
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)
+
