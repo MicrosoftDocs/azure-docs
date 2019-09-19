@@ -28,12 +28,17 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 1. Create a resource.
 
     #### [Multi-service resource](#tab/multiservice)
-
+    
     The multi-service resource is named **Cognitive Services** in the portal. [Create a Cognitive Services resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne).
     
-    At this time, these services **can't** be called using a multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
+    At this time, the multi-service resource enables access to the following Cognitive Services:
     
-
+    |                  |                                                      |                    |                               |                  |
+    |------------------|------------------------------------------------------|--------------------|-------------------------------|------------------|
+    | Computer Vision  | Content Moderator                                    | Face               | Language Understanding (LUIS) | Text Analytics   |
+    | Translator Text  | Bing Search v7 <br>(Web, Image, News, Video, Visual) | Bing Custom Search | Bing Entity Search            | Bing Autosuggest |
+    | Bing Spell Check |                                                      |                    |                               |                  |
+    
     #### [Single-service resource](#tab/singleservice)
 
     Use the below links to create a resource for the available Cognitive Services:
@@ -81,13 +86,13 @@ Use this quickstart to start using Azure Cognitive Services. After creating a Co
 
 ## Get the keys for your resource
 
-After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.
+1. After your resource is successfully deployed, click on **Go to resource** under **Next Steps**.
 
-![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
+    ![Search for Cognitive Services](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
-From the quickstart pane that opens, you can access your key and endpoint.
+2. From the quickstart pane that opens, you can access your key and endpoint.
 
-![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
+    ![Get key and endpoint](media/cognitive-services-apis-create-account/get-cog-serv-keys.png)
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 

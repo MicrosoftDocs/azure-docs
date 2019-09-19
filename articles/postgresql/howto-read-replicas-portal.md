@@ -174,4 +174,4 @@ The **Replica Lag** metric shows the time since the last replayed transaction on
  
 ## Next steps
 * Learn more about [read replicas in Azure Database for PostgreSQL](concepts-read-replicas.md).
-* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
+* Learn how to [create and manage read replicas in the Azure CLI and REST API](howto-read-replicas-cli.md).

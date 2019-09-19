@@ -54,7 +54,7 @@ The following steps show you how to create a managed instance.
 
    ![Managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-5. To use the managed instance as an instance failover group secondary, select the checkout and specify the DnsAzurePartner managed instance. This feature is in preview and isn't shown in the following screenshot.
+5. To use the managed instance as an instance failover group secondary, select the checkout and specify the DnsAzurePartner managed instance. 
 6. Select **Pricing tier** to size compute and storage resources and to review the pricing tier options. The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
 7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores.
 8. When you're finished, select **Apply** to save your selection. 

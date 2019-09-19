@@ -128,10 +128,14 @@
       href: dealing-with-duplicates.md
   - name: Monitor
     items:
-    - name: Using metrics to monitor cluster health
+    - name: Use diagnostic logs to monitor ingestion
+      href: using-diagnostic-logs.md
+    - name: Use metrics to monitor cluster health
       href: using-metrics.md
   - name: Integrate with other tools
     items:
+    - name: Bulk copy data using Azure Data Factory template
+      href: data-factory-template.md   
     - name: Apache Spark Connector
       href: spark-connector.md
     - name: Connect from Databricks using Python

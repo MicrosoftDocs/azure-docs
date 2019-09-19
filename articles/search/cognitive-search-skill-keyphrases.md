@@ -8,7 +8,7 @@ author: luiscabrer
 ms.service: search
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/18/2019
 ms.author: luisca
 ms.subservice: cognitive-search
 ---
@@ -54,7 +54,7 @@ Parameters are case-sensitive.
     "inputs": [
       {
         "name": "text",
-        "source": "/document/text"
+        "source": "/document/content"
       },
       {
         "name": "languageCode",

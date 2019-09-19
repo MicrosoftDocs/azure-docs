@@ -18,7 +18,7 @@ ms.author: v-mohabe
 
 # Endpoint protection assessment and recommendations in Azure Security Center
 
-Endpoint protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage#supported-platforms-for-windows-computers-and-vms) versions of Endpoint protection solutions. This topic explains the scenarios that generate the following two recommendations for Endpoint protection solutions by Azure Security Center.
+Endpoint protection assessment and recommendations in Azure Security Center detects and provides health assessment of  [supported](https://docs.microsoft.com/azure/security-center/security-center-os-coverage) versions of Endpoint protection solutions. This topic explains the scenarios that generate the following two recommendations for Endpoint protection solutions by Azure Security Center.
 
 * **Install endpoint protection solutions on your virtual machine**
 * **Resolve endpoint protection health issues on your machines**
