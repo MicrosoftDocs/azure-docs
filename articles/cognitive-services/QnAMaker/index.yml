@@ -119,3 +119,14 @@ landingContent:
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list             
+
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: Troubleshooting
+            url: troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/QnAMaker
+          - text: Influence service with UserVoice
+            url: https://cognitive.uservoice.com/forums/578689-qna-maker-api
