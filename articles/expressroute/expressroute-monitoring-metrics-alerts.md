@@ -25,18 +25,18 @@ To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. T
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
-|  **Metric** | **Dimension(s)** |  **Feature(s)** |
+|  **Category** |  **Metric** | **Dimension(s)** |  **Feature(s)** |
 | --- | --- | --- | --- |
-|ARP Availability |*Peer (Primary/Secondary ExpressRoute router) <br> *Peering Type (Private/Public/Microsoft)|ExpressRoute|
-|Bgp Availability |*Peer (Primary/Secondary ExpressRoute router) <br> *Peering Type|ExpressRoute |
-|BitsInPerSecond|*Peering Type (ExpressRoute) <br> *Link (ExpressRoute Direct)| *ExpressRoute <br> *ExpressRoute Direct|
-|BitsOutPerSecond| *Peering Type (ExpressRoute) <br> *Link (ExpressRoute Direct) | *ExpressRoute <br> *ExpressRoute Direct|
-|GlobalReachBitsInPerSecond|Peered Circuit Skey (Service Key) |Global Reach |
-|GlobalReachBitsOutPerSecond|Peered Circuit Skey (Service Key) |Global Reach|
-|AdminState|Link|ExpressRoute Direct|
-|LineProtocol|Link |ExpressRoute Direct|
-|RxLightLevel|*Link <br>*Lane |ExpressRoute Direct|
-|TxLightLevel|*Link <br>*Lane |ExpressRoute Direct|
+|Availability| ARP Availability |* Peer (Primary/Secondary ExpressRoute router)<br>* Peering Type (Private/Public/Microsoft)  |ExpressRoute|
+|Availability|Bgp Availability |* Peer (Primary/Secondary ExpressRoute router)<br>* Peering Type|ExpressRoute |
+|Traffic|BitsInPerSecond|* Peering Type (ExpressRoute)<br>* Link (ExpressRoute Direct)| *ExpressRoute<br>* ExpressRoute Direct|
+|Traffic|BitsOutPerSecond| * Peering Type (ExpressRoute)<br>* Link (ExpressRoute Direct) | *ExpressRoute<br>* ExpressRoute Direct|
+|Traffic|GlobalReachBitsInPerSecond|Peered Circuit Skey (Service Key) |Global Reach |
+|Traffic|GlobalReachBitsOutPerSecond|Peered Circuit Skey (Service Key) |Global Reach|
+|Physical Connectivity|AdminState|Link|ExpressRoute Direct|
+|Physical Connectivity|LineProtocol|Link |ExpressRoute Direct|
+|Physical Connectivity|RxLightLevel|* Link<br>* Lane |ExpressRoute Direct|
+|Physical Connectivity|TxLightLevel|* Link<br>* Lane |ExpressRoute Direct|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
