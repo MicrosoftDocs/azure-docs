@@ -159,6 +159,11 @@ There are two ways to delete a VM's backup data:
   > [!NOTE]
   > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
 
+### Backup item where primary data source no longer exists
+
+If a resource configured with Azure backup is deleted or moved without stopping protection, scheduled backups continue (failing) even though resource no longer exists. Backup jobs are not shown for this kind of a protected item post the non- existence of the resource. Failed backup job appears and backup pre check shows as ‘critical’ only when an ad-hoc backup is triggered on these resources. These backup items remain active in the system adhering to the backup and retention policy set by the user. The expired recovery points are cleaned as per the set retention policy. The last recovery point is retained forever and the customer is charged as per the backup pricing applicable.
+
+
 ## Next steps
 - Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).
 - Learn how to [restore VMs](backup-azure-arm-restore-vms.md).
