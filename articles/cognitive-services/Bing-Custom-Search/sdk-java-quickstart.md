@@ -127,7 +127,7 @@ BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKe
 
 Use the client's [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) function to send a search query to your custom instance. Set the `withCustomConfig` to your custom configuration ID, or default to `1`. After getting a response from the API, check if any search results were found. If so, get the first search result by calling the response's `webPages().value().get()` function and print the result's name, and URL. 
 
-[!code-java[call custom search](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
+[!code-java[call the custom search API](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/BingCustomSearchSample.java?name=runSample)]
 
 ## Run the application
 
