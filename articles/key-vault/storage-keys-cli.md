@@ -81,7 +81,7 @@ az role assignment create --role "Storage Account Key Operator Service Role" --a
 - `--resource-id`: Pass your storage account resource ID, which is in the form `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. To find your subscription id, use the Azure CLI [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list) commmand; to find your storage account name and storage account resource group, use the Azure CLI [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) command.
    
  ```azurecli-interactive
-az keyvault storage add --vault-name <YourVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
+az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
  ```
 
 ## Shared access signature tokens
@@ -90,12 +90,12 @@ You can also ask Key Vault to generate shared access signature tokens. A shared 
 
 The commands in this section complete the following actions:
 
-- Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourVaultName>`.
+- Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourKeyVaultName>`.
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
 - Retrieve the actual access token from the Key Vault secret that corresponds to the shared access signature definition.
 
-# Create a shared access signature token
+### Create a shared access signature token
 
 Create a shared access signature definition using the Azure CLI [az storage account generate-sas](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas) command. This operation requires the `storage` and `setsas` permissions.
 
@@ -111,22 +111,13 @@ After the operation runs successfully, copy the output.
 
 This output will be the passed to the `--template-id` parameter in the next step.
 
-# Generate a shared access signature definition
+### Generate a shared access signature definition
 
-Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) command, passing the output from the previous step to the `--template-id` parameter, to create a shared access signature definition.
+Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#az-keyvault-storage-sas-definition-create) command, passing the output from the previous step to the `--template-id` parameter, to create a shared access signature definition.  You can provide the name of your choice to the `-n` parameter.
 
 ```azurecli-interactive
-az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
+az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
-
-    When the user doesn't have permissions to the storage account, first get the Object ID of the user:
-
-    ```azurecli-interactive
-    az ad user show --upn-or-object-id "developer@contoso.com"
-
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover purge restore set setsas update
-    ```
-
 
 ## Next steps
 
