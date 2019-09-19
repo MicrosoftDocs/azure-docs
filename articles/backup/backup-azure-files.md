@@ -82,11 +82,11 @@ Occasionally you may want to generate a backup snapshot, or recovery point, outs
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
-3. From the list of Azure file shares, select the desired file share. The **Backup Item** details appears.
+3. From the list of Azure file shares, select the desired file share. The **Backup Item** details appears. From the **Backup Item** menu, click **Backup now**. Because this is an on-demand backup job, there is no retention policy associated with the recovery point.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/backup-item-menu.png)
 
-4. From the **Backup Item** menu, click **Backup now**. Because this is an on-demand backup job, there is no retention policy associated with the recovery point. The **Backup Now** dialog opens. Specify the last day you want to retain the recovery point.
+4. The **Backup Now** dialog opens. Specify the last day you want to retain the recovery point.
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/backup-now-menu.png)
 
