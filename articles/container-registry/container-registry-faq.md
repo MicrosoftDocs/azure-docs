@@ -412,6 +412,8 @@ Configure the Docker proxy to output of the previous command and the port 8888 (
 
 - [How do I batch cancel runs?](#how-do-i-batch-cancel-runs)
 - [How do I include the .git folder in az acr build command?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [Does Tasks support GitLab for Source commit trigger?](#does-tasks-support-gitLab-for-source-commit-trigger)
+- [ERROR: No access was configured for the VM, hence no subscriptions were found.](#error-no-access-was-configured-for-the-vm-hence-no-subscriptions-were-found)
 
 ### How do I batch cancel runs?
 
@@ -431,6 +433,14 @@ If you pass a local source folder to the `az acr build` command, the `.git` fold
 ```
 
 This setting also applies to the `az acr run` command.
+
+### Does Tasks support GitLab for Source commit trigger?
+
+We currently do not support GitLab for Source commit trigger.
+
+### ERROR: No access was configured for the VM, hence no subscriptions were found.
+
+This could happen if you are using `az login --identity` in your ACR Task. This is a transient error and occurs when the role assignment of your Managed Identity hasn't propagated. Waiting a few seconds before retrying works.
 
 ## CI/CD integration
 
