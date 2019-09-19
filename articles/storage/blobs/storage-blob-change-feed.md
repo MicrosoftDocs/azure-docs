@@ -158,7 +158,9 @@ The segment file contains the following properties.
 
 ### Code example
 
-This example processes the segment metadata files by using a .NET client application. This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
+This example processes the segment metadata files by using a .NET client application. This code iterates through segment files and opens logs only for those segments that fall into a specific time range. That range is defined as occurring before the last consumable date and after the last time this application polled for segments.
+
+This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
 
 ```csharp
 
@@ -266,7 +268,9 @@ You can skip records where the `eventType` has a value of `Control`. These are i
 
 ### Code example
 
-This example processes the change feed log file by using a .NET client application. This examples uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
+This example processes the change feed log file by using a .NET client application. This code opens an individual avro file and then prints the URLs of all blobs that this file lists as being created.
+
+This examples uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
 
 ```csharp
 using System.Json;
