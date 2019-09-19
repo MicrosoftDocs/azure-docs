@@ -30,7 +30,7 @@ The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) fo
 
 An IoT hub has a default built-in-endpoint (**messages/events**) that is compatible with Event Hubs. You can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT Hub. 
 
-Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints. Any message routed to one or more custom endpoints is not also routed to the default endpoint -- only messages that don't match any of the routing queries are routed to the default endpoint.
+Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints. Messages without custom routing will use the [fallback route](#fallback-route). 
 
 IoT Hub currently supports the following services as custom endpoints:
 
@@ -44,7 +44,7 @@ IoT Hub supports writing data to Azure Blob Storage in the [Apache Avro](https:/
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub also supports routing messages to [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2 accounts, which are [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts built on top of Blob storage. This capability is in public preview and available for new ADLS Gen2 accounts in West US 2 and West Central US. Please [sign up](http://azure.com) to preview this. We will roll out this capability to all cloud regions soon. 
+IoT Hub also supports routing messages to [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2 accounts, which are [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts built on top of Blob storage. This capability is in public preview and available for new ADLS Gen2 accounts in West US 2 and West Central US. Please [sign up](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) to preview this. We will roll out this capability to all cloud regions soon. 
 
 IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention: 
 
