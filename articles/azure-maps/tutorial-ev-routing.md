@@ -28,7 +28,7 @@ In this tutorial you will:
 
 ## Prerequisites 
 
-To complete the steps in this tutorial, you first need to create an Azure Maps account subscription with S1 pricing tier and get your Azure Maps subscription key. To learn how to create an Azure Maps account subscription see, [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). To learn how to get your subscription key, see [authentication details](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details).
+To complete the steps in this tutorial, you first need to create an Azure Maps account and get your primary key (subscription key). Follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 ## Create an Azure Notebook
 
@@ -92,7 +92,7 @@ In our scenario, package delivery company has some electric vehicles in their fl
 Run the script below to get bounds for the electric vehicle's reachable range.
 
 ```python
-subscriptionKey = "tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA"
+subscriptionKey = "<Your Azure Maps primary subscription key>"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
