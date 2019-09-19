@@ -8,11 +8,7 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ---
 
-# Authoring a RESTful endpoint for custom providers
-
-```
 # Author a RESTful endpoint for custom providers
-```
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can customize workflows on Azure. This tutorial shows how to author a custom provider RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
