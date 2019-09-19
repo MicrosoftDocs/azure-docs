@@ -88,7 +88,9 @@ If you frequently collaborate with users in an external Azure AD directory or do
 
     ![Access package - Policy - Add connected organization - Directories tab](./media/active-directory-entitlement-management-policy/organization-directories.png)
 
-1. On the **Sponsors** tab, add optional sponsors for this connected organization. Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package.
+1. On the **Sponsors** tab, add optional sponsors for this connected organization.
+
+    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../articles/active-directory/b2b/add-users-administrator.md).
 
     ![Access package - Policy - Add connected organization - Sponsors tab](./media/active-directory-entitlement-management-policy/organization-sponsors.png)
 
