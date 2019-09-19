@@ -54,16 +54,6 @@ landingContent:
           - text: Add a secured SharePoint data source
             url: how-to/add-sharepoint-datasources.md  
 
-  - title: Test and publish
-    linkLists:  
-      - linkListType: how-to-guide
-        links: 
-          - text: Test your knowledge base interactively
-            url: how-to/test-knowledge-base.md
-          - text: Publish a knowledge base
-            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
-
-
   - title: Get answer from knowledge base
     linkLists:
       - linkListType: get-started
@@ -80,6 +70,18 @@ landingContent:
         links:              
           - text: Get an answer with metadata
             url: how-to/metadata-generateanswer-usage.md
+
+  - title: Test and publish
+    linkLists:  
+      - linkListType: how-to-guide
+        links: 
+          - text: Test your knowledge base interactively
+            url: how-to/test-knowledge-base.md
+          - text: Publish a knowledge base
+            url: quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base
+
+
+
 
 
   - title: Improve knowledge base
