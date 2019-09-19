@@ -82,7 +82,7 @@ Next, open _app.js_ and add the following to the top of the file. This loads the
 require('dotenv').config();
 ```
 
-Open the _routes\index.js_ file and the following import at the top of the file:
+Open the _routes\index.js_ file and add the following code at the top of the file:
 
 ```javascript
 var request = require('request');

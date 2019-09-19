@@ -1,12 +1,12 @@
 ---
-title: Tutorial - Grant access to an ASP.NET web API - Azure Active Directory B2C | Microsoft Docs
+title: Tutorial - Grant access to an ASP.NET web API - Azure Active Directory B2C
 description: Tutorial on how to use Active Directory B2C to protect an ASP.NET web API and call it from an ASP.NET web application.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 02/04/2019
+ms.date: 09/19/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -78,20 +78,20 @@ There are two projects in the sample solution:
 
 The following two projects are in the sample solution:
 
-- **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
-- **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
+* **TaskWebApp** - Create and edit a task list. The sample uses the **sign-up or sign-in** user flow to sign up or sign in users.
+* **TaskService** - Supports the create, read, update, and delete task list functionality. The API is protected by Azure AD B2C and called by TaskWebApp.
 
 ### Configure the web application
 
 1. Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
-2. Open **Web.config** in the **TaskWebApp** project.
-3. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows:
+1. In the **TaskWebApp** project, open **Web.config**.
+1. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows:
 
     ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
-3. Configure the URI of the API. This is the URI the web application uses to make the API request. Also, configure the requested permissions.
+1. Configure the URI of the API. This is the URI the web application uses to make the API request. Also, configure the requested permissions.
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
@@ -101,26 +101,27 @@ The following two projects are in the sample solution:
 
 ### Configure the web API
 
-1. Open **Web.config** in the **TaskService** project.
-2. Configure the API to use your tenant.
+1. In the **TaskService** project, open **Web.config**.
+1. Configure the API to use your tenant.
 
     ```csharp
+    <add key="ida:AadInstance" value="https://<Your tenant name>.b2clogin.com/{0}/{1}/v2.0/.well-known/openid-configuration" />
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
-3. Set the client ID to the registered Application ID for your API.
+1. Set the client ID to the Application ID of your registered web API application, *webapi1*.
 
     ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
-4. Update the user flow setting with the name of the sign up and sign-in user flow.
+1. Update the user flow setting with the name of your sign-up and sign-in user flow, *B2C_1_signupsignin1*.
 
     ```csharp
-    <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
+    <add key="ida:SignUpSignInPolicyId" value="B2C_1_signupsignin1" />
     ```
 
-5. Configure the scopes setting to match what you created in the portal.
+1. Configure the scopes setting to match those you created in the portal.
 
     ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
@@ -132,17 +133,17 @@ The following two projects are in the sample solution:
 You need to run both the **TaskWebApp** and **TaskService** projects.
 
 1. In Solution Explorer, right-click on the solution and select **Set StartUp Projects...**.
-2. Select **Multiple startup projects**.
-3. Change the **Action** for both projects to **Start**.
-4. Click **OK** to save the configuration.
-5. Press **F5** to run both applications. Each application opens in its own browser tab.
-    `https://localhost:44316/` is the web application.
-    `https://localhost:44332/` is the web API.
+1. Select **Multiple startup projects**.
+1. Change the **Action** for both projects to **Start**.
+1. Click **OK** to save the configuration.
+1. Press **F5** to run both applications. Each application opens in its own browser window.
+    * `https://localhost:44316/` is the web application.
+    * `https://localhost:44332/` is the web API.
 
-6. In the web application, click **sign-up / sign-in** to sign in to the web application. Use the account that you previously created.
-7. After you sign in, click **To-do list** and create a to-do list item.
+1. In the web application, select **sign-up / sign-in** to sign in to the web application. Use the account that you previously created.
+1. After you sign in, select **To-do list** and create a to-do list item.
 
-When you create a to-do list item, the web application makes a request to the web API to generate the to-do list item. You're protected web application is calling the protected web API in your Azure AD B2C tenant.
+When you create a to-do list item, the web application makes a request to the web API to generate the to-do list item. Your protected web application is calling the web API protected by Azure AD B2C.
 
 ## Next steps
 

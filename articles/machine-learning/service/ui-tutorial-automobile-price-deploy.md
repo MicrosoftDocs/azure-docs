@@ -126,4 +126,4 @@ You can also find these models and deployments in the **Models** and **Endpoints
 In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample experiments.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
