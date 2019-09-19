@@ -30,7 +30,7 @@ The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) fo
 
 An IoT hub has a default built-in-endpoint (**messages/events**) that is compatible with Event Hubs. You can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT Hub. 
 
-Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints. Messages without custom routing will use the [fallback route](#fallback-route). 
+Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
 
 IoT Hub currently supports the following services as custom endpoints:
 
