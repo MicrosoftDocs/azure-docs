@@ -641,22 +641,22 @@
         href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
-    - name: Azure resources
+    - name: Azure platform
       items:
-      - name: Diagnostic logs
+      - name: Platform logs overview
+        href: platform/platform-logs-overview.md 
+      - name: Resource logs
         items: 
         - name: Overview
           href: platform/resource-logs-overview.md 
-        - name: Collect in Logs
-          href: platform/diagnostic-logs-stream-log-store.md
+        - name: Collect in Azure Monitor Logs
+          href: platform/resource-logs-collect-workspace.md
         - name: Collect from Azure Storage
           href: platform/azure-storage-iis-table.md
         - name: Archive to storage
-          href: platform/archive-diagnostic-logs.md
+          href: platform/resource-logs-collect-storage.md
         - name: Enable with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
-    - name: Azure Subscription
-      items:
+          href: platform/resource-logs-stream-event-hubs.md
       - name: Activity log
         items:
         - name: Overview
@@ -671,6 +671,14 @@
           href: platform/activity-log-export.md
         - name: Schema
           href: platform/activity-log-schema.md
+      - name: Diagnostic settings
+        items: 
+        - name: Create diagnostic setting
+          href: platform/diagnostic-settings.md
+        - name: Create diagnostic setting with Resource Manager
+          href: platform/diagnostic-settings-template.md
+        - name: Change to blob storage format
+          href: platform/resource-logs-blob-format.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
