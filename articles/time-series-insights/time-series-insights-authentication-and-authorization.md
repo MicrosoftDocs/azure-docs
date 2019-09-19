@@ -105,7 +105,8 @@ This section describes common HTTP request headers and parameters used to make q
 To perform authenticated queries against the [Time Series Insights REST APIs](https://docs.microsoft.com/rest/api/time-series-insights/), a valid OAuth 2.0 bearer token must be passed in the [Authorization header](/rest/api/apimanagement/authorizationserver/createorupdate) using a REST client of your choice (Postman, JavaScript, C#). 
 
 > [!IMPORTANT]
-> The token must be issued to exactly `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
+> The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
+> * Your [Postman](https://www.getpostman.com/) **AuthURL** with therefore conform to: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
 > See the [Explore the Azure Time Series Insights JavaScript client library](tutorial-explore-js-client-lib.md#authentication) tutorial to see how to authenticate with the Time Series Insights APIs programmatically using the [JavaScript Client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
@@ -114,11 +115,11 @@ To perform authenticated queries against the [Time Series Insights REST APIs](ht
 
 Required request headers:
 
-- `Authorization` for authentication and authorization, valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued to exactly `https://api.timeseries.azure.com/` resource (also known as "audience" in the token).
+- `Authorization` for authentication and authorization, a valid OAuth 2.0 Bearer token must be passed in the Authorization header. The token must be issued exactly to the `https://api.timeseries.azure.com/` resource (also known as the "audience" of the token).
 
 Optional request headers:
 
-- `Content-type` - if specified, only `application/json` is supported.
+- `Content-type` - only `application/json` is supported.
 - `x-ms-client-request-id` - a client request ID. Service records this value. Allows the service to trace operation across services.
 - `x-ms-client-session-id` - a client session ID. Service records this value. Allows the service to trace a group of related operations across services.
 - `x-ms-client-application-name` - name of the application that generated this request. Service records this value.
@@ -137,7 +138,7 @@ Required URL query string parameters:
 
 Optional URL query string parameters:
 
-- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only for Get Environment Events and Get Environment Aggregates API. Timeout value should be in ISO 8601 duration format, for example "PT20S" and should be in the range 1-30 s. Default value is 30 s.
+- `timeout=<timeout>` – server-side timeout for the request execution. Applicable only to the [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) and [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) APIs. Timeout value should be in ISO 8601 duration format, for example `"PT20S"` and should be in the range `1-30 s`. Default value is `30 s`.
 
 ## Next steps
 
