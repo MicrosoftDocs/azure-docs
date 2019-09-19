@@ -5,7 +5,7 @@ summary: Azure Cosmos DB is a fully-managed database service with turnkey global
 
 metadata:
   title: Azure Cosmos DB # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Cosmos DB is a fully-managed database service with turnkey global distribution and transparent multi-master replication. It's multi-model with wire protocol compatible APIs and you can run operational, analytic, and AI workloads on transactional data. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Cosmos DB is a fully managed database service with turnkey global distribution and transparent multi-master replication. It's multi-model with wire protocol compatible APIs and you can run operational, analytic, and AI workloads on transactional data. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
@@ -34,7 +34,11 @@ landingContent:
             url: cassandra-support.md
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
             url: gremlin-support.md
-
+      - linkListType: quickstart
+        links:
+          - text: Create an Azure Cosmos account
+            url: create-cosmosdb-resources-portal.md
+        
   # Card
   - title: Global distribution 
     linkLists:
@@ -80,12 +84,14 @@ landingContent:
             url: partition-data.md
           - text: Synthetic partition key 
             url: synthetic-partition-keys.md
+          - text: Data modeling
+            url: modeling-data.md
       - linkListType: how-to-guide
         links:
-          - text: Migrate to a partitioned container
-            url: migrate-containers-partitioned-to-nonpartitioned.md
           - text: Create container with large partition key
             url: large-partition-keys.md
+          - text: Migrate to a partitioned container
+            url: migrate-containers-partitioned-to-nonpartitioned.md
 
   # Card (optional)
   - title: Provisioned Throughput 
