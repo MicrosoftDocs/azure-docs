@@ -154,7 +154,7 @@ There are three ways to authenticate to Key Vault:
 - Use a service principal and certificate. 
 - Use a service principal and password. This approach isn't recommended.
 
-For more information, see [Azure Key Vault: Basic concepts](key-vault-whatis.md#basic-concepts).
+For more information, see [Azure Key Vault: Basic concepts](basic-concepts.md).
 
 The following example demonstrates how to fetch shared access signature tokens. You fetch the tokens after you create a shared access signature definition. 
 

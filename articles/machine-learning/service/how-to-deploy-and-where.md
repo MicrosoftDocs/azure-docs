@@ -1,7 +1,7 @@
 ---
 title: How and where to deploy models 
-titleSuffix: Azure Machine Learning service
-description: 'Learn how and where to deploy your Azure Machine Learning service models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and field-programmable gate arrays.'
+titleSuffix: Azure Machine Learning
+description: 'Learn how and where to deploy your Azure Machine Learning models, including Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and field-programmable gate arrays.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 
 ms.custom: seoapril2019
 ---
 
-# Deploy models with the Azure Machine Learning service
+# Deploy models with Azure Machine Learning
 
 Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
@@ -25,11 +25,11 @@ The workflow is similar no matter [where you deploy](#target) your model:
 1. Deploy the model to the compute target.
 1. Test the deployed model, also called a web service.
 
-For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning service](concept-model-management-and-deployment.md).
+For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning](concept-model-management-and-deployment.md).
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace. For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 - A model. If you don't have a trained model, you can use the model and dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
@@ -37,7 +37,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Connect to your workspace
 
-The following code shows how to connect to an Azure Machine Learning service workspace by using information cached to the local development environment:
+The following code shows how to connect to an Azure Machine Learning workspace by using information cached to the local development environment:
 
 + **Using the SDK**
 
@@ -114,7 +114,7 @@ The code snippets in this section demonstrate how to register a model from a tra
 
 ### Register a model from a local file
 
-You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with the Azure Machine Learning service and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
+You can register a model by providing the local path of the model. You can provide the path of either a folder or a single file. You can use this method to register models trained with Azure Machine Learning and then downloaded. You can also use this method to register models trained outside of Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
 
@@ -150,7 +150,7 @@ You can register a model by providing the local path of the model. You can provi
 
 For more information, see the documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
-For more information on working with models trained outside the Azure Machine Learning service, see [How to deploy an existing model](how-to-deploy-existing-model.md).
+For more information on working with models trained outside Azure Machine Learning, see [How to deploy an existing model](how-to-deploy-existing-model.md).
 
 <a name="target"></a>
 
@@ -210,7 +210,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 
 #### (Optional) Automatic schema generation
 
-To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. The Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
+To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects. The type and sample are used to automatically create the schema. Azure Machine Learning then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
 
 These types are currently supported:
 
@@ -626,7 +626,7 @@ The following JSON document is an example of a schema (OpenAPI specification) ge
     "swagger": "2.0",
     "info": {
         "title": "myservice",
-        "description": "API specification for the Azure Machine Learning service myservice",
+        "description": "API specification for Azure Machine Learning myservice",
         "version": "1.0"
     },
     "schemes": [
@@ -758,9 +758,9 @@ For more information, see [OpenAPI specification](https://swagger.io/specificati
 For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a> Batch inference
-Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning pipelines.
+Azure Machine Learning Compute targets are created and managed by Azure Machine Learning. They can be used for batch prediction from Azure Machine Learning pipelines.
 
-For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](how-to-run-batch-predictions.md).
+For a walkthrough of batch inference with Azure Machine Learning Compute, see [How to run batch predictions](tutorial-pipeline-batch-scoring-classification.md).
 
 ### <a id="iotedge"></a> IoT Edge inference
 Support for deploying to the edge is in preview. For more information, see [Deploy Azure Machine Learning as an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning).
@@ -772,7 +772,7 @@ Support for deploying to the edge is in preview. For more information, see [Depl
 
 ## Continuously deploy models
 
-You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning service workspace.
+You can continuously deploy models by using the Machine Learning extension for [Azure DevOps](https://azure.microsoft.com/services/devops/). You can use the Machine Learning extension for Azure DevOps to trigger a deployment pipeline when a new machine learning model is registered in an Azure Machine Learning workspace.
 
 1. Sign up for [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops), which makes continuous integration and delivery of your application to any platform or cloud possible. (Note that Azure Pipelines isn't the same as [Machine Learning pipelines](concept-ml-pipelines.md#compare).)
 
@@ -780,7 +780,7 @@ You can continuously deploy models by using the Machine Learning extension for [
 
 1. Install the [Machine Learning extension for Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-air-aiagility.vss-services-azureml&targetId=6756afbe-7032-4a36-9cb6-2771710cadc2&utm_source=vstsproduct&utm_medium=ExtHubManageList).
 
-1. Use service connections to set up a service principal connection to your Azure Machine Learning service workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
+1. Use service connections to set up a service principal connection to your Azure Machine Learning workspace so you can access your artifacts. Go to project settings, select **Service connections**, and then select **Azure Resource Manager**:
 
     [![Select Azure Resource Manager](media/how-to-deploy-and-where/view-service-connection.png)](media/how-to-deploy-and-where/view-service-connection-expanded.png)
 

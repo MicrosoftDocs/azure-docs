@@ -2,14 +2,14 @@
 title: Machine learning overview - Azure HDInsight
 description: Overview of big data machine learning options for clusters in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.author: hrasheed
 ---
+
 # Machine learning on HDInsight
 
 HDInsight enables machine learning with big data, providing the ability to obtain valuable insight from large amounts (petabytes, or even exabytes) of structured, unstructured, and fast-moving data. There are several machine learning options  in HDInsight:  SparkML and Apache Spark MLlib, R, Apache Hive, and the Microsoft Cognitive Toolkit.
@@ -34,7 +34,7 @@ With ML Services on HDInsight with Spark, you can parallelize training across th
 
 Azure Machine Learning provides tools to model predictive analytics, as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services. Azure Machine Learning is a  complete predictive analytics solution in the cloud that you can use to create, test, operationalize, and manage predictive models. Select from a large algorithm library, use a web-based studio for building models, and easily deploy your model as a web service.
 
-![Making advanced analytics accessible to Hadoop with Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
+![Microsoft Azure machine learning overview](./media/hdinsight-machine-learning-overview/azure-machine-learning.png)
 
 Create features for data in an HDInsight Hadoop cluster using [Hive queries](../machine-learning/team-data-science-process/create-features-hive.md). *Feature engineering* attempts to increase the predictive power of learning algorithms by creating features from raw data that facilitate the learning process. You can run HiveQL queries from Azure Machine Learning studio, and access data processed in Hive and stored in blob storage, by using the [Import Data module](../machine-learning/studio/import-data.md).
 
