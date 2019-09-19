@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Cosmos DB documentation # < 60 chars
-summary: Azure Cosmos DB is Microsoft’s globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute and storage.  # < 160 chars
+summary: Azure Cosmos DB is Microsoft’s globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute, and storage.  # < 160 chars
 
 metadata:
   title: Azure Cosmos DB # Required; page title displayed in search results. Include the brand. < 60 chars.
