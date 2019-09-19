@@ -18,7 +18,6 @@ metadata:
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent
-
   # Card (optional)
   - title: About Resource Manager
     linkLists:
