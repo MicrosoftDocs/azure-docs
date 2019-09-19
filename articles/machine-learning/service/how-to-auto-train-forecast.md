@@ -95,10 +95,10 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
 |`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
-|`target_lags`|*n* periods to forward-lag target values prior to model training.||
+|`target_lags`|Number of rows to lag the target values based on the frequency of the data. This is represented as a list or single integer.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size.||
 
-Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and lag the target values 2 periods ahead with the `target_lags` parameter.
+Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and specify a single lag on the target values for 2 periods ahead with the `target_lags` parameter.
 
 ```python
 time_series_settings = {
@@ -111,11 +111,17 @@ time_series_settings = {
 }
 ```
 
+
+
 > [!NOTE]
 > Automated machine learning pre-processing steps (feature normalization, handling missing data,
 > converting text to numeric, etc.) become part of the underlying model. When using the model for
 > predictions, the same pre-processing steps applied during training are applied to
 > your input data automatically.
+
+By defining the `grain_column_names` in the code snippet above, AutoML will create two separate time-series groups, also known as multiple time-series. If no grain is defined, AutoML will assume that the dataset is a single time-series. To learn more about single time-series see the [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
+
 
 Now create a standard `AutoMLConfig` object, specifying the `forecasting` task type, and submit the experiment. After the model finishes, retrieve the best run iteration.
 
