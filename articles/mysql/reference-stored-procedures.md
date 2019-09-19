@@ -26,7 +26,7 @@ The following stored procedures are used to set up or remove Data-in Replication
 |*mysql.az_replication _remove_master*|N/A|N/A|Removes the replication relationship between the master and replica.|
 |*mysql.az_replication_skip_counter*|N/A|N/A|Skips one replication error.|
 
-To set up data-in replication between a master and a replica in Azure Database for MySQL, refer to [how to configure data-in replication](howto-data-in-replication.md).
+To set up Data-in Replication between a master and a replica in Azure Database for MySQL, refer to [how to configure Data-in Replication](howto-data-in-replication.md).
 
 ## Other stored procedures
 
