@@ -249,7 +249,7 @@
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md
-  - name: Query data
+  - name: Query documents
     items:
     - name: Create a basic query
       href: search-query-overview.md
