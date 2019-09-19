@@ -29,7 +29,7 @@ landingContent:
             url: template-deployment-overview.md
           - text: Subscription level deployment
             url: deploy-to-subscription.md
-      - linkListType: Concept
+      - linkListType: concept
         links:
           - text: Best practices
             url: template-best-practices.md
@@ -52,7 +52,7 @@ landingContent:
           - text: create templates - Visual Studio
             url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 
-      - linkListType: Tutorials
+      - linkListType: tutorial
         links:
           - text: Deploy multiple instances
             url: resource-manager-tutorial-create-multiple-instances.md
