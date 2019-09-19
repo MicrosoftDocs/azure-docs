@@ -24,40 +24,6 @@ This document describes Time Series Models, their capabilities, and how to start
 
 Traditionally, the data that's collected from IoT devices lack contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
 
-### Data model terminology
-
-A brief overview of key terms used below:
-
-| Term | Description / Note |
-| --- | --- |
-| **Event** | The single timestamp + properties + values on the wire as persisted in Time Series Insights |
-| **Time Series** |  An array of rows, where each row has a timestamp and multiple values |
-| **Time Series Instance** | A group of events that has the same **Time Series ID**. Time Series ID is unique key within event stream and within the model |
-| **Time Series Instance** | Has a required **Time Series Type** that is persisted in **Time Series Model (TSM)** |
-| **Time Series Type** | Defines variables. Variables are named calculations over values from the events. Calculations can be aggregations, interpolations and scalar calculations |
-| **Time Series Expressions (TSX)** | Is a string based expression language with strong typing. Type specification is required, e.g. `$event.p1.Double`. In JSON, TSX is a string value of `tsx` property |
-| **Time Series Variable** | Is a name associated with a value of one of the types. Variable definitions also contain formulas and computation rules. Variable definitions can be stored in types in TSM, as well as provided ad-hoc (inline variables) on Time Series Query APIs. |
-
-> [!NOTE]
-> In addition to persisting calculations of variables in TSM, **Time Series Query can be used ad-hoc to perform calculations** and return values without persisting calculations in the TSM.
-
-Most APIs operate on and return **Time Series Value (TSV)** data structure. TSV is a rectangular data structure. 
-
-```JSON
-{
-  "timestamps": ["2018-01-01T00:02:03Z", "2018-01-01T00:02:03Z"],
-  "properties": [
-    {
-      "name": "Temperature",
-      "type": "Double",
-      "values": [1.0, 2.0]
-    }
-  ]
-}
-```
-
-Note that timestamps may not be unique.
-
 ## Scenario: Contoso's new smart oven
 
 **Consider the fictitious scenario of a new Contoso smart oven.** Suppose that each Contoso smart oven has five temperature sensors, one for each top burner and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each sensor.
