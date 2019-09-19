@@ -10791,6 +10791,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dns/private-dns-portal.md",
+      "redirect_url": "/azure/dns/private-dns-getstarted-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
       "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
       "redirect_document_id": false

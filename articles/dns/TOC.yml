@@ -39,11 +39,6 @@
       href: tutorial-alias-pip.md
     - name: Alias records for zone records
       href: tutorial-alias-rr.md
-  - name: Private DNS
-    items:
-    - name: Create private DNS zone and record
-      href: private-dns-portal.md
-
 - name: Samples
   items:
   - name: Azure CLI
@@ -74,12 +69,6 @@
       href: private-dns-scenarios.md
 - name: How to
   items:
-  - name: Private DNS
-    items:
-    - name: Create private zone - CLI
-      href: private-dns-getstarted-cli.md
-    - name: Create private zone - PowerShell
-      href: private-dns-getstarted-powershell.md
   - name: Public DNS
     items:
     - name: Alias records for load balanced web apps
