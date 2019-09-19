@@ -56,7 +56,7 @@ The details view shows:
 
 - Basic info
 - Recent risky sign-ins
-- Risk events not linked to a sign-in
+- Risk detections not linked to a sign-in
 - Risk history
 
 Additionally, you can:
@@ -66,7 +66,7 @@ Additionally, you can:
 - View all sign-ins shortcut to view the sign-ins report for that user.
 - View all risky sign-ins to view all the sign-ins for that user that were flagged as risky.
 - Reset a user’s password if you believe that the user's identity has been compromised.
-- Dismiss user risk if you think that the active risk events of a user are false positives. For more information, see the article [Provide feedback on risk events in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
+- Dismiss user risk if you think that the active risk detections of a user are false positives. For more information, see the article [Provide feedback on risk detections in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### Filter risky users
 
@@ -121,7 +121,7 @@ To learn more about a risky user, click on the Details drawer to expand it
 
 With the information provided by the risky sign-ins report, you can find answers to questions such as:
 
-- How many successful sign-ins were there that had anonymous IP address risk events in the last week?
+- How many successful sign-ins were there that had anonymous IP address risk detections in the last week?
 - Which users were confirmed compromised in the last month?
 - Which users had risky sign-ins to the Office 365 portal?
 
@@ -168,7 +168,7 @@ Additionally, you can:
 - Confirm compromised 
 - Confirm safe
 
-For more information, see the article [Provide feedback on risk events in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
+For more information, see the article [Provide feedback on risk detections in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### Filter risky sign-ins
 

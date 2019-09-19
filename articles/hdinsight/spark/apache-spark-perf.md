@@ -1,6 +1,6 @@
 ---
 title: Optimize Spark jobs for performance - Azure HDInsight 
-description: Shows common strategies for the best performance of Spark clusters.
+description: Show common strategies for the best performance of Apache Spark clusters in Azure HDInsight.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ---
 
-# Optimize Apache Spark jobs
+# Optimize Apache Spark jobs in HDInsight
 
 Learn how to optimize [Apache Spark](https://spark.apache.org/) cluster configuration for your particular workload.  The most common challenge is memory pressure, due to improper configurations (particularly wrong-sized executors), long-running operations, and tasks that result in Cartesian operations. You can speed up jobs with appropriate caching, and by allowing for [data skew](#optimize-joins-and-shuffles). For the best performance, monitor and review long-running and resource-consuming Spark job executions.
 
@@ -91,7 +91,7 @@ For your reference, the Spark memory structure and some key executor memory para
 
 If you are using [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html), then YARN controls the maximum sum of memory used by all containers on each Spark node.  The following diagram shows the key objects and their relationships.
 
-![YARN Spark Memory Management](./media/apache-spark-perf/yarn-spark-memory.png)
+![YARN Spark Memory Management](./media/apache-spark-perf/apache-yarn-spark-memory.png)
 
 To address 'out of memory' messages, try:
 

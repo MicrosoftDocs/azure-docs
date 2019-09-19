@@ -121,10 +121,7 @@ Point-in-time restore on a geo-secondary is not currently supported. Point-in-ti
 
 ### Geo-restore using the Azure portal
 
-To geo-restore a database using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice.
-
-> [!Note]
-> Geo-restore using the Azure portal is not available in Managed Instance. Please use PowerShell instead.
+To geo-restore a database using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
 

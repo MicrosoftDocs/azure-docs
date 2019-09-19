@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 08/29/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation
@@ -203,7 +203,12 @@ Examine the registry entries listed below and confirm that their values match. I
 **Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. Use Remote Desktop Protocol (RDP) to get directly into the session host VM as local administrator.
-2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+2. Download and import [The Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already, then run this cmdlet to sign in to your account:
+    
+    ```powershell
+    Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
+    ```
+    
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## How to fix a Windows Virtual Desktop side-by-side stack that malfunctions

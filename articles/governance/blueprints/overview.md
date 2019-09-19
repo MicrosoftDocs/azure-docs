@@ -3,7 +3,7 @@ title: Overview of Azure Blueprints
 description: Understand how the Azure Blueprints service enables you to create, define, and deploy artifacts in your Azure environment.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/08/2019
+ms.date: 08/26/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
@@ -151,9 +151,16 @@ To assign or unassign a blueprint, your account needs the following permissions:
 > As blueprint assignments are created on a subscription, the blueprint assign and unassign
 > permissions must be granted on a subscription scope or be inherited onto a subscription scope.
 
-All of the above permissions are included in the **Owner** role. The **Contributor** role has
-create blueprint and delete blueprint permissions, but does not have blueprint assignment
-permissions. If these built-in roles don't fit your security needs, consider creating a [custom
+The following built-in roles are available:
+
+|RBAC Role | Description |
+|-|-|
+|[Owner](../../role-based-access-control/built-in-roles.md#owner) | In addition to other permissions, includes all Azure Blueprint related permissions. |
+|[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | In addition to other permissions, can create and delete blueprint definitions, but doesn't have blueprint assignment permissions. |
+|[Blueprint Contributor](../../role-based-access-control/built-in-roles.md#blueprint-contributor) | Can manage blueprint definitions, but not assign them. |
+|[Blueprint Operator](../../role-based-access-control/built-in-roles.md#blueprint-operator) | Can assign existing published blueprints, but can't create new blueprint definitions. Blueprint assignment only works if the assignment is done with a user-assigned managed identity. |
+
+If these built-in roles don't fit your security needs, consider creating a [custom
 role](../../role-based-access-control/custom-roles.md).
 
 > [!NOTE]
@@ -166,7 +173,7 @@ role](../../role-based-access-control/custom-roles.md).
 
 ## Naming limits
 
-The following is a list of limitations that exist for certain fields:
+The following limitations exist for certain fields:
 
 |Object|Field|Allowed Characters|Max. Length|
 |-|-|-|-|

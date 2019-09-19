@@ -1,0 +1,55 @@
+### YamlMime:Landing
+
+title: Azure HPC Cache Preview documentation
+summary: Use Azure HPC Cache to expedite file access for read-intensive high-performance computing (HPC) workloads
+
+metadata:
+  title: Microsoft Azure HPC Cache 
+  description: Learn how to create and use Azure HPC Cache to solve the latency problem between your compute resources and storage. Azure HPC Cache is for file-based read-heavy workloads, and can create an aggregated virtual filesystem that incorporates Azure Blob storage and on-premises hardware filers.
+  ms.service: hpc-cache 
+  ms.topic: landing-page 
+  ms.collection: collection
+  author: ekpgh
+  ms.author: v-erkell
+  ms.date: 08/30/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card (optional)
+  - title: About Azure HPC Cache
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure HPC Cache?
+            url: hpc-cache-overview.md
+
+  # Card (optional)
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure prerequisites for Azure HPC Cache
+            url: hpc-cache-prereqs.md
+          - text: Create the cache 
+            url: hpc-cache-create.md
+          - text: Add storage
+            url: hpc-cache-add-storage.md
+          - text: Mount clients
+            url: hpc-cache-mount.md
+      - linkListType: concept
+        links:
+          - text: Configure an aggregated namespace
+            url: hpc-cache-namespace.md
+          - text: Populate new Blob storage
+            url: hpc-cache-ingest.md         # where to put the other articles? collapsible heading??
+
+  # Card
+  - title: Troubleshoot 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Open a support ticket
+            url: hpc-cache-support-ticket.md

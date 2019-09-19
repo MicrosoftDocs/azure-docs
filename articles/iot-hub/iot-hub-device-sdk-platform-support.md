@@ -66,10 +66,10 @@ There are several platforms supported.
 
 ### Node.js SDK
 
-| OS                                           | Arch | Node version |
-|----------------------------------------------|------|--------------|
-| Ubuntu 16.04 LTS (using node 6 docker image) | X64  | Node 6       |
-| Windows Server 2016                          | X64  | Node 6       |
+| OS                                           | Arch | Node version    |
+|----------------------------------------------|------|-----------------|
+| Ubuntu 16.04 LTS (using node 6 docker image) | X64  | LTS and Current |
+| Windows Server 2016                          | X64  | LTS and Current |
 
 ### Java SDK
 

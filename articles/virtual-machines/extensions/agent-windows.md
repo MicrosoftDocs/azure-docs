@@ -63,6 +63,9 @@ The VM Agent can be installed by double-clicking the Windows installer file. For
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
+### Prerequisites
+The Windows VM Agent needs at least Windows Server 2008 R2 (64-bits) to run, with the .Net Framework 4.0.
+
 ## Detect the VM Agent
 
 ### PowerShell

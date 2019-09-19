@@ -55,7 +55,7 @@ You can also use [InlineScript](automation-powershell-workflow.md#inlinescript),
 
 ### RunAs account
 
-By default the Hybrid Runbook Worker uses Local System for Windows and a special user account `nxautomation` for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
+By default the Hybrid Runbook Worker uses Local System for Windows and a special user account `nxautomation` for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, including certificate stores and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
 
 The user name for the credential must be in one of the following formats:
 

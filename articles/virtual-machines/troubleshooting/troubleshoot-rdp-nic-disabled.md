@@ -4,7 +4,7 @@ description: Learn how to troubleshoot a problem in which RDP fails because the 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
@@ -50,8 +50,7 @@ To enable the interface for the VM, use Serial control or [reset network interfa
 
     For example, if the interwork interface is named "Ethernet 2", run the following command:
 
-        netsh interface set interface name=""Ethernet 2" admin=enabled
-
+        netsh interface set interface name="Ethernet 2" admin=enabled
 
 4.  Check the state of the network interface again to make sure that the network interface is enabled.
 

@@ -103,6 +103,8 @@
       href: sizes-hpc.md
     - name: Previous generations
       href: sizes-previous-gen.md
+    - name: Isolated sizes
+      href: isolation.md
     - name: Azure compute units (ACU)
       href: acu.md
     - name: vCPU quotas
@@ -145,8 +147,8 @@
     href: backup-recovery.md
   - name: Infrastructure guidelines
     href: infrastructure-example.md
-  - name: Security attributes
-    href: virtual-machines-linux-security-attributes.md
+  - name: Built-in security controls
+    href: virtual-machines-linux-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -262,6 +264,14 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Monitor VMs
+    items:
+    - name: Azure Monitor for VMs
+      href: ../../azure-monitor/insights/vminsights-overview.md
+    - name: Create metric alerts
+      href: ../../azure-monitor/platform/alerts-metric.md
+    - name: Create log alerts
+      href: ../../azure-monitor/platform/alerts-log.md
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations
