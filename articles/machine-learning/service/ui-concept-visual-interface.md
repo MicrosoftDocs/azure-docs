@@ -16,7 +16,7 @@ ms.date: 05/15/2019
 
 The visual interface (preview) for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
-There is no programming required, you visually connect [datasets](#dataset) and [modules](#module) to construct your model.
+There is no programming required, you visually connect [datasets](#datasets) and [modules](#module) to construct your model.
 
 The visual interface uses your Azure Machine Learning [workspace](concept-workspace.md) to:
 
@@ -55,9 +55,9 @@ A pipeline consists of datasets and analytical modules, which you connect togeth
 
 To learn how to get started with the visual interface, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
-## Dataset
+## Datasets
 
-A machine learning [dataset](#concept-azure-machine-learning-architecture.md#datasets-and-datastores) makes it easier to access and work with your data. A number of sample datasets are included in visual interface for you to experiment with, and you can [register](#how-to-create-register-datasets.md#create-datasets) more datasets as you need them.
+A machine learning dataset makes it easier to access and work with your data. A number of sample datasets are included in visual interface for you to experiment with, and you can [register](./how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 

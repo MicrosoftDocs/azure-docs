@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: 
-ms.date:
+ms.date: 9/19/2019
 ---
 
 # Sample 7 - Text Classification: Predict company category 
