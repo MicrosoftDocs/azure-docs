@@ -92,6 +92,10 @@
       href: create-certificate-scenarios.md
 - name: How-to guides
   items:
+  - name: Security
+    items:
+    - name: Recommendations
+      href: security-recommendations.md
   - name: Use an App Service managed identity
     href: managed-identity.md
   - name: Azure Key Vault logging
