@@ -4,7 +4,7 @@ description: Describes how to add or change an Azure subscription administrator 
 services: ''
 documentationcenter: ''
 author: genlin
-manager: adpick
+manager: dcscontentpm
 editor: ''
 tags: billing
 
