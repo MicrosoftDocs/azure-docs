@@ -102,7 +102,7 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
 ### Diagnostic logs
-[Diagnostic logs](diagnostic-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Diagnostic logs are not enabled by default. You must enable them and specify a destination for each resource. 
+[Diagnostic logs](resource-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Diagnostic logs are not enabled by default. You must enable them and specify a destination for each resource. 
 
 The configuration requirements and content of Diagnostic logs vary by resource type, and not all services yet create Diagnostic logs. See [Supported services, schemas, and categories for Azure Diagnostic Logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently write to diagnostic logs.
 

@@ -11,7 +11,7 @@ ms.subservice: logs
 ---
 
 # Create diagnostic setting to collect platform logs and metrics in Azure
-[Platform logs](diagnostic-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to collect platform logs to different destinations.
+[Platform logs](resource-logs-overview.md) in Azure provide detailed diagnostic and auditing information for Azure resources and the Azure platform they depend on. This article provides details on creating and configuring diagnostic settings to collect platform logs to different destinations.
 
 Each Azure resource requires its own diagnostic setting. The diagnostic setting defines the following for that resource:
 
@@ -22,7 +22,7 @@ Each Azure resource requires its own diagnostic setting. The diagnostic setting 
 A single diagnostic setting can define one of each of the destinations. If you want to send data to more than one of a particular destination type (for example, two different Log Analytics workspaces), then create multiple settings. Each resource can have up to 5 diagnostic settings.
 
 > [!NOTE]
-> The Activity log can be forwarded to the same destinations as the other platform logs, but is not configured with diagnostic settings. See [Overview of Platform logs in Azure](diagnostic-logs-overview.md#destinations) for details.
+> The Activity log can be forwarded to the same destinations as the other platform logs, but is not configured with diagnostic settings. See [Overview of Platform logs in Azure](resource-logs-overview.md#destinations) for details.
 
 > [!NOTE]
 > [Platform metrics](metrics-supported.md) are collected automatically to [Azure Monitor Metrics](data-platform-metrics.md). Diagnostic settings can be used to collect metrics for certain Azure services into Azure Monitor Logs for analysis with other monitoring data using [log queries](../log-query/log-query-overview.md).
@@ -124,4 +124,4 @@ See [Automatically enable Diagnostic Settings at resource creation using a Resou
 
 ## Next steps
 
-* [Read more about Azure platform Logs](diagnostic-logs-overview.md)
+* [Read more about Azure platform Logs](resource-logs-overview.md)

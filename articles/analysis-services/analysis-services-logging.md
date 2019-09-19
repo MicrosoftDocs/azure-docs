@@ -12,7 +12,7 @@ ms.reviewer: minewiskan
 ---
 # Setup diagnostic logging
 
-An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/azure-monitor-log-hub.md).
+An important part of any Analysis Services solution is monitoring how your servers are performing. With [Azure resource diagnostic logs](../azure-monitor/platform/resource-logs-overview.md), you can monitor and send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), and export them to [Azure Monitor logs](../azure-monitor/azure-monitor-log-hub.md).
 
 ![Diagnostic logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -322,6 +322,6 @@ Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
 
 ## Next steps
 
-Learn more about [Azure resource diagnostic logging](../azure-monitor/platform/diagnostic-logs-overview.md).
+Learn more about [Azure resource diagnostic logging](../azure-monitor/platform/resource-logs-overview.md).
 
 See [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) in PowerShell help.

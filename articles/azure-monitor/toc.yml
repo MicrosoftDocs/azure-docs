@@ -646,7 +646,7 @@
       - name: Diagnostic logs
         items: 
         - name: Overview
-          href: platform/diagnostic-logs-overview.md 
+          href: platform/resource-logs-overview.md 
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
         - name: Collect from Azure Storage

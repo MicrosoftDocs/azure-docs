@@ -18,7 +18,7 @@ Use the Activity Log, to determine the _what_, _who_, and _when_ for any write o
 The Activity Log does not include read (GET) operations or operations for resources that use the Classic/RDFE model.
 
 ## Comparison to Diagnostic Logs
-There is a single Activity Log for each Azure subscription. It provides data about the operations on a resource from the outside (the "control plane"). [Diagnostic Logs](diagnostic-logs-overview.md) are emitted by a resource and provide information about the operation of that resource (the "data plane"). You must enable diagnostic settings for each resource.
+There is a single Activity Log for each Azure subscription. It provides data about the operations on a resource from the outside (the "control plane"). [Diagnostic Logs](resource-logs-overview.md) are emitted by a resource and provide information about the operation of that resource (the "data plane"). You must enable diagnostic settings for each resource.
 
 ![Activity Logs compared to Diagnostic logs](./media/activity-logs-overview/Activity_Log_vs_other_logs_v5.png)
 

@@ -26,7 +26,7 @@ Azure Monitor offers a capability that enables you to send resource diagnostic d
 * This change will occur at once across all public cloud regions. The change will not occur in Azure China, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
   * [Azure resource diagnostic logs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([see list of resources here](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Azure resource metrics being exported by diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
+  * [Azure resource metrics being exported by diagnostic settings](./../../azure-monitor/platform/resource-logs-overview.md#diagnostic-settings)
   * [Azure Activity log data being exported by log profiles](./../../azure-monitor/platform/archive-activity-log.md)
 * This change does not impact:
   * Network flow logs

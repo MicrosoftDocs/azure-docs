@@ -193,7 +193,7 @@ The rule counter log contains information about each rule applied to resources. 
 
 ## View and analyze logs
 
-To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
+To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). If you send diagnostics data to:
 - **Azure Monitor logs**: You can use the [network security group analytics](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
 - **Azure Storage account**: Data is written to a PT1H.json file. You can find the:
@@ -202,7 +202,7 @@ To learn how to view diagnostic log data, see [Azure Diagnostic Logs overview](.
 
 ## Next steps
 
-- Learn more about [Activity logging](../azure-monitor/platform/diagnostic-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), previously known as audit or operational logs. Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
+- Learn more about [Activity logging](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), previously known as audit or operational logs. Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups
