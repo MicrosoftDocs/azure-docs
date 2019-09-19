@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: j-martens
 ms.author: jmartens
-ms.date: 10/28/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Train your first ML model using R & Azure Machine Learning
