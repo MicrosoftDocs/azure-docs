@@ -16,7 +16,7 @@ ms.author: lahugh
 To create a custom image for your Batch pool's virtual machines (VMs), you can use either the [Shared Image Gallery](batch-sig-images.md), or a *managed image* resource.
 
 > [!TIP]
-> In most cases, you should create custom images using the Shared Image Gallery. The Shared Image Gallery provisions pools faster, scale larger amounts of VMs, and has better VM provisioning reliability. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
+> In most cases, you should create custom images using the Shared Image Gallery. The Shared Image Gallery provisions pools faster, can scale larger quantities of VMs, and has improved reliability when provisioning VMs. To learn more, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
 
 With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 **Better performance than custom image.** Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
