@@ -1,6 +1,6 @@
 ---
 title: "Visual interface example #1: regression to predict price"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 services: machine-learning
 ms.service: machine-learning

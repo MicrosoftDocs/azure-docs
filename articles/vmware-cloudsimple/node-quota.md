@@ -26,9 +26,6 @@ You can increase the node quota by submitting a support request. The service ope
 
 In the details of the support ticket, provide the required number of nodes and node SKU.
 
-You can also contact your Microsoft account representative at [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) to increase the node quota on your subscription.  You'll need to provide the:
-
-* Subscription ID
 * Node SKU
 * Number of additional nodes for which you're requesting the quota increase
 

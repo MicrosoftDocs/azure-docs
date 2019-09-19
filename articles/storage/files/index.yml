@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Files # < 60 chars
+title: Azure Files documentation # < 60 chars
 summary: Azure Files offers fully managed cross-platform file shares in the cloud that are accessible via the Server Message Block (SMB) protocol. # < 160 chars
 
 metadata:

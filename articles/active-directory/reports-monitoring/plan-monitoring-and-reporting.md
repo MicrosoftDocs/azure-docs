@@ -163,8 +163,6 @@ Depending on the decisions you have made earlier using the design guidance above
 
 [Find activity reports in the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
 
-[Use Power BI content Pack for Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
-
 [Archive Azure AD logs to an Azure Storage account](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 
 ### Implement monitoring and analytics

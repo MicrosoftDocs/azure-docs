@@ -35,7 +35,7 @@ To create a new Azure IoT Central application that includes preview features suc
    - **Pay-As-You-Go** applications are charged per device, with the first five devices free. If you create a **Pay-As-You-Go** application, you need to select your *Directory*, *Azure Subscription*, and *Region*:
       - *Directory* is the Azure Active Directory (AD) to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
       - An *Azure Subscription* enables you to create instances of Azure services. IoT Central will provision resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create Application** page. Your new subscription appears in the **Azure Subscription** drop-down.
-      - *Region* is the physical location where you’d like to create your application. Typically, you choose the region that's physically closest to your devices to get optimal performance. You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/regions/services/) page. Once you choose a region, you can't later move your application to a different region.
+      - *Region* is the physical location where you’d like to create your application. During public preview, the only available regions for a **Preview application** are **North Europe** and **Central US**.
 
       Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
 

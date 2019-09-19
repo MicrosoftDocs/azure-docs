@@ -1,26 +1,19 @@
 ---
-title: Data Science Virtual Machine development tools - Azure | Microsoft Docs
-description: Learn about the tools and integrated development environments that are preinstalled on the Data Science Virtual Machine.
+title: Development tools
+titleSuffix: Azure Data Science Virtual Machine 
+description: Learn about the tools and integrated development environments available on the Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: vijetaj
-
 ---
 
-# Development tools on the Data Science Virtual Machine
+# Development tools on the Azure Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) bundles several popular tools in a highly productive integrated development environment (IDE). Here are some tools that are provided on the DSVM.
 

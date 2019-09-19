@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -137,6 +137,18 @@ To better understand entitlement management and its documentation, you should re
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+
+### Which users must have licenses?
+
+Your tenant must have at least as many Azure AD Premium P2 licenses as you have active member users. Active member users in entitlement management include:
+
+- A user that initiates or approves a request for an access package.
+- A user that has been assigned an access package. 
+- A user that manages access packages.
+
+As part of the licenses for member users, you can also allow a number of guest users to interact with entitlement management. For information about how to calculate the number of guest users you can include, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+
+For information about how to assign licenses to your users, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## Next steps
 

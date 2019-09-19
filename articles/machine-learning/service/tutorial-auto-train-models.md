@@ -1,7 +1,7 @@
 ---
 title: 'Regression model tutorial: Automated ML'
-titleSuffix: Azure Machine Learning service
-description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn how to generate a machine learning model by using automated machine learning. Azure Machine Learning can perform data preprocessing, algorithm selection, and hyperparameter selection in an automated way for you. Then the final model is deployed with Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 08/21/2019
 
 # Tutorial: Use automated machine learning to predict taxi fares
 
-In this tutorial, you use automated machine learning in Azure Machine Learning service to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you use automated machine learning in Azure Machine Learning to create a regression model to predict NYC taxi fare prices. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 ![Flow diagram](./media/tutorial-auto-train-models/flow2.png)
 
@@ -25,11 +25,11 @@ In this tutorial you learn the following tasks:
 > * Train an automated machine learning regression model
 > * Calculate model accuracy
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning service today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version](https://aka.ms/AMLFree) of Azure Machine Learning today.
 
 ## Prerequisites
 
-* Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning service workspace or notebook virtual machine.
+* Complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine.
 * After you complete the setup tutorial, open the **tutorials/regression-automated-ml.ipynb** notebook using the same notebook server.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to run it in your own [local environment](how-to-configure-environment.md#local). Run `pip install azureml-sdk[automl] azureml-opendatasets azureml-widgets` to get the required packages.
@@ -1064,7 +1064,7 @@ The traditional machine learning model development process is highly resource-in
 
 ## Clean up resources
 
-Do not complete this section if you plan on running other Azure Machine Learning service tutorials.
+Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
 ### Stop the notebook VM
 
@@ -1095,4 +1095,4 @@ In this automated machine learning tutorial, you did the following tasks:
 > * Trained by using an automated regression model locally with custom parameters.
 > * Explored and reviewed training results.
 
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning service.
+[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
