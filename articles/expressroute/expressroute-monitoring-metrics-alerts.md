@@ -23,50 +23,18 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select from the metrics listed below. The default aggregation will be applied. Optionally, you can apply splitting, which will show the metrics with different dimensions.
 
-### Metrics Available: 
-* **Availability** 
-    * Arp Availability
-      * Dimensions Available:
-        * Peer (Primary/Secondary ExpressRoute router)
-        * Peering Type (Private/Public/Microsoft)
-    * Bgp Availability
-      * Dimensions Available:
-        * Peer (Primary/Secondary ExpressRoute router)
-        * Peering Type (Private/Public/Microsoft)
-    * ExpressRoute Direct AdminState
-      * Dimensions Available: 
-        * Link
-    * ExpressRoute Direct LineProtocol
-      * Dimensions Available
-        * ExpressRoute Direct
-    * ExpressRoute Direct RxLightLevel
-      * Dimensions Available:
-        * Link
-        * Lane
-    * ExpressRoute Direct TxLightLevel
-      * Dimensions Available:
-        * Link
-        * Lane
-* **Traffic**
-    * BitsInPerSecond
-      * Dimensions Available:
-        * Peering Type (Private/Public/Microsoft)
-    * BitsOutPerSecond
-      * Dimensions Available:
-        * Peering Type (Private/Public/Microsoft)
-    * GlobalReachBitsInPerSecond
-      * Dimensions Available:
-        * Peered Circuit Skey (Service Key)
-    * GlobalReachBitsOutPerSecond
-      * Dimensions Available:
-        * Peered Circuit Skey (Service Key)
-    * ExpressRouteDirectBitsInPerSecond
-      * Dimensions Available:
-        * Link
-    * ExpressRouteDirectBitsOutPerSecond
-      * Dimensions Available:
-        * Link
-
+|  **Metric** | **Dimension(s)** |  **Feature(s)** |
+| --- | --- | --- | --- |
+|ARP Availability |*Peer (Primary/Secondary ExpressRoute router) <br> *Peering Type (Private/Public/Microsoft)|ExpressRoute|
+|Bgp Availability |*Peer (Primary/Secondary ExpressRoute router) <br> *Peering Type|ExpressRoute |
+|BitsInPerSecond|*Peering Type (ExpressRoute) <br> *Link (ExpressRoute Direct)| *ExpressRoute <br> *ExpressRoute Direct|
+|BitsOutPerSecond| *Peering Type (ExpressRoute) <br> *Link (ExpressRoute Direct) | *ExpressRoute <br> *ExpressRoute Direct|
+|GlobalReachBitsInPerSecond|Peered Circuit Skey (Service Key) |Global Reach |
+|GlobalReachBitsOutPerSecond|Peered Circuit Skey (Service Key) |Global Reach|
+|AdminState|Link|ExpressRoute Direct|
+|LineProtocol|Link |ExpressRoute Direct|
+|RxLightLevel|*Link <br>*Lane |ExpressRoute Direct|
+|TxLightLevel|*Link <br>*Lane |ExpressRoute Direct|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
