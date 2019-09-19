@@ -165,7 +165,7 @@ You can either use an existing data factory that already has Azure-SSIS IR provi
 ### Create a pipeline with an Execute SSIS Package activity 
 In this step, you create a pipeline with an Execute SSIS Package activity. The activity runs your SSIS package. 
 
-1. Create a JSON file named **RunSSISPackagePipeline.json** in the **C:\ADF\RunSSISPackage** folder with content similar to the following example.
+1. Create a JSON file named *RunSSISPackagePipeline.json* in the *C:\ADF\RunSSISPackage* folder with content similar to the following example.
 
    > [!IMPORTANT]
    > Replace object names, descriptions, and paths, property or parameter values, passwords, and other variable values before you save the file. 
@@ -355,7 +355,7 @@ In this step, you create a pipeline with an Execute SSIS Package activity. The a
            }
            ```
 
-2. In Azure PowerShell, switch to the `C:\ADF\RunSSISPackage` folder.
+2. In Azure PowerShell, switch to the *C:\ADF\RunSSISPackage* folder.
 
 3. To create the pipeline **RunSSISPackagePipeline**, run the **Set-AzDataFactoryV2Pipeline** cmdlet.
 
@@ -413,7 +413,7 @@ You can also monitor the pipeline by using the Azure portal. For step-by-step in
 ### Schedule the pipeline with a trigger
 In the previous step, you ran the pipeline on demand. You can also create a schedule trigger to run the pipeline on a schedule, such as hourly or daily.
 
-1. Create a JSON file named **MyTrigger.json** in the **C:\ADF\RunSSISPackage** folder with the following content: 
+1. Create a JSON file named *MyTrigger.json* in the *C:\ADF\RunSSISPackage* folder with the following content: 
         
            ```json
            {
@@ -439,7 +439,7 @@ In the previous step, you ran the pipeline on demand. You can also create a sche
            }    
            ```
     
-1. In Azure PowerShell, switch to the **C:\ADF\RunSSISPackage** folder.
+1. In Azure PowerShell, switch to the *C:\ADF\RunSSISPackage* folder.
 1. Run the **Set-AzDataFactoryV2Trigger** cmdlet, which creates the trigger. 
 
    ```powershell
