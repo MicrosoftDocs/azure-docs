@@ -117,5 +117,5 @@ You should migrate your logs to use the resource-specific mode as soon as possib
 
 ## Next steps
 
-* To learn about Azure resource logs, see [Overview of Azure Resource logs](diagnostic-logs-overview.md)
+* To learn about Azure resource logs, see [Overview of Azure Resource logs](resource-logs-overview.md)
 * To create a diagnostic setting collect resource logs to a Log Analytics workspace, see [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md)

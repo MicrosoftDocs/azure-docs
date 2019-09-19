@@ -32,9 +32,9 @@ Platform logs can be sent to the destinations in the following table. The config
 
 | Destination | Description |
 |:---|:---|
-| [Log Analytics workspace](diagnostic-logs-collect-workspace.md) | Collecting logs into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
+| [Log Analytics workspace](diagnostic-settings-workspace.md) | Collecting logs into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
 | [Event hubs](diagnostic-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
-| [Azure storage account](diagnostic-logs-collect-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
+| [Azure storage account](diagnostic-settings-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
 
 
 
@@ -44,19 +44,19 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
 1. From the Azure Monitor menu in the Azure portal, click **Diagnostic settings** under **Settings** and then click on the resource.
 
-    ![Diagnostic settings](media/diagnostic-logs-collect/menu-monitor.png)
+    ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
 
     Or from the resource menu in the Azure portal, click **Diagnostic settings** under **Monitor**.
 
-    ![Diagnostic settings](media/diagnostic-logs-collect/menu-resource.png)
+    ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
 
 2. If no settings exist on the resource you have selected, you are prompted to create a setting. Click **Turn on diagnostics**.
 
-   ![Add diagnostic setting - no existing settings](media/diagnostic-logs-collect/add-setting.png)
+   ![Add diagnostic setting - no existing settings](media/diagnostic-settings/add-setting.png)
 
    If there are existing settings on the resource, you will see a list of settings already configured. Either click **Add diagnostic setting** to add a new setting or **Edit setting** to edit an existing one. Each setting can have no more than one of each of the destination types.
 
-   ![Add diagnostic setting - existing settings](media/diagnostic-logs-collect/edit-setting.png)
+   ![Add diagnostic setting - existing settings](media/diagnostic-settings/edit-setting.png)
 
 3. Give your setting a name if it doesn't already have one.
 4. Check the box for each destination to send the logs. Click **Configure** to specify their settings as described in the following table.
@@ -69,9 +69,9 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
     | Event hub name | Optionally specify an event hub name to send all data in the setting. If you don't specify a name, an event hub is created for each log category. If you are sending multiple categories, you may want to specify a name to limit the number of event hubs created. See [Azure Event Hubs quotas and limits](../../event-hubs/event-hubs-quotas.md) for details. |
     | Event hub policy name | Defines the permissions that the streaming mechanism has. |
 
-    ![Add diagnostic setting - existing settings](media/diagnostic-logs-collect/setting-details.png)
+    ![Add diagnostic setting - existing settings](media/diagnostic-settings/setting-details.png)
 
-5. Check the box for each of the categories of data to send to the specified destinations. If you selected the option to **Archive to a storage account**, then you will also need to specify the [retention period](diagnostic-logs-collect-storage.md#data-retention).
+5. Check the box for each of the categories of data to send to the specified destinations. If you selected the option to **Archive to a storage account**, then you will also need to specify the [retention period](diagnostic-settings-storage.md#data-retention).
 
 
 
