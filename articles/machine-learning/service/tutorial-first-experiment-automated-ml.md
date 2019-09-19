@@ -136,7 +136,8 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
    When the experiment starts, you see a blank screen with a status message at the top.
 
-The experiment preparation process takes several minutes. When that process finishes, the status message changes to **Run is Running**.
+>[!IMPORTANT]
+> It takes time to prepare and run each experiment run. For this tutorial, it make take 3-6 minutes to complete. 
 
 ##  View experiment details
 
