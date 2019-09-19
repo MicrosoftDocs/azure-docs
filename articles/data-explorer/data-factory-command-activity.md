@@ -14,14 +14,14 @@ ms.date: 09/15/2019
 
 # Use Azure Data Factory command activity to run Azure Data Explorer control commands
 
-[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. ADF allows you to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory allows you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands) within an ADF workflow. This article teaches you how to create a pipeline with a lookup activity and ForEach containing an Azure Data Explorer command activity.
+[Azure Data Factory](/azure/data-factory/) (ADF) is a cloud-based data integration service that allows you to perform a combination of activities on the data. Use ADF to create data-driven workflows for orchestrating and automating data movement and data transformation. The **Azure Data Explorer Command** activity in Azure Data Factory enables you to run [Azure Data Explorer control commands](/azure/kusto/concepts/#control-commands) within an ADF workflow. This article teaches you how to create a pipeline with a lookup activity and ForEach activity containing an Azure Data Explorer command activity.
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * [An Azure Data Explorer cluster and database](create-cluster-database-portal.md)
-* Source of data.
-* [Create a data factory](data-factory-load-data.md#create-a-data-factory)
+* A source of data.
+* [A data factory](data-factory-load-data.md#create-a-data-factory)
 
 ## Create a new pipeline
 
@@ -36,7 +36,7 @@ ms.date: 09/15/2019
  
     ![select lookup activity](media/data-factory-command-activity/select-activity.png)
 
-1. The canvas contains the Lookup activity created. Use the tabs below the canvas to change any relevant parameters. In **General**, rename the activity. 
+1. The canvas now contains the Lookup activity you created. Use the tabs below the canvas to change any relevant parameters. In **General**, rename the activity. 
 
     ![edit lookup activity](media/data-factory-command-activity/edit-lookup-activity.PNG)
 
@@ -59,7 +59,8 @@ ms.date: 09/15/2019
 
 1. The **AzureDataExplorerTable** new tab opens in the main canvas. 
     * Select **General** and edit the dataset name. 
-    * Select **Connection** to edit the dataset properties. Select the **Linked service** from the drop-down. Instead, select **+ New** to create a new linked service.
+    * Select **Connection** to edit the dataset properties. 
+    * Select the **Linked service** from the drop-down, or select **+ New** to create a new linked service.
 
     ![Edit Azure Data Explorer dataset properties](media/data-factory-command-activity/adx-dataset-properties-edit-connections.png)
 
@@ -93,19 +94,19 @@ ms.date: 09/15/2019
     | summarize count() by Database
     ```
 
-1. Change the **Query timeout** or **No truncation** and **First row only** properties, as needed. In this flow, we keep the default and uncheck the checkboxes. 
+1. Change the **Query timeout** or **No truncation** and **First row only** properties, as needed. In this flow, we keep the default **Query timeout** and uncheck the checkboxes. 
 
     ![Final settings of lookup activity](media/data-factory-command-activity/lookup-activity-final-settings.png)
 
 ## Create a For-Each activity 
 
-1. Next we add a For-Each activity to the pipeline. This activity will process the data returned from the Lookup activity. 
-    * In the **Activities** pane, under **Iteration & Conditionals**, select the **ForEach** activity and drag and drop into the canvas.
+1. Next, you add a For-Each activity to the pipeline. This activity will process the data returned from the Lookup activity. 
+    * In the **Activities** pane, under **Iteration & Conditionals**, select the **ForEach** activity and drag and drop it into the canvas.
     * Draw a line between the output of the Lookup activity and the input of the ForEach activity in the canvas to connect them.
 
         ![ForEach activity](media/data-factory-command-activity/for-each-activity.png)
 
-1.	Select the ForEach activity in the canvas. In **Settings**:
+1.	Select the ForEach activity in the canvas. In the **Settings** tab below:
     * Check the **Sequential** checkbox for a sequential processing of the Lookup results, or leave it unchecked to create parallel processing.
     * Set **Batch count**.
     * In **Items**, provide the following reference to the output value:
@@ -116,15 +117,15 @@ ms.date: 09/15/2019
 ## Create an Azure Data Explorer Command activity within the ForEach activity
 
 1. Double-click the ForEach activity in the canvas to open it in a new canvas to specify the activities within ForEach.
-1. In the **Activities** pane, under **Azure Data Explorer**, select the **Azure Data Explorer Command** activity and drag and drop into the canvas.
+1. In the **Activities** pane, under **Azure Data Explorer**, select the **Azure Data Explorer Command** activity and drag and drop it into the canvas.
 
     ![Azure Data Explorer command activity](media/data-factory-command-activity/adx-command-activity.png)
 
-1.	In **Connection**, select the same Linked Service previously created.
+1.	In the **Connection** tab, select the same Linked Service previously created.
 
     ![azure data explorer command activity connection tab](media/data-factory-command-activity/adx-command-activity-connection-tab.png)
 
-1. In **Command**, provide the following command:
+1. In the **Command** tab, provide the following command:
 
     ```kusto
     .export
@@ -145,14 +146,13 @@ ms.date: 09/15/2019
     > The command activity has the following limits:
     > * Size limit: 1 MB response size
     > * Time limit: 20 minutes (default), 1 hour (maximum).
-    > If needed, you can append a query to the result using [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands), to reduce resulting size/time.
-
+    > * If needed, you can append a query to the result using [AdminThenQuery](/azure/kusto/management/index#combining-queries-and-control-commands), to reduce resulting size/time.
 
 1.	Now the pipeline is ready. You can go back to the main pipeline view by clicking the pipeline name.
 
     ![Azure Data Explorer command pipeline](media/data-factory-command-activity/adx-command-pipeline.png)
 
-1. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in **Output** tab.
+1. Select **Debug** before publishing the pipeline. The pipeline progress can be monitored in the **Output** tab.
 
     ![azure data explorer command activity output](media/data-factory-command-activity/command-activity-output.png)
 
@@ -186,7 +186,7 @@ In a non-async control command, the structure of the returned value is similar t
  
 ### Returned value of an async control command
 
-In an async control command, the activity polls the operations table, behind the scenes, until the async operation is completed or times-out. Therefore, the returned value will contain the result of `.show operations OperationId` for that given **OperationId** property. Check the values of **State** and **Status** properties, to verify successful completion of the operation.
+In an async control command, the activity polls the operations table behind the scenes, until the async operation is completed or times-out. Therefore, the returned value will contain the result of `.show operations OperationId` for that given **OperationId** property. Check the values of **State** and **Status** properties, to verify successful completion of the operation.
 
 ```json
 { 
@@ -213,5 +213,5 @@ In an async control command, the activity polls the operations table, behind the
 
 ## Next steps
 
-* Learn about the procedure to [copy data to Azure Data Explorer using Azure Data Factory](data-factory-load-data.md).
+* Learn about how to [copy data to Azure Data Explorer using Azure Data Factory](data-factory-load-data.md).
 * Learn about using [Azure Data Factory template for bulk copy from database to Azure Data Explorer](data-factory-template.md).
