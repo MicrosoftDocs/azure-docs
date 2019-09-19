@@ -11,7 +11,7 @@ ms.subservice: blobs
 
 # Change feed in Azure Blob Storage
 
-The change feed captures all changes that occur to the blobs and the blob metadata in your storage account. The logs that contain these records are stored as blobs in your account. They are durable, immutable, and read-only, and you can manage their lifetime based on your requirements.
+Change feed logs capture change event records for all changes that occur to the blobs and the blob metadata in your storage account. The logs that contain these records are stored as blobs in your account. They are durable, immutable, and read-only, and you can manage their lifetime based on your requirements.
 
 Unlike change events which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
 
@@ -32,13 +32,13 @@ The change feed consists of several metadata and log files. You can find of thes
 |--------|-----------|
 | **Index file** | This file is named *segments.json* and there is only one of them. Use the data in this file to help you decide which logs to process. |
 | **Segment files** | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments. Each segment contains a metadata file that ends with the suffix *meta.json*. This file contains a path to the associated change feed logs for that segment. |
-| **Log files** |  Log files contain a series of event records. Each log file represents 60 minutes of event activity. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. Changes are batched and appended to change feed logs every 60 to 120 seconds. |
+| **Log files** |  Log files contain a series of event records. Each log file represents 60 minutes of event activity. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
 
 Put an image here of a directory that contains these files....
 
 Start by processing the index metadata file. Then, for each segment you're interested in, read the segment metadata file to obtain the path to each change feed log in that segment. Log files use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. There are several libraries available to process files in that format. This article shows examples that use the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications.
 
-The following sections describe the contents of each file and how ot process them.
+The following sections describe the contents of each file and how to process them.
 
 ## Index file
 
@@ -64,20 +64,17 @@ Need a good description here.
 
 ### Properties
 
-The index file contains the following top-level data:
+The index file contains the following properties:
 
-| Property | Type | Description |
+| Property | Description |
 | -------- | ---- | ----------- |
-| version | string | Description |
-| lastConsumable | string | The date of the last segment that your application can consume. Segments that are dated beyond this date haven't been finalized and shouldn't be consumed by your application.  |
-| storageDiagnostics | string | For internal use only and not designed for use by your application.|
+| version |  Description |
+| lastConsumable |  The date of the last segment that your application can consume. Segments that are dated beyond this date haven't been finalized and shouldn't be consumed by your application.  |
+| storageDiagnostics | For internal use only and not designed for use by your application.|
 
 ### Code example
 
-This example processes the index metadata file by using a .NET client application.
-
-> [!NOTE]
-> This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) NuGet package.
+This example processes the index metadata file by using a .NET client application. This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) NuGet package.
 
 ```csharp
 using System.Json;
@@ -143,30 +140,27 @@ Use segment files to process changes at specific time points, or between ranges 
 
 ### Properties
 
-The index file contains the following top-level data:
+The segment file contains the following properties.
 
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| version | string | Description |
-| begin | string | Description  |
-| intervalSecs | string | Description |
-| status | string | Description |
-| config  | string | Description |
-| config.version | object | Description |
-| config.configVersionEtag | object | Description |
-| config.numShards | object | The number of log files associated with this segment. |
-| config.recordsFormat | object | Always `avro`. |
-| config.formatSchemaVersion | object | Description |
-| config.shardDistFnVersion | object | Description |
-| chunkFilePaths | string | Paths to the change feed log files associated with the segment. |
-| storageDiagnostics | string | For internal use only and not designed for use by your application. |
+| Property | Description |
+| -------- |  ----------- |
+| version |  Description |
+| begin | The start time of the segment.  |
+| intervalSecs |  The number of seconds captured by this segment. |
+| status |  Description |
+| config  |  Description |
+| config.version |  Description |
+| config.configVersionEtag |  Description |
+| config.numShards |  The number of log files associated with this segment. |
+| config.recordsFormat |  Always `avro`. |
+| config.formatSchemaVersion |  Description |
+| config.shardDistFnVersion |  Description |
+| chunkFilePaths |  Paths to the change feed log files associated with the segment. |
+| storageDiagnostics |  For internal use only and not designed for use by your application. |
 
 ### Code example
 
-This example processes the segment metadata files by using a .NET client application.
-
-> [!NOTE]
-> This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
+This example processes the segment metadata files by using a .NET client application. This example uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
 
 ```csharp
 
@@ -230,9 +224,11 @@ class Storage
 
 ## Log files
 
-Change feed log files are stored as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). These logs have the *.avro* file extension (For example: `00000.avro`).
+Change feed log files are stored as [append blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs). Changes are batched and appended to change feed logs every 60 to 120 seconds.
 
-Each log file contains a series of change event records. Those records are listed in the order in which events occurred. Change event records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format.
+Change event records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format so the log file has the *.avro* file extension (For example: `00000.avro`).
+
+Each log file contains a series of change event records. Those records are listed in the order in which events occurred.
 
 ### Example
 
@@ -266,16 +262,13 @@ Each log file contains a series of change event records. Those records are liste
 
 ### Properties
 
-For descriptions of each field, see [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
+For a description of each property, see [Azure Event Grid event schema for Blob storage](https://docs.microsoft.com/azure/event-grid/event-schema-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#event-properties).
 
 You can skip records where the `eventType` has a value of `Control`. These are internal system records and don't reflect a change to objects in your account. You can also ignore values in the `storageDiagnonstics` property bag. That property bag is for internal use only and not designed for use by your application.
 
 ### Code example
 
-This example processes the change feed log file by using a .NET client application.
-
-> [!NOTE]
-> This examples depends the on [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
+This example processes the change feed log file by using a .NET client application. This examples depends the on [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
 
 ```csharp
 using System.Json;
