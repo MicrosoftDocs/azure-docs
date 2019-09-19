@@ -85,7 +85,7 @@ Users can run EXPLAIN WITH_RECOMMENDATIONS <SQL_statement> for the materialized 
 
 **Be aware of the tradeoff between faster queries and the cost** 
 
-For each materialized view, there's a data storage cost and a cost for maintaining the materialized view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the data warehouse engine, including moving rows from delta store to the columnstore index segments and consolidating data changes.  The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
+For each materialized view, there's a data storage cost and a cost for maintaining the view.  As data changes in base tables, the size of the materialized view increases and its physical structure also changes.  To avoid query performance degradation, each materialized view is maintained separately by the data warehouse engine, including moving rows from delta store to the columnstore index segments and consolidating data changes.  The maintenance workload gets higher when the number of materialized views and base table changes increase.   Users should check if the cost incurred from all materialized views can be offset by the query performance gain.  
 
 You can run this query for the list of materialized view in a database: 
 
