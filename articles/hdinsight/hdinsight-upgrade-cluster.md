@@ -20,7 +20,6 @@ To take advantage of the latest HDInsight features, we recommend that HDInsight 
 ## Upgrade tasks
 
 The workflow to upgrade HDInsight Cluster is as follows.
-
 ![HDInsight upgrade workflow diagram](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
