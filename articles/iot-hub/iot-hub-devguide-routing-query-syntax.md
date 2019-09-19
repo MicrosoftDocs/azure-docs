@@ -54,12 +54,6 @@ System properties help identify contents and source of the messages.
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
 | iothub-interface-name | string | This value is set by the user and represents the name of the digital twin interface that implements the telemetry message. To query, use `$interfaceName`. This feature is available as part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md). |
 
-
-|      | AMQP | HTTP | MQTT |
-| ---- | ---- | ---- | ---- |
-| Content type | content-type | iothub-contenttype | $.ct |
-| Content encoding | content-encoding | iothub-contentencoding | $.ce |
-
 As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.
 
 ### Application properties
