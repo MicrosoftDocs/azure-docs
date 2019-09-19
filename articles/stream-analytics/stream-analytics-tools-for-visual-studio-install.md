@@ -12,7 +12,7 @@ ms.date: 05/22/2018
 ---
 # Install Azure Stream Analytics tools for Visual Studio
 
-Visual Studio versions 2019, 2017, 2015, and 2013 support Azure Data Lake and Stream Analytics Tools. This article describes how to install and uninstall the tools.
+Visual Studio 2019 and Visual Studio 2017 support Azure Data Lake and Stream Analytics Tools. This article describes how to install and uninstall the tools.
 
 For more information on using the tools, see [Quickstart: Create an Azure Stream Analytics job by using Visual Studio](stream-analytics-quick-create-vs.md).
 
@@ -20,7 +20,7 @@ For more information on using the tools, see [Quickstart: Create an Azure Stream
 
 Visual Studio Enterprise (Ultimate/Premium), Professional, and Community editions support the tools. Express edition and Visual Studio for Mac don't support them.
 
-We recommend Visual Studio 2019 or Visual Studio 2017.
+We recommend Visual Studio 2019.
 
 ### Install for Visual Studio 2019 and 2017<a name="recommended-visual-studio-2019-and-2017"></a>
 
