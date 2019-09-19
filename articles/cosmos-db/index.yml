@@ -26,16 +26,6 @@ landingContent:
         links:
           - text: What is Azure Cosmos DB?
             url: introduction.md
-          - text: What is Cosmos DB's API for Cassandra
-            url: cassandra-introduction.md
-          - text: What is Cosmos DB's API for MongoDB
-            url: mongodb-introduction.md
-          - text: What is Cosmos DB's API for Gremlin
-            url: graph-introduction.md
-          - text: What is Cosmos DB's API for Table
-            url: table-introduction.md
-          - text: What is Cosmos DB's API for Etcd
-            url: etcd-api-introduction.md
       - linkListType: concept
         links:
           - text: Wire protocol compatibility with MongoDB
@@ -44,10 +34,6 @@ landingContent:
             url: cassandra-support.md
           - text: Wire protocol compatibility with Tinkerpop’s Gremlin
             url: gremlin-support.md
-      - linkListType: learn
-        links:
-          - text: Choose the Cosmos DB API type 
-            url: /learn/modules/choose-api-for-cosmos-db/index
 
   # Card
   - title: Global distribution 
@@ -118,7 +104,7 @@ landingContent:
             url: how-to-provision-database-throughput.md
           - text: Provision throughput on a container
             url: how-to-provision-container-throughput.md
-          - text: Get the consumed throughput 
+          - text: Get the request unit charges 
             url: find-request-unit-charge.md
 
   # Card
@@ -158,11 +144,11 @@ landingContent:
             url: manage-with-powershell.md  
           - text: Manage using Azure CLI 
             url: manage-with-cli.md  
-          - text: Manage using Azure Resource Manager templates 
+          - text: Manage using Resource Manager(ARM) templates 
             url: manage-sql-with-resource-manager.md 
 
   # Card
-  - title: Build an app with SQL API account 
+  - title: Build an app with SQL API 
     linkLists:
       - linkListType: quickstart
         links:
@@ -208,7 +194,7 @@ landingContent:
             url: /learn/modules/store-access-data-cosmos-table-api/
 
   # Card
-  - title: Build an app with Cassandra API account
+  - title: Build an app with Cassandra API
     linkLists:
       - linkListType: quickstart
         links:
@@ -222,11 +208,11 @@ landingContent:
             url: create-cassandra-python.md            
       - linkListType: how-to-guide
         links:
-          - text: Connect to Cassandra API account from Spark
+          - text: Connect to Cassandra API from Spark
             url: cassandra-spark-generic.md 
 
   # Card
-  - title: Build an app with MongoDB API account 
+  - title: Build an app with MongoDB API
     linkLists:
       - linkListType: quickstart
         links:
@@ -252,7 +238,7 @@ landingContent:
             url: mongodb-robomongo.md
 
   # Card
-  - title: Build an app with Gremlin API account 
+  - title: Build an app with Gremlin API 
     linkLists:
       - linkListType: quickstart
         links:
@@ -282,38 +268,20 @@ landingContent:
             url: /learn/modules/store-access-data-cosmos-graph-api/
 
   # Card
-  - title: Build an app with Table API account
+  - title: Built-in analytics with Apache Spark
     linkLists:
-      - linkListType: quickstart
+      - linkListType: concept
         links:
-          - text: .Net app
-            url: create-table-dotnet.md
-          - text: Java app
-            url: create-table-java.md
-          - text: Node.js app
-            url: create-table-nodejs.md
-          - text: Python app
-            url: create-table-python.md  
-      - linkListType: tutorial
-        links:
-          - text: Query data
-            url: tutorial-query-table.md            
+          - text: Spark and Jupyter notebooks support 
+            url: spark-api-introduction.md
+          - text: Lambda architecture
+            url: lambda-architecture.md
       - linkListType: how-to-guide
         links:
-          - text: Develop for Cosmos DB and Azure Table storage
-            url: table-support.md
-      - linkListType: reference
-        links:
-          - text: .Net Standard
-            url: table-sdk-dotnet-standard.md
-          - text: Java
-            url: table-sdk-java.md
-          - text: Node.js
-            url: table-sdk-nodejs.md 
-      - linkListType: learn
-        links:
-          - text: Store and access data from Table API
-            url: /learn/modules/store-access-data-cosmos-table-api/
+          - text: Use Cosmos DB to Spark connector
+            url: spark-connector.md
+          - text: Use Cosmos DB with Apache Kafka
+            url: /hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcosmos-db%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json.md
 
   # Card
   - title: Optimize performance & cost
