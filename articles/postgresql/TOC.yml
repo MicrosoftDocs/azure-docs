@@ -232,7 +232,7 @@
     items:
     - name: Manage read replicas Azure portal
       href: howto-read-replicas-portal.md
-    - name: Manage read replicas Azure CLI
+    - name: Manage read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
 - name: Reference
   items:

@@ -2,10 +2,10 @@
 
 title: 'Manage Private Endpoints in Azure'
 description: Learn how to create a Private Endpoint using the Azure portal
-services: virtual-network
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can prvately connect to it.
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
