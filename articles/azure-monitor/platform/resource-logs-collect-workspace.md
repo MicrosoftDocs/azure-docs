@@ -92,7 +92,7 @@ The example above would result in three tables being created:
 ### Select the collection mode
 Most Azure resources will write data to the workspace in either **Azure Diagnostic** or **Resource-Specific mode** without giving you a choice. See the [documentation for each service](diagnostic-logs-schema.md) for details on which mode it uses. All Azure services will eventually use Resource-Specific mode. As part of this transition, some resources will allow you to select a mode in the diagnostic setting. You should specify resource-specific mode for any new diagnostic settings since this makes the data easier to manage and may help you to avoid complex migrations at a later date.
   
-   ![Diagnostic Settings mode selector](media/diagnostic-logs-collect-workspace/diagnostic-settings-mode-selector.png)
+   ![Diagnostic Settings mode selector](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
 
 

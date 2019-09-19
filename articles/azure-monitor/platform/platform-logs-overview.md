@@ -19,13 +19,13 @@ The following table lists the specific platform logs that are available at diffe
 |:---|:---|:---|
 | Azure Resources | [Resource logs](diagnostic-logs-schema.md) | Provide insight into operations that were performed within an Azure resource (the *data plane*), for example getting a secret from a Key Vault or making a request to a database. The content of resource logs varies by the Azure service and resource type. |
 | Azure Subscription | [Activity log](activity-logs-overview.md) | Provides insight into the operations on each Azure resource in the subscription from the outside (*the management plane*) in addition to updates on Service Health events. There is a single Activity log for each Azure subscription.   |
-| Azure Tenant | [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md)  | Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant.   |
+| Azure Tenant | [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md)  | Contains the history of sign-in activity and audit trail of changes made in the Azure Active Directory for a particular tenant.   |
 
 
-![Platform logs overview](media/diagnostic-logs-overview/logs-overview.png)
+![Platform logs overview](media/resource-logs-overview/logs-overview.png)
 
 ## Viewing platform logs
-You can view the [Activity log](activity-log-view.md) and [Azure Active Directory logs](../active-directory/reports-monitoring/overview-reports.md) in the Azure portal. You must send Resource logs to a [destination](#destinations) to view them.
+You can view the [Activity log](activity-log-view.md) and [Azure Active Directory logs](../../active-directory/reports-monitoring/overview-reports.md) in the Azure portal. You must send Resource logs to a [destination](#destinations) to view them.
 
 
 ## Destinations
@@ -33,9 +33,9 @@ You can send platform logs to one or more of the destinations in the following t
 
 | Destination | Scenario | References |
 |:---|:---|:---|:---|
-| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Resource logs](resource-logs-collect-storage.md)<br>[Activity log](activity-log-collect.md)<br>[Azure Activity Directory logs](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure storage | Archive the logs for audit, static analysis, or backup. |[Resource logs](archive-diagnostic-logs.md)<br>[Activity log](activity-log-export.md)<br>[Azure Activity Directory logs](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Resource logs](resource-logs-stream-event-hubs.md)<br>[Activity log](activity-log-export.md)<br>[Azure Activity Directory logs](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
+| Log Analytics workspace | Analyze the logs with other monitoring data and leverage Azure Monitor features such as log queries and alerts. | [Resource logs](resource-logs-collect-storage.md)<br>[Activity log](activity-log-collect.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
+| Azure storage | Archive the logs for audit, static analysis, or backup. |[Resource logs](archive-diagnostic-logs.md)<br>[Activity log](activity-log-export.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event hub | Stream the logs to third-party logging and telemetry systems.  |[Resource logs](resource-logs-stream-event-hubs.md)<br>[Activity log](activity-log-export.md)<br>[Azure Activity Directory logs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) |
 
 
 ## Diagnostic settings and log profiles

@@ -13,7 +13,7 @@ ms.subservice: ""
 [Resource logs](resource-logs-overview.md) in Azure provide rich, frequent data about the internal operation of an Azure resource. This article describes streaming resource logs to event hubs to send data to external systems such as third-party SIEMs and other log analytics solutions.
 
 
-## What you can do with diagnostics logs and Event Hubs
+## What you can do with resource logs sent to Event Hubs
 Stream resource logs in Azure to event hubs to provide the following functionality:
 
 * **Stream logs to 3rd party logging and telemetry systems** – Stream all of your resource logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
