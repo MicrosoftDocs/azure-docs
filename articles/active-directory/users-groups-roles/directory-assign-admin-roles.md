@@ -78,9 +78,9 @@ The Authentication administrator role is currently in public preview. This previ
 
 ### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
 
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users/AAD groups. Users in this role can manage this policy through any Azure DevOps organization that is backed the company’s Azure AD.
+Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed the company’s Azure AD organization.
 
-In the future, all enterprise Azure DevOps policies will be managed by users in this role.
+All enterprise Azure DevOps policies can be managed by users in this role.
 
 ### [Azure Information Protection Administrator](#azure-information-protection-administrator-permissions)
 
