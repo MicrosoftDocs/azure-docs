@@ -14,7 +14,7 @@ ms.date: 09/11/2019
 
 You can copy or back up your deployed Azure Stream Analytics jobs using Visual Studio Code or Visual Studio. 
 
-# Before you begin
+## Before you begin
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
