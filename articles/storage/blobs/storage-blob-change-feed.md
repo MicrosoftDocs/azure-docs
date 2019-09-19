@@ -13,7 +13,7 @@ ms.subservice: blobs
 
 Change feed logs record all changes that occur to the blobs and the blob metadata in your storage account. These logs are stored as blobs in your account. They are durable, immutable, and read-only, and you can manage their lifetime based on your requirements.
 
-Unlike *Blob Storage events* which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
+Unlike *Blob Storage events*, which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. You can use them at your convenience to audit changes over any period of time. Your applications can take action on objects that have changed, synchronize data with a cache, search engine or data warehouse, archive data to cold storage, or perform other derivative batch or analytic processing.
 
 > [!NOTE]
 > The change feed is in public preview, and is available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
@@ -31,7 +31,7 @@ The change feed creates several files, and you can find them in the **$blobchang
 | File    | Purpose    |
 |--------|-----------|
 | Index file | This file is named *segments.json* and there is only one of them. Use this file to determine the last consumable log file. |
-| Segment files | A *segment* represents a 60 minute interval of event activity. Logs are divided into segments. Each segment contains a metadata file that ends with the suffix *meta.json*. This file contains a path to the associated change feed logs for that segment. |
+| Segment files | A *segment* represents a 60-minute interval of event activity. Logs are divided into segments. Each segment contains a metadata file that ends with the suffix *meta.json*. This file contains a path to the associated change feed logs for that segment. |
 | Log files |  A log file represents 60 minutes of event activity. Each file contains a series of event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. |
 
 First, read the index metadata file to determine the last consumable segment. Then, read the meta file for each segment of interest. These files contain a path to each log file related to that segment. Read log files to iterate through all of the change event records.
@@ -266,7 +266,7 @@ You can skip records where the `eventType` has a value of `Control`. These are i
 
 ### Code example
 
-This example processes the change feed log file by using a .NET client application. This examples depends the on [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
+This example processes the change feed log file by using a .NET client application. This examples uses the [System.Json](https://www.nuget.org/packages/System.Json/) and [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet packages.
 
 ```csharp
 using System.Json;
