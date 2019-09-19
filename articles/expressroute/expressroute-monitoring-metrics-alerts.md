@@ -33,33 +33,39 @@ To navigate to **Metrics**, click the ExpressRoute page for the circuit that you
       * Dimensions Available:
         * Peer (Primary/Secondary ExpressRoute router)
         * Peering Type (Private/Public/Microsoft)
-    * AdminState
+    * ExpressRoute Direct AdminState
       * Dimensions Available: 
-        * ExpressRoute Direct
-    * LineProtocol
+        * Link
+    * ExpressRoute Direct LineProtocol
       * Dimensions Available
         * ExpressRoute Direct
-    * Rx LightLevel
+    * ExpressRoute Direct RxLightLevel
       * Dimensions Available:
-        * ExpressRoute Direct
-    * TxLightLevel
+        * Link
+        * Lane
+    * ExpressRoute Direct TxLightLevel
       * Dimensions Available:
-        * ExpressRoute Direct
+        * Link
+        * Lane
 * **Traffic**
     * BitsInPerSecond
       * Dimensions Available:
         * Peering Type (Private/Public/Microsoft)
-        * ExpressRoute Direct
     * BitsOutPerSecond
       * Dimensions Available:
         * Peering Type (Private/Public/Microsoft)
-        * ExpressRoute Direct
     * GlobalReachBitsInPerSecond
       * Dimensions Available:
         * Peered Circuit Skey (Service Key)
     * GlobalReachBitsOutPerSecond
       * Dimensions Available:
         * Peered Circuit Skey (Service Key)
+    * ExpressRouteDirectBitsInPerSecond
+      * Dimensions Available:
+        * Link
+    * ExpressRouteDirectBitsOutPerSecond
+      * Dimensions Available:
+        * Link
 
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
