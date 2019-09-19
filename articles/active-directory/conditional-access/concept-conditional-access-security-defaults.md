@@ -89,7 +89,7 @@ Conditional Access can be used to configure policies that provide the same behav
 
 Here are step-by-step guides on how Conditional Access can be used to configure equivalent policies:
 
-- [Require MFA for administrators](howto-conditional-access-policy-admin-mfa)
+- [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
 - [Require MFA for Azure management](howto-conditional-access-policy-azure-management.md)
 - [Block legacy authentication](howto-conditional-access-policy-block-legacy.md)
 
