@@ -17,7 +17,7 @@ metadata:
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
-landingContent
+landingContent:
   # Card (optional)
   - title: About Resource Manager
     linkLists:
@@ -84,7 +84,7 @@ landingContent
   # Card
   - title: Deploy templates
     linkLists:
-      - linkListTypes: how-to-guide
+      - linkListType: how-to-guide
         links:
           - text: By using PowerShell
             url: resource-group-template-deploy.md
@@ -101,7 +101,7 @@ landingContent
       - linkListType: how-to-guide
         links:
           - text: Export templates
-            url: export-template-porta.md
+            url: export-template-portal.md
       - linkListType: how-to-guide
         links:
           - text: Move resources
