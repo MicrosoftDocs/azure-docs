@@ -105,7 +105,7 @@ The following Docker examples are for the Read container.
 
 ### Basic example
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   mcr.microsoft.com/azure-cognitive-services/read \
   Eula=accept \
@@ -115,7 +115,7 @@ The following Docker examples are for the Read container.
 
 ### Logging example 
 
-  ```
+  ```docker
   docker run --rm -it -p 5000:5000 --memory 16g --cpus 8 \
   mcr.microsoft.com/azure-cognitive-services/read \
   Eula=accept \

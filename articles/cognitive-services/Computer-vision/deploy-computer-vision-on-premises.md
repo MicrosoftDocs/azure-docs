@@ -209,7 +209,7 @@ kubectl get all
 You should expect to see something similar to the following output:
 
 ```console
-λ kubectl get all
+kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
 pod/read-57cb76bcf7-45sdh   1/1     Running   0          17s
 
