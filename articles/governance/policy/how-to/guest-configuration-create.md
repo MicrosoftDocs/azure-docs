@@ -57,10 +57,65 @@ and publishing them to Azure Policy:
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## Create custom Guest Configuration configuration
+## Create custom Guest Configuration configuration and resources
 
 The first step to creating a custom policy for Guest Configuration is to create the DSC
 configuration. For an overview of DSC concepts and terminology, see [PowerShell DSC Overview](/powershell/dsc/overview/overview).
+
+If your configuration only requires resources that are built-in with the Guest Configuration agent install,
+then you only need to author a configuration MOF file. If you need to run additional script, then you will need to author a custom resource module.
+
+### Requirements for Guest Configuration custom resources
+
+When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine
+if it is in the correct state.  The boolean value returned by the function determines if the ARM
+status for the Guest Assignment should be Compliant/Not-Compliant.  If the boolean is `$false` for any resource in the configuration,
+then the provider will run `Get-TargetResource`.
+If the boolean is `$true` then `Get-TargetResource` is not called.
+
+The function `Get-TargetResource` has special requirements for Guest Configuration that have not been needed for Windows Desired State
+Configuration.
+
+- The hashtable that is returned must include a property named `Reasons`.
+- The Reasons property must be an array.
+- Each item in the array should be a hashtable with keys named `Code` and `Phrase`.
+
+The Reasons property is used by the service to standardize how information is presented when a machine is out of compliance.
+You can think of each item in Reasons as a "reason" that the resource is not compliant. The property is an array because a resource
+could be out of compliance for more than one reason.
+
+The properties `Code` and `Phrase` are expected by the service. When authoring a custom resource, set the text (typically stdout) you would
+like to show as the reason the resource is not compliant as the value for `Phrase`.  `Code` has specific formatting requirements
+so reporting can clearly display information about the resource that was used to perform the audit. This solution makes Guest Configuration
+extensible so that any command could be run to audit a machine as long as the output can be captured and returned as a string value for the
+`Phrase` property.
+
+- **Code** (string): The name of the resource, repeated, and then a short name with no spaces as an identifier for the reason.  These three values should be colon-delimited with no spaces.
+    - An example would be 'registry:registry:keynotpresent'.
+- **Phrase** (string): Human-readable text to explain why the setting is not compliant.
+    - An example would be 'The registry key $key is not present on the machine.'
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### Scaffolding a Guest Configuration project
+
+For developers who would like to accelerate the process of getting started and working from sample code, a community project named
+**Guest Configuration Project** exists as a template for the
+[Plaster](https://github.com/powershell/plaster)
+PowerShell module.  This tool can be used to scaffold a project including a working configuration and sample resource, and a set of
+[Pester](https://github.com/pester/pester)
+tests to validate the project.  The template also includes task runners for Visual Studio Code
+to automate building and validating the Guest Configuration package. For more information, see the GitHub project
+[Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
 
 ### Custom Guest Configuration configuration on Linux
 
