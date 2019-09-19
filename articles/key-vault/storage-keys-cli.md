@@ -60,6 +60,7 @@ Authenticate your Azure CLI session using the [az login](/powershell/module/az.a
 ```azurecli-interactive
 az login
 ``` 
+
 ### Give Key Vault access to your storage account
 
 Use the Azure CLI [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) command to give Key Vault access your storage account. Provide the command the following parameter values:

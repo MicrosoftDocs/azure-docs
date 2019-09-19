@@ -12,7 +12,7 @@ ms.date: 09/10/2019
 ---
 # Fetch shared access signature tokens in code
 
-Execute operations on your storage account by fetching [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) from Key Vault.
+Execute operations on your storage account by fetching [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) from Key Vault. 
 
 There are three ways to authenticate to Key Vault:
 
