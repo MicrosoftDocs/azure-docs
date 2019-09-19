@@ -27,7 +27,7 @@
         href: tutorial-train-models-with-aml.md
       - name: 2. Deploy a model
         href: tutorial-deploy-models-with-aml.md
-    - name: Regression (NYC Taxi data)
+    - name: Regression with Automated ML (NYC Taxi data)
       items:
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
@@ -45,7 +45,7 @@
     - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
-  - name: Automated machine learning
+  - name: Automated ML (interface)
     items:
     - name: Classification (Bank data)
       displayName: automl, automated, auto ml, portal, ui
