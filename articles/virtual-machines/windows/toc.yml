@@ -124,8 +124,6 @@
     href: infrastructure-automation.md
   - name: Security
     items:
-    - name: Considerations
-      href: security-considerations.md
     - name: Security and policy
       href: security-policy.md
   - name: States and lifecycle
@@ -167,6 +165,8 @@
       href: windows-desktop-multitenant-hosting-deployment.md
   - name: Secure VMs
     items:
+    - name: Recommendations
+      href: security-recommendations.md
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
