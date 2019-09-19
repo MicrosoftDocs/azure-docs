@@ -83,14 +83,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Identifier** text box,  type the value:
     `urn:federation:apptio`
 
-5. Apptio application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. Apptio application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
 
-6. In addition to above, Apptio application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table: 
+6. In addition to above, Apptio application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table: 
 
 	| Name |  Source Attribute|
 	| -------------- | -------------------- |
@@ -154,7 +154,7 @@ To configure single sign-on on **Apptio** side, you need to send the downloaded 
 
 ### Create Apptio test user
 
-In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/about/contact) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called B.Simon in Apptio. Work with [Apptio support team](https://www.apptio.com/about/contact) to add the users in the Apptio platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
