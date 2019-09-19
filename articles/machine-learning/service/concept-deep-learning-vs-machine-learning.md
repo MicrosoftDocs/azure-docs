@@ -47,7 +47,7 @@ The following table compares the two techniques in more detail:
 |  **Featurization process** | Requires features to be accurately identified and created by users. | Learns high-level features from data and creates new features by itself. |
 |  **Learning approach** | Divides the learning process into smaller steps. It then combines the results from each step into one output. | Moves through the learning process by resolving the problem on an end-to-end basis. |
 |  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
-|  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have mutiple formats, like a text, a score or a sound. |
+|  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
 
 ## Deep learning use cases
 
