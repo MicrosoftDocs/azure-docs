@@ -50,10 +50,13 @@ Following is the list of insights you can retrieve from your videos using Video 
 * **Black frame detection**: Identifies black frames presented in the video.
 * **Keyframe extraction**: Detects stable keyframes in a video.
 * **Rolling credits**: identify the beginning and end of the rolling credits in the end of TV shows and movies.
+* **Animated characters detection** (preview): detection, grouping, and recognition of characters in animated content via integration with [Cognitive Services custom vision](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/). For more information, see [Animated character detection](animated-characters-recognition.md).
+* **Editorial shot type detection**: tagging shots based on their type (such as wide shot, medium shot, close up, extreme close up, two shot, multiple people, outdoor and indoor, etc.). For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 
 ### Audio insights
 
 * **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese. If the language cannot be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
+* **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio, sending each segment of the media file to be transcribed and combine the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects, separate transcript and merges to single timeline.
@@ -71,6 +74,7 @@ Following is the list of insights you can retrieve from your videos using Video 
 When indexing by one channel partial result for those models will be available
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
+* **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
 * **Brands extraction**: Extracts brands from speech and visual text.
 * **Topic inference**: Makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
