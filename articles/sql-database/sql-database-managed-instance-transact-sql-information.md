@@ -544,7 +544,7 @@ A managed instance places verbose information in error logs. There are many inte
 **Date:** Sep 2019
 
 Ongoing `RESTORE` statement, Data Migration Service migration process, and built-in point-in time restore will block updating service tier or resize of the existing instance and creating new instances until restore process finishes. 
-Restore process will block these operations on the Managed instances and instance pools in the same subnet where restore process is running. Instances that already in instance pools are not affected. Create or change service tier operation will not fail or timeout, and they will proceed once the restore process is finished.
+Restore process will block these operations on the Managed instances and instance pools in the same subnet where restore process is running. The instances in instance pools are not affected. Create or change service tier operations will not fail or timeout - they will proceed once the restore process is completed or canceled.
 
 **Workaround**: Wait until the restore process finishes, or cancel the restore process if creation or update service-tier operation has higher priority.
 
