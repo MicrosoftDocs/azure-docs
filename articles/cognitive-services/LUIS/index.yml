@@ -5,7 +5,7 @@ summary: Learn how to use Language Understanding service to allow your applicati
 
 metadata:
   ms.topic: landing-page
-  ms.date: 09/12/2019
+  ms.date: 09/19/2019
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -28,6 +28,8 @@ landingContent:
             url: what-is-luis.md
           - text: What's new
             url: whats-new.md
+          - text: LUIS portal
+            url: https://www.luis.ai
       - linkListType: concept
         links:
           - text: Plan your app
@@ -57,6 +59,10 @@ landingContent:
         links: 
           - text: "Portal: Create a new LUIS app"
             url: get-started-portal-build-app.md
+          - text: Using C# SDK
+            url: sdk-python-quickstart-authoring-app.md
+          - text: Using Python SDK
+            url: sdk-python-quickstart-authoring-app.md
 
       - linkListType: how-to-guide
         links: 
@@ -84,6 +90,10 @@ landingContent:
         links: 
           - text: "Portal: Deploy app to prediction endpoint"
             url: get-started-portal-deploy-app.md
+          - text: Using C# SDK
+            url: sdk-python-quickstart-authoring-app.md#train-the-app
+          - text: Using Python SDK
+            url: sdk-python-quickstart-authoring-app.md#train-the-app
 
 
       - linkListType: how-to-guide
@@ -98,7 +108,6 @@ landingContent:
             url: luis-how-to-train.md
           - text: Publish to use prediction endpoint 
             url: luis-how-to-publish-app.md
-
             
   - title: Get prediction from endpoint
     linkLists:   
@@ -122,13 +131,13 @@ landingContent:
     linkLists:   
       - linkListType: reference
         links: 
-          - text: Authoring APIs
-            url: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f
-          - text: V3 Prediction endpoint APIs
-            url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8
-          - text: .Net SDK reference documentation 
-            url: https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet
-          - text: Azure PowerShell
-            url: https://docs.microsoft.com/en-us/powershell/module/az.cognitiveservices/?view=azps-2.6.0#cognitive_services
-          - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+          - text: Developer resources
+            url: developer-reference-resource.md
+          - text: App limits
+            url: luis-boundaries.md
+          - text: Prebuilt entities
+            url: luis-reference-prebuilt-entities.md
+          - text: Custom Entities
+            url: luis-concept-entity-types.md#types-of-entities
+          - text: Prebuilt domains
+            url: luis-reference-prebuilt-domains.md
