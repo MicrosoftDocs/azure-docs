@@ -158,7 +158,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: .Net Console app 
+          - text: .NET Console app 
             url: create-sql-api-dotnet.md
           - text: Java app
             url: create-sql-api-java.md
@@ -170,7 +170,7 @@ landingContent:
             url: create-sql-api-xamarin-dotnet.md                                    
       - linkListType: tutorial
         links:
-          - text: .Net web app
+          - text: .NET web app
             url: sql-api-dotnet-application.md
           - text: Java app with Async SDK
             url: sql-api-async-java-get-started.md
@@ -186,7 +186,7 @@ landingContent:
             url: how-to-use-stored-procedures-triggers-udfs.md
       - linkListType: reference
         links:
-          - text: .Net 
+          - text: .NET 
             url: sql-api-sdk-dotnet.md
           - text: Java
             url: sql-api-sdk-java.md
@@ -204,7 +204,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: .Net app
+          - text: .NET app
             url: create-mongodb-dotnet.md
           - text: Java app
             url: create-mongodb-java.md
@@ -232,7 +232,7 @@ landingContent:
         links:
           - text: Use Gremlin Console
             url: create-graph-gremlin-console.md
-          - text: .Net app
+          - text: .NET app
             url: create-graph-dotnet.md
           - text: Java app
             url: create-graph-java.md
@@ -260,7 +260,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: .Net
+          - text: .NET
             url: create-cassandra-dotnet.md
           - text: Java
             url: create-cassandra-java.md
