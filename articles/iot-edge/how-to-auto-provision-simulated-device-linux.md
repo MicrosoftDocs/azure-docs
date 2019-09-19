@@ -109,9 +109,6 @@ In the virtual machine, build a tool that you can use to retrieve the device's *
    sudo ./tpm_device_provision
    ```
 
-   > [!TIP]
-   > If you are working with a physical TPM device, the CMake command used in that set of commands is simply `cmake -Duse_prov_client:BOOL=ON ..`.
-
 1. From a command window, navigate to the `azure-iot-sdk-c` directory and run the TPM simulator. It listens over a socket on ports 2321 and 2322. Do not close this command window; you will need to keep this simulator running.
 
    From the `azure-iot-sdk-c` directory, run the following command to start the simulator:
