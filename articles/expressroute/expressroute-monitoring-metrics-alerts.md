@@ -25,6 +25,7 @@ To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. T
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
+### Metrics Available
 |  **Category** |  **Metric** | **Dimension(s)** |  **Feature(s)** |
 | --- | --- | --- | --- |
 |Availability| ARP Availability |<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|<ui><li>ExpressRoute</ui></li>|
