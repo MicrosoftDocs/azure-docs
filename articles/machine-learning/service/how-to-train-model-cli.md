@@ -40,7 +40,7 @@ The example project contains the following files:
 
 The training script uses the diabetes dataset provided with scikit-learn to train a model. Once trained, the model can be registered in your Azure Machine Learning workspace, downloaded locally, or deployed as a web service or to an IoT Edge device.
 
-## Connect to your Azure subscription.
+## Connect to your Azure subscription
 
 There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
@@ -136,6 +136,18 @@ From a terminal or command prompt, change directories to the `model-training` di
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "Experiment name": "model-training",
+  "Project path": "/Code/MLOps/model-training",
+  "Resource group": "<resource-group-name>",
+  "Subscription id": "<subscription-id>",
+  "Workspace name": "<workspace-name>"
+}
+```
+
 This command creates a `.azureml/config.json` file, which contains information needed to connect to your workspace.
 
 ## Create the compute target for training
@@ -143,7 +155,18 @@ This command creates a `.azureml/config.json` file, which contains information n
 This example uses an Azure Machine Learning Compute instance to train the model. To create a new compute instance, use the following command:
 
 ```azurecli-interactive
-az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_NC6
+az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
+```
+
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "location": "<location>",
+  "name": "cpu",
+  "provisioningErrors": null,
+  "provisioningState": "Succeeded"
+}
 ```
 
 This command creates a new compute target named `cpu`, with a maximum of 4 nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
@@ -156,4 +179,110 @@ This command creates a new compute target named `cpu`, with a maximum of 4 nodes
 
 ## Submit the training run
 
+To start a training run on the `cpu` compute target, use the following command:
+
+```azurecli-interactive
 az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runoutput.json train-sklearn.py
+```
+
+This command specifies a name for the experiment (`myexperiment`). The experiment stores information about this run in the workspace.
+
+The `-c sklearn` parameter specifies the `.azureml/sklearn.runconfig` file. As mentioned earlier, this file contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependenciees"` section that lists the Python packages needed to run the training script.
+
+For more information on run configuration files, see [TBD](TBD).
+
+The `-t` parameter stores a reference to this run in a JSON file, and will be used in the next steps to register and download the model.
+
+As the training run processes, it streams information from the training session on the remote compute resource. Part of the information is similar to the following text:
+
+```text
+alpha is 0.00, and mse is 3424.32
+alpha is 0.05, and mse is 3408.92
+alpha is 0.10, and mse is 3372.65
+alpha is 0.15, and mse is 3345.15
+alpha is 0.20, and mse is 3325.29
+alpha is 0.25, and mse is 3311.56
+alpha is 0.30, and mse is 3302.67
+alpha is 0.35, and mse is 3297.66
+alpha is 0.40, and mse is 3295.74
+alpha is 0.45, and mse is 3296.32
+alpha is 0.50, and mse is 3298.91
+alpha is 0.55, and mse is 3303.14
+alpha is 0.60, and mse is 3308.70
+alpha is 0.65, and mse is 3315.36
+alpha is 0.70, and mse is 3322.90
+alpha is 0.75, and mse is 3331.17
+alpha is 0.80, and mse is 3340.02
+alpha is 0.85, and mse is 3349.36
+alpha is 0.90, and mse is 3359.09
+alpha is 0.95, and mse is 3369.13
+
+
+The experiment completed successfully. Finalizing run...
+Cleaning up all outstanding Run operations, waiting 300.0 seconds
+```
+
+This text is logged from the training script (`train-sklearn.py`) and displays two of the performance metrics for this model. In this case, we want the model with the highest alpha value.
+
+> [!IMPORTANT]
+> The performance metrics are specific to the model you are training. Other models will have different performance metrics.
+
+If you inspect the `train-sklearn.py`, you'll notice that it also uses the alpha value when it stores the trained model(s) to file. In this case, it trains several models. The one with the highest alpha should be the best one. Looking at the output above, and the code, the model with an alpha of 0.95 was saved as `./outputs/ridge_0.95.pkl`
+
+```python
+model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
+    # save model in the outputs folder so it automatically get uploaded
+    with open(model_file_name, "wb") as file:
+        joblib.dump(value=reg, filename=os.path.join('./outputs/',
+                                                     model_file_name))
+```
+
+> [!IMPORTANT]
+> The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+
+## Register the model
+
+To register the model directly from the stored version in your experiment, use the following command:
+
+```azurecli-interactive
+az ml model register -n mymodel -f runoutput.json --asset-path "outputs/ridge_0.95.pkl" -t registeredmodel.json
+```
+
+This command registers the `outputs/ridge_0.95.pkl` file created by the training run as a new model registration named `mymodel`. The `--assets-path` references a path in an experiment. In this case, the experiment and run information is loaded from the `runoutput.json` file created by the training command. The `-t registeredmodel.json` creates a JSON file that references the new registered model created by this command, and is used by other CLI commands that work with registered models.
+
+The output of this command is similar to the following JSON:
+
+```json
+{
+  "createdTime": "2019-09-19T15:25:32.411572+00:00",
+  "description": "",
+  "experimentName": "myexperiment",
+  "framework": "Custom",
+  "frameworkVersion": null,
+  "id": "mymodel:1",
+  "name": "mymodel",
+  "properties": "",
+  "runId": "myexperiment_1568906070_5874522d",
+  "tags": "",
+  "version": 1
+}
+```
+
+Note the version number. This is incremented each time you register a new model with this name. For example, you can download the model and register it from a local file by using the following commands:
+
+```azurecli-interactive
+az ml model download -i "mymodel:1" -t .
+az ml model register -n mymodel -p "ridge_0.95.pkl"
+```
+
+The first command downloads the registered model to the current directory. The file name is `ridge_0.95.pkl`, which is the file referenced when you registered the model. The second command registers the local model (`-p "ridge_0.95.pkl"`) with the same name as the previous registration (`mymodel`). This time, the JSON data returned lists the version as 2.
+
+> [!TIP]
+> An important concept is that a model registration is not limited to one model. You can specify a directory instead of a file, and the contents of the directory are stored in the model registration.
+
+## Deploy the model
+
+
+
+
+
