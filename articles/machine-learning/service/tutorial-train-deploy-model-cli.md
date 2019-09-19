@@ -1,7 +1,7 @@
 ---
-title: Train ML models from the CLI
+title: Train and deploy models from the CLI
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the machine learning extension for Azure CLI to train and register models from the command line.
+description: Learn how to use the machine learning extension for Azure CLI to train, register, and deploy a model from the command line.
 ms.author: larryfr
 author: Blackmist
 services: machine-learning
@@ -11,11 +11,23 @@ ms.topic: conceptual
 ms.date: 09/12/2019
 ---
 
-# Tutorial: Train a ML model from the CLI
+# Tutorial: Train and deploy a model from the CLI
 
-In this tutorial, learn how you can use the machine learning extension for the Azure CLI to submit your model training jobs.
+In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
-[scikit-learn blah blah blah]
+> [!NOTE]
+> The scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with the Azure Machine Learning.
+
+Learn how to take the following actions:
+
+> [!div class="checklist"]
+> * Install the machine learning extension
+> * Create an Azure Machine Learning workspace
+> * Create the compute resource used to train the model
+> * Start a training run
+> * Register and download a model
+> * Deploy the model as a web service
+> * Score data using the web service
 
 ## Prerequisites
 
@@ -25,20 +37,29 @@ In this tutorial, learn how you can use the machine learning extension for the A
 
 ## Download the example project
 
-For this tutorial, you can find the files needed to train a model at [https://github.com/microsoft/MLOps/tree/master/model-training](https://github.com/microsoft/MLOps/tree/master/model-training).
+For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `model-training` and `model-deployment` directories are used by the steps in this tutorial.
 
 To get a local copy of the files, either [download a .zip archive](https://github.com/microsoft/MLOps/archive/master.zip), or use Git command to clone the repository. The URL to use when cloning the repository is `https://github.com/microsoft/MLOps.git`.
 
-## What does this example do?
+### Training files
 
-The example project contains the following files:
+The `model-training` directory contains the following files, which are used when training a model:
 
-* `.azureml\sklearn.runconfig`: The __run configuration__ file. This file defines the runtime environment needed to train the model.
+* `.azureml\sklearn.runconfig`: A __run configuration__ file. This file defines the runtime environment needed to train the model.
 * `train-sklearn.py`: The training script. This file trains the model.
 * `mylib.py`: A helper module, used by `train-sklearn.py`.
 * `training-env.yml`: Defines the software dependencies needed to run the training script.
 
-The training script uses the diabetes dataset provided with scikit-learn to train a model. Once trained, the model can be registered in your Azure Machine Learning workspace, downloaded locally, or deployed as a web service or to an IoT Edge device.
+The training script uses the diabetes dataset provided with scikit-learn to train a model.
+
+### Deployment files
+
+The `model-deployment` directory contains the following files, which are used to deploy the trained model as a web service:
+
+* `aciDeploymentConfig.yml`: A __deployment configuration__ file. This file defines the hosting environment needed for the model.
+* `inferenceConfig.yml`: A __inference configuration__ file. This file defines the software environment used by the service to score data with the model.
+* `score.py`: A python script that accepts incoming data, scores it using the model, and then returns a response.
+* `scoring-env.yml`: The conda dependencies needed to run the model and `score.py` script.
 
 ## Connect to your Azure subscription
 
@@ -130,7 +151,7 @@ The output of this command is similar to the following JSON:
 > [!TIP]
 > This step is optional. If you do not attach the folder, then you must provide the `-w <workspace-name>` and `-g <resource-group-name>` information to all the other commands after this section.
 
-From a terminal or command prompt, change directories to the `model-training` directory, then use the following command to connect to your workspace:
+From a terminal or command prompt, change directories to the `MLOps` directory, then use the following command to connect to your workspace:
 
 ```azurecli-interactive
 az ml folder attach -w <workspace-name> -g <resource-group-name>
@@ -179,7 +200,7 @@ This command creates a new compute target named `cpu`, with a maximum of 4 nodes
 
 ## Submit the training run
 
-To start a training run on the `cpu` compute target, use the following command:
+To start a training run on the `cpu` compute target, change directories to the `model-training` directory and then use the following command:
 
 ```azurecli-interactive
 az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runoutput.json train-sklearn.py
@@ -189,7 +210,7 @@ This command specifies a name for the experiment (`myexperiment`). The experimen
 
 The `-c sklearn` parameter specifies the `.azureml/sklearn.runconfig` file. As mentioned earlier, this file contains information used to configure the environment used by the training run. If you inspect this file, you'll see that it references the `cpu` compute target you created earlier. It also lists the number of nodes to use when training (`"nodeCount": "4"`), and contains a `"condaDependenciees"` section that lists the Python packages needed to run the training script.
 
-For more information on run configuration files, see [TBD](TBD).
+For more information on run configuration files, see [Set up and use compute targets for model training](how-to-set-up-training-targets.md#runconfiguration).
 
 The `-t` parameter stores a reference to this run in a JSON file, and will be used in the next steps to register and download the model.
 
@@ -228,14 +249,6 @@ This text is logged from the training script (`train-sklearn.py`) and displays t
 > The performance metrics are specific to the model you are training. Other models will have different performance metrics.
 
 If you inspect the `train-sklearn.py`, you'll notice that it also uses the alpha value when it stores the trained model(s) to file. In this case, it trains several models. The one with the highest alpha should be the best one. Looking at the output above, and the code, the model with an alpha of 0.95 was saved as `./outputs/ridge_0.95.pkl`
-
-```python
-model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
-    # save model in the outputs folder so it automatically get uploaded
-    with open(model_file_name, "wb") as file:
-        joblib.dump(value=reg, filename=os.path.join('./outputs/',
-                                                     model_file_name))
-```
 
 > [!IMPORTANT]
 > The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
@@ -280,8 +293,88 @@ The first command downloads the registered model to the current directory. The f
 > [!TIP]
 > An important concept is that a model registration is not limited to one model. You can specify a directory instead of a file, and the contents of the directory are stored in the model registration.
 
+## Deploy the model
+
+To deploy a model, change directories to the `model-deployment` directory and then use the following command.:
+
+```azurecli-interactive
+az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
+```
+
+> [!IMPORTANT]
+> You may receive the message "Failed to create Docker client". If so, this is not a problem. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
+
+This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
+
+The `inferenceConfig.yml` file provides information on how to perform inference,such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#prepare-to-deploy).
+
+The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli#deployment-configuration-schema).
+
+> [!IMPORTANT]
+> It will take several minutes before the deployment process completes.
+
+> [!TIP]
+> In this example, Azure Container Instances is used. Deployments to ACI automatically create the needed ACI resource. If you were to instead deploy to Azure Kubernetes Service, you must create an AKS cluster ahead of time and specify it as part of the `az ml model deploy` command. For an example of deploying to AKS, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
+
+After several minutes, information similar to the following JSON is returned:
+
+```json
+ACI service creation operation finished, operation "Succeeded"
+{
+  "computeType": "ACI",
+  {...ommitted for space...}
+  "runtimeType": null,
+  "scoringUri": "http://6c061467-4e44-4f05-9db5-9f9a22ef7a5d.eastus2.azurecontainer.io/score",
+  "state": "Healthy",
+  "tags": "",
+  "updatedAt": "2019-09-19T18:22:32.227401+00:00"
+}
+```
+
+The `scoringUri` is the REST endpoint for the deployed service. You can also get this URI by using the following command:
+
+```azurecli-interactive
+az ml service show -n myservice
+```
+
+This command returns the same JSON document, including the `scoringUri`.
+
+## Send data to the service
+
+While you can create a client application to call the endpoint, the machine learning CLI provides a utility that can act as a test client. Use the following command to send test data to the service:
+
+```azurecli-interactive
+az ml service run -n myservicee -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
+```
+
+The response from the command is similar to `[4684.920839774082]`.
+
+For information on creating a client application in several programming languages, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+
 ## Clean up resources
 
+> [!IMPORTANT]
+> The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
 
+If you don't plan to use the resources you created, delete them so you don't incur additional charges.
 
+To delete the resource group, and all the Azure resources created in this document, use the following command. Replace `<resource-group-name>` with the name of the resource group you created earlier:
 
+```azurecli-interactive
+az group delete -g <resource-group-name> -y
+```
+
+## Next steps
+
+In this Azure Machine Learning tutorial, you used the machine learning CLI for the following tasks:
+
+> [!div class="checklist"]
+> * Install the machine learning extension
+> * Create an Azure Machine Learning workspace
+> * Create the compute resource used to train the model
+> * Start a training run
+> * Register and download a model
+> * Deploy the model as a web service
+> * Score data using the web service
+
+For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
