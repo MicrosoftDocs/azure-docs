@@ -33,6 +33,10 @@ landingContent:
         links:
           - text: Onboard a customer to Azure delegated resource management
             url: ./how-to/onboard-customer.md
+      - linkListType: deploy
+        links:
+          - text: Index of Azure Lighthouse samples
+            url: ./samples/index.md
       - linkListType: concept
         links:
           - text: Cloud Solution Provider program considerations
@@ -59,13 +63,6 @@ landingContent:
             url: ./how-to/view-manage-customers.md
           - text: View and manage service providers
             url: ./how-to/view-manage-service-providers.md
-
-  - title: Get involved
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Request product features
-            url: https://feedback.azure.com/forums/922753
 
   - title: Reference - Downloads
     linkLists:
@@ -98,3 +95,10 @@ landingContent:
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Python
             url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request product features
+            url: https://feedback.azure.com/forums/922753
