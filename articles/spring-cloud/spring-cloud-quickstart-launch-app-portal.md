@@ -64,20 +64,10 @@ Normally, the service instance takes about 5 minutes to be fully deployed. When 
 
 ## Setup your configuration server
 
-1.	Go to the service **Overview** page.
+1. Go to the service **Overview** page and click **Config Server** entry in the menu.
 
-2.	Click **Configuration** entry in the menu.
+1. Set the **Default repository** to "https://github.com/xscript/piggymetrics-config" and click **Apply**.
 
-3.	Copy and paste below configuration into the YAML text editor, and click "Apply" button at the top.
-
-```yml
-spring:
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/xscript/piggymetrics-config.git
-```
 
 ## Build and deploy microservice applications
 
