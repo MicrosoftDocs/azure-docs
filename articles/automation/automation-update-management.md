@@ -66,11 +66,11 @@ Having a machine registered for Update Management in more than one Log Analytics
 
 ### Supported client types
 
-The following table shows a list of supported operating systems:
+The following table shows a list of supported operating systems for Update Assessments. Patching requires a Hybrid Runbook Worker. For information on Hybrid Runbook Worker requirements, see the installation guides for [Windows HRW](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) and [Linux HRW](automation-linux-hrw-install#installing-a-linux-hybrid-runbook-worker.md).
 
 |Operating system  |Notes  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)|**Update Assessments**: Supported<br><br>**Patching**: Requires Hybrid Runbook Worker. See [Hybrid Runbook Worker requirements](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)|
+|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012<br><br>Windows Server 2008 R2 (RTM and SP1 Standard)||
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box. For more information on classification-based patching on CentOS, see [Update classifications on Linux](#linux-2)          |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
