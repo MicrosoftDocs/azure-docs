@@ -46,6 +46,8 @@ Use the links in this section for more information about managed cloud networkin
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
+[Orixcom]( https://www.orixcom.com/cloud-solutions/)
+
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 
 [Vandis](https://www.vandis.com/services/azure-migration/)

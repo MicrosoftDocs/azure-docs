@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/php-download-sdk.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -113,6 +118,11 @@
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": true
     },
     {
@@ -1781,6 +1791,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/search/knowledge-store-connect-powerbi.md",
+      "redirect_url": "/azure/search/knowledge-store-create-portal",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/search/search-create-index-rest-api.md",
       "redirect_url": "/azure/search/search-get-started-powershell",
       "redirect_document_id": false
@@ -3054,6 +3069,11 @@
       "source_path": "articles/virtual-machines/linux/key-vault-setup-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/key-vault-setup",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/key-vault/key-vault-whatis.md",
+      "redirect_url": "/azure/key-vault/basic-concepts",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/key-vault/key-vault-versions.md",
@@ -5117,7 +5137,7 @@
     },
     {
       "source_path": "articles/azure-functions/durable-functions-checkpointing-and-replay.md",
-      "redirect_url": "/azure/azure-functions/durable/durable-functions-checkpointing-and-replay",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -5238,6 +5258,16 @@
     {
       "source_path": "articles/azure-functions/durable-functions-webjobs-sdk.md",
       "redirect_url": "/azure/azure-functions/durable/durable-functions-webjobs-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-concepts.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/durable/durable-functions-checkpointing-and-replay.md",
+      "redirect_url": "/azure/azure-functions/durable/durable-functions-orchestrations",
       "redirect_document_id": false
     },
     {
@@ -35624,6 +35654,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/howto-generate-connection-string.md",
+      "redirect_url": "/azure/iot-central",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
       "redirect_document_id": false
@@ -37721,11 +37756,6 @@
     {
       "source_path": "articles/azure-monitor/platform/collect-azure-metrics-logs.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/log-query/simple-logs.md",
-      "redirect_url": "/azure/azure-monitor/log-query/log-query-overview",
       "redirect_document_id": false
     },
     {
@@ -41572,6 +41602,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-thumb-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
       "redirect_document_id": false
@@ -41748,7 +41793,7 @@
 	},
 	{
 		"source_path": "articles/azure-monitor/insights/service-map-configure.md",
-		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud",
+		"redirect_url": "/azure/azure-monitor/insights/vminsights-enable-overview",
 		"redirect_document_id": false
 	  },
     {
