@@ -55,12 +55,14 @@ You use Ethereum Blockchain event triggers when you want a logic app to run afte
 
     [screenshot]
 
-| Property | Description |
-|----------|-------------|
-| **Contract ABI** | The contract application binary interface (ABI) defines the smart contract interfaces. How to [get the contract ABI](#get-contract-abi). |
-| **Smart contract address** | The contract address is the smart contract destination address on the Ethereum blockchain. How to [get the contract address](#get-contract-address). |
-| **Event name** | Choose a smart contract event to check. The event triggers the logic app. |
-| **Interval** and **Frequency** | Choose how often you want to check for the event. |
+    | Property | Description |
+    |----------|-------------|
+    | **Contract ABI** | The contract application binary interface (ABI) defines the smart contract interfaces. How to [get the contract ABI](#get-contract-abi). |
+    | **Smart contract address** | The contract address is the smart contract destination address on the Ethereum blockchain. How to [get the contract address](#get-contract-address). |
+    | **Event name** | Choose a smart contract event to check. The event triggers the logic app. |
+    | **Interval** and **Frequency** | Choose how often you want to check for the event. |
+
+[screenshot]
 
 ## Use actions
 
@@ -86,11 +88,13 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
 
+[screenshot]
+
 ## Generate a workflow
 
 The Azure Blockchain Development Kit for Ethereum Visual Studio Code extension can generate logic app workflows for common scenarios. There are four scenarios available:
 
-* Data publishing to a Azure SQL Database
+* Data publishing to an Azure SQL Database
 * Event publishing to an Azure Event Grid or Azure Service Bus
 * Report publishing
 * REST-based microservice
@@ -239,9 +243,7 @@ If you used development kit or Truffle to build your smart contract, you can use
 
 **Using the Solidity compiler:**
 
-Use the following command and switches to generate the contract bytecode.
-
-`solc --bin <smart contract>.sol`
+Use the command `solc --bin <smart contract>.sol` to generate the contract bytecode.
 
 ## Get contract address
 
@@ -264,4 +266,4 @@ Truffle displays the contract address after deployment of the smart contract. Co
 
 ## Next steps
 
-Watch common [scenarios connecting blockchain using Azure Logic Apps](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true)
+Watch common [scenarios connecting blockchain using Azure Logic Apps](https://channel9.msdn.com/Shows/Blocktalk/Doing-more-with-Logic-Apps?term=logic%20apps%20blockchain&lang-en=true).
