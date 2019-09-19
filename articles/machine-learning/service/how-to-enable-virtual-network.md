@@ -182,22 +182,6 @@ When you add the UDRs, define the route for each related Batch IP address prefix
 
 For more information, see [Create an Azure Batch pool in a virtual network](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling).
 
-### Azure Firewall
-
-When using Azure Firewall, you must configure a network rule to allow traffic to and from the following addresses:
-
-- `*.batchai.core.windows.net`
-- `ml.azure.com`
-- `*.azureml.ms`
-- `*.experiments.azureml.net`
-- `*.modelmanagement.azureml.net`
-- `mlworkspace.azure.ai`
-- `*.aether.ms`
-
-When adding the rule, set the __Protocol__ to any, and the ports to `*`.
-
-For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
-
 ### Create a Machine Learning Compute cluster in a virtual network
 
 To create a Machine Learning Compute cluster, do the following:
@@ -358,6 +342,22 @@ aks_target = ComputeTarget.create(workspace=ws,
 ```
 
 When the creation process is completed, you can run inference, or model scoring, on an AKS cluster behind a virtual network. For more information, see [How to deploy to AKS](how-to-deploy-to-aks.md).
+
+## Use Azure Firewall
+
+When using Azure Firewall, you must configure a network rule to allow traffic to and from the following addresses:
+
+- `*.batchai.core.windows.net`
+- `ml.azure.com`
+- `*.azureml.ms`
+- `*.experiments.azureml.net`
+- `*.modelmanagement.azureml.net`
+- `mlworkspace.azure.ai`
+- `*.aether.ms`
+
+When adding the rule, set the __Protocol__ to any, and the ports to `*`.
+
+For more information on configuring a network rule, see [Deploy and configure Azure Firewall](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule).
 
 ## Next steps
 
