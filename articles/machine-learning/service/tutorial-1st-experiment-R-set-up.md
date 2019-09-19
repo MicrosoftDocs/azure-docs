@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: tutorial
 author: j-martens
 ms.author: jmartens
-ms.date: 10/28/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Get started creating your first ML experiment with the Python SDK
