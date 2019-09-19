@@ -45,6 +45,9 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
+            
 
   - title: Detect objects in images
     linkLists:
@@ -60,6 +63,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
 
   # Card 
   - title: Apply content tags to images
@@ -76,6 +81,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
 
   - title: Use containers
     linkLists:
@@ -108,6 +115,8 @@ landingContent:
             url: quickstarts-sdk/python-sdk.md
           - text: Using the Java SDK
             url: quickstarts-sdk/java-sdk.md
+          - text: Using the Node SDK
+            url: quickstarts-sdk/node-sdk.md
   
 #  - title: Get image descriptions
 #    linkLists:
