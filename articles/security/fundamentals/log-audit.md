@@ -312,11 +312,11 @@ At the center of Azure Monitor logs is the Log Analytics workspace, which is hos
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Connected sources are the computers and other resources that generate the data that's collected by Azure Monitor logs. Sources can include agents that are installed on [Windows](../../log-analytics/log-analytics-agent-windows.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) computers that connect directly, or agents in [a connected System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). Azure Monitor logs can also collect data from an [Azure storage account](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+Connected sources are the computers and other resources that generate the data that's collected by Azure Monitor logs. Sources can include agents that are installed on [Windows](../../log-analytics/log-analytics-agent-windows.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) computers that connect directly, or agents in [a connected System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). Azure Monitor logs can also collect data from an [Azure storage account](../../azure-monitor/platform/resource-logs-collect-storage.md).
 
 [Data sources](../../azure-monitor/platform/agent-data-sources.md) are the various kinds of data that's collected from each connected source. Sources include events and [performance data](../../azure-monitor/platform/data-sources-performance-counters.md) from [Windows](../../azure-monitor/platform/data-sources-windows-events.md) and Linux agents, in addition to sources such as [IIS logs](../../azure-monitor/platform/data-sources-iis-logs.md) and [custom text logs](../../azure-monitor/platform/data-sources-custom-logs.md). You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
-There are four ways to [collect logs and metrics for Azure services](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md):
+There are four ways to [collect logs and metrics for Azure services](../../azure-monitor/platform/resource-logs-collect-storage.md):
 
 * Azure Diagnostics direct to Azure Monitor logs (**Diagnostics** in the following table)
 

@@ -108,7 +108,7 @@ The configuration requirements and content of Diagnostic logs vary by resource t
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into a Log Analytics workspace. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
+| Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into a Log Analytics workspace. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](resource-logs-collect-storage.md)<br>[Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
 | Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
 | Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](resource-logs-stream-event-hubs.md) |
 
