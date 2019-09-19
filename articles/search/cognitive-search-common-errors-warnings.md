@@ -9,7 +9,7 @@ ms.service: search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.author: amotley
+ms.author: abmotley
 ms.subservice: cognitive-search
 ---
 
