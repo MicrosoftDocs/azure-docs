@@ -59,11 +59,11 @@ For additional documentation and instructions, see [az vm repair](https://docs.m
 
 2. If this is the first time you have used the `az vm repair` commands, add the vm-repair CLI extension.
 
-```azurepowershell-interactive
-az extension add -n vm-repair
-```
+   ```azurepowershell-interactive
+   az extension add -n vm-repair
+   ```
 
-If you have previously used the `az vm repair` commands, apply any updates to the vm-repair extension.
+   If you have previously used the `az vm repair` commands, apply any updates to the vm-repair extension.
 
    ```azurepowershell-interactive
    az extension update -n vm-repair
