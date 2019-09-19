@@ -21,7 +21,9 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 
 ## Circuit metrics
 
-To navigate to **Metrics**, click the ExpressRoute page for the circuit that you want to monitor. Under **Monitoring**, you can view the **Metrics**. Select from the metrics listed below. The default aggregation will be applied. Optionally, you can apply splitting, which will show the metrics with different dimensions.
+To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filer by Resource Type *ExpressRoute circuits*. To view Global Reach metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
+
+Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
 |  **Metric** | **Dimension(s)** |  **Feature(s)** |
 | --- | --- | --- | --- |
