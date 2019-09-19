@@ -80,18 +80,19 @@ You'll need the following information when you configure your App Service app:
 1. Select **Branding**. In **Home page URL**, type the URL of your App Service app and select **Save**.
 1. Select **Expose an API** > **Set**. Paste in the URL of your App Service app and select **Save**.
 
-\***
+   > [!NOTE]
+   > This value is the **Application ID URI** of the app registration. If your web app requires access to an API in the cloud, you need the **Application ID URI** of the web app when you configure the cloud App Service resource. You can use this, for example, if you want the cloud service to explicitly grant access to the web app.
 
-    > [!NOTE]
-    > This value is the **Application ID URI** of the app registration. If you want to have a front-end web app to access a back-end API, for example, and you want the back end to explicitly grant access to the front end, you need the **Application ID URI** of the *front end* when you configure the App Service app resource of the *back end*.
-
-1. Select **Add a scope**. In **Scope name**, enter *user_impersonation*. In the text boxes, enter the consent scope name and description you want users to see on the consent page, such as *Access my app*. Select **Add scope**.
+1. Select **Add a scope**.
+   1. In **Scope name**, enter *user_impersonation*.
+   1. In the text boxes, enter the consent scope name and description you want users to see on the consent page. For example, *Access my app*. 
+   1. Select **Add scope**.
 1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. It won't be shown again.
 1. (Optional) To add multiple **Reply URLs**, select **Authentication** in the menu.
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app
 
-1. In the [Azure portal], navigate to your App Service app. From the left menu, select **Authentication / Authorization**. If the Authentication/Authorization feature is not enabled, select **On**. 
+1. In the [Azure portal], navigate to your App Service app. From the left menu, select **Authentication / Authorization**. If the Authentication/Authorization feature is not enabled, select **On**.
 1. (Optional) By default, App Service authentication allows unauthenticated access to your app. To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
 1. Under Authentication Providers, select **Azure Active Directory**.
 1. In **Management mode**, select **Advanced** and configure App Service authentication according to the following table:
@@ -101,15 +102,16 @@ You'll need the following information when you configure your App Service app:
     |Client ID| Use the **Application (client) ID** of the app registration. |
     |Issuer ID| Use `https://login.microsoftonline.com/<tenant-id>`, and replace *\<tenant-id>* with the **Directory (tenant) ID** of the app registration. |
     |Client Secret (Optional)| Use the client secret you generated in the app registration.|
-    |Allowed Token Audiences| If this is a *back-end* app and you want to allow authentication tokens from a front-end app, add the **Application ID URI** of the *front end* here. |
+    |Allowed Token Audiences| If this is a cloud or server app and you want to allow authentication tokens from a web app, add the **Application ID URI** of the web app here. |
 
     > [!NOTE]
     > The configured **Client ID** is *always* implicitly considered to be an allowed audience, regardless of how you configured the **Allowed Token Audiences**.
-1. Select **OK**, then select **Save**.
+1. Select **OK**, and then select **Save**.
 
 You are now ready to use Azure Active Directory for authentication in your App Service app.
 
 ## Configure a native client application
+
 You can register native clients if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
 
 1. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
