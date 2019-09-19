@@ -110,7 +110,7 @@ The configuration requirements and content of Diagnostic logs vary by resource t
 |:---|:---|:---|
 | Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into a Log Analytics workspace. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](diagnostic-logs-stream-log-store.md)<br>[Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
 | Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
-| Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](diagnostic-logs-stream-event-hubs.md) |
+| Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](resource-logs-stream-event-hubs.md) |
 
 ## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.

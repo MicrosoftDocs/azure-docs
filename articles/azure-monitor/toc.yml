@@ -752,7 +752,7 @@
       - name: Connect Configuration Manager
         href: platform/collect-sccm.md
     - name: Stream data to Event Hubs
-      href: platform/diagnostic-logs-stream-event-hubs.md
+      href: platform/resource-logs-stream-event-hubs.md
   - name: Analyze data
     items:
     - name: Metrics

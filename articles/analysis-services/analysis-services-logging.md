@@ -136,7 +136,7 @@ Learn how to [change diagnostics settings by using the Azure Monitor REST API](h
 
 ### Resource Manager template
 
-Learn how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md). 
+Learn how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md). 
 
 ## Manage your logs
 

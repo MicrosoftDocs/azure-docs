@@ -33,7 +33,7 @@ Platform logs can be sent to the destinations in the following table. The config
 | Destination | Description |
 |:---|:---|
 | [Log Analytics workspace](diagnostic-settings-workspace.md) | Collecting logs into a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](diagnostic-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
+| [Event hubs](resource-logs-stream-event-hubs.md) | Sending logs to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions. |
 | [Azure storage account](diagnostic-settings-storage.md) | Archiving logs to an Azure storage account is useful for audit, static analysis, or backup. |
 
 
@@ -120,7 +120,7 @@ See [Diagnostic Settings](https://docs.microsoft.com/rest/api/monitor/diagnostic
 
 
 ### Configure diagnostic settings using Resource Manager template
-See [Automatically enable Diagnostic Settings at resource creation using a Resource Manager template](diagnostic-logs-stream-template.md) to create or update diagnostic settings with a Resource Manager template.
+See [Automatically enable Diagnostic Settings at resource creation using a Resource Manager template](diagnostic-settings-template.md) to create or update diagnostic settings with a Resource Manager template.
 
 ## Next steps
 

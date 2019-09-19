@@ -92,7 +92,7 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 
 * Save them to a [storage account](../../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) by using the diagnostics settings.
 
-* [Stream them to event hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+* [Stream them to event hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
 * Analyze them with [Azure Monitor logs](../../log-analytics/log-analytics-queries.md).
 
