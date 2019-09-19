@@ -58,55 +58,55 @@ To register an application object, and add that application object's registratio
 1. Open the sample project in Android Studio.
 1. Inside **app** > **res** > **raw**, open **auth_config_multiple_account.json**.  Paste the contents of the MSAL Configuration. This adds the client ID, tenant ID, and redirect_uri from the portal. It will look something like this, but with the values filled in for the client ID, tenant ID, and redirect_uri:
 
-```json
-{
-  "client_id" : "<your_client_id_here>",
-  "authorization_user_agent" : "DEFAULT",
-  "redirect_uri" : "<your_redirect_uri_here>",
-  "account_mode" : "MULTIPLE",
-  "broker_redirect_uri_registered": true,
-  "authorities" : [
+    ```json
     {
-      "type": "AAD",
-      "audience": {
-        "type": "AzureADandPersonalMicrosoftAccount",
-        "tenant_id": "common"
-      }
+      "client_id" : "<your_client_id_here>",
+      "authorization_user_agent" : "DEFAULT",
+      "redirect_uri" : "<your_redirect_uri_here>",
+      "account_mode" : "MULTIPLE",
+      "broker_redirect_uri_registered": true,
+      "authorities" : [
+        {
+          "type": "AAD",
+          "audience": {
+            "type": "AzureADandPersonalMicrosoftAccount",
+            "tenant_id": "common"
+          }
+        }
+      ]
     }
-  ]
-}
-```
+    ```
 
 1. Open **app** > **res** > **raw**, open **auth_config_single_account.json**, and paste the contents of the MSAL Configuration. It will look like the **auth_config_multiple_account.json** file above.
 1. In **app** > **manifests** > **AndroidManifest.xml**, find the `BrowserTabActivity` activity. This entry allows Microsoft to call back to your application after it completes the authentication:
 
-```xml
-...
-<activity android:name="com.microsoft.identity.client.BrowserTabActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <!--
-                    Add in your scheme/host from registered redirect URI
-                    note that the leading "/" is required for android:path
-                    For Example:
+    ```xml
+    ...
+    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
+                <intent-filter>
+                    <action android:name="android.intent.action.VIEW" />
+    
+                    <category android:name="android.intent.category.DEFAULT" />
+                    <category android:name="android.intent.category.BROWSABLE" />
+    
+                    <!--
+                        Add in your scheme/host from registered redirect URI
+                        note that the leading "/" is required for android:path
+                        For Example:
+                        <data
+                            android:host="com.azuresamples.msalandroidapp"
+                            android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
+                            android:scheme="msauth" />
+                    -->
+    
                     <data
-                        android:host="com.azuresamples.msalandroidapp"
-                        android:path="/1wIqXSqBj7w+h11ZifsnqwgyKrY="
+                        android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
+                        android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
                         android:scheme="msauth" />
-                -->
-
-                <data
-                    android:host="YOUR_PACKAGE_NAME - must be registered at https://aka.ms/MobileAppReg"
-                    android:path="/YOUR_DECODED_SIGNATURE_HASH - must be registered at https://aka.ms/MobileAppReg"
-                    android:scheme="msauth" />
-            </intent-filter>
-        </activity>
-```
-
+                </intent-filter>
+            </activity>
+    ```
+    
 1. Substitute the package name with what you registered in the Azure portal for the `android:host=` value.  In this case, it will be: `com.azuresamples.msalandroidapp`.
 
     > [!IMPORTANT]
@@ -116,7 +116,7 @@ To register an application object, and add that application object's registratio
 
 ## Step 4: Run the sample app
 
-1. Select your emulator or device from Android Studio's **available devices** dropdown and run the app.
+Select your emulator or device from Android Studio's **available devices** dropdown and run the app.
 
 The sample app starts on the **Single Account Mode** screen. A default scope, **user.read**, is provided by default, which is used when reading your own profile data during the Microsoft Graph API call. The URL for the Microsoft Graph API call is provided by default. You can change both of these if you wish.
 
