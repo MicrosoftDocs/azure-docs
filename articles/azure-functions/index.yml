@@ -153,16 +153,16 @@ landingContent:
         links:
           - text: Durable Functions
             url: durable/durable-functions-overview.md
-      - linkListType: concept
-        links:
-          - text: Durable Functions types and features
-            url: durable/durable-functions-types-features-overview.md
       - linkListType: quickstart
         links:
           - text: Create a durable function (C#)
             url: /durable/durable-functions-create-first-csharp.md
           - text: Create a durable function (JavaScript)
             url: /durable/quickstart-js-vscode.md
+      - linkListType: concept
+        links:
+          - text: Durable Functions types and features
+            url: durable/durable-functions-types-features-overview.md
       - linkListType: learn
         links:
           - text: Create a long-running serverless workflow
