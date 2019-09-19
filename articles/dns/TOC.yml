@@ -9,12 +9,20 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Name resolution - portal
-    href: dns-getstarted-portal.md
-  - name: Name resolution - PowerShell
-    href: dns-getstarted-powershell.md
-  - name: Name resolution - CLI
-    href: dns-getstarted-cli.md
+  - name: Public DNS
+    items:
+    - name: Name resolution - portal
+      href: dns-getstarted-portal.md
+    - name: Name resolution - PowerShell
+      href: dns-getstarted-powershell.md
+    - name: Name resolution - CLI
+      href: dns-getstarted-cli.md
+  - name: Private DNS
+    items:
+    - name: Create private zone - CLI
+      href: private-dns-getstarted-cli.md
+    - name: Create private zone - PowerShell
+      href: private-dns-getstarted-powershell.md
 - name: Tutorials
   items:
   - name: Public DNS
