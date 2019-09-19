@@ -170,7 +170,7 @@ To enable Azure AD users to sign in to Workteam, they must be provisioned into W
 
 3. On the **New employee** page, perform the following steps:
 
-	![Workteam newuser](./media/workteam-tutorial/tutorial_workteam_newuser.png)
+	![Workteam new user](./media/workteam-tutorial/tutorial_workteam_newuser.png)
 
 	a. In the **Name** text box, enter the first name of user like **B.Simon**.
 
