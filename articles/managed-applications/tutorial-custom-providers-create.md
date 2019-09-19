@@ -1,6 +1,6 @@
 ---
 title: Create and use a custom provider
-description: This tutorial will go over how to create and utilize a custom provider.
+description: This tutorial goes over how to create and use a custom provider.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
@@ -10,16 +10,14 @@ ms.author: jobreen
 
 # Create and use a custom provider
 
-A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows on Azure. This tutorial shows the process of creating a custom provider. If you are unfamiliar with Azure Custom Providers, see [the overview of Azure Custom Resource Providers](./custom-providers-overview.md).
-
-This tutorial builds on the tutorial [Authoring a RESTful endpoint for custom providers](./tutorial-custom-providers-function-authoring.md).
+A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows on Azure. This tutorial shows the process of creating a custom provider. If you're unfamiliar with Azure Custom Providers, see [the overview of Azure Custom Resource Providers](./custom-providers-overview.md).
 
 ## Create a custom provider
 
 > [!NOTE]
-> This tutorial does not show how to author an endpoint. Follow the [tutorial on authoring RESTful endpoints](./tutorial-custom-providers-function-authoring.md) if you don't have a RESTful endpoint.
+> This tutorial does not show how to author an endpoint. If you don't have a RESTFUL endpoint, follow the [tutorial on authoring RESTful endpoints](./tutorial-custom-providers-function-authoring.md), which is the foundation for the current tutorial.
 
-After you create an endpoint, you can create a custom provider to generate a contract between Azure and the endpoint. With a custom provider, you can specify a list of endpoint definitions. The following example shows an endpoint definition.
+After you create an endpoint, you can create a custom provider to generate a contract between the provider and the endpoint. With a custom provider, you can specify a list of endpoint definitions:
 
 ```JSON
 {
@@ -32,14 +30,14 @@ After you create an endpoint, you can create a custom provider to generate a con
 Property | Required | Description
 ---|---|---
 **name** | Yes | The name of the endpoint definition. Azure exposes this name through its API under /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
-**routingType** | No | the endpoint contract type. If the value is not specified, it defaults to "Proxy".
+**routingType** | No | The endpoint contract type. If the value isn't specified, it defaults to "Proxy".
 **endpoint** | Yes | The endpoint to route the requests to. This endpoint handles the response and any side effects of the request.
 
-The value of **endpoint** is the trigger URL of the Azure function app. The `<yourapp>`, `<funcname>`, and `<functionkey>` placeholders should be replaced with values for your created function app.
+The value of **endpoint** is the trigger URL of the Azure function app. The `<yourapp>`, `<funcname>`, and `<functionkey>` placeholders must be replaced with values for your created function app.
 
 ## Define custom actions and resources
 
-The custom provider contains a list of endpoint definitions modeled within the following **actions** and **resourceTypes** properties. The actions map to the custom actions exposed by the custom provider, and the resource types are the custom resources. In this tutorial, the custom provider has an action named `myCustomAction` and a resource type named `myCustomResources`.
+The custom provider contains a list of endpoint definitions modeled under the **actions** and **resourceTypes** properties. The **actions** property maps to the custom actions exposed by the custom provider, and the **resourceTypes** property is the custom resources. In this tutorial, the custom provider has an **actions** property named `myCustomAction` and a **resourceTypes** property named `myCustomResources`.
 
 ```JSON
 {
@@ -63,14 +61,12 @@ The custom provider contains a list of endpoint definitions modeled within the f
 }
 ```
 
-Replace the **endpoint** value with the trigger URL from the function created in the previous tutorial.
-
 ## Deploy the custom provider
 
 > [!NOTE]
-> The **endpoint** value should be replaced with the function app URL.
+> You must replace the **endpoint** values with the trigger URL from the function app created in the previous tutorial.
 
-You can deploy the previous custom provider by using an Azure Resource Manager template.
+You can deploy the previous custom provider by using an Azure Resource Manager template:
 
 ```JSON
 {
@@ -105,15 +101,14 @@ You can deploy the previous custom provider by using an Azure Resource Manager t
 
 ## Use custom actions and resources
 
-After you create a custom provider, you can use the new Azure APIs.
-The next section explains how to call and use a custom provider.
+After you create a custom provider, you can use the new Azure APIs. The following tabs explain how to call and use a custom provider.
 
 ### Custom actions
 
 # [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The `{subscriptionId}` and `{resourceGroupName}` placeholders should be replaced with the subscription and resource group of where you deployed the custom provider.
+> You must replace the `{subscriptionId}` and `{resourceGroupName}` placeholders with the subscription and resource group of where you deployed the custom provider.
 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
@@ -141,9 +136,9 @@ None.
 # [Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> The `{subscriptionId}` and `{resourceGroupName}` placeholders should be replaced with the subscription and resource group of where the custom provider was deployed.
+> You must replace the `{subscriptionId}` and `{resourceGroupName}` placeholders with the subscription and resource group of where you deployed the custom provider.
 
-Create a custom resource:
+#### Create a custom resource
 
 ```azurecli-interactive
 az resource create --is-full-object \
@@ -159,11 +154,11 @@ az resource create --is-full-object \
 
 Parameter | Required | Description
 ---|---|---
-*is-full-object* | Yes | Indicates whether the properties object includes other options such as location, tags, sku, and/or plan.
+*is-full-object* | Yes | Indicates whether the properties object includes other options like location, tags, SKU, or plan.
 *id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
 *properties* | Yes | The request body that will be sent to the endpoint.
 
-Delete an Azure Custom Resource:
+#### Delete a custom resource
 
 ```azurecli-interactive
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -171,9 +166,9 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parameter | Required | Description
 ---|---|---
-*id* | Yes | The resource ID of the custom resource. This resource should exist off of the created custom provider.
+*id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
 
-Retrieve an Azure Custom Resource:
+#### Retrieve a custom resource
 
 ```azurecli-interactive
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
@@ -181,11 +176,11 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parameter | Required | Description
 ---|---|---
-*id* | Yes | The resource ID of the custom resource. This resource should exist off of the created custom provider.
+*id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
 
 # [Template](#tab/template)
 
-Sample Azure Resource Manager Template:
+A sample Resource Manager template:
 
 ```JSON
 {
@@ -207,7 +202,7 @@ Sample Azure Resource Manager Template:
 
 Parameter | Required | Description
 ---|---|---
-*resourceTypeName* | Yes | The name of the resource type defined in the custom provider.
+*resourceTypeName* | Yes | The `name` value of the **resourceTypes** property defined in the custom provider.
 *resourceProviderName* | Yes | The custom provider instance name.
 *customResourceName* | Yes | The custom resource name.
 
@@ -218,7 +213,7 @@ Parameter | Required | Description
 
 ## Next steps
 
-In this article, you learned about custom providers. Go to the next article to create a custom provider.
+In this article, you learned about custom providers. Go to the next article to create a custom provider:
 
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

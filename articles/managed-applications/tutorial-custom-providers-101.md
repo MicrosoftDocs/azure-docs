@@ -1,6 +1,6 @@
 ---
 title: Create custom actions and resources in Azure
-description: This tutorial goes over how to create custom actions and resources in Azure Resource Manager. It also shows how to integrate them into custom workflows for Azure Resource Manager Templates, Azure CLI, Azure Policy, and Activity Log.
+description: This tutorial goes over how to create custom actions and resources in Azure Resource Manager. It also shows how to integrate them into custom workflows for Azure Resource Manager Templates, Azure CLI, Azure Policy, and Azure Activity Log.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.author: jobreen
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure by adding new APIs into Azure Resource Manager. With these custom APIs, Resource Manager can use new deployment and management capabilities.
 
-This tutorial shows a simple example of how to add new actions and resources to Azure and then how to integrate them.
+This tutorial goes through a simple example of how to add new actions and resources to Azure and how to integrate them.
 
 ## Set up Azure Functions for Azure Custom Providers
 
@@ -36,10 +36,10 @@ Part three of this tutorial describes how to create a custom provider and use it
 
 ## Next steps
 
-In this tutorial, you learned about custom providers and how to build one. To proceed to the next tutorial, see [Tutorial: Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
+In this tutorial, you learned about custom providers and how to build one. To continue to the next tutorial, see [Tutorial: Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
 
-If you are looking for references or a quickstart, here are some useful links:
+If you're looking for references or a quickstart, here are some useful links:
 
-- [Quickstart: Create Azure Custom Resource Provider and deploy custom resources](./create-custom-provider.md)
-- [How to: Adding Custom Actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [How to: Adding Custom Resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [Quickstart: Create an Azure custom resource provider and deploy custom resources](./create-custom-provider.md)
+- [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [How to: Adding custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

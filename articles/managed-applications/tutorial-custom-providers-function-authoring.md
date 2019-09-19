@@ -10,16 +10,14 @@ ms.author: jobreen
 
 # Author a RESTful endpoint for custom providers
 
-A custom provider is a contract between Azure and an endpoint. With custom providers, you can customize workflows on Azure. This tutorial shows how to author a custom-provider RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
-
-This tutorial builds on the tutorial [Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md).
+A custom provider is a contract between Azure and an endpoint. With custom providers, you can customize workflows on Azure. This tutorial shows how to author a custom provider RESTful endpoint. If you're unfamiliar with Azure Custom Providers, see [the overview on custom resource providers](./custom-providers-overview.md).
 
 > [!NOTE]
-> Some of the steps in this tutorial work only if an Azure function app has been set up to work with custom providers.
+> This tutorial builds on the tutorial [Set up Azure Functions for Azure Custom Providers](./tutorial-custom-providers-function-setup.md). Some of the steps in this tutorial work only if an Azure function app has been set up to work with custom providers.
 
 ## Work with custom actions and custom resources
 
-In this tutorial, you update the function app to work as a RESTful endpoint for your custom provider. In Azure, resources and actions are modeled after the basic RESTful specification:
+In this tutorial, you update the function app to work as a RESTful endpoint for your custom provider. Resources and actions in Azure are modeled after the following basic RESTful specification:
 
 - **PUT**: Create a new resource
 - **GET (instance)**: Retrieve an existing resource
@@ -39,14 +37,14 @@ The following example shows an `x-ms-customproviders-requestpath` header for a c
 X-MS-CustomProviders-RequestPath: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/{myResourceType}/{myResourceName}
 ```
 
-Based on the previous example `x-ms-customproviders-requestpath` header, you can create the *partitionKey* and *rowKey* parameters for your storage as showing in the following table:
+Based on the example's `x-ms-customproviders-requestpath` header, you can create the *partitionKey* and *rowKey* parameters for your storage as shown in the following table:
 
 Parameter | Template | Description
 ---|---|---
-*partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | The *partitionKey* parameter specifies how the data is partitioned. For most cases, the data should be partitioned by the custom provider instance.
+*partitionKey* | `{subscriptionId}:{resourceGroupName}:{resourceProviderName}` | The *partitionKey* parameter specifies how the data is partitioned. Usually the data is partitioned by the custom provider instance.
 *rowKey* | `{myResourceType}:{myResourceName}` | The *rowKey* parameter specifies the individual identifier for the data. Usually the identifier is the name of the resource.
 
-In addition, you also need to create a new class to model your custom resource. In this tutorial, you add the following **CustomResource** class to your function, which is a generic class that accepts any input data:
+You also need to create a new class to model your custom resource. In this tutorial, you add the following **CustomResource** class to your function app:
 
 ```csharp
 // Custom Resource Table Entity
@@ -55,19 +53,20 @@ public class CustomResource : TableEntity
     public string Data { get; set; }
 }
 ```
+**CustomResource** is a simple, generic class that accepts any input data. It's based on **TableEntity**, which is used to store data. The **CustomResource** class inherits two properties from **TableEntity**: **partitionKey** and **rowKey**.
 
-**CustomResource** is a basic class that is based on **TableEntity**, which is used to store data. The **CustomResource** class inherits two properties from **TableEntity**: **partitionKey** and **rowKey**.
-
-## Support custom-provider RESTful methods
+## Support custom provider RESTful methods
 
 > [!NOTE]
-> If you are not copying the code directly from the tutorial, the response content should be valid JSON that sets the `Content-Type` header to `application/json`.
+> If you aren't copying the code directly from this tutorial, the response content must be valid JSON that sets the `Content-Type` header to `application/json`.
 
-Now that you have data partitioning setup, create the basic CRUD and trigger methods for custom resources and custom actions. Because custom providers act as a proxy, the request and response must be modeled and handled by the RESTful`endpoint. The following code snippets show how to handle the basic RESTful operations.
+Now that you've set up data partitioning, create the basic CRUD and trigger methods for custom resources and custom actions. Because custom providers act as proxies, the RESTful endpoint must model and handle the request and response. The following code snippets show how to handle the basic RESTful operations.
 
-### Trigger custom action
+### Trigger a custom action
 
-For custom providers, a custom action is triggered through POST requests. A custom action can optionally accept a request body that contains a set of input parameters. The action should then return a response that signals the result of the action and whether it succeeded or failed. In this tutorial, you add the following **TriggerCustomAction** method to your function:
+For custom providers, a custom action is triggered through POST requests. A custom action can optionally accept a request body that contains a set of input parameters. The action then returns a response that signals the result of the action and whether it succeeded or failed.
+
+Add the following **TriggerCustomAction** method to your function app:
 
 ```csharp
 /// <summary>
@@ -87,18 +86,20 @@ public static async Task<HttpResponseMessage> TriggerCustomAction(HttpRequestMes
 }
 ```
 
-The **TriggerCustomAction** method accepts an incoming request and simply echoes back the response with a status code. 
+The **TriggerCustomAction** method accepts an incoming request and simply echoes back the response with a status code.
 
 ### Create a custom resource
 
-For custom providers, a custom resource is created through PUT requests. The custom provider accepts a JSON request body, which contains a set of properties for the custom resource. In Azure, resources follow a RESTful model. The same request URL that you used to create a resource should also be able to retrieve and delete the resource. In this tutorial, you add the **CreateCustomResource** method to create new resources, as shown in the following code:
+For custom providers, a custom resource is created through PUT requests. The custom provider accepts a JSON request body, which contains a set of properties for the custom resource. Resources in Azure follow a RESTful model. You can use the same request URL to create, retrieve, or delete a resource.
+
+Add the following **CreateCustomResource** method to create new resources:
 
 ```csharp
 /// <summary>
 /// Creates a custom resource and saves it to table storage.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableStorage">The Azure storage account table.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
 /// <param name="azureResourceId">The parsed Azure resource ID.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
@@ -127,7 +128,7 @@ public static async Task<HttpResponseMessage> CreateCustomResource(HttpRequestMe
 }
 ```
 
-The **CreateCustomResource** method updates the incoming request to include the Azure-specific fields **id**, **name**, and **type**. These fields are top-level properties used by services across Azure. They let the custom provider integrate with other services such as Azure Policy, Azure Resource Manager Templates, and Azure Activity Log.
+The **CreateCustomResource** method updates the incoming request to include the Azure-specific fields **id**, **name**, and **type**. These fields are top-level properties used by services across Azure. They let the custom provider interoperate with other services like Azure Policy, Azure Resource Manager Templates, and Azure Activity Log.
 
 Property | Example | Description
 ---|---|---
@@ -139,14 +140,16 @@ In addition to adding the properties, you also save the document to Azure Table 
 
 ### Retrieve a custom resource
 
-For custom providers, a custom resource is retrieved through GET requests. The custom provider will *not* accept a JSON request body. In the case of GET requests, the endpoint should use the `x-ms-customproviders-requestpath` header to return the already-created resource. In this tutorial, you add the method **RetrieveCustomResource** to retrieve existing resources, as shown in the following code:
+For custom providers, a custom resource is retrieved through GET requests. A custom provider *doesn't* accept a JSON request body. For GET requests, the endpoint uses the `x-ms-customproviders-requestpath` header to return the already created resource.
+
+Add the following **RetrieveCustomResource** method to retrieve existing resources:
 
 ```csharp
 /// <summary>
 /// Retrieves a custom resource.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableStorage">The Azure storage account table.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
 /// <returns>The HTTP response containing the existing custom resource.</returns>
@@ -166,11 +169,13 @@ public static async Task<HttpResponseMessage> RetrieveCustomResource(HttpRequest
 }
 ```
 
-In Azure, resources should follow a RESTful model. The request URL that created the resource should also return the resource if a GET request is performed.
+In Azure, resources follow a RESTful model. The request URL that creates a resource also returns the resource if a GET request is performed.
 
 ### Remove a custom resource
 
-For custom providers, a custom resource is removed through DELETE requests. The custom provider will *not* accept a JSON request body. In the case of DELETE requests, the endpoint should use the `x-ms-customproviders-requestpath` header to delete the already-created resource. In this tutorial, you add the **RemoveCustomResource** method to remove existing resources, as shown in the following code:
+For custom providers, a custom resource is removed through DELETE requests. A custom provider *doesn't* accept a JSON request body. For a DELETE request, the endpoint uses the `x-ms-customproviders-requestpath` header to delete the already created resource.
+
+Add the following **RemoveCustomResource** method to remove existing resources:
 
 ```csharp
 /// <summary>
@@ -180,7 +185,7 @@ For custom providers, a custom resource is removed through DELETE requests. The 
 /// <param name="tableStorage">The Azure storage account table.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="rowKey">The row key for storage. This is '{resourceType}:{customResourceName}'.</param>
-/// <returns>The HTTP response containing the result of the delete.</returns>
+/// <returns>The HTTP response containing the result of the deletion.</returns>
 public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string rowKey)
 {
     // Attempt to retrieve the Existing Stored Value
@@ -197,21 +202,23 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 }
 ```
 
-In Azure, resources should follow a RESTful model. The request URL that created the resource should also delete the resource if a DELETE request is performed.
+In Azure, resources follow a RESTful model. The request URL that creates a resource also deletes the resource if a DELETE request is performed.
 
 ### List all custom resources
 
-For custom providers, you can enumerate a list of existing custom resources by using collection GET requests. The custom provider will *not* accept a JSON request body. In the case of collection GET requests, the endpoint should use the `x-ms-customproviders-requestpath` header to enumerate the already-created resources. In this tutorial, you  add the **EnumerateAllCustomResources** method to enumerate the existing resources, as shown in the following code:
+For custom providers, you can enumerate a list of existing custom resources by using collection GET requests. A custom provider *doesn't* accept a JSON request body. For a collection of GET requests, the endpoint uses the `x-ms-customproviders-requestpath` header to enumerate the already created resources.
+
+Add the following **EnumerateAllCustomResources** method to enumerate the existing resources:
 
 ```csharp
 /// <summary>
 /// Enumerates all the stored custom resources for a given type.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
-/// <param name="tableStorage">The Azure storage account table.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
 /// <param name="partitionKey">The partition key for storage. This is the custom provider ID.</param>
 /// <param name="resourceType">The resource type of the enumeration.</param>
-/// <returns>The http response containing a list of resources stored under 'value'.</returns>
+/// <returns>The HTTP response containing a list of resources stored under 'value'.</returns>
 public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRequestMessage requestMessage, CloudTable tableStorage, string partitionKey, string resourceType)
 {
     // Generate upper bound of the query.
@@ -238,21 +245,21 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 ```
 
 > [!NOTE]
-> The **GreaterThan** and **LessThan** row keys are Azure Table storage syntax to perform a "startswith" query for strings.
+> The row key greater than and less than is Azure Table storage syntax to perform a "startswith" query for strings.
 
-To list all existing resources, generate an Azure Table storage query that ensures the resources exist under your custom-provider partition. The query then checks that the row key starts with the same `{myResourceType}` value.
+To list all existing resources, generate an Azure Table storage query that ensures the resources exist under your custom provider partition. The query then checks that the row key starts with the same `{myResourceType}` value.
 
 ## Integrate RESTful operations
 
-Once all the RESTful methods are added to the function, update the main **Run** method that calls the functions to handle the different REST requests, as shown in the following code:
+After all the RESTful methods are added to the function app, update the main **Run** method that calls the functions to handle the different REST requests:
 
 ```csharp
 /// <summary>
-/// Entry point for the Azure Function webhook that acts as the service behind a custom provider.
+/// Entry point for the Azure function app webhook that acts as the service behind a custom provider.
 /// </summary>
 /// <param name="requestMessage">The HTTP request message.</param>
 /// <param name="log">The logger.</param>
-/// <param name="tableStorage">The Azure storage account table.</param>
+/// <param name="tableStorage">The Azure Table storage account.</param>
 /// <returns>The HTTP response for the custom Azure API.</returns>
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger log, CloudTable tableStorage)
 {
@@ -327,9 +334,11 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
 }
 ```
 
-The updated **Run** method now includes the *tableStorage* input binding that was added for Azure Table storage. The first part of the method reads the `x-ms-customproviders-requestpath` header and uses the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom provider and designates the path of the incoming request. Using the parsed resource ID, you can now generate the **partitionKey** and **rowKey** values for the data to look up or  store custom resources.
+The updated **Run** method now includes the *tableStorage* input binding that you added for Azure Table storage. The first part of the method reads the `x-ms-customproviders-requestpath` header and uses the `Microsoft.Azure.Management.ResourceManager.Fluent` library to parse the value as a resource ID. The `x-ms-customproviders-requestpath` header is sent by the custom provider and specifies the path of the incoming request.
 
-In addition to adding the methods and classes, you need to update the **using** methods for the function. Add the following code to the top of the file:
+By using the parsed resource ID, you can now generate the **partitionKey** and **rowKey** values for the data to look up or to store custom resources.
+
+After you add the methods and classes, you need to update the **using** methods for the function app. Add the following code to the top of the C# file:
 
 ```csharp
 #r "Newtonsoft.Json"
@@ -353,7 +362,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-If you got lost at any point of this tutorial, you can find the complete code sample at the [custom provider C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). After you have finished creating the function app, save the function URL. It can be used to trigger the function app in later tutorials.
+If you get lost at any point of this tutorial, you can find the complete code sample in the [custom provider C# RESTful endpoint reference](./reference-custom-providers-csharp-endpoint.md). After you've finished the function app, save the function app URL. It can be used to trigger the function app in later tutorials.
 
 ## Next steps
 
