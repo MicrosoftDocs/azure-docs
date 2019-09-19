@@ -156,6 +156,8 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    * **Adapter** - Use **DatabaseWriter**. When writing to Azure Cosmos DB Cassandra API, DatabaseWriter is required. The Cassandra driver 3.6.0 is bundled with Striim. If the DatabaseWriter exceeds the number of RUs provisioned on your Azure Cosmos container, the application will crash.
 
+   * **Connection URL** - Specify your Azure Cosmos DB JDBC connection URL. The URL is in the format     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
+
    * **Username** - Specify your Azure Cosmos account name.
    
    * **Password** - Specify the primary key of your Azure Cosmos account.
