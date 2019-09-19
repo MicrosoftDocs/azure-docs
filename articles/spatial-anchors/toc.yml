@@ -85,7 +85,7 @@
     href: concepts/guidelines-effective-anchor-experiences.md
   - name: Logging and diagnostics
     href: concepts/logging-diagnostics.md
-  - name: Coarse re-localization
+  - name: Coarse relocalization
     href: concepts/coarse-reloc.md
 - name: References
   items:

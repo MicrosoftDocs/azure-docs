@@ -1,7 +1,7 @@
 ---
 title: Coarse Relocalization | Microsoft Docs
 description: Coarse relocalization quickstart guide.  
-author: bobuc
+author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
 
@@ -12,7 +12,7 @@ ms.service: azure-spatial-anchors
 ---
 # Coarse relocalization
 
-Azure Spatial Anchors can be configured to associate on-device, positioning sensor data with the anchors you create. For outdoor scenarios, the sensor data is typically the GPS position of the device. To account for cases where GPS is either not available or too unreliable (such as indoors), Azure Spatial Anchors also records the WiFi access points and Bluetooth beacons in range of an anchor. This sensor data associated with every anchor acts as a *fingerprint* and can be used to quickly determine whether there are any anchors nearby your device.
+Azure Spatial Anchors can be configured to associate on-device, positioning sensor data with the anchors you create. For outdoor scenarios, the sensor data is typically the GPS position of the device. To account for cases where GPS is either not available or too unreliable (such as indoors), Azure Spatial Anchors also records the WiFi access points and Bluetooth beacons in range of an anchor. As a result, the service can index the anchors on their sensor data and quickly determine whether there are any anchors nearby your device. 
 
 ## Collected sensor data
 
@@ -22,7 +22,7 @@ Whenever possible, Azure Spatial Anchors will associate the following sensor dat
 * Signal strength of WiFi access points in range.
 * Signal strength of Bluetooth beacons in range.
 
-In general, your application will need to acquire device-specific permissions to access GPS, WiFi, or BLE data. Additionally, some of the sensor data above is not available by design on certain platforms. To account for these situations, the collection of sensor data is optional and is turned off by default.
+In general, your application will need to acquire device-specific permissions to access GPS, WiFi, or BLE data. Additionally, some of the sensor data above isn't available by design on certain platforms. To account for these situations, the collection of sensor data is optional and is turned off by default.
 
 ## Set up the sensor data collection
 
@@ -39,7 +39,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-At this point the session will attempt to associate sensor data with any anchors you create. However, as none of the sensors have been explicitly turned-on, your anchors will not have sensor data associated with them.
+At this point, the session will attempt to associate sensor data with any anchors you create. However, as none of the sensors have been explicitly turned-on, your anchors won't have sensor data associated with them.
 
 ### Enabling GPS
 
@@ -52,9 +52,9 @@ sensorProvider.Sensors.GeoLocationEnabled = true;
 When using GPS in your application, keep in mind that the readings provided by the hardware are typically:
 
 * asynchronous and low frequency (less than 1 Hz).
-* unreliable / noisy (on average 7 m standard deviation).
+* unreliable / noisy (on average 7-m standard deviation).
 
-In general, the device OS as well as Azure Spatial Anchors will do some filtering and extrapolation on the raw GPS signal in an attempt to mitigate these issues. This extra-processing requires additional time for convergence, so for best results you should try to:
+In general, both the device OS and Azure Spatial Anchors will do some filtering and extrapolation on the raw GPS signal in an attempt to mitigate these issues. This extra-processing requires additional time for convergence, so for best results you should try to:
 
 * create the sensor fingerprint provider as early as possible in your application
 * keep the sensor fingerprint provider alive and share between multiple sessions
@@ -71,7 +71,7 @@ When using WiFi in your application, keep in mind that the readings provided by 
 
 * asynchronous and low frequency (less than 0.1 Hz).
 * potentially throttled at the OS level.
-* unreliable / noisy (on average 3 dBm standard deviation).
+* unreliable / noisy (on average 3-dBm standard deviation).
 
 Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map during a session in an attempt to mitigate these issues. For best results you should try to:
 
@@ -102,11 +102,11 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
-Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Note however that it is impossible to detect a malicious beacon that has been programmed to have a white-listed UUID. For that reason, you should only use beacons in curated spaces where you can control the deployed beacons.
+Azure Spatial Anchors will only track Bluetooth beacons that are on the list. However, malicious beacons that have been programmed to have white-listed UUIDs can still negatively impact the quality of the service. For that reason, you should only use beacons in curated spaces where you can control the deployed beacons.
 
 ## Querying with sensor data
 
-Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You are no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. The Spatial Anchors service will then figure-out the set of anchors close to your device and attempt to visually match them.
+Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You're no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. The Spatial Anchors service will then figure-out the set of anchors close to your device and attempt to visually match them.
 
 To have queries use the sensor data, start by creating a locate criteria:
 
@@ -125,9 +125,9 @@ anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 
 At the moment, DistanceInMeters only applies to GPS measurements. In addition to that, given that GPS readings come with quite a large measurement uncertainty, DistanceInMeters is only enforced probabilistically. Specifically, it will determine the service to prune-out anchors that have a 95% chance or more to be further away from the device than DistanceInMeters.
  
-One other thing to keep in mind is that higher values for either MaxResultCount or DistanceInMeters will negatively affect performance, so try to set them to sensible values that make sense for your application.
+Keep in mind that higher values for either MaxResultCount or DistanceInMeters will negatively affect performance. Try to set them to sensible values that make sense for your application.
 
-Finally, you will need to tell the session to use the sensor-based look-up:
+Finally, you'll need to tell the session to use the sensor-based look-up:
 
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
@@ -139,9 +139,9 @@ The following table summarizes the expected search space for each of the sensors
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7m GPS standard deviation and 5m visibility radius. |
-| WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, etc. |
-| BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, etc. |
+| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7 m GPS standard deviation and 5 m visibility radius. |
+| WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
+| BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
 
 ## Per-platform support

@@ -1,7 +1,7 @@
 ---
 title: How to create and locate anchors using on-device sensors | Microsoft Docs
 description: In-depth explanation of how to create and locate anchors using on-device sensors.
-author: bobuc
+author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
 
