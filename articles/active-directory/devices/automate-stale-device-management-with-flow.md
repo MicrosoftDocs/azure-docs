@@ -180,6 +180,7 @@ Before we start deleting devices, let's make sure they identify correctly.
 - Under "Standard > Excel Online (Business)", click "Add a row into a table"
 - For Location, select "OneDrive", which should also populate the "Document Library" field
 - Click on the File field and pick the log file we created earlier
+- There should only be one Table listed, select it
 - Click the Name field, and in the pane that pops up, select Dynamic Content > getDevices > displayName
 - Click the ID field, select Dynamic Content > getDevices > id 
 - Click the LastLogon field, select Dynamic Content > getDevices > approximateLastSignInDateTime
@@ -194,6 +195,7 @@ Before we start deleting devices, let's make sure they identify correctly.
 - Under "Standard > Excel Online (Business)", click "Add a row into a table"
 - For Location, select "OneDrive", which should also populate the "Document Library" field
 - Click on the File field and pick the log file we created earlier
+- There should only be one Table listed, select it
 - Click the Name field, and in the pane that pops up, select Dynamic Content > getDevices > displayName
 - Click the ID field, select Dynamic Content > getDevices > id 
 - Click the LastLogon field, select Dynamic Content > getDevices > approximateLastSignInDateTime
