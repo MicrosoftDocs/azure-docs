@@ -655,7 +655,7 @@
           href: platform/azure-storage-iis-table.md
         - name: Archive to storage
           href: platform/resource-logs-collect-storage.md
-        - name: Enable with Resource Manager templates
+        - name: Stream to Event Hubs
           href: platform/resource-logs-stream-event-hubs.md
       - name: Activity log
         items:
