@@ -100,13 +100,7 @@ On the VM that you plan to upload to Azure, run the following commands from an [
 3. Set the disk SAN policy to [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
-    diskpart 
-    ```
-    In the open command prompt window, type the following commands:
-
-     ```DISKPART
-    san policy=onlineall
-    exit   
+    Set-StorageSetting -NewDiskPolicy OnlineAll
     ```
 
 4. Set Coordinated Universal Time (UTC) time for Windows. Also set the startup type of the Windows time service (`w32time`) to `Automatic`:
