@@ -71,6 +71,29 @@ In general, both the device OS and Azure Spatial Anchors will do some filtering 
 * create the sensor fingerprint provider as early as possible in your application
 * keep the sensor fingerprint provider alive and share between multiple sessions
 
+If you plan to use the sensor fingerprint provider outside an anchor session, make sure you start it before requesting sensor estimates. For instance, the following code will take care of updating your device's position on the map in real time:
+
+```csharp
+// Game about to start, start tracking the sensors
+sensorProvider.Start();
+
+// Game loop
+while (m_isRunning)
+{
+    // Get the GPS estimate
+    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
+
+    // Paint it on the map
+    drawCircle(
+        x: geoPose.Longitude,
+        y: geoPose.Latitude,
+        radius: geoPose.HorizontalError);
+}
+
+// Game ended, no need to track the sensors anymore
+sensorProvider.Stop();
+```
+
 ### Enabling WiFi
 
 Assuming your application already has permission to access the device's WiFi state, you can configure Azure Spatial Anchors to use it:
@@ -147,11 +170,19 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## Expected results
 
-The following table summarizes the expected search space for each of the sensors:
+Consumer-grade GPS devices are typically quite imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports the median accuracy of mobile phones with assisted GPS (A-GPS) to be around 7 meters - quite a large value to be simply ignored! To account for these measurement errors, the service treats the anchors as probability distributions in GPS space. As such, an anchor is now the region of space that most likely (that is, with more than 95% confidence) contains its true, unknown GPS position.
+
+The same reasoning is applied when querying with GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates into simply finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated in the image below:
+
+![Selection of anchor candidates with GPS](media/coarse-reloc-gps-separation-distance.png)
+
+The accuracy of the GPS signal, both on anchor creation as well as during queries, has a large influence over the set of returned anchors. In contrast, queries based on WiFi / beacons will consider all anchors that have at least one access point / beacon in common with the query. In that sense, the result of a query based on WiFi / beacons is mostly determined by the physical range of the access points / beacons, and environmental obstructions.
+
+The table below estimates the expected search space for each sensor type:  
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with assisted GPS (A-GPS), which is around 7 meters according to the study by [Zandenbergen and Barbeau (2011)][6]. |
+| GPS         | 20 m - 30 m | Determined by the GPS uncertainty among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with A-GPS, that is 7 meters. |
 | WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
 | BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
@@ -165,10 +196,6 @@ The following table summarizes the sensor data collected on each of the supporte
 | GPS         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
 | WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. However from API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
 | BLE beacons | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
-
-<!-- Footnotes -->
-
-<b id="f1">1.</b> T is around  ()
 
 <!-- Reference links in article -->
 [1]: https://developers.google.com/beacons/eddystone
