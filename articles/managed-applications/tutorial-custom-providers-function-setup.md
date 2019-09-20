@@ -19,7 +19,7 @@ A custom provider is a contract between Azure and an endpoint. With custom provi
 
 To start this tutorial, you should first follow the tutorial [Create your first Azure function app in the Azure portal](../azure-functions/functions-create-first-azure-function.md). That tutorial creates a .NET core webhook function that can be modified in the Azure portal. It is also the foundation for the current tutorial.
 
-## Install Azure Table bindings
+## Install Azure Table storage bindings
 
 To install the Azure Table storage bindings:
 
@@ -27,15 +27,15 @@ To install the Azure Table storage bindings:
 1. Select **+ New Input**.
 1. Select **Azure Table Storage**.
 1. Install the Microsoft.Azure.WebJobs.Extensions.Storage extension if it isn't already installed.
-1. In the **Table parameter name** box, enter "tableStorage".
-1. In the **Table name** box, enter "myCustomResources".
+1. In the **Table parameter name** box, enter **tableStorage**.
+1. In the **Table name** box, enter **myCustomResources**.
 1. Select **Save** to save the updated input parameter.
 
 ![Custom provider overview showing table bindings](./media/create-custom-providers/azure-functions-table-bindings.png)
 
 ## Update RESTful HTTP methods
 
-To set up the Azure Function to include the custom provider RESTful request methods:
+To set up the Azure function to include the custom provider RESTful request methods:
 
 1. Go to the **Integrate** tab for the HttpTrigger.
 1. Under **Selected HTTP methods**, select **GET**, **POST**, **DELETE**, and **PUT**.
