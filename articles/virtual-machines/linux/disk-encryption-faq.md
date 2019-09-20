@@ -48,7 +48,7 @@ No, Azure Disk Encryption only encrypts mounted volumes.
 To rotate secrets, just call the same command you used originally to enable disk encryption, specifying a different Key Vault. To rotate the key encryption key, call the same command you used originally to enable disk encryption, specifying the new key encryption. 
 
 >[!WARNING]
-> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-overview-aad.md) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use Azure Disk Encryption on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
+> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux.md#using-azure-disk-encryption-for-linux-vms-with-aad-previous-release) by specifying Azure AD credentials to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use Azure Disk Encryption on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet.
 
 ## How do I add or remove a key encryption key if I didn't originally use one?
 
@@ -72,7 +72,7 @@ There are prerequisites for Azure Disk Encryption. See the [Creating and configu
 
 ## What are the prerequisites to configure Azure Disk Encryption with an Azure AD app (previous release)?
 
-There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](disk-encryption-overview-aad.md) article to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
+There are prerequisites for Azure Disk Encryption. See the [Azure Disk Encryption prerequisites](disk-encryption-linux.md#using-azure-disk-encryption-for-linux-vms-with-aad-previous-release) article to create an Azure Active Directory application, create a new key vault, or set up an existing key vault for disk encryption access to enable encryption, and safeguard secrets and keys. For more information on the key encryption key support scenarios, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
 
 ## Is Azure Disk Encryption using an Azure AD app (previous release) still supported?
 Yes. Disk encryption using an Azure AD app is still supported. However, when encrypting new VMs it's recommended that you use the new method rather than encrypting with an Azure AD app. 

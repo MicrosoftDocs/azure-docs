@@ -20,7 +20,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 > [!WARNING]
 > - Certain recommendations might increase data, network, or compute resource usage, resulting in additional license or subscription costs. You must have a valid active Azure subscription to create resources in Azure in the supported regions.
-> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-overview-aad.md) to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](disk-encryption-overview.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet. 
+> - If you have previously used [Azure Disk Encryption with Azure AD app](disk-encryption-linux.md#using-azure-disk-encryption-for-linux-vms-with-aad-previous-release) to encrypt this VM, you will have to continue use this option to encrypt your VM. You can’t use [Azure Disk Encryption](disk-encryption-overview.md) on this encrypted VM as this isn’t a supported scenario, meaning switching away from AAD application for this encrypted VM isn’t supported yet. 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
