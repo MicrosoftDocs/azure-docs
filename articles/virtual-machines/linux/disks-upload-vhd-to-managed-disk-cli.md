@@ -4,7 +4,7 @@ description: Learn how to upload a vhd to an Azure managed disk, using the Azure
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 05/06/2019
+ms.date: 09/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
