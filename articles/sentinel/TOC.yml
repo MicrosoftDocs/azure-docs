@@ -28,7 +28,7 @@
   items:
   - name: Assign permissions using roles
     href: roles.md
-  - name: Advanced multi-stage attack detection
+  - name: Advanced multistage attack detection
     href: fusion.md
 - name: How-to guides
   items:
