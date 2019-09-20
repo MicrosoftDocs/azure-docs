@@ -13927,7 +13927,7 @@
     },
     {
       "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     },
     {
@@ -41879,6 +41879,11 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
       "redirect_url": "/azure/sql-database/sql-database-instance-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     }
   ]
