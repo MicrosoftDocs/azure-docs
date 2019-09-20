@@ -103,17 +103,25 @@ resource_key = "123456789"
 
 When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. The cell has no output. The function does output the last model training date when called.
 
+```python
+# model's last modified date
+modelLastModified = ""
+```
 
 ```python
-def get_last_updated():
+def get_last_updated(currentModifiedDate):
+    
+    print('-----checking model')
     
     # get model properties
     response = requests.get(personalization_model_properties_url, headers = headers, params = None)
-                  
+    
     # get lastModifiedTime
     lastModifiedTime = json.dumps(response.json()["lastModifiedTime"])
     
-    print(f'{lastModifiedTime}')
+    if (currentModifiedDate != lastModifiedTime):
+        currentModifiedDate = lastModifiedTime
+        print(f'-----model updated: {lastModifiedTime}')
 ```
 
 
@@ -158,11 +166,13 @@ actionfeaturesobj = None
 with open(users) as handle:
     userpref = json.loads(handle.read())
 
+with open(coffee) as handle:
+    actionfeaturesobj = json.loads(handle.read())
+    
 with open(requestpath) as handle:
     rankactionsjsonobj = json.loads(handle.read())  
     
-with open(coffee) as handle:
-    actionfeaturesobj = json.loads(handle.read())
+get_last_updated(modelLastModified)
 ```
 
 
@@ -339,6 +349,9 @@ rankjsonobj = rankactionsjsonobj
 i = 1
 num_requests = 4000
 
+# check last mod date N% of time - currently 10%
+lastModCheck = int(num_requests * .10)
+
 # default reward value - assumes failed prediction
 reward = 0
 
@@ -386,8 +399,15 @@ while(i <= num_requests):
     recommendations = recommendations + reward
     
     # every N iteration, get last updated model date and time
-    if(i % 200 == 0):
-        get_last_updated() 
+    if(i % lastModCheck == 0):
+        
+        print("**** 10% of loop found")
+        
+        get_last_updated(modelLastModified) 
+
+        rewards.append(recommendations)
+        count.append(i)
+        recommendations = 0
                
     # aggregate so chart is easier to read
     if(i % 10 == 0):
