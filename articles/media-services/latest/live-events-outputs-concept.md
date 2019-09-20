@@ -62,7 +62,9 @@ The resolutions and bitrates contained in the output from the live encoder is de
 > [!NOTE]
 > If you need to customize the live encoding preset, please open a support ticket via Azure portal. You should specify the desired table of resolution and bitrates. Do verify that there is only one layer at 720p(if requesting a preset for a Standard live encoder) or at 1080p (if requesting a preset for a Premium1080p live encoder), and at most 6 layers.
 
-## Live Event creation options
+## Creating Live Events 
+
+### Options
 
 When creating a Live Event, you can specify the following options:
 
@@ -71,6 +73,14 @@ When creating a Live Event, you can specify the following options:
 * When creating the event, you can specify to auto start it. <br/>When autostart is set to true, the Live Event will be started after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. Alternatively, you can start the event when you are ready to start streaming. 
 
     For more information, see [Live Event states and billing](live-event-states-billing.md).
+    
+### Naming rules
+
+Azure Media Services name format is : `{servicename}-{accountname}-{regionname}.streaming.azure.net`, where
+
+* Max live event name is 32 chars
+* Max account name is 24 chars
+* Max region name is 5 chars
 
 ## Live Event ingest URLs
 
