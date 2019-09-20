@@ -63,22 +63,28 @@ Estimators make it easy to train models using popular ML frameworks.
 
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined.
 
+> [!TIP]
+> You can use Automated ML through the Azure Machine Learning Python SDK or the [workspace landing page (preview)](https://ml.azure.com).
+
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
 * [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
+* [How to: Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)](how-to-create-portal-experiments.md)
 
 ## Machine learning pipeline
 
-The key features of machine learning pipelines are:
+Machine learning pipelines optimize your workflow with the following key features:
 
-+ Unattended runs: Schedule steps to run in parallel or in sequence in a reliable and unattended manner. Perfect for long running tasks such as data preparation or long running training jobs.
-+ Heterogenous compute: Use multiple ML pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations.
-+ Reusability: Create ML pipeline templates for specific scenarios, such as training or batch scoring. Publish the pipelines as a REST endpoint and trigger via REST calls.
-+ Tracking and versioning: ML pipelines can explicitly name and version your data sources, inputs, and outputs. You can also manage scripts and data separately for increased productivity.
-+ Collaboration: ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.
+| Feature | Description |
+| ----- | ----- |
+| Unattended runs | Schedule steps to run in parallel or in sequence in a reliable and unattended manner. Perfect for long running tasks such as data preparation or long running training jobs. |
+| Heterogenous compute | Use multiple ML pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations. |
+| Reusability | Create ML pipeline templates for specific scenarios, such as training or batch scoring. Publish the pipelines as a REST endpoint and trigger via REST calls. |
+| Tracking and versioning | ML pipelines can explicitly name and version your data sources, inputs, and outputs. You can also manage scripts and data separately for increased productivity. |
+| Collaboration | ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps. |
 
 > [!TIP]
 > Machine learning pipelines can use run configurations, estimators, and automated ML as steps in a pipeline.
