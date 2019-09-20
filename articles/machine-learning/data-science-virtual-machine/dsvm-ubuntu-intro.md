@@ -14,6 +14,8 @@ ms.date: 09/10/2019
 
 # Quickstart: Set up the Data Science Virtual Machine for Linux (Ubuntu)
 
+Get up and running with the Ubuntu Data Science Virtual Machine.
+
 ## Prerequisites
 
 To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
@@ -42,7 +44,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
        * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
        * **Resource group**: Create a new group or use an existing one.
        * **Virtual machine name**: Enter the name of the virtual machine. This is how it will appear in your Azure portal.
-       * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
+       * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image**: Leave the default value.
        * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
        * **Authentication type**: For quicker setup, select "Password." 

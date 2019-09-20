@@ -67,3 +67,5 @@
     href: reference-windows-vm.md
   - name: Ubuntu DSVM
     href: reference-ubuntu-vm.md
+  - name: CentOS DSVM
+    href: reference-centos-vm.md

@@ -42,7 +42,7 @@ Here are the steps to create an instance of the CentOS Data Science Virtual Mach
        * **Subscription**: If you have more than one subscription, select the one on which the machine will be created and billed. You must have resource creation privileges for this subscription.
        * **Resource group**: Create a new group or use an existing one.
        * **Virtual machine name**: Enter the name of the virtual machine. This is how it will appear in your Azure portal.
-       * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
+       * **Region**: Select the datacenter that's most appropriate. For fastest network access, it's the datacenter that has most of your data or is closest to your physical location. Learn more about [Azure Regions](https://azure.microsoft.com/global-infrastructure/regions/).
        * **Image**: Leave the default value.
        * **Size**: This should auto-populate with a size that is appropriate for general workloads. Read more about [Linux VM sizes in Azure](../../virtual-machines/linux/sizes.md).
        * **Authentication type**: For quicker setup, select "Password." 
@@ -68,9 +68,9 @@ Here are the steps to create an instance of the CentOS Data Science Virtual Mach
 
 You can access the CentOS DSVM in one of three ways:
 
-  1. SSH for terminal sessions
-  1. X2Go for graphical sessions
-  1. JupyterHub and JupyterLab for Jupyter notebooks
+  * SSH for terminal sessions
+  * X2Go for graphical sessions
+  * JupyterHub and JupyterLab for Jupyter notebooks
 
 You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
