@@ -92,7 +92,7 @@ You'll need the following information when you configure your App Service app:
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app
 
-1. In the [Azure portal], navigate to your App Service app. Select **Authentication / Authorization**. If the Authentication/Authorization feature is not enabled, select **On**.
+1. In the [Azure portal], go to your App Service app. Select **Authentication / Authorization**. If the Authentication/Authorization feature is not enabled, select **On**.
 1. (Optional) By default, App Service authentication allows unauthenticated access to your app. To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
 1. Under Authentication Providers, select **Azure Active Directory**.
 1. In **Management mode**, select **Advanced** and configure App Service authentication according to the following table:
