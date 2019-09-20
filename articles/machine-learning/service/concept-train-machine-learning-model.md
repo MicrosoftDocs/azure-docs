@@ -89,7 +89,7 @@ The key features of machine learning pipelines are:
 + Collaboration: ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.
 
 > [!TIP]
-> Machine learning pipelines can use script runs, estimators, and automated ML as steps in a pipeline.
+> Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline.
 
 For more information, see the following articles and examples:
 
