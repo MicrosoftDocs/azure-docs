@@ -9,7 +9,7 @@
     href: v2-overview.md
   - name: Quickstarts
     items:
-    - name: Set up a dev environment
+    - name: Set up a tenant
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
@@ -458,7 +458,7 @@
     href: v1-overview.md
   - name: Quickstarts
     items:
-    - name: Set up a dev environment
+    - name: Set up a tenant
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
