@@ -14,11 +14,11 @@ ms.topic: reference
 
 # Reference: Ubuntu (Linux) Data Science Virtual Machine
 
-## Tools installed on the Data Science Virtual Machine for Linux
+See below for a list of available tools on your Ubuntu Data Science Virtual Machine. 
 
-### Deep learning libraries
+## Deep learning libraries
 
-#### CNTK
+### CNTK
 
 The Microsoft Cognitive Toolkit is an open-source deep learning toolkit. Python bindings are available in the root and py35 Conda environments. It also has a command-line tool (CNTK) that's already in the path.
 
@@ -31,11 +31,11 @@ cntk configFile=lr_bs.cntk makeMode=false command=Train
 
 For more information, see the CNTK section of [GitHub](https://github.com/Microsoft/CNTK) and the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
-#### Caffe
+### Caffe
 
 Caffe is a deep learning framework from the Berkeley Vision and Learning Center. It's available in /opt/caffe. You can find examples in /opt/caffe/examples.
 
-#### Caffe2
+### Caffe2
 
 Caffe2 is a deep learning framework from Facebook that is built on Caffe. It's available in Python 2.7 in the Conda root environment. To activate it, run the following command from the shell:
 
@@ -45,21 +45,21 @@ source /anaconda/bin/activate root
 
 Some example notebooks are available in JupyterHub.
 
-#### H2O
+### H2O
 
 H2O is a fast, in-memory, distributed machine learning and predictive analytics platform. A Python package is installed in both the root and py35 Anaconda environments. An R package is also installed. 
 
 To open H2O from the command line, run `java -jar /dsvm/tools/h2o/current/h2o.jar`. There are various [command-line options](http://docs.h2o.ai/h2o/latest-stable/h2o-docs/starting-h2o.html#from-the-command-line) that you might want to configure. You can access the Flow web UI by browsing to http://localhost:54321 to get started. Sample notebooks are also available in JupyterHub.
 
-#### Keras
+### Keras
 
 Keras is a high-level neural network API in Python. It can run on top of TensorFlow, Microsoft Cognitive Toolkit, or Theano. It's available in the root and py35 Python environments.
 
-#### MXNet
+### MXNet
 
 MXNet is a deep learning framework designed for both efficiency and flexibility. It has R and Python bindings included on the DSVM. Sample notebooks are included in JupyterHub, and sample code is available in /dsvm/samples/mxnet.
 
-#### NVIDIA DIGITS
+### NVIDIA DIGITS
 
 The NVIDIA Deep Learning GPU Training System, known as DIGITS, is a system to simplify common deep learning tasks. These tasks include managing data, designing and training neural networks on GPU systems, and monitoring performance in real time with advanced visualization.
 
@@ -67,21 +67,21 @@ DIGITS is available as a service called *digits*. Start the service and browse t
 
 DIGITS is also installed as a Python module in the Conda root environment.
 
-#### TensorFlow
+### TensorFlow
 
 TensorFlow is Google's deep learning library. It's an open-source software library for numerical computation using data flow graphs. TensorFlow is available in the py35 Python environment, and some sample notebooks are included in JupyterHub.
 
-#### Theano
+### Theano
 
 Theano is a Python library for efficient numerical computation. It's available in the root and py35 Python environments. 
 
-#### Torch
+### Torch
 
 Torch is a scientific computing framework with wide support for machine learning algorithms. It's available in /dsvm/tools/torch, and the **th** interactive session and LuaRocks package manager are available at the command line. Examples are available in /dsvm/samples/torch.
 
 PyTorch is also available in the root Anaconda environment. Examples are in /dsvm/samples/pytorch.
 
-### Microsoft Machine Learning Server
+## Microsoft Machine Learning Server
 
 R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the VM has Microsoft Machine Learning Server with Microsoft R Open and Math Kernel Library. Math Kernel Library optimizes math operations common in analytical algorithms. Microsoft R Open is 100 percent compatible with CRAN R, and any of the R libraries published in CRAN can be installed on Microsoft R Open. 
 
@@ -91,7 +91,7 @@ To open the R console, you enter **R** in the shell. This command takes you to a
 
 There's also an R script for you to install the [Top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) if you want. You can run this script after you're in the R interactive interface. As mentioned earlier, you can open that interface by entering **R** in the shell.  
 
-### Python
+## Python
 
 Anaconda Python is installed with Python 2.7 and 3.5 environments. The 2.7 environment is called _root_, and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages.
 
@@ -130,7 +130,7 @@ conda install <package> -n py35
 
 If you're on a graphical interface or have X11 forwarding set up, you can enter **pycharm** to open the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that's bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. The graphical desktop has a shortcut to Spyder.
 
-### Jupyter notebook
+## Jupyter notebook
 
 The Anaconda distribution also comes with a Jupyter notebook, an environment to share code and analysis. The Jupyter notebook is accessed through JupyterHub. You sign in by using your local Linux username and password.
 
@@ -146,7 +146,7 @@ You can access the Jupyter notebook server from any host. Enter **https://\<VM D
 
 We have packaged sample notebooks--one in Python and one in R. You can see the link to the samples on the notebook home page after you authenticate to the Jupyter notebook by using your local Linux username and password. You can create a new notebook by selecting **New**, and then selecting the appropriate language kernel. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
 
-### Apache Spark standalone
+## Apache Spark standalone
 
 A standalone instance of Apache Spark is preinstalled on the Linux DSVM to help you develop Spark applications locally before you test and deploy them on large clusters. 
 
@@ -174,7 +174,7 @@ You can stop the Hadoop-related services when you don't need them by running ```
 
 The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Microsoft Machine Learning Server in a remote Spark context (the standalone Spark instance on the DSVM).
 
-### IDEs and editors
+## IDEs and editors
 
 You have a choice of several code editors, including vi/Vim, Emacs, PyCharm, RStudio, and IntelliJ. 
 
@@ -184,9 +184,9 @@ Vim and Emacs are text-based editors. On Emacs, the ESS add-on package makes wor
 
 LaTex is installed through the texlive package, along with an Emacs add-on package called [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). This package simplifies authoring your LaTex documents within Emacs.  
 
-### Databases
+## Databases
 
-#### Graphical SQL client
+### Graphical SQL client
 
 SQuirrel SQL, a graphical SQL client, can connect to various databases (such as Microsoft SQL Server and MySQL) and run SQL queries. You can run SQuirrel SQL from a graphical desktop session (through the X2Go client, for example) by using a desktop icon. Or you can run the client by using the following command in the shell:
 
@@ -198,7 +198,7 @@ Before the first use, set up your drivers and database aliases. The JDBC drivers
 
 For more information, see [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
-#### Command-line tools for accessing Microsoft SQL Server
+### Command-line tools for accessing Microsoft SQL Server
 
 The ODBC driver package for SQL Server also comes with two command-line tools:
 
@@ -213,14 +213,14 @@ The ODBC driver package for SQL Server also comes with two command-line tools:
   > [!NOTE]
   > There are some differences in this tool between Linux and Windows platforms. See the documentation for details.
 
-#### Database access libraries
+### Database access libraries
 
 Libraries are available in R and Python for database access:
 
 * In R, you can use the RODBC package or dplyr package to query or run SQL statements on the database server.
 * In Python, the pyodbc library provides database access with ODBC as the underlying layer.  
 
-### Azure tools
+## Azure tools
 
 The following Azure tools are installed on the VM:
 
@@ -234,7 +234,7 @@ The following Azure tools are installed on the VM:
 
 You can access the [Azure portal](https://portal.azure.com) from the pre-installed Firefox browser. On the Azure portal, you can create, manage, and monitor Azure resources.
 
-### Azure Machine Learning
+## Azure Machine Learning
 
 Azure Machine Learning is a fully managed cloud service that enables you to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. You can access it from a web browser on the Data Science Virtual Machine by visiting [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
@@ -249,7 +249,7 @@ For information on how to deploy models in R and Python into Azure Machine Learn
 > [!NOTE]
 > These instructions were written for the Windows version of the Data Science Virtual Machine. But the information provided there on deploying models to Azure Machine Learning is applicable to the Linux VM.
 
-### Machine learning tools
+## Machine learning tools
 
 The VM comes with machine learning tools and algorithms that have been pre-compiled and pre-installed locally. These include:
 
@@ -264,7 +264,7 @@ The VM comes with machine learning tools and algorithms that have been pre-compi
 
 Here is some additional information about the first three machine learning tools in the list.
 
-#### Vowpal Wabbit
+### Vowpal Wabbit
 
 Vowpal Wabbit is a machine learning system that uses techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
@@ -278,7 +278,7 @@ vw house_dataset
 
 There are other, larger demos in that directory. For more information on Vowpal Wabbit, see  [this section of GitHub](https://github.com/JohnLangford/vowpal_wabbit) and the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
-#### xgboost
+### xgboost
 
 The xgboost library is designed and optimized for boosted (tree) algorithms. The objective of this library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
@@ -310,7 +310,7 @@ A .model file is written to the specified directory. You can find information ab
 
 For more information about xgboost, see the [xgboost documentation page](https://xgboost.readthedocs.org/en/latest/) and its [GitHub repository](https://github.com/dmlc/xgboost).
 
-#### Rattle
+### Rattle
 
 Rattle (the **R** **A**nalytical **T**ool **T**o **L**earn **E**asily) uses GUI-based data exploration and modeling. It presents statistical and visual summaries of data, transforms data that can be readily modeled, builds both unsupervised and supervised models from the data, presents the performance of models graphically, and scores new data sets. It also generates R code, replicating the operations in the UI that can be run directly in R or used as a starting point for further analysis.
 

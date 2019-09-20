@@ -48,9 +48,8 @@ The Linux DSVM can ease this burden substantially. Use the Linux DSVM to jump-st
 
 There are no software charges for the DSVM image. You pay only the Azure hardware usage fees that are assessed based on the size of the virtual machine you provision with the DSVM image. For more information about the compute fees, see the [Data Science Virtual Machine for Linux (CentOS) listing](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/) in Azure Marketplace.
 
-## Tools installed on the Linux Data Science Virtual Machine
 
-### Machine Learning Server
+## Machine Learning Server
 
 R is one of the most popular languages for data analysis and machine learning. If you want to use R for your analytics, the DSVM has Machine Learning Server with Microsoft R Open and Math Kernel Library. Math Kernel Library optimizes common math operations in analytical algorithms. R Open is fully compatible with CRAN R. Any of the R libraries published in CRAN can be installed on R Open. 
 
@@ -60,7 +59,7 @@ To open the R console, in the shell, enter **R**. This command takes you to an i
 
 An R script that you can use to install the [top 20 R packages](https://www.kdnuggets.com/2015/06/top-20-r-packages.html) is included in the DSVM. You can run this script when you're in the R interactive interface. As mentioned earlier, to open that interface, in the shell, enter **R**.  
 
-### Python
+## Python
 
 Anaconda Python is installed with the Python 3.5 and 2.7 environments. The 2.7 environment is called _root_ and the 3.5 environment is called _py35_. This distribution contains the base Python along with about 300 of the most popular math, engineering, and data analytics packages.
 
@@ -99,7 +98,7 @@ conda install <package> -n py35
 
 If you're on a graphical interface or have X11 forwarding set up, you can enter **pycharm** to open the PyCharm Python IDE. You can use the default text editors. In addition, you can use Spyder, a Python IDE that's bundled with Anaconda Python distributions. Spyder needs a graphical desktop or X11 forwarding. The graphical desktop has a shortcut to Spyder.
 
-### Jupyter Notebook
+## Jupyter Notebook
 
 The Anaconda distribution also comes with a Jupyter Notebook, an environment to share code and analysis. Access the Jupyter Notebook through JupyterHub. You sign in by using your local Linux username and password.
 
@@ -115,7 +114,7 @@ You can access the Jupyter notebook server from any host. Enter **https:\//\<DSV
 
 Microsoft has packaged sample notebooks, one in Python and one in R. You can see the link to the samples on the Jupyter Notebook home page after you authenticate to the Jupyter Notebook by using your local Linux username and password. To create a new notebook, select **New**, and then select the language kernel you want to use. If you don't see the **New** button, select the **Jupyter** icon on the upper left to go to the home page of the notebook server.
 
-### Spark Standalone 
+## Spark Standalone 
 
 An instance of Spark Standalone mode is preinstalled on the Linux DSVM to help you develop Spark applications locally before you test and deploy them on large clusters. 
 
@@ -143,7 +142,7 @@ You can stop the Hadoop-related services when you don't need them by running `sy
 
 The /dsvm/samples/MRS directory provides a sample that demonstrates how to develop and test Machine Learning Server in a remote Spark context (the standalone Spark instance on the DSVM).
 
-### IDEs and editors
+## IDEs and editors
 
 You can choose from several code editors, including vi/VIM, Emacs, gedit, PyCharm, RStudio, Eclipse, LaTeX, and IntelliJ. 
 
@@ -161,15 +160,15 @@ You can choose from several code editors, including vi/VIM, Emacs, gedit, PyChar
 
 * LaTeX is installed through the texlive package, along with an Emacs add-on package called [AUCTeX](https://www.gnu.org/software/auctex/manual/auctex/auctex.html). This package simplifies authoring your LaTeX documents in Emacs. 
 
-### Databases
+## Databases
 
 The Linux DSVM gives you access to several database and command-line tools.
 
-#### PostgresSQL
+### PostgresSQL
 
 The open-source database PostgresSQL is available on the DSVM, with services running and initdb completed. You must create databases and users. For more information, see the [PostgresSQL documentation](https://www.postgresql.org/docs/).  
 
-#### SQuirreL SQL
+### SQuirreL SQL
 
 SQuirreL SQL is a graphical SQL client that can connect to various databases (including SQL Server, PostgresSQL, and MySQL) and run SQL queries. You can run SQuirreL SQL from a graphical desktop session (through the X2Go client, for example) by using a desktop icon. Or you can run the client by using the following command in the shell:
 
@@ -181,7 +180,7 @@ Before the first use, set up your drivers and database aliases. The JDBC drivers
 
 For more information, see [SQuirreL SQL](http://squirrel-sql.sourceforge.net/index.php?page=screenshots).
 
-#### Command-line tools for accessing SQL Server
+### Command-line tools for accessing SQL Server
 
 The ODBC driver package for SQL Server also comes with two command-line tools:
 
@@ -196,14 +195,14 @@ The ODBC driver package for SQL Server also comes with two command-line tools:
   > [!NOTE]
   > There are some differences in this tool between Linux and Windows platforms. See the documentation for details.
 
-#### Database access libraries
+### Database access libraries
 
 Libraries for database access are available in R and Python:
 
 * In R, you can use the RODBC package or dplyr package to query or run SQL statements on the database server.
 * In Python, the pyodbc library provides database access with ODBC as the underlying layer.
 
-### Azure tools
+## Azure tools
 
 The following Azure tools are installed on the DSVM:
 
@@ -217,7 +216,7 @@ The following Azure tools are installed on the DSVM:
 
 You can access the [Azure portal](https://portal.azure.com) from the preinstalled Firefox browser. In the Azure portal, you can create, manage, and monitor Azure resources.
 
-### Azure Machine Learning
+## Azure Machine Learning
 
 Azure Machine Learning is a fully managed cloud service that you can use to build, deploy, and share predictive analytics solutions. You build your experiments and models from Azure Machine Learning Studio. To access Azure Machine Learning from a web browser on the DSVM, go to [Microsoft Azure Machine Learning](https://studio.azureml.net).
 
@@ -232,7 +231,7 @@ For information about how to deploy models in R and Python to Azure Machine Lear
 > [!NOTE]
 > The instructions in [Ten things you can do on the Data Science Virtual Machine](vm-do-ten-things.md) were written for the Windows version of the DSVM. However, the information about deploying models to Azure Machine Learning also applies to the Linux DSVM.
 
-### Machine learning tools
+## Machine learning tools
 
 The DSVM comes with a few machine learning tools and algorithms that are precompiled and preinstalled locally. These include:
 
@@ -244,7 +243,7 @@ The DSVM comes with a few machine learning tools and algorithms that are precomp
 
 Microsoft Cognitive Toolkit, Vowpal Wabbit, and XGBoost are discussed in more detail in the next sections.
 
-#### Microsoft Cognitive Toolkit
+### Microsoft Cognitive Toolkit
 
 Microsoft Cognitive Toolkit is an open-source deep learning toolkit. It's a command-line tool (CNTK) and is already in the PATH.
 
@@ -257,7 +256,7 @@ cntk configFile=lr_bs.cntk makeMode=false command=Train
 
 For more information, see the [GitHub CNTK repository](https://github.com/Microsoft/CNTK) and the [CNTK wiki](https://github.com/Microsoft/CNTK/wiki).
 
-#### Vowpal Wabbit
+### Vowpal Wabbit
 
 Vowpal Wabbit is a machine learning system that uses techniques like online, hashing, allreduce, reductions, learning2search, active, and interactive learning.
 
@@ -271,7 +270,7 @@ vw house_dataset
 
 The Vowpal Wabbit demo directory includes other, larger demos. For more information about Vowpal Wabbit, see the [GitHub Vowpal Wabbit repository](https://github.com/JohnLangford/vowpal_wabbit) and the [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki).
 
-#### XGBoost
+### XGBoost
 
 The XGBoost library is designed and optimized for boosted (tree) algorithms. The objective of the XGBoost library is to push the computation limits of machines to the extremes needed to provide large-scale tree boosting that is scalable, portable, and accurate.
 
@@ -305,7 +304,7 @@ A .model file is written to the specified directory. For information about this 
 
 For more information about XGBoost, see the [XGBoost documentation](https://xgboost.readthedocs.org/en/latest/) and the [XGBoost GitHub repository](https://github.com/dmlc/xgboost).
 
-#### Rattle
+### Rattle
 
 Rattle (*R* *A*nalytical *T*ool *T*o *L*earn *E*asily) uses GUI-based data exploration and modeling. Rattle:
 - Presents statistical and visual summaries of data.

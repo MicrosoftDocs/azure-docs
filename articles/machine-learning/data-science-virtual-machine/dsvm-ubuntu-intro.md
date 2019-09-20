@@ -24,7 +24,9 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
 1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine for Linux (Ubuntu)."
+    
     ![Ubuntu VM Listing](./media/dsvm-ubuntu-intro/search-ubuntu.png)
+
 1. On the subsequent window, select **Create**.
 
     ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/Create_Linux.png)
@@ -66,9 +68,9 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 
 You can access the Ubuntu DSVM in one of three ways:
 
-  1. SSH for terminal sessions
-  1. X2Go for graphical sessions
-  1. JupyterHub and JupyterLab for Jupyter notebooks
+  * SSH for terminal sessions
+  * X2Go for graphical sessions
+  * JupyterHub and JupyterLab for Jupyter notebooks
 
 You can also attach a Data Science Virtual Machine to Azure Notebooks to run Jupyter notebooks on the VM and bypass the limitations of the free service tier. For more information, see [Manage and configure Azure Notebooks projects](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 

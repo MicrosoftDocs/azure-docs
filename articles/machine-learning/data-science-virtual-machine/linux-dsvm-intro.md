@@ -12,6 +12,8 @@ ms.date: 09/13/2019
 ---
 # Quickstart: Set up a CentOS (Linux) Data Science Virtual Machine in Azure
 
+Get up and running with a CentOS-based Data Science Virtual Machine.
+
 ## Prerequisites
 
 To create a CentOS Data Science Virtual Machine, you must have an **Azure subscription**. [Create a free subscription](https://azure.com/free).

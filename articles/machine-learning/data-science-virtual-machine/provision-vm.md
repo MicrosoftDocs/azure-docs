@@ -14,6 +14,8 @@ ms.date: 09/10/2019
 
 # Quickstart: Set up the Data Science Virtual Machine for Windows
 
+Get up and running with a Windows Data Science Virtual Machine.
+
 ## Prerequisite
 
 To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
