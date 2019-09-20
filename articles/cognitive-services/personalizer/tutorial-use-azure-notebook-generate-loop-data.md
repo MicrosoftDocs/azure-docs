@@ -137,7 +137,7 @@ The cell has output from the call to `get_last_updated` function, which is the d
 # build URLs
 personalization_rank_url = personalization_base_url + "/personalizer/v1.0/rank"
 personalization_reward_url = personalization_base_url + "/personalizer/v1.0/events/" #add "{eventId}/reward"
-headers = {'Ocp-Apim-Subscription-Key' : subscription_key, 'Content-Type': 'application/json'}
+headers = {'Ocp-Apim-Subscription-Key' : resource_key, 'Content-Type': 'application/json'}
 
 # context
 users = "users.json"
@@ -146,7 +146,7 @@ users = "users.json"
 coffee = "coffee.json"
 
 # empty JSON for Rank request
-requestpath = "rankrequest.json"
+requestpath = "example-rankrequest.json"
 
 # initialize random
 random.seed(time.time())
