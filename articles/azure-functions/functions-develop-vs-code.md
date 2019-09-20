@@ -86,7 +86,7 @@ The project template creates a project in your chosen language and installs requ
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](functions-develop-vs-code.md#tab/nodejs#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](functions-develop-vs-code.md#tab/csharp#add-a-function-to-your-project).
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
