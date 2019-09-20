@@ -21,7 +21,7 @@
   - name: Code Hosting Services
     href: code-hosting-services.md
   - name: DevOps
-    - name: "What is DevOps?"
+    - name: What is DevOps
       href: devops.md
     - name: Continuous Build & Integration
       href: continuous-integration.md
@@ -45,6 +45,3 @@
     href: azure-cdn.md        
   - name: Azure Search
     href: azure-search.md
-     
- 
- 
