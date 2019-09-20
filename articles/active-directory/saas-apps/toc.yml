@@ -173,6 +173,8 @@
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
         href: birst-tutorial.md
+      - name: BIS
+        href: bis-tutorial.md
       - name: BitaBIZ
         href: bitabiz-tutorial.md
       - name: Blackboard Learn
@@ -567,6 +569,8 @@
         href: hornbill-tutorial.md
       - name: Hosted Graphite
         href: hostedgraphite-tutorial.md
+      - name: Hosted Heritage Online SSO
+        href: hosted-heritage-online-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -1476,6 +1480,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Blink
+        href: blink-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1570,6 +1576,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Cloud Platform Identity Authentication
+        href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Slack

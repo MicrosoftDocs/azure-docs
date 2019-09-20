@@ -230,7 +230,7 @@ Next, add a condition that checks whether the current travel time is greater tha
 
 1. Under the previous action, select **New step**.
 
-1. Under **Choose an action**, select **Built-in**, and search for "condition", and select the **Condition** action.
+1. Under **Choose an action**, select **Built-in**. In the search box, enter "condition" as your filter. From the actions list, select the **Condition** action.
 
    ![Select "Condition" action](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-condition-action.png)
 
@@ -238,19 +238,19 @@ Next, add a condition that checks whether the current travel time is greater tha
 
 1. Build a condition that checks whether the **travelTime** property value exceeds your specified limit as described and shown here:
 
-   1. Inside the condition, click inside the **Choose a value** box on the condition's left side.
+   1. In the condition, click inside the **Choose a value** box on the condition's left side.
 
-   1. When the dynamic content list appears,  under **Variables**, select the **travelTime** property.
+   1. From the dynamic content list that appears, under **Variables**, select the **travelTime** property.
 
       ![Build condition left side](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png)
 
-   1. In the comparison box, select this operator: **is greater than**
+   1. In the middle comparison box, select the **is greater than** operator.
 
    1. In the **Choose a value** box on the condition's right side, enter this limit: `15`
 
       When you're done, the condition looks like this example:
 
-      ![Build condition](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
+      ![Finished condition](./media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-check-travel-time.png)
 
 1. Save your logic app.
 
