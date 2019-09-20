@@ -268,26 +268,26 @@ Next, set up the emails to send when the approved member succeeds or fails in jo
 
 ## Send email if member not added
 
-1. In the **If false** branch for the condition **If add member succeeded**, select **Add an action**.
+1. Under the **If add member succeeded** condition, in the **If false** branch, select **Add an action**.
 
    ![In "If false" branch for condition, select "Add an action"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed.png)
 
-1. Search for `outlook send email`, and select this action: **<*your-email-provider*> - Send an email**
+1. Under **Choose an action**, in the search box, enter `outlook send email` as your filter, and select the **Send an email** action.
 
    ![Add action for "Send an email"](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-2.png)
 
 1. Rename the action with this description: `Send email on failure`
 
-1. Provide information for this action as shown and described here:
+1. Provide information about this action as shown and described here:
 
    ![Provide information for failed email](./media/tutorial-process-mailing-list-subscriptions-workflow/add-action-email-failed-settings.png)
 
-   | Setting | Value | Description |
-   | ------- | ----- | ----------- |
-   | **To** | <*your-email-address*> | The email address for where to send the failure email. For testing purposes, you can use your own email address. |
-   | **Subject** | <*subject-for-failure-email*> | The subject for the failure email. For this tutorial, enter this text and select the specified field under **Add member to list** from the parameter list or dynamic content list: <p>"Failed, member not added to 'test-members-ML': **Email Address**" |
-   | **Body** | <*body-for-failure-email*> | The body content for the failure email. For this tutorial, enter this text: <p>"Member might already exist. Check your MailChimp account." |
-   ||||
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
+   | **To** | Yes | <*your-email-address*> | The email address for where to send the failure email. For testing purposes, you can use your own email address. |
+   | **Subject** | Yes | <*subject-for-failure-email*> | The subject for the failure email. For this tutorial, enter this text: <p>`Failed, member not added to "test-members-ML": ` <p>From the dynamic content list, under **Add member to list**, select the **Email Address** property. |
+   | **Body** | Yes | <*body-for-failure-email*> | The body content for the failure email. For this tutorial, enter this text: <p>`Member might already exist. Check your MailChimp account.` |
+   |||||
 
 1. Save your logic app. 
 
@@ -320,9 +320,15 @@ Congratulations, you've now created and run a logic app that integrates informat
 
 ## Clean up resources
 
-When no longer needed, delete the resource group that contains your logic app and related resources. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app. Select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
+When you no longer need the sample logic app, delete the resource group that contains your logic app and related resources. 
 
-!["Overview" > "Delete resource group"](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+1. On the main Azure menu, go to **Resource groups**, and select the resource group for your logic app.
+
+1. On the resource group menu, select **Overview** > **Delete resource group**. 
+
+   !["Overview" > "Delete resource group"](./media/tutorial-process-mailing-list-subscriptions-workflow/delete-resource-group.png)
+
+1. Enter the resource group name as confirmation, and select **Delete**.
 
 ## Next steps
 
