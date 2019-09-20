@@ -34,7 +34,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 ## Using Application Insights SDK for Worker Services
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
-   The following shows the changes which need to be added to your project's `.csproj` file.
+   The following snippet shows the changes that need to be added to your project's `.csproj` file.
 
 ```xml
     <ItemGroup>
@@ -42,7 +42,7 @@ A valid Application Insights instrumentation key. This key is required to send a
     </ItemGroup>
 ```
 
-1. Call `AddApplicationInsightsTelemetryWorkerService(string instrumentationKey)` extension method on `IServiceCollection`, providing the instrumentation key. This should be called at the beginning of the application. The exact location depends on the type of application.
+1. Call `AddApplicationInsightsTelemetryWorkerService(string instrumentationKey)` extension method on `IServiceCollection`, providing the instrumentation key. This method should be called at the beginning of the application. The exact location depends on the type of application.
 
 1. Retrieve an `ILogger` instance or `TelemetryClient` instance from the Dependency Injection (DI) container by calling `serviceProvider.GetRequiredService<TelemetryClient>();` or using Constructor Injection. This step will trigger setting up of `TelemetryConfiguration` and auto collection modules.
 
@@ -287,7 +287,7 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 ## Run your application
 
-Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
+Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it will be correlated to this parent as well.
 
 This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
@@ -299,11 +299,11 @@ The following lists the full telemetry automatically collected by Application In
 
 ### ILogger logs
 
-Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize log levels which are captured by Application Insights.
+Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
 
 ### Dependencies
 
-Dependency collection is enabled by default. [This](asp-net-dependencies.md#automatically-tracked-dependencies) article explains the dependencies which are automatically collected, and also contain steps to do manual tracking.
+Dependency collection is enabled by default. [This](asp-net-dependencies.md#automatically-tracked-dependencies) article explains the dependencies that are automatically collected, and also contain steps to do manual tracking.
 
 ### EventCounter
 
@@ -366,7 +366,7 @@ You can modify a few common settings by passing `ApplicationInsightsServiceOptio
     }
 ```
 
-Please note that `ApplicationInsightsServiceOptions` in this SDK is in the namespace `Microsoft.ApplicationInsights.WorkerService` as opposed to `Microsoft.ApplicationInsights.AspNetCore.Extensions` in the ASP.NET Core SDK.
+Note that `ApplicationInsightsServiceOptions` in this SDK is in the namespace `Microsoft.ApplicationInsights.WorkerService` as opposed to `Microsoft.ApplicationInsights.AspNetCore.Extensions` in the ASP.NET Core SDK.
 
 Commonly used settings in `ApplicationInsightsServiceOptions`
 
@@ -374,7 +374,7 @@ Commonly used settings in `ApplicationInsightsServiceOptions`
 |---------------|-------|-------
 |EnableQuickPulseMetricStream | Enable/Disable LiveMetrics feature | true
 |EnableAdaptiveSampling | Enable/Disable Adaptive Sampling | true
-|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15 min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
+|EnableHeartbeat | Enable/Disable Heartbeats feature, which periodically (15-min default) sends a custom metric named 'HeartBeatState' with information about the runtime like .NET Version, Azure Environment information, if applicable, etc. | true
 |AddAutoCollectedMetricExtractor | Enable/Disable AutoCollectedMetrics extractor, which is a TelemetryProcessor that sends pre-aggregated metrics about Requests/Dependencies before sampling takes place. | true
 
 See the [configurable settings in `ApplicationInsightsServiceOptions`](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) for the most up-to-date list.
@@ -555,7 +555,7 @@ Use this sample if you are using a Console Application written in either .NET Co
 Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)
 
 [.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
-Use this if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
+Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
 
 ## Open-source SDK
 
