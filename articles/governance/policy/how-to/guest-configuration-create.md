@@ -57,10 +57,65 @@ and publishing them to Azure Policy:
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## Create custom Guest Configuration configuration
+## Create custom Guest Configuration configuration and resources
 
 The first step to creating a custom policy for Guest Configuration is to create the DSC
 configuration. For an overview of DSC concepts and terminology, see [PowerShell DSC Overview](/powershell/dsc/overview/overview).
+
+If your configuration only requires resources that are builtin with the Guest Configuration agent install,
+then you only need to author a configuration MOF file. If you need to run additional script, then you will need to author a custom resource module.
+
+### Requirements for Guest Configuration custom resources
+
+When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine
+if it is in the correct state.  The boolean value returned by the function determines if the Azure Resource Manager
+status for the Guest Assignment should be Compliant/Not-Compliant.  If the boolean is `$false` for any resource in the configuration,
+then the provider will run `Get-TargetResource`.
+If the boolean is `$true` then `Get-TargetResource` is not called.
+
+The function `Get-TargetResource` has special requirements for Guest Configuration that have not been needed for Windows Desired State
+Configuration.
+
+- The hashtable that is returned must include a property named **Reasons**.
+- The Reasons property must be an array.
+- Each item in the array should be a hashtable with keys named **Code** and **Phrase**.
+
+The Reasons property is used by the service to standardize how information is presented when a machine is out of compliance.
+You can think of each item in Reasons as a "reason" that the resource is not compliant. The property is an array because a resource
+could be out of compliance for more than one reason.
+
+The properties **Code** and **Phrase** are expected by the service. When authoring a custom resource, set the text (typically stdout) you would
+like to show as the reason the resource is not compliant as the value for **Phrase**.  **Code** has specific formatting requirements
+so reporting can clearly display information about the resource that was used to perform the audit. This solution makes Guest Configuration
+extensible. Any command could be run to audit a machine as long as the output can be captured and returned as a string value for the
+**Phrase** property.
+
+- **Code** (string): The name of the resource, repeated, and then a short name with no spaces as an identifier for the reason.  These three values should be colon-delimited with no spaces.
+    - An example would be 'registry:registry:keynotpresent'.
+- **Phrase** (string): Human-readable text to explain why the setting is not compliant.
+    - An example would be 'The registry key $key is not present on the machine.'
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### Scaffolding a Guest Configuration project
+
+For developers who would like to accelerate the process of getting started and working from sample code, a community project named
+**Guest Configuration Project** exists as a template for the
+[Plaster](https://github.com/powershell/plaster)
+PowerShell module.  This tool can be used to scaffold a project including a working configuration and sample resource, and a set of
+[Pester](https://github.com/pester/pester)
+tests to validate the project.  The template also includes task runners for Visual Studio Code
+to automate building and validating the Guest Configuration package. For more information, see the GitHub project
+[Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
 
 ### Custom Guest Configuration configuration on Linux
 
@@ -165,12 +220,12 @@ First, create a user-assigned managed identity in Azure. The identity is used by
 access secrets stored in Key Vault. For detailed steps, see
 [Create, list or delete a user-assigned managed identity using Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
-Next, create a Key Vault instance. For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
+Create a Key Vault instance. For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
 Assign permissions to the instance to give the user-assigned identity access to secrets stored in
 Key Vault. For detailed steps, see
 [Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
 
-Then, assign the user-assigned identity to your machine. For detailed steps, see
+Assign the user-assigned identity to your machine. For detailed steps, see
 [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
 At scale, assign this identity using Azure Resource Manager via Azure Policy. For detailed steps,
 see
@@ -387,7 +442,7 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 After you've published a custom Azure Policy using your custom content package,
 there are two fields that must be updated if you would like to publish a new release.
 
-- **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet you must specify a version number greater than what is currently published.  The property updates the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
+- **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version number greater than what is currently published.  The property updates the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
 - **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy` cmdlet.  It's a hash value of the package created by `New-GuestConfigurationPackage`.  The property must be correct for the `.zip` file you publish.  If only the `contentUri` property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension won't accept the content package.
 
 The easiest way to release an updated package is to repeat the process described in this article
@@ -408,7 +463,7 @@ as Azure Policy will be the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages
 
-Guest Configuration custom policies by default use SHA256 hash to validate that the policy package
+Guest Configuration custom policies by default use SHA256 hash to validate the policy package
 hasn't changed from when it was published to when it's read by the server that is being audited.
 Optionally, customers may also use a certificate to sign packages and force the Guest Configuration
 extension to only allow signed content.
