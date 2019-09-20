@@ -62,7 +62,7 @@ Setting up the environment can be done using one of the publish setup actions.
 |**JavaScript**     | `actions/setup-node` |
 |**Python**   | `actions/setup-python` |
 
-The following example is a fragment of the .yaml file for a function app that uses:
+The following examples show the part of the workflow that sets up the environment for the various supported languages:
 
 **JavaScript**
 
@@ -90,7 +90,7 @@ The following example is a fragment of the .yaml file for a function app that us
         python-version: 3.6
 ```
 
-**Dot Net**
+**.NET**
 
 ```yaml
     - name: 'Login via Azure CLI'
@@ -122,7 +122,7 @@ The following example is a fragment of the .yaml file for a function app that us
 
 This depends on the language and for languages supported by Azure Functions, this section should be the standard build steps of each language.
 
-The following example is a fragment of the .yaml file for a function app that uses:
+The following examples show the part of the workflow that builds the function app, in the various supported languages.:
 
 **JavaScript**
 
@@ -153,7 +153,7 @@ The following example is a fragment of the .yaml file for a function app that us
         popd
 ```
 
-**Dot Net**
+**.NET**
 
 ```yaml
     - name: 'Run dotnet build'
