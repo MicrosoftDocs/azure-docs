@@ -31,15 +31,16 @@ The following diagram presents the architecture of Azure resources.
 
 **B**. The fabric controller is responsible for maintaining and monitoring all the resources in the data center. It communicates with fabric host agents on the fabric OS sending information such as the Guest OS version, service package, service configuration, and service state.
 
-**C**. The Host Agent lives on the Host OSsystem and is responsible for setting up Guest OS and communicating with Guest Agent (WindowsAzureGuestAgent) in order to update the role toward an intended goal state and do heartbeat checks with the Guest agent. If Host Agent does not receive heartbeat response for 10 minutes, Host Agent restarts the Guest OS.
+**C**. The Host Agent lives on the Host OS and is responsible for setting up Guest OS and communicating with Guest Agent (WindowsAzureGuestAgent) in order to update the role toward an intended goal state and do heartbeat checks with the Guest agent. If Host Agent does not receive heartbeat response for 10 minutes, Host Agent restarts the Guest OS.
 
 **C2**. WaAppAgent is responsible for installing, configuring, and updating WindowsAzureGuestAgent.exe.
 
 **D**.  WindowsAzureGuestAgent is responsible for the following:
 
-1. Configuring the Guest OS including firewall, ACLs, LocalStorage resources, service package and configuration, and certificates. Setting up the SID for the user account that the role will run under.
-2. Communicating the role status to the fabric.
-3. Starting WaHostBootstrapper and monitoring it to make sure that the role is in goal state.
+1. Configuring the Guest OS including firewall, ACLs, LocalStorage resources, service package and configuration, and certificates.
+2. Setting up the SID for the user account that the role will run under.
+3. Communicating the role status to the fabric.
+4. Starting WaHostBootstrapper and monitoring it to make sure that the role is in goal state.
 
 **E**. WaHostBootstrapper is responsible for:
 
