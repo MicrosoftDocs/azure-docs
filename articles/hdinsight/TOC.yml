@@ -208,6 +208,7 @@
     - name: Resource Manager template
       href: /azure/templates/microsoft.hdinsight/allversions
   - name: Resources
+    items:
     - name: Releases
       items:
       - name: What's new in HDInsight 4.0
