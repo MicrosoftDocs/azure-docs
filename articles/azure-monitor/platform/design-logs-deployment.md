@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 09/20/2019
 ms.author: magoedte
 ---
 
@@ -30,6 +30,21 @@ A Log Analytics workspace provides:
 * Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period), and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
 This article provides a detailed overview of the design and migration considerations, access control overview, and an understanding of the design implementations we recommend for your IT organization.
+
+## Ingestion limit
+
+Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. Ingestion volume rate limit helps protect the platform from sudden increases in data volume. The default ingestion rate threshold is set to **500 MB/min** per workspace. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours that the threshold continues to be exceeded.
+ 
+To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results grater than zero.
+
+``` Kusto
+Operation
+|where OperationCategory =="Ingestion"
+|where Detailstartswith"The rate of data crossed the threshold"
+``` 
+
+If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
+
 
 ## Important considerations for an access control strategy
 
