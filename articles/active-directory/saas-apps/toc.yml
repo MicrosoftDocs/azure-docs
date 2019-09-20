@@ -1215,6 +1215,8 @@
         href: softeon-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
+      - name: Sonarqube
+        href: sonarqube-tutorial.md
       - name: Soonr Workplace
         href: soonr-tutorial.md
       - name: SpaceIQ
