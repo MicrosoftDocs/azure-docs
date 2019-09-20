@@ -1,12 +1,12 @@
 ---
 title: Use Search explorer tool for querying data in Azure portal - Azure Search
-description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Search. Enter strings for term or phrase search, or fully-qualified search expressions with advanced syntax.
+description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
 manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -16,12 +16,9 @@ This article shows you how to query an existing Azure Search index using **Searc
 
    ![Search explorer command in portal](./media/search-explorer/search-explorer-cmd2.png "Search explorer command in portal")
 
-
-For help getting started, see [Start Search explorer](#start-search-explorer).
-
 ## Basic search strings
 
-The following examples assume the built-in realestate sample index. For help creating this index, see [Quickstart: Import, index, and query in Azure portal](search-get-started-portal.md).
+The following examples assume the built-in real estate sample index. You can create this index using the Import data wizard in the portal, choosing **Samples** as the data source.
 
 ### Example 1 - empty search
 
