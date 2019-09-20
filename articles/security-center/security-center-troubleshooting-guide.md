@@ -2,7 +2,7 @@
 title: Azure Security Center Troubleshooting Guide | Microsoft Docs
 description: This document helps troubleshoot issues in Azure Security Center.
 services: security-center
-author: memildin,v-miegge
+author: v-miegge
 manager: dcscontentpm
 
 ms.service: security-center
@@ -146,7 +146,7 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Tutorial: Respond to security incidents](tutorial-security-incident.md)
 * [Alerts Validation in Azure Security Center](security-center-alert-validation.md)
 * [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md)
-* [Handling Security Incidents in Azure Security Center](security-center-incidents.md)
+* [Handling Security Incidents in Azure Security Center](security-center-incident.md)
 * [Alert confidence score](security-center-secure-score.md)
 * [Investigate Incidents and Alerts in Azure Security Center](security-center-investigation.md)
 * [Azure Security Center detection capabilities](https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities)
