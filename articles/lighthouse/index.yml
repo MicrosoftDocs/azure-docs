@@ -72,15 +72,6 @@ landingContent:
           - text: SDK for Python - PyPi
             url: https://pypi.org/project/azure-mgmt-managedservices/
 
-  - title: Samples and templates
-    linkLists:
-      - linkListType: deploy
-        links:
-          - text: Azure Lighthouse samples repository (GitHub)
-            url: https://github.com/Azure/Azure-Lighthouse-samples/
-          - text: Index of Azure Lighthouse samples
-            url: ./samples/index.md
-
   - title: Reference - SDKs
     linkLists:
       - linkListType: reference
@@ -95,6 +86,15 @@ landingContent:
             url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
             url: /python/api/azure-mgmt-managedservices
+
+  - title: Samples and templates
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Azure Lighthouse samples repository (GitHub)
+            url: https://github.com/Azure/Azure-Lighthouse-samples/
+          - text: Index of Azure Lighthouse samples
+            url: ./samples/index.md
 
   - title: Get involved
     linkLists:
