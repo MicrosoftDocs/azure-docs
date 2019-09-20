@@ -55,7 +55,7 @@ An account in the Microsoft identity platform consists of:
 
 Regarding this diagram:
 
-- The account bob@contoso.com is created in the on-premises Windows Server Active Directory (origin on-premise system of record).
+- The account bob@contoso.com is created in the on-premises Windows Server Active Directory (origin on-premises system of record).
 - The account tom@live.com is created in the Microsoft account tenant.
 - bob@contoso.com has access to at least one resource in the following Azure Active Directory tenants:
   - contoso.com (cloud system of record - linked to on-premises system of record)
