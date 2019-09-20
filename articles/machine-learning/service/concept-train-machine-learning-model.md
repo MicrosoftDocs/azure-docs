@@ -46,29 +46,29 @@ A run uses a __run configuration__ to define the environment needed to run your 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
-* [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
+* [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md)
 
 ## Estimator
 
 Estimators make it easy to train models using popular ML frameworks.
 
 * [What are estimators?](concept-azure-machine-learning-architecture#estimators)
-* [How to: Create estimators in training](how-to-train-ml-models.md)
 * [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
 * [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
+* [How to: Create estimators in training](how-to-train-ml-models.md)
 
 ## Automated Machine Learning
 
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined.
 
 * [What is automated machine learning?](concept-automated-ml.md)
-* [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
-* [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
 * [Tutorial: Use automated machine learning to predict taxi fares](tutorial-auto-train-models.md)
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
+* [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
+* [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
 
 ## Machine learning pipeline
 
