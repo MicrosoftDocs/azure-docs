@@ -55,24 +55,26 @@ The Project Acoustics Unreal plug-in needs additional behavior exposed from the 
 
     ![The code editor showing "DXSDK" commented out](media/directx-sdk-comment.png)
 
-* If you compile by using Visual Studio 2019: To work around a linking error with Wwise, manually change the default value *VSVersion* in `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs` to **vc150**:
+* If you compile by using Visual Studio 2019: To work around a linking error with Wwise, manually change the default value *VSVersion* in *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs* to **vc150**:
 
     ![The code editor with VSVersion changed to "vc150"](media/vsversion-comment.png)
 
 ### Open the Unreal Project 
 When you open the Unreal project, it will prompt you to rebuild modules. Select **Yes**.
 
->If opening the project fails on build failures, check that you installed the Project Acoustics Wwise plug-in to the same version of Wwise that's used in the Project Acoustics sample project.
+>If opening the project fails because of build failures, check that you installed the Project Acoustics Wwise plug-in to the same version of Wwise that was used in the Project Acoustics sample project.
 
->If you use a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than 2019.1, you won't be able to generate sound banks by using the Project Acoustics sample project. You need to integrate Wwise version 2019.1 into the sample project.
+>If you use a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than version 2019.1, you won't be able to generate sound banks by using the Project Acoustics sample project. You need to integrate Wwise version 2019.1 into the sample project.
 
 ## Experiment with Project Acoustics design controls
-Listen to how the scene sounds by clicking the play button in the Unreal editor. On desktop, use W, A, S, D, and the mouse to move around. To see keyboard shortcuts for more controls, press F1. The following sections describe some design activities to try.
+Listen to how the scene sounds by clicking the play button in the Unreal editor. On desktop, use W, A, S, D, and the mouse to move around. To see keyboard shortcuts for additional controls, press F1.
+
+The following information describes some design activities to try.
 
 ### Modify occlusion and transmission
-There are per-source Project Acoustics design controls on each Unreal sound actor:
+There are per-source Project Acoustics design controls on each Unreal sound actor.
 
-![THe Unreal Editor acoustics design controls](media/demo-scene-sound-source-design-controls.png)
+![The Unreal Editor acoustics design controls](media/demo-scene-sound-source-design-controls.png)
 
 If the **Occlusion** multiplier is greater than 1 (the default is 1), occlusion will be exaggerated. A setting of less than 1 makes the occlusion effect more subtle.
 
@@ -81,12 +83,12 @@ To enable through-wall transmission, move the **Transmission (dB)** slider away 
 ### Modify wetness for a source
 To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Project Acoustics computes wet levels throughout the space through simulation. The levels vary smoothly with distance and provide perceptual distance cues. To exaggerate this effect, increase distance-related wet levels to increase the distance warp. Warping values of less than 1 make the distance-based reverberation change more subtle. You can also make finer adjustments to this effect through the **Wetness (dB)** setting.
 
-To increase the decay time throughout the space,  adjust **Decay Time Scale**. Consider a case where the simulation result is a decay time of 1.5 seconds. Setting **Decay Time Scale** to two results in a decay time of 3 seconds applied to the source.
+To increase the decay time throughout the space,  adjust **Decay Time Scale**. Consider a case where the simulation result is a decay time of 1.5 seconds. Setting **Decay Time Scale** to 2 results in a decay time of 3 seconds applied to the source.
 
 ### Modify distance-based attenuation
-The Project Acoustics Wwise mixer plug-in respects the per-source distance-based attenuation that's built into Wwise. Changing this curve changes the dry-path level. The Project Acoustics plug-in will adjust the wet level to maintain the wet-dry mix specified by the simulation and design controls.
+The Project Acoustics Wwise mixer plug-in respects the per-source distance-based attenuation that's built into Wise. Changing this curve changes the dry-path level. The Project Acoustics plug-in will adjust the wet level to maintain the wet-dry mix specified by the simulation and design controls.
 
-![The Wwise attenuation curve panel with attenuation going to 0 before the simulation boundary](media/demo-sounds-attenuation.png)
+![The Wwise attenuation curve panel showing attenuation going to 0 before the simulation boundary](media/demo-sounds-attenuation.png)
 
 Project Acoustics computes in a "simulation region" box that's centered around each simulated player location. The acoustics assets in the sample package were baked with a simulation region radius of 45 meters. Attenuations were designed to fall to 0 before 45 meters. While this falloff isn't a strict requirement, it carries the caveat that only geometry within 45 meters of the listener will occlude sounds.
 
