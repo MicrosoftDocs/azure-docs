@@ -6,7 +6,7 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/05/2019
+ms.date: 09/17/2019
 ms.author: alinast
 ---
 
