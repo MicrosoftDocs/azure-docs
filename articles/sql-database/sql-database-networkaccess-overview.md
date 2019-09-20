@@ -50,10 +50,6 @@ Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not
 database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
 You can work around the problem by running the BACPAC import or export directly in your code by using the DACFx API.
 
-### SQL Database Query Editor
-
-The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
-
 ### Table Auditing
 
 At present, there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
