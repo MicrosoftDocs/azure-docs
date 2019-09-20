@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/19/2017
+ms.date: 09/20/2019
 ---
 
 # Terraform Cloud Shell development 
