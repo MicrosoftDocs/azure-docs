@@ -62,34 +62,19 @@ Each of these values can be specified in the Terraform configuration file or on 
 
 Create an environment variable named `ARM_ACCESS_KEY` with the value of the Azure Storage access key.
 
-```console
+```azurecli-interactive
 export ARM_ACCESS_KEY=<storage access key>
 ```
 
 To further protect the Azure Storage account access key, store it in Azure Key Vault. The environment variable can then be set using a command similar to the following. For more information on Azure Key Vault, see the [Azure Key Vault documentation][azure-key-vault].
 
-```console
+```azurecli-interactive
 export ARM_ACCESS_KEY=$(az keyvault secret show --name terraform-backend-key --vault-name myKeyVault --query value -o tsv)
 ```
 
 To configure Terraform to use the backend, include a *backend* configuration with a type of *azurerm* inside of the Terraform configuration. Add the *storage_account_name*, *container_name*, and *key* values to the configuration block.
 
 The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
-
-```terraform
-terraform {
-  backend "azurerm" {
-    storage_account_name  = "tstate09762"
-    container_name        = "tstate"
-    key                   = "terraform.tfstate"
-  }
-}
-
-resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demo"
-  location = "eastus"
-}
-```
 
 ```hcl
 terraform {

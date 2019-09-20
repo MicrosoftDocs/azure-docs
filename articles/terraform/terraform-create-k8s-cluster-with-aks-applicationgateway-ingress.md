@@ -33,7 +33,7 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
   - Note the Object ID of the Service Principal by running the following command
 
-    ```bash
+    ```azurecli-interactive
     az ad sp list --display-name <displayName>
     ```
 
@@ -48,7 +48,7 @@ The first step is to create the directory that holds your Terraform configuratio
 
 1. Change directories to the `clouddrive` directory.
 
-    ```bash
+    ```azurecli-interactive
     cd clouddrive
     ```
 
