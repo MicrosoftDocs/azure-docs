@@ -111,17 +111,43 @@ Geo-restore is the default recovery option when your database is unavailable bec
 
 ![geo-restore](./media/sql-database-geo-restore/geo-restore-2.png)
 
-> [!TIP]
-> For a sample PowerShell script showing how to perform a geo-restore, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+### Geo-restore using Azure portal
+
+General concept of geo-restoring a database from Azure portal is performed through creating a new single or managed instance database at which time available geo-restore backup is selected.
+
+To geo-restore single Azure SQL Database from Azure portal, follow these steps:
+
+1. Click on add **+** in the marketplace and select **Create SQL Database**, fill out the required information under **Basics tab**
+2. Select **Additional settings** tab
+3. Under Use existing data click on **Backup**
+4. Select backup from the drop-down list to use in restoring this database in the region and server of your choice. 
+
+![geo-restore single Azure SQL Database](./media/sql-database-geo-restore/geo-restore-azure-sql-database-list-annotated.png)
+
+Complete the process of creating a new database. Once the single Azure SQL Database is created, it will contain restored geo-restore backup.
+
+To geo-restore managed instance database from Azure portal, follow these steps:
+
+1. Select the managed instance on which a new database will be restored
+2. Click on **+New database**
+3. Type in desired database name
+4. Under Use existing data select option **Backup**
+5. Select backup from the drop-down list to use in restoring this database to the chosen managed instance
+
+![geo-restore managed instance database](./media/sql-database-geo-restore/geo-restore-sql-managed-instance-list-annotated.png)
+
+Complete the process of creating a new database. Once the managed instance database is created, it will contain restored geo-restore backup.
+
+### Geo-restore using PowerShell
+
+For a sample PowerShell script showing how to perform a geo-restore, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+### Geo-restore considerations
 
 Point-in-time restore on a geo-secondary is not currently supported. Point-in-time restore can be done only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
 > Geo-restore is the most basic disaster recovery solution available in SQL Database. It relies on automatically created geo-replicated backups with RPO = 1 hour and the estimated recovery time of up to 12 hours. It does not guarantee that the target region will have the capacity to restore your database(s) after a regional ourage because a sharp increase of demand will be likely. For non business critical application that use relatively small databases, geo-restore is an appropriate disaster recovery solution. For business critical applications that use large databases and must ensure business continuity, you should use [Auto-failover groups](sql-database-auto-failover-group.md). It offers a much lower RPO and RTO, and the capacity is always guaranteed. For more information on business continuity choices, see [Overview of business continuity](sql-database-business-continuity.md).
-
-### Geo-restore using the Azure portal
-
-To geo-restore a database using the Azure portal, open the SQL Databases page and then click **Add**. In the **Select source** text box, select **Backup**. Specify the backup from which to perform the recovery in the region and on the server of your choice. 
 
 ## Programmatically performing recovery using automated backups
 
