@@ -498,7 +498,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "select" as your filter. From the actions list, select this action: **Select**
+1. Under **Choose an action**, select **Built-in**. In the search box, enter "select" as your filter. From the actions list, select this action: **Select**
 
    ![Select the "Select" action](./media/logic-apps-perform-data-operations/select-select-action.png)
 
