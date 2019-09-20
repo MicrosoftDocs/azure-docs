@@ -155,7 +155,7 @@ az resource create --is-full-object \
 Parameter | Required | Description
 ---|---|---
 *is-full-object* | Yes | Indicates whether the properties object includes other options like location, tags, SKU, or plan.
-*id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
+*id* | Yes | The resource ID of the custom resource. This ID is an extension of the custom provider resource ID.
 *properties* | Yes | The request body that will be sent to the endpoint.
 
 #### Delete a custom resource
@@ -166,7 +166,7 @@ az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resource
 
 Parameter | Required | Description
 ---|---|---
-*id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
+*id* | Yes | The resource ID of the custom resource. This ID is an extension of the custom provider resource ID.
 
 #### Retrieve a custom resource
 
@@ -176,7 +176,7 @@ az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGr
 
 Parameter | Required | Description
 ---|---|---
-*id* | Yes | The resource ID of the custom resource. This should exist off of the created custom provider.
+*id* | Yes | The resource ID of the custom resource. This ID is an extension of the custom provider resource ID.
 
 # [Template](#tab/template)
 
@@ -213,7 +213,7 @@ Parameter | Required | Description
 
 ## Next steps
 
-In this article, you learned about custom providers. Go to the next article to create a custom provider:
+In this article, you learned about custom providers. For more information, see:
 
 - [How to: Adding custom actions to Azure REST API](./custom-providers-action-endpoint-how-to.md)
 - [How to: Adding custom resources to Azure REST API](./custom-providers-resources-endpoint-how-to.md)

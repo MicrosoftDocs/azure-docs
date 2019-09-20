@@ -8,11 +8,7 @@ ms.date: 06/19/2019
 ms.author: jobreen
 ---
 
-# Setup Azure Functions for Azure Custom Providers
-
-```
 # Set up Azure Functions for Azure Custom Providers
-```
 
 A custom provider is a contract between Azure and an endpoint. With custom providers, you can change workflows in Azure. This tutorial shows how to set up an Azure function app to work as a custom provider endpoint.
 
@@ -33,7 +29,7 @@ To install the Azure Table storage bindings:
 1. Install the Microsoft.Azure.WebJobs.Extensions.Storage extension if it isn't already installed.
 1. In the **Table parameter name** box, enter "tableStorage".
 1. In the **Table name** box, enter "myCustomResources".
-1. Save the updated input parameter.
+1. Select **Save** to save the updated input parameter.
 
 ![Custom provider overview showing table bindings](./media/create-custom-providers/azure-functions-table-bindings.png)
 
@@ -49,9 +45,9 @@ To set up the Azure Function to include the custom provider RESTful request meth
 ## Add Azure Resource Manager NuGet packages
 
 > [!NOTE]
-> If the .csproj file is missing from the directory, you can add it manually. Or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
+> If your C# project file is missing from the project directory, you can add it manually. Or it will appear after the Microsoft.Azure.WebJobs.Extensions.Storage extension is installed on the function app.
 
-Next, update the .csproj file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the .csproj file to include the following package references:
+Next, update the C# project file to include helpful NuGet libraries. These libraries make it easier to parse incoming requests from custom providers. Follow the steps to [add extensions from the portal](../azure-functions/install-update-binding-extensions-manual.md) and update the C# project file to include the following package references:
 
 ```xml
 <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage" Version="3.0.4" />
@@ -59,7 +55,7 @@ Next, update the .csproj file to include helpful NuGet libraries. These librarie
 <PackageReference Include="Microsoft.Azure.WebJobs.Script.ExtensionsMetadataGenerator" Version="1.1.*" />
 ```
 
-The following XML element is an example .csproj file:
+The following XML element is an example C# project file:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

@@ -136,7 +136,7 @@ Property | Example | Description
 **type** | Microsoft.CustomProviders/resourceProviders/{resourceTypeName} | The resource-type namespace
 **id** | /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/<br>providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/<br>{resourceTypeName}/{myCustomResourceName} | The resource ID
 
-In addition to adding the properties, you also save the document to Azure Table storage.
+In addition to adding the properties, you also saved the JSON document to Azure Table storage.
 
 ### Retrieve a custom resource
 
@@ -245,7 +245,7 @@ public static async Task<HttpResponseMessage> EnumerateAllCustomResources(HttpRe
 ```
 
 > [!NOTE]
-> The row key greater than and less than is Azure Table storage syntax to perform a "startswith" query for strings.
+> The RowKey QueryComparisons.GreaterThan and QueryComparisons.LessThan is Azure Table storage syntax to perform a "startswith" query for strings.
 
 To list all existing resources, generate an Azure Table storage query that ensures the resources exist under your custom provider partition. The query then checks that the row key starts with the same `{myResourceType}` value.
 
