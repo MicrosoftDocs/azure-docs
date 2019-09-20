@@ -41,7 +41,7 @@ The following steps show you how to create a managed instance.
 
 5. Fill out mandatory information required at Basic tab using the table below. This is a minimum set of information to provision a managed instance.
 
-   ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
+   ![Managed instance create basic tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -64,7 +64,7 @@ The following steps show you how to create a managed instance.
 
 6. Fill out optional information at Networking tab using the table below. In case this information is omitted, default settings will be appled.
 
-   ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
+   ![Managed instance create networking tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -79,7 +79,7 @@ The following steps show you how to create a managed instance.
 
 7. Fill out optional information at Additional tab using the table below. In case this information is omitted, default settings will be appled.
 
-   ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
+   ![Managed instance create additional settings tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -92,7 +92,7 @@ The following steps show you how to create a managed instance.
 
    8. Click on **Review + create** tab to review selected options before creating managed instance.
 
-    ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
+   ![Managed instance review and create tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
 
    9. Click on **Create** to start provisioning managed instance. Deploying managed instance is a long running operation. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
