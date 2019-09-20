@@ -87,7 +87,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
     1. Give your dataset a unique name and provide an optional description. 
 
-    1. Select **Next** to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
+    1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
 
     1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
         
