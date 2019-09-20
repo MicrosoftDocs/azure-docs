@@ -503,7 +503,7 @@ diagnostics in your Mobile App backend.
 
 To enable diagnostics and write to the logs:
 
-1. Follow the steps in [How to enable diagnostics](../app-service/troubleshoot-diagnostic-logs.md#enablediag).
+1. Follow the steps in [Enable application logging (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows).
 2. Add the following using statement in your code file:
 
         using System.Web.Http.Tracing;
@@ -512,7 +512,7 @@ To enable diagnostics and write to the logs:
         ITraceWriter traceWriter = this.Configuration.Services.GetTraceWriter();
         traceWriter.Info("Hello, World");
 4. Republish your server project, and access the Mobile App backend to execute the code path with the logging.
-5. Download and evaluate the logs, as described in [How to: Download logs](../app-service/troubleshoot-diagnostic-logs.md#download).
+5. Download and evaluate the logs, as described in [Access log files](../app-service/troubleshoot-diagnostic-logs.md#access-log-files).
 
 ### <a name="local-debug"></a>Local debugging with authentication
 You can run your application locally to test changes before publishing them to the cloud. For most Azure Mobile Apps backends, press *F5* while
