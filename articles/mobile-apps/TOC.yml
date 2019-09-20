@@ -1,54 +1,50 @@
-- name: Build Real-World Mobile Apps with Microsoft
-  href: index.md
-- name: Overview
+- name: Build Real World Mobile Applications with Microsoft Services
+  href: mobile-apps-overview.md
+- name: Stages in Building Mobile Apps
   items:
-  - name: Mobile Application Development in Microsoft
-    href: mobile-apps-overview.md
-  - name: Stages in Building Mobile Apps
-  items:
-    - name: Overview
-      href: stages-overview.md
-    - name: Choose the Front-End Development Platform
-      href: front-end-development-platform.md
-    - name: Plan and Design Mobile App with Back-end Services
-      items:
-      - name: Authentication
-        href: authentication.md
-      - name: Data Storage
-        href: data-storage.md
-      - name: Serverless Compute
-        href: serverless-compute.md
-      - name: Azure Storage
-        href: azure-storage.md
-      - name: Real-time apps
-        href: real-time.md
-    - name: Code Hosting Services
-      href: code-hosting-services.md
-    - name: DevOps
-      - name: What is DevOps?
-        href: devops.md
-      - name: Continuous Build & Integration
-        href: continuous-integration.md
-      - name: Test on real devices
-        href: test.md
-      - name: Continuous Delivery
-        href: continuous-delivery.md
-    - name: Analyze Usage and User Behavior 
-      href: analytics.md
-    - name: Monitor Health of your Application 
-      href: diagnostics.md
-    - name: Engage with your App Users 
-      href: push-notifications.md
-  - name: Additional Services
+  - name: Overview
+    href: stages-overview.md
+  - name: Choose the Front-End Development Platform
+    href: front-end-development-platform.md
+  - name: Plan and Design Mobile App with Back-end Services
     items:
-    - name: Cognitive Services 
-      href: cognitive-services.md
-    - name: Azure Maps 
-      href: azure-maps.md
-    - name: Azure CDN for Asset Hosting
-      href: azure-cdn.md        
-    - name: Azure Search
-      href: azure-search.md        
+    - name: Authentication
+      href: authentication.md
+    - name: Data Storage
+      href: data-storage.md
+    - name: Serverless Compute
+      href: serverless-compute.md
+    - name: Azure Storage
+      href: azure-storage.md
+    - name: Real-time apps
+      href: real-time.md
+  - name: Code Hosting Services
+    href: code-hosting-services.md
+  - name: DevOps
+    - name: What is DevOps?
+      href: devops.md
+    - name: Continuous Build & Integration
+      href: continuous-integration.md
+    - name: Test on real devices
+      href: test.md
+    - name: Continuous Delivery
+      href: continuous-delivery.md
+  - name: Analyze Usage and User Behavior 
+    href: analytics.md
+  - name: Monitor Health of your Application 
+    href: diagnostics.md
+  - name: Engage with your App Users 
+    href: push-notifications.md
+- name: Additional Services
+  items:
+  - name: Cognitive Services 
+    href: cognitive-services.md
+  - name: Azure Maps 
+    href: azure-maps.md
+  - name: Azure CDN
+    href: azure-cdn.md        
+  - name: Azure Search
+    href: azure-search.md
      
  
  

@@ -1,6 +1,6 @@
 ---
 title: All about DevOps
-description: Learn about DevOps
+description: Learn all about DevOps in mobile development
 author: elamalani
 
 ms.assetid: 12a8a079-9b3c-4faf-2323-ccff02097224
