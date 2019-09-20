@@ -95,6 +95,8 @@ The streaming operation also uses `awaitTermination(30000)`, which stops the str
 
 To use Structured Streaming with Kafka, your project must have a dependency on the `org.apache.spark : spark-sql-kafka-0-10_2.11` package. The version of this package should match the version of Spark on HDInsight. For Spark 2.2.0 (available in HDInsight 3.6), you can find the dependency information for different project types at [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
+We recommend that you disable dynamic allocation by setting spark.dynamicAllocation.enabled to false when running streaming applications.
+
 For the Jupyter Notebook used with this tutorial, the following cell loads this package dependency:
 
 ```
@@ -102,7 +104,8 @@ For the Jupyter Notebook used with this tutorial, the following cell loads this 
 {
     "conf": {
         "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+        "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+        "spark.dynamicAllocation.enabled": "false"
     }
 }
 ```
