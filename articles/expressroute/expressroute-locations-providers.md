@@ -44,7 +44,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Geopolitical region** | **Zone** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
 | **Australia Government** | 1 | Australia Central, Australia Central 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Stockholm, Zurich |
+| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Stockholm, Zurich, Munich |
 | **North America** | 1 |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Asia** | 2 |East Asia, Southeast Asia |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
