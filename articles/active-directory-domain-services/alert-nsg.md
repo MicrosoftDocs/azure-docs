@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot network security groups in Azure AD DS | Microsoft Docs
-description: Learn how to troubleshoot network security group configuration issues for Azure Active Directory Domain Services
+title: Resolve network security group alerts in Azure AD DS | Microsoft Docs
+description: Learn how to troubleshoot and resolve network security group configuration alerts for Azure Active Directory Domain Services
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 09/19/2019
 ms.author: iainfou
 
 ---
-# Troubleshoot invalid network security group rules configuration for Azure Active Directory Domain Services
+# Known issues: Network configuration alerts in Azure Active Directory Domain Services
 
 To let applications and services correctly communicate with Azure Active Directory Domain Services (Azure AD DS), specific network ports must be open to allow traffic to flow. In Azure, you control the flow of traffic using network security groups. The health status of an Azure AD DS managed domain shows an alert if the required network security group rules aren't in place.
 
@@ -23,7 +23,7 @@ This article helps you understand and resolve common alerts for network security
 ## Alert AADDS104: Network error
 
 **Alert message**
- *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
+*Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
 Invalid network security group rules are the most common cause of network errors for Azure AD DS. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Azure AD directory and Azure AD DS managed domain is also impacted. Make sure you keep the default ports open to avoid interruption in service.
 
@@ -62,6 +62,8 @@ To verify the existing security rules and make sure the default ports are open, 
 1. On the **Overview** page, the existing inbound and outbound security rules are shown.
 
     Review the inbound and outbound rules and compare to the list of required rules in the previous section. If needed, select and then delete any custom rules that block required traffic. If any of the required rules are missing, add a rule in the next section.
+
+    After you add or delete rules to allow the required traffic, the Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
 
 ### Add a security rule
 

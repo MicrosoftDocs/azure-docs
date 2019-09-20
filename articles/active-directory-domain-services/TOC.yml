@@ -101,7 +101,7 @@
           href: suspension.md
         - name: Secure LDAP
           href: tshoot-ldaps.md
-        - name: Alerts
+        - name: Known issues
           items:
             - name: Common alert messages
               href: troubleshoot-alerts.md

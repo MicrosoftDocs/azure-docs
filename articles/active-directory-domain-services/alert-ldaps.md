@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot secure LDAP in Azure AD Domain Services | Microsoft Docs
-description: Learn how to troubleshoot common issues with secure LDAP for Azure Active Directory Domain Services.
+title: Resolve secure LDAP alerts in Azure AD Domain Services | Microsoft Docs
+description: Learn how to troubleshoot and resolve common alerts with secure LDAP for Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,12 +9,12 @@ ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 
 ---
-# Troubleshoot common secure LDAP configuration issues with Azure Active Directory Domain Services
+# Known issues: Secure LDAP alerts in Azure Active Directory Domain Services
 
 Applications and services that use lightweight directory access protocol (LDAP) to communicate with Azure Active Directory Domain Services (Azure AD DS) can be [configured to use secure LDAP](tutorial-configure-ldaps.md). An appropriate certificate and required network ports must be open for secure LDAP to work correctly.
 
@@ -39,7 +39,7 @@ When you enable secure LDAP, it's recommended to create additional rules that re
 1. Specify the priority for the rule, then enter a name such as *RestrictLDAPS*.
 1. When ready, select **Add** to create the rule.
 
-The Azure AD DS managed domain's health automatically updates itself within two hours and remove the alert.
+The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
 
 > [!TIP]
 > TCP port 636 isn't the only rule needed for Azure AD DS to run smoothly. To learn more, see the [Azure AD DS Network security groups and required ports](network-considerations.md#network-security-groups-and-required-ports).
