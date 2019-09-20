@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Azure notebook - Personalizer"
 titleSuffix: Azure Cognitive Services
-description: 
+description: This tutorial simulates a Personalizer loop _system in an Azure notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: diberry
-#Customer intent: 
+#Customer intent:  As a python developer, I want use Personalizer in an Azure notebook so that I can run each cell, view the output, then finally see the overall prediction success of Personalizer over a duration of many requests.
 ---
 
 # Tutorial: Use Personalizer in Azure notebooks 
 
-This tutorial simulates a Personalizer loop _system, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
+This tutorial simulates a Personalizer loop _system in an Azure notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
 
 A summary of the user information is:
 
