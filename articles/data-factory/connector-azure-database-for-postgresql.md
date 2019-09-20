@@ -31,7 +31,7 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 
 You can copy data from Azure Database for PostgreSQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for PostgreSQL. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+Azure Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install any driver using this connector.
 
 ## Getting started
 
@@ -100,7 +100,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Database for PostgreSQL dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties that are supported by Azure Database for PostgreSQL dataset.
 
 To copy data from Azure Database for PostgreSQL, set the type property of the dataset to **AzurePostgreSqlTable**. The following properties are supported:
 
