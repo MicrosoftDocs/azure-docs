@@ -22,7 +22,7 @@ and republishes your app to Azure App Service. The sample
 app in this tutorial was developed by using the 
 [Spring Boot](https://projects.spring.io/spring-boot/) framework. 
 
-![GitHub to Azure App Service deploymet overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
+![GitHub to Azure App Service deployment overview](media/tutorial-jenkins-deploy-web-app-azure-app-service/azure-continuous-integration-deployment-overview.png)
 
 In this tutorial, you'll complete these tasks:
 
