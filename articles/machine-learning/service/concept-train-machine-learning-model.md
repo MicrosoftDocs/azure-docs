@@ -45,8 +45,6 @@ A run uses a __run configuration__ to define the environment needed to run your 
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
-For more information on training, see the following articles and examples:
-
 * [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
@@ -84,8 +82,6 @@ The key features of machine learning pipelines are:
 
 > [!TIP]
 > Machine learning pipelines can use run configurations, estimators, and automated ML as steps in a pipeline.
-
-For more information, see the following articles and examples:
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md).
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
