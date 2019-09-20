@@ -177,6 +177,7 @@ Requires a minimum of two arguments, which are unique value generation rules def
 >1. This is a top-level function, it cannot be nested.
 >2. This function cannot be applied to attributes that have a matching precedence. 	
 >3. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+>4. This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:**<br> 
