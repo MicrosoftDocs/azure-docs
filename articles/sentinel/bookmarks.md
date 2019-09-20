@@ -34,11 +34,11 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## Run a Log Analytics query from Azure Sentinel
 
-1. In the Azure portal, select **Sentinel** > **Hunting** to run queries for suspicious and anomalous behavior.
+1. In the Azure portal, select **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
 1. To run a hunting campaign, select one of the hunting queries and on the left, review the results. 
 
-1. Click **View query results** in the hunting query **Details** page to view the query results in Log Analytics. Here's an example of what you see if you ran a custom SSH bruteforce attack query.
+1. Click **View query results** in the hunting query **Details** page to view the query results in Log Analytics. Here's an example of what you see if you ran a custom SSH brute force attack query.
   
    ![show results](./media/bookmarks/ssh-bruteforce-example.png)
 
@@ -56,14 +56,18 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
  
 > [!NOTE]
-> You can also use bookmarks with arbitrary Log Analytics queries launched from the Azure Sentinel Log Analytics Logs page, or queries created on the fly from the Log Analytics page and opened from the Hunting page. You will not be able to add a bookmark if you launch Log Analytics from outside of Azure Sentinel. 
+> You can also use bookmarks with arbitrary Log Analytics queries launched from the Azure Sentinel Log Analytics Logs page, or queries created on the fly from the Log Analytics page and opened from the Hunting page. You will not be able to add a bookmark if you launch Log Analytics independently from Azure Sentinel. 
 
 ## View and update bookmarks 
 
 1. In the Azure portal, select **Sentinel** > **Threat management** > **Hunting**. 
+
 2. Select the **Bookmarks** tab to view the list of bookmarks.
+
 3. If required, use the search box or filter options to find a specific bookmark.
-4. Select individual bookmarks and view the bookmark details in the right hand details pane.
+
+4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
+
 5. To update tags and notes, make your changes in the editable text boxes, and then click **Save**.
 
    ![show results](./media/bookmarks/view-update-bookmarks.png)
@@ -75,20 +79,20 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** and the **Bookmarks** tab, select the bookmark or bookmarks you want to investigate.
+1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to investigate.
 
-2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see values for **IP**, **Machine**, or **Account**.
+2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see entries for **IP**, **Machine**, or **Account**.
 
 3. Click **Investigate**.
 
-### Add bookmarks to a new or existing incident - Preview
+## Add bookmarks to a new or existing incident - Preview
 
 > [!IMPORTANT]
 > Adding bookmarks to a new or existing incident is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** and the **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
+1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
 
 2. On the actions bar, select **Incident actions (Preview)**:
     
@@ -102,8 +106,8 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 There are multiple options to viewing your bookmarked data in Log Analytics. 
 
 The easiest way to view bookmarked queries, results, or history is by selecting the desired bookmark in the **Bookmarks** table and use the links provided in the details pane. Options include: 
-- Click on **View query** to view the source query in Log Analytics.  
-- Click on **View bookmark history** to see all bookmark metadata including: who made the update, the updated values, and the time the update occurred. 
+- Click **View query** to view the source query in Log Analytics.  
+- Click **View bookmark history** to see all bookmark metadata including: who made the update, the updated values, and the time the update occurred. 
 
 - You can also view the raw bookmark data for all bookmarks by clicking on **Bookmark logs** above the bookmark grid. This view will show the all your bookmarks in the hunting bookmark table with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.  
 
@@ -112,12 +116,12 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 > There can be significant delay (measured in minutes) between the creation of a bookmark and when it is displayed in the **HuntingBookmark** table. It is recommended to create your bookmarks first, then analyze them after the data is ingested. 
 
 ## Delete a bookmark
-If you want to delete a bookmark, do the following: 
-1.	Open the **Hunting bookmark** tab. 
-2.	Select the target bookmark.
-3.	Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
+ 
+1.	In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to delete. 
+
+2. Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
 	
-Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The Log Analytics “HuntingBookmark” table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
+Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The Log Analytics **HuntingBookmark** table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 
 
 ## Next steps
