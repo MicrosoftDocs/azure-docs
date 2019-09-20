@@ -36835,7 +36835,12 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/archive-diagnostic-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/archive-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
       "redirect_document_id": true
     },
     {
@@ -36851,6 +36856,11 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-template.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-template",
       "redirect_document_id": true
     },
     {
@@ -36920,7 +36930,17 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-overview",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/monitoring-and-diagnostics/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
       "redirect_document_id": true
     },
     {
@@ -36935,12 +36955,22 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-log-store.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-workspace",
       "redirect_document_id": true
     },
     {
@@ -37756,11 +37786,6 @@
     {
       "source_path": "articles/azure-monitor/log-query/runbook-datacollect.md",
       "redirect_url": "/azure/azure-monitor/platform/data-collector-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/azure-monitor/platform/archive-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
       "redirect_document_id": false
     },
     {
