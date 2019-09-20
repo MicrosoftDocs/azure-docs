@@ -10,7 +10,7 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20 /2019
+ms.date: 9/20/2019
 ms.author: raiye
 ---
 # Azure Guest OS
