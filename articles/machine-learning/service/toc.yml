@@ -108,13 +108,13 @@
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
-  - name: Set up development environment 
+  - name: Set up your environment 
     items:
-    - name: Configure dev environments
+    - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Manage software environment
-      displayName: pip, Conda
+    - name: Set up software environments
+      displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
