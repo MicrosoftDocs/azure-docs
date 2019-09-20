@@ -190,6 +190,7 @@ On the [Azure portal](https://ms.portal.azure.com), you can link your Azure Data
 
 After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After this, all your experiments will land in the managed Azure Machine Learning tracking service.
 
+#### Directly set MLflow Tracking in you notebook
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
@@ -202,6 +203,8 @@ In your training script, import mlflow to use the MLflow logging APIs, and start
 import mlflow 
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
+
+#### Automate setting MLflow Tracking
 
 Instead of manually setting the tracking URI in every subsequent experiment notebook session on your clusters, do so automatically using this [Azure Machine Learning Tracking Cluster Init script](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
 
