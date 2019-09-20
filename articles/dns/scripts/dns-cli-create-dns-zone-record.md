@@ -1,20 +1,11 @@
 ---
-title: CLI Example - Create a DNS zone and record for a domain name - Azure | Microsoft Docs
+title: Azure CLI Example - Create a DNS zone and record for a domain name
 description: This Azure CLI script example shows how to create a DNS zone and record for a domain name
-services: load-balancer
-documentationcenter: traffic-manager
+services: dns
 author: vhorne
-manager: jeconnoc
-editor: tysonn
-tags: 
-
-ms.assetid:
-ms.service: traffic-manager
-ms.devlang: azurecli
+ms.service: dns
 ms.topic: sample
-ms.tgt_pltfrm: 
-ms.workload: infrastructure
-ms.date: 04/30/2018
+ms.date: 09/20/2019
 ms.author: victorh
 ---
 
@@ -28,32 +19,7 @@ This Azure CLI script example creates a DNS zone and record for a domain name.
 
 ## Sample script
 
-```azurecli-interactive
-
-# Create a resource group.
-az group create \
-  -n myResourceGroup \
-  -l eastus
-
-# Create a DNS zone. Substitute zone name "contoso.com" with the values for your own.
-
-az network dns zone create \
-  -g MyResourceGroup \
-  -n contoso.com
-
-# Create a DNS record. Substitute zone name "contoso.com" and IP address "1.2.3.4* with the values for your own.
-
-az network dns record-set a add-record \
-  -g MyResourceGroup \
-  -z contoso.com \
-  -n www \
-  -a 1.2.3.4
-
-# Get a list the DNS records in your zone
-az network dns record-set list \
-  -g MyResourceGroup \ 
-  -z contoso.com
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/dns/create-dns-zone-and-record/create-dns-zone-and-record.sh "Create DNS zone and record")]
 
 ## Clean up deployment 
 
