@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/13/2019
+ms.date: 09/20/2019
 ms.author: helohr
 ---
 # Tenant and host pool creation
@@ -300,7 +300,7 @@ If the time limit expires, an error message will appear that says, "The remote s
 If you see either of these messages, this means you need to open the Group Policy editor and manually configure the licensing mode to **Per user**. The manual configuration process is different depending on which version of Windows 10 Enterprise multi-session you're using. The following sections explain how to check your version number and what to do for each.
 
 >[!NOTE]
->Windows 10 Enterprise multi-session only requires an RDS client access license (CAL) when your host pool contains Windows Server 2016 session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+>Windows Virtual Desktop only requires an RDS client access license (CAL) when your host pool contains Windows Server session hosts. To learn how to configure an RDS CAL, see [License your RDS deployment with client access licenses](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
 
 ### Identify which version of Windows 10 Enterprise multi-session you're using
 
