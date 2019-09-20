@@ -22,11 +22,11 @@ This article helps you understand and resolve common alerts with secure LDAP acc
 
 ## AADDS101: Secure LDAP network security group configuration
 
-**Alert message**
+### Alert message
 
 *Secure LDAP over the internet is enabled for the managed domain. However, access to port 636 is not locked down using a network security group. This may expose user accounts on the managed domain to password brute-force attacks.*
 
-**Resolution**
+### Resolution
 
 When you enable secure LDAP, it's recommended to create additional rules that restrict inbound LDAPS access to specific IP addresses. These rules protect the Azure AD DS managed domain from brute force attacks. To update the network security group to restrict TCP port 636 access for secure LDAP, complete the following steps:
 
@@ -46,11 +46,11 @@ The Azure AD DS managed domain's health automatically updates itself within two 
 
 ## AADDS502: Secure LDAP certificate expiring
 
-**Alert message**
+### Alert message
 
 *The secure LDAP certificate for the managed domain will expire on [date]].*
 
-**Resolution**
+### Resolution
 
 Create a replacement secure LDAP certificate by following the steps to [create a certificate for secure LDAP](tutorial-configure-ldaps.md#create-a-certificate-for-secure-ldap). Apply the replacement certificate to Azure AD DS, and distribute the certificate to any clients that connect using secure LDAP.
 

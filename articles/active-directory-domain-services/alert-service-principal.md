@@ -22,7 +22,8 @@ This article helps you troubleshoot and resolve service principal-related config
 
 ## Alert AADDS102: Service principal not found
 
-**Alert message**
+### Alert message
+
 *A Service Principal required for Azure AD Domain Services to function properly has been deleted from your Azure AD directory. This configuration impacts Microsoft's ability to monitor, manage, patch, and synchronize your managed domain.*
 
 If a required service principal is deleted, the Azure platform can't perform automated management tasks. The Azure AD DS managed domain may not correctly apply updates or take backups.
@@ -74,12 +75,13 @@ The Azure AD DS managed domain's health automatically updates itself within two 
 
 ## Alert AADDS105: Password synchronization application is out of date
 
-**Alert message**
+### Alert message
+
 *The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.*
 
 Azure AD DS automatically synchronizes user accounts and credentials from Azure AD. If there's a problem with the Azure AD application used for this process, credential synchronization between Azure AD DS and Azure AD fails.
 
-**Resolution**
+### Resolution
 
 To recreate the Azure AD application used for credential synchronization, use Azure AD PowerShell to complete the following steps. For more information, see [install Azure AD PowerShell](/powershell/azure/active-directory/install-adv2).
 

@@ -22,7 +22,8 @@ This article helps you understand and resolve common alerts for network security
 
 ## Alert AADDS104: Network error
 
-**Alert message**
+### Alert message
+
 *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
 Invalid network security group rules are the most common cause of network errors for Azure AD DS. The network security group for the virtual network must allow access to specific ports and protocols. If these ports are blocked, the Azure platform can't monitor or update the managed domain. The synchronization between the Azure AD directory and Azure AD DS managed domain is also impacted. Make sure you keep the default ports open to avoid interruption in service.
