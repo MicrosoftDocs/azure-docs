@@ -68,7 +68,7 @@ then you only need to author a configuration MOF file. If you need to run additi
 ### Requirements for Guest Configuration custom resources
 
 When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine
-if it is in the correct state.  The boolean value returned by the function determines if the ARM
+if it is in the correct state.  The boolean value returned by the function determines if the Azure Resource Manager
 status for the Guest Assignment should be Compliant/Not-Compliant.  If the boolean is `$false` for any resource in the configuration,
 then the provider will run `Get-TargetResource`.
 If the boolean is `$true` then `Get-TargetResource` is not called.
@@ -463,7 +463,7 @@ as Azure Policy will be the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages
 
-Guest Configuration custom policies by default use SHA256 hash to validate the policy package
+Guest Configuration custom policies by default use SHA256 hash to validate tthe policy package
 hasn't changed from when it was published to when it's read by the server that is being audited.
 Optionally, customers may also use a certificate to sign packages and force the Guest Configuration
 extension to only allow signed content.
