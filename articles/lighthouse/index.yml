@@ -52,14 +52,14 @@ landingContent:
           - text: Publish Managed Services offers
             url: ./how-to/publish-managed-services-offers.md
 
-  - title: Azure portal experiences
+  - title: Samples and templates
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: deploy
         links:
-          - text: View and manage customers
-            url: ./how-to/view-manage-customers.md
-          - text: View and manage service providers
-            url: ./how-to/view-manage-service-providers.md
+          - text: Azure Lighthouse samples repository (GitHub)
+            url: https://github.com/Azure/Azure-Lighthouse-samples/
+          - text: Index of Azure Lighthouse samples
+            url: ./samples/index.md
 
   - title: Reference - Downloads
     linkLists:
@@ -86,15 +86,15 @@ landingContent:
             url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
           - text: Python
             url: /python/api/azure-mgmt-managedservices
-
-  - title: Samples and templates
+  
+  - title: Azure portal experiences
     linkLists:
-      - linkListType: deploy
+      - linkListType: how-to-guide
         links:
-          - text: Azure Lighthouse samples repository (GitHub)
-            url: https://github.com/Azure/Azure-Lighthouse-samples/
-          - text: Index of Azure Lighthouse samples
-            url: ./samples/index.md
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
 
   - title: Get involved
     linkLists:
