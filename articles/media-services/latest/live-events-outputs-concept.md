@@ -76,20 +76,7 @@ When creating a Live Event, you can specify the following options:
     
 ### Naming rules
 
-The host name format in streaming URL is: {streamingendpointname}-{servicename}-{accountname}-{regionname}.streaming.azure.net
-(The first part will be missing if using the default streaming endpoint.)
-
-
-Azure Media Services host name format is : `{streamingendpointname}-{servicename}-{accountname}-{regionname}.streaming.azure.net`, where
-
-* `{streamingendpointname}` - 24 chars
-
-    The `{streamingendpointname}`  part will be missing if using the default streaming endpoint.
-* Max live event name is 32 chars
-* Max account name is 24 chars
-* Max region name is 5 chars
-
-Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+Max live event name is 32 characters. Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
 ## Live Event ingest URLs
 
