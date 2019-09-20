@@ -25,12 +25,11 @@ Threat hunting typically requires reviewing mountains of log data looking for ev
 
 Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-Now in preview, you can pivot between data in Log Analytics and the investigation graph by creating a bookmark and selecting **Investigate**.  Also, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident.
-
 You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** page. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Log Analytics. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
-You can also visualize your bookmarked data, by clicking **Investigate**. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
+Now in preview, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
+Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
 ## Run a Log Analytics query from Azure Sentinel
 
@@ -72,10 +71,10 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
    ![show results](./media/bookmarks/view-update-bookmarks.png)
 
-## Investigate bookmarks in the investigation graph
+## Exploring bookmarks in the investigation graph
 
 > [!IMPORTANT]
-> Investigating bookmarks in the investigation graph is currently in public preview.
+> Exploring bookmarks in the investigation graph is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -83,7 +82,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see entries for **IP**, **Machine**, or **Account**.
 
-3. Click **Investigate**.
+3. Click **Investigate** to view the bookmark in the investigation graph.
 
 ## Add bookmarks to a new or existing incident
 
@@ -94,12 +93,17 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to add to an incident.
 
-2. On the actions bar, select **Incident actions (Preview)**:
+2. Select **Incident actions (Preview)**:
     
     > [!div class="mx-imgBorder"]
     > ![Add bookmarks to incident](./media/bookmarks/incident-actions.png)
 
-3. Select either **Create new incident** or **Add to existing incident**, as required.
+3. Select either **Create new incident** or **Add to existing incident**, as required:
+    
+    - For a new incident: Optionally update the details for the incident, and select **Create**.
+    - For adding a bookmark to an existing incident: Select one incident, and then select **Add**. 
+
+To view the bookmark within the incident navigate to **Sentinel** > **Threat management** > **Incidents** and select the incident with your bookmark. Select **View full details**, and select the **Bookmarks** tab.
 
 ## View bookmarked data in Log Analytics 
 
