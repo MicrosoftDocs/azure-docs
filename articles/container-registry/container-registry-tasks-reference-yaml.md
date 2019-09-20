@@ -447,10 +447,16 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 ACR Tasks includes a default set of variables that are available to task steps when they execute. These variables can be accessed by using the format `{{.Run.VariableName}}`, where `VariableName` is one of the following:
 
 * `Run.ID`
+* `Run.SharedVolume`
 * `Run.Registry`
+* `Run.RegistryName`
 * `Run.Date`
+* `Run.OS`
+* `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+
+The variable names are generally self-explanatory. Details follows for commonly used variables.
 
 ### Run.ID
 
@@ -488,50 +494,29 @@ For a task triggered by a commit to a GitHub repository, the branch name.
 
 ## Aliases
 
-As of `v1.1.0`, ACR Tasks supports aliases that are available to task steps when they execute. Aliases are similar in concept to aliases (command shortcuts) supported in bash and certain other command shells. By using an alias, you can launch any command or group of commands (including options and filenames) by entering a single word.
+As of `v1.1.0`, ACR Tasks supports aliases that are available to task steps when they execute. Aliases are similar in concept to aliases (command shortcuts) supported in bash and some other command shells. 
 
-ACR Tasks allows you to define a custom alias or use predefined aliases in task steps.
+With an alias, you can launch any command or group of commands (including options and filenames) by entering a single word.
 
-### Custom alias
-
-Define a custom alias in your YAML file and use it as shown in the following example. The default directive to reference an alias is the `$` character:
-
-```yml
-v1.1.0
-# Declare an alias
-alias name=Kim
-# Use an alias
-steps:
-    - cmd: bash echo $name
-```
-
-You can define a custom directive as follows
-
-```yaml
-
-```
+ACR Tasks supports several predefined aliases and also custom aliases you create.
 
 ### Predefined aliases
-
-ACR Tasks provides several predefined aliases to streamline creation of Task YAML files.
-
-### Native task aliases
 
 The following task aliases are available to use in place of run variables:
 
 | Alias | Run variable |
 | ----- | ------------ |
-| `ID` | `{{.Run.ID}}` |
-| `SharedVolume` | `{{.Run.SharedVolume}}` |
-| `Registry` | `{{.Run.Registry}}` |
-| `RegistryName` | `{{.Run.RegistryName}}` |
-| `Date` | `{{.Run.Date}}` |
-| `OS` | `{{.Run.OS}}` |
-| `Architecture` | `{{.Run.Architecture}}` |
-| `Commit` | `{{.Run.Commit}}` |
-| `Branch` | `{{.Run.Branch}}` |
+| `ID` | `Run.ID` |
+| `SharedVolume` | `Run.SharedVolume` |
+| `Registry` | `Run.Registry` |
+| `RegistryName` | `Run.RegistryName` |
+| `Date` | `Run.Date` |
+| `OS` | `Run.OS` |
+| `Architecture` | `Run.Architecture` |
+| `Commit` | `Run.Commit` |
+| `Branch` | `Run.Branch` |
 
-Example:
+In task steps, precede an alias with the `$` directive, as in this example:
 
 ```yaml
 version: v1.1.0
@@ -539,9 +524,9 @@ steps:
   - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
 ```
 
-### Images as commands
+### Image aliases
 
-Each of the following aliases points to a stable image in Microsoft Container Registry (MCR). You can use each of them in the `cmd` section of a Task file without using a directive.
+Each of the following aliases points to a stable image in Microsoft Container Registry (MCR). You can refer to each of them in the `cmd` section of a Task file without using a directive.
 
 | Alias | Image |
 | ----- | ----- |
@@ -551,19 +536,38 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 | `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
 | `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
 
-The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `myacrrepo/hello-world` in the current registry:
+The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the current registry:
 
 ```yaml
 version: v1.1.0
-alias:
-  values:
-    repo: myacrrepo
 steps:
-  - cmd: acr login $RegistryName
-  - cmd: acr tag list -r $RegistryName --repository $repo
-  - cmd: purge -r $Registry --filter $repo:hello-world --ago 7d
+  - cmd: acr login -r $RegistryName
+  - cmd: acr tag list -r $RegistryName --repository samples/hello-world
+  - cmd: purge -r $Registry --filter samples:hello-world --ago 7d
 ```
 
+### Custom alias
+
+Define a custom alias in your YAML file and use it as shown in the following example. An alias can contain only alphanumeric characters. The default directive to expand an alias is the `$` character.
+
+```yml
+version: v1.1.0
+alias:
+  values:
+    repo: myrepo
+steps:
+  - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
+```
+
+You can link to a remote or local YAML file for custom alias definitions. The following example links to a YAML file in Azure blob storage:
+
+```yml
+version: v1.1.0
+alias:
+  src:  # link to local or remote custom alias files
+    - 'https://link/to/blob/remoteAliases.yml?readSasToken'
+[...]
+```
 
 ## Next steps
 
