@@ -37,7 +37,7 @@ landingContent:
         links:
           - text: Azure CLI
             url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-cli
-          - text: Azure Portal
+          - text: Azure portal
             url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-portal
           - text: Azure PowerShell
             url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-quick-create-powershell
