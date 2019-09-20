@@ -34,7 +34,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## Run a Log Analytics query from Azure Sentinel
 
-1. In the Azure portal, select **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
+1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
 1. To run a hunting campaign, select one of the hunting queries and on the left, review the results. 
 
@@ -60,11 +60,11 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## View and update bookmarks 
 
-1. In the Azure portal, select **Sentinel** > **Threat management** > **Hunting**. 
+1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting**. 
 
 2. Select the **Bookmarks** tab to view the list of bookmarks.
 
-3. If required, use the search box or filter options to find a specific bookmark.
+3. To help you find a specific bookmark, use the search box or filter options.
 
 4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
 
@@ -72,27 +72,27 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
    ![show results](./media/bookmarks/view-update-bookmarks.png)
 
-## Investigate bookmarks in the investigation graph - Preview
+## Investigate bookmarks in the investigation graph
 
 > [!IMPORTANT]
 > Investigating bookmarks in the investigation graph is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to investigate.
+1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to investigate.
 
 2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see entries for **IP**, **Machine**, or **Account**.
 
 3. Click **Investigate**.
 
-## Add bookmarks to a new or existing incident - Preview
+## Add bookmarks to a new or existing incident
 
 > [!IMPORTANT]
 > Adding bookmarks to a new or existing incident is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
+1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to add to an incident.
 
 2. On the actions bar, select **Incident actions (Preview)**:
     
@@ -117,7 +117,7 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 
 ## Delete a bookmark
  
-1.	In the Azure portal, **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, select the bookmark or bookmarks you want to delete. 
+1.	In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to delete. 
 
 2. Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
 	
