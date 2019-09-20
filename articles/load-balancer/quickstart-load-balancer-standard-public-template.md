@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: allensu
 ms.custom: mvc
 ---
@@ -97,7 +97,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
     The browser displays the default page of the Internet Information Services (IIS) web server.
 
-   ![IIS web server](./media/quickstart-load-balancer-standard-public-template/load-balancer-test.png)
+   ![IIS web server](./media/quickstart-load-balancer-standard-public-template/load-balancer-test-web-page.png)
 
 To see the load balancer distribute traffic across all three VMs, you can force a refresh of your web browser from the client machine.
 
