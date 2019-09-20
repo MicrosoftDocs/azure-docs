@@ -166,7 +166,7 @@
         - name: ASP.NET
           displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
           href: app/asp-net.md
-        - name: .NET Core Worker Service
+        - name: Non-Http apps/Background apps
           displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
           href: app/worker-service.md  
         - name: .NET Console
