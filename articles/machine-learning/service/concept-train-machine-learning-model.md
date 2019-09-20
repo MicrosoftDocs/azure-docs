@@ -1,7 +1,7 @@
 ---
 title: Model training methods
 titleSuffix: Azure Machine Learning
-description: Learn the different methods you can use to train a ML model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogenous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
+description: Learn the different methods you can use to train model with Azure Machine Learning. Estimators provide an easy way to work with popular frameworks like Scikit-learn, TensorFlow, Keras, PyTorch, and Chainer. Machine Learning pipelines make it easy to schedule unattended runs, use heterogenous compute environments, and reuse parts of your workflow. And run configurations provide granular control over the compute targets that the training process runs on.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -19,7 +19,7 @@ Azure Machine Learning provides several ways to train your models. Use the follo
 
 + **Python**: The Azure Machine Learning SDK provides several methods to train models:
 
-    + **Script run**: Script runs are a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training job.
+    + **Run**: A __run__ submits a single instance of a training script as a training job. A run is a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training script.
 
     + **Estimator**: Estimator classes make it easy to train models based on popular machine learning frameworks.
 
@@ -28,7 +28,7 @@ Azure Machine Learning provides several ways to train your models. Use the follo
     + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability.
 
         > [!TIP]
-        > Machine learning pipelines can use script runs, estimators, and automated ML as steps in a pipeline.
+        > Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline.
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
@@ -47,14 +47,13 @@ __Tutorials and examples__
 + [Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
 + [Classification: Predict churn, appetency, and up-selling](ui-sample-classification-predict-churn.md)
 
+## Run
 
-## Script run
+A run uses a [run configuration](concept-azure-machine-learning-architecture.md#run-configurations) to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on the compute target when you submit your script for a training run.
 
-A script run uses a [run configuration](concept-azure-machine-learning-architecture.md#run-configurations) to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on a compute target when you submit your script for a training run.
+You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
-You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use.
-
-For more information on using script runs, see the following articles and examples:
+For more information on training, see the following articles and examples:
 
 * [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
