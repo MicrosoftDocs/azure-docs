@@ -29,7 +29,7 @@ landingContent:
   # Card
   - title: Create an Azure DNS zone and record
     linkLists:
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Create an Azure DNS zone and record using the Azure portal
             url: dns-getstarted-portal.md     
