@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 In this article, you'll learn how to use the extension for Azure Machine Learning for Visual Studio Code to train and deploy machine learning and deep learning models.
 
-[Azure Machine Learning](overview-what-is-azure-ml.md) provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
+[Azure Machine Learning](overview-what-is-azure-ml.md) provides support for experiments that you run locally and on remote compute targets. For every experiment, you can keep track of multiple runs as often as you need to iteratively try different techniques, hyperparameters, and more. You can use Azure Machine Learning to track custom metrics and experiment runs, enabling data science reproducibility and auditability.
 
 You can also deploy these models for your testing and production needs.
 
@@ -30,9 +30,9 @@ You can also deploy these models for your testing and production needs.
 
 ## Install the extension for Azure Machine Learning for Visual Studio Code
 
-When you install the Azure Machine Learning extension, two more extensions are automatically installed (if you have internet access). They're the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) and the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
+When you install the Azure Machine Learning extension, two more extensions are automatically installed (if you have internet access). They're the [Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) and the [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python).
 
-To work with Azure Machine Learning, you need to turn Visual Studio Code into a Python-integrated development environment (IDE). You need the Microsoft Python extension to use [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/python). This extension is automatically installed with the Azure Machine Learning extension. The extension makes Visual Studio Code an excellent IDE, and it works on any operating system with a variety of Python interpreters. The Microsoft Python extension uses all of the power of Visual Studio Code to provide autocomplete, IntelliSense, linting, debugging, and unit testing. The extension also allows you to easily switch between Python environments, including virtual and conda environments. For more information about editing, running, and debugging Python code, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+To work with Azure Machine Learning, you need to turn Visual Studio Code into a Python-integrated development environment (IDE). You need the Microsoft Python extension to use [Python in Visual Studio Code](https://code.visualstudio.com/docs/languages/Python). This extension is automatically installed with the Azure Machine Learning extension. The extension makes Visual Studio Code an excellent IDE, and it works on any operating system with a variety of Python interpreters. The Microsoft Python extension uses all of the power of Visual Studio Code to provide autocomplete, IntelliSense, linting, debugging, and unit testing. The extension also allows you to easily switch between Python environments, including virtual and conda environments. For more information about editing, running, and debugging Python code, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
 
 To install the Azure Machine Learning extension:
 
@@ -56,18 +56,18 @@ To install the Azure Machine Learning extension:
 > Check out the [IntelliCode extension for Visual Studio Code (preview)](https://go.microsoft.com/fwlink/?linkid=2006060). IntelliCode provides a set of AI-assisted capabilities for IntelliSense in Python, such as inferring the most relevant autocompletions based on the current code context.
 
 ## Quick start with Azure Machine Learning
-There are multiple ways of running your training script in the Azure cloud. If you're just getting started and have a python script you know run successfully on your local machine, keep reading.
+There are multiple ways of running your training script in the Azure cloud. If you're just getting started and have a Python script you know runs successfully on your local machine, keep reading.
 
 If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [NEED REFERENCE TO USING AZURE ML RESOURCES BELOW](#Foo) below.
 
-## Run an existing python training script in the Azure cloud
+## Run an existing Python training script in the Azure cloud
 If you have an existing training script, the Azure Machine Learning extension for VS Code not only provides an excellent editing, debugging and source management experience, but also makes it extremely easy to run and store metrics for that script as an Azure Machine Learning experiment in the cloud.
 
 Here's an example. Download the mnist project at [BLAHBLAHBLAH]() and open the folder you copied it to in VS Code.
 
-1. Create a new python environment using your favorite virtual environment package or Anaconda and install the tensorflow and numpy packages.
+1. Create a new Python environment using your favorite virtual environment package or Anaconda and install the tensorflow and numpy packages.
 
-1. Select the new environment you created as your python interpreter in VS Code.
+1. Select the new environment you created as your Python interpreter in VS Code.
 
 1. Open **train.py** and run it by opening the debugger and pressing the run button (alternatively just press F5).
 
@@ -79,14 +79,14 @@ If everything is installed correctly, the script will run and create a tensorflo
 
 Now that you know that your script runs correctly, let's run it in the Azure cloud!
 
-While this could easily be done with no extra modification of **train.py**, doing so would not have the advantage of having Azure keep track of important metrics about each training run.
+This can be easily be done with no extra modification of **train.py**. However, with just a few simple changes, you can make use of Azure Machine Learning to automatically track important metrics of your choice about each training run.
 
 ### Make Azure aware of your run metrics
 To modify your project so that Azure can be made aware of important information in your runs:
 
 1. Create a file called **amlrun.py** in the same folder as **train.py**
 
-```python
+```Python
 import azureml
 from azureml.core import Run
 
@@ -103,7 +103,7 @@ def get_AMLRun():
 
 2. Import the amlrun file in **train.py**
 
-```python
+```Python
 ...
 from utils import prepare_data
 from amlrun import get_AMLRun
@@ -111,16 +111,16 @@ from amlrun import get_AMLRun
 ```
 3. Initialize the run object in **train.py**
 
-```python
+```Python
 ...
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 run = get_AMLRun()
 ...
 ```
-4. Log important metrics to Azure with the run.log() function:
+4. Log metrics to Azure with the run.log() function:
 
-```python
+```Python
 ...
         acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
@@ -133,7 +133,7 @@ run = get_AMLRun()
 ...
 ```
 ### Run the script in the cloud
-That's it! Now just use the extension to run your script in the cloud! Please note that the following example, takes the liberty of compressing the amount of time it takes to create a new Azure ML workspace and compute, as well as the time it takes to run the training script.
+That's it! Now just use the extension to run your script in the cloud! Please note that the following walkthrough video takes the liberty of compressing the amount of time it takes to create a new Azure ML workspace and compute, as well as the time it takes to run the training script.
 
    [![Start an Azure ML experiment](./media/vscode-tools-for-ai/StartGoldenPath.gif)](./media/vscode-tools-for-ai/StartGoldenPath.gif#lightbox)
 
@@ -141,14 +141,16 @@ After clicking the Run Experiment button, answer the prompts as follows:
 
 1. Choose your Azure subscription
 1. Choose to create a *new* Azure ML workspace
-1. Pick from a set of python environment templates to initialize your cloud VM
-1. Ensure the list of pip and conda packages is correct
+1. Pick from a set of pre-configured environment templates to initialize your cloud VM. While you can setup a VM any way you choose, the templates provide a starting point and include settings for:
+    1. PyTorch, TensorFlow, or Scikit-learn
+    1. Single or distributed compute training
+1. Ensure the list of pip and conda packages is correct for your script based on the template you chose in the previous step
 1. Review the default names and specs for the experiment run and click **Submit Experiment**
 1. Sit back and relax while the extension sets everything up for you and runs your script!
 
 [![Train in cloud](./media/vscode-tools-for-ai/RunGoldenPath.gif)](./media/vscode-tools-for-ai/RunGoldenPath.gif#lightbox)
 
-After the run completes, right click on the completed run node and choose **View in Azure Portal**
+In a few seconds you will be notified that the experiment has been submitted to Azure at which time you can view it's progress.
 
 Your browser will open to the run where you will see the metrics you logged.
 [![Experiment run in portal](./media/vscode-tools-for-ai/ExperimentRunOnPortal.PNG)](./media/vscode-tools-for-ai/ExperimentRunOnPortal.PNG#lightbox)
@@ -226,14 +228,14 @@ Here's an example of how to create a run conifiguration for the AmlCompute, crea
 
 [![Create a run configuration for a compute](./media/vscode-tools-for-ai/CreateARunConfig.gif)](./media/vscode-tools-for-ai/CreateARunConfig.gif#lightbox)
 
-To run Azure ML experiments on your local machine a run configuration file is still required. When creating a local run configuration the python environment used will default to the path to the interpreter you have set within VS Code.
+To run Azure ML experiments on your local machine a run configuration file is still required. When creating a local run configuration the Python environment used will default to the path to the interpreter you have set within VS Code.
 
 ## Train and tune models
 
 Using the Azure ML extension for VS Code There are multiple ways of running a training script in an experiment.
 
 1. Right click on the training script and choose **Azure ML: Run as Experiment in Azure**
-1. Cick the Run Experiment toolbar icon.
+1. Click the Run Experiment toolbar icon.
 1. Right click on a run configuration node.
 1. Use the VS Code command palette to execute **Azure ML: Run Experiment**
 
@@ -247,7 +249,7 @@ To run an Azure Machine Learning experiment:
 
 1. Select **Run Experiment**.
 
-1. Choose the name of the python file you want to run to train your model and press enter to submit the run. Note: The file chosen must reside in the folder you currently have open in VS Code.
+1. Choose the name of the Python file you want to run to train your model and press enter to submit the run. Note: The file chosen must reside in the folder you currently have open in VS Code.
 
 1. After the run is submitted, a **Run node** will appear below the experiment you chose. Use this node to monitor the state of your runs. Note: It may be necessary to periodically refresh the window to see the latest status.
 
@@ -326,4 +328,4 @@ You can use the keyboard to access Azure Machine Learning features in Visual Stu
 ## Next steps
 
 * For a walkthrough of how to train with Azure Machine Learning outside of Visual Studio Code, see [Tutorial: Train models with Azure Machine Learning](tutorial-train-models-with-aml.md).
-* For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+* For a walkthrough of how to edit, run, and debug code locally, see the [Python hello-world tutorial](https://code.visualstudio.com/docs/Python/Python-tutorial).
