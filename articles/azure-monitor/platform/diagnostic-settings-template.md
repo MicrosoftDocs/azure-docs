@@ -1,6 +1,6 @@
 ---
 title: Create diagnostic setting in Azure using a Resource Manager template | Microsoft Docs
-description: Create diagnostic settings using a resource manager template to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
+description: Create diagnostic settings using a Resource Manager template to forward Azure platform logs to Azure Monitor Logs, Azure storage, or Azure Event Hubs.
 author: bwren
 services: azure-monitor
 ms.service: azure-monitor
@@ -15,7 +15,7 @@ ms.subservice: ""
 
 
 ## Resource Manager template
-There are two sections of the Resource Manager template that you need to edit to create diagnostic settings. These are described in the following sections.
+There are two sections of the Resource Manager template that you need to edit to create diagnostic settings. These sections are described in the following sections.
 
 ### Parameters
 Depending on the [destinations](diagnostic-settings.md#destinations) for the diagnostic setting, add parameters to the parameters blob for the storage account name, event hub authorization rule ID, and Log Analytics workspace ID.
@@ -54,7 +54,7 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
 ```
 
 ### Resources
-In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Addi the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
+In the resources array of the resource for which you want to create the diagnostic setting, add a resource of type `[resource namespace]/providers/diagnosticSettings`. The properties section follows the format described in [Diagnostic Settings - Create Or Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Add the `metrics` property to collect resource metrics to the same destinations if the [resource supports metrics](metrics-supported.md).
    
 ```json
 "resources": [
