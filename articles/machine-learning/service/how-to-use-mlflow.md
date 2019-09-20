@@ -190,7 +190,7 @@ On the [Azure portal](https://ms.portal.azure.com), you can link your Azure Data
 
 After you instantiate your workspace, set the MLflow tracking URI. By doing so, you link the MLflow tracking to Azure Machine Learning workspace. After this, all your experiments will land in the managed Azure Machine Learning tracking service.
 
-#### Directly set MLflow Tracking in you notebook
+#### Directly set MLflow Tracking in your notebook
 
 ```python
 uri = ws.get_mlflow_tracking_uri()
