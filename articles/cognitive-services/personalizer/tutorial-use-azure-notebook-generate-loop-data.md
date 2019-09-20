@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Tutorial: Use Personalizer in Azure Notebook
 
-This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
+This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
 
 A summary of the user information is:
 
@@ -30,6 +30,8 @@ To help Personalizer make the correct coffee selection for each person, the _sys
 |Hot<br>cold|Kenya<br>Brazil<br>Ethiopia|Dark<br>light|Organic<br>not organic|
 
 The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible. 
+
+The code for this tutorial is available in the [Personalizer Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/Personalization.ipynb).
 
 ## How the simulation works
 
