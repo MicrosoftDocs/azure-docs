@@ -19,48 +19,50 @@ This article helps you understand ExpressRoute monitoring, metrics, and alerts u
 >Using **Classic Metrics** is not recommended.
 >
 
-## Circuit metrics
+## ExpressRoute metrics
 
 To view **Metrics**, navigate to the *Azure Monitor* page and click *Metrics*. To view **ExpressRoute** metrics, filer by Resource Type *ExpressRoute circuits*. To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. To view **ExpressRoute Direct** metrics, filter Resource Type by *ExpressRoute Ports*. 
 
 Once a metric is selected, the default aggregation will be applied. Optionally, you can apply splitting, which will show the metric with different dimensions.
 
-### Metrics Available
-|  **Category** |  **Metric** | **Dimension(s)** |  **Feature(s)** |
+### Available Metrics
+|**Metric**|**Category**|**Dimension(s)**|**Feature(s)**|
 | --- | --- | --- | --- |
-|Availability| ARP Availability |<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|<ui><li>ExpressRoute</ui></li>|
-|Availability|Bgp Availability |<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|<ui><li>ExpressRoute</ui></li>|
-|Traffic|BitsInPerSecond|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
-|Traffic|BitsOutPerSecond| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
-|Traffic|GlobalReachBitsInPerSecond|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|<ui><li>Global Reach</ui></li>|
-|Traffic|GlobalReachBitsOutPerSecond|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|<ui><li>Global Reach</ui></li>|
-|Physical Connectivity|AdminState|<ui><li>Link</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
-|Physical Connectivity|LineProtocol|<ui><li>Link</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
-|Physical Connectivity|RxLightLevel|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
-|Physical Connectivity|TxLightLevel|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|<ui><li>ExpressRoute Direct</ui></li>|
+|ARP Availability|Availability|<ui><li>Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type (Private/Public/Microsoft)</ui></li>|ExpressRoute|
+|Bgp Availability|Availability|<ui><li> Peer (Primary/Secondary ExpressRoute router)</ui></li><ui><li> Peering Type</ui></li>|ExpressRoute|
+|BitsInPerSecond|Traffic|<ui><li> Peering Type (ExpressRoute)</ui></li><ui><li>Link (ExpressRoute Direct)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|Traffic| <ui><li>Peering Type (ExpressRoute)</ui></li><ui><li> Link (ExpressRoute Direct) | <ui><li>ExpressRoute<ui><li>ExpressRoute Direct</ui></li> |
+|GlobalReachBitsInPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
+|GlobalReachBitsOutPerSecond|Traffic|<ui><li>Peered Circuit Skey (Service Key)</ui></li>|Global Reach|
+|AdminState|Physical Connectivity|Link|ExpressRoute Direct|
+|LineProtocol|Physical Connectivity|Link|ExpressRoute Direct|
+|RxLightLevel|Physical Connectivity|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
+|TxLightLevel|Physical Connectivity|<ui><li>Link</ui></li><ui><li>Lane</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >Using *GlobalGlobalReachBitsInPerSecond* and *GlobalGlobalReachBitsOutPerSecond* will only be visible if at least one Global Reach connection is established.
 >
 
-## Bits In and Out - Metrics across all peerings
+## Circuits metrics
+
+### Bits In and Out - Metrics across all peerings
 
 You can view metrics across all peerings on a given ExpressRoute circuit.
 
 ![circuit metrics](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 
-## Bits In and Out - Metrics per peering
+### Bits In and Out - Metrics per peering
 
 You can view metrics for private, public, and Microsoft peering in bits/second.
 
 ![metrics per peering](./media/expressroute-monitoring-metrics-alerts/erpeeringmetrics.jpg) 
 
-## BGP Availability - Split by Peer  
+### BGP Availability - Split by Peer  
 
 You can view near to real-time availability of BGP across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Primary BGP session up for private peering and the Second BGP session down for private peering. 
 
 ![BGP availability per peer](./media/expressroute-monitoring-metrics-alerts/erBgpAvailabilityMetrics.jpg) 
 
-## ARP Availability - Split by Peering  
+### ARP Availability - Split by Peering  
 
 You can view near to real-time availability of [ARP](https://docs.microsoft.com/azure/expressroute/expressroute-troubleshooting-arp-resource-manager) across peerings and peers (Primary and Secondary ExpressRoute routers). This dashboard shows the Private Peering ARP session up across both peers, but complete down for Microsoft peering across peerings. The default aggregation (Average) was utilized across both peers.  
 
