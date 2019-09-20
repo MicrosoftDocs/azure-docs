@@ -30,8 +30,7 @@ For available service tiers and their characteristics, see [technical difference
 
 ## Where can I find known issues and bugs?
 
-For bugs and known issues, see [behavioral changes](sql-database-managed-instance-transact-sql-information.md#Changes) and [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
-
+For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 ## Can a managed instance have the same name as on-premises SQL Server?
 
@@ -73,9 +72,9 @@ If both hardware generations are not supported in the same region, changing the 
 
 ## How do I tune performance of my managed instance? 
 
-General Purpose managed instance uses remote storage due to which size of data and log files matters to performance. To tune General Purpose service tier performance, follow instructions in this blog post.
+General Purpose managed instance uses remote storage due to which size of data and log files matters to performance. For more information, see [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
-For IO intensive workloads consider using Gen 5 hardware, versus using Gen 4 for compute intensive workloads. For more information, see FAQ section on choosing between hardware generations.
+For IO intensive workloads consider using Gen 5 hardware, versus using Gen 4 for compute intensive workloads. For more information, see [How do I choose between Gen 4 and Gen 5](#how-do-i-choose-between-gen-4-and-gen-5-hardware-generation-for-managed-instance).
 
 If your workload consists of lots of small transactions, consider switching the connection type from proxy to redirect mode.
 
@@ -119,9 +118,9 @@ To mitigate any networking risks, customers are recommended to apply a set of se
 
 Managed instance case studies:
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
   
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Database managed instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

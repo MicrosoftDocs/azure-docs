@@ -1,13 +1,13 @@
 ---
 title: Release notes for Microsoft Azure Backup Server v3
-description: This article provides the information about the known issues and workarounds for MABS v3.
-
-author: JYOTHIRMAISURI
-manager: vvithal
+description: This article provides the information about the known issues and workarounds for Microsoft Azure Backup Server (MABS) v3.
+ms.reviewer: v-jysur
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/22/2018
-ms.author: v-jysur
+ms.author: dacurwin
 ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 ---
 
@@ -20,7 +20,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 **Work around:** To prevent this, open SQL Server Management Studio (SSMS)) and run the following SQL script on the DPM DB:
 
-
+```sql
     IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -45,6 +45,7 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
             0
         ) FOR [IsGCed]
     GO
+```
 
 
 ##  Upgrade to MABS V3 fails in Russian locale
@@ -56,16 +57,16 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 1.  [Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) your SQL database and uninstall MABS V2 (choose to retain the protected data during uninstall).
 2.  Upgrade to SQL 2017 (Enterprise) and uninstall reporting as part of upgrade.
 3. [Install](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Install](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-181) SQL Server Management Studio (SSMS).
+4.  [Install](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms#download-ssms-182) SQL Server Management Studio (SSMS).
 5.  Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Install](backup-azure-microsoft-azure-backup.md) MABS V3.
 7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
-
+```sql
         UPDATE dbo.tbl_DLS_GlobalSetting
         set PropertyValue = '13.0.415.0'
         where PropertyName = 'DatabaseVersion'
-
+```
 
 9.  Start MSDPM service.
 

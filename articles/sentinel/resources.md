@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
+ms.date: 8/14/2019
 ms.author: rkarlin
 
 ---
@@ -32,14 +32,18 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 ## Vendor documentation
 
 
-| **Vendor**  | **Use Case in Azure Sentinel** | **Link**|
+| **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
 |----|----|----|
 | GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
 | PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
+## Blogs and forums
+
+Post your questions on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel.
+
+View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
+
 
 ## Next steps
-In this document, you got a list of resources that are useful when you're working with Azure Sentinel. To learn more about Azure Sentinel, see the following:
-
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://blogs.msdn.com/b/azuresecurity/).

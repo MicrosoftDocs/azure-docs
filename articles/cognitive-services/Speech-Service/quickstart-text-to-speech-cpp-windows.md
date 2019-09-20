@@ -8,17 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/24/2019
 ms.author: yinhew
 ---
 
 # Quickstart: Synthesize speech in C++ on Windows by using the Speech SDK
 
-Quickstarts are also available for [speech-recognition](quickstart-cpp-windows.md) and [speech-translation](quickstart-translate-speech-cpp-windows.md).
+Quickstarts are also available for [speech recognition](quickstart-cpp-windows.md) and [speech translation](quickstart-translate-speech-cpp-windows.md).
 
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
-
-The feature described within this article is available from [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
+In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 For a complete list of languages/voices available for speech synthesis, see [language support](language-support.md#text-to-speech).
 
@@ -32,7 +30,9 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Add sample code
 
-1. Open the source file *helloworld.cpp*. Replace all the code below the initial include statement (`#include "stdafx.h"` or `#include "pch.h"`) with the following:
+1. Open the source file **helloworld.cpp**.
+
+1. Replace all the code with the following snippet:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
 
@@ -40,21 +40,17 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-1. Save changes to the project.
+1. From the menu bar, choose **File** > **Save All**.
 
-## Build and run the app
+## Build and run the application
 
-1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors.
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-   ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-cpp-windows-06-build.png)
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Start the application. From the menu bar, choose **Debug** > **Start Debugging**, or press **F5**.
+1. Type an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
 
-   ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-cpp-windows-07-start-debugging.png)
-
-1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
-
-   ![Screenshot of console output after successful synthesis](media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Console output after successful speech synthesis](media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## Next steps
 
@@ -65,5 +61,5 @@ Additional samples, such as how to save speech to an audio file, are available o
 
 ## See also
 
-- [Customize voice fonts](how-to-customize-voice-font.md)
-- [Record voice samples](record-custom-voice-samples.md)
+- [Create a Custom Voice](how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](record-custom-voice-samples.md)

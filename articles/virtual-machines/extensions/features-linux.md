@@ -10,7 +10,6 @@ tags: azure-service-management,azure-resource-manager
 
 ms.assetid: 52f5d0ec-8f75-49e7-9e15-88d46b420e63
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
@@ -82,7 +81,7 @@ The following methods can be used to run an extension against an existing VM.
 
 ### Azure CLI
 
-Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*:
+Azure VM extensions can be run against an existing VM with the [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) command. The following example runs the Custom Script extension against a VM named *myVM* in a resource group named *myResourceGroup*. Replace the example resource group name, VM name and script to run (https:\//raw.githubusercontent.com/me/project/hello.sh) with your own information. 
 
 ```azurecli
 az vm extension set `

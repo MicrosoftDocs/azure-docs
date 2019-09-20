@@ -2,15 +2,13 @@
 title: Monitor resource usage and query metrics for an search service - Azure Search
 description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Monitor resource consumption and query activity in Azure Search
 

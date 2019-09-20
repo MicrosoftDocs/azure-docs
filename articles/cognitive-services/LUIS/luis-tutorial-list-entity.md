@@ -7,15 +7,15 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry 
 ---
 
 # Use a list entity to increase entity detection 
-This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.md) to increase entity detection. List entities do not need to be labeled as they are an exact match of terms.  
+This article demonstrates the use of a [list entity](luis-concept-entity-types.md) to increase entity detection. List entities do not need to be labeled as they are an exact match of terms.  
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Create a list entity 
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 > [!Tip]
 > If you do not already have a subscription, you can register for a [free account](https://azure.microsoft.com/free/).
 
-All of the code in this tutorial is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
+All of the code in this article is available on the [Azure-Samples GitHub repository](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/tutorial-list-entity). 
 
 ## Use HomeAutomation app
 The HomeAutomation app gives you control of devices such as lights, entertainment systems, and environment controls such as heating and cooling. These systems have several different names that can include Manufacturer names, nicknames, acronyms, and slang. 
@@ -54,7 +54,7 @@ The HomeAutomation.Device entity is great for a small number of devices or with 
 
 A **list entity** is a good choice for this scenario because the set of terms for a device in a building or campus is a known set, even if it is a huge set. By using a list entity, LUIS can receive any possible value in the set for the thermostat, and resolve it down to just the single device "thermostat". 
 
-This tutorial is going to create an entity list with the thermostat. The alternative names for a thermostat in this tutorial are: 
+This article is going to create an entity list with the thermostat. The alternative names for a thermostat in this article are: 
 
 |alternative names for thermostat|
 |--|

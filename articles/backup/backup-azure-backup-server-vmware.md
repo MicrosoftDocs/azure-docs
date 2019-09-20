@@ -2,12 +2,12 @@
 title: Back up VMware VMs with Azure Backup Server
 description: Use Azure Backup Server to back up VMware VMs running on a VMware vCenter/ESXi server.
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: raynew
+ms.author: dacurwin
 ---
 # Back up VMware VMs with Azure Backup Server
 
@@ -33,10 +33,10 @@ By default, Azure Backup Server communicates with VMware servers over HTTPS. To 
 
 ### Before you start
 
-- If you don't want to use HTTPS you can [disable HTTPS certificate validation for all VMware servers](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
+- If you don't want to use HTTPS, you can [disable HTTPS certificate validation for all VMware servers](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - You typically connect from a browser on the Azure Backup Server machine to the vCenter/ESXi server using the vSphere Web Client. The first time you do this the connection isn't secure and will show the following.
 - It's important to understand how Azure Backup Server handles backups.
-    - As a first step Azure Backup Server backs up data to local disk storage. Azure Backup Server uses a storage pool, a set of disks and volumes on which Azure Backup Server stores disk recovery points for its protected data. The storage pool can be directly attached storage (DAS), a fiber channel SAN, or iSCSI storage device or SAN. It's important to ensure that you have sufficient storage for local back up of your VMware VM data.
+    - As a first step Azure Backup Server backs up data to local disk storage. Azure Backup Server uses a storage pool, a set of disks and volumes on which Azure Backup Server stores disk recovery points for its protected data. The storage pool can be directly attached storage (DAS), a fiber channel SAN, or iSCSI storage device or SAN. It's important to ensure that you have sufficient storage for local backup of your VMware VM data.
     - Azure Backup Server then backs up from the local disk storage to Azure.
     - [Get help](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1807#figure-out-how-much-storage-space-you-need) to figure out how much storage space you need. The information is for DPM but can be used for Azure Backup Server too.
 
@@ -97,10 +97,10 @@ Set up a secure channel as follows:
 
 ### Disable HTTPS certificate validation
 
-If you have secure boundaries within your organization, and don't want to use the HTTPS protocol between VMware servers and the Azure Backup Server machine, disable HTTPS as follows: u
+If you have secure boundaries within your organization, and don't want to use the HTTPS protocol between VMware servers and the Azure Backup Server machine, disable HTTPS as follows: 
 1. Copy and paste the following text into a .txt file.
 
-      ```
+      ```text
       Windows Registry Editor Version 5.00
       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
       "IgnoreCertificateValidation"=dword:00000001
@@ -216,7 +216,7 @@ On the **Manage** tab in the **Global Permissions** panel, the new user account 
 
     ![Azure Backup Server Manage Credentials dialog box](./media/backup-azure-backup-server-vmware/mabs-manage-credentials-dialog.png)
 
-4. In **Add Credential** , enter a name and a description for the new credential, and specify the username and password you defined on the VMware server. The name, *Contoso Vcenter credential* is used to identify the credential in this procedure. If the VMware server and Azure Backup Server aren't in the same domain, specify the domain in the user name.
+4. In **Add Credential**, enter a name and a description for the new credential, and specify the username and password you defined on the VMware server. The name, *Contoso Vcenter credential* is used to identify the credential in this procedure. If the VMware server and Azure Backup Server aren't in the same domain, specify the domain in the user name.
 
     ![Azure Backup Server Add Credential dialog box](./media/backup-azure-backup-server-vmware/mabs-add-credential-dialog2.png)
 
@@ -281,10 +281,10 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
 1. On the **Select Protection group type** page, select **Servers** and then click **Next**. The **Select group members** page appears.
 
-1. In **Select group members** > select the VMs (or VM folders) that you want to back up. Then click **Next**.
+1. In **Select group members**, select the VMs (or VM folders) that you want to back up. Then click **Next**.
 
     - When you select a folder, or VMs or folders inside that folder are also selected for backup. You can uncheck folders or VMs you don't want to back up.
-1. If a VM or folder is already being backed up, you can't select it. This ensure that duplicate recovery points aren't created for a VM. .
+1. If a VM or folder is already being backed up, you can't select it. This ensures that duplicate recovery points aren't created for a VM.
 
      ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
@@ -296,7 +296,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 1. In **Specify Short-Term Goals**, specify how long you want to keep data backed up to disk.
    - In **Retention Range**, specify how many days disk recovery points should be kept.
    - In **Synchronization frequency**, specify how often disk recovery points are taken.
-       - If you don't want to set a back up interval you can check **Just before a recovery point** so that a backup runs just before each recovery point is scheduled.
+       - If you don't want to set a backup interval, you can check **Just before a recovery point** so that a backup runs just before each recovery point is scheduled.
        - Short-term backups are full backups and not incremental.
        - Click **Modify** to change the times/dates when short-term backups occur.
 
@@ -349,7 +349,7 @@ Add VMware VMs for backup. Protection groups gather multiple VMs and apply the s
 
 ## VMWare vSphere 6.7
 
-To backup vSphere 6.7 do the following:
+To back up vSphere 6.7, do the following:
 
 - Enable TLS 1.2 on DPM Server
   >[!Note]

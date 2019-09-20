@@ -7,12 +7,24 @@ author: alkohli
 ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 #Customer intent: As an IT admin, I need to be able to set up Data Box Heavy to upload on-premises data from my server onto Azure.
 ---
+::: zone target = "docs"
+
 # Tutorial: Cable and connect to your Azure Data Box Heavy
 
+::: zone-end
+
+::: zone target = "chromeless"
+
+# Get started with Azure Data Box Heavy
+
+::: zone-end
+
+::: zone target = "docs"
 
 This tutorial describes how to cable, connect, and turn on your Azure Data Box Heavy.
 
@@ -21,6 +33,14 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Cable your Data Box Heavy
 > * Connect to your Data Box Heavy
+
+::: zone-end
+
+::: zone target = "chromeless"
+
+This guide provides instructions on how to review prerequisites, cable and connect your device, copy data, upload to Azure and then verify the uploaded data.
+
+::: zone-end
 
 ## Prerequisites
 
@@ -38,6 +58,8 @@ Before you begin, make sure that:
     - Choose cables that are compatible with the [Mellanox MCX314A-BCCT](https://store.mellanox.com/products/mellanox-mcx314a-bcct-connectx-3-pro-en-network-interface-card-40-56gbe-dual-port-qsfp-pcie3-0-x8-8gt-s-rohs-r6.html) network interface.
     - For the 40-Gbps cable, device end of the cable needs to be QSFP+.
     - For the 10-Gbps cable, you need an SFP+ cable that plugs into a 10-Gbps switch on one end, with a QSFP+ to SFP+ adapter (or the QSA adapter) for the end that plugs into the device.
+
+::: zone target = "docs"
 
 ## Cable your device for power
 
@@ -134,3 +156,5 @@ Advance to the next tutorial to learn how to copy data on your Data Box Heavy.
 
 > [!div class="nextstepaction"]
 > [Copy your data to Azure Data Box](./data-box-heavy-deploy-copy-data.md)
+
+::: zone-end

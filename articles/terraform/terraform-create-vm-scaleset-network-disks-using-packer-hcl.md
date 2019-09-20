@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/29/2017
+ms.date: 08/28/2019
 ---
 
 # Use Terraform to create an Azure virtual machine scale set from a Packer custom image
@@ -42,7 +42,7 @@ Create three new files in an empty directory with the following names:
 - ```output.tf``` 
   This file describes the settings that display after deployment.
 - ```vmss.tf``` 
-  This file contains the code of the infrastructure that you are deploying.
+  This file contains the code of the infrastructure that you're deploying.
 
 ##  Create the variables 
 
@@ -122,7 +122,7 @@ resource "azurerm_public_ip" "vmss" {
   name                         = "vmss-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}"
 
   tags {
@@ -173,12 +173,12 @@ Follow the tutorial to create a deprovisioned Ubuntu image with NGINX installed.
 ## Edit the infrastructure to add the virtual machine scale set
 
 In this step, you create the following resources on the network that was previously deployed:
-- Azure load balancer to serve the application and attach it to the public IP address that was deployed in step 4
+- Azure load balancer to serve the application and attach it to the public IP address deployed earlier.
 - One Azure load balancer and rules to serve the application and attach it to the public IP address configured earlier.
-- Azure backend address pool and assign it to the load balancer 
-- A health probe port used by the application and configured on the load balancer 
-- A virtual machine scale set sitting behind the load balancer, running on the vnet deployed earlier
-- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale installed from custom image
+- Azure backend address pool and assign it to the load balancer.
+- A health probe port used by the application and configured on the load balancer.
+- A virtual machine scale set sitting behind the load balancer, running on the VNET deployed earlier.
+- [Nginx](https://nginx.org/) on the nodes of the virtual machine scale installed from custom image.
 
 
 Add the following code to the end of the `vmss.tf` file.
@@ -288,6 +288,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
       name                                   = "IPConfiguration"
       subnet_id                              = "${azurerm_subnet.vmss.id}"
       load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+      primary = true
     }
   }
   
@@ -353,7 +354,7 @@ resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
   resource_group_name          = "${azurerm_resource_group.vmss.name}"
-  public_ip_address_allocation = "static"
+  allocation_method            = "static"
   domain_name_label            = "${azurerm_resource_group.vmss.name}-ssh"
 
   tags {

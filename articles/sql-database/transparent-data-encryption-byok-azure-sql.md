@@ -67,7 +67,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 - Grant the SQL Database server access to the key vault using its Azure Active Directory (Azure AD) Identity.  When using the Portal UI, the Azure AD identity gets automatically created and the key vault access permissions are granted to the server.  Using PowerShell to configure TDE with BYOK, the Azure AD identity must be created and completion should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-azure-sql-configure.md) and [Configure TDE with BYOK for Managed Instance](https://aka.ms/sqlmibyoktdepowershell) for detailed step-by-step instructions when using PowerShell.
 
    > [!NOTE]
-   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy or inadvertently by moving the server to a different tenant, the  server loses access to the key vault, and TDE encrypted databases are will be inaccessible and logons are denied until the logical server’s Azure AD Identity and permissions have been restored.  
+   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy or inadvertently by moving the server to a different tenant, the  server loses access to the key vault, and TDE encrypted databases will be inaccessible and logons are denied until the logical server’s Azure AD Identity and permissions have been restored.  
 
 - When using firewalls and virtual networks with Azure Key Vault, you must allow trusted Microsoft services to bypass this firewall. Choose YES.
 
@@ -80,14 +80,14 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 ### Guidelines for configuring the TDE Protector (asymmetric key)
 
-- Create your encryption key locally on a local HSM device. Ensure this is an asymmetric, RSA 2048 key so it is storable in Azure Key Vault.
+- Create your encryption key locally on a local HSM device. Ensure this is an asymmetric, RSA 2048 or RSA HSM 2048 key so it is storable in Azure Key Vault.
 - Escrow the key in a key escrow system.  
 - Import the encryption key file (.pfx, .byok, or .backup) to Azure Key Vault.
 
    > [!NOTE]
    > For testing purposes, it is possible to create a key with Azure Key Vault, however this key cannot be escrowed, because  the private key can never leave the key vault.  Always back up and escrow keys used to encrypt production data, as the loss of the key (accidental deletion in key vault, expiration etc.) results in permanent data loss.
 
-- If you use a key with an expiration date – implement an expiration warning system to rotate the key before it expires: **once the key expires, the encrypted databases lose access to their TDE Protector and will be inaccessible** and all logons will be denied until the key has been rotated to a new key.
+- If you use a key with an expiration date – implement an expiration warning system to rotate the key before it expires: **once the key expires, the encrypted databases lose access to their TDE Protector and will be inaccessible** and all logons will be denied until the key has been rotated to a new key and selected as the new key and default TDE Protector for the logical SQL server.
 - Ensure the key is enabled and has permissions to perform *get*, *wrap key*, and *unwrap key* operations.
 - Create an Azure Key Vault key backup before using the key in Azure Key Vault for the first time. Learn more about the [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) command.
 - Create a new backup whenever any changes are made to the key (for example, add ACLs, add tags, add key attributes).
@@ -100,7 +100,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 If the logical SQL server loses access to the customer-managed TDE protector in Azure Key Vault, the database will deny all connections and appear inaccessible in the Azure portal.  The most common causes for this are:
 - Key vault accidentally deleted or behind a firewall
-- Key vault key accidentally deleted or expired
+- Key vault key accidentally deleted, disabled or expired
 - The logical SQL Server instance AppId accidentally deleted
 - Key specific permissions for logical SQL Server instance AppId revoked
 
