@@ -202,7 +202,7 @@ from azureml.core.model import Model
 def init():
     global model
     # retrieve the path to the model file using the model name
-    model_path = Model.get_model_path('sklearn_mnist')
+    model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_mnist_model.pkl')
     model = joblib.load(model_path)
 
 def run(raw_data):
