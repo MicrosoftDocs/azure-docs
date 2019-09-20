@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 04/03/2019
 ms.author: dacurwin
 ---
 # Back up and restore encrypted Azure VM

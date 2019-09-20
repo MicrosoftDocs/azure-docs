@@ -97,8 +97,9 @@
 - name: Restarting or resizing a VM
   href: restart-resize-error-troubleshooting.md
 - name: Serial Console
-  href: serial-console-overview.md
   items:
+  - name: Serial Console overview
+    href: serial-console-overview.md
   - name: Serial Console for Linux
     href: serial-console-linux.md
     items:
@@ -160,6 +161,8 @@
 - name: Boot errors
   href: boot-error-troubleshoot.md
   items:
+  - name: Azure Virtual Machine boot error
+    href: troubleshoot-vm-boot-error.md
   - name: Boot diagnostics
     href: boot-diagnostics.md
   - name: BitLocker errors
@@ -184,3 +187,9 @@
   href: understand-vm-reboot.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
+- name: Virtual Machine Repair
+  items:
+  - name: Repair a Windows VM by using the Azure Virtual Machine repair commands
+    href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Repair a Linux VM by using the Azure Virtual Machine repair commands
+    href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md

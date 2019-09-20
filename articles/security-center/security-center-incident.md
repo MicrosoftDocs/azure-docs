@@ -2,19 +2,14 @@
 title: Manage security incidents in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center to manage security incidents.
 services: security-center
-documentationcenter: na
-author: rkarlin
-manager: barbkess
+author: memildin
+manager: rkarlin
 editor: ''
 
-ms.assetid: e8feb669-8f30-49eb-ba38-046edf3f9656
 ms.service: security-center
 ms.topic: conceptual
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 8/27/2019
-ms.author: rkarlin
+ms.date: 09/09/2019
+ms.author: memildin
 
 ---
 # Manage security incidents in Azure Security Center
@@ -25,7 +20,7 @@ This topic explains about incidents in Security Center, and how to use remediate
 
 ## What is a security incident?
 
-In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click ona an incident to view the related alerts, which enables you to obtain more information about each occurrence.
+In Security Center, a security incident is an aggregation of all alerts for a resource that align with [kill chain](https://blogs.technet.microsoft.com/office365security/addressing-your-cxos-top-five-cloud-security-concerns/) patterns. Incidents appear in the [Security Alerts](security-center-managing-and-responding-alerts.md) list. Click on an incident to view the related alerts, which enables you to obtain more information about each occurrence.
 
 ## Managing security incidents
 
@@ -37,7 +32,7 @@ In Security Center, a security incident is an aggregation of all alerts for a re
 
     ![Respond to security incidents in Azure Security Center](./media/security-center-managing-and-responding-alerts/security-center-alert-incident.png)
 
-1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert. The remediation suggested by Security Center vary according to the security alert. 
+1. To obtain more information on each alert, click on an alert. The remediation suggested by Security Center vary according to the security alert.
 
    > [!NOTE]
    > The same alert can exist as part of an incident, as well as to be visible as a standalone alert.

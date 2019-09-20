@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
 ---
 
@@ -26,7 +26,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
     [![Create a single type](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
-1. Select **Add**.
+1. Select **+ Add**.
 1. Input all details that pertain to types, and select **Create**. This action creates types in the environment.
 
     [![Add a type](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
@@ -61,11 +61,11 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
     [![Select hierarchies](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
-1. Select **Add**.
+1. Select **+ Add**.
 
     [![Add a hierarchy](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. Select **Add Level** in the right pane.
+1. Select **+ Add Level** in the right pane.
 
     [![Add a level](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 

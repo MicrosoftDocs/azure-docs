@@ -1,23 +1,15 @@
 ---
-title: Data exploration and modeling with the Data Science Virtual Machine
-titleSuffix: Azure
-description: Perform data exploration and modeling tasks on the Data Science Virtual Machine.
+title: Explore data and model on Windows
+titleSuffix: Azure Data Science Virtual Machine 
+description: Perform data exploration and modeling tasks on the Windows Data Science Virtual Machine.
 services: machine-learning
-documentationcenter: ''
-author: vijetajo
-manager: cgronlun
-editor: cgronlun
-ms.custom: seodec18
-
-ms.assetid: 145dfe3e-2bd2-478f-9b6e-99d97d789c62
 ms.service: machine-learning
 ms.subservice: data-science-vm
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+author: vijetajo
+ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: vijetaj
 
 ---
 

@@ -6,8 +6,8 @@ author: dlepow
 manager: gwallace
 
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 05/06/2019
+ms.topic: article
+ms.date: 09/06/2019
 ms.author: danlep
 ---
 # Content trust in Azure Container Registry
@@ -38,7 +38,7 @@ Content trust is managed through the use of a set of cryptographic signing keys.
 
 Your first step is to enable content trust at the registry level. Once you enable content trust, clients (users or services) can push signed images to your registry. Enabling content trust on your registry does not restrict registry usage only to consumers with content trust enabled. Consumers without content trust enabled can continue to use your registry as normal. Consumers who have enabled content trust in their clients, however, will be able to see *only* signed images in your registry.
 
-To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **Policies**, select **Content Trust** > **Enabled** > **Save**.
+To enable content trust for your registry, first navigate to the registry in the Azure portal. Under **Policies**, select **Content Trust** > **Enabled** > **Save**. You can also use the [az acr config content-trust update][az-acr-config-content-trust-update] command in the Azure CLI.
 
 ![Enabling content trust for a registry in the Azure portal][content-trust-01-portal]
 
@@ -70,6 +70,9 @@ docker build --disable-content-trust -t myacr.azurecr.io/myimage:v1 .
 ## Grant image signing permissions
 
 Only the users or systems you've granted permission can push trusted images to your registry. To grant trusted image push permission to a user (or a system using a service principal), grant their Azure Active Directory identities the `AcrImageSigner` role. This is in addition to the `AcrPush` (or equivalent) role required for pushing images to the registry. For details, see [Azure Container Registry roles and permissions](container-registry-roles.md).
+
+> [!NOTE]
+> You can't grant trusted image push permission to the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry.
 
 Details for granting the `AcrImageSigner` role in the Azure portal and the Azure CLI follow.
 
@@ -108,7 +111,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 The `<service principal ID>` can be the service principal's **appId**, **objectId**, or one of its **servicePrincipalNames**. For more information about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
-After any role changes, run `az acr login` to refresh the local identity token for the Azure CLI so that the new roles can take effect.
+> [!IMPORTANT]
+> After any role changes, run `az acr login` to refresh the local identity token for the Azure CLI so that the new roles can take effect. For information about verifying roles for an identity, see [Manage access to Azure resources using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md) and [Troubleshoot RBAC for Azure resources](../role-based-access-control/troubleshooting.md).
 
 ## Push a trusted image
 
@@ -209,3 +213,4 @@ To disable content trust for your registry, navigate to the registry in the Azur
 
 <!-- LINKS - internal -->
 [azure-cli]: /cli/azure/install-azure-cli
+[az-acr-config-content-trust-update]: /cli/azure/acr/config/content-trust#az-acr-config-content-trust-update

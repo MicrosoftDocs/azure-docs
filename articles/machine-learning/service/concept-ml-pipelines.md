@@ -1,6 +1,6 @@
 ---
 title: 'What are ML Pipelines'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines. Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
 ms.service: machine-learning
@@ -13,9 +13,9 @@ ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
-# What are ML pipelines in Azure Machine Learning service?
+# What are ML pipelines in Azure Machine Learning?
 
-Learn how about the machine learning pipelines you can build and manage with Azure Machine Learning service. 
+Learn how about the machine learning pipelines you can build and manage with Azure Machine Learning. 
 
 Using machine learning (ML) pipelines, data scientists, data engineers, and IT professionals can collaborate on the steps involved in:
 + Data preparation, such as normalizations and transformations
@@ -25,7 +25,7 @@ Using machine learning (ML) pipelines, data scientists, data engineers, and IT p
 
 Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
-![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
+![Machine learning pipelines in Azure Machine Learning](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
 ### Which Azure pipeline technology should I use?
@@ -49,7 +49,7 @@ After the pipeline is designed, there is often more fine-tuning around the train
 
 With Azure Machine Learning, you can use various toolkits and frameworks, such as PyTorch or TensorFlow, for each step in your pipeline. Azure coordinates between the various [compute targets](concept-azure-machine-learning-architecture.md) you use, so that your intermediate data can be shared with the downstream compute targets easily.
 
-You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in the Azure portal. After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
+You can [track the metrics for your pipeline experiments](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directly in  Azure portal or your [workspace landing page (preview)](https://ml.azure.com). After a pipeline has been published, you can configure a REST endpoint, which allows you to rerun the pipeline from any platform or stack.
 
 ## Key advantages
 
@@ -81,7 +81,7 @@ There are two Python packages for pipelines with Azure Machine Learning: [azurem
 
 + Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
-+ Learn how to [run batch predictions on large data](how-to-run-batch-predictions.md).
++ Learn how to [run batch predictions on large data](tutorial-pipeline-batch-scoring-classification.md).
 
 + See the [SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py).
 
