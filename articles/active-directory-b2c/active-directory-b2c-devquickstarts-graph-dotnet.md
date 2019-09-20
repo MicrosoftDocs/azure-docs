@@ -15,14 +15,16 @@ ms.subservice: B2C
 
 # Azure AD B2C: Use the Azure AD Graph API
 
-Azure Active Directory B2C (Azure AD B2C) tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
+Azure Active Directory B2C (Azure AD B2C) tenants can have thousands or millions of users. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management.
+
+You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
 
 * For interactive, run-once tasks, you should act as an administrator account in the B2C tenant when you perform the tasks. This mode requires an administrator to sign in with credentials before that admin can perform any calls to the Graph API.
 * For automated, continuous tasks, you should use some type of service account that you provide with the necessary privileges to perform management tasks. In Azure AD, you can do this by registering an application and authenticating to Azure AD. This is done by using an **Application ID** that uses the [OAuth 2.0 client credentials grant](../active-directory/develop/service-to-service.md). In this case, the application acts as itself, not as a user, to call the Graph API.
 
-In this article, you learn how to perform the automated-use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a noninteractive, automated fashion.
+In this article, you learn how to perform the automated-use case. You'll build a .NET 4.5 `B2CGraphClient` that performs user create, read, update, and delete (CRUD) operations. The client will have a Windows command-line interface (CLI) that allows you to invoke various methods. However, the code is written to behave in a non-interactive, automated fashion.
 
 >[!IMPORTANT]
 > You **must** use the [Azure AD Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) to manage users in an Azure AD B2C directory. The Azure AD Graph API is different from the Microsoft Graph API. Learn more in this MSDN blog post: [Microsoft Graph or Azure AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
@@ -53,7 +55,7 @@ To use the Azure AD Graph API with your B2C tenant, you need to register an appl
     1. Select **Microsoft Graph**, and then **Select**.
     1. Under **APPLICATION PERMISSIONS**, select **Read and write directory data**.
     1. Select the **Select** button, and then select **Done**.
-    1. Select **Grant permissions**, and then select **Yes**. It take a few minutes to for the permissions to fully propagate.
+    1. Select **Grant permissions**, and then select **Yes**. It might take a few minutes to for the permissions to fully propagate.
 1. Create client secret
     1. Under **API ACCESS**, select **Keys**.
     1. Enter a description for the key in the **Key description** box. For example, *Audit Log Key*.
@@ -102,7 +104,7 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 ```
 
 1. Open the `B2CGraphClient\B2CGraphClient.sln` solution in Visual Studio. In the **B2CGraphClient** project, open the *App.config* file.
-1. Replace the `<appSettings>` section with the following XML, and then eplace the `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values you recorded earlier.
+1. Replace the `<appSettings>` section with the following XML, and then replace the `{your-b2c-tenant}` with the name of your tenant, and `{Application ID}` and `{Client secret}` with the values you recorded earlier.
 
     ```xml
     <appSettings>
@@ -123,7 +125,7 @@ cd B2CGraphClient\bin\Debug
 B2C Help
 ```
 
-The `B2C Help` command displays a brief description of the available sub-commands. Each time you invoke one of the commands, `B2CGraphClient` makes a request to the Azure AD Graph API.
+The `B2C Help` command displays a brief description of the available subcommands. Each time you invoke one of the commands, `B2CGraphClient` makes a request to the Azure AD Graph API.
 
 The following sections discuss how the application's code works to make calls to the Azure AD Graph API.
 
@@ -288,7 +290,7 @@ Inspect the `B2CGraphClient.SendGraphPatchRequest()` method for details on how t
 
 ### Search users
 
-You can search for users in your B2C tenant in a couple of ways: by referencing the user's object ID their sign-in identifer, the `signInNames` property.
+You can search for users in your B2C tenant in a couple of ways: by referencing the user's object ID or their sign-in identifer, the `signInNames` property.
 
 Run one of the following commands to search for a user:
 
@@ -297,11 +299,11 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-Here are a couple of examples:
+Here are two examples:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
-B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27joeconsumer@gmail.com%27)
+B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
 ```
 
 ### Delete users
@@ -326,7 +328,7 @@ You can perform many other actions with the Azure AD Graph API in addition to us
 
 ## Use custom attributes
 
-Most consumer applications need to store some type of custom user profile information. One way you can do this is to define a custom attribute in your B2C tenant. You can then treat that attribute in the same way you treat any other property on a user object. You can update the attribute, delete the attribute, query by the attribute, send the attribute as a claim in sign-in tokens, and more.
+Most consumer applications need to store some type of custom user profile information. One way you can do so is to define a custom attribute in your B2C tenant. You can then treat that attribute in the same way you treat any other property on a user object. You can update the attribute, delete the attribute, query by the attribute, send the attribute as a claim in sign-in tokens, and more.
 
 To define a custom attribute in your B2C tenant, see the [B2C custom attribute reference](active-directory-b2c-reference-custom-attr.md).
 
@@ -365,9 +367,9 @@ B2C Update-User <object-id-of-user> <path-to-json-file>
 
 By using `B2CGraphClient`, you have a service application that can manage your B2C tenant users programmatically. `B2CGraphClient` uses its own application identity to authenticate to the Azure AD Graph API. It also acquires tokens by using a client secret.
 
-As you incorporate this functionality into your application, remember a few key points for B2C applications:
+As you incorporate this functionality into your own application, remember a few key points for B2C applications:
 
-* You need to grant the application the proper permissions in the tenant.
+* Grant the application the required permissions in the tenant.
 * For now, you need to use ADAL (not MSAL) to get access tokens. (You can also send protocol messages directly, without using a library.)
 * When you call the Graph API, use `api-version=1.6`.
 * When you create and update consumer users, a few properties are required, as described above.
