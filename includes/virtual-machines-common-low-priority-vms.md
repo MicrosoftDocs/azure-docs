@@ -72,7 +72,7 @@ Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Micros
 
 Create a low priority VM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority low` and set `-MaxPrice` to either:
 - `-1` so the VM is not evicted based on price.
-- a dollar amount, up to 4 digits. For example `-MaxPrice .0123` means that the VM will be deallocated once the price for a low priority VM goes about $.0123 per hour.
+- a dollar amount, up to 4 digits. For example `-MaxPrice .0123` means that the VM will be deallocated once the price for a low priority VM goes about $.9876 per hour.
 
 This example creates a low priority VM that will not be deallocated based on pricing (only when Azure needs the capacity back).
 
