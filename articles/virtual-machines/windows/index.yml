@@ -35,7 +35,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Azure Portal
+          - text: Azure portal
             url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal
           - text: Azure PowerShell
             url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell
