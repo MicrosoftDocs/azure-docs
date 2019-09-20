@@ -17,12 +17,14 @@ There are currently three types of hosting plans for an app that run in Azure Fu
 | Plan | Description |
 | ---- | ----------- |
 | [**Consumption**](functions-scale.md#consumption-plan) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
-| [**Premium**](functions-scale.md#premium-plan) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and VNET access. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
-| [**Dedicated (App Service)**](functions-scale.md#app-service-plan) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). 
+| [**Premium**](functions-scale.md#premium-plan) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and VNET access. Cost is based on your chosen pricing tier. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
+| [**Dedicated (App Service)**](functions-scale.md#app-service-plan) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). Cost is based on your chosen pricing tier.|
 
 You chose the plan that best supports your function performance and cost requirements. To learn more, see [Azure Functions scale and hosting](functions-scale.md).
 
-This article deals only with the Consumption plan, since this plan results in variable costs. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
+This article deals only with the Consumption plan, since this plan results in variable costs. 
+
+Durable Functions can also run in a Consumption plan. To learn more about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable/durable-functions-billing.md).
 
 ## Consumption plan costs
 
@@ -35,19 +37,17 @@ Since memory usage changes over time, the calculation is essentially the integra
 > [!NOTE]
 > While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
 
-To fix a lower bound on your estimates, it's useful to know the minimum costs of an execution. As detailed on the [pricing page], when a function runs for less than 100 ms, an execution time of 100 ms is used as the basis of the calculation. The minimum cost of an execution is determined by multiplying the minimum amount of memory (128 MB) and the minimum execution time (100 ms): `0.125 GB * 0.1s = 0.0125 GB-sec`. 
-
 ## Other related costs
 
-When estimating the overall cost of running your functions in any plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. When calculating pricing for Functions apps, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. 
+When estimating the overall cost of running your functions in any plan, remember that the Functions runtime uses several other Azure services, which are each billed separately. When calculating pricing for function apps, any triggers and bindings you have that integrate with other Azure services require you to create and pay for those additional services. 
 
 For functions running in a Consumption plan, the total cost is the execution cost of your functions, plus the cost of bandwidth and additional services. 
 
-When estimating the overall costs of your function app topology using current service prices, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=functions). 
+When estimating the overall costs of your function app and related services, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=functions). 
 
 | Related cost | Description |
 | ------------ | ----------- |
-| **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. |
+| **Storage account** | Each function app requires that you have an associated General Purpose [Azure Storage account](../storage/common/storage-introduction.md#types-of-storage-accounts), which is [billed separately](https://azure.microsoft.com/pricing/details/storage/). This account is used internally by the Functions runtime, but you can also use it for Storage triggers and bindings. If you don't have a storage account, one is created for you when the function app is created. To learn more, see [Storage account requirements](functions-scale.md#storage-account-requirements).|
 | **Application Insights** | Functions relies on [Application Insights](../azure-monitor/app/app-insights-overview.md) to provide a high-performance monitoring experience for your function apps. While not required, you should [enable Application Insights integration](functions-monitoring.md#enable-application-insights-integration). A free grant of telemetry data is included every month. To learn more, see [the Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Network bandwidth** | You don't pay for data transfer between Azure services in the same region. However, you can incur costs for outbound data transfers to another region or outside of Azure. To learn more, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/). |
 
@@ -192,7 +192,7 @@ This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18
 
 ## Determine memory usage
 
-Function Execution units are a combination of execution time and your memory usage, which makes it a difficult metric for understanding memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.  
+Function execution units are a combination of execution time and your memory usage, which makes it a difficult metric for understanding memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.  
 
 If you haven't already done so, [enable Application Insights in your function app](functions-monitoring.md#enable-application-insights-integration). With this integration enabled, you can [query this telemetry data in the portal](functions-monitoring.md#query-telemetry-data).  
 
