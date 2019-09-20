@@ -183,12 +183,15 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 
 4. Load packages used by the Notebook by entering the following information in a Notebook cell. Run the command by using **CTRL + ENTER**.
 
+**We recommend that you disable dynamic allocation by setting spark.dynamicAllocation.enabled to false when running streaming applications.**
+
     ```
     %%configure -f
     {
         "conf": {
             "spark.jars.packages": "org.apache.spark:spark-sql-kafka-0-10_2.11:2.2.0",
-            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11"
+            "spark.jars.excludes": "org.scala-lang:scala-reflect,org.apache.spark:spark-tags_2.11",
+            "spark.dynamicAllocation.enabled": false
         }
     }
     ```
