@@ -1,6 +1,6 @@
 ---
 title: Application Insights for Worker Service apps (Non-Http apps) | Microsoft Docs
-description: Monitoring .NET Core/.NET Framework non-Http apps with Application Insights.
+description: Monitoring .NET Core/.NET Framework non-http apps with Application Insights.
 services: application-insights
 documentationcenter: .net
 author: cithomas
@@ -92,7 +92,7 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                using (_telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
+                using (_telemetryClient.StartOperation<RequestTelemetry>("operation"))
                 {
                     _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                     _logger.LogInformation("Calling bing.com");
@@ -210,7 +210,7 @@ Following is the code for `TimedHostedService` where the background task logic r
         {
             _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-            using (_telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
+            using (_telemetryClient.StartOperation<RequestTelemetry>("operation"))
             {
                 _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                 _logger.LogInformation("Calling bing.com");
@@ -263,7 +263,7 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
             {
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
 
-                using (telemetryClient.StartOperation<RequestTelemetry>("workeroperation"))
+                using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
                 {
                     _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                     _logger.LogInformation("Calling bing.com");
@@ -287,7 +287,7 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 ## Run your application
 
-Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
+Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "operation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
 
 This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
@@ -313,25 +313,25 @@ By default, the SDK collects the following counters (available only in .NET Core
 
 |Category | Counter|
 |---------------|-------|
-|System.Runtime | cpu-usage |
-|System.Runtime | working-set |
-|System.Runtime | gc-heap-size |
-|System.Runtime | gen-0-gc-count |
-|System.Runtime | gen-1-gc-count |
-|System.Runtime | gen-2-gc-count |
-|System.Runtime | time-in-gc |
-|System.Runtime | gen-0-size |
-|System.Runtime | gen-1-size |
-|System.Runtime | gen-2-size |
-|System.Runtime | loh-size |
-|System.Runtime | alloc-rate |
-|System.Runtime | assembly-count |
-|System.Runtime | exception-count |
-|System.Runtime | threadpool-thread-count |
-|System.Runtime | monitor-lock-contention-count |
-|System.Runtime | threadpool-queue-length |
-|System.Runtime | threadpool-completed-items-count |
-|System.Runtime | active-timer-count |
+|`System.Runtime` | `cpu-usage` |
+|`System.Runtime` | `working-set` |
+|`System.Runtime` | `gc-heap-size` |
+|`System.Runtime` | `gen-0-gc-count` |
+|`System.Runtime` | `gen-1-gc-count` |
+|`System.Runtime` | `gen-2-gc-count` |
+|`System.Runtime` | `time-in-gc` |
+|`System.Runtime` | `gen-0-size` |
+|`System.Runtime` | `gen-1-size` |
+|`System.Runtime` | `gen-2-size` |
+|`System.Runtime` | `loh-size` |
+|`System.Runtime` | `alloc-rate` |
+|`System.Runtime` | `assembly-count` |
+|`System.Runtime` | `exception-count` |
+|`System.Runtime` | `threadpool-thread-count` |
+|`System.Runtime` | `monitor-lock-contention-count` |
+|`System.Runtime` | `threadpool-queue-length` |
+|`System.Runtime` | `threadpool-completed-items-count` |
+|`System.Runtime` | `active-timer-count` |
 
 ### Manually tracking additional telemetry
 
