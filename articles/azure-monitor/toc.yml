@@ -1142,7 +1142,7 @@
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Quickstart templates
