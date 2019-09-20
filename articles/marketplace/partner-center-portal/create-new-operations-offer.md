@@ -93,7 +93,7 @@ Select a minimum of one and a maximum of three categories. These will be used to
 
 ### Industry
 
-You can optionally select up to two industries to help categorize your offer in the marketplace. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description. 
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### App version
 
