@@ -14,7 +14,7 @@ ms.author: emalani
 
 As developers, you write code and check it in into the code repository but the commits checked into the repo might not be always consistent. With multiple developers working on the same project, issues come up with integration and the team would run into situations where things are not working, bugs keep piling up, and project development gets delayed. Developers have to wait till the entire software code is built and tested to check for errors and this makes the process slow and less iterative. 
 
-With **Continuous Build and Integration**, developers can simplify build and test of their code by not only committing their changes to the source code repository but also put tests and verifications into the build environment so they are always running tests against their code. All the changes made to the source code is build continuosly whenever there is a commit made to the repository. With every check in, the CI server validates and pass any test that the developer has created. If the tests don't pass, the code is sent back for further changes. This allows the developer not to break the builds that are created as well as not to run all the tests locally on their computer which in turn increases developer productivity. 
+With **Continuous Build and Integration**, developers can simplify build and test of their code by not only committing their changes to the source code repository but also put tests and verifications into the build environment so they are always running tests against their code. All the changes made to the source code are build continuously whenever there is a commit made to the repository. With every check-in, the CI server validates and pass any test that the developer has created. If the tests don't pass, the code is sent back for further changes. This allows the developer not to break the builds that are created as well as not to run all the tests locally on their computer which in turn increases developer productivity. 
 
 ## Key Benefits
 - **Automated** build, test, and deploy pipeline.
@@ -22,7 +22,7 @@ With **Continuous Build and Integration**, developers can simplify build and tes
 - **Commit code** more frequently, build apps now and fast.
 - **Flexibility** to change code quickly without any issues.
 - **Faster time-to-market** ensures that only good quality code makes it all the way through.
-- **Snmall code changes** as it allows to integrate small pieces of code at one time.
+- **Small code changes** as it allows to integrate small pieces of code at one time.
 - **Increase Team transparency and accountability** lets you get **continuous feedback** not only from your customers but your team as well. 
 
 ## Azure Services
@@ -63,4 +63,4 @@ With **Continuous Build and Integration**, developers can simplify build and tes
     - [Get started with Azure DevOps](https://app.vsaex.visualstudio.com/signup/) 
     - [Quickstarts](https://docs.microsoft.com/en-us/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2)
     
-In order the choose the right service for your app builds, follow the article that compares [App Center Build vs. Azure DevOps Pipelines](https://docs.microsoft.com/en-us/appcenter/build/choose-between-services).
+In order the choose the right service for your app builds, follow the article that compares [App Center Build vs. Azure Pipelines](https://docs.microsoft.com/en-us/appcenter/build/choose-between-services).

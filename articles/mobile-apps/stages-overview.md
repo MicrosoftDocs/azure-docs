@@ -13,7 +13,7 @@ ms.author: emalani
 # Different Stages in Mobile Application Development
 Building a mobile application involves multiple stages and developers can easily take advantage of Microsoft services, tools, and technologies to use the following components:
 
-- **Apps development** - Developers can use client-side technologies to build client apps themselves. With Microsoft technologies, developers can build native native single platform apps using languages like Objective-C and Java, cross-platform apps using Xamarin, React Native, Unity, and hybrid using Cordova.
+- **Apps development** - Developers can use client-side technologies to build client apps themselves. With Microsoft technologies, developers can build native single platform apps using languages like Objective-C and Java, cross-platform apps using Xamarin, React Native, Unity, and hybrid using Cordova.
 
     Developers building client front ends can make use of IDEs and code editors, such as Visual Studio, Xamarin Studio, or Visual Studio Code on PCs and Macs, to construct their client apps.
 
@@ -26,6 +26,6 @@ Building a mobile application involves multiple stages and developers can easily
     - Build scalable, reliable, and secure back-end.
     - Automatic server maintainence.
 
-- **DevOps and continuous monitoring** - Developers creating mobile and cloud focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash and exception information for their apps.
+- **DevOps and continuous monitoring** - Developers creating mobile and cloud focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash, and exception information for their apps.
 
-- **Additional Services** - There are a variety of Azure services like Azure Maps, Cognitive Services etc. that developers can leverage depending on the type and nature of application that they are building.
+- **Additional Services** - There are different kinds of Azure services like Azure Maps, Cognitive Services etc. that developers can leverage depending on the type and nature of application that they are building.

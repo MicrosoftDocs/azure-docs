@@ -11,19 +11,19 @@ ms.author: emalani
 ---
 
 # Serverless Compute
-Every mobile application needs a backend that is responsible for data storage, business logic, and security. Managing the infrastucture to host and execute backend code requires you to size, provision and scale a bunch of servers, manage OS updates and hardware involved, apply security patches and then monitor all these infrastructure for performance, availability, and fault tolerance. This is when serverless architecture comes very handy as developers have no servers to manage, no OS, or related software/hardware updates to manage and it saves a lot of developer time and cost which means faster time to market and focused energy on building application code logic. 
+Every mobile application needs a backend that is responsible for data storage, business logic, and security. Managing the infrastructure to host and execute backend code requires you to size, provision and scale a bunch of servers, manage OS updates and hardware involved, apply security patches and then monitor all these infrastructure for performance, availability, and fault tolerance. This is when serverless architecture comes very handy as developers have no servers to manage, no OS, or related software/hardware updates to manage and it saves a lot of developer time and cost which means faster time to market and focused energy on building application code logic. 
 
 ## Benefits of Serverless Compute includes:
 - Abstraction of servers without having to worry about hosting, patching, and security to just focus on the code.
 - Instant and efficient scaling as the resources to run the code is  provisioned automatically and on demand at whatever scale you might be requesting.
-- High availabilty and fault tolerance. 
+- High availability and fault tolerance. 
 - No idle capacity and micro billing as you are only billed for when your code is actually running.
 - Write code that runs in the cloud in your choice of any language.
 
 ## Azure Services
 
 1. ### **Azure Functions**
-   [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) is an event-driven compute experience that allows you to execute your code, written in the programming language of your choice, without worrying about servers. Developers dont have to manage the application or the infrastructure to run it on. Functions scale on demand and you pay only for the time your code runs. Azure Functions are a great way to implement an API for a mobile application because they are very easy to implement and maintain, and accessible through HTTP. 
+   [Azure Functions](https://azure.microsoft.com/en-us/services/functions/) is an event-driven compute experience that allows you to execute your code, written in the programming language of your choice, without worrying about servers. Developers don't have to manage the application or the infrastructure to run it on. Functions scale on demand and you pay only for the time your code runs. Azure Functions are a great way to implement an API for a mobile application because they are very easy to implement and maintain, and accessible through HTTP. 
 ​
    **Key Features**
    - **Event driven and scalable** where developers can use **triggers and bindings** to define when a function is invoked and to what data it connects.
@@ -37,7 +37,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    - **Pay-per-use pricing model** - Pay only for the time spent running your code. 
 
    **References**
-   - [Azure Portal](https://portal.azure.com) to create Functions app
+   - [Azure portal](https://portal.azure.com) to create Functions app
    - [Documentation](https://docs.microsoft.com/en-us/azure/azure-functions/)
    - [Azure Functions Developer Guide](https://docs.microsoft.com/en-us/azure/azure-functions/functions-reference)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code)
@@ -52,10 +52,10 @@ Every mobile application needs a backend that is responsible for data storage, b
    - **Secure DevOps for AKS** to achieve balance between speed and security and deliver code faster at scale. 
    - **Scale with ease using AKS and ACI** to provision pods inside ACI that start in seconds. 
    - **IoT device deployment and management** on demand.
-   - **Machine learning model training** with use of tools suc as TensorFlow and KubeFlow. 
+   - **Machine learning model training** with use of tools such as TensorFlow and KubeFlow. 
 
    **References**
-   - [Azure Portal](https://portal.azure.com/)
+   - [Azure portal](https://portal.azure.com/)
    - [Documentation](https://docs.microsoft.com/en-us/azure/aks/)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal)
    - [Tutorials](https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app)
@@ -64,7 +64,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    [Azure Container Instances (ACI)](https://azure.microsoft.com/en-us/services/container-instances/) is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. Develop apps fast without managing VMs or having to learn new tools. 
 
    **Key Features**
-   - **Fast startup times** as ACI can start containers in Azure in seconds, without the need to provision and manage VMs.
+   - **Fast startup times** as ACI can start containers in Azure in seconds, without the need to provision, and manage VMs.
    - **Public IP connectivity and DNS name**.
    - **Hypervisor-level security** that guarantees your application is as isolated in a container as it would be in a VM.
    - **Custom sizes** for  optimum utilization by allowing exact specifications of CPU cores and memory. You pay based on what you need and get billed by the second, so you can fine-tune your spending based on actual need.
@@ -72,7 +72,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    - **Linux and Windows containers** scheduled with the same API.
 
    **References**
-   - [Azure Portal](https://portal.azure.com/)
+   - [Azure portal](https://portal.azure.com/)
    - [Documentation](https://docs.microsoft.com/en-us/azure/container-instances/)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-quickstart-portal)
    - [Samples](https://azure.microsoft.com/en-us/resources/samples/?sort=0&term=aci)
@@ -91,7 +91,7 @@ Every mobile application needs a backend that is responsible for data storage, b
    - **Visual Studio integration** with dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
    **References**
-   - [Azure Portal](https://portal.azure.com/)
+   - [Azure portal](https://portal.azure.com/)
    - [Documentation](https://docs.microsoft.com/en-us/azure/app-service/)
    - [Quickstarts](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-dotnet)
    - [Samples](https://docs.microsoft.com/en-us/azure/app-service/samples-cli)

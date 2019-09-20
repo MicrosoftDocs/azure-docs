@@ -14,7 +14,7 @@ ms.author: emalani
 DevOps (a combination of "Development" and "Operations") is a term that emphasizes the importance of communication and collaboration between software developers and production IT professionals while automating the deployment of software and infrastructure changes. It is focused on the adoption of agile and lean methodologies and automating repetitive tasks, with a singular goal of timely, successful application releases.
 
 Microsoft has a comprehensive set of [DevOps solutions](https://azure.microsoft.com/en-us/solutions/devops/) through [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) (cloud), [Azure DevOps
-Server](https://azure.microsoft.com/en-us/services/devops/server/) (on-premises) and [Visual Studio App Center](https://azure.microsoft.com/en-us/services/app-center/). These products create a working environment in which building, testing, and deploying software can occur rapidly, frequently, and reliably. In turn, this allows for an organization to achieve its goals quicker, allowing for a faster turnaround time in the deployment of new features, security patches, and bug fixes.
+Server](https://azure.microsoft.com/en-us/services/devops/server/) (on-premises), and [Visual Studio App Center](https://azure.microsoft.com/en-us/services/app-center/). These products create a working environment in which building, testing, and deploying software can occur rapidly, frequently, and reliably. In turn, this allows for an organization to achieve its goals quicker, allowing for a faster turnaround time in the deployment of new features, security patches, and bug fixes.
 
 ## Importance of DevOps
 - Makes the entire software lifecycle faster, from code commit to production deployment.

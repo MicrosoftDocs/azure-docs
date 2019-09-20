@@ -13,19 +13,19 @@ ms.author: emalani
 # Cloud Hosted Source Code Management Services
 If you have development teams with multiple team members working on the same code base, you need to find a suitable place to host your code. Storing the data in the cloud and having a centralized repository allows everyone to upload, edit and manage the code files, interact with other developers on projects, and provides the ability for the code to be readily accessible no matter where you are, as long as you have an internet connection.
 
-Cloud hosting is much easier than on-premise options as it requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
+Cloud hosting is much easier than on-premises options as it requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
 
 ## Benefits of hosting source code in the cloud
 - **Centralized cloud storage** to view and manage your data from anywhere.
 - Enables **better collaboration and cleaner code** within teams to keep track of code and manage projects to ensure the continuous delivery of excellent software.
 - **Get involved** and makes it **easy to contribute** to your projects.
 - **Faster release cycle** as your team can work faster and **easily to contribute** to your projects.
-- **Reduce the cost** without having to worry about maintaining your own hardware, servers, VPN etc. 
+- **Reduce the cost** without having to worry about maintaining your own hardware, servers, VPN and so on.
 
 ## Services
 
 1. ### **Azure DevOps**
-    [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) provides [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) which provides Git repositories or [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/index?view=azure-devops) for source control of your code and it has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high quality code. Azure Repos is great for small projects as well as large organizations that need native AAD support and advanced policies.
+    [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) supports [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) that provides Git repositories or [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/index?view=azure-devops) for source control of your code and it has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high quality code. Azure Repos is great for small projects as well as large organizations that need native AAD support and advanced policies.
      
     **Key Features**
     - **Unlimited cloud hosted Git source code repository** for your public and private repos.
@@ -40,7 +40,7 @@ Cloud hosting is much easier than on-premise options as it requires less hardwar
     - **Powerful semantic code search**. 
     - **Enterprise ready** as it has native integration with Azure Active Directory (AD), simplifying the process of managing access to your code repositories. 
     - **Ensure code quality** with branch policies such as minimum number of code reviews, requiring successful builds, and enforcing Git merge strategies.
-    - **Connect your favourite development environment** to access repos and manage work. 
+    - **Connect your favorite development environment** to access repos and manage work. 
 
     **References**
     - [Get started with Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) 
@@ -51,7 +51,7 @@ Cloud hosting is much easier than on-premise options as it requires less hardwar
 
     **Key Features**
     - **Code Hosting** with all your code in one place. Private, public, or open source, all repositories are equipped with tools to help you host, version, and release code.
-    - Seamless **code review** and built-in review tools makes code review an essential part oif any teams process.
+    - Seamless **code review** and built-in review tools makes code review an essential part of any teams process.
         - Protect branches, propose changes and request reviews
         - See the difference and comment in context and get clear feedback
     - Coordinate early, stay aligned, and get more done with GitHub’s **Project Management tools**.
@@ -60,7 +60,7 @@ Cloud hosting is much easier than on-premise options as it requires less hardwar
         - **Drag and drop cards** to let you assign issues or pull requests to team members
         - **Milestones** to organize and track progress
         - **Notes** to capture ideas that might be useful but don’t belong to a particular issue or pull request
-    - Easily diccover and choose the right tools for better communication and automation of work by buying apps from **[GitHub Marketplace](https://github.com/marketplace)**.
+    - Easily discover and choose the right tools for better communication and automation of work by buying apps from **[GitHub Marketplace](https://github.com/marketplace)**.
     - **Team Management** to easily manage and grow teams.
         - **User roles** to help organize teams and access permissions
         - **Discussion threads** tools to keep conversations on topic and your team focused

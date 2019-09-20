@@ -1,5 +1,5 @@
 ---
-title: Understand app usage and user behaviour with Analytics 
+title: Understand app usage and user behavior with Analytics 
 description: Learn how to make smart business decisions by understanding how users use your app
 author: elamalani
 
@@ -15,8 +15,8 @@ How well do you understand how your users use your apps? How many active users d
 
 The more you drill down into the data, the more you could find ways to improve your app and keep your users happy and it's important to use data to find actionable insights. This way you will do the right thing for users and your app.
 
-## Importance of levereaging Analytics for mobile apps
-- **Understand** your users, how they interact with your app, and what brings them back to fine tune your application and provide great experience to grow your business.
+## Importance of leveraging Analytics for mobile apps
+- **Understand** your users, how they interact with your app, and what brings them back to fine-tune your application and provide great experience to grow your business.
 - **Track** your usage metrics and make informed decision on how to market your app and better serve your customers.
 - **Measure** your app performance and things that matter the most to your business.
 - **Learn** which parts of your app drivers value or app performance and things that matter the most to your business.
@@ -41,7 +41,7 @@ The more you drill down into the data, the more you could find ways to improve y
     - [Get started with App Center Analytics](https://docs.microsoft.com/en-us/appcenter/analytics/)
 
 2. ### **Azure Monitor**
-   Azure Monitor includes [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) that provides tools for collecting and analyzing telemetry to maximize performace and monitor your mobile application. It doesn't explicitely monitor mobile apps, but you can leverage this service by using App Center Analytics and set up export to Application Insights. Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools App Center provides.
+   Azure Monitor includes [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview) that provides tools for collecting and analyzing telemetry to maximize performance and monitor your mobile application. It doesn't explicitly monitor mobile apps, but you can leverage this service by using App Center Analytics and set up export to Application Insights. Application Insights can query, segment, filter, and analyze the custom event telemetry from your apps, beyond the analytics tools App Center provides.
 
     **Key Features**
     - **Query** your custom event telemetry.
@@ -53,7 +53,7 @@ The more you drill down into the data, the more you could find ways to improve y
         - **Cohorts** for naming and saving specific groups of users or events so they can be easily referenced from other analytics tools.
     
     **References**
-    - [Azure Portal](https://portal.azure.com/) to create Application Insights resource.
+    - [Azure portal](https://portal.azure.com/) to create Application Insights resource.
     - [Analyze your mobile app with App Center and Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/mobile-center-quickstart)
     - [Usage Analytics with Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-overview)
 
