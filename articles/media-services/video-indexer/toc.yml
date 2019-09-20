@@ -27,6 +27,8 @@
     items:
     - name: Overview
       href: customize-content-models-overview.md  
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Brands
       href: customize-brands-model-overview.md
     - name: Language
@@ -45,8 +47,10 @@
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
-  - name: Scenes, shots, and keyframes
+  - name: Detect scenes, shots, keyframes
     href: scenes-shots-keyframes.md
+  - name: Identify and transcribe multi-language content
+    href: multi-language-identification-transcription.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
   - name: Use editor to create projects
@@ -57,6 +61,8 @@
     href: video-indexer-disaster-recovery.md        
   - name: Customize content models
     items:
+    - name: Animated characters
+      href: animated-characters-recognition.md
     - name: Person
       items: 
       - name: using Video Indexer website

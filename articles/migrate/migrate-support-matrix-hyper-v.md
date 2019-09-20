@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -22,9 +22,9 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Deployment** | **Details***
 --- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
-**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure. 
+**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration. 
+Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration.
 
 ## Azure Migrate projects
 
@@ -39,10 +39,13 @@ Geography | You can create Azure Migrate projects in a number of geographies. Al
   Azure Government | US Gov Virginia
   Asia Pacific | East Asia or Southeast Asia
   Australia | Australia East or Australia Southeast
+  Brazil | Brazil South
   Canada | Canada Central or Canada East
   Europe | North Europe or West Europe
+  France | France Central
   India | Central India or South India
   Japan |  Japan East or Japan West
+  Korea | Korea Central or Korea South
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 
@@ -77,7 +80,7 @@ For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V V
 
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
-| **Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, and 1 external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
+| **Appliance deployment**   |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided by Azure Migrate is Hyper-V VM version 5.0.<br/> The Hyper-V host must be running Windows Server 2012 R2 or later.<br/> The host needs sufficient space to allocate 16 GB RAM, 8 vCPUs, around 80 GB of storage space, and an external switch for the appliance VM.<br/> The appliance needs a static or dynamic IP address, and internet access.
 | **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
 | **Hyper-V hosts**          | An appliance can connect to up to 300 Hyper-V hosts.
 | **Discovery**              | A single appliance can discover up to 5000 VMs.

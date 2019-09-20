@@ -1,21 +1,21 @@
 ---
-title: Create and manage read replicas in Azure Database for MySQL
-description: This article describes how to set up and manage read replicas in Azure Database for MySQL using the Azure CLI.
+title: Create and manage read replicas in Azure Database for MySQL - Azure CLI, REST API
+description: This article describes how to set up and manage read replicas in Azure Database for MySQL using the Azure CLI, REST API
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/14/2019
 ---
 
-# How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
+# How to create and manage read replicas in Azure Database for MySQL using the Azure CLI and REST API
 
-In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
+In this article, you will learn how to create and manage read replicas in the Azure Database for MySQL service using the Azure CLI and REST API. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
+## Azure CLI
+You can create and manage read replicas using the Azure CLI.
 
-## Prerequisites
+### Prerequisites
 
 - [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md) that will be used as the master server. 
@@ -23,7 +23,7 @@ In this article, you will learn how to create and manage read replicas within th
 > [!IMPORTANT]
 > The read replica feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the master server is in one of these pricing tiers.
 
-## Create a read replica
+### Create a read replica
 
 A read replica server can be created using the following command:
 
@@ -51,7 +51,23 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.
 
-## Stop replication to a replica server
+
+### List replicas for a master server
+
+To view all replicas for a given master server, run the following command: 
+
+```azurecli-interactive
+az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
+```
+
+The `az mysql server replica list` command requires the following parameters:
+
+| Setting | Example value | Description  |
+| --- | --- | --- |
+| resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |
+| server-name | mydemoserver | The name or ID of the master server. |
+
+### Stop replication to a replica server
 
 > [!IMPORTANT]
 > Stopping replication to a server is irreversible. Once replication has stopped between a master and replica, it cannot be undone. The replica server then becomes a standalone server and now supports both read and writes. This server cannot be made into a replica again.
@@ -69,7 +85,7 @@ The `az mysql server replica stop` command requires the following parameters:
 | resource-group |  myresourcegroup |  The resource group where the replica server exists.  |
 | name | mydemoreplicaserver | The name of the replica server to stop replication on. |
 
-## Delete a replica server
+### Delete a replica server
 
 Deleting a read replica server can be done by running the **[az mysql server delete](/cli/azure/mysql/server)** command.
 
@@ -77,7 +93,7 @@ Deleting a read replica server can be done by running the **[az mysql server del
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
 ```
 
-## Delete a master server
+### Delete a master server
 
 > [!IMPORTANT]
 > Deleting a master server stops replication to all replica servers and deletes the master server itself. Replica servers become standalone servers that now support both read and writes.
@@ -88,20 +104,71 @@ To delete a master server, you can run the **[az mysql server delete](/cli/azure
 az mysql server delete --resource-group myresourcegroup --name mydemoserver
 ```
 
-## List replicas for a master server
 
-To view all replicas for a given master server, run the following command: 
+## REST API
+You can create and manage read replicas using the [Azure REST API](/rest/api/azure/).
 
-```azurecli-interactive
-az mysql server replica list --server-name mydemoserver --resource-group myresourcegroup
+### Create a read replica
+You can create a read replica by using the [create API](/rest/api/mysql/servers/create):
+
+```http
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{replicaName}?api-version=2017-12-01
 ```
 
-The `az mysql server replica list` command requires the following parameters:
+```json
+{
+  "location": "southeastasia",
+  "properties": {
+    "createMode": "Replica",
+    "sourceServerId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}"
+  }
+}
+```
 
-| Setting | Example value | Description  |
-| --- | --- | --- |
-| resource-group |  myresourcegroup |  The resource group where the replica server will be created to.  |
-| server-name | mydemoserver | The name or ID of the master server. |
+> [!NOTE]
+> To learn more about which regions you can create a replica in, visit the [read replica concepts article](concepts-read-replicas.md). 
+
+If you haven't set the `azure.replication_support` parameter to **REPLICA** on a General Purpose or Memory Optimized master server and restarted the server, you receive an error. Complete those two steps before you create a replica.
+
+A replica is created by using the same compute and storage settings as the master. After a replica is created, several settings can be changed independently from the master server: compute generation, vCores, storage, and back-up retention period. The pricing tier can also be changed independently, except to or from the Basic tier.
+
+
+> [!IMPORTANT]
+> Before a master server setting is updated to a new value, update the replica setting to an equal or greater value. This action helps the replica keep up with any changes made to the master.
+
+### List replicas
+You can view the list of replicas of a master server using the [replica list API](/rest/api/mysql/replicas/listbyserver):
+
+```http
+GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
+```
+
+### Stop replication to a replica server
+You can stop replication between a master server and a read replica by using the [update API](/rest/api/mysql/servers/update).
+
+After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
+
+```http
+PATCH https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{masterServerName}?api-version=2017-12-01
+```
+
+```json
+{
+  "properties": {
+    "replicationRole":"None"  
+   }
+}
+```
+
+### Delete a master or replica server
+To delete a master or replica server, you use the [delete API](/rest/api/mysql/servers/delete):
+
+When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
+
+```http
+DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}?api-version=2017-12-01
+```
+
 
 ## Next steps
 

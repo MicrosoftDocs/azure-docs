@@ -1,38 +1,37 @@
 ### YamlMime:Landing
 
 title: Azure Data Science Virtual Machine documentation
-summary: The Azure Data Science Virtual Machine (DSVM) is a customized VM image with data science & ML tools. Use this VM to build intelligent applications for advanced analytics.
+summary: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
+ with data science & machine learning tools. 
+ Use this VM to build intelligent applications for advanced analytics.
 
 metadata:
   title: Data Science Virtual Machine documentation - Azure
-  description: The Data Science Virtual Machine is an experimental environment in the Azure cloud that's built for data science. Popular data science and ML tools are preinstalled. 
-  services: machine-learning
+  description: The Azure Data Science Virtual Machine (DSVM) is a virtual machine image pre-loaded 
+    with data science & machine learning tools.  
   ms.service: machine-learning
   ms.subservice: data-science-vm
   ms.topic: landing-page
   ms.collection: collection
-  author: j-martens
-  ms.author: jmartens
-  ms.date: 09/03/2019
+  author: gvashishtha
+  ms.author: gopalv
+  ms.date: 09/13/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # OVERVIEW CARD
-  - title: About Data Science Virtual Machine
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure DSVM?
-            url: overview.md
-          - text: What is Geo AI DSVM?
-            url: geo-ai-dsvm-overview.md
 
   # GET STARTED CARD
   - title: Get started with your DSVM
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What is the DSVM?
+            url: overview.md
+          - text: What is the Geo AI DSVM?
+            url: geo-ai-dsvm-overview.md
       - linkListType: get-started
         links:
           - text: Create a Windows DSVM
@@ -51,7 +50,6 @@ landingContent:
         links:
           - text: Enterprise security & guidance
             url: dsvm-enterprise-overview.md
-    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Create auto-scaled DSVM pools
@@ -64,7 +62,10 @@ landingContent:
 # MORE
   - title: More Azure Machine Learning technologies
     linkLists:
-      - linkListType: reference
+      - linkListType: learn
         links:
           - text: Azure Machine Learning service
             url: /azure/machine-learning/
+          - text: Compare our ML products
+            url: https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
+            
