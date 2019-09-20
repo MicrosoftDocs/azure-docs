@@ -15,16 +15,17 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: rkarlin
 ---
 
-# Keep track of data during hunting
+# Keep track of data during hunting with Azure Sentinel
 
-
- 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
-Hunting bookmarks help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.   
+
+Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
+
+Now in preview, you can pivot between data in Log Analytics and the Investigation Graph by creating a bookmark and clicking **investigate**.  Also, if you find something that urgently needs to be addressed while hunting in Log Analytics, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident in a couple of clicks.
 
 You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** page. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Log Analytics. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
@@ -57,13 +58,40 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## View and update bookmarks 
 
-1. In the Azure Sentinel portal, click **Hunting**. 
-2. Click the **Bookmarks** tab in the middle of the page to view the list of bookmarks.
-3. Use the search box or filter options to find a specific bookmark.
-4. Select individual bookmarks in the grid below to view the bookmark details in the right hand details pane.
-5. To update tags and notes, click on the editable text boxes and click **Save** to preserve your changes.
+1. In the Azure portal, select **Sentinel** > **Threat management** >  **Hunting**. 
+2. Select the **Bookmarks** tab to view the list of bookmarks.
+3. If required, use the search box or filter options to find a specific bookmark.
+4. Select individual bookmarks and view the bookmark details in the right hand details pane.
+5. To update tags and notes, make your changes in the editable text boxes, and then click **Save**.
 
    ![show results](./media/bookmarks/view-update-bookmarks.png)
+
+### Investigate bookmarks in the investigation graph - Preview
+
+> [!IMPORTANT]
+> Investigating bookmarks in the investigation graph is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+1. Still on the **Bookmarks** tab from the previous procedure, select the bookmark or bookmarks you want to investigate.
+
+2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see values for **IP**, **Machine**, or **Account**.
+
+3. Click **Investigate**.
+
+### Add bookmarks to a new or existing incident - Preview
+
+> [!IMPORTANT]
+> Adding bookmarks to a new or existing incident is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+1. Still on the **Bookmarks** tab from the previous procedure, select the bookmark or bookmarks you want to add to an incident.
+
+2. On the actions bar, select **Incident actions (Preview)**.
+
+3. Select either **Create new incident** or **Add to existing incident**, as required.
+
 
 ## View bookmarked data in Log Analytics 
 
@@ -81,11 +109,11 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 
 ## Delete a bookmark
 If you want to delete a bookmark, do the following: 
-1.	Open th **Hunting bookmark** tab. 
+1.	Open the **Hunting bookmark** tab. 
 2.	Select the target bookmark.
 3.	Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
 	
-Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab.  The Log Analytics “HuntingBookmark” table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks.  Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
+Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The Log Analytics “HuntingBookmark” table will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 
 
 ## Next steps
