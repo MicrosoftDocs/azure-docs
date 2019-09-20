@@ -109,7 +109,3 @@ landingContent:
             url: https://aka.ms/TranslatorGitHub
           - text: Stack Overflow
             url: https://stackoverflow.com/questions/tagged/microsoft-translator
-          - text: UserVoice
-            url: https://cognitive.uservoice.com/knowledgebase/articles/1855897-custom-translator-preview-resource-guide
-          - text: Knowledge Base
-            url: https://cognitive.uservoice.com/knowledgebase/topics/132647-translator
