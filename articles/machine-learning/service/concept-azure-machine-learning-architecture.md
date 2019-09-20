@@ -181,7 +181,11 @@ Activities can provide notifications through the SDK or the web UI so that you c
 
 Azure ML Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
 
-You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. For more info, see <a href="./how-to-use-environments>this page</a>.
+You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
+
+Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
+
+
 
 ### Deployment
 
