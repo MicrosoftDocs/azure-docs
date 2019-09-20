@@ -26,7 +26,7 @@ ms.author: mbullwin
 
 * Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
-* Check for any known issues in Telemetry Channel [Github repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+* Check for any known issues in Telemetry Channel [GitHub repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *I'm experiencing data loss in Console App or on Web App when app is about to stop.*
 

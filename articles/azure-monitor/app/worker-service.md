@@ -14,7 +14,7 @@ ms.date: 09/15/2019
 ms.author: cithomas
 ---
 
-# Application Insights for Worker Service applications (Non-Http Applications)
+# Application Insights for Worker Service applications (non-http applications)
 
 Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like messaging, background tasks, console applications etc. These types of applications don't have the notion of an incoming HTTP request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) applications is not supported.
 
@@ -31,7 +31,7 @@ The [Application Insights SDK for Worker Service](https://www.nuget.org/packages
 
 A valid Application Insights instrumentation key. This key is required to send any telemetry to Application Insights. If you need to create a new Application Insights resource to get an instrumentation key, see [Create an Application Insights resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
 
-## How to use the Application Insights SDK for Worker Services
+## Using Application Insights SDK for Worker Services
 
 1. Install the [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) package to the application.
    The following shows the changes which need to be added to your project's `.csproj` file.
@@ -48,7 +48,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 Specific instructions for each type of application is described in the following sections.
 
-## .NET Core 3.0 Worker Service Application
+## .NET Core 3.0 worker service application
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
 
@@ -113,35 +113,33 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
 
 ```json
     {
-        "ApplicationInsights": {
-        "InstrumentationKey": "putinstrumentationkeyhere"
-        },
-        "Logging": {
-        "LogLevel": {
-            "Default": "Warning"
-        }
+        "ApplicationInsights":
+            {
+            "InstrumentationKey": "putinstrumentationkeyhere"
+            },
+        "Logging":
+        {
+            "LogLevel":
+            {
+                "Default": "Warning"
+            }
         }
     }
 ```
 
-    Alternatively, specify the instrumentation key in either of the following environment variables:
+Alternatively, specify the instrumentation key in either of the following environment variables.
+`APPINSIGHTS_INSTRUMENTATIONKEY` or `ApplicationInsights:InstrumentationKey`
 
-    * `APPINSIGHTS_INSTRUMENTATIONKEY`
+For example:
+`SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+OR `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
-    * `ApplicationInsights:InstrumentationKey`
+Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key for applications deployed to Web Apps as Web Jobs.
 
-    For example:
+> [!NOTE]
+> An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
 
-    * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
-
-    * `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
-
-    Typically, `APPINSIGHTS_INSTRUMENTATIONKEY` specifies the instrumentation key for applications deployed to Web Apps as Web Jobs.
-
-    > [!NOTE]
-    > An instrumentation key specified in code wins over the environment variable `APPINSIGHTS_INSTRUMENTATIONKEY`, which wins over other options.
-
-## Background tasks with hosted services in ASP.NET Core application
+## ASP.NET Core background tasks with hosted services
 [This](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2&tabs=visual-studio) document describes how to create backgrounds tasks in ASP.NET Core 2.1/2.2 application.
 
 Full example is shared [here](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/BackgroundTasksWithHostedService)
@@ -289,7 +287,7 @@ This console application also uses the same default `TelemetryConfiguration`, an
 
 ## Run your application
 
-Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation alo works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
+Run your application. The example workers from all of the above above makes an http call every second to bing.com, and also emits few logs using ILogger. These lines are wrapped inside `StartOperation` call of `TelemetryClient`, which is used to create an operation (in this example `RequestTelemetry` named "workeroperation"). Application Insights will collect these ILogger logs (warning or above by default) and dependencies, and they will be correlated to the `RequestTelemetry` with parent-child relationship. The correlation also works cross process/network boundary. For example, if the call was made to another monitored component, then it'll be correlated to this parent as well.
 
 This custom operation of `RequestTelemetry` can be thought of as the equivalent of an incoming web request in a typical Web Application. While it is not necessary to use an Operation, it fits best with the [Application Insights correlation data model](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - with `RequestTelemetry` acting as the parent operation, and every telemetry generated inside the worker iteration being treated as logically belonging to the same operation. This approach also ensures all the telemetry generated (automatic and manual) will have the same `operation_id`. As sampling is based on `operation_id`, sampling algorithm either keeps or drops all of the telemetry from a single iteration.
 
@@ -305,7 +303,7 @@ Logs emitted via `ILogger` of severity `Warning` or greater are automatically ca
 
 ### Dependencies
 
-Dependency collection is enabled by default. [This](asp-net-dependencies.md#automatically-tracked-dependencies) article explains the depenencies which are automatically collected, and also contain steps to do manual tracking.
+Dependency collection is enabled by default. [This](asp-net-dependencies.md#automatically-tracked-dependencies) article explains the dependencies which are automatically collected, and also contain steps to do manual tracking.
 
 ### EventCounter
 
@@ -383,7 +381,7 @@ See the [configurable settings in `ApplicationInsightsServiceOptions`](https://g
 
 ### Sampling
 
-The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for [ASP.NET Core Applications](https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
+The Application Insights SDK for Worker Service supports both fixed-rate and adaptive sampling. Adaptive sampling is enabled by default. Configuring sampling for Worker Service is done the same way as for [ASP.NET Core Applications](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications).
 
 ### Adding TelemetryInitializers
 
@@ -548,7 +546,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
     }
 ```
 
-## Sample Applications
+## Sample applications
 
 [.NET Core Console Application](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/ConsoleAppWithApplicationInsights)
 Use this sample if you are using a Console Application written in either .NET Core (2.0 or higher) or .NET Framework (4.7.2 or higher)
