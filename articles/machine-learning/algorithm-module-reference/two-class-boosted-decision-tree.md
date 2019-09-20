@@ -27,7 +27,7 @@ This module creates an untrained classification model. Because classification is
 
 You can train this type of model using [Train Model](././train-model.md). 
 
-1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your experiment.
+1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your pipeline.
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.
   

@@ -1,7 +1,7 @@
 ---
 title:  "Apply Math Operation"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply Math Operation module in Azure Machine Learning service to apply a mathematical operation to column values for use in an experiment.
+description: Learn how to use the Apply Math Operation module in Azure Machine Learning service to apply a mathematical operation to column values for use in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,13 +14,13 @@ ms.date: 09/09/2019
 
 # Apply Math Operation
 
-This article describes a module of Azure Machine Learning Designer.
+This article describes a module of Azure Machine Learning visual interface.
 
 Use the Apply Math Operation to create calculations that are applied to numeric columns in the input dataset. 
 
 Supported math operations include common arithmetic functions such as multiplication and division, trigonometric functions, a variety of rounding functions, and special functions used in data science such as gamma and error functions.  
 
-After you define an operation and run the experiment, the values are added to your dataset. Depending on how you configure the module, you can:
+After you define an operation and run the pipeline, the values are added to your dataset. Depending on how you configure the module, you can:
 
 + Append the results to your dataset. This is particularly useful when you are verifying the result of the operation.
 + Replace columns values with the new, computed values.
@@ -61,7 +61,7 @@ You can apply the same operation to multiple numeric columns, but all columns mu
 
 Each instance of this module can perform only one type of operation at a time. To perform complex math operations, you might need to chain together several instances of the **Apply Math Operation** module.  
   
-1.  Add the **Apply Math Operation** module to your experiment.
+1.  Add the **Apply Math Operation** module to your pipeline.
 
 1. Connect a dataset that contains at least one numeric column.  
 
@@ -82,7 +82,7 @@ Each instance of this module can perform only one type of operation at a time. T
     - **Inplace**. The values in the columns used as inputs are replaced with the new calculated values. 
     - **ResultOnly**. A single column is returned containing the results of the math operation.
   
-1.  Run the experiment.  
+1.  Run the pipeline.  
   
 ## Results
 
@@ -91,7 +91,7 @@ If you generate the results using the **Append** or **ResultOnly** options, the 
 -   **Equals(Col2_Col1)**,  indicating that you tested Col2 against Col1.  
 -   **Equals(Col2_$10)**, indicating that you compared column 2 to the constant 10.  
 
-Even if you use the **Inplace** option, the source data is not deleted or changed; the column in the original dataset is still available in Studio. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
+Even if you use the **Inplace** option, the source data is not deleted or changed; the column in the original dataset is still available in visual interface. To view the original data, you can connect the [Add Columns](add-columns.md) module and join it to the output of **Apply Math Operation**.  
     
 ## Basic math operations 
 
@@ -204,7 +204,7 @@ Squares the values in the selected column.
 
 ## Comparison operations  
 
-Use the comparison functions in Azure Machine Learning Studio any time that you need to test two sets of values against each other. For example, in an experiment you might need to do these comparison operations:  
+Use the comparison functions in Azure Machine Learning visual interface any time that you need to test two sets of values against each other. For example, in a pipeline you might need to do these comparison operations:  
 
 - Evaluate a column of probability scores model against a threshold value.
 - Determine if two sets of results are the same, and for each row that is different, add a FALSE flag that can be used for further processing or filtering.  
@@ -276,7 +276,7 @@ Specify the column of values to operate on (the *minuend*), by choosing a differ
 
 ##  Rounding operations 
 
-Studio supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
+Azure Machine Learning visual interface supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
 
 + If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the module does not raise an error, but results can be unexpected.  
 

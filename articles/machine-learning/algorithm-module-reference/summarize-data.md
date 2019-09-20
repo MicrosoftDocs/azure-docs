@@ -14,9 +14,9 @@ ms.date: 09/09/2019
 
 # Summarize Data
 
-This article describes a module of Azure Machine Learning Designer.
+This article describes a module of Azure Machine Learning visual interface.
 
-Use the Summarize Data module in Azure Machine Learning Studio, to create a set of standard statistical measures that describe each column in the input table.
+Use the Summarize Data module in Azure Machine Learning visual interface, to create a set of standard statistical measures that describe each column in the input table.
 
 Such summary statistics are useful when you want to understand the characteristics of the complete dataset. For example, you might need to know:
 
@@ -28,7 +28,7 @@ The module calculates the important scores for each column, and returns a row of
 
 ## How to configure Summarize Data  
 
-1. Add the **Summarize Data** module to your experiment. You can find this module in the **Statistical Functions** category in Studio.
+1. Add the **Summarize Data** module to your pipeline. You can find this module in the **Statistical Functions** category in visual interface.
 
 2. Connect the dataset for which you want to generate a report.
 
@@ -36,7 +36,7 @@ The module calculates the important scores for each column, and returns a row of
 
 3. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
-4. Run the experiment, or right-click the module, and select **Run selected**.
+4. Run the pipeline, or right-click the module, and select **Run selected**.
 
 ## Results
 

@@ -14,7 +14,7 @@ ms.date: 09/09/2019
 
 # Clip Values
 
-This article describes a module of Azure Machine Learning Designer.
+This article describes a module of Azure Machine Learning visual interface.
 
 Use the Clip Values module to identify and optionally replace data values that are above or below a specified threshold with a mean, a constant, or other substitute value.  
 
@@ -28,7 +28,7 @@ The module applies the same criteria and replacement method to **all** columns t
 
 If you need to apply clipping methods or different criteria to some columns, you must use a new instance of **Clip Values** for each set of similar columns.
 
-1.  Add the **Clip Values** module to your experiment and connect it to the dataset you want to modify. You can find this module under **Data Transformation**, in the **Scale and Reduce** category. 
+1.  Add the **Clip Values** module to your pipeline and connect it to the dataset you want to modify. You can find this module under **Data Transformation**, in the **Scale and Reduce** category. 
   
 2.  In **List of columns**, use the Column Selector to choose the columns to which **Clip Values** will be applied.  
   
@@ -80,7 +80,7 @@ If you need to apply clipping methods or different criteria to some columns, you
   
     To keep the original column and add a new column with the clipped values, deselect this option.  
   
-8.  Run the experiment.  
+8.  Run the pipeline.  
   
     Right-click the output of the **Clip Values** module and select **Visualize** to review the values and make sure the clipping operation met your expectations.  
  
@@ -104,7 +104,7 @@ To understand how clipping by percentiles works, consider a dataset with 10 rows
   
 6.  Deselect the option **Overwrite flag**, and select the option, **Add indicator column**.  
   
-Now try the same experiment using 60 as the upper percentile threshold and 30 as the lower percentile threshold, and use the threshold value as the replacement value. The following table compares these two results:  
+Now try the same pipeline using 60 as the upper percentile threshold and 30 as the lower percentile threshold, and use the threshold value as the replacement value. The following table compares these two results:  
   
 1.  Replace with missing; Upper threshold = 90; Lower threshold = 20  
   

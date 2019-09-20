@@ -48,7 +48,7 @@ The gradient boosting method can also be used for classification problems by red
 
 ## How to configure Boosted Decision Tree Regression
 
-1.  Add the **Boosted  Decision Tree** module to your experiment. You can find this module under **Machine Learning**, **Initialize**, under the **Regression** category. 
+1.  Add the **Boosted  Decision Tree** module to your pipeline. You can find this module under **Machine Learning**, **Initialize**, under the **Regression** category. 
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -81,7 +81,7 @@ The gradient boosting method can also be used for classification problems by red
   
     
 
-10. Run the experiment.  
+10. Run the pipeline.  
   
 ## Results
 
@@ -93,7 +93,7 @@ After training is complete:
 
 + To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the experiment.
++ To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the pipeline.
 
 ## Next steps
 

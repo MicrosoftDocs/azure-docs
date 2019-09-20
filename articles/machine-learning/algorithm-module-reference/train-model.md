@@ -38,7 +38,7 @@ In Azure Machine Learning, creating and using a machine learning model is typica
   
 1.  In Azure Machine Learning, configure a classification model or regression model.
     
-2. Add the **Train Model** module to the experiment.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your experiment.
+2. Add the **Train Model** module to the pipeline.  You can find this module under the **Machine Learning** category. Expand **Train**, and then drag the **Train Model** module into your pipeline.
   
 3.  On the left input, attach the untrained mode. Attach the training dataset to the right-hand input of **Train Model**.
 
@@ -57,16 +57,16 @@ In Azure Machine Learning, creating and using a machine learning model is typica
     > [!TIP] 
     > If you have trouble using the Column Selector, see the article [Select Columns in Dataset](./select-columns-in-dataset.md) for tips. It describes some common scenarios and tips for using the **WITH RULES** and **BY NAME** options.
   
-5.  Run the experiment. If you have a lot of data, this can take a while.
+5.  Run the pipeline. If you have a lot of data, this can take a while.
 
 ## <a name="bkmk_results"></a> Results
 
 After the model is trained:
 
 + To view the model parameters and feature weights, right-click the output and select **Visualize**.
-+ To use the model in other experiments, right-click the model and select **Save Model**. Type a name for the model. 
++ To use the model in other pipelines, right-click the model and select **Save Model**. Type a name for the model. 
 
-    This saves the model as a snapshot that is not updated by repeated runs of the experiment.
+    This saves the model as a snapshot that is not updated by repeated runs of the pipeline.
 + To use the model in predicting new values, connect it to the [Score Model](./score-model.md) module, together with new input data.
 
 

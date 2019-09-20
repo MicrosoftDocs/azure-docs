@@ -38,7 +38,7 @@ For more information about the theoretical framework for this algorithm and its 
 
 ## How to configure Decision Forest Regression Model
 
-1. Add the **Decision Forest Regression** module to the experiment. You can find the module in the interface under **Machine Learning**, **Initialize Model**, and **Regression**.
+1. Add the **Decision Forest Regression** module to the pipeline. You can find the module in the interface under **Machine Learning**, **Initialize Model**, and **Regression**.
 
 2. Open the module properties, and for **Resampling method**, choose the method used to create the individual trees.  You can choose from **Bagging** or **Replicate**.
 
@@ -54,7 +54,7 @@ For more information about the theoretical framework for this algorithm and its 
 
     - **Single Parameter**
 
-      If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by experimentation or received them as guidance.
+      If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by pipelineation or received them as guidance.
 
 
 
@@ -78,7 +78,7 @@ For more information about the theoretical framework for this algorithm and its 
 
    
 
-10. Run the experiment.
+10. Run the pipeline.
 
 ### Results
 
@@ -88,7 +88,7 @@ After training is complete:
 
 + To see the rules for each node, click each tree and drill down into the splits.
 
-+ To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the experiment. 
++ To save a snapshot of the trained model, right-click the output of the training module, and select **Save As Trained Model**. This copy of the model is not updated on successive runs of the pipeline. 
 
 ## Next steps
 
