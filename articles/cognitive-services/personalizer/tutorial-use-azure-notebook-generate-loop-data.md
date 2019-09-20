@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Azure notebook - Personalizer"
+title: "Tutorial: Azure Notebook - Personalizer"
 titleSuffix: Azure Cognitive Services
-description: This tutorial simulates a Personalizer loop _system in an Azure notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
+description: This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: diberry
-#Customer intent:  As a python developer, I want use Personalizer in an Azure notebook so that I can run each cell, view the output, then finally see the overall prediction success of Personalizer over a duration of many requests.
+#Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can run each cell, view the output, then finally see the overall prediction success of Personalizer over a duration of many requests.
 ---
 
-# Tutorial: Use Personalizer in Azure notebooks 
+# Tutorial: Use Personalizer in Azure Notebook
 
-This tutorial simulates a Personalizer loop _system in an Azure notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
+This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
 
 A summary of the user information is:
 
@@ -42,7 +42,7 @@ The **purpose** of the Personalizer loop is to find the best match between the u
 
 ## Rank and reward calls
 
-For each of the few thousand calls to the Personalizer service, the Azure notebook sends the **Rank** request to the REST API:
+For each of the few thousand calls to the Personalizer service, the Azure Notebook sends the **Rank** request to the REST API:
 
 * A unique ID for the Rank/Request event
 * Context - A random choice of the user, weather, and time of day - simulating a user on a website or mobile device
@@ -56,8 +56,8 @@ The system receives the rank of the coffee choices, then compares that predictio
 
 ## Prerequisites
 
-* An [Azure notebook](https://notebooks.azure.com/) account. 
-* Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure notebook project. 
+* An [Azure Notebook](https://notebooks.azure.com/) account. 
+* Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project. 
 * A [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the update model frequency set to 5 minutes. 
 
 File descriptions:
@@ -67,12 +67,12 @@ File descriptions:
 * [Coffee dataset](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) is stored in a JSON object. 
 * [Example Request JSON](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/example-rankrequest.json) is the expected format for a POST request to the Rank API.
 
-## Set up the Azure notebook
+## Set up the Azure Notebook
 
 1. Change the Kernel to `Python 3.6`. 
 1. Open the `Personalizer.ipynb` file.
 
-## Run notebook cells
+## Run Notebook cells
 
 Run each executable cell and wait for it to return. You know it is done when the brackets next to the cell display a number instead of a `*`. The following sections explain what each cell does programmatically and what to expect for the output. 
 
@@ -285,7 +285,7 @@ def get_reward_from_simulated_data(name, weather, timeofday, prediction):
 
 ### Loop through calls to Rank and Reward
 
-The next cell is the _main_ work of the notebook, getting a random user, getting the coffee list, sending both to the Rank API. Comparing the prediction with the user's known preferences, then sending the reward back to the Personalizer service. 
+The next cell is the _main_ work of the Notebook, getting a random user, getting the coffee list, sending both to the Rank API. Comparing the prediction with the user's known preferences, then sending the reward back to the Personalizer service. 
 
 The loop runs for `num_requests` times, currently set to 4000. This number is meant to indicate that Personalizer needs a few thousand requests before its first retraining, regardless of the duration of the update model frequency. If the frequency was an five minutes or an hour, the service still needs a few thousand calls to Rank and Reward to create an effective learning policy. 
 
@@ -432,7 +432,7 @@ plt.show()
 
 The chart should look like the image below. 
 
-![Chart of results from Azure notebook](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
+![Chart of results from Azure Notebook](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 This chart shows a low performance period (between 20-30% prediction reward of 1) then after a few thousand requests, a significant performance increase (to around 80% prediction reward of 1) that continues for the duration of the test.
 
@@ -442,12 +442,12 @@ The 80% success indicates a near perfect prediction, which isn't realistic for a
 
 If you do not intend to continue the tutorial series, clean up the following resources:
 
-* Delete your Azure notebook project. 
+* Delete your Azure Notebook project. 
 * Delete your Personalizer resource. 
 
 ## Next steps
 
-The [python notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample is available on the GitHub repo for Personalizer. 
+The [Jupyter notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample is available on the GitHub repo for Personalizer. 
 
 In the next tutorial, use the data for offline evaluation, create, and apply a new learning policy. Then run the simulation again to see the improvements. 
 
