@@ -10,7 +10,7 @@ ms.author: victorh
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Create an Azure private DNS zone using Azure PowerShell
+# Quickstart: Create an Azure private DNS zone using Azure PowerShell
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
