@@ -113,7 +113,7 @@ To have queries use the sensor data, start by creating a locate criteria:
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
 
-// Choose a maximum distance between your device and the returned anchor, i.e. anchor visibility radius
+// Choose a maximum exploration distance between your device and the returned anchors
 nearDeviceCriteria.DistanceInMeters = 5;
 
 // Cap the number of anchors returned
@@ -123,9 +123,9 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
-At the moment, DistanceInMeters only applies to GPS measurements. In addition to that, given that GPS readings come with quite a large measurement uncertainty, DistanceInMeters is only enforced probabilistically. Specifically, it will determine the service to prune-out anchors that have a 95% chance or more to be further away from the device than DistanceInMeters.
+The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully localized it. You are most likely interested in retrieving all the anchors you have placed nearby rather than the single anchor your are currently observing. Assuming the anchors you have placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you will be given all the anchors connected to the one you have localized, that are closer than `DistanceInMeters`.
  
-Keep in mind that higher values for either MaxResultCount or DistanceInMeters will negatively affect performance. Try to set them to sensible values that make sense for your application.
+Keep in mind that large values for `MaxResultCount` may negatively affect performance. Try to set it to a sensible value that makes sense for your application.
 
 Finally, you'll need to tell the session to use the sensor-based look-up:
 
@@ -139,10 +139,9 @@ The following table summarizes the expected search space for each of the sensors
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7-m GPS standard deviation and 5-m visibility radius. |
+| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7-m GPS standard deviation [^1]. |
 | WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
 | BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
-
 
 ## Per-platform support
 
@@ -154,3 +153,9 @@ The following table summarizes the sensor data collected on each of the supporte
 | GPS         | N/A | Supported through [LocationManager](https://developer.android.com/reference/android/location/LocationManager) APIs (both GPS and NETWORK) | Supported through [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc) APIs |
 | WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. However from API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation](https://developer.android.com/guide/topics/connectivity/wifi-scan). | N/A - no public API |
 | BLE beacons | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) |
+
+
+
+<!-- Footnotes -->
+
+[^1]: The median GPS accuracy for mobile phones with assisted GPS (A-GPS) is around 7 meters according to the study by [Zandenbergen and Barbeau (2011)](https://www.cambridge.org/core/journals/journal-of-navigation/article/positional-accuracy-of-assisted-gps-data-from-highsensitivity-gpsenabled-mobile-phones/E1EE20CD1A301C537BEE8EC66766B0A9).
