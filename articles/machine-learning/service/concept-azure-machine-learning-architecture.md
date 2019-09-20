@@ -60,10 +60,10 @@ Use these tools for Azure Machine Learning:
 + <a href="#compute-targets">Compute targets</a>
 + <a href="#training-scripts">Training script</a>
 + <a href="#runs">Run</a>
++ <a href="#environments">Environments</a>
 + <a href="#github-tracking-and-integration">Git tracking</a>
 + <a href="#snapshots">Snapshot</a>
 + <a href="#activities">Activity</a>
-+ <a href="#images">Image</a>
 + <a href="#deployment">Deployment</a>
 + <a href="#web-service-deployments">Web services</a>
 + <a href="#iot-module-deployments">IoT modules</a>
@@ -177,28 +177,15 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### Images
+### Environments
 
-Images provide a way to reliably deploy a model, along with all components you need to use the model. An image contains the following items:
+Azure ML Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
 
-* A model.
-* A scoring script or application. You use the script to pass input to the model and return the output of the model.
-* The dependencies that are needed by the model or scoring script or application. For example, you might include a Conda environment file that lists Python package dependencies.
+You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
 
-Azure Machine Learning can create two types of images:
+Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
 
-* **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
-* **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
 
-Azure Machine Learning provides a base image, which is used by default. You can also provide your own custom images.
-
-### Image registry
-
-Images are cataloged in the **image registry** in your workspace. You can provide additional metadata tags when you create the image, so that you can query them to find your image later.
-
-For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
-
-For an example of deploying a model using a custom image, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
 
 ### Deployment
 

@@ -37,6 +37,7 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single volume    |    100 GiB    |    No    |
 |  Maximum size of a single volume     |    100 TiB    |    No       |
 |  Maximum number of files (inodes) per volume     |    50 million    |    No    |    
+|  Maximum size of a single file     |    16 TiB    |    No    |    
 
 ## Request limit increase 
 
