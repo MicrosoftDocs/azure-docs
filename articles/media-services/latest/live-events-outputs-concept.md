@@ -82,7 +82,7 @@ Azure Media Services name format is : `{servicename}-{accountname}-{regionname}.
 * Max account name is 24 chars
 * Max region name is 5 chars
 
-The streaming endpoint name has a max value of 24 characters.
+Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
 ## Live Event ingest URLs
 
