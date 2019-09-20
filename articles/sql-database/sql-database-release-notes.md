@@ -54,6 +54,7 @@ This article lists SQL Database features that are currently in public preview. F
 
 ### Managed instance H2 2019 updates
 
+- [Auto-failover groups](https://azure.microsoft.com/updates/azure-sql-database-auto-failover-groups-feature-now-available-in-all-regions/) enable you to replicate all databases from the primary instance to a secondary instance in another region.
 - Configure your Managed instance behavior with [Global trace flags](https://azure.microsoft.com/updates/global-trace-flags-are-now-available-in-azure-sql-database-managed-instance/).
 
 ### Managed instance H1 2019 updates
