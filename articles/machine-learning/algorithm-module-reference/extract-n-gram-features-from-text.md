@@ -128,7 +128,7 @@ You can manually update this dataset, but you might introduce errors. For exampl
 * The **IDF** column must be of the float type.
 
 > [!Note]
-> Don't connect the data output to the Train Model module directly. Free text columns should be removed before feeding into Train Model. Otherwise, free text columns will be treated as categorical features.
+> Don't connect the data output to the Train Model module directly. You should remove free text columns before they're fed into the Train Model. Otherwise, the free text columns will be treated as categorical features.
 
 ## Next steps
 
