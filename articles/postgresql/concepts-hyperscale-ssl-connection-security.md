@@ -32,4 +32,4 @@ psql "sslmode=verify-full sslrootcert=DigiCertGlobalRootCA.crt.pem host=mydemose
 > Confirm that the value passed to `sslrootcert` matches the file path for the certificate you saved.
 
 ## Next steps
-Review various application connectivity options in [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
+Increase security further with [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-firewall-rules.md).

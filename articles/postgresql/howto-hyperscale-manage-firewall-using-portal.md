@@ -54,4 +54,4 @@ Repeat the steps to manage the firewall rules.
 * To delete an existing rule, click the ellipsis […] and click **Delete** to remove the rule. Click **Save** to save the changes.
 
 ## Next steps
-- For help in connecting to an Azure Database for PostgreSQL server, see [Connection libraries for Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- Learn more about [Concept of firewall rules](concepts-hyperscale-firewall-rules.md), including how to troubleshoot connection problems.
