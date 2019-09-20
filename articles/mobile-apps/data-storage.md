@@ -11,7 +11,9 @@ ms.author: emalani
 ---
 
 # Store, sync, and easily query mobile application data from the cloud
-No matter what kind of app you are building, you will likely be generating and processing data in some form. User expectations are very high and they want the application to work seamless, in all circumstances. Most applications works across multiple devices, so when you access your app, you may be accessing it from a desktop or mobile device. Multiple users might be using the application at the same time and sharing data across with an expectation to get instant and real-time access to data. On top of that, your app users will not always have internet connectivity. Apps are designed and expected to be working with and without internet connection. With all these growing complexity, its a huge task for devleopers to choose the right solution for storing and syncing their data in the clouid to provide a great customer experience for their app. 
+No matter what kind of app you are building, you will likely be generating and processing data in some form. User expectations are very high and they want the application to work fast and seamless, in all circumstances. Most applications works across multiple devices, so when you access your app, you may be accessing it from a desktop or mobile device. Multiple users might be using the application at the same time and sharing data across with an expectation to get instant and real-time access to data. 
+
+On top of that, your app users will not always have internet connectivity. Apps are designed and expected to be working with and without internet connection. With all these growing complexity, its a huge task for devleopers to choose the right solution for storing and syncing their data in the clouid to provide a great customer experience for their app. 
 
 Microsoft provides a variery of services that eliminates the need to spin up servers, pick your database, or worry about scale or security to provide as rich experience as possible. These services provides a great developer experience that lets you store application data in the cloud using SQL or NOSQL solution, sync data on all the devices, functionalities for the app to work with and without a network connection to help build scalable and robust applications. 
 
@@ -38,7 +40,7 @@ Microsoft provides a variery of services that eliminates the need to spin up ser
     **Key Features**
     - Supports a **wide range of APIs** includes SQL(Core) API, Cassandra API, MongoDB API, Gremlin API and Table API
     - **Turnkey global distribution** replicates your data wherever your users are, so your users can interact with a replica of the data that is closest to them.
-    - **No schema or index management** as the database engine is fully schema-agnostic
+    - **No schema or index management** as the database engine is fully schema-agnostic.
     - **Ubiquitous regional presence** as Cosmos DB is available in all Azure regions worldwide, including 54+ regions in public cloud.
     - **Precisely defined, multiple consistency choices** as Cosmos DB’s multi-master replication protocol is carefully designed to offer five well-defined consistency choices - strong, bounded staleness, session, consistent prefix, and eventual.
     - **Always On** as Cosmos DB provides 99.999% high availability for both reads and writes.
@@ -57,7 +59,10 @@ Microsoft provides a variery of services that eliminates the need to spin up ser
     - **High performance** - High-throughput applications can take advantage of the latest version which delivers 25 percent more premium database power.
     - **Backups, replication, and high availability** - Built-in replication and a Microsoft-backed SLA at the database level provide app continuity and protection against catastrophic events, especially when combined with, active georeplication, an ability to control when and where to failover, and self-service restore, which provides full control over “oops recovery” (data restoration from available data backups of up to 35 days).
     - **Near-zero maintenance** - Automatic software is part of the service, and built-in system replicas help to deliver inherent data protection, database uptime, and system stability. System replicas are automatically moved to new computers, which are provisioned on the fly as old ones fail.
-    - **Security** - SQL Database offers a portfolio of security features to meet organizational or industry-mandated compliance policies. Auditing provides developers the ability to perform compliance-related tasks and to gain knowledge about activities. Developers and IT can implement policies at the database level to help limit access to sensitive data with row-level security, dynamic data masking, and transparent data encryption for Azure SQL Database. (SQL Database is verified by key cloud auditors as part of the scope of key Azure compliance certifications and approvals, such as HIPAA BAA, ISO/IEC 27001:2005, FedRAMP, and EU Model Clauses).
+    - **Security** - SQL Database offers a portfolio of security features to meet organizational or industry-mandated compliance policies.
+        - Auditing provides developers the ability to perform compliance-related tasks and to gain knowledge about activities.
+        - Developers and IT can implement policies at the database level to help limit access to sensitive data with row-level security, dynamic data masking, and transparent data encryption for Azure SQL Database.
+        - SQL Database is verified by key cloud auditors as part of the scope of key Azure compliance certifications and approvals, such as HIPAA BAA, ISO/IEC 27001:2005, FedRAMP, and EU Model Clauses).
 
     **References**
     - [Azure Portal](https://portal.azure.com) 

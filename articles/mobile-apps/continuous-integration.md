@@ -10,9 +10,9 @@ ms.date: 08/21/2019
 ms.author: emalani
 ---
 
-# Continuous build and Integration
+# Continuous Build and Integration
 
-As developers, you write code and check it in into the code repository but the commits checked into the repo might not be always consistent. With multiple developers working on the same project, issues come up with integration and the tam would run into situations where things are not working, bugs keep piling up, and project development gets delayed. Developers have to wait till the entire software code is built and tested to check for errors and this makes the process slow and less iterative. 
+As developers, you write code and check it in into the code repository but the commits checked into the repo might not be always consistent. With multiple developers working on the same project, issues come up with integration and the team would run into situations where things are not working, bugs keep piling up, and project development gets delayed. Developers have to wait till the entire software code is built and tested to check for errors and this makes the process slow and less iterative. 
 
 With **Continuous build and Integration**, developers can simplify build and test of their code by not only committing their changes to the source code repository but also put tests and verifications into the build environment so they are always running tests against their code. All the changes made to the source code is build continuosly whenever there is a commit made to the repository. With every check in, the CI server validates and pass any test that the developer has created. If the tests don't pass, the code is sent back for further changes. This allows the developer not to break the builds that are created as well as not to run all the tests locally on their computer which in turn increases developer productivity. 
 
@@ -38,8 +38,8 @@ With **Continuous build and Integration**, developers can simplify build and tes
     - **Fast and secure builds** on managed, cloud-hosted machines​.
     - Commit → Build → Test → Release 
         - Commit to a feature branch to build and test. Commit to a beta branch to distribute to testers. Commit to master to submit to the App Store. Customize to fit your team’s workflow. 
+    - **Enable your builds to “Launch test”** and verify whether the app builds in real-world iOS and Android devices (albeit with longer build times).
     - **Native and Cross Platform Support** - iOS, Android, macOS, Windows, Xamarin, React Native.
-    - **Eable your builds to “Launch test”** and verify whether the app builds in real-world iOS and Android devices (albeit with longer build times).
     - **Customize your builds** by adding post-clone, pre-build, and post-build scripts.
 
     **References**
