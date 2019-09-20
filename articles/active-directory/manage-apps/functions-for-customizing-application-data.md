@@ -207,7 +207,7 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 Split(source, delimiter)
 
 **Description:**<br> 
-Splits a string into a mulitvalued array, using the specified delimiter character.
+Splits a string into a multi-valued array, using the specified delimiter character.
 
 **Parameters:**<br> 
 
