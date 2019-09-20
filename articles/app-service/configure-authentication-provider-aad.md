@@ -127,7 +127,7 @@ You can register native clients to allow sign-ins using a client library such as
 
 You have now configured a native client application that can access your App Service app.
 
-## <a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Next steps
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 

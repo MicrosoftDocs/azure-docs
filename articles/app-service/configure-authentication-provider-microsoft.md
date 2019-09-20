@@ -58,14 +58,15 @@ With this commented out, the next step doesn't make sense. the user is already s
 
 1. (Optional) To restrict access to Microsoft account users, set **Action to take when request is not authenticated** to **Log in with Microsoft Account**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated requests to Microsoft account for authentication.
 
-> [!CAUTION]
-> Restricting access in this way applies to all calls to your app.  which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
+   > [!CAUTION]
+   > Restricting access in this way applies to all calls to your app.  which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred so that the app manually starts authentication itself. For more information, see [authentication flow](overview-authentication-authorization.md#authentication-flow).
 
 1. Select **Save**.
 
 You are now ready to use Microsoft Account for authentication in your app.
 
-## <a name="related-content"> </a>Related content
+## <a name="related-content"> </a>Next steps
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- URLs. -->

@@ -54,7 +54,8 @@ To complete the procedure in this topic, you must have a Google account that has
 
 You are now ready to use Google for authentication in your app.
 
-## <a name="related-content"> </a>Related Content
+## <a name="related-content"> </a>Next steps
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->
