@@ -264,6 +264,14 @@
       href: instance-metadata-service.md
     - name: Get usage metrics with REST
       href: metrics-vm-usage-rest.md
+  - name: Monitor VMs
+    items:
+    - name: Azure Monitor for VMs
+      href: ../../azure-monitor/insights/vminsights-overview.md
+    - name: Create metric alerts
+      href: ../../azure-monitor/platform/alerts-metric.md
+    - name: Create log alerts
+      href: ../../azure-monitor/platform/alerts-log.md
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations

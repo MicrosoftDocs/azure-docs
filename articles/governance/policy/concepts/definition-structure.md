@@ -3,7 +3,7 @@ title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -470,6 +470,7 @@ Azure Policy supports the following types of effect:
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
 - **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
   Service (preview)
+- **Modify**: adds, updates, or removes the defined tags from a resource
 
 For **append**, you must provide the following details:
 
@@ -501,6 +502,10 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
     ]
 }
 ```
+
+Similarly, **Modify** requires **roleDefinitionId** property in the **details** portion of the
+policy rule for the [remediation task](../how-to/remediate-resources.md). **Modify** also requires
+an **operations** array to define what actions to take on the resources tags.
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).
