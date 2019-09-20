@@ -458,7 +458,7 @@
     href: v1-overview.md
   - name: Quickstarts
     items:
-    - name: Create a tenant
+    - name: Set up a tenant
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
