@@ -29,7 +29,7 @@ To create a DSVM instance:
     ![Windows VM Listing](./media/provision-vm/search-windows.png)
 1. Select the **Create** button at the bottom.
 
-   ![Virtual machine listing on the Azure portal, with Create button](./media/provision-vm/Create_Windows.png)
+   ![Virtual machine listing on the Azure portal, with Create button](./media/provision-vm/create-windows.png)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    ![Basics tab corresponding to Windows Virtual Machine](./media/provision-vm/review-create-windows.png)
