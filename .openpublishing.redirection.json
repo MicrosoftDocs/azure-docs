@@ -1546,6 +1546,26 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": false
@@ -10791,6 +10811,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dns/scripts/traffic-manager-cli-create-dns-zone-record.md",
+      "redirect_url": "/azure/dns/scripts/dns-cli-create-dns-zone-record",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/private-dns-portal.md",
+      "redirect_url": "/azure/dns/private-dns-getstarted-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
       "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
       "redirect_document_id": false
@@ -13897,7 +13927,7 @@
     },
     {
       "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     },
     {
@@ -41849,6 +41879,11 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
       "redirect_url": "/azure/sql-database/sql-database-instance-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     }
   ]

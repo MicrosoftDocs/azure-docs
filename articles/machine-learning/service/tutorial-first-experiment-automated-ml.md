@@ -64,22 +64,21 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
 1. Enter this experiment name: `my-1st-automl-experiment`
 
-1. Select **Create a new compute**. A compute is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
+1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
 
-    1. Configure your compute context for this experiment.
-        
-        Field | Description | Value for tutorial
-        ----|---|---
-        Compute name |A unique name that identifies your compute context.|automl-compute
-        Virtual machine size| Select the virtual machine size for your compute.|Standard_DS12_V2
-        Min / Max nodes:| To enable data profiling, you must have one or more nodes.|Min nodes: 1<br>Max nodes: 6.
- 
-    1. To create your new compute, select **Create**. This takes a couple minutes to complete. 
+   Field | Description | Value for tutorial
+   ----|---|---
+   Compute name |A unique name that identifies your compute context.|automl-compute
+   Virtual&nbsp;machine&nbsp;size| Select the virtual machine size for your compute.|Standard_DS12_V2
+   Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
 
-    1. When creation is complete, select your new compute from the drop-down list, and then select **Next**.
+   >[!NOTE]
+   >For this tutorial, you'll use the default storage account and container created with your new compute. They automatically populate in the form.
+    
+1. Select **Create** to get the compute target. 
+   **This takes a couple minutes to complete.** 
 
-    >[!NOTE]
-    >For this tutorial,  you'll use the default storage account and container created with your new compute. They automatically populate in the form.
+1. After creation, select your new compute target from the drop-down list and select **Next**.
 
 1. Select **Upload from local file** to begin creating a new dataset. 
 
@@ -101,33 +100,28 @@ You'll see the **Getting started** screen, since this is your first experiment w
         Column headers| All files have same headers
         Skip rows | None
 
-        >[!NOTE]
-        > If any of the settings on this form are updated the preview will update accordingly.
-
         Select **Next**.
     
-
     1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
 
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-        
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
 1. Expand **Advanced Settings** and populate the fields as follows.
 
-    Advanced settings|Value
-    ------|------
-    Primary metric| AUC_weighted 
-    Exit criteria| When any of these criteria are met, the training job ends before full completion: <br> *Training job time (minutes)*: 5  <br> *Max number of iterations*: 10 
-    Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.
-    Validation| Select K-fold cross-validation and **2** for the number of cross-validations. 
-    Concurrency| Select **5** for the number of max concurrent iterations.
-
    >[!NOTE]
-   > For this experiment, you don't set a metric or max cores per iterations threshold. You also don't block algorithms from being tested.
+   > For this experiment, you don't set a metric score or max cores per iterations threshold. You also don't block algorithms from being tested.
+   
+    Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
+    ------|---------|---
+    Primary metric| |**AUC_weighted** 
+    Exit criteria| When any of these criteria are met, the training job ends even if it didn't fully complete. |Training&nbsp;job&nbsp;time&nbsp;(minutes): **5**  <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;**10** 
+    Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
+    Validation| Validation type and number of tests. | **K-fold** cross-validation<br><br>  cross-validations: **2** 
+    Concurrency| The number of max concurrent iterations.|**5**
 
 1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
 
@@ -137,20 +131,25 @@ You'll see the **Getting started** screen, since this is your first experiment w
 >
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the iteration results as they complete while the others are still running. 
 
-##  View experiment details
+##  Explore iteration results
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete, and orders them by metric score. By default, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
+   
+The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
+
+![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## Deploy the model
 
-By using automated machine learning in the workspace landing page, you can deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
-For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+Automated machine learning in the workspace landing page allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+
+Once the run is complete, navigate back to the **Iteration chart** and **Iterations list** detail page. 
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. On the **Run Detail** page, select the **Deploy Best Model** button in the top-right corner.
+1. Select the **Deploy Best Model** button in the top-right corner.
 
 1. Populate the **Deploy Best Model** pane as follows:
 
