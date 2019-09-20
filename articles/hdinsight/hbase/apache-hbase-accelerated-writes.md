@@ -5,6 +5,7 @@ services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
 ---
@@ -48,7 +49,12 @@ flush 'mytable'
 disable 'mytable'
 ```
 
-Additionally, please follow similar steps when scaling down your cluster - i.e. flush and disable your tables and stop incoming data. Note, you will not be allowed to scale down to less than three nodes. This will ensure a graceful scaledown and avoid the possibility of namenode going into safemode due to lingering under-replicated or temporary files. In the rare event that namenode does go into safemode after scaledown, use hdfs commands to re-replicate the underreplicated blocks and get hdfs out of safe mode; this will ensure HBase restarts smoothly.
+Follow similar steps when scaling down your cluster: flush your tables and disable your tables to stop incoming data. You can't scale down your cluster to less than three nodes.
+
+Following these steps will ensure a successful scale-down and avoid the possibility of a namenode going into safe mode due to under-replicated or temporary files.
+
+If your namenode does go into safemode after a scale down, use hdfs commands to re-replicate the under-replicated blocks and get hdfs out of safe mode. This re-replication will allow you to restart HBase successfully.
+
 ## Next steps
 
 * Official Apache HBase documentation on the [Write Ahead Log feature](https://hbase.apache.org/book.html#wal)
