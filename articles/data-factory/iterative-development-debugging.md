@@ -46,7 +46,7 @@ You can visualize all the debug runs that are in progress for your data factory 
 
 ![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
 
-If you have active Data Flow debug sessions, those sessions will appear on the bottom part of the active debug window. You can select an active data flow session and stop the respsective cluster.
+If you have active Data Flow debug sessions, those sessions will appear on the bottom part of the active debug window. You can select an active data flow session and stop the respective cluster.
 
 ![Sample list of active data flow debug runs](media/data-flow/dfsessions.png)
 
