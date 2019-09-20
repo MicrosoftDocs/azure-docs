@@ -359,7 +359,7 @@ You can connect to these additional read-only compute nodes by setting the `Appl
 ### How do I validate if I have successfully connected to secondary compute node using SSMS / other client tools?
 
 You can execute the following T-SQL query using SSMS / other client tools:
-`SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`
+`SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
 The result is `READ_ONLY` if you your connection is pointing to the read-only secondary node or `READ_WRITE` if your connection is pointing to the primary node.
 
 ### Can I create a dedicated endpoint for the read-scale replica
