@@ -114,40 +114,41 @@ One of the disadvantages to using Availability Zones for SAP system deployments 
 By using proximity placement groups, you can bypass this restriction. Here's the deployment sequence:
 
 - Create a proximity placement group.
-- Deploy your anchor VM, usually the DBMS server by referencing a certain Azure Availability Zone
-- Create an availability set that references the Azure proximity group (see below)
-- Deploy the application layer VMs by referencing the availability set and the proximity placement group
+- Deploy your anchor VM, usually the DBMS server, by referencing an Availability Zone.
+- Create an availability set that references the Azure proximity group. (See the command later in this topic.)
+- Deploy the application layer VMs by referencing the availability set and the proximity placement group.
 
-Instead of deploying the first VM as demonstrated above, you reference an Azure Availability Zone and the proximity placement group when deploying the VM like:
+Instead of deploying the first VM as demonstrated in the previous section, you reference an Availability Zone and the proximity placement group when you deploy the VM:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppganchorvm" -Location "westus2" -OpenPorts 80,3389 -Zone "1" -ProximityPlacementGroup "letsgetclose" -Size "Standard_E16_v3"
 </code></pre>
 
-A successful deployment of this virtual machine that would host the database instance of my SAP system in one Azure Availability Zone, the scope of the proximity placement group is fixed to one of the datacenters that are representing the Availability Zone you defined.
+A successful deployment of this virtual machine would host the database instance of the SAP system in one Availability Zone. The scope of the proximity placement group is fixed to one of the datacenters that represent the Availability Zone you defined.
 
-We assume that you deploy the central services VMs in the same way as the DBMs VMs by referencing the same zone(s) as for the DBMS VMs and the same proximity placement groups. In the next step, you need to create the availability set(s) that you want to use for the application layer of your SAP system.
-The proximity placement group needs to be defined and created. The command for creating the availability set requires an additional reference to the proximity placement group ID (not the name). You can get the ID of the proximity placement group with:
+Assume that you deploy the Central Services VMs in the same way as the DBMS VMs, referencing the same zone or zones and the same proximity placement groups. In the next step, you need to create the availability sets that you want to use for the application layer of your SAP system.
 
-
+You need to define and create the proximity placement group. The command for creating the availability set requires an additional reference to the proximity placement group ID (not the name). You can get the ID of the proximity placement group by using this command:
 
 <pre><code>
 Get-AzProximityPlacementGroup -ResourceGroupName "myfirstppgexercise" -Name "letsgetclose"
 </code></pre>
 
-When you create the availability set, you need to consider additional parameters when you are using managed disks (default unless specified differently) and proximity placement groups:
+When you create the availability set, you need to consider additional parameters when you're using managed disks (default unless specified otherwise) and proximity placement groups:
 
 <pre><code>
 New-AzAvailabilitySet -ResourceGroupName "myfirstppgexercise" -Name "myppgavset" -Location "westus2" -ProximityPlacementGroupId "/subscriptions/my very long ppg id string" -sku "aligned" -PlatformUpdateDomainCount 3 -PlatformFaultDomainCount 2 
 </code></pre>
 
-Ideally, you should use three fault domains. However, the number of supported fault domains can vary from region to region. In this case, the maximum fault domain count possible for the specific regions was two. For deploying your application layer VMs, you need to add a reference to your availability set name and the proximity placement group name, as demonstrated here:
+Ideally, you should use three fault domains. But the number of supported fault domains can vary from region to region. In this case, the maximum number of fault domains possible for the specific regions is two. For deploying your application layer VMs, you need to add a reference to your availability set name and the proximity placement group name, as shown here:
 
 <pre><code>
 New-AzVm -ResourceGroupName "myfirstppgexercise" -Name "myppgavsetappvm" -Location "westus2" -OpenPorts 80,3389 -AvailabilitySetName "myppgavset" -ProximityPlacementGroup "letsgetclose" -Size "Standard_DS11_v2"
 </code></pre>
 
-The end result of this sequence will be a DBMS layer and central services of your SAP system that is located in a specific Availability Zone(s) and an SAP application layer that is located through availability sets in the same Azure datacenters as the DBMS VM(s) got deployed.
+The result of this deployment is:
+- A DBMS layer and Central Services for your SAP system that's located in a specific Availability Zone or Availability Zones.
+- An SAP application layer that's located through availability sets in the same Azure datacenters as the DBMS VM or VMs.
 
 > [!NOTE]
 > As you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you are going to require different proximity placement groups for each of the zones. Same si true for the availability set you might use
