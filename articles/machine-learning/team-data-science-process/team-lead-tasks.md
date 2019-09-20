@@ -1,14 +1,14 @@
 ---
 title: Tasks for the team lead in the Team Data Science Process Team
 description: A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team
-author: marktab
+author: v-thepet
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: tdsp
+ms.author: v-thepet
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
