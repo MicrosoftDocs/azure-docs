@@ -12,43 +12,44 @@ ms.author: robinsh
 ---
 # How to clone an Azure IoT hub 
 
-This article explores the options and methods you can look at to clone an IoT hub, and provides a recommended course of action. Why would you want to clone an IoT hub in a different region? One use for this is to migrate your hub from the Free or Basic tier to a Standard tier. 
+This article explores ways to clone an IoT Hub and provides some recommendations and considerations you have to figure out before you start. There are several reasons you might want to clone an IoT hub from one region to another. 
+
+* You want to migrate your hub from the Free or Basic tier to a Standard tier. You can't change the tier of a hub using the Azure portal, Azure PowerShell, or Azure CLI.
+
+* You are moving your company from one region to another, such as from Europe to North America (or vice versa), and you want your resources and data to be geographically close to your new location.
+
+* You are setting up a hub for a development vs production environment.
+
+* You want to do a custom implementation of multi-hub high availability. 
 
 > [!NOTE]
-> Need examples on what the customer would use this for. Not failover examples, but clone-a-hub examples. Jimaco had a good idea: upgrading from Free or Basic to standard. 
+> John -- next time we talk, can you please provide a 2 minute overview of the last item so I know how the customer would do that. 
 
 To move a hub to a different region, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, but it can be in the same subscription.
 
 ## Things to consider
 
+There are several things to consider when preparing to clone an IoT hub.
+
 * Do not remove the original resources before creating and verifying the cloned version. Once you remove a hub, it's gone forever, and there is no way to recover it to check the settings or data to make sure you had replicated them correctly.
 
 * Many resources require globally unique names, so we strongly recommend you use different names for the cloned versions. 
 
-* If all of your resources are in a resource group, use a resource group with a different name for the cloned version.
+* We strongly recommend you use a resource group with a different name for the cloned version.
 
 * Data for the original IoT hub data is not migrated. This includes telemetry messages, C2D commands, and job-related information such as schedules and history. Metrics and logging results are also not migrated. 
 
-* For data or messages routed to Azure Storage, you can leave the data in the original storage account, or transfer that data to a new storage account in the new region. For more information, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
+* For data or messages routed to Azure Storage, you can leave the data in the original storage account, or transfer that data to a new storage account in the new region. For more information on moving data in Blob storage, see [Get started with AzCopy](../storage/common/storage-use-azcopy-v10.md).
 
-* Data for Service Bus Topics and Queues and Event Hubs can not be migrated, as this is point-in-time data and is not stored after the messages are processed.
+* Data for Event Hubs and for Service Bus Topics and Queues can not be migrated. This is point-in-time data and is not stored after the messages are processed.
 
-## Routing 
+* You will need to schedule downtime for the migration. Cloning the devices to the new hub will take time. It can take up to a second to move 100 devices. If you interpolate that upward, it can take 3 hours to move a million devices. 
 
-If you have custom routing defined for the original hub, exporting the template for the hub includes the routing rules. However, it does not export the creation of the resources used. For example, you can set up routing on your hub to send all messages with the string "critical" to Azure Storage. When you export that hub to a template, it includes the routing rules required to send the data to a storage account meeting that condition. However, it does not create the storage account, so the routing rule fails. 
-
-You could export the hub and its routing rules, and then set up the separate resources using the [Azure portal](https://portal.azure.com) before importing the template to create the hub. You could also add the resources to the RM template to be created when it creates the hub, although adding resources with the exact right syntax is difficult unless you have expertise in Resource Manager template. 
-
-> [!NOTE]
-> Test this so you know exactly what it does. I'm not sure if it causes an error when you upload the template, or if that actually works, but if you send messages to the hub, it fails after it writes the message to the hub and when it tries to route the message. At what point does this mess up the works?
-> 
-> Do we provide examples or just show them how to clone a simple hub without useful bits like the routing?
-> 
-> Do we need to write an article about how to add the resources to the template?
+* You will need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere -- this will need to be updated as well.
 
 ## Methodology 
 
-This is the general method we recommend for moving an IoT Hub from one region to another. This assumes the hub does not have routing rules.
+This is the general method we recommend for moving an IoT Hub from one region to another. This assumes the hub does not have routing set up. See below for general ideas you can use to deal with routing.
 
    1. Export the hub and its settings to a Resource Manager template. 
    
@@ -60,19 +61,11 @@ This is the general method we recommend for moving an IoT Hub from one region to
    
    1. Debug as needed. 
    
-   1. Add anything that wasn't exported to the template. For example, Consumer Group is not exported to the template. You need to add the Consumer group to the template manually or use the [Azure portal](https://portal.azure.com] after the hub is created. 
-
-## Examples of resources used for the routing rules (?)
-
-> [!NOTE]
-> Do we need to provide this information, or put all of the examples in a separate article and link to it? 
-> *  How to move resources when using a storage account as a custom endpoint.
-> *  How to move resources when using a service bus queue as a custom endpoint.
-> *  How to move resource when using a service bus topic 
-> *  How to move resource when using an event hub as a custom endpoint.
-> *  What about the use of Event Grid and the use of Azure Data Lake?
+   1. Add anything that wasn't exported to the template. For example, Consumer Group is not exported to the template. You need to add the Consumer group to the template manually or use the [Azure portal](https://portal.azure.com] after the hub is created. There is an example of adding consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
 
 ## Steps for migrating the hub to another region
+
+This section outlines the instructions for following the general methodology of migrating a hub.
 
 ### Find the original hub and export it to a resource template.
 
@@ -86,19 +79,24 @@ This is the general method we recommend for moving an IoT Hub from one region to
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again. 
 
-### Open the template in [VS Code](https://code.visualstudio.com) or a text editor. 
+### Edit the template 
 
-1. Go to the Downloads folder (or wherever you exported the template to) and find the zip file. In the zip file, the template name  is in the format `ExportedTemplate-<ResourceManagerName>`. This example shows a generic hub with no routing rules.
+Use [VS Code](https://code.visualstudio.com) or a text editor to edit the template.
+
+1. Go to the Downloads folder (or wherever you exported the template to) and find the zip file. In the zip file, the template name is in the format `ExportedTemplate-<ResourceManagerName>`. This example shows a generic hub with no routing rules.
    
-   [include the template here]
+   [include a template here]
 
 You have to make some changes before you can use the template to upload the template in a new region and create the new hub.
 
 1. Replace the [key values].
 
    * To find the key values for the hub, go to the portal and find the original hub and select it. 
-   * Then select **Shared access policies**, and then **iothubowner**. 
+
+   * Select **Shared access policies**, and then **iothubowner**. 
+
    * Select the Copy button next to the primary key to copy the key into your buffer. 
+
    * Go to the template and fill in the copied key where it says [whatever it says].
 
    > [!NOTE]
@@ -106,22 +104,25 @@ You have to make some changes before you can use the template to upload the temp
 
 1. Rename the hub. Its name is globally unique, so you can't use the same name as the original hub. Find `whatever-the-string-is` in the template and change the hub name name.
 
-Now recreate the hub in the new location.
+## Load template in the new region
 
-## Load template in to new region.
+Now you will recreate the hub in the new location.
 
 > [!NOTE]
-> Add instructions for importing the RM template and creating the new hub here.
+> Robin -- Add instructions for importing the RM template and creating the new hub here.
 
 Your hub is created and live. Now add the devices that were registered to the original hub.
 
 ## Managing the devices registered to the IoT hub
 
-The devices for the IoT Hub must be exported from the old hub and reimported to the new hub. To do this, you can use the Import/Export sample app to export the data and then reimport it to the new hub. 
+The devices for the IoT Hub can be copied from the old hub to the new hub. To do this, you can use the Import/Export sample app. 
+
+> [!NOTE]
+> Am still working on the import/export sample app, so these directions will probably change.
 
 1. Download the c# samples: [azure-iot-samples-csharp]  **this is not live yet**
 
-1. Go to the iot-hub>Samples>device  and double-click on IoTHubDeviceSamples.sln to open it.
+1. Go to the iot-hub>Samples>device and double-click on IoTHubDeviceSamples.sln to open it.
 
 1. Right-click on the ImportExportDevices project and select **Set as Startup project**.
  
@@ -145,26 +146,51 @@ The devices for the IoT Hub must be exported from the old hub and reimported to 
 
 1. Be sure all of the method calls are commented out except for **AddDevicesFromDeviceList**. 
 
-1. Run the samples application. [ROBIN - HAVE A SPECIFIC METHOD IN THE PROGRAM.CS THAT THEY CAN RUN TO MOVE THE DEVICES.]
+1. Run the samples application.
 
 1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just imported. You can also view the properties for the clone. 
 
 > [!NOTE]
-> Do I need to migrate the device twins? 
+> Robin -- be sure the import/export includes the device twins. I think in the C# version you have to specifically say to include them. 
+
+## Routing 
+
+If you have custom routing defined for the original hub, exporting the template for the hub includes the routing rules. However, it does not export resources used. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing rules required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing rule fails. 
+
+### Do-it-yourself by creating the resources before importing the template
+
+In these steps, you export the template, manually create the resources used by the routing, and then import the template to create the hub and the routing configuration.
+
+1. Export the hub and its routing rules to a Resource Manager template. 
+
+1. Manually recreate the resources used by the routing (with new names) using the [Azure portal](https://portal.azure.com).
+
+1. Edit the template and change the name of the hub to its new name. Also update the resource names in the routing configuration.
+
+1. Import the template to create the hub and set up the routing configuration.
+
+### Do-it-yourself by adding resources to the template
+
+In these steps, you add the resources used by the routing to the template.
+
+1. Export the hub and its routing rules to a Resource Manager template. 
+
+1. Edit the template and change the name of the hub to its new name. 
+
+1. Edit the template and add the resources (with new names) used by the routing. This is difficult to get exactly right unless you have an example to follow, such as the one in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md). The article shows  several of the custom endpoints in a Resource Manager template.
+
+1. Change the names of any resources listed in the routing sections as needed.
+
+1. Import the template to create the hub and its resources. 
 
 > [!NOTE]
-> Phil recommends putting in some validation and diagnostics steps to ensure that the process was successful. Other than comparing the original and new hub in the portal, what is recommended here? Make sure the hub is running and send some messages to it? I would think you'd want to run whatever you *used* to run, but since we took routing out of the mix, and that's one of the primary reasons people use hubs, I'm not sure that's a good idea. @jlian? Any input here?
+> Robin -- Test this so you know exactly what it does. I'm not sure if it causes an error when you upload the template, or if that actually works, but if you send messages to the hub, it fails after it writes the message to the hub and when it tries to route the message. At what point does this mess up the works?
 
-> [!NOTE]
-> Phil: Should there be any migration assessment steps included to determine readiness? Make sure of region dependencies for other backend Azure services? R:Not sure what that means about other services. These instructions are only for moving a basic IoT Hub.
-> Phil: Can you batch or phase migrate or is it all at once? What is the potential downtime? Can you migrate SKUs? 
-> R: You're migrating one hub, so I'm not sure "batch" migrating is really worth the trouble, unless I'm completely misunderstanding. No idea what "phase migrating" is. Potential downtime? One article says import is 100 devices per second. If we do a million, that's 1000000 / 100 = 10000 seconds, which is 167 minutes, or under 3 hours. Testing would be good -- I haven't tried this yet, as I want to get the code exactly right before I do.
-> R: Also, I don't know of any problems migrating skus if going from lower to higher. If going the other way, should we either disallow it, or count the devices to make sure the capacity of the new sku will be enough?
-> Phil: What happens if you are wired up through DPS? Consequences on your certificate scheme? 
-> R: I talked to Nicole about this. She said there is no diff between devices imported with Jobs framework and devices imported with DPS -- they are the same to the hub. So there shouldn't be a problem with that. Not sure what "the certificates scheme" impact is. 
-> Phil: what about your firewall handling a new DNS name for the hub? 
-> R: I have no idea. @jlian what is the impact here, and what changes are required to handle it? 
+## Checking the results 
 
+To check the results, change your IoT solution to point to your new hub in its new location and run it. In other words, perform the same actions with the new hub that you used with the previous hub and make sure they work the same way. 
+
+If you have implemented the routing, test that and make sure your messages are routed to the new resources correctly.
 
 ## Next steps
 
