@@ -41,7 +41,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
 
 5. Copy the following code into your variable declaration file:
 
-   ```tf
+   ```terraform
    variable subscription_id {}
    variable tenant_id {}
    variable client_id {}
@@ -59,7 +59,7 @@ In this section, you generate an Azure service principal, and two Terraform conf
 
 7. Copy the following code into your variables file. Make sure to replace the placeholders as follows: For `subscription_id`, use the Azure subscription ID you specified when running `az account set`. For `tenant_id`, use the `tenant` value returned from `az ad sp create-for-rbac`. For `client_id`, use the `appId` value returned from `az ad sp create-for-rbac`. For `client_secret`, use the `password` value returned from `az ad sp create-for-rbac`.
 
-   ```tf
+   ```terraform
    subscription_id = "<azure-subscription-id>"
    tenant_id = "<tenant-returned-from-creating-a-service-principal>"
    client_id = "<appId-returned-from-creating-a-service-principal>"
@@ -74,7 +74,7 @@ In this section, you create a file that contains resource definitions for your i
 
 2. Copy following sample resource definitions into the newly created `main.tf` file: 
 
-   ```tf
+   ```terraform
    resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"

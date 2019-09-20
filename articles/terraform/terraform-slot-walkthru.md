@@ -69,7 +69,7 @@ This article illustrates an example use of deployment slots by walking you throu
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -261,7 +261,7 @@ To test swapping the two deployment slots, perform the following steps:
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     # Configure the Azure provider
     provider "azurerm" { }
 

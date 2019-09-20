@@ -69,7 +69,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     provider "azurerm" {
         version = "~>1.5"
     }
@@ -100,7 +100,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     resource "azurerm_resource_group" "k8s" {
         name     = "${var.resource_group_name}"
         location = "${var.location}"
@@ -197,7 +197,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     variable "client_id" {}
     variable "client_secret" {}
 
@@ -261,7 +261,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }

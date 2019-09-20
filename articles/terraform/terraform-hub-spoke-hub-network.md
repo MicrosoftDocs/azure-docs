@@ -68,7 +68,7 @@ Create the Terraform configuration file that declares Hub virtual network.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     locals {
       prefix-hub         = "hub"
       hub-location       = "CentralUS"

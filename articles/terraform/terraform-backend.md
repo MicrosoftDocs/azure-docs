@@ -76,7 +76,7 @@ To configure Terraform to use the backend, include a *backend* configuration wit
 
 The following example configures a Terraform backend and creates an Azure resource group. Replace the values with values from your environment.
 
-```json
+```terraform
 terraform {
   backend "azurerm" {
     storage_account_name  = "tstate09762"

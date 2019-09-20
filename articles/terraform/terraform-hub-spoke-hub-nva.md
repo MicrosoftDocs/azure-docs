@@ -63,7 +63,7 @@ Create the Terraform configuration file that declares On-Premises Virtual networ
 
 1. Paste the following code into the editor:
     
-    ```JSON
+    ```terraform
     locals {
       prefix-hub-nva         = "hub-nva"
       hub-nva-location       = "CentralUS"

@@ -28,7 +28,7 @@ Terraform is installed and immediately available in Cloud Shell. Terraform scrip
 
 Azure Terraform modules require credentials to access and make changes to the resources in your Azure subscription. When working in the Cloud Shell, add the following code to your scripts to use Azure Terraform modules in the Cloud Shell:
 
-```tf
+```terraform
 # Configure the Microsoft Azure Provider
 provider "azurerm" {
 }

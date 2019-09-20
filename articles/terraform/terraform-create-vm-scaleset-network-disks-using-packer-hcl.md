@@ -50,7 +50,7 @@ In this step, you define variables that customize the resources created by Terra
 
 Edit the `variables.tf` file, copy the following code, then save the changes.
 
-```tf 
+```terraform 
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -72,7 +72,7 @@ When you deploy your Terraform template, you want to get the fully qualified dom
 
 Edit the `output.tf` file, and copy the following code to expose the fully qualified domain name for the virtual machines. 
 
-```hcl 
+```terraform 
 output "vmss_public_ip" {
     value = "${azurerm_public_ip.vmss.fqdn}"
 }
@@ -89,7 +89,7 @@ You also need a resource group where all the resources are created.
 
 Edit and copy the following code in the ```vmss.tf``` file: 
 
-```tf 
+```terraform 
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -183,7 +183,7 @@ In this step, you create the following resources on the network that was previou
 
 Add the following code to the end of the `vmss.tf` file.
 
-```tf
+```terraform
 
 
 resource "azurerm_lb" "vmss" {
@@ -301,7 +301,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Customize the deployment by adding the following code to `variables.tf`:
 
-```tf 
+```terraform 
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80
@@ -349,7 +349,7 @@ Add the following resources to your existing deployment:
 
 Add the following code to the end of the `vmss.tf` file:
 
-```hcl 
+```terraform 
 resource "azurerm_public_ip" "jumpbox" {
   name                         = "jumpbox-public-ip"
   location                     = "${var.location}"
@@ -423,7 +423,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
 
 Edit `outputs.tf` to add the following code that displays the hostname of the jumpbox when the deployment completes:
 
-```
+```terraform
 output "jumpbox_public_ip" {
     value = "${azurerm_public_ip.jumpbox.fqdn}"
 }

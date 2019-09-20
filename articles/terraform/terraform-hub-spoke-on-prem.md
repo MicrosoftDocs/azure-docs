@@ -61,7 +61,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     locals {
       onprem-location       = "SouthCentralUS"
       onprem-resource-group = "onprem-vnet-rg"

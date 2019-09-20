@@ -30,7 +30,7 @@ For more information on Terraform, see the [Terraform documentation](https://www
 
  Review [Install Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure) to create an Azure service principal. Use this service principal to populate a new file `azureProviderAndCreds.tf` in an empty directory with the following code:
 
-```tf
+```terraform
 variable subscription_id {}
 variable tenant_id {}
 variable client_id {}
@@ -48,7 +48,7 @@ provider "azurerm" {
 
 Create a new Terraform template named `main.tf` with the following code:
 
-```tf
+```terraform
 module mycompute {
     source = "Azure/compute/azurerm"
     resource_group_name = "myResourceGroup"

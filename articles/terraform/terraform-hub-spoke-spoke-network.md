@@ -61,7 +61,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     locals {
       spoke1-location       = "CentralUS"
       spoke1-resource-group = "spoke1-vnet-rg"
@@ -183,7 +183,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
     
 1. Paste the following code into the editor:
     
-    ```JSON
+    ```terraform
     locals {
       spoke2-location       = "CentralUS"
       spoke2-resource-group = "spoke2-vnet-rg"

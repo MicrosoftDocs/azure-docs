@@ -113,7 +113,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     provider "azurerm" {
         version = "~>1.22"
     }
@@ -133,7 +133,7 @@ Create the Terraform configuration file for common variables that are used acros
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     variable "location" {
       description = "Location of the network"
       default     = "centralus"

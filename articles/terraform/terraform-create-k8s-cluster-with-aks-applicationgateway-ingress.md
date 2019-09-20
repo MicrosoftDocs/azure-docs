@@ -77,7 +77,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -104,7 +104,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 2. Paste the following code into the editor:
     
-    ```JSON
+    ```terraform
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -251,7 +251,7 @@ Create Terraform configuration file that creates all the resources.
 
     a. Create a locals block for computed variables to reuse
 
-    ```JSON
+    ```terraform
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -264,7 +264,7 @@ Create Terraform configuration file that creates all the resources.
     }
     ```
     b. Create a data source for Resource group, new User identity
-    ```JSON
+    ```terraform
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -280,7 +280,7 @@ Create Terraform configuration file that creates all the resources.
     }
     ```
     c. Create base networking resources
-   ```JSON
+   ```terraform
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -324,7 +324,7 @@ Create Terraform configuration file that creates all the resources.
     }
     ```
     d. Create Application Gateway resource
-    ```JSON
+    ```terraform
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -389,7 +389,7 @@ Create Terraform configuration file that creates all the resources.
     }
     ```
     e. Create role assignments
-    ```JSON
+    ```terraform
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -420,7 +420,7 @@ Create Terraform configuration file that creates all the resources.
     }
     ```
     f. Create the Kubernetes cluster
-    ```JSON
+    ```terraform
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -497,7 +497,7 @@ Create Terraform configuration file that creates all the resources.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```terraform
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -582,7 +582,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
 1. Paste the following variables created earlier into the editor:
 
-    ```JSON
+    ```terraform
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>

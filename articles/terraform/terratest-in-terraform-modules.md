@@ -68,7 +68,7 @@ First, create a new folder named `staticwebpage` under your GoPath `src` folder.
 
 The static webpage module accepts three inputs. The inputs are declared in `./variables.tf`:
 
-```hcl
+```terraform
 variable "location" {
   description = "The Azure region in which to create all resources."
 }
@@ -85,7 +85,7 @@ variable "html_path" {
 
 As we mentioned earlier in the article, this module also outputs a URL that's declared in `./outputs.tf`:
 
-```hcl
+```terraform
 output "homepage_url" {
   value = "${azurerm_storage_blob.homepage.url}"
 }
@@ -99,7 +99,7 @@ The main logic of the module provisions four resources:
 
 The static webpage module logic is implemented in `./main.tf`:
 
-```hcl
+```terraform
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
   location = "${var.location}"
@@ -161,7 +161,7 @@ First, we use an empty HTML file named `./test/fixtures/storage-account-name/emp
 
 The file  `./test/fixtures/storage-account-name/main.tf` is the test case frame. It accepts one input, `website_name`, which is also the input of the unit tests. The logic is shown here:
 
-```hcl
+```terraform
 variable "website_name" {
   description = "The name of your static website."
 }
@@ -304,7 +304,7 @@ Let's start with the samples. A new sample folder named `hello-world/` is create
 
 The Terraform sample `./examples/hello-world/main.tf` is similar to the one shown in the unit test. There's one significant difference: the sample also prints out the URL of the uploaded HTML as a webpage named `homepage`.
 
-```hcl
+```terraform
 variable "website_name" {
   description = "The name of your static website."
   default     = "Hello-World"
