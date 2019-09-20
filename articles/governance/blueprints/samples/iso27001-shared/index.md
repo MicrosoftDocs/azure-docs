@@ -55,7 +55,7 @@ composed of:
     connection (not deployed by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).

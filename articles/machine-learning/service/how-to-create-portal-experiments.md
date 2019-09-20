@@ -1,6 +1,6 @@
 ---
 title: Use Azure's automated ML interface to train & deploy models
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's workspace landing page (preview).
 services: machine-learning
 ms.service: machine-learning
@@ -23,9 +23,9 @@ ms.date: 09/09/2019
 
 ## Prerequisites
 
-* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Get started
 

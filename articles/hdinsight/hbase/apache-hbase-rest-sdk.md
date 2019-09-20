@@ -10,6 +10,7 @@ ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ---
+
 # Use the .NET SDK for Apache HBase
 
 [Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
@@ -109,7 +110,7 @@ await client.StoreCellsAsync("RestSDKTable", set);
 
 HBase implements [Cloud BigTable](https://cloud.google.com/bigtable/), so the data format looks like the following:
 
-![User with Cluster User role](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
+![Apache HBase sample data output](./media/apache-hbase-rest-sdk/hdinsight-table-roles.png)
 
 ## Select data
 

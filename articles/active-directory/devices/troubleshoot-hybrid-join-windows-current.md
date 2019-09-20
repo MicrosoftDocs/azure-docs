@@ -110,7 +110,7 @@ Proceed to next steps for further troubleshooting.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 The 'Error Phase' field denotes the phase of the join failure while 'Client ErrorCode' denotes the error code of the Join operation.
 
 ```
@@ -181,7 +181,7 @@ To find the suberror code for the discovery error code, use one of the following
 
 ##### Windows 10 1803 and above
 
-Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output.
+Look for 'DRS Discovery Test' in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 
 ```
 +----------------------------------------------------------------------+
@@ -305,7 +305,7 @@ Find the registration type and look for the error code from the list below.
 
 #### Windows 10 1803 and above
 
-Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output.
+Look for 'Previous Registration' subsection in the 'Diagnostic Data' section of the join status output. This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
 'Registration Type' field denotes the type of join performed.
 
 ```
@@ -405,6 +405,9 @@ If the values are **NO**, it could be due:
 - Alternate Login ID
 - HTTP Proxy not found
 
+## Known issues
+- Under Settings -> Accounts -> Access Work or School, Hybrid Azure AD joined devices may show two different accounts, one for Azure AD and one for on-premises AD, when connected to mobile hotspots or external WiFi networks. This is only a UI issue and does not have any impact on functionality. 
+ 
 ## Next steps
 
 Continue [troubleshooting devices using the dsregcmd command](troubleshoot-device-dsregcmd.md)
