@@ -52,7 +52,7 @@ You use Ethereum Blockchain event triggers when you want a logic app to run afte
 1. Change or [create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
 1. Enter the details about the smart contract you want to check for events.
 
-    [screenshot]
+    ![Event trigger properties](./media/ethereum-logic-app/event-properties.png)
 
     | Property | Description |
     |----------|-------------|
@@ -61,7 +61,7 @@ You use Ethereum Blockchain event triggers when you want a logic app to run afte
     | **Event name** | Choose a smart contract event to check. The event triggers the logic app. |
     | **Interval** and **Frequency** | Choose how often you want to check for the event. |
 
-[screenshot]
+1. Select **Save**.
 
 ## Use actions
 
@@ -73,7 +73,7 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 1. Choose the Ethereum Blockchain connector.
 1. From the **Actions** tab, choose one of the available actions.
 
-    [screenshot]
+    ![Action properties](./media/ethereum-logic-app/action-properties.png)
 
 1. Change or [create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
 1. Depending on the action you chose, provide the following details about your smart contract function.
@@ -86,8 +86,6 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
     | **Smart contract function name** | Choose the smart contract function name for the action. The list is populated from the details in the contract ABI. |
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
-
-[screenshot]
 
 ## Generate a workflow
 
@@ -230,7 +228,7 @@ If you used development kit or Truffle to build your smart contract, you can use
 1. Find the **abi** section in the JSON file.
 1. Copy the **abi** JSON array.
 
-    [screenshot]
+    ![Contract ABI section in metadata](./media/ethereum-logic-app/abi-metadata.png)
 
 ## Get contract bytecode
 
@@ -241,11 +239,20 @@ The contract bytecode is the compiled smart contract executed by the Ethereum vi
 If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract bytecode to the clipboard.
 
 1. In Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
+1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
+1. Choose **Copy contract bytecode**.
+
+    ![Copy contract bytecode using DevKit](./media/ethereum-logic-app/bytecode-devkit.png)
+
+    The contract bytecode is copied to the clipboard.
+
+**Using the contract metadata file:**
+
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
+1. Find the **bytecode** element in the JSON file.
+1. Copy the **bytecode** value.
 
     [screenshot]
-
-1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Choose **Copy contract bytecode**. The contract bytecode is copied to the clipboard.
 
 **Using the Solidity compiler:**
 
@@ -259,16 +266,16 @@ The contract address is the smart contract destination address on the Ethereum b
 
 Truffle displays the contract address after deployment of the smart contract. Copy the **contract address** from the output.
 
-[screenshot]
+![Contract address from Truffle output](./media/ethereum-logic-app/contract-address-truffle.png)
 
 **Using the contract metadata file:**
 
-1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension. 
+1. Open the contract metadata file contained in the **build/contracts** folder of your Solidity project. The file name is the smart contract name followed by the **.json** extension.
 1. Find the **networks** section in the JSON file.
 1. Private networks are identified by an integer network ID. Find the address value within the network section.
 1. Copy the **address** value.
 
-    [screenshot]
+![Contract address from metadata](./media/ethereum-logic-app/contract-address-metadata.png)
 
 ## Next steps
 
