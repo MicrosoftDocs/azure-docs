@@ -113,7 +113,7 @@ To troubleshoot this issue:
 
 1. Check the network traffic flows:
 
-   Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is a NSG or UDR that is causing interference in traffic flows.
+   Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is an NSG or UDR that is causing interference in traffic flows.
 
    If you're using a firewall or NVA: 
    1. Document the UDR parameters so that you can restore them after this step is complete.
