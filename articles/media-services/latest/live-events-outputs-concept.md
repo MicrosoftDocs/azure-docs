@@ -82,6 +82,8 @@ Azure Media Services name format is : `{servicename}-{accountname}-{regionname}.
 * Max account name is 24 chars
 * Max region name is 5 chars
 
+The streaming endpoint name has a max value of 24 characters.
+
 ## Live Event ingest URLs
 
 Once the Live Event is created, you can get ingest URLs that you will provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md). 
