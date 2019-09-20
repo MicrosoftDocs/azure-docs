@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: 
-ms.date: 10/14/2019
+ms.date: 09/20/2019
 ---
 
 # Sample 7 - Text Classification: Predict company category 
@@ -18,7 +18,7 @@ This sample demonstrates how to use text analytics modules to build a text class
 
 The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. Applications of text classification include categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
 
-This pipeline trains a **multiclass logistic regression classifier** to predict the company category with wikipedia SP 500 dataset derieved from Wikipedia.  
+This pipeline trains a **multiclass logistic regression classifier** to predict the company category with wikipedia SP 500 dataset derived from Wikipedia.  
 
 The fundamental steps of a training machine learning model with text data are:
 
