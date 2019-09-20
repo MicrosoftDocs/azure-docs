@@ -3,7 +3,7 @@ title: Estimating Consumption plan costs in Azure Functions
 description: Learn how to better estimate the costs that you may incur when running your function app in a Consumption plan in Azure.
 author: ggailey777
 ms.author: glenga
-ms.date: 8/31/2019
+ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
@@ -16,7 +16,7 @@ There are currently three types of hosting plans for app that run in Azure Funct
 
 | Plan | Description |
 | ---- | ----------- |
-| [**Consumption**](functions-scale.md#consumption-plan) | You are only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
+| [**Consumption**](functions-scale.md#consumption-plan) | You're only charged for the time that your function app runs. This plan includes a [free grant][pricing page] on a per subscription basis.|
 | [**Premium**](functions-scale.md#premium-plan) | Provides you with the same features and scaling mechanism as the Consumption plan, but with enhanced performance and VNET access. To learn more, see [Azure Functions Premium plan](functions-premium-plan.md). |
 | [**Dedicated (App Service)**](functions-scale.md#app-service-plan) <br/>(basic tier or higher) | When you need to run in dedicated VMs or in isolation, use custom images, or want to use your excess App Service plan capacity. Uses [regular App Service plan billing](https://azure.microsoft.com/pricing/details/app-service/). 
 
@@ -26,16 +26,16 @@ This article deals only with the Consumption plan, since this plan results in va
 
 ## Consumption plan costs
 
-The execution *cost* of a single function execution is measured in *GB-seconds*, which is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
+The execution *cost* of a single function execution is measured in *GB-seconds*. Execution cost is calculated by combining its memory usage with its execution time. A function that runs for longer costs more, as does a function that consumes more memory. 
 
 Consider a case where the amount of memory used by the function stays constant. In this case, calculating the cost is simple multiplication. For example, say that your function consumed 0.5 GB for 3 seconds. Then the execution cost is just  `0.5GB * 3s = 1.5 GB-seconds`. 
 
-Once you take into account that memory usage can change over time, the calculation is best described as the integral of memory usage over time.  The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128-MB bucket. This means that when your process is using 160 MB, you are charged for 256 MB. The process of calculating memory usage and rounding up takes into account concurrency, which is multiple concurrent function executions in the same process.
+Because memory usage changes over time, the calculation is essentially the integral of memory usage over time.  The system does this calculation by sampling the memory usage of the process (along with child processes) at regular intervals. As mentioned on the [pricing page], memory usage is rounded up to the nearest 128-MB bucket. When your process is using 160 MB, you're charged for 256 MB. The calculation takes into account concurrency, which is multiple concurrent function executions in the same process.
 
 > [!NOTE]
 > While CPU usage isn't directly considered in execution cost, it can have an impact on the cost when it affects the execution time of the function.
 
-To fix a lower bound on your estimates, it's useful to know the minimum costs of an execution. As detailed on the [pricing page], when a function runs for less than 100 ms, an execution time of 100 ms is used as the basis of the calculation. This means that the minimum cost of an execution is determined by multiplying the minimum amount of memory (128 MB) and the minimum execution time (100 ms): `0.125 GB * 0.1s = 0.0125 GB-sec`. 
+To fix a lower bound on your estimates, it's useful to know the minimum costs of an execution. As detailed on the [pricing page], when a function runs for less than 100 ms, an execution time of 100 ms is used as the basis of the calculation. The minimum cost of an execution is determined by multiplying the minimum amount of memory (128 MB) and the minimum execution time (100 ms): `0.125 GB * 0.1s = 0.0125 GB-sec`. 
 
 ## Other related costs
 
@@ -57,7 +57,7 @@ The following behaviors of your functions can impact the execution time:
 
 + **Triggers and bindings**: The time taken to read input from and write output to your [function bindings](functions-triggers-bindings.md) is counted as execution time. For example, when your function uses an output binding to write a message to an Azure storage queue, your execution time includes the time taken to write the message to the queue, which is included in the calculation of the function cost. 
 
-+ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity is not factored into the calculation. You may be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You are not billed for time spent at awaits in orchestrator functions.
++ **Asynchronous execution**: The time that your function waits for the results of an async request (`await` in C#) is counted as execution time. The GB-second calculation is based on the start and end time of the function and the memory usage over that period. What is happening over that time in terms of CPU activity isn't factored into the calculation. You may be able to reduce costs during asynchronous operations by using [Durable Functions](durable/durable-functions-overview.md). You're not billed for time spent at awaits in orchestrator functions.
 
 ## View execution data
 
@@ -97,7 +97,7 @@ The resulting chart contains the totals for both execution metrics in the chosen
 
 Because the number of execution units is so much greater than the execution count, the chart just shows execution units.
 
-This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert this to GB-seconds, divide by 1,024,000. So in this example, the function app consumed `1,110,000,000 / 1,024,000 = 1,083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
+This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1,024,000. In this example, the function app consumed `1,110,000,000 / 1,024,000 = 1,083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
 
 ### Azure CLI
 
@@ -190,7 +190,7 @@ This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18
 
 ## Determine memory usage
 
-Function Execution units are a combination of execution time and your memory usage, which makes it a difficult metric for understanding memory usage. Memory data is not a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.  
+Function Execution units are a combination of execution time and your memory usage, which makes it a difficult metric for understanding memory usage. Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights.  
 
 If you haven't already done so, [enable Application Insights in your function app](functions-monitoring.md#enable-application-insights-integration). With this integration enabled, you can [query this telemetry data in the portal](functions-monitoring.md#query-telemetry-data).  
 
