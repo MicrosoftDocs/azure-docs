@@ -232,9 +232,9 @@ Congratulations! If you have followed all the steps above, you are now ready to 
 
 ## Troubleshooting
 
-### Unable to create subscription
+### Unable to create event subscription
 
-Reregister Event Grid and Key Vault is registered in your subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
+Reregister Event Grid and Key Vault provider in your azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## Next steps
 
