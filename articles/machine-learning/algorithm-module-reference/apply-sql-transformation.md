@@ -25,13 +25,7 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is SQLite. If you are unfamiliar with SQLite syntax, be sure to read the [syntax and usage](#general-syntax-and-usage) section of this article for examples.  
-
-### What is SQLite?  
-
-SQLite is a public domain relational database management system that is contained in a C programming library. SQLite is a popular choice as an embedded database for local storage in web browsers.  
-  
-SQLite was originally designed in 2000 for the U.S. Navy, to support serverless transactions. It is a self-contained database engine that has no management system and hence requires no configuration or administration.  
+> The SQL engine used in this module is **SQLite**. If you are unfamiliar with SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.  
 
 ## How to configure Apply SQL Transformation  
 
