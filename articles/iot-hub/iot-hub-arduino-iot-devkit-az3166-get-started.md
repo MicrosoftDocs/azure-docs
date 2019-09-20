@@ -26,7 +26,7 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
 
-You can find the source code for all DevKit tutorials at the [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) repository.
+You can find the source code for all DevKit tutorials from [code samples gallery](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
 ## What you need
 

@@ -87,9 +87,6 @@ In device code, you need to specify the [Device provisioning endpoint](/azure/io
 
 The [attestation mechanism](/azure/iot-dps/concepts-device#attestation-mechanism) used by this sample is X.509 certificate. You need to use a utility to generate it.
 
-> [!NOTE]
-> The X.509 certificate generator only supports Windows now.
-
 1. In VS Code, click `F1`, type and select **Open New Terminal** to open terminal window.
 
 1. Run `dps_cert_gen.exe` in `tool` folder.
