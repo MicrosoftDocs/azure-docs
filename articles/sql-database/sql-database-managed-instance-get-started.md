@@ -37,7 +37,7 @@ The following steps show you how to create a managed instance.
 
 4. Fill out the **Create SQL Database Managed Instance** provisioning form by filling out information required at the Basic tab. Use Netowrking, Advanced settings to configure additional settings.
 
- **Basic tab**
+### Basic tab
 
    Filling out information at this tab is mandatory as this is a minimum set of required information to provision a managed instance.
 
@@ -62,7 +62,7 @@ The following steps show you how to create a managed instance.
 
    You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure networking by clicking on **Next : Networking**
 
- **Networking tab**
+ ### Networking tab
 
    Filling out information on this tab is optional for provisioning managed instance. If it is not filled out, default settings will be applied.
 
@@ -79,7 +79,7 @@ The following steps show you how to create a managed instance.
 
    - You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure additional settings by clicking on **Next : Additional settings**
 
- **Additional settings tab**
+### Additional settings tab
 
    Filling out information on this tab is optional for provisioning managed instance. If it is not filled out, default settings will be applied.
 
@@ -94,18 +94,24 @@ The following steps show you how to create a managed instance.
    | **Use as failover secondary** | To use the managed instance as an instance failover group secondary, select Yes |
    | **Primary managed instance** (in case Use as failover secondary is set to Yes) | Chose the primary managed instance (needs to already exists) with whom managed instance you are creating will joined in the same DNS zone. This is a pre-condition step to enable failover group configuration post-creation. For details see [Tutorial: Add a SQL Database managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) |
 
-5. Click on **Review + create** to review selected options before creating managed instance.
+### Review + create tab
 
-6. Click on **Create** to start provisioning managed instance. Deploying managed instance is a long running operation. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+   5. Click on **Review + create** tab to review selected options before creating managed instance.
+
+    ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
+
+   6. Click on **Create** to start provisioning managed instance. Deploying managed instance is a long running operation. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+
+> [!IMPORTANT]
+> Deploying managed instance is a long running operation. Deployment of the first instance in the subnet takes typically much longer than in subsequent instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+
+### Monitor deployment progress
 
 7. Select **Notifications** icon to view the status of the deployment.
 
     ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/in-progress/mi-create-deployment-in-progress.png)
 
 8. Select **Deployment in progress** on the notification to open the managed instance window to further monitor the deployment progress. 
-
-> [!IMPORTANT]
-> Deploying managed instance is a long running operation. Deployment of the first instance in the subnet takes typically much longer than in subsequent instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 > [!TIP]
 > In case that you close your web browser and navigate away from the deployment in progress screen, follow these steps to find the progress screen:
