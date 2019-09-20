@@ -40,7 +40,7 @@ This article will cover how to create an Azure Function with TrackAvailability()
 
 Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure functions application and select your timer trigger function on the left.
 
-![Azure function's run.csx in Azure portal](media/availability-azure-functionss/runcsx.png)
+![Azure function's run.csx in Azure portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
 > For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
