@@ -12,11 +12,15 @@ ms.service: azure-spatial-anchors
 ---
 # Coarse relocalization
 
-Azure Spatial Anchors can be configured to associate on-device, positioning sensor data with the anchors you create. For outdoor scenarios, the sensor data is typically the GPS position of the device. To account for cases where GPS is either not available or too unreliable (such as indoors), Azure Spatial Anchors also records the WiFi access points and Bluetooth beacons in range of an anchor. As a result, the service can index the anchors on their sensor data and quickly determine whether there are any anchors nearby your device. 
+Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response is not precise, but instead is in the form: *You are close to these anchors, try locating one of them*.
+
+Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device. 
+
+The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by the service!
 
 ## Collected sensor data
 
-Whenever possible, Azure Spatial Anchors will associate the following sensor data with every anchor:
+The sensor data you can send to the anchor service is one of the following:
 
 * GPS position: latitude, longitude, altitude.
 * Signal strength of WiFi access points in range.
@@ -26,7 +30,7 @@ In general, your application will need to acquire device-specific permissions to
 
 ## Set up the sensor data collection
 
-Start by creating a sensor fingerprint provider and making the session aware of it:
+Let's start by creating a sensor fingerprint provider and making the session aware of it:
 
 ```csharp
 // Create the sensor fingerprint provider
@@ -39,7 +43,15 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-At this point, the session will attempt to associate sensor data with any anchors you create. However, as none of the sensors have been explicitly turned-on, your anchors won't have sensor data associated with them.
+Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is, in general, specific to the application you are developing, but the recommendations in the following table should give you a good starting point:
+
+
+|             | Indoors | Outdoors |
+|-------------|---------|----------|
+| GPS         | Off | On |
+| WiFi        | On | On (optional) |
+| BLE beacons | On (optional with caveats, see below) | Off |
+
 
 ### Enabling GPS
 
@@ -139,7 +151,7 @@ The following table summarizes the expected search space for each of the sensors
 
 | Sensor      | Search space radius (approx.) | Details |
 |-------------|:-------:|---------|
-| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. Reported numbers are estimated for a typical 7-m GPS standard deviation [^1]. |
+| GPS         | 20 m - 30 m | Determined by the GPS uncertainty and visibility radius among other factors. The reported numbers are estimated for the median GPS accuracy of mobile phones with assisted GPS (A-GPS), which is around 7 meters according to the study by [Zandenbergen and Barbeau (2011)][6]. |
 | WiFi        | 50 m - 100 m | Determined by the range of the wireless access points. Depends on the frequency, transmitter strength, physical obstructions, interference, and so on. |
 | BLE beacons |  70 m | Determined by the range of the beacon. Depends on the frequency, transmission strength, physical obstructions, interference, and so on. |
 
@@ -150,12 +162,18 @@ The following table summarizes the sensor data collected on each of the supporte
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | N/A | Supported through [LocationManager](https://developer.android.com/reference/android/location/LocationManager) APIs (both GPS and NETWORK) | Supported through [CLLocationManager](https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc) APIs |
-| WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. However from API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation](https://developer.android.com/guide/topics/connectivity/wifi-scan). | N/A - no public API |
-| BLE beacons | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) | Limited to [Eddystone](https://developers.google.com/beacons/eddystone) and [iBeacon](https://developer.apple.com/ibeacon/) |
-
-
+| GPS         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
+| WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. However from API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
+| BLE beacons | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
 
 <!-- Footnotes -->
 
-[^1]: The median GPS accuracy for mobile phones with assisted GPS (A-GPS) is around 7 meters according to the study by [Zandenbergen and Barbeau (2011)](https://www.cambridge.org/core/journals/journal-of-navigation/article/positional-accuracy-of-assisted-gps-data-from-highsensitivity-gpsenabled-mobile-phones/E1EE20CD1A301C537BEE8EC66766B0A9).
+<b id="f1">1.</b> T is around  ()
+
+<!-- Reference links in article -->
+[1]: https://developers.google.com/beacons/eddystone
+[2]: https://developer.apple.com/ibeacon/
+[3]: https://developer.android.com/reference/android/location/LocationManager
+[4]: https://developer.apple.com/documentation/corelocation/cllocationmanager?language=objc
+[5]: https://developer.android.com/guide/topics/connectivity/wifi-scan
+[6]: https://www.cambridge.org/core/journals/journal-of-navigation/article/positional-accuracy-of-assisted-gps-data-from-highsensitivity-gpsenabled-mobile-phones/E1EE20CD1A301C537BEE8EC66766B0A9
