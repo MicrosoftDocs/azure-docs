@@ -39,11 +39,9 @@ The following steps show you how to create a managed instance.
 
 ### Basic tab
 
-   Filling out information at this tab is mandatory as this is a minimum set of required information to provision a managed instance.
+5. Fill out mandatory information required at Basic tab using the table below. This is a minimum set of information to provision a managed instance.
 
    ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
-
-   Fill out the requested information on this tab by using information from the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -60,15 +58,13 @@ The following steps show you how to create a managed instance.
 
    ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
 
-   You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure networking by clicking on **Next : Networking**
+   You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure networking by clicking on **Next : Networking**.
 
  ### Networking tab
 
-   Filling out information on this tab is optional for provisioning managed instance. If it is not filled out, default settings will be applied.
+6. Fill out optional information at Networking tab using the table below. In case this information is omitted, default settings will be appled.
 
    ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
-
-   Fill out the requested information on this tab by using information from the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -77,15 +73,13 @@ The following steps show you how to create a managed instance.
    | **Public endpoint**  | Seelect this option to enable public endpoint | For managed instance to be accessible through the public data endpoint, **Enable** public endpoint needs to be selected. | 
    | **Allow access from** (in case Public endpoint is set to enabled) | Select one of the options: <ul> <li>**Azure services**</li> <li>**Internet**</li> <li>**No access**</li></ul>   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>Azure services - recommended when connecting from Power BI or other multi-tenant service. </li> <li> Internet - use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> No access - this option creates a deny security rule. You’ll need to modify this rule to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
 
-   - You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure additional settings by clicking on **Next : Additional settings**
+   - You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure additional settings by clicking on **Next : Additional settings**.
 
 ### Additional settings tab
 
-   Filling out information on this tab is optional for provisioning managed instance. If it is not filled out, default settings will be applied.
+7. Fill out optional information at Additional tab using the table below. In case this information is omitted, default settings will be appled.
 
    ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
-
-   Fill out the requested information on this tab by using information from the following table:
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
@@ -96,22 +90,22 @@ The following steps show you how to create a managed instance.
 
 ### Review + create tab
 
-   5. Click on **Review + create** tab to review selected options before creating managed instance.
+   8. Click on **Review + create** tab to review selected options before creating managed instance.
 
     ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
 
-   6. Click on **Create** to start provisioning managed instance. Deploying managed instance is a long running operation. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+   9. Click on **Create** to start provisioning managed instance. Deploying managed instance is a long running operation. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 > [!IMPORTANT]
 > Deploying managed instance is a long running operation. Deployment of the first instance in the subnet takes typically much longer than in subsequent instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 ### Monitor deployment progress
 
-7. Select **Notifications** icon to view the status of the deployment.
+10. Select **Notifications** icon to view the status of the deployment.
 
     ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/in-progress/mi-create-deployment-in-progress.png)
 
-8. Select **Deployment in progress** on the notification to open the managed instance window to further monitor the deployment progress. 
+11. Select **Deployment in progress** on the notification to open the managed instance window to further monitor the deployment progress. 
 
 > [!TIP]
 > In case that you close your web browser and navigate away from the deployment in progress screen, follow these steps to find the progress screen:
