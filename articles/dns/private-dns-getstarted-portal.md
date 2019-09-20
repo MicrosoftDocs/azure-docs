@@ -1,27 +1,27 @@
 ---
-title: Create an Azure DNS private zone using the Azure portal
-description: In this tutorial, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
+title: Quickstart - Create an Azure private DNS zone using the Azure portal
+description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
 author: vhorne
 ms.service: dns
-ms.topic: tutorial
-ms.date: 6/15/2019
+ms.topic: quickstart
+ms.date: 09/20/2019
 ms.author: victorh
-#Customer intent: As an experienced network administrator I want to create an  Azure DNS private zone, so I can resolve host names on my private virtual networks.
+#Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
-# Tutorial: Create an Azure DNS private zone using the Azure portal
+# Quickstart: Create an Azure private DNS zone using the Azure portal
 
-This tutorial walks you through the steps to create your first private DNS zone and record using the Azure portal.
+This quickstart walks you through the steps to create your first private DNS zone and record using the Azure portal.
 
 [!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
-In this tutorial, you learn how to:
+In this quickstart, you learn how to:
 
 > [!div class="checklist"]
-> * Create a DNS private zone
+> * Create a private DNS zone
 > * Create a virtual network
 > * Link the virtual network
 > * Create test virtual machines
@@ -30,9 +30,9 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you prefer, you can complete this tutorial using [Azure PowerShell](private-dns-getstarted-powershell.md) or [Azure CLI](private-dns-getstarted-cli.md).
+If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md) or [Azure CLI](private-dns-getstarted-cli.md).
 
-## Create a DNS private zone
+## Create a private DNS zone
 
 The following example creates a DNS zone called **private.contoso.com** in a resource group called **MyAzureResourceGroup**.
 
@@ -173,13 +173,11 @@ Repeat for myVM02.
 
 ## Delete all resources
 
-When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this tutorial.
+When no longer needed, delete the **MyAzureResourceGroup** resource group to delete the resources created in this quickstart.
 
 
 ## Next steps
 
-In this tutorial, you deployed a private DNS zone, created a DNS record, and tested the zone.
-Next, you can learn more about private DNS zones.
-
 > [!div class="nextstepaction"]
-> [Using Azure DNS for private domains](private-dns-overview.md)
+> [Azure DNS Private Zones scenarios](private-dns-scenarios.md)
+
