@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
 ---
 # Delete an Azure Backup Recovery Services vault
@@ -27,6 +27,8 @@ You can't delete a Recovery Services vault that has dependencies, such as protec
 - If you delete an on-premises protected item from a portal that contains dependencies, a warning message appears:
 
   ![Delete the protected server error.](./media/backup-azure-delete-vault/error-message.jpg)
+
+- If backup items are in soft deleted state in the vault. The soft deleted items are permanently deleted after 14 days of delete operation. Try vault deletion after the backup items are permanently deleted and there is no item in soft deleted state left in the vault.For more information, refer to this [article](https://aka.ms/SoftDeleteCloudWorkloads.).
 
   
 To delete the vault, choose the scenario that matches your setup and follow the recommended steps:
