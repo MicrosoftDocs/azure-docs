@@ -116,7 +116,7 @@ You need a few parameters to configure data streams from event hubs as an output
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Power BI
 
@@ -204,7 +204,8 @@ The following table lists the property names and their descriptions for creating
 | Encoding |For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter |Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
 | Format |Applicable only for JSON type. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| System Property columns | Optional. Key value pairs of System Properties and corresponding column names that need to be attached to the outgoing message instead of the payload. More information about this feature is in the section [System properties for Service Bus Queue and Topic outputs](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). Partition key is a unique integer value for each partition.
 
@@ -223,7 +224,8 @@ The following table lists the property names and their descriptions for creating
 | Event serialization format |The serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding |If you're using CSV or JSON format, an encoding must be specified. UTF-8 is the only supported encoding format at this time. |
 | Delimiter |Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
-| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More info about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
+| System Property columns | Optional. Key value pairs of System Properties and corresponding column names that need to be attached to the outgoing message instead of the payload. More information about this feature is in the section [System properties for Service Bus Queue and Topic outputs](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 The number of partitions is [based on the Service Bus SKU and size](../service-bus-messaging/service-bus-partitioning.md). The partition key is a unique integer value for each partition.
 
@@ -289,6 +291,27 @@ In the following example, we add the two fields `DeviceId` and `DeviceStatus` to
 The following screenshot shows output message properties inspected in EventHub through [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
 ![Event custom properties](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## System properties for Service Bus Queue and Topic outputs 
+You can attach query columns as [system properties](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) to your outgoing service bus Queue or Topic messages. 
+These columns don't go into the payload instead the corresponding BrokeredMessage [system property](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) is populated with the query column values.
+These system properties are supported - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+String values of these columns are parsed as corresponding system property value type and any parsing failures are treated as data errors.
+This field is provided as a JSON object format. Details about this format are as follows -
+* Surrounded by curly braces {}.
+* Written in key/value pairs.
+* Keys and values must be strings.
+* Key is the system property name and value is the query column name.
+* Keys and values are separated by a colon.
+* Each key/value pair is separated by a comma.
+
+This shows how to use this property –
+
+* Query: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* System Property Columns:
+`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+This sets the `MessageId` on service bus queue messages with `column1`'s values and PartitionKey is set with `column2`'s values.
 
 ## Partitioning
 
