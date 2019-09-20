@@ -6,7 +6,7 @@ author: yushwang
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 09/20/2019
 ms.author: yushwang
 
 ---
@@ -43,6 +43,7 @@ To help configure your VPN device, refer to the links that correspond to the app
 | Cisco | CSR | RouteBased: IOS-XE 16.10 | (not tested) | [Configuration script](vpn-gateway-download-vpndevicescript.md) |
 | Cisco |ISR |PolicyBased: IOS 15.0<br>RouteBased*: IOS 15.1 |Supported |Supported |
 | Cisco |Meraki |N/A |Not compatible |Not compatible |
+| Cisco | vEdge (Viptela OS) | 18.4.0 (Active/Passive Mode)<br>19.2 (Active/Active Mode) | [Manual configuration (Active/Passive)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br>[Cloud Onramp configuration (Active/Active)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 and above |[Configuration guide](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |Not compatible |
 | F5 |BIG-IP series |12.0 |[Configuration guide](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[Configuration guide](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 | (not tested) |[Configuration guide](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
