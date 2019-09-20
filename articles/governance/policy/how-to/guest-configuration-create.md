@@ -463,7 +463,7 @@ as Azure Policy will be the same as for any DSC content.
 
 ## OPTIONAL: Signing Guest Configuration packages
 
-Guest Configuration custom policies by default use SHA256 hash to validate tthe policy package
+Guest Configuration custom policies by default use SHA256 hash to validate the policy package
 hasn't changed from when it was published to when it's read by the server that is being audited.
 Optionally, customers may also use a certificate to sign packages and force the Guest Configuration
 extension to only allow signed content.
