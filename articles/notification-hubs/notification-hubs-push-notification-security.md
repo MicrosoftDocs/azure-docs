@@ -44,8 +44,9 @@ Similar to other entities, notification hub operations are allowed for three sec
 
 Notification Hubs accepts SAS tokens generated with shared keys configured directly on the notification hub.
 
-It is not possible to send a notification to more than one namespace. Namespaces are logical container for notification hubs and are not involved with sending notifications.
-The namespace-level access policies (credentials) can be used for namespace-level operations, for example: listing notification hubs, creating or deleting notification hubs, etc. Only the hub-level access policies let you send notifications.
+It is not possible to send a notification to more than one namespace. Namespaces are logical containers for notification hubs and are not involved in sending notifications.
+
+You can use the namespace-level access policies (credentials) for namespace-level operations; for example: listing notification hubs, creating or deleting notification hubs, etc. Only the hub-level access policies let you send notifications.
 
 ### SAS tokens for access policies
 
