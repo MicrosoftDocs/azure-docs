@@ -57,7 +57,6 @@
     - name: In C++/WinRT
       href: how-tos/create-locate-anchors-cpp-winrt.md
   - name: Use on-device sensors to discover nearby anchors 
-    href: set-up-coarse-reloc-overview.md
     items:
     - name: In C#/Unity
       href: how-tos/set-up-coarse-reloc-csharp.md

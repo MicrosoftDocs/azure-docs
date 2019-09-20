@@ -12,6 +12,8 @@ ms.service: azure-spatial-anchors
 ---
 # How to create and locate anchors using on-device sensors in Java
 
+Azure Spatial Anchors can associate on-device, positioning sensor data with the anchors you create. This data can also be used to quickly determine whether there are any anchors nearby your device. For more information, see [Coarse relocalization](concepts/coarse-reloc.md).
+
 > [!div  class="op_single_selector"]
 > * [C#/Unity](set-up-coarse-reloc-csharp.md)
 > * [Objective-C](set-up-coarse-reloc-objc.md)
