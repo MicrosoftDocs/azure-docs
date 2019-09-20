@@ -166,7 +166,7 @@ The Azure Blockchain Service RPC endpoint address is required to connect to a bl
 1. Under **Azure Blockchain Service** in Visual Studio Code, right-click the consortium.
 1. Select **Copy RPC endpoint**.
 
-    ![screenshot](./media/ethereum-logic-app/devkit-rpc.png)
+    ![Copy RPC endpoint](./media/ethereum-logic-app/devkit-rpc.png)
 
     The RPC endpoint is copied to your clipboard.
 
@@ -253,7 +253,7 @@ If you used development kit or Truffle to build your smart contract, you can use
 1. Find the **bytecode** element in the JSON file.
 1. Copy the **bytecode** value.
 
-    [screenshot]
+    ![Copy bytecode using metadata](./media/ethereum-logic-app/bytecode-metadata.png)
 
 **Using the Solidity compiler:**
 
