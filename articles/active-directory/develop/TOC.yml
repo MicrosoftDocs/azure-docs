@@ -225,7 +225,7 @@
           href: msal-overview.md
         - name: Accounts & Tenant Profiles
           href: accounts-overview.md
-        - name: Brokered auth
+        - name: Brokered auth (Android)
           href: brokered-auth.md
         - name: Migration
           items:

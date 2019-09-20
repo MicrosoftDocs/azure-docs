@@ -1,6 +1,6 @@
 ---
-title: Brokered authentication & authorization | Azure
-description: An overview of brokered authentication & authorization in the Microsoft identity platform
+title: Brokered auth in Android | Azure
+description: An overview of brokered authentication & authorization for Android in the Microsoft identity platform
 services: active-directory
 documentationcenter: ''
 author: shoatman
@@ -19,11 +19,11 @@ ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
 ---
 
-# Brokered authentication & authorization
+# Brokered auth in Android
 
 ## Introduction
 
-You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign- On (SSO) and to meet organizational conditional access policies. Integrating with a broker provides the following benefits:
+You must use one of Microsoft's authentication brokers to participate in device-wide Single Sign-On (SSO) and to meet organizational conditional access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
 - Conditional access for:
@@ -53,7 +53,7 @@ Broker-hosting apps can be installed by the device owner from their app store (t
 
 If a device does not already have a broker app installed, MSAL instructs the user to install one as soon as the app attempts to get a token interactively. The app will then need to lead the user through the steps to make the device compliant with the required policy.
 
-## Effects of installing and uninstalling a broker 
+## Effects of installing and uninstalling a broker
 
 ### When a broker is installed
 
@@ -121,5 +121,5 @@ MSAL first uses the broker bound service because calling this service doesn't re
 
 If you get an `MsalClientException` with error code `"BROKER_BIND_FAILURE"`, then there are two options:
 
-- Ask the user to disable power optimization relative for the Microsoft Authenticator app and the Intune Company Portal.
-- Ask the user to grant the Android `"READ_CONTACTS"` permission
+- Ask the user to disable power optimization for the Microsoft Authenticator app and the Intune Company Portal.
+- Ask the user to grant the `"READ_CONTACTS"` permission
