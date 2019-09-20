@@ -34,7 +34,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## Run a Log Analytics query from Azure Sentinel
 
-1. In the Azure Sentinel portal, click **Hunting** to run queries for suspicious and anomalous behavior.
+1. In the Azure portal, select **Sentinel** > **Hunting** to run queries for suspicious and anomalous behavior.
 
 1. To run a hunting campaign, select one of the hunting queries and on the left, review the results. 
 
@@ -46,9 +46,11 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 1. In the Log Analytics query results list, expand the row containing the information that you find interesting.
 
-4. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmarks**.
-5. On the right, in the **Details** page, update the name, and add tags, and notes to help you identify what was interesting about the item.
-6. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
+2. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmarks**.
+
+3. On the right, in the **Details** page, update the name, and add tags, and notes to help you identify what was interesting about the item.
+
+3. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
 
    ![show results](./media/bookmarks/add-bookmark-la.png)
 
@@ -58,7 +60,7 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
 ## View and update bookmarks 
 
-1. In the Azure portal, select **Sentinel** > **Threat management** >  **Hunting**. 
+1. In the Azure portal, select **Sentinel** > **Threat management** > **Hunting**. 
 2. Select the **Bookmarks** tab to view the list of bookmarks.
 3. If required, use the search box or filter options to find a specific bookmark.
 4. Select individual bookmarks and view the bookmark details in the right hand details pane.
@@ -66,14 +68,14 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 
    ![show results](./media/bookmarks/view-update-bookmarks.png)
 
-### Investigate bookmarks in the investigation graph - Preview
+## Investigate bookmarks in the investigation graph - Preview
 
 > [!IMPORTANT]
 > Investigating bookmarks in the investigation graph is currently in public preview.
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Still on the **Bookmarks** tab from the previous procedure, select the bookmark or bookmarks you want to investigate.
+1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** and the **Bookmarks** tab, select the bookmark or bookmarks you want to investigate.
 
 2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see values for **IP**, **Machine**, or **Account**.
 
@@ -86,12 +88,14 @@ You can also visualize your bookmarked data, by clicking **Investigate**. This l
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-1. Still on the **Bookmarks** tab from the previous procedure, select the bookmark or bookmarks you want to add to an incident.
+1. In the Azure portal, **Sentinel** > **Threat management** > **Hunting** and the **Bookmarks** tab, select the bookmark or bookmarks you want to add to an incident.
 
-2. On the actions bar, select **Incident actions (Preview)**.
+2. On the actions bar, select **Incident actions (Preview)**:
+    
+    > [!div class="mx-imgBorder"]
+    > ![Add bookmarks to incident](./media/bookmarks/incident-actions.png)
 
 3. Select either **Create new incident** or **Add to existing incident**, as required.
-
 
 ## View bookmarked data in Log Analytics 
 
