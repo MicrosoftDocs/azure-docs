@@ -24,6 +24,20 @@ This article lists exceptions generated when interacting with Azure Service Bus 
 
 ## Exception Categories
 
-### Bad Request
+## Error: Bad Request
 
 "Bad Request" implies that the request received by the Resource Manager failed validation.
+
+| Error code | Error sub-code | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| Bad Request | 40000 | | TODO - these errors are caused due to operations done on the Basic tier. Add appropriate message | | 
+
+## Error: Not found
+
+## Error code: 400
+
+## Error code: 429
+| Error code | Error sub-code | Error message | Description | Recommendation |
+| ---------- | ------------- | ------------- | ----------- | -------------- |
+| 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the concurrent receives requests count exceeding the limit. <br/>The request was terminated. | Wait for a few seconds and try again. <br/> <br/> Please learn more about the [quotas](service-bus-quotas) and [ARM request limits](../azure-resource-manager/resource-manager-request-limits)|
+| 429 | 40901 | SubCode=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
