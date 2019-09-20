@@ -36,6 +36,8 @@ Other resources that you need, such as an Azure Storage account, are created in 
 
 > [!NOTE]
 > In Visual Studio 2017, the Azure development workload installs the Azure Functions Tools as a separate extension. When you update your Visual Studio 2017, also make sure that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
+>
+> Please skip these section when using Visual Studio 2019.
 
 ### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
@@ -70,7 +72,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used when running in Azure. For more information, see [Local settings file](#local-settings-file).
+* **local.settings.json**: Maintains settings used when running functions locally. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
@@ -79,7 +81,7 @@ For more information, see [Functions class library project](functions-dotnet-cla
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-Settings in local.settings.json are not uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
+Settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
 
 Values in **ConnectionStrings** are never published.
 
@@ -141,7 +143,7 @@ You can use the above procedure to add more functions to your function app proje
 
 As with triggers, input and output bindings are added to your function as binding attributes. Add bindings to a function as follows:
 
-1. Make sure you have [configured the project for local development](#configure-the-project-for-local-development).
+1. Make sure you've [configured the project for local development](#configure-the-project-for-local-development).
 
 2. Add the appropriate NuGet extension package for the specific binding. For more information, see [Local C# development using Visual Studio](./functions-bindings-register.md#local-csharp) in the Triggers and Bindings article. The binding-specific NuGet package requirements are found in the reference article for the binding. For example, find package requirements for the Event Hubs trigger in the [Event Hubs binding reference article](functions-bindings-event-hubs.md).
 
@@ -194,7 +196,7 @@ Use the following steps to publish your project to a function app in Azure.
 
 ## Function app settings
 
-Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
+Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings aren't uploaded automatically when you publish the project.
 
 The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project.
 

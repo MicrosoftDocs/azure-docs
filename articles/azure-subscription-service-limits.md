@@ -84,8 +84,9 @@ In the following list of limits, a new table reflects any differences in limits 
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Load Balancer](#load-balancer)
-  * [Public IP address](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Public IP address](#publicip-address)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
 * [Notification Hubs](#notification-hubs-limits)
@@ -163,6 +164,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 #### Network Watcher limits
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
+#### Private Link limits
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]

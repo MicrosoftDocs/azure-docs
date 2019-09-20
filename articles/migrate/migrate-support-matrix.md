@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ---
 
@@ -51,7 +51,7 @@ CorentTech | Migration | [Learn more](https://www.corenttech.com/).
 Subscription | You can have multiple Azure Migrate projects in a subscription.
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 VMware VMs  | Assess up to 35,000 VMware VMs in a single project.
-Hyper-V VMs	| Assess up to 10,000 Hyper-V VMs in a single project.
+Hyper-V VMs	| Assess up to 35,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
