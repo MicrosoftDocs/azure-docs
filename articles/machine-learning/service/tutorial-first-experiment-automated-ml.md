@@ -88,7 +88,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
 
     1. Give your dataset a unique name and provide an optional description. 
 
-    1. Select **Next** to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
+    1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
 
     1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
         
@@ -117,7 +117,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
    
     Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
     ------|---------|---
-    Primary metric| |**AUC_weighted** 
+    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|**AUC_weighted** 
     Exit criteria| When any of these criteria are met, the training job ends even if it didn't fully complete. |Training&nbsp;job&nbsp;time&nbsp;(minutes): **5**  <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;**10** 
     Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
     Validation| Validation type and number of tests. | **K-fold** cross-validation<br><br>  cross-validations: **2** 
