@@ -58,7 +58,7 @@ To use the Azure AD Graph API with your B2C tenant, you need to register an appl
     1. Select **Grant permissions**, and then select **Yes**. It might take a few minutes to for the permissions to fully propagate.
 1. Create client secret
     1. Under **API ACCESS**, select **Keys**.
-    1. Enter a description for the key in the **Key description** box. For example, *Audit Log Key*.
+    1. Enter a description for the key in the **Key description** box. For example, *User Management Key*.
     1. Select a validity **Duration**, then select **Save**.
     1. Record the key's **VALUE**. You need this value for authentication in automation scripts like the example PowerShell script shown in a later section.
 
