@@ -16,7 +16,7 @@ ms.subservice: B2C
 # Link an Azure subscription to an Azure Active Directory B2C tenant
 
 > [!IMPORTANT]
-> For the latest information about usage billing and pricing for Azure Active Directory (Azure AD) B2C, see [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> For the latest information about usage billing and pricing for Azure Active Directory B2C (Azure AD B2C), see [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Usage charges for Azure AD B2C are billed to an Azure subscription. When an Azure AD B2C tenant is created, the tenant administrator needs to explicitly link the Azure AD B2C tenant to an Azure subscription. This article shows you how.
 

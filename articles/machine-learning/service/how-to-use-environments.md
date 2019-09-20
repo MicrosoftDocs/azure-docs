@@ -1,6 +1,6 @@
 ---
-title: Create, use and manage environments for model training and deployment
-titleSuffix: Azure Machine Learning service
+title: Create reusable ML environments 
+titleSuffix: Azure Machine Learning
 description: Create and manage environments for model training and deployment. Manage Python packages and other settings for the environment.
 services: machine-learning
 author: rastala
@@ -9,18 +9,17 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.custom: seodec18
+ms.date: 09/16/2019
 
 ## As a developer, I need to configure my experiment context with the necessary software packages so my machine learning models can be trained and deployed on different compute targets.
 
 ---
 
-# Create and manage environments for training and deployment
+# Create and manage reusable environments for training and deployment with Azure Machine Learning.
 
 In this article, learn how to create and manage Azure Machine Learning [environments](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) so you can track and reproduce your projects' software dependencies as they evolve.
 
-Software dependency management is a common task for developers. You want to be able to ensure that builds are reproducible without a lot of manual software configuration. With  solutions for local development, such as pip and Conda in mind, the Azure Machine Learning service Environments class provides a solution for both local and distributed cloud development.
+Software dependency management is a common task for developers. You want to be able to ensure that builds are reproducible without a lot of manual software configuration. With  solutions for local development, such as pip and Conda in mind, the Azure Machine Learning Environments class provides a solution for both local and distributed cloud development.
 
 The examples in this article show how to:
 
@@ -50,7 +49,7 @@ System-managed environments are used when you want [Conda](https://conda.io/docs
 ## Prerequisites
 
 * The Azure Machine Learning SDK for Python [installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-* An [Azure Machine Learning service workspace](how-to-manage-workspace.md).
+* An [Azure Machine Learning workspace](how-to-manage-workspace.md).
 
 ## Create an environment
 

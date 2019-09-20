@@ -40,6 +40,9 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 
 ## 1.4.X.0
 
+>[!IMPORTANT]
+>Previously, Windows down-level computers joined to on-prem AD were incorrectly getting synced to the cloud under some circumstances. As an example, the userCertificate attribute value for Windows down-level devices in AD is populated. But such devices in Azure AD always stayed in the “pending” state because these OS versions were not designed to be registered with Azure AD via AAD Sync. In this version of Azure AD Connect, AAD Sync will stop syncing Windows down-level computers to Azure AD and will also remove the previously incorrectly synced Windows down-level devices from Azure AD. Please note that this change will not delete any Windows down-level devices that were correctly registered with Azure AD by using the MSI package. Those devices will continue to work as expected for the purposes of device-based conditional access. Some customers may see some or all of their Windows down-level devices disappear from Azure AD. This is not a cause for concern, as these device identities were never actually used by Azure AD during conditional access authorization. Such customers may need to revisit https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan and get their Windows down-level devices registered correctly to ensure that such devices can fully participate in device-based conditional access. Note that if you see these deletes of down-level Computer/Device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through.
+
 ### Release status
 9/10/2019: Released for auto-upgrade only
 
