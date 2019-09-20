@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/23/2019
 ms.author: diberry
 #Customer intent: 
 ---
 
 # Tutorial: Use Personalizer in Azure notebooks 
 
-This tutorial simulates a Personalizer loop _system_ which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
+This tutorial simulates a Personalizer loop _system, which suggests which type of coffee a customer should order. The users and their preferences are stored in a [user dataset](~/samples-personalizer/samples/azurenotebook/example.json). Information about the coffee is also available and stored in a [coffee dataset](~/samples-personalizer//samples/azurenotebook/actionfeatures.json).
 
 A summary of the user information is:
 
@@ -69,7 +69,7 @@ File descriptions:
 
 ## Set up the Azure notebook
 
-1. Change the Kernal to `Python 3.6`. 
+1. Change the Kernel to `Python 3.6`. 
 1. Open the `Personalizer.ipynb` file.
 
 ## Run notebook cells
@@ -78,7 +78,7 @@ Run each executable cell and wait for it to return. You know it is done when the
 
 ### Include the python modules
 
-Include the required python modules, the cell won't return any results:
+Include the required python modules. The cell has no output.
 
 ```python
 import json
@@ -89,11 +89,9 @@ import time
 import uuid
 ```
 
-The cell has no output.
-
 ### Set Personalizer resource key and name
 
-Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `resource_key` to own of your Personalizer keys on the **Keys** page from the Azure portal.
+Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `resource_key` to own of your Personalizer keys on the **Keys** page from the Azure portal. The cell has no output.
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -101,11 +99,10 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "123456789"
 ```
 
-The cell has no output.
-
 ### Get the last model update date and time
 
-When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. 
+When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. The cell has no output. The function does output the last model training date when called.
+
 
 ```python
 def get_last_updated():
@@ -119,7 +116,6 @@ def get_last_updated():
     print(f'{lastModifiedTime}')
 ```
 
-The cell has no output. The function does output the last model training date when called.
 
 ### Construct URLs for REST calls and read JSON data files
 
@@ -131,56 +127,51 @@ This cell
 * reads in the JSON data files
 * calls `get_last_updated` method
 
-```python
-personalization_rank_url = personalization_base_url + "/personalizer/v1.0/rank"
-personalization_reward_url = personalization_base_url + "/personalizer/v1.0/events/" #add "{eventId}/reward"
-personalization_model_properties_url = personalization_base_url + "/personalizer/v1.0/model/properties"
-headers = {'Ocp-Apim-Subscription-Key' : resource_key, 'Content-Type': 'application/json'}
-
-examplepath = "users.json"
-requestpath = "example-rankrequest.json"
-actionfeaturespath = "coffee.json"
-
-random.seed(time.time())
-
-userpref = None 
-rankactionsjsonobj = None 
-actionfeaturesobj = None
-
-with open(examplepath) as handle:
-    userpref = json.loads(handle.read())
-
-with open(requestpath) as handle:
-    rankactionsjsonobj = json.loads(handle.read())  
-    
-with open(actionfeaturespath) as handle:
-    actionfeaturesobj = json.loads(handle.read())
-    
-get_last_updated()
-```
-
 The cell has output from the call to `get_last_updated` function, which is the date of the last model training update. The date looks like: 
 
 ```python
 "0001-01-01T00:00:00+00:00"
 ```
 
-### Compare Rank API's prediction with known user preference
-
-This function compares the user's preference for coffee, based on weather and time of day, with the Personalizer's suggestion for the user for those filters. If the suggestion matches, a score of 1 is returned, otherwise the score is 0.
-
 ```python
-def get_reward_from_simulated_data(name, weather, timeofday, prediction):
-    if(userpref[name][weather][timeofday] == str(prediction)):
-        return 1 
-    return 0
-``` 
+# build URLs
+personalization_rank_url = personalization_base_url + "/personalizer/v1.0/rank"
+personalization_reward_url = personalization_base_url + "/personalizer/v1.0/events/" #add "{eventId}/reward"
+headers = {'Ocp-Apim-Subscription-Key' : subscription_key, 'Content-Type': 'application/json'}
 
-The cell has no output. The function does output the score when called.
+# context
+users = "users.json"
+
+# action features
+coffee = "coffee.json"
+
+# empty JSON for Rank request
+requestpath = "rankrequest.json"
+
+# initialize random
+random.seed(time.time())
+
+userpref = None 
+rankactionsjsonobj = None 
+actionfeaturesobj = None
+
+with open(users) as handle:
+    userpref = json.loads(handle.read())
+
+with open(requestpath) as handle:
+    rankactionsjsonobj = json.loads(handle.read())  
+    
+with open(coffee) as handle:
+    actionfeaturesobj = json.loads(handle.read())
+```
+
+
+
+
 
 ### Generate a unique event ID
 
-This function generates a unique ID for each rank call. The ID is used again with the reward call. 
+This function generates a unique ID for each rank call. The ID is used again with the reward call. The cell has no output. The function does output the unique ID when called.
 
 ```python
 def add_event_id(rankjsonobj):
@@ -189,11 +180,46 @@ def add_event_id(rankjsonobj):
     return eventid
 ```
 
-The cell has no output. The function does output the unique ID when called.
+
 
 ### Get random user, weather, and time of day
 
 This function selects a unique user, weather, and time of day, then adds those items to the JSON object to send to the Rank request.
+
+The list of 4 users and their preferences - only some preferences are shown for brevity: 
+
+```json
+{
+  "Alice": {
+    "Sunny": {
+      "Morning": "Cold brew",
+      "Afternoon": "Iced mocha",
+      "Evening": "Cold brew"
+    }...
+  },
+  "Bob": {
+    "Sunny": {
+      "Morning": "Cappucino",
+      "Afternoon": "Iced mocha",
+      "Evening": "Cold brew"
+    }...
+  },
+  "Cathy": {
+    "Sunny": {
+      "Morning": "Latte",
+      "Afternoon": "Cold brew",
+      "Evening": "Cappucino"
+    }...
+  },
+  "Dave": {
+    "Sunny": {
+      "Morning": "Iced mocha",
+      "Afternoon": "Iced mocha",
+      "Evening": "Iced mocha"
+    }...
+  }
+}
+```
 
 ```python
 def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, rankjsonobj):   
@@ -204,143 +230,48 @@ def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, r
     return [name, weather, timeofday]
 ```
 
-The list of 4 users and their preferences contains: 
-
-```json
-{
-  "Alice": {
-    "Sunny": {
-      "Morning": "Cold brew",
-      "Afternoon": "Iced mocha",
-      "Evening": "Cold brew"
-    },
-    "Rainy": {
-      "Morning": "Latte",
-      "Afternoon": "Cappucino",
-      "Evening": "Latte"
-    },
-    "Snowy": {
-      "Morning": "Cappucino",
-      "Afternoon": "Cappucino",
-      "Evening": "Cappucino"
-    }
-  },
-  "Bob": {
-    "Sunny": {
-      "Morning": "Cappucino",
-      "Afternoon": "Iced mocha",
-      "Evening": "Cold brew"
-    },
-    "Rainy": {
-      "Morning": "Latte",
-      "Afternoon": "Latte",
-      "Evening": "Latte"
-    },
-    "Snowy": {
-      "Morning": "Iced mocha",
-      "Afternoon": "Iced mocha",
-      "Evening": "Iced mocha"
-    }
-  },
-  "Cathy": {
-    "Sunny": {
-      "Morning": "Latte",
-      "Afternoon": "Cold brew",
-      "Evening": "Cappucino"
-    },
-    "Rainy": {
-      "Morning": "Cappucino",
-      "Afternoon": "Latte",
-      "Evening": "Iced mocha"
-    },
-    "Snowy": {
-      "Morning": "Cold brew",
-      "Afternoon": "Iced mocha",
-      "Evening": "Cappucino"
-    }
-  },
-  "Dave": {
-    "Sunny": {
-      "Morning": "Iced mocha",
-      "Afternoon": "Iced mocha",
-      "Evening": "Iced mocha"
-    },
-    "Rainy": {
-      "Morning": "Latte",
-      "Afternoon": "Latte",
-      "Evening": "Latte"
-    },
-    "Snowy": {
-      "Morning": "Cappucino",
-      "Afternoon": "Cappucino",
-      "Evening": "Cappucino"
-    }
-  }
-}
-```
-
-The cell has no output. The function does change the `rankjsonobj` when called.
 
 ### Add all coffee data
 
 This function adds the entire list of coffee to the JSON object to send to the Rank request. 
+
+The cell has no output. The function does change the `rankjsonobj` when called.
+
+
+The example of a single coffee's features is: 
+
+```json
+{
+    "id": "Cappucino",
+    "features": [
+    {
+        "type": "hot",
+        "origin": "kenya",
+        "organic": "yes",
+        "roast": "dark"
+        
+    }
+}
+```
 
 ```python
 def add_action_features(rankjsonobj):
     rankjsonobj["actions"] = actionfeaturesobj
 ```
 
-The entire list of coffee is: 
 
-```json
-[
-    {
-      "id": "Cappucino",
-      "features": [
-        {
-          "type": "hot",
-          "origin": "kenya",
-          "organic": "yes",
-          "roast": "dark"
-            
-        }
-      ]
-    },
-    {
-      "id": "Cold brew",
-      "features": [
-        {
-          "type": "cold",
-          "origin": "brazil",
-          "organic": "yes",
-          "roast": "light"
-        }
-      ]
-    },
-    {
-      "id": "Iced mocha",
-      "features": [
-        {
-          "type": "cold",
-          "origin": "ethiopia",
-          "organic": "no",
-          "roast": "light"
-        }
-      ]
-    },
-    {
-      "id": "Latte",
-      "features": [
-        {
-          "type": "hot",
-          "origin": "brazil",
-          "organic": "no",
-          "roast": "dark"
-        }
-      ]
-    }
-  ]
-```
+
+
+### Compare Rank API's prediction with known user preference
+
+This function compares the user's preference for coffee, based on weather and time of day, with the Personalizer's suggestion for the user for those filters. If the suggestion matches, a score of 1 is returned, otherwise the score is 0. The cell has no output. The function does output the score when called.
+
+```python
+def get_reward_from_simulated_data(name, weather, timeofday, prediction):
+    if(userpref[name][weather][timeofday] == str(prediction)):
+        return 1 
+    return 0
+``` 
 
 ### Loop through calls to Rank and Reward
 
@@ -348,13 +279,65 @@ The next cell is the _main_ work of the notebook, getting a random user, getting
 
 The loop runs for `num_requests` times, currently set to 4000. This number is meant to indicate that Personalizer needs a few thousand requests before its first retraining, regardless of the duration of the update model frequency. If the frequency was an five minutes or an hour, the service still needs a few thousand calls to Rank and Reward to create an effective learning policy. 
 
+An example of the JSON sent to the Rank API follows. The list of coffee is not complete, for brevity. You can see the entire JSON for coffee in `coffee.json`.
+
+
+```json
+{ 
+   'contextFeatures':[ 
+      { 
+         'timeofday':'Evening',
+         'weather':'Snowy',
+         'name':'Alice'
+      }
+   ],
+   'actions':[ 
+      { 
+         'id':'Cappucino',
+         'features':[ 
+            { 
+               'type':'hot',
+               'origin':'kenya',
+               'organic':'yes',
+               'roast':'dark'
+            }
+         ]
+      }
+        ...rest of coffee list
+   ],
+   'excludedActions':[ 
+
+   ],
+   'eventId':'b5c4ef3e8c434f358382b04be8963f62',
+   'deferActivation':False
+}
+```
+
+Then displays the JSON sent to the Rank API:
+
+```console
+To:  {'contextFeatures': [{'timeofday': 'Morning', 'weather': 'Sunny', 'name': 'Bob'}], 'actions': [{'id': 'Cappucino', 'features': [{'type': 'hot', 'origin': 'kenya', 'organic': 'yes', 'roast': 'dark'}]}, {'id': 'Cold brew', 'features': [{'type': 'cold', 'origin': 'brazil', 'organic': 'yes', 'roast': 'light'}]}, {'id': 'Iced mocha', 'features': [{'type': 'cold', 'origin': 'ethiopia', 'organic': 'no', 'roast': 'light'}]}, {'id': 'Latte', 'features': [{'type': 'hot', 'origin': 'brazil', 'organic': 'no', 'roast': 'dark'}]}], 'excludedActions': [], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'deferActivation': False}
+```
+
+Then displays the results from the Rank API:
+
+```
+From:  {'ranking': [{'id': 'Latte', 'probability': 0.85}, {'id': 'Iced mocha', 'probability': 0.05}, {'id': 'Cappucino', 'probability': 0.05}, {'id': 'Cold brew', 'probability': 0.05}], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'rewardActionId': 'Latte'}
+```
+
+Finally, each loop shows the random selection of user, weather, time of day, and determined reward.
+
+```console
+1 Alice Rainy Morning Latte 1
+```
+
 ```python
 # default JSON to send to Rank API
 rankjsonobj = rankactionsjsonobj
 
 # loop max and iterator
 i = 1
-num_requests = 10
+num_requests = 4000
 
 # default reward value - assumes failed prediction
 reward = 0
@@ -399,11 +382,11 @@ while(i <= num_requests):
     # send the reward to the service 
     response = requests.post(personalization_reward_url + eventid + "/reward", headers = headers, params= None, json = { "value" : reward })
     
-    # for every 10 rank requests, compute total correct recommendations 
+    # for every N rank requests, compute total correct recommendations 
     recommendations = recommendations + reward
     
-    # every 500th iteration, get last updated model date and time
-    if(i % 500 == 0):
+    # every N iteration, get last updated model date and time
+    if(i % 200 == 0):
         get_last_updated() 
                
     # aggregate so chart is easier to read
@@ -415,70 +398,17 @@ while(i <= num_requests):
     i = i + 1
 ```
 
-```json
-{ 
-   'contextFeatures':[ 
-      { 
-         'timeofday':'Evening',
-         'weather':'Snowy',
-         'name':'Alice'
-      }
-   ],
-   'actions':[ 
-      { 
-         'id':'Cappucino',
-         'features':[ 
-            { 
-               'type':'hot',
-               'origin':'kenya',
-               'organic':'yes',
-               'roast':'dark'
-            }
-         ]
-      },
-      { 
-         'id':'Cold brew',
-         'features':[ 
-            { 
-               'type':'cold',
-               'origin':'brazil',
-               'organic':'yes',
-               'roast':'light'
-            }
-         ]
-      },
-      { 
-         'id':'Iced mocha',
-         'features':[ 
-            { 
-               'type':'cold',
-               'origin':'ethiopia',
-               'organic':'no',
-               'roast':'light'
-            }
-         ]
-      },
-      { 
-         'id':'Latte',
-         'features':[ 
-            { 
-               'type':'hot',
-               'origin':'brazil',
-               'organic':'no',
-               'roast':'dark'
-            }
-         ]
-      }
-   ],
-   'excludedActions':[ 
-
-   ],
-   'eventId':'b5c4ef3e8c434f358382b04be8963f62',
-   'deferActivation':False
-}
-```
 
 ### Chart results to see improvement with Personalizer
+
+Create a chart from the `count` and `rewards`.
+
+```python
+plt.plot(count, rewards)
+plt.xlabel("Batch of rank events")
+plt.ylabel("Correct recommendations per batch")
+plt.show()
+```
 
 The chart should look like the image below. 
 
@@ -499,5 +429,5 @@ If you do not intend to continue the tutorial series, clean up the following res
 
 The [python notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample is available on the GitHub repo for Personalizer. 
 
-In the next tutorial, use the data for offline evaluation, create and apply a new learning policy. Then run the simulation again to see the improvements. 
+In the next tutorial, use the data for offline evaluation, create, and apply a new learning policy. Then run the simulation again to see the improvements. 
 
