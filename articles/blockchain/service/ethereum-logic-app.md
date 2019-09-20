@@ -28,9 +28,8 @@ Azure Logic Apps help you schedule, automate business processes and workflows wh
 1. In the [Azure portal](https://portal.azure.com), choose **Create a resource > Integration > Logic App**.
 1. Under **Create logic app**, provide details where to create your logic app. After you're done, select **Create**.
 
-    [screenshot]
-
     For more information on creating Azure Logic Apps, see [Create Azure Logic Apps](../../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
 1. After Azure deploys your app, select your logic app resource.
 1. In the Logic Apps Designer, under **Templates**, choose **Blank Logic App**.
 
@@ -144,29 +143,33 @@ For example, the following steps generate a REST-based microservice logic app ba
 
 ## Create an API connection
 
-An API connection to a blockchain is required for the Ethereum Blockchain connector. You can use the API connector for multiple logic apps. To set up a connection to an Azure Blockchain Service member, you need the following information:
-
-| Property | Description |
-|----------|-------------|
-|**Connection name** | Name of the API connection. |
-|**Ethereum RPC endpoint** | HTTP address of the Azure Blockchain Service transaction node. How to [get the RPC endpoint](#get-rpc-endpoint). |
-|**Private key** | Ethereum account private key. How to [get the private key](#get-private-key). |
-|**Account address** | Azure Blockchain Service member account address. How to [get the account address](#get-account-address). |
-|**Account password** | The account password is set when you create the member. For information on resetting the password, see [Ethereum account](consortium.md#ethereum-account).|
+An API connection to a blockchain is required for the Ethereum Blockchain connector. You can use the API connector for multiple logic apps. Some properties are required and others depend on your scenario.
 
 > [!IMPORTANT]
 > A private key or account address and password is required for creating transactions on a blockchain. Only one form of authentication is needed. You don't need to provide both the private key and account details. Querying contracts does not require a transaction. If you are using actions that query contract state, the private key or account address and password are not required.
 
+To set up a connection to an Azure Blockchain Service member, the following is a list of possible properties you may need depending on your scenario.
+
+| Property | Description |
+|----------|-------------|
+|**Connection name** | Name of the API connection. Required. |
+|**Ethereum RPC endpoint** | HTTP address of the Azure Blockchain Service transaction node. Required. How to [get the RPC endpoint](#get-rpc-endpoint). |
+|**Private key** | Ethereum account private key. Private key or account address and password are required for transactions. How to [get the private key](#get-private-key). |
+|**Account address** | Azure Blockchain Service member account address. Private key or account address and password are required for transactions. How to [get the account address](#get-account-address). |
+|**Account password** | The account password is set when you create the member. For information on resetting the password, see [Ethereum account](consortium.md#ethereum-account).|
+
 ## Get RPC endpoint
 
-You need the Azure Blockchain Service endpoint address to connect to a blockchain network. You can get endpoint address using the Azure Blockchain Development Kit for Ethereum or the Azure portal.
+The Azure Blockchain Service RPC endpoint address is required to connect to a blockchain network. You can get endpoint address using the Azure Blockchain Development Kit for Ethereum or the Azure portal.
 
 **Using development kit:**
 
 1. Under **Azure Blockchain Service** in Visual Studio Code, right-click the consortium.
 1. Select **Copy RPC endpoint**.
 
-    [screenshot]
+    ![screenshot](./media/ethereum-logic-app/devkit-rpc.png)
+
+    The RPC endpoint is copied to your clipboard.
 
 **Using Azure portal:**
 
@@ -184,22 +187,24 @@ You need the Azure Blockchain Service endpoint address to connect to a blockchai
 
 ## Get private key
 
-Your Ethereum account public and private keys are generated from a 12 word mnemonic. Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get endpoint address using the development kit extension.
+The Ethereum account private key can be used to authenticate when sending a transaction to the blockchain. Your Ethereum account public and private keys are generated from a 12 word mnemonic. Azure Blockchain Development Kit for Ethereum generates a mnemonic when you connect to an Azure Blockchain Service consortium member. You can get endpoint address using the development kit extension.
 
 1. In Visual Studio Code, open the command palette (F1).
 1. Choose **Azure Blockchain: Retrieve private key**.
-1. Select mnemonic you saved when connecting to the consortium member. The private key is copied to your clipboard.
+1. Select mnemonic you saved when connecting to the consortium member.
 
-    [screenshot]
+    ![Select mnemonic](./media/ethereum-logic-app/private-key.png)
+
+    The private key is copied to your clipboard.
 
 ## Get account address
 
-The member account and password is required to authenticate to the management smart contract at the root contract address. The password is set when you create the member.
+The member account and password can be used to authenticate when sending a transaction to the blockchain. The password is set when you create the member.
 
 1. In the Azure portal, go to your Azure Blockchain Service overview page.
 1. Copy the **member account** address.
 
-    [screenshot]
+    ![Copy member account](./media/ethereum-logic-app/member-account.png)
 
 For more information on the account address and password, see [Ethereum account](consortium.md#ethereum-account).
 
@@ -212,11 +217,12 @@ The contract application binary interface (ABI) defines the smart contract inter
 If you used development kit or Truffle to build your smart contract, you can use the extension to copy the contract ABI to the clipboard.
 
 1. In Visual Studio Code explorer pane, expand the **build/contracts** folder of your Solidity project.
-
-    [screenshot]
-
 1. Right-click the contract metadata JSON file. The file name is the smart contract name followed by the **.json** extension.
-1. Choose **Copy contract ABI**. The contract ABI is copied to the clipboard.
+1. Choose **Copy contract ABI**.
+
+    ![Copy contract ABI using DevKit](./media/ethereum-logic-app/abi-devkit.png)
+
+    The contract ABI is copied to the clipboard.
 
 **Using the contract metadata file:**
 
