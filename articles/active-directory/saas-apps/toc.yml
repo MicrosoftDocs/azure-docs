@@ -221,6 +221,8 @@
       items:
       - name: CA PPM
         href: cappm-tutorial.md
+      - name: CakeHR
+        href: cakehr-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -595,6 +597,8 @@
         href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
+      - name: IDC
+        href: idc-tutorial.md
       - name: IdeaScale
         href: ideascale-tutorial.md
       - name: iDiD Manager
@@ -1215,6 +1219,8 @@
         href: softeon-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
+      - name: Sonarqube
+        href: sonarqube-tutorial.md
       - name: Soonr Workplace
         href: soonr-tutorial.md
       - name: SpaceIQ
