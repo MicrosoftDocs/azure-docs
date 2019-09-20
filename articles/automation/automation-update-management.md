@@ -245,6 +245,9 @@ To create a new update deployment, select **Schedule update deployment**. The **
 
 Update Deployments can also be created programmatically. To learn how to create an Update Deployment with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly Update Deployment. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
 
+> [!NOTE]
+> The Registry keys listed under [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause a reboot event if **Reboot Control** is set to **Never Reboot**.
+
 ### Maintenance Windows
 
 Maintenance windows control the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window.
