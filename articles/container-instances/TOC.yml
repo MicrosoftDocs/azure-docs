@@ -121,7 +121,7 @@
     href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
-  - name: YAML file  
+  - name: YAML  
     href: container-instances-reference-yaml.md
   - name: Connector
     href: /connectors/aci
