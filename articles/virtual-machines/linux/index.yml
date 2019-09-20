@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page # Required
   author: cynthn #Required; your GitHub user alias, with correct capitalization.
   ms.author: cynthn #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/09/2019 #Required; mm/dd/yyyy format.
+  ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -52,7 +52,7 @@ landingContent:
           - text: Create and manage Linux VMs
             url: /azure/virtual-machines/linux/tutorial-manage-vm
           - text: VM Disks
-            url: /azure/virtual-machines/linux/tutorial-manage-data-disk
+            url: /azure/virtual-machines/linux/tutorial-manage-disks
           - text: Automate VM configuration
             url: /azure/virtual-machines/linux/tutorial-automate-vm-deployment
           - text: Create custom VM images
@@ -66,6 +66,6 @@ landingContent:
       - linkListType: learn
         links:
           - text:  Create a Linux virtual machine in Azure
-            url: /learn/modules/create-linux-virtual-machine-in-azure/
+            url: https://docs.microsoft.com/learn/modules/create-linux-virtual-machine-in-azure/
 
 
