@@ -1,6 +1,6 @@
 ---
 title: Availability with Azure Functions 
-description: This doc will cover how to create an Azure Function that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
+description: This doc will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
 services: application-insights
 documentationcenter: ''
 author: lgayhardt
@@ -15,7 +15,7 @@ ms.author: lagayhar
 
 # Availability with Azure Functions
 
-This article will cover how to create an Azure Function that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data.
+This article will cover how to create an Azure Function with TrackAvailability() that will run periodically according to the configuration given in TimerTrigger. The results of this test will be sent to your Application Insight resource, where you will be able to query for the alert on the availability results data. This allows you to create customized tests similar to what you can do via [Availability Monitoring](../../azure-monitor/app/monitor-web-app-availability.md) in the portal.
 
 ## Create Timer triggered function
 
@@ -28,11 +28,11 @@ This article will cover how to create an Azure Function that will run periodical
     - Follow the instructions on how to [create an Azure Functions resource and Timer triggered function](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) with the following choices.
         -  Click the Application Insights section before selecting **Create**.
 
-            ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-function/create-function-app.png)
+            ![ Create an Azure Functions app with your own App Insights resource](media/availability-azure-functions/create-function-app.png)
 
         - Click **Select existing resource** and type the name of your resource. Select **Apply**
 
-            ![Selecting existing Application Insights resource](media/availability-azure-function/app-insights-resource.png)
+            ![Selecting existing Application Insights resource](media/availability-azure-functions/app-insights-resource.png)
 
         - Select **Create**
 
@@ -40,7 +40,7 @@ This article will cover how to create an Azure Function that will run periodical
 
 Copy the code below into the run.csx file (this will replace the pre-existing code). To do this, go into your Azure functions application and select your timer trigger function on the left.
 
-![Azure function's run.csx in Azure portal](media/availability-azure-function/runcsx.png)
+![Azure function's run.csx in Azure portal](media/availability-azure-functionss/runcsx.png)
 
 > [!NOTE]
 > For the Endpoint Address you would use: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. Unless your resource is located in a region like Azure Government or Azure China in which case consult this article on [overriding the default endpoints](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification) and select the appropriate Telemetry Channel endpoint for your region.
@@ -89,7 +89,7 @@ public static async void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, I
         name: testName,
         location: location,
         uri: "<http://example.com>",
-        contentMatch: "Application Insights",
+        contentMatch: "<Enter a short string of text that is present  in the body of the page your are testing>",
         log: log
     );
 }
@@ -192,20 +192,30 @@ On the right under view files, select **Add**. Call the new file **function.proj
 
 ```
 
-![On the right select, add. Name the file function.proj](media/availability-azure-function/addfile.png)
+![On the right select, add. Name the file function.proj](media/availability-azure-functions/addfile.png)
 
 ## Check Availability
 
 To make sure everything is working, you can look at the graph in the Availability tab of your Application Insights resource.
 
-![Availability tab with successful results](media/availability-azure-function/availtab.png)
+![Availability tab with successful results](media/availability-azure-functions/availtab.png)
 
 When you set up your test using Azure Functions you will notice, that unlike using **Add test** in the Availability tab, the name of your test will not appear and you will not be able to interact with it. The results are visualized but you get a summary view instead of the same detailed view you get when you create an availability test via the portal.
 
 To see the end-to-end transaction details, select **Successful** or **Failed** under drill into, then select a sample. You can also get to the end-to-end transaction details by selecting a data point on the graph.
 
-![Select a sample availability test](media/availability-azure-function/sample.png)
+![Select a sample availability test](media/availability-azure-functions/sample.png)
 
-![End-to-end transaction details](media/availability-azure-function/end-to-end.png)
+![End-to-end transaction details](media/availability-azure-functions/end-to-end.png)
+
+## Query in Logs(Analytics)
+
+You can use Logs(analytics) to view you availability results, dependencies, and more. To learn more about Logs, visit [Log query overview](../../azure-monitor/log-query/log-query-overview.md).
+
+![Availability results](media/availability-azure-functions/availabilityresults.png)
+
+![Dependencies](media/availability-azure-functions/dependencies.png)
 
 ## Next Steps
+- [Performance testing](../../azure-monitor/app/performance-testing.md)
+- [Application Map](../../azure-monitor/app/app-map.md)

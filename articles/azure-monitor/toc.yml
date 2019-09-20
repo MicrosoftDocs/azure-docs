@@ -284,6 +284,9 @@
         - name: Availability alerts
           displayname: alerts, global, alerting
           href: app/availability-alerts.md
+        - name: Availability + Azure Functions
+          href: app/availability-azure-functions.md
+          displayname: availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch
         - name: Performance testing
           href: app/performance-testing.md
         - name: Troubleshooting
