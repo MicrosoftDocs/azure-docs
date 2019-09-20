@@ -103,31 +103,32 @@ For example, the following steps generate a REST-based microservice logic app ba
 1. In the VS Code explorer sidebar, expand the **contracts** folder in your solution.
 1. Right-click **HelloBlockchain.sol** and choose **Generate microservices for smart contracts** from the menu.
 
-    [screenshot]
+    ![Generate a logic app](./media/ethereum-logic-app/generate-logic-app.png)
 
 1. In the command palette, choose **Logic App**.
 1. Enter the **contract address**. For more information, see [how to get the contract address](#get-contract-address).
+1. Choose the Azure subscription and resource group for the logic app.
 
     The logic app configuration and code files are generated in the **generatedLogicApp** directory.
 
 1. View the **generatedLogicApp/HelloBlockchain** directory. There is a logic app JSON file for each smart contract function, event, and property.
 1. Open the **generatedLogicApp/HelloBlockchain/Service/function.SendRequest.logicapp.json** file and copy the contents.
 
-    [screenshot]
+    ![JSON for SendRequest](./media/ethereum-logic-app/sendrequest.png)
 
 1. In your logic app, select **Logic app code view**. Replace the existing JSON with the generated logic app JSON.
 
-    [screenshot]
+    ![Replace logic app configuration in code view](./media/ethereum-logic-app/code-view.png)
 
 1. Select **Designer** to switch to the designer view.
 1. The logic app includes the basic steps for the scenario. However, you need to update the configuration details for Ethereum Blockchain connector.
 1. Select the **Connections** step and change or [create an API connection](#create-an-api-connection) to your Azure Blockchain Service.
 
-    [screenshot]
+    ![Microservice logic app](./media/ethereum-logic-app/microservice-logic-app.png)
 
 1. You can test the REST-based microservice by issuing an HTTP POST request to the logic app request URL. Copy the **HTTP POST URL** from the **When a HTTP request is received** step.
 
-    [screenshot]
+    ![HTTP POST URL](./media/ethereum-logic-app/post-url.png)
 
 1. Use cURL to create an HTTP POST request. Replace the placeholder text **\<HTTP POST URL\>** with the URL from the previous step.
 
