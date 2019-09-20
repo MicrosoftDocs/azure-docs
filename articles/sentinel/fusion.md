@@ -44,11 +44,11 @@ Rule templates are not applicable for the advanced multistage attack detection.
 
 Using advanced multistage attack detection, Azure Sentinel supports the following scenarios that combine anomaly events from Azure Active Directory Identity Protection and Microsoft Cloud App Security:
 
-- [Impossible travel to atypical location followed by anomalous Office 365 activity](#impossible-travel-to-atypical-location)
-- [Sign-in activity for unfamiliar location followed by anomalous Office 365 activity](#sign-in-activity-for-unfamiliar-location)
-- [Sign-in activity from infected device followed by anomalous Office 365 activity](#sign-in-activity-from-infected-device)
-- [Sign-in activity from anonymous IP address followed by anomalous Office 365 activity](#sign-in-activity-from-anonymous-ip-address)
-- [Sign-in activity from user with leaked credentials followed by anomalous Office 365 activity](#sign-in-activity-from-user-with-leaked-credentials)
+- [Impossible travel to atypical location followed by anomalous Office 365 activity](##impossible-travel-to-atypical-location-followed-by-anomalous-office-365-activity)
+- [Sign-in activity for unfamiliar location followed by anomalous Office 365 activity](#sign-in-activity-for-unfamiliar-location-followed-by-anomalous-office-365-activity)
+- [Sign-in activity from infected device followed by anomalous Office 365 activity](#sign-in-activity-from-infected-device-followed-by-anomalous-office-365-activity)
+- [Sign-in activity from anonymous IP address followed by anomalous Office 365 activity](#sign-in-activity-from-anonymous-ip-address-followed-by-anomalous-office-365-activity)
+- [Sign-in activity from user with leaked credentials followed by anomalous Office 365 activity](#sign-in-activity-from-user-with-leaked-credentials-followed-by-anomalous-office-365-activity)
 
 You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured.
 
