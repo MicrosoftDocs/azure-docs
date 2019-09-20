@@ -8,7 +8,7 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18, seo-java-august2019
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 ms.date: 04/15/2019
 ms.author: shvija
 
@@ -16,9 +16,9 @@ ms.author: shvija
 
 # Use Java to send events to or receive events from Azure Event Hubs
 
-Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
+This tutorial shows how to create Java applications to send events to or receive events from Azure Event Hubs.
 
-This tutorial shows how to create Java applications to send events to or receive events from an event hub. 
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see Event Hubs overview and Event Hubs features.
 
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
@@ -85,10 +85,10 @@ Use the ConnectionStringBuilder class to construct a connection string value to 
 
 ```java
         final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-                .setNamespaceName("speventhubns") 
-                .setEventHubName("speventhub")
+                .setNamespaceName("<EVENTHUB NAMESPACE") 
+                .setEventHubName("EVENT HUB")
                 .setSasKeyName("RootManageSharedAccessKey")
-                .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
+                .setSasKey("SHARED ACCESS KEY");
 ```
 
 ### Write code to send events

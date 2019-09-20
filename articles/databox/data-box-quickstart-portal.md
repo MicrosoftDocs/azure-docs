@@ -77,10 +77,6 @@ Before you begin, make sure that you've:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds are impacted. 
 6. Access to a flat surface to place the Data Box. To place the device flat or upright in a standard rack shelf, you need a 7U slot in your rack.
-7. Procured the following cables to connect your Data Box to the host computer.
-    - One or more 10-GbE SFP+ Twinax copper or SFP+ fiber optic cables (use with DATA 1, DATA 2 network interfaces). For more information, see the [list of supported cables and switches from Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf) that are compatible with Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T Adapters w/ PCI Express 3.0 network interface.
-    - One RJ-45 CAT 6 network cable (use with MGMT network interface)
-    - One RJ-45 CAT 6A OR one RJ-45 CAT 6 network cable (use with DATA 3 network interface configured as 10 Gbps or 1 Gbps respectively)
 
 ::: zone-end
 

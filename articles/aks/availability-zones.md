@@ -30,7 +30,7 @@ You need the Azure CLI version 2.0.66 or later installed and configured. Run `a
 
 ### Install aks-preview CLI extension
 
-To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.1 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To create AKS clusters that use availability zones, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command:
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -40,25 +40,21 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-### Register feature flags for your subscription
+### Register the AvailabilityZonePreview feature flag for your subscription
 
-To create an AKS cluster that availability zones, first enable some feature flags on your subscription. Clusters use a virtual machine scale set to manage the deployment and configuration of the Kubernetes nodes. The *standard* SKU of the Azure load balancer is also required to provide resiliency for the network components to route traffic into your cluster. Register the *AvailabilityZonePreview*, *AKSAzureStandardLoadBalancer*, and *VMSSPreview* feature flags using the [az feature register][az-feature-register] command as shown in the following example:
+To create an AKS cluster that availability zones, first enable the *AvailabilityZonePreview* feature flag on your subscription. Register the *AvailabilityZonePreview* feature flag using the [az feature register][az-feature-register] command as shown in the following example:
 
 > [!CAUTION]
 > When you register a feature on a subscription, you can't currently un-register that feature. After you enable some preview features, defaults may be used for all AKS clusters then created in the subscription. Don't enable preview features on production subscriptions. Use a separate subscription to test preview features and gather feedback.
 
 ```azurecli-interactive
 az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-az feature register --name AKSAzureStandardLoadBalancer --namespace Microsoft.ContainerService
-az feature register --name VMSSPreview --namespace Microsoft.ContainerService
 ```
 
 It takes a few minutes for the status to show *Registered*. You can check on the registration status using the [az feature list][az-feature-list] command:
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKSAzureStandardLoadBalancer')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/VMSSPreview')].{Name:name,State:properties.state}"
 ```
 
 When ready, refresh the registration of the *Microsoft.ContainerService* resource provider using the [az provider register][az-provider-register] command:
@@ -86,7 +82,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
 * You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU preview limitations][standard-lb-limitations].
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
@@ -121,7 +117,7 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --generate-ssh-keys \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
     --node-zones 1 2 3

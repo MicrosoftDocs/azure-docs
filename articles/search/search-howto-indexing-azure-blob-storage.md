@@ -337,7 +337,7 @@ Indexing blobs can be a time-consuming process. In cases where you have millions
 
 You may want to "assemble" documents from multiple sources in your index. For example, you may want to merge text from blobs with other metadata stored in Cosmos DB. You can even use the push indexing API together with various indexers to  build up search documents from multiple parts. 
 
-For this to work, all indexers and other components need to agree on the document key. For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
+For this to work, all indexers and other components need to agree on the document key. For additional details on this topic, refer to [Index multiple Azure data sources](https://docs.microsoft.com/azure/search/tutorial-multiple-data-sources). For a detailed walk-through, see this external article: [Combine documents with other data in Azure Search](https://blog.lytzen.name/2017/01/combine-documents-with-other-data-in.html).
 
 <a name="IndexingPlainText"></a>
 ## Indexing plain text 

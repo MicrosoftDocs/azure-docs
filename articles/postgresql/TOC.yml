@@ -104,6 +104,8 @@
         href: concepts-monitoring.md
       - name: Server logs
         href: concepts-server-logs.md
+      - name: Audit logs
+        href: concepts-audit.md
       - name: Query Store
         items:
         - name: Query Store
@@ -194,7 +196,7 @@
     items:
     - name: Azure portal
       href: howto-auto-grow-storage-portal.md
-    - name: Azure portal
+    - name: Azure CLI
       href: howto-auto-grow-storage-cli.md
   - name: Access server logs
     items:
@@ -230,7 +232,7 @@
     items:
     - name: Manage read replicas Azure portal
       href: howto-read-replicas-portal.md
-    - name: Manage read replicas Azure CLI
+    - name: Manage read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
 - name: Reference
   items:

@@ -3,7 +3,7 @@ title: Azure Virtual Machine Agent Overview | Microsoft Docs
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: roiyz
+ms.author: akjosh
 ---
 
 # Azure Virtual Machine Agent overview
@@ -62,6 +62,9 @@ The VM Agent can be installed by double-clicking the Windows installer file. For
 ```cmd
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
+
+### Prerequisites
+The Windows VM Agent needs at least Windows Server 2008 R2 (64-bits) to run, with the .Net Framework 4.0.
 
 ## Detect the VM Agent
 

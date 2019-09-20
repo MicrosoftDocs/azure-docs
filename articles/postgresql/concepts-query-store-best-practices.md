@@ -10,7 +10,7 @@ ms.date: 5/6/2019
 
 # Best practices for Query Store
 
-**Applies to:** Azure Database for PostgreSQL - Single Server 9.6 and 10
+**Applies to:** Azure Database for PostgreSQL - Single Server versions 9.6, 10, 11
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.
 
