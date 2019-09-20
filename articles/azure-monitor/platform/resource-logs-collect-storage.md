@@ -5,21 +5,20 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
 ---
 # Archive Azure resource logs to storage account
 [Resource logs](resource-logs-overview.md) in Azure provide rich, frequent data about the internal operation of an Azure resource. This article describes collecting resource logs to an Azure storage account to retain data for archiving.
 
-
-## Create a diagnostic setting
-Resource logs are not collected by default. Collect them in an Azure storage account and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
-
 ## Prerequisites
 You need to [create an Azure storage account](../../storage/common/storage-quickstart-create-account.md) if you don't already have one. The storage account does not have to be in the same subscription as the resource sending logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 You should not use an existing storage account that has other, non-monitoring data stored in it so that you can better control access to monitoring data. If you are also archiving the [Activity log](activity-logs-overview.md) to a storage account though, you may choose to use that same storage account to keep all monitoring data in a central location.
+
+## Create a diagnostic setting
+Resource logs are not collected by default. Collect them in an Azure storage account and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
 
 
 ## Data retention
@@ -55,8 +54,7 @@ Within the PT1H.json file, each event is stored with the following format. This 
 
 ## Next steps
 
-* [Download blobs for analysis](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
-* [Stream diagnostic logs to an Event Hubs namespace](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
-* [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Read more about diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md)
+* [Download blobs for analysis](../../storage/blobs/storage-quickstart-blobs-dotnet.md).
+* [Archive Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md).
+* [Read more about resource logs](../../azure-monitor/platform/resource-logs-overview.md).
 

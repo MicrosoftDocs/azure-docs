@@ -87,7 +87,7 @@ The [Azure Activity log](activity-logs-overview.md) includes service health reco
 
 
 ## Azure resources
-Metrics and resource level diagnostic logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
+Metrics and resource logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
 
 ![Azure resource collection](media/data-sources/azure-resources.png)
 
@@ -101,16 +101,16 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](resource-logs-collect-workspace.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
-### Diagnostic logs
-[Diagnostic logs](resource-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Diagnostic logs are not enabled by default. You must enable them and specify a destination for each resource. 
+### Resource logs
+[Resource logs](resource-logs-overview.md) provide insights into the _internal_ operation of an Azure resource.  Resource logs are created automatically, but you must create a diagnostic setting to specify a destination for them to collected for each resource.
 
-The configuration requirements and content of Diagnostic logs vary by resource type, and not all services yet create Diagnostic logs. See [Supported services, schemas, and categories for Azure Diagnostic Logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently write to diagnostic logs.
+The configuration requirements and content of resource logs vary by resource type, and not all services yet create them. See [Supported services, schemas, and categories for Azure resource logs](diagnostic-logs-schema.md) for details on each service and links to detailed configuration procedures. If the service isn’t listed in this article, then that service doesn’t currently create resource logs.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Send Diagnostic Logs to Azure Monitor Logs for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being imported into a Log Analytics workspace. | [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](resource-logs-collect-storage.md)<br>[Use the Azure portal to collect logs from Azure Storage](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage)  |
-| Storage | Send Diagnostic logs to Azure Storage for archiving. | [Archive Azure Diagnostic Logs](archive-diagnostic-logs.md) |
-| Event Hubs | Stream Diagnostic logs to other locations using Event Hubs. |[Stream Azure Diagnostic Logs to an event hub](resource-logs-stream-event-hubs.md) |
+| Azure Monitor Logs | Send resource logs to Azure Monitor Logs for analysis with other collected log data. | [Collect Azure resource logs in Log Analytics workspace in Azure Monitor](resource-logs-collect-storage.md) |
+| Storage | Send resource logs to Azure Storage for archiving. | [Archive Azure resource logs](resource-logs-collect-workspace.md) |
+| Event Hubs | Stream resource logs to other locations using Event Hubs. |[Stream Azure resource logs to an event hub](resource-logs-stream-event-hubs.md) |
 
 ## Operating system (guest)
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into Azure Monitor to analyze it with the same monitoring tools as the Azure services themselves.

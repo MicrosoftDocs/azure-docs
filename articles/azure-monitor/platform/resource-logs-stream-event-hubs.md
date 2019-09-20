@@ -5,15 +5,15 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: ""
 ---
-# Stream Azure resource logs to an event hub
+# Stream Azure resource logs to Azure Event Hubs
 [Resource logs](resource-logs-overview.md) in Azure provide rich, frequent data about the internal operation of an Azure resource. This article describes streaming resource logs to event hubs to send data to external systems such as third-party SIEMs and other log analytics solutions.
 
 
-## What you can do with resource logs sent to Event Hubs
+## What you can do with resource logs sent to an event hub
 Stream resource logs in Azure to event hubs to provide the following functionality:
 
 * **Stream logs to 3rd party logging and telemetry systems** – Stream all of your resource logs to a single event hub to pipe log data to a third-party SIEM or log analytics tool.
@@ -23,19 +23,15 @@ Stream resource logs in Azure to event hubs to provide the following functionali
 
     The following SQL code is a sample Stream Analytics query that you can use to parse all the log data in to a Power BI table:
     
-        ```sql
-        SELECT
-        records.ArrayValue.[Properties you want to track]
-        INTO
-        [OutputSourceName – the Power BI source]
-        FROM
-        [InputSourceName] AS e
-        CROSS APPLY GetArrayElements(e.records) AS records
-        ```
-
-
-## Create a diagnostic setting
-Resource logs are not collected by default. Send them to an event hub and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
+    ```sql
+    SELECT
+    records.ArrayValue.[Properties you want to track]
+    INTO
+    [OutputSourceName – the Power BI source]
+    FROM
+    [InputSourceName] AS e
+    CROSS APPLY GetArrayElements(e.records) AS records
+    ```
 
 ## Prerequisites
 You need to [create an event hub](../../event-hubs/event-hubs-create.md) if you don't already have one. If you previously streamed resource logs to this Event Hubs namespace, then that event hub will be reused.
@@ -44,13 +40,15 @@ The shared access policy for the namespace defines the permissions that the stre
 
 To update the diagnostic setting to include streaming, you must have the ListKey permission on that Event Hubs authorization rule. The Event Hubs namespace does not have to be in the same subscription as the subscription that's emitting logs, as long as the user who configures the setting has appropriate RBAC access to both subscriptions and both subscriptions are in the same AAD tenant.
 
+## Create a diagnostic setting
+Resource logs are not collected by default. Send them to an event hub and other destinations by creating a diagnostic setting for an Azure resource. See [Create diagnostic setting to collect logs and metrics in Azure](diagnostic-settings.md) for details.
 
 ## Stream data from compute resources
 The process in this article is for non-compute resources as described in [Overview of Azure resource logs](diagnostic-settings.md).
 Stream resource logs from Azure compute resources using the Windows Azure Diagnostics agent. See [Streaming Azure Diagnostics data in the hot path by using Event Hubs](diagnostics-extension-stream-event-hubs.md) for details.
 
 
-## Consuming log data from Event Hubs
+## Consuming log data from event hubs
 When you consume resource logs from event hubs, it will be is JSON format with the elements in the following table.
 
 | Element Name | Description |
@@ -131,7 +129,7 @@ Following is sample output data from Event Hubs:
 
 ## Next steps
 
-* [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)
-* [Read more about Azure resource logs](resource-logs-overview.md)
-* [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Stream Azure Active Directory logs with Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
+* [Read more about Azure resource logs](resource-logs-overview.md).
+* [Get started with Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
