@@ -88,7 +88,7 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 | OS disk > 2 TB                    | :x:                | :heavy_check_mark: |
 | Custom disk/image/swap OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Virtual machine scale set support | :heavy_check_mark: | :heavy_check_mark: |
-| ASR                               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :x:                |
 | Backup/restore                    | :heavy_check_mark: | :heavy_check_mark: |
 | Shared image gallery              | :heavy_check_mark: | :x:                |
 | Azure disk encryption             | :heavy_check_mark: | :x:                |
@@ -112,7 +112,7 @@ Currently, the following SKUs support both generation 1 and generation 2 images:
 
 When you select a Windows Server SKU as the offer, in the **Advanced** tab, there's an option to create either a **Gen 1** (BIOS) or **Gen 2** (UEFI) VM. If you select **Gen 2**, ensure the VM size selected in the **Basics** tab is [supported for generation 2 VMs](#generation-2-vm-sizes).
 
-![Select Gen 1 or Gen 2 VM](./media/gen1-gen2-select.png)
+![Select Gen 1 or Gen 2 VM](./media/generation-2/gen1-gen2-select.png)
 
 #### PowerShell
 
@@ -152,7 +152,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
 * **I have a .vhd file from my on-premises generation 2 VM. Can I use that .vhd file to create a generation 2 VM in Azure?**
   Yes, you can bring your generation 2 .vhd file to Azure and use that to create a generation 2 VM. Use the following steps to do so:
     1. Upload the .vhd to a storage account in the same region where you'd like to create your VM.
-    1. Create a managed disk from the .vhd file. Set the HyperV Generation property to V2. The following PowerShell commands set HyperV Generation property when creating managed disk.
+    1. Create a managed disk from the .vhd file. Set the Hyper-V Generation property to V2. The following PowerShell commands set Hyper-V Generation property when creating managed disk.
 
         ```powershell
         $sourceUri = 'https://xyzstorage.blob.core.windows.net/vhd/abcd.vhd'. #<Provide location to your uploaded .vhd file>
