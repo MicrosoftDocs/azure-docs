@@ -52,13 +52,13 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 1. Sign in to your [SAP Cloud Platform Identity Authentication Admin Console](https://sapmsftintegration.accounts.ondemand.com/admin). Navigate to **Users & Authorizations > Administrators**.
 
-	![SAP Cloud Platform Identity Authentication Admin Console](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/Admin_Console.png)
+	![SAP Cloud Platform Identity Authentication Admin Console](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/adminconsole.png)
 
 2. 	Create an Admin User and select the user.  
 
 3.	Under Configure Authorizations, switch on the toggle button against **Manage Users** and **Manage Groups**.
 
-	![SAP Cloud Platform Identity Authentication Add SCIM](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/Configuration_auth.png)
+	![SAP Cloud Platform Identity Authentication Add SCIM](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/configurationauth.png)
 
 4. You will receive an email to activate your account and set a password for **SAP Cloud Platform Identity Authentication Service**.
 
@@ -127,7 +127,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 9. Review the user attributes that are synchronized from Azure AD to SAP Cloud Platform Identity Authentication in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in SAP Cloud Platform Identity Authentication for update operations. Select the **Save** button to commit any changes.
 
-	![SAP Cloud Platform Identity Authentication User Attributes](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/user_attributes.png)
+	![SAP Cloud Platform Identity Authentication User Attributes](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/userattributes.png)
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
