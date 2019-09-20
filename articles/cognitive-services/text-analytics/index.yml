@@ -35,7 +35,6 @@ landingContent:
         - text: What's new?
           url: whats-new.md
 
-    
 - title: Sentiment analysis   
   linkLists:
     - linkListType: how-to-guide
