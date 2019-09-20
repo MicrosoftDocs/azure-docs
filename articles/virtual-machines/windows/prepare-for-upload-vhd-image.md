@@ -150,7 +150,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Make sure the following settings are configured correctly for remote access:
 
 >[!NOTE] 
->You might receive an error message when you run `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`. You can safely ignore this message. It means only that the domain isn't pushing that configuration through a Group Policy Object.
+>You might receive an error message when you run `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`. You can safely ignore this message. It means only that the domain isn't pushing that configuration through a Group Policy Object.
 
 1. Remote Desktop Protocol (RDP) is enabled:
    
