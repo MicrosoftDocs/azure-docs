@@ -41,7 +41,7 @@ A subnet must be delegated to Azure NetApp Files.
 
         A volume name must be unique within each capacity pool. It must be at least three characters long. You can use any alphanumeric characters.   
 
-        You cannot use 'default' as the volume name.
+        You cannot use `default` as the volume name.
 
     * **Capacity pool**  
         Specify the capacity pool where you want the volume to be created.
