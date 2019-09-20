@@ -75,6 +75,7 @@ The following limitations apply when you create and manage AKS clusters that sup
 * You can't delete the default (first) node pool.
 * The HTTP application routing add-on can't be used.
 * You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
+* The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 
 While this feature is in preview, the following additional limitations apply:
 
@@ -126,6 +127,9 @@ az aks nodepool add \
     --node-count 3 \
     --kubernetes-version 1.12.7
 ```
+
+> [!NOTE]
+> The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
 
 To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
 
