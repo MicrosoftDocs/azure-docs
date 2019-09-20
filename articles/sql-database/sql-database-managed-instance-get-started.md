@@ -35,7 +35,7 @@ The following steps show you how to create a managed instance.
 
    ![Create a managed instance](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
-4. Fill out the **Create SQL Database Managed Instance** provisioning form by filling out information required at the Basic tab. Use Netowrking, Advanced settings to configure additional settings.
+4. Fill out the **Create SQL Database Managed Instance** provisioning form by filling out information required at the Basic tab. Use Networking, and Advanced settings to configure additional settings.
 
 ### Basic tab
 
@@ -62,7 +62,7 @@ The following steps show you how to create a managed instance.
 
  ### Networking tab
 
-6. Fill out optional information at Networking tab using the table below. In case this information is omitted, default settings will be appled.
+6. Fill out optional information at Networking tab using the table below. In case this information is omitted, default settings will be applied.
 
    ![Managed instance create networking tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
 
@@ -70,14 +70,14 @@ The following steps show you how to create a managed instance.
    | ------ | --------------- | ----------- |
    | **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for a managed instance, see [Configure a virtual network for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
    | **Connection type** | Choose between a Proxy and a Redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](sql-database-connectivity-architecture.md#connection-policy).|
-   | **Public endpoint**  | Seelect this option to enable public endpoint | For managed instance to be accessible through the public data endpoint, **Enable** public endpoint needs to be selected. | 
+   | **Public endpoint**  | Select this option to enable public endpoint | For managed instance to be accessible through the public data endpoint, **Enable** public endpoint needs to be selected. | 
    | **Allow access from** (in case Public endpoint is set to enabled) | Select one of the options: <ul> <li>**Azure services**</li> <li>**Internet**</li> <li>**No access**</li></ul>   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>Azure services - recommended when connecting from Power BI or other multi-tenant service. </li> <li> Internet - use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> No access - this option creates a deny security rule. You’ll need to modify this rule to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
 
    - You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure additional settings by clicking on **Next : Additional settings**.
 
 ### Additional settings tab
 
-7. Fill out optional information at Additional tab using the table below. In case this information is omitted, default settings will be appled.
+7. Fill out optional information at Additional tab using the table below. In case this information is omitted, default settings will be applied.
 
    ![Managed instance create additional settings tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
 
@@ -85,8 +85,8 @@ The following steps show you how to create a managed instance.
    | ------ | --------------- | ----------- |
    | **Collation** | The collation that you want to use for your managed instance.|If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value. For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Time zone** | The time zone to be observed by your managed instance.|For more information, see [Time zones](sql-database-managed-instance-timezone.md).|
-   | **Use as failover secondary** | To use the managed instance as an instance failover group secondary, select Yes |
-   | **Primary managed instance** (in case Use as failover secondary is set to Yes) | Chose the primary managed instance (needs to already exists) with whom managed instance you are creating will joined in the same DNS zone. This is a pre-condition step to enable failover group configuration post-creation. For details see [Tutorial: Add a SQL Database managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) |
+   | **Use as failover secondary** | To use the managed instance as an instance failover group secondary, select Yes. |
+   | **Primary managed instance** (in case Use as failover secondary is set to Yes) | Chose the primary managed instance (needs to already exists) with whom managed instance you are creating will joined in the same DNS zone. This is a pre-condition step to enable failover group configuration post-creation. For details see [Tutorial: Add a SQL Database managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md). |
 
 ### Review + create tab
 
@@ -97,7 +97,7 @@ The following steps show you how to create a managed instance.
    9. Click on **Create** to start provisioning managed instance.
 
 > [!IMPORTANT]
-> Deploying managed instance is a long running operation. Deployment of the first instance in the subnet takes typically much longer than in subsequent instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
+> Deploying managed instance is a long running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 ### Monitor deployment progress
 
@@ -108,8 +108,8 @@ The following steps show you how to create a managed instance.
 11. Select **Deployment in progress** on the notification to open the managed instance window to further monitor the deployment progress. 
 
 > [!TIP]
-> In case that you close your web browser and navigate away from the deployment in progress screen, follow these steps to find the progress screen:
-> 1. Open the resource group (entered on the Basic tab) to which you are deploying managed instance in Azure portal
+> In case that you've closed your web browser or have navigated away from the deployment progress screen, follow these steps to locate the deployment progress screen:
+> 1. Open the resource group (entered on the Basic tab) in Azure portal to which you are deploying managed instance
 > 2. Select Deployments
 > 3. Select managed instance deployment operation in progress
 
