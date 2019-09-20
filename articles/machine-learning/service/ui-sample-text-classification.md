@@ -1,6 +1,6 @@
 ---
 title: "Visual interface example #Classify Book Reviews"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model classify book reviews into different categories.
 services: machine-learning
 ms.service: machine-learning
@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: 
-ms.date: 9/19/2019
+ms.date: 10/14/2019
 ---
 
 # Sample 7 - Text Classification: Predict company category 
