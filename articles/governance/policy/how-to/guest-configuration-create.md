@@ -76,19 +76,19 @@ If the boolean is `$true` then `Get-TargetResource` is not called.
 The function `Get-TargetResource` has special requirements for Guest Configuration that have not been needed for Windows Desired State
 Configuration.
 
-- The hashtable that is returned must include a property named `Reasons`.
+- The hashtable that is returned must include a property named **Reasons**.
 - The Reasons property must be an array.
-- Each item in the array should be a hashtable with keys named `Code` and `Phrase`.
+- Each item in the array should be a hashtable with keys named **Code** and **Phrase**.
 
 The Reasons property is used by the service to standardize how information is presented when a machine is out of compliance.
 You can think of each item in Reasons as a "reason" that the resource is not compliant. The property is an array because a resource
 could be out of compliance for more than one reason.
 
-The properties `Code` and `Phrase` are expected by the service. When authoring a custom resource, set the text (typically stdout) you would
-like to show as the reason the resource is not compliant as the value for `Phrase`.  `Code` has specific formatting requirements
+The properties **Code** and **Phrase** are expected by the service. When authoring a custom resource, set the text (typically stdout) you would
+like to show as the reason the resource is not compliant as the value for **Phrase**.  **Code** has specific formatting requirements
 so reporting can clearly display information about the resource that was used to perform the audit. This solution makes Guest Configuration
 extensible so that any command could be run to audit a machine as long as the output can be captured and returned as a string value for the
-`Phrase` property.
+**Phrase** property.
 
 - **Code** (string): The name of the resource, repeated, and then a short name with no spaces as an identifier for the reason.  These three values should be colon-delimited with no spaces.
     - An example would be 'registry:registry:keynotpresent'.
