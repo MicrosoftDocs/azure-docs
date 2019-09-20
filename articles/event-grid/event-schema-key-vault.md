@@ -45,7 +45,7 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
          "Id":"https://sample-kv.vault.azure.net/secrets/newsecret/ee059b2bb5bc48398a53b168c6cdcb10",
          "vaultName":"sample-kv",
          "objectType":"Secret",
-         "objectName ":" newsecret ",
+         "objectName ":"newsecret",
          "version":" ee059b2bb5bc48398a53b168c6cdcb10",
          "nbf":"1559081980",
          "exp":"1559082102"
@@ -63,7 +63,7 @@ An event has the following top-level data:
 | Property | Type | Description |
 | ---------- | ----------- |---|
 | id | string | The id of the object that triggered this event. |
-| vaultName" | string | Key vault name of the object that triggered this event. |
+| vaultName | string | Key vault name of the object that triggered this event. |
 | objectType | string | The type of the object that triggered this event |
 | objectName | string | The name of the object that triggered this event |
 | version | string | The version of the object that triggered this event |
