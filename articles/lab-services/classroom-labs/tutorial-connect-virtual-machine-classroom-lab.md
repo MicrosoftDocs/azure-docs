@@ -33,7 +33,7 @@ In this tutorial, you do the following actions:
 1. Sign in to the service using your school account to complete the registration. 
 
     > [!NOTE]
-    > A Microsoft account is required for using Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, you see instructions for creating a Microsoft account, which will be linked to your non-Microsoft account. Then, you follow the steps to complete the registration process. 
+    > A Microsoft account is required for using Azure Lab Services. If you are trying to use your non-Microsoft account such as Yahoo or Google accounts to sign in to the portal, follow instructions to create a Microsoft account that will be linked to your non-Microsoft account. Then, follow the steps to complete the registration process. 
 1. Once registered, confirm that you see the virtual machine for the lab you have access to. 
 1. Wait until the virtual machine is ready. On the VM tile, notice the following fields:
     1. At the top of the tile, you see the **name of the lab**.
