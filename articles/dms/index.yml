@@ -64,6 +64,12 @@ sections:
     items:
     - html: <a href="https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/">Use the Database Migration Guide</a>
     - html: <a href="https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/">The migration process and recommended tools/services</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/">Address prerequisites and create a DMS instance</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/">Migrate SQL Server 2008 to Azure SQL Database managed instance</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/">Migrate PostgreSQL to Azure Database for PostgreSQL</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/">Monitor an online migration and perform cutover</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/">Migrate Oracle to Azure SQL Database</a>
+    - html: <a href="https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/">Migrate MongoDB to Azure Cosmos DB</a>
 - title: Samples
   items:
   - type: list
