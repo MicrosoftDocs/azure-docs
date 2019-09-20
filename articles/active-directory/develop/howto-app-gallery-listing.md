@@ -97,7 +97,7 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 
 ## Requesting for User Provisioning
 
-Follow the below process to request for user provisioning.
+Follow the below process to request for user provisioning-
 
    ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/user-provisioning.png)
 
