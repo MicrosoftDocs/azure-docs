@@ -15,20 +15,17 @@ ms.date: 09/18/2019
 
 Azure Machine Learning provides several ways to train your models. Use the following list to determine which training method is right for you:
 
-+ **Visual interface**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI.
++ **Visual interface**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
 
 + **Python**: The Azure Machine Learning SDK provides several methods to train models:
 
-    + **Run**: A __run__ submits a single instance of a training script as a training job. A run is a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training script.
+    + **Run**: A run submits a single instance of a training script as a training job. A run is a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training script.
 
-    + **Estimator**: Estimator classes make it easy to train models based on popular machine learning frameworks.
+    + **Estimator**: Estimator classes build on the basic run process, and make it easy to train models based on popular machine learning frameworks. There are estimator classes for Scikit-learn, PyTorch, TensorFlow, and Chainer. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class.
 
-    + **Automated machine learning**: Automate the time consuming, iterative tasks of model development.
+    + **Automated machine learning**: Automate the time consuming, iterative tasks of model development. Azure Machine Learning uses the parameters you provide to iteratively train models until one meets your criteria.
 
-    + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability.
-
-        > [!TIP]
-        > Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline.
+    + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability. Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline. You can create templates and publish a pipeline as a parameterized REST API, which can then be used to start or schedule runs.
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
@@ -36,25 +33,21 @@ Each of these training methods can use different types of compute resources for 
 
 The visual interface (preview) enables you to train models using a drag and drop interface in your web browser.
 
-__Concepts__
-
 + [What is the visual interface?](ui-concept-visual-interface.md)
-
-__Tutorials and examples__
-
 + [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
-+ [Regression: Predict price](ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification: Predict churn, appetency, and up-selling](ui-sample-classification-predict-churn.md)
++ [Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
++ [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
++ [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
 
 ## Run
 
-A run uses a [run configuration](concept-azure-machine-learning-architecture.md#run-configurations) to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on the compute target when you submit your script for a training run.
+A run uses a __run configuration__ to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on the compute target when you submit your script for a training run.
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
 For more information on training, see the following articles and examples:
 
+* [What is a run configuration?](concept-azure-machine-learning-architecture.md#run-configurations)
 * [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md).
 * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md)
 * [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
@@ -63,6 +56,7 @@ For more information on training, see the following articles and examples:
 
 Estimators make it easy to train models using popular ML frameworks.
 
+* [What are estimators?](concept-azure-machine-learning-architecture#estimators)
 * [How to: Create estimators in training](how-to-train-ml-models.md)
 * [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
 * [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
@@ -89,7 +83,7 @@ The key features of machine learning pipelines are:
 + Collaboration: ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps.
 
 > [!TIP]
-> Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline.
+> Machine learning pipelines can use run configurations, estimators, and automated ML as steps in a pipeline.
 
 For more information, see the following articles and examples:
 
