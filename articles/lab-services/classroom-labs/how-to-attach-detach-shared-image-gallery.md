@@ -23,7 +23,7 @@ This article shows you how to attach or detach a shared image gallery to a lab a
 
 > [!NOTE]
 > - To learn about costs associated with the Shared Image Gallery service, see [Billing for Shared Image Gallery](../../virtual-machines/windows/shared-image-galleries.md#billing). 
-> - When an image is saved to the shared image gallery, the image is replicated to other regions available in the same geography. So, there is an additional cost associated with storing the replicated images. For more information about replication, see [Shared Image Gallery - Replication](../virtual-machines/windows/shared-image-galleries.md#replication).
+> - When an image is saved to the shared image gallery, the image is replicated to other regions available in the same geography. So, there is an additional cost associated with storing the replicated images. For more information about replication, see [Shared Image Gallery - Replication](../../virtual-machines/windows/shared-image-galleries.md#replication).
 
 ## Configure at the time of lab account creation
 When you are creating a lab account, you can attach a shared image gallery to the lab account. You can either select an existing shared image gallery from the drop-down list or create a new one. To create and attach a shared image gallery to the lab account, select **Create new**, enter a name for the gallery, and enter **OK**. 
