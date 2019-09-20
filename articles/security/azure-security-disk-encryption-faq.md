@@ -19,7 +19,7 @@ Azure Disk Encryption for Windows and Linux IaaS VMs is in general availability 
 
 ## What user experiences are available with Azure Disk Encryption?
 
-Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. The different user experiences give you flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in Azure Disk Encryption, see [Enable Azure Disk Encryption for Windows](azure-security-disk-encryption-windows.md) and [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md).
+Azure Disk Encryption GA supports Azure Resource Manager templates, Azure PowerShell, and Azure CLI. The different user experiences give you flexibility. You have three different options for enabling disk encryption for your IaaS VMs. For more information on the user experience and step-by-step guidance available in Azure Disk Encryption, see [Enable Azure Disk Encryption for Windows](azure-security-disk-encryption-windows.md) and [Enable Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md).
 
 ## How much does Azure Disk Encryption cost?
 
@@ -118,10 +118,10 @@ On Windows, ADE uses the BitLocker AES256 encryption method (AES256WithDiffuser 
 On Linux, ADE uses the decrypt default of aes-xts-plain64 with a 256-bit volume master key.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
-No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](../virtual-machines/linux/disk-encryption-overview.md#bkmk_EFACriteria).        
+No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## Is XFS filesystem supported?
-XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](../virtual-machines/linux/disk-encryption-overview.md#bkmk_EFACriteria).
+XFS volumes are supported for data disk encryption only with the EncryptFormatAll. This will reformat the volume, erasing any data previously there. For more information, see the [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## Can I backup and restore an encrypted VM? 
 

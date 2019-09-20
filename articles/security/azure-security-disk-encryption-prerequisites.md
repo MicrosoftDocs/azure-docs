@@ -84,7 +84,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 | SLES | 12-SP3 | Data disk |
 
 > [!NOTE]
-> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md) for more information.
+> The new ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. See [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) for more information.
 
 - Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription. Configuring the resources in separate regions causes a failure in enabling the Azure Disk Encryption feature.
 
@@ -177,7 +177,7 @@ The [Azure CLI 2.0](/cli/azure) is a command-line tool for managing Azure resour
 
 
 ## Prerequisite workflow for Key Vault
-If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+If you're already familiar with the Key Vault and Azure AD prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For more information on using the prerequisites script, see the [Encrypt a VM Quickstart](azure-disk-encryption-linux-powershell-quickstart.md) and the [Azure Disk Encryption Appendix](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. If needed, create a resource group.
 2. Create a key vault. 
@@ -360,5 +360,5 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
 > [Enable Azure Disk Encryption for Windows](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
+> [Enable Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md)
 
