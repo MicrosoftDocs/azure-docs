@@ -58,8 +58,10 @@ The following list applies to Windows Server 2016, version 1.3.8 rendering image
 * Blender (2.80)
 * AZ 10
 
-> [!NOTE]
-> Maya + V-Ray jobs note here
+> [!IMPORTANT]
+> To run V-Ray with Maya outside of the [Azure Batch extension templates](https://github.com/Azure/batch-extension-templates), start `vrayses.exe` before running the render. To start the vrayses.exe outside of the templates you can use the following command `%MAYA_2017%\vray\bin\vrayses.exe"`.
+>
+> For an example, see the start task of the [Maya and V-Ray template](https://github.com/Azure/batch-extension-templates/blob/master/templates/maya/render-vray-windows/pool.template.json) on GitHub.
 
 ## Applications on previous Windows Server 2016 rendering images
 
