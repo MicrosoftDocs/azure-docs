@@ -184,7 +184,7 @@ ws = Workspace.get(name=workspace_name,
 
 #### Connect your Azure Databricks and Azure Machine Learning workspaces
 
-You also have the option to link your ADB workspace to your Azure Machine Learning workspace at the click of a button on the Azure Databricks (ADB) Azure portal interface. Linking your workspaces enables you to track your experiment data in the Azure Machine Learning workspace. 
+On the [Azure portal](https://ms.portal.azure.com) you can link your Azure Databricks (ADB) workspace to a new or existing Azure Machine Learning workspace. To do so, navigate to your ADB workspace and select the **Link Azure Machine Learning workspace** button on the bottom right. Linking your workspaces enables you to track your experiment data in the Azure Machine Learning workspace. 
 
 ### Link MLflow tracking to your workspace
 
@@ -203,9 +203,9 @@ import mlflow
 mlflow.log_metric('epoch_loss', loss.item()) 
 ```
 
-You also can automatically configure the MLflow tracking URI on your clusters for all subsequent notebook sessions using this [Azure Machine Learning Tracking Cluster Init script](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md) instead of manually setting the tracking URI in  your experiment notebook.
+Instead of manually setting the tracking URI in every subsequent experiment notebook sessions on your clusters, do so automatically using this [Azure Machine Learning Tracking Cluster Init script](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md).
 
-When configured correctly, you'll be able to see your MLflow tracking data in Azure Machine Learning's REST API and all clients, and Azure Databricks via the MLflow user interface and using the MLflow client.
+When configured correctly, you are able to see your MLflow tracking data in Azure Machine Learning's REST API and all clients, and in Azure Databricks via the MLflow user interface or by using the MLflow client.
 
 ## View metrics and artifacts in your workspace
 
