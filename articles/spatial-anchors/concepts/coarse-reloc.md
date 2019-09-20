@@ -12,9 +12,9 @@ ms.service: azure-spatial-anchors
 ---
 # Coarse relocalization
 
-Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response is not precise, but instead is in the form: *You are close to these anchors, try locating one of them*.
+Coarse relocalization is a feature that provides an initial answer to the question: *Where is my device now / What content should I be observing?* The response isn't precise, but instead is in the form: *You're close to these anchors, try locating one of them*.
 
-Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device. 
+Coarse relocalization works by associating various on-device sensor readings with both the creation and the querying of anchors. For outdoor scenarios, the sensor data is typically the GPS (Global Positioning System) position of the device. When GPS is not available or unreliable (such as indoors), the sensor data consists in the WiFi access points and Bluetooth beacons in range. All collected sensor data contributes to maintaining a spatial index. The spatial index is leveraged by the anchor service to quickly determine the anchors that are within approximately 100 meters of your device. 
 
 The fast look-up of anchors enabled by coarse relocalization simplifies the development of applications backed by world-scale collections of (say millions of geo-distributed) anchors. The complexity of anchor management is all hidden away, allowing you to focus more on your awesome application logic. All the anchor heavy-lifting is done for you behind the scenes by the service!
 
@@ -43,7 +43,7 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
 
-Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is, in general, specific to the application you are developing, but the recommendations in the following table should give you a good starting point:
+Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is, in general, specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
 
 
 |             | Indoors | Outdoors |
@@ -137,7 +137,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
-Azure Spatial Anchors will only track Bluetooth beacons that are on the list. However, malicious beacons that have been programmed to have white-listed UUIDs can still negatively impact the quality of the service. For that reason, you should only use beacons in curated spaces where you can control the deployed beacons.
+Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Malicious beacons programmed to have white-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
 ## Querying with sensor data
 
@@ -158,7 +158,7 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
-The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully localized it. You are most likely interested in retrieving all the anchors you have placed nearby rather than the single anchor your are currently observing. Assuming the anchors you have placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you will be given all the anchors connected to the one you have localized, that are closer than `DistanceInMeters`.
+The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully located it. You're most likely interested in retrieving all the anchors you've placed nearby rather than the single anchor you're currently observing. Assuming the anchors you've placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you'll be given all the anchors connected to the one you've located, that are closer than `DistanceInMeters`.
  
 Keep in mind that large values for `MaxResultCount` may negatively affect performance. Try to set it to a sensible value that makes sense for your application.
 
@@ -170,7 +170,7 @@ cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 
 ## Expected results
 
-Consumer-grade GPS devices are typically quite imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports the median accuracy of mobile phones with assisted GPS (A-GPS) to be around 7 meters - quite a large value to be simply ignored! To account for these measurement errors, the service treats the anchors as probability distributions in GPS space. As such, an anchor is now the region of space that most likely (that is, with more than 95% confidence) contains its true, unknown GPS position.
+Consumer-grade GPS devices are typically quite imprecise. A study by [Zandenbergen and Barbeau (2011)][6] reports the median accuracy of mobile phones with assisted GPS (A-GPS) to be around 7 meters - quite a large value to be ignored! To account for these measurement errors, the service treats the anchors as probability distributions in GPS space. As such, an anchor is now the region of space that most likely (that is, with more than 95% confidence) contains its true, unknown GPS position.
 
 The same reasoning is applied when querying with GPS. The device is represented as another spatial confidence region around its true, unknown GPS position. Discovering nearby anchors translates into simply finding the anchors with confidence regions *close enough* to the device's confidence region, as illustrated in the image below:
 
@@ -194,7 +194,7 @@ The following table summarizes the sensor data collected on each of the supporte
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
 | GPS         | N/A | Supported through [LocationManager][3] APIs (both GPS and NETWORK) | Supported through [CLLocationManager][4] APIs |
-| WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. However from API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
+| WiFi        | Supported at a rate of approximately one scan every 3 seconds | Supported. Starting with API level 28, WiFi scans are throttled to 4 calls every 2 minutes. From Android 10, the throttling can be disabled from the Developer settings menu. For more information, see the [Android documentation][5]. | N/A - no public API |
 | BLE beacons | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] | Limited to [Eddystone][1] and [iBeacon][2] |
 
 <!-- Reference links in article -->
