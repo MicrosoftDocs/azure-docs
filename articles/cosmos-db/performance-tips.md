@@ -83,7 +83,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
         await client.OpenAsync();
 
     > [!NOTE] 
-    > OpenAsync will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but their application is accessing only a very small subset of them, 
+    > OpenAsync will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but their application is accessing only a very small subset of them, it would generate an unnecessary amount of traffic that makes the initialization slow. In this cases, usage of OpenAsync might not be beneficial, as it would slow down application initialization.
 
    <a id="same-region"></a>
 3. **Collocate clients in same Azure region for performance**
