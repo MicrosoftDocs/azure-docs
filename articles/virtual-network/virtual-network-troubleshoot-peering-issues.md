@@ -30,21 +30,21 @@ Are the virtual networks in the same subscription or in different subscriptions?
 
 ### Connection type 1: The virtual networks are in the same subscription
 
-To configure virtual network peering for the virtual networks that are in the same subscription, use the applicable methods that are in the following articles:
+To configure virtual network peering for the virtual networks that are in the same subscription, use the methods in the following articles:
 
-* If the virtual networks are in the **same region**, see  [Create a peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
-* If the virtual networks are in the **different regions**, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).  
+* If the virtual networks are in the *same region*, see [Create a peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering#create-a-peering).
+* If the virtual networks are in the *different regions*, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
 
 > [!Note]
 > Connectivity doesn't work over global virtual network peering for the following resources: 
 >
-> * Virtual machines (VMs) behind Basic ILB
+> * Virtual machines (VMs) behind Basic internal load balancer (ILB)
 > * Redis cache (uses Basic ILB)
 > * Application gateway (uses Basic ILB)
 > * Virtual machine scale sets (uses Basic ILB)
-> * Service Fabric clusters (uses Basic ILB)
+> * Azure Service Fabric clusters (uses Basic ILB)
 > * SQL Server Always On (uses Basic ILB)
-> * App Service Environment for PowerApps (uses Basic ILB)
+> * Azure App Service Environment for PowerApps (uses Basic ILB)
 > * Azure API Management (uses Basic ILB)
 > * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB)
 
@@ -61,16 +61,16 @@ To configure virtual network peering for virtual networks in different subscript
 
 ![Diagram of virtual network peering with on-premises spoke](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1a.png)
 
-### Connection type 1: For Site-to-Site connection or Azure ExpressRoute connection
+### Connection type 1: For a site-to-site connection or an ExpressRoute connection
 
-For this type of connection, see [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
 
-### Connection type 2: For Point-to-Site connections
+### Connection type 2: For point-to-site connections
 
-1. For this type of connection, see [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
-2. After virtual network peering is established or changed, download and reinstall the Point-to-Site package so that the Point-to-Site clients get the updated routes to the spoke virtual network.
+1. Follow the steps in: [Configure VPN gateway transit for virtual network peering](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json).
+2. After virtual network peering is established or changed, download and reinstall the point-to-site package so that the point-to-site clients get the updated routes to the spoke virtual network.
 
-## Scenario 3: Configure virtual network peering with hub-spoke topology for Azure Virtual Network
+## Scenario 3: Configure virtual network peering with hub-spoke topology virtual network
 
 ![Diagram of virtual network peering with a virtual network spoke](./media/virtual-network-troubleshoot-peering-issues/4488712_en_1b.png)
 
@@ -113,11 +113,11 @@ To troubleshoot this issue:
 
 1. Check the network traffic flows:
 
-   Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is an network security group or user-defined route that is causing interference in traffic flows.
+   Use [Connection Troubleshoot](https://docs.microsoft.com/azure/network-watcher/network-watcher-connectivity-overview) and [IP flow verify](https://docs.microsoft.com/azure/network-watcher/network-watcher-ip-flow-verify-overview) from the source VM to the destination VM to determine whether there is a NSG or UDR that is causing interference in traffic flows.
 
    If you're using a firewall or NVA: 
-   1. Document the user-defined route parameters so that you can restore them after this step is complete.
-   2. Remove the user-defined route from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step works, see the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+   1. Document the UDR parameters so that you can restore them after this step is complete.
+   2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step works, see the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 2. Take a network trace: 
    1. Start a network trace on the destination VM. For Windows, you can use **Netsh**. For Linux, use **TCPDump**.
@@ -166,25 +166,25 @@ Do the hub virtual network and the spoke virtual network have a VPN gateway?
 
 Using a remote gateway isn't supported.
 
-If the spoke virtual network already has a VPN gateway, **Use remote gateway** isn't supported on the spoke virtual network. This is because of a virtual network peering limitation.
+If the spoke virtual network already has a VPN gateway, the **Use remote gateway** option isn't supported on the spoke virtual network. This is because of a virtual network peering limitation.
 
-#### Neither the hub virtual network nor the spoke virtual network has a VPN gateway
+#### Both the hub virtual network and the spoke virtual network do not have a VPN gateway
 
-For Site-to-Site or ExpressRoute connections, check the following primary causes of connectivity issues to the remote virtual network from on-premises:
+For site-to-site or Azure ExpressRoute connections, check the following primary causes of connectivity issues to the remote virtual network from on-premises:
 
 * On the virtual network that has a gateway, verify that the **Allow forwarded traffic** check box is selected.
 * On the virtual network that doesn't have a gateway, verify that the **Use remote gateway** check box is selected.
 * Have your network administrator check your on-premises devices to verify that they all have the remote virtual network address space added.
 
-For Point-to-Site connections:
+For point-to-site connections:
 
 * On the virtual network that has a gateway, verify that the **Allow forwarded traffic** check box is selected.
 * On the virtual network that doesn't have a gateway, verify that the **Use remote gateway** check box is selected.
-* Download and reinstall the Point-to-Site client package. Virtual network routes that are newly peered don't automatically add routes to Point-to-Site clients.
+* Download and reinstall the point-to-site client package. Virtual network routes that are newly peered don't automatically add routes to point-to-site clients.
 
 ## Scenario 6: Troubleshoot a hub-spoke network connectivity issue between spoke virtual networks in the same region
 
-A hub network must include an NVA. Configure user-defined routes in spokes that have an NVA set as the next hop, and enable **Allow forwarded traffic** in the hub virtual network.
+A hub network must include an NVA. Configure UDRs in spokes that have an NVA set as the next hop, and enable **Allow forwarded traffic** in the hub virtual network.
 
 For more information, see [Service chaining](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#service-chaining), and discuss these requirements with the [NVA vendor](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) of your choice.
 
