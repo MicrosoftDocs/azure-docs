@@ -156,7 +156,7 @@ Azure SQL database supports various data tools that can help you to manage your 
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Yes | Yes [version 18.0 and higher](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Yes | Yes |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | No - see [Extended events](sql-database-xevent-db-diff-from-svr.md) | Yes |
-| [System Center Operations Manager - SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | No |
+| [System Center Operations Manager - SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Yes](https://www.microsoft.com/download/details.aspx?id=38829) | Yes, [in preview](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## Migration methods
 
