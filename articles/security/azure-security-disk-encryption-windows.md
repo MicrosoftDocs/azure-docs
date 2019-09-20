@@ -345,4 +345,4 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Enable Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md)
+> [Enable Azure Disk Encryption for Linux](../virtual-machines/linux/disk-encryption-overview.md)
