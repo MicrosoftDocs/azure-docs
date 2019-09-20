@@ -95,6 +95,12 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 * If you want to add your application to list in the gallery using Password SSO, select **Password SSO** as above.
 * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## Requesting for User Provisioning
+
+Follow the below process to request for user provisioning.
+
+   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## Update/Remove existing listing
 
 To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
