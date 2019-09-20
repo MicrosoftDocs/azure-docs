@@ -191,5 +191,9 @@
   href: understand-vm-reboot.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
-- name: Support for 32-bit operating systems in Azure virtual machines
-  href: support-32-bit-operating-systems-virtual machines.md
+- name: Virtual Machine Repair
+  items:
+  - name: Repair a Windows VM by using the Azure Virtual Machine repair commands
+    href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Repair a Linux VM by using the Azure Virtual Machine repair commands
+    href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md
