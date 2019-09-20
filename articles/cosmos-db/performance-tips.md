@@ -28,16 +28,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
     How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of observed client-side latency. There are two key configuration settings available for configuring client Connection Policy – the connection *mode* and the connection *protocol*.  The two available modes are:
 
-   * Gateway Mode (default)
+   * Gateway Mode
       
-     Gateway Mode is supported on all SDK platforms and is the configured default. If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops. Gateway connection mode is also recommended when you run applications in environments with limited number of socket connections, for example when using Azure Functions or if you are on a consumption plan. 
+     Gateway Mode is supported on all SDK platforms and is the configured default for [SDK V2](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops. Gateway connection mode is also recommended when you run applications in environments with limited number of socket connections, for example when using Azure Functions or if you are on a consumption plan. 
 
    * Direct Mode
 
-     Direct mode supports connectivity through TCP and HTTPS protocols. If you are using the latest version of .NET SDK, direct connectivity mode is supported in .NET Standard 2.0 and .NET framework. When using Direct Mode, there are two protocol options available:
-
-     * TCP
-     * HTTPS
+     Direct mode supports connectivity through TCP and HTTPS protocols and is the configured default for [SDK V3](sql-api-sdk-dotnet-standard.md). If you are using the latest version of .NET SDK, direct connectivity mode is supported in .NET Standard 2.0 and .NET framework. 
 
      When using Gateway mode, Cosmos DB uses port 443 and ports 10250, 10255 and 10256 when using Azure Cosmos DB's API for MongoDB. The 10250 port maps to a default MongoDB instance without geo-replication and 10255/10256 ports map to the MongoDB instance with geo-replication functionality. When using TCP in Direct Mode, in addition to the Gateway ports, you need to ensure the port range between 10000 and 20000 is open because Azure Cosmos DB uses dynamic TCP ports. If these ports are not open and you attempt to use TCP, you receive a 503 Service Unavailable error. The following table shows connectivity modes available for different APIs and the service ports user for each API:
 
@@ -49,7 +46,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-     The Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
+     For the SDK V2, the Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -62,15 +59,32 @@ So if you're asking "How can I improve my database performance?" consider the fo
      });
      ```
 
+     For SDK V3, the Connectivity Mode is configured during the construction of the CosmosClient instance, as part of the CosmosClientOptions.
+
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
+     new CosmosClientOptions
+     {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+     });
+     ```
+
      Because TCP is only supported in Direct Mode, if Gateway Mode is used, then the HTTPS protocol is always used to communicate with the Gateway and the Protocol value in the ConnectionPolicy is ignored.
 
      ![Illustration of the Azure Cosmos DB connection policy](./media/performance-tips/connection-policy.png)
 
 2. **Call OpenAsync to avoid startup latency on first request**
 
-    By default, the first request has a higher latency because it has to fetch the address routing table. To avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
+    By default, the first request has a higher latency because it has to fetch the address routing table. When using the [SDK V2](sql-api-sdk-dotnet.md), to avoid this startup latency on the first request, you should call OpenAsync() once during initialization as follows.
 
         await client.OpenAsync();
+
+    > [!NOTE] 
+    > OpenAsync will generate requests to obtain the address routing table for all the containers in the account. For accounts that have many containers but their application is accessing only a very small subset of them, 
+
    <a id="same-region"></a>
 3. **Collocate clients in same Azure region for performance**
 
@@ -93,7 +107,7 @@ So if you're asking "How can I improve my database performance?" consider the fo
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
 2. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-    Each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by DocumentClient, it is recommended to use a single instance of DocumentClient per AppDomain for the lifetime of the application.
+    Each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by the SDK client, it is recommended to use a single instance per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
 3. **Increase System.Net MaxConnections per host when using Gateway mode**
