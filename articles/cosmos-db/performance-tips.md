@@ -30,7 +30,9 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
    * Gateway Mode
       
-     Gateway Mode is supported on all SDK platforms and is the configured default for [SDK V2](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops. Gateway connection mode is also recommended when you run applications in environments with limited number of socket connections, for example when using Azure Functions or if you are on a consumption plan. 
+     Gateway Mode is supported on all SDK platforms and is the configured default for [SDK V2](sql-api-sdk-dotnet.md). If your application runs within a corporate network with strict firewall restrictions, Gateway Mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway Mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct Mode offers better performance due to fewer network hops. Gateway connection mode is also recommended when you run applications in environments with limited number of socket connections. 
+
+     When using the SDK in Azure Functions, particularly in Consumption Plan, be mindful of the current [limits in connections](../azure-functions/manage-connections.md). In that case, Gateway Mode might be recommended if you are also working with other HTTP based clients within your Azure Functions application.
 
    * Direct Mode
 
@@ -46,19 +48,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
 
      Azure Cosmos DB offers a simple and open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. Both Direct TCP and HTTPS use SSL for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
 
-     For the SDK V2, the Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
-
-     ```csharp
-     var serviceEndpoint = new Uri("https://contoso.documents.net");
-     var authKey = "your authKey from the Azure portal";
-     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
-     new ConnectionPolicy
-     {
-        ConnectionMode = ConnectionMode.Direct,
-        ConnectionProtocol = Protocol.Tcp
-     });
-     ```
-
      For SDK V3, the Connectivity Mode is configured during the construction of the CosmosClient instance, as part of the CosmosClientOptions.
 
      ```csharp
@@ -66,6 +55,19 @@ So if you're asking "How can I improve my database performance?" consider the fo
      var authKey = "your authKey from the Azure portal";
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
+     {
+        ConnectionMode = ConnectionMode.Direct,
+        ConnectionProtocol = Protocol.Tcp
+     });
+     ```
+
+     For the SDK V2, the Connectivity Mode is configured during the construction of the DocumentClient instance with the ConnectionPolicy parameter. If Direct Mode is used, the Protocol can also be set within the ConnectionPolicy parameter.
+
+     ```csharp
+     var serviceEndpoint = new Uri("https://contoso.documents.net");
+     var authKey = "your authKey from the Azure portal";
+     DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
+     new ConnectionPolicy
      {
         ConnectionMode = ConnectionMode.Direct,
         ConnectionProtocol = Protocol.Tcp
@@ -105,15 +107,20 @@ So if you're asking "How can I improve my database performance?" consider the fo
 1. **Install the most recent SDK**
 
     The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the [Azure Cosmos DB SDK](sql-api-sdk-dotnet-standard.md) pages to determine the most recent SDK and review improvements.
-2. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
+
+2. **Use Stream APIs**
+
+    The [SDK V3](sql-api-sdk-dotnet-standard.md) contains Stream based APIs that can receive and return data without serializing. It is beneficial for middle tier applications that do not consume the responses from the SDK directly but relay them to other application tiers. Stream handling is included in our [samples](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ItemManagement).
+
+3. **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
     Each DocumentClient instance is thread-safe and performs efficient connection management and address caching when operating in Direct Mode. To allow efficient connection management and better performance by the SDK client, it is recommended to use a single instance per AppDomain for the lifetime of the application.
 
    <a id="max-connection"></a>
-3. **Increase System.Net MaxConnections per host when using Gateway mode**
+4. **Increase System.Net MaxConnections per host when using Gateway mode**
 
     Azure Cosmos DB requests are made over HTTPS/REST when using Gateway mode, and are subjected to the default connection limit per hostname or IP address. You may need to set the MaxConnections to a higher value (100-1000) so that the client library can utilize multiple simultaneous connections to Azure Cosmos DB. In the .NET SDK 1.8.0 and above, the default value for [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx) is 50 and to change the value, you can set the [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx) to a higher value.   
-4. **Tuning parallel queries for partitioned collections**
+5. **Tuning parallel queries for partitioned collections**
 
      SQL .NET SDK version 1.9.0 and above support parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart. Parallel queries provide two parameters that users can tune to custom-fit their requirements, (a) MaxDegreeOfParallelism: to control the maximum number of partitions then can be queried in parallel, and (b) MaxBufferedItemCount: to control the number of pre-fetched results.
 
@@ -126,10 +133,10 @@ So if you're asking "How can I improve my database performance?" consider the fo
     Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. MaxBufferedItemCount is the parameter to limit the number of pre-fetched results. Setting MaxBufferedItemCount to the expected number of results returned (or a higher number) allows the query to receive maximum benefit from pre-fetching.
 
     Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.  
-5. **Turn on server-side GC**
+6. **Turn on server-side GC**
 
     Reducing the frequency of garbage collection may help in some cases. In .NET, set [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) to true.
-6. **Implement backoff at RetryAfter intervals**
+7. **Implement backoff at RetryAfter intervals**
 
     During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff on throttle for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries. Retry policy support is included in Version 1.8.0 and above of the SQL [.NET](sql-api-sdk-dotnet.md) and [Java](sql-api-sdk-java.md), version 1.9.0 and above of the [Node.js](sql-api-sdk-node.md) and [Python](sql-api-sdk-python.md), and all supported versions of the [.NET Core](sql-api-sdk-dotnet-core.md) SDKs. For more information, [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
@@ -139,15 +146,15 @@ So if you're asking "How can I improve my database performance?" consider the fo
     readDocument.RequestDiagnosticsString 
     ```
     
-7. **Scale out your client-workload**
+8. **Scale out your client-workload**
 
     If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or Network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
-8. **Cache document URIs for lower read latency**
+9. **Cache document URIs for lower read latency**
 
     Cache document URIs whenever possible for the best read performance. You have to define logic to cache the resourceid when you create the resource. Resourceid based lookups are faster than name based lookups, so caching these values improves the performance. 
 
    <a id="tune-page-size"></a>
-1. **Tune the page size for queries/read feeds for better performance**
+10. **Tune the page size for queries/read feeds for better performance**
 
    When performing a bulk read of documents using read feed functionality (for example, ReadDocumentFeedAsync) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
@@ -164,11 +171,11 @@ So if you're asking "How can I improve my database performance?" consider the fo
     
    When a query is executed, the resulting data is sent within a TCP packet. If you specify too low value for `maxItemCount`, the number of trips required to send the data within the TCP packet are high, which impacts the performance. So if you are not sure what value to set for `maxItemCount` property, it's best to set it to -1 and let the SDK choose the default value. 
 
-10. **Increase number of threads/tasks**
+11. **Increase number of threads/tasks**
 
     See [Increase number of threads/tasks](#increase-threads) in the Networking section.
 
-11. **Use 64-bit host processing**
+12. **Use 64-bit host processing**
 
     The SQL SDK works in a 32-bit host process when you are using SQL .NET SDK version 1.11.4 and above. However, if you are using cross partition queries, 64-bit host processing is recommended for improved performance. The following types of applications have 32-bit host process as the default, so in order to change that to 64-bit, follow these steps based on the type of your application:
 
