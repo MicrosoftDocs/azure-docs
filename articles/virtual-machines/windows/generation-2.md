@@ -46,7 +46,7 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers previe
 * [Mv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#mv2-series)
 * [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
-* [NVv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+* [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
 
 ## Generation 2 VM images in Azure Marketplace
 
@@ -98,14 +98,37 @@ Azure doesn't currently support some of the features that on-premises Hyper-V su
 
 In the Azure portal or Azure CLI, you can create generation 2 VMs from a Marketplace image that supports UEFI boot.
 
-The `windowsserver-gen2preview` offer contains Windows generation 2 images only. This packaging avoids confusion between generation 1 and generation 2 images. To create a generation 2 VM, select **Images** from this offer and follow the standard process to create the VM.
+#### Azure portal
 
-Currently, Marketplace offers the following Windows generation 2 images:
+Generation 2 images for Windows and SLES are included in the same server offer as the Gen1 images. What that means from a flow perspective is that, you select the Offer and the SKU from the Portal for your VM. If the SKU supports both generation 1 and generation 2 images, you can select to create a generation 2 VM from the *Advanced* tab in the VM creation flow.
 
-* 2019-datacenter-gen2
-* 2016-datacenter-gen2
-* 2012-r2-datacenter-gen2
-* 2012-datacenter-gen2
+Currently, the following SKUs support both generation 1 and generation 2 images:
+
+* Windows Server 2012
+* Windows Server 2012 R2
+* Windows Server 2016
+* Windows Server 2019
+
+When you select a Windows Server SKU as the offer, in the **Advanced** tab, there's an option to create either a **Gen 1** (BIOS) or **Gen 2** (UEFI) VM. If you select **Gen 2**, ensure the VM size selected in the **Basics** tab is [supported for generation 2 VMs](#generation-2-vm-sizes).
+
+![Select Gen 1 or Gen 2 VM](./media/gen1-gen2-select.png)
+
+#### PowerShell
+
+You can also use PowerShell to create a VM by directly referencing the generation 1 or generation 2 SKU.
+
+For example, use the following PowerShell cmdlet to get a list of the SKUs in the `WindowsServer` offer.
+
+```powershell
+Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+If you're creating a VM with Windows Server 2012 as the OS, then you will select either the generation 1 (BIOS) or generation 2 (UEFI) VM SKU, which looks like this:
+
+```powershell
+2012-Datacenter
+2012-datacenter-gensecond
+```
 
 See the [Features and capabilities](#features-and-capabilities) section for a current list of supported Marketplace images.
 
@@ -138,7 +161,7 @@ You can also create generation 2 VMs by using virtual machine scale sets. In the
         ```
 
     1. Once the disk is available, create a VM by attaching this disk. The VM created will be a generation 2 VM.
-    When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image you can use it to create multiple VMs.
+    When the generation 2 VM is created, you can optionally generalize the image of this VM. By generalizing the image, you can use it to create multiple VMs.
 
 * **How do I increase the OS disk size?**  
   OS disks larger than 2 TB are new to generation 2 VMs. By default, OS disks are smaller than 2 TB for generation 2 VMs. You can increase the disk size up to a recommended maximum of 4 TB. Use the Azure CLI or the Azure portal to increase the OS disk size. For information about how to expand disks programmatically, see [Resize a disk](expand-os-disk.md).
