@@ -25,18 +25,18 @@ landingContent:
         links:
           - text: What is Resource Manager?
             url: resource-group-overview.md
-          - text: What is Resource Manager template
+          - text: What is Resource Manager template?
             url: template-deployment-overview.md
-          - text: Subscription level deployment
-            url: deploy-to-subscription.md
       - linkListType: concept
         links:
           - text: Best practices
             url: template-best-practices.md
           - text: Deployment modes
-            url: deployment-mode.md
+            url: deployment-modes.md
           - text: Linked templates
             url: resource-group-linked-templates.md
+          - text: Subscription level deployment
+            url: deploy-to-subscription.md
           - text: Deployment Manager
             url: deployment-manager-overview.md
 
@@ -96,12 +96,16 @@ landingContent:
             url: resource-group-template-deploy-rest.md
 
   # Card
-  - title: Manage
+  - title: Manage templates
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Export templates
             url: export-template-portal.md
+
+  # Card
+  - title: Manage resources
+    linkLists:
       - linkListType: how-to-guide
         links:
           - text: Move resources
@@ -124,7 +128,7 @@ landingContent:
             url: resource-manager-common-deployment-errors.md
 
   # Card
-  - title: Reference
+  - title: Explore reference content
     linkLists:
       - linkListType: reference
         links:
