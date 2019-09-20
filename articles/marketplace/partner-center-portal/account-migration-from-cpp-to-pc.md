@@ -1,7 +1,7 @@
 ---
 title: Account migration from Cloud Partner Portal to Partner Center - Commercial Marketplace for Azure
 description: How to migrate your account from CPP to Partner Center. - Commercial Marketplace for Azure
-author: qianw211
+author: ChJenk
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
@@ -11,7 +11,7 @@ ms.date: 09/09/2019
 
 # Account migration from Cloud Partner Portal to Partner Center
 
-If you have an existing CPP account, your account settings need to be migrated to Partner Center.
+If you have an existing Cloud Partner Portal (CPP) account, your account settings need to be migrated to Partner Center.
 
 ## Account migration process
 
@@ -30,7 +30,7 @@ Click on the banner to initiate your account migration process. You are expected
 
 1. Work email address: <br> <br> In most cases, sign in with the email address that you use to sign into CPP. In certain cases, a different email address must be used:
 
-    * Microsoft account: If the CPP account is a Microsoft account, then you need to enter a valid work email address associated with the tenant, for whom the MPN ID is registered.
+    * Microsoft account: If the CPP account is a Microsoft account, then you need to enter a valid work email address associated with the tenant, for whom the Microsoft Partner Network (MPN) ID is registered. See [Sign up for Microsoft Partner Network Program](#sign-up-for-microsoft-partner-network-program) for more information.
 
     * Tenant mismatch: If your work email address does not belong to the tenant that is associated with the Microsoft Partner Network ID present on your CPP account, then you’ll see an error. To move past this error, enter an email address associated with the tenant. An error message will provide the name of the tenant.
 
@@ -48,13 +48,25 @@ To learn more about the Microsoft Partner Network, see [Join the Microsoft Partn
 
 ## Move Dynamics 365-based solutions to Partner Center
 
-If you have created Dynamics 365 for Customer Engagement or Dynamics 365 for Finance and Operations solutions in the One Commercial Partner GTM portal, **these solutions should now be managed in Partner Center**.
+To streamline account and offer management for Dynamics 365 Customer Engagement and Dynamics 365 Operations, the offers have been moved to [Partner Center](https://partner.microsoft.com/). This move ensures the same content is available to both public and seller catalogs.
 
-**If you did not move your solutions by August 31, 2019**, complete the below steps as soon as possible. Until you do so:
+For specific information on what needs to be done and by when for your Dynamics 365-based solutions, please follow the instructions that apply to you:
 
-- ISVs won’t have access to marketing benefits
-- Co-sell prioritized will lose their status
-- Those requiring Cloud Embed will be out of compliance after October 15, 2019
+- If you have published offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations and need to move them to Partner Center, see [Move published offers](#move-published-offers).
+- If you have draft offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations already migrated to Partner Center, see [Activate draft offers](#activate-draft-offers).
+- If your Partner Center account was not detected and you need to create a new offer for Dynamics 365 Customer Engagement or Dynamics 365 Operations in Partner Center, see [Create new offer](#create-new-offer).
+
+### Move published offers
+
+Use this section if you have published offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations and need to move them to Partner Center.
+
+If you have created Dynamics 365 Customer Engagement or Dynamics 365 Operations solutions in the One Commercial Partner GTM portal, **these offers should now be managed in Partner Center**.
+
+**If you did not move your solutions by August 31, 2019**, complete the steps below as soon as possible. Until you do so:
+
+- ISVs won’t have access to marketing benefits.
+- Co-sell prioritized will lose their status.
+- Those requiring Cloud Embed will be out of compliance after October 15, 2019.
 
 > [!NOTE]
 > If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated before completing the steps below. If you see a profile screen with your MPN ID, you're ready to proceed. If not, you must start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help with this, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
@@ -70,6 +82,49 @@ If you have created Dynamics 365 for Customer Engagement or Dynamics 365 for Fin
 4. Submit each new and existing offer for certification, even if your offers were previously certified. If eligible, you may request to participate in the premium tier during this process. If your offer was previously certified, **you must complete app recertification by October 15, 2019.** Certification or recertification will require that your app support the latest version of our Business Applications Platform.
 
 5. Go to the [One Commercial Partner GTM portal](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) and add your AppSource listing URL in the Marketplace Links section. If you need help with this step, email us at cosell@microsoft.com.
+
+### Activate draft offers
+
+Use this section if you have draft offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations already migrated to Partner Center.
+
+You'll need to activate your draft offers in Partner Center to keep them available in our seller catalog and to enable them in our public catalog.
+
+>[!NOTE]
+>Publish each of your draft offers in Partner Center before **October 15, 2019** to make them available and avoid their removal from our seller catalog.
+
+For your convenience, we’ve created a draft of each offer based on content you previously provided. If the draft offer is not correct, we may have mis-categorized your offer type. In this case, please [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce) to prevent the automatic removal of the offer from the seller catalog.
+
+If the draft offer is correct, complete the following steps **by October 15, 2019** to publish the offer.
+
+>[!IMPORTANT]
+> These steps may take more than one week to complete.
+
+1. To access your draft offer, sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). You must have **Manager** (owner) credentials for the MPN account associated with the offer being migrated.
+2. On the [Agreements page](https://partner.microsoft.com/dashboard/account/agreements) for Partner Center, review and accept the Business Applications ISV Addendum.
+3. Make sure your billing information is correct and complete in [Account Settings](https://partner.microsoft.com/dashboard/account/accountsettings/billingprofile).
+4. Return to [Overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) and check that the **offer type** in draft status is **Dynamics 365 Customer Engagement** or **Dynamics 365 Operations**. If the offer type is incorrect, please [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce).
+5. Before publishing the draft offer, confirm your offers are not already in AppSource by [searching for your offers](https://appsource.microsoft.com/).
+    >[!NOTE]
+    >If your offer was found in AppSource, it may be a duplicate offer that can be deleted. However, before deleting the draft offer, please sign in to Partner Center and access the alternate offer to ensure that it contains co-selling collateral, contact information, and the same market coverage as this draft offer. Also, if you sell through multiple legal entities (e.g., Contoso Inc in USA and Contoso Ltd in Europe), you may want to have multiple offers for different legal entities in AppSource.
+
+6. If your offer is not in AppSource, select the draft offer from [Overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) and complete the offer information pages.
+7. Select **Submit**.
+    >[IMPORTANT]
+    >These steps must be completed by **October 15, 2019** to avoid any interruption to your offer.
+
+Once your app is approved, you'll receive an email that will direct you to return to the offer and select **Go live**, which will enable the offer on AppSource.
+
+### Create new offer
+
+Use this section if your Partner Center account was not detected and you need to create a new offer for Dynamics 365 Customer Engagement or Dynamics 365 Operations.
+
+We could not associate your Dynamics 365 Customer Engagement or Dynamics 365 Operations offer with an enrolled Partner Center account and were unable to migrate your offer. To make your offer available in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) or [Create a new Dynamics 365 Operations offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer) before the draft is removed from our seller catalog **October 15, 2019.**
+
+## Additional Resources
+
+Join the weekly [Dynamics ISV community call](https://aka.ms/DynamicsISV-CommunityCall) for support and updates.
+
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport). For reporting the wrong offer type or migrated-in-error only, please use [Microsoft Support](https://aka.ms/migrationoffertype) to contact us.
 
 ## Next steps
 
