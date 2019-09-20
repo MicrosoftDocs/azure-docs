@@ -8,9 +8,9 @@
   - name: Quickstarts
     items:
     - name: Encrypt a Linux VM with Azure CLI
-      href: azure-disk-encryption-linux-cli-quickstart.md
+      href: ../virtual-machines/linux/disk-encryption-cli-quickstart.md
     - name: Encrypt a Linux VM with Azure PowerShell
-      href: azure-disk-encryption-linux-powershell-quickstart.md
+      href: ../virtual-machines/linux/disk-encryption-powershell-quickstart.md
     - name: Encrypt a Windows VM with Azure CLI
       href: azure-disk-encryption-windows-cli-quickstart.md
     - name: Encrypt a Windows VM with Azure PowerShell
