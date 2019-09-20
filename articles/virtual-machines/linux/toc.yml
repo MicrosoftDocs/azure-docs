@@ -141,6 +141,10 @@
     items:
     - name: Security and policy
       href: security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machines-linux-security-controls.md
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
@@ -149,8 +153,6 @@
     href: backup-recovery.md
   - name: Infrastructure guidelines
     href: infrastructure-example.md
-  - name: Built-in security controls
-    href: virtual-machines-linux-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -178,14 +180,12 @@
       href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
       items:
-        - name: Disk encryption overview
-          href: disk-encryption-overview.md
+        - name: Disk encryption scenarios for Linux
+          href: disk-encryption-linux.md
         - name: Quickstart - VM encryption with Azure CLI
           href: disk-encryption-cli-quickstart.md
         - name: Quickstart - VM encryption with Azure PowerShell
           href: disk-encryption-powershell-quickstart.md
-        - name: Disk encryption scenarios for Linux
-          href: disk-encryption-linux.md
         - name: Key vault for Azure Disk Encryption
           href: disk-encryption-key-vault.md
         - name: Disk encryption sample scripts
