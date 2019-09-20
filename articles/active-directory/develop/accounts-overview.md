@@ -127,7 +127,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 To access claims about an account as they appear in other tenants, you first need to cast your account object to `IMultiTenantAccount`. All accounts may be multi-tenant, but the number of tenant profiles available via MSAL is based on which tenants you have requested tokens from using the current account.  For example:
 
 ```java
-IAcount account = getAccount("accountid");
+IAccount account = getAccount("accountid");
 IMultiTenantAccount multiTenantAccount = (IMultiTenantAccount)account;
 
 multiTenantAccount.getTenantProfiles().get("tenantid for fabrikam").getClaims().get("family_name");
