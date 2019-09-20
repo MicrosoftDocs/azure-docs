@@ -194,7 +194,7 @@ Open-source Hadoop relies on Kerberos, as opposed to OAuth, for authentication. 
 
 Using a certificate issued by a certificate authority is recommended, but using a self-signed certificate is also supported on ESP. For more information, see:
 
-- [Enable Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
+- [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).
 
 ### How can I pull login activity shown in Ranger?
