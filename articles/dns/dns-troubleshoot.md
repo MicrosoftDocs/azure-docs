@@ -4,7 +4,7 @@ description: How to troubleshoot common issues with Azure DNS
 services: dns
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.assetid: 95b01dc3-ee69-4575-a259-4227131e4f9c
