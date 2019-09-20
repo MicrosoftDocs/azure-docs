@@ -155,7 +155,7 @@ The following tables describe the values you need to set in the schema.
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  type | enum | No | The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group. - SystemAssigned, UserAssigned, SystemAssigned, UserAssigned, None |
-|  userAssignedIdentities | object | No | The list of user identities associated with the container group. The user identity dictionary key references will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
+|  userAssignedIdentities | object | No | The list of user identities associated with the container group. The user identity dictionary key references will be Azure Resource Manager resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'. |
 
 
 <a id="ContainerGroupProperties" />
