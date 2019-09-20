@@ -7,7 +7,6 @@ ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.custom: seodec18
 ---
 # Understand resource locking in Azure Blueprints
 
@@ -133,7 +132,7 @@ This is an example of a request body that includes **excludedPrincipals**:
 ## Next steps
 
 - Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
-- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn about the [blueprint lifecycle](lifecycle.md).
 - Understand how to use [static and dynamic parameters](parameters.md).
 - Learn to customize the [blueprint sequencing order](sequencing-order.md).
 - Learn how to [update existing assignments](../how-to/update-existing-assignments.md).

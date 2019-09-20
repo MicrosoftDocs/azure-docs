@@ -23,7 +23,9 @@ You can use IP addresses to create firewall rules, filter the incoming traffic t
 
 ## IP addresses of API Management service
 
-If your API Management service is a Developer, Basic, Standard, or Premium tier service, you can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
+Every API Management service instance in Developer, Basic, Standard, or Premium tier has public IP addresses, which are exclusive only to that service instance (they are not shared with other resources). 
+
+You can retrieve the IP addresses from the overview dashboard of your resource in the Azure portal.
 
 ![API Management IP address](media/api-management-howto-ip-addresses/public-ip.png)
 
@@ -96,5 +98,6 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * The service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.
 * Azure Virtual Network is added to or removed from the service.
+* API Management service is switched between External and Internal Vnet deployment mode.
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
