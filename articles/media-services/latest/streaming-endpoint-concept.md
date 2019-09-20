@@ -32,6 +32,8 @@ For the default endpoint: `{AccountName}-{DatacenterAbbreviation}.streaming.medi
 
 For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
+The streaming endpoint name has a max value of 24 characters.
+
 ## Types  
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint. 
