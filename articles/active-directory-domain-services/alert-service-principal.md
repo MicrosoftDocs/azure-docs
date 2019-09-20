@@ -38,9 +38,9 @@ To check which service principal is missing and needs to be recreated, complete 
     | Application ID | Resolution |
     | :--- | :--- |
     | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recreate a missing service principal](#recreate-a-missing-service-principal) |
-    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register the Microsoft.AAD namespace](#re-register-to-the-microsoft-aad-namespace) |
-    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-register the Microsoft.AAD namespace](#re-register-to-the-microsoft-aad-namespace) |
-    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-register the Microsoft.AAD namespace](#re-register-to-the-microsoft-aad-namespace) |
+    | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
+    | abba844e-bc0e-44b0-947a-dc74e5d09022 | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
+    | d87dcbc6-a371-462e-88e3-28ad15ec4e64 | [Re-register the Microsoft.AAD namespace](#re-register-the-microsoft-aad-namespace) |
 
 ### Recreate a missing Service Principal
 
@@ -61,7 +61,7 @@ If application ID *2565bd9d-da50-47d4-8b85-4c97f669dc36* is missing from your Az
 
 The Azure AD DS managed domain's health automatically updates itself within two hours and removes the alert.
 
-## Re-register the Microsoft AAD namespace
+### Re-register the Microsoft AAD namespace
 
 If application ID *443155a6-77f3-45e3-882b-22b3a8d431fb*, *abba844e-bc0e-44b0-947a-dc74e5d09022*, or *d87dcbc6-a371-462e-88e3-28ad15ec4e64* is missing from your Azure AD directory, complete the following steps to re-register the *Microsoft.AAD* resource provider:
 
@@ -107,3 +107,6 @@ If you still have issues, [open an Azure support request][azure-support] for add
 
 <!-- INTERNAL LINKS -->
 [azure-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
+
+<!-- EXTERNAL LINKS -->
+[New-AzureAdServicePrincipal]: /powershell/module/AzureAD/New-AzureADServicePrincipal

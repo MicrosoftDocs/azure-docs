@@ -103,13 +103,13 @@
           href: tshoot-ldaps.md
         - name: Known issues
           items:
-            - name: Common alert messages
+            - name: Common alerts
               href: troubleshoot-alerts.md
-            - name: Network connectivity
+            - name: Network alerts
               href: alert-nsg.md
-            - name: Service principals
+            - name: Service principal alerts
               href: alert-service-principal.md
-            - name: Secure LDAP connectivity
+            - name: Secure LDAP alerts
               href: alert-ldaps.md
 - name: Resources
   items:
