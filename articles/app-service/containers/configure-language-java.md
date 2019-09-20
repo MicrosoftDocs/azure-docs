@@ -699,11 +699,7 @@ The following steps assume you have created an App Service instance for hosting 
 
 4. Create a file named *commands.cli* and add the following code.
 
-    <!-- TODO add the correct values for the first two lines -->
-
     ```console
-    /system-property=property.helloworldmdb.queue:add(value=myque)
-    /system-property=property.connection.factory:add(value=java:global/remoteJMS/SBF)
     /subsystem=ee:list-add(name=global-modules, value={"name" => "org.jboss.genericjms.provider", "slot" =>"main"}
     /subsystem=naming/binding="java:global/remoteJMS":add(binding-type=external-context,module=org.jboss.genericjms.provider,class=javax.naming.InitialContext,environment=[java.naming.factory.initial=org.apache.qpid.jms.jndi.JmsInitialContextFactory,org.jboss.as.naming.lookup.by.string=true,java.naming.provider.url=/home/site/deployments/tools/jndi.properties])
     /subsystem=resource-adapters/resource-adapter=generic-ra:add(module=org.jboss.genericjms,transaction-support=XATransaction)
@@ -752,17 +748,30 @@ The following steps assume you have created an App Service instance for hosting 
     ```java
     @TransactionManagement(TransactionManagementType.BEAN)
     @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
-    @MessageDriven(name = "MyMessageListener", activationConfig = {
+    @MessageDriven(name = "MyQueueListener", activationConfig = {
             @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "java:global/remoteJMS/SBF"),
             @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:global/remoteJMS/jmstestqueue"),
             @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Queue"),
             @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
-    public class MyMessageListener implements MessageListener {
+    public class MyQueueListener implements MessageListener {
         // ...
     }
     ```
 
-    The `connectionFactory` and `destination` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic.
+    The `connectionFactory` and `destination` values refer to the JNDI values configured previously. The `destinationType` value is `javax.jms.Queue`, indicating that you are connecting to a Service Bus Queue instance. This value should be `javax.jms.Topic` when you connect to a Service Bus Topic, as shown here:
+
+    ```java
+    @TransactionManagement(TransactionManagementType.BEAN)
+    @TransactionAttribute(TransactionAttributeType.NOT_SUPPORTED)
+    @MessageDriven(name = "MyTopicListener", activationConfig = {
+            @ActivationConfigProperty(propertyName = "connectionFactory", propertyValue = "java:global/remoteJMS/SBF"),
+            @ActivationConfigProperty(propertyName = "destination", propertyValue = "java:global/remoteJMS/jmstestqueue"),
+            @ActivationConfigProperty(propertyName = "destinationType", propertyValue = "javax.jms.Topic"),
+            @ActivationConfigProperty(propertyName = "acknowledgeMode", propertyValue = "Auto-acknowledge")})
+    public class MyTopicListener implements MessageListener {
+        // ...
+    }
+    ```
 
 9. Update the `azure-webapp-maven-plugin` configuration in your bean's *pom.xml* file to refer to your Service Bus account info. If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
@@ -818,23 +827,6 @@ The following steps assume you have created an App Service instance for hosting 
 Your message-driven bean is now configured to use Service Bus as the messaging mechanism.
 
 For a sample that you can use to test these instructions, see the [migrate-java-ee-app-to-azure-2](https://github.com/Azure-Samples/migrate-java-ee-app-to-azure-2) repo on GitHub.
-
-<!--
-For more information, see [How to use the Java Message Service (JMS) API with Service Bus and AMQP 1.0](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp).
--->
-<!-- OLD CONTENT:
-
-To enable message driven Beans using Service Bus as the messaging mechanism:
-
-1. Use the [Apache QPId JMS messaging library](https://qpid.apache.org/proton/index.html). Include this dependency in your pom.xml (or other build file) for the application.
-
-2. Create [Service Bus resources](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). Create an Azure Service Bus namespace and queue within that namespace and a Shared Access Policy with send and receive capabilities.
-
-3. Pass the shared access policy key to your code either by URL-encoding the primary key of your policy or [Use the Service Bus SDK](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
-
-4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
-
--->
 
 ## Use Redis as a session cache with Tomcat
 
