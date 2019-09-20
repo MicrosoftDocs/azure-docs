@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/php-download-sdk.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -1539,6 +1544,26 @@
       "source_path": "articles/cosmos-db/powershell-samples.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
@@ -10783,6 +10808,16 @@
     {
       "source_path": "articles/dns/dns-reverse-dns-record-operations-ps.md",
       "redirect_url": "/azure/dns/dns-reverse-dns-for-azure-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/scripts/traffic-manager-cli-create-dns-zone-record.md",
+      "redirect_url": "/azure/dns/scripts/dns-cli-create-dns-zone-record",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/private-dns-portal.md",
+      "redirect_url": "/azure/dns/private-dns-getstarted-portal",
       "redirect_document_id": false
     },
     {
