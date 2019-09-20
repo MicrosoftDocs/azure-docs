@@ -87,9 +87,9 @@ Yes, you can install additional components or customize cluster configuration by
 
 ### Can I upgrade the individual components that came pre-installed on the cluster?
 
-You may be able to upgrade built-in components or applications that comes pre-installed on your cluster, if you have root access. However, upgrading built-in components isn't supported by Microsoft, because these are not tested configurations. Instead, consider using a HDInsight cluster with a different version that may already have the upgraded component pre-installed.
+You may be able to upgrade built-in components or applications that comes pre-installed on your cluster, if you have root access. However, upgrading built-in components isn't supported by Microsoft, because these configurations aren't tested. Instead, consider using a HDInsight cluster with a different version that may already have the upgraded component pre-installed.
 
-For example, upgrading Hive as an individual component isn't a supported scenario, because HDInsight is a managed service, and many services are integrated with Ambari Server and tested. Upgrading will cause indexed binaries of the other components to change, and this in turn will lead to many integration issues in the cluster.
+For example, upgrading Hive as an individual component isn't a supported scenario, because HDInsight is a managed service, and many services are integrated with Ambari Server and tested. Upgrading will cause indexed binaries of the other components to change, leading to many integration issues in the cluster.
 
 ### Why does the Hive version show as 1.2.1000 instead of 2.1 in Ambari, although I'm running HDInsight 3.6?
 
@@ -97,7 +97,7 @@ Although only Hive 1.2 appears in the Ambari UI, HDInsight 3.6 contains both Hiv
 
 ### Can Spark and Kafka run on the same HDInsight cluster?
 
-No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight cluster. You should create separate clusters for Kafka and Spark to avoid resource contention issues.
+No, it's not possible to run Apache Kafka and Apache Spark on the same HDInsight cluster. Create separate clusters for Kafka and Spark to avoid resource contention issues.
 
 ### How can I change timezone in Ambari?
 
@@ -148,7 +148,7 @@ Microsoft connects over ports 22 and 23 and the public IP of the head node to do
 - Monitor the health of the cluster by telemetry, and take remedial actions when needed
 - Auto scale, where configured
 
-When you block ports 22 and 23, Microsoft can't perform these operations, so this limits the supportability of the cluster. These ports are also used for SSH, and blocking them can limit your ability to troubleshoot problems on the cluster. A better approach would be deploy your cluster into a virtual network and use *network security groups* (NSGs) to limit public access. For more information, see the following documents:
+When you block ports 22 and 23, Microsoft can't perform these operations, limiting the supportability of the cluster. These ports are also used for SSH, and blocking them can limit your ability to troubleshoot problems on the cluster. A better approach would be deploy your cluster into a virtual network and use *network security groups* (NSGs) to limit public access. For more information, see the following documents:
 
 - [Control network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic)
 - [Secure incoming traffic to HDInsight clusters in a virtual network with a private endpoint](https://azure.microsoft.com/en-in/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
@@ -203,7 +203,7 @@ For auditing requirements, you can enable [Azure Monitor logs](hdinsight-hadoop-
 
 ### Can I disable Clamscan on my cluster?
 
-Clamscan is the antivirus software that runs on the HDInsight cluster and is used by Azure security (*azsecd*) to protect your clusters from virus attacks. Clamscan doesn't interfere or take any cycles away from other processes, and will always yield to other processes. You should only see CPU spikes from Clamscan when the system is idle. It's strongly discouraged to make any changes to the default Clamscan configuration. 
+Clamscan is the antivirus software that runs on the HDInsight cluster and is used by Azure security (*azsecd*) to protect your clusters from virus attacks. Clamscan doesn't interfere or take any cycles away from other processes, and will always yield to other processes. You should only see CPU spikes from Clamscan when the system is idle. It's not a good idea to make any changes to the default Clamscan configuration. 
 
 In scenarios where you need to control the Clamscan schedule, use the following steps:
 
@@ -242,7 +242,7 @@ To audit blob storage accounts, configure monitoring using the procedure at [Mon
 
 ### How can I transfer files between a blob container and an HDInsight head node?
 
-Run a shell script similar to the following on your head node:
+Run a script similar to the following shell script on your head node:
 
 ```shell
 for i in cat filenames.txt
@@ -265,7 +265,7 @@ You can assign data access policies to your users' security groups by using the 
 
 ### Can I increase HDFS storage on a cluster, without increasing the disk size of worker nodes?
 
-No, you can't increase the disk size of any worker node, so the only way to increase disk size is to drop the cluster and recreate it with larger worker VMs. You shouldn't use HDFS for storing any of your HDInsight data, because the data is deleted if you delete your cluster. Instead, store your data in Azure. Scaling up the cluster can also add additional capacity to your HDInsight cluster.
+No, you can't increase the disk size of any worker node, so the only way to increase disk size is to drop the cluster and recreate it with larger worker VMs. Don't use HDFS for storing any of your HDInsight data, because the data is deleted if you delete your cluster. Instead, store your data in Azure. Scaling up the cluster can also add additional capacity to your HDInsight cluster.
 
 ## Edge nodes
 
