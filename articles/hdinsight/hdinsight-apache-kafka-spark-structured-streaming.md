@@ -183,7 +183,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 
 4. Load packages used by the Notebook by entering the following information in a Notebook cell. Run the command by using **CTRL + ENTER**.
 
-**We recommend that you disable dynamic allocation by setting spark.dynamicAllocation.enabled to false when running streaming applications.**
+Spark streaming has microbatching, which means data comes as batches and executers run on the batches of data. If the executor has idle timeout less than the time it takes to process the batch then the executors would be constantly added and removed. If the executors idle timeout is greater than the batch duration, the executor never gets removed. Hence **we recommend that you disable dynamic allocation by setting spark.dynamicAllocation.enabled to false when running streaming applications.**
 
     ```
     %%configure -f
