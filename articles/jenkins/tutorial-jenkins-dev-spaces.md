@@ -47,7 +47,7 @@ This tutorial assumes intermediate knowledge of core Azure services, AKS, ACR, A
 
 In this section, you create Azure resources:
 
-* A resource group to contain all of the Auzre resources for this tutorial.
+* A resource group to contain all of the Azure resources for this tutorial.
 * An [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) (AKS) cluster.
 * An [Azure container registry](https://docs.microsoft.com/azure/container-registry/) (ACR) to build (using ACR Tasks) and store Docker images.
 
