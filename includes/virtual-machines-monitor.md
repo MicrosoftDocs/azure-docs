@@ -2,10 +2,11 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/27/2019
+ms.date: 09/19/2019
 ms.author: cynthn
 ---
-You can take advantage of many opportunities to monitor your VMs by collecting, viewing, and analyzing diagnostic and log data. To do simple [monitoring](../articles/azure-monitor/overview.md) of your VM, you can use the Overview screen for the VM in the Azure portal. You can use [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs to collect additional metric data. You can also use more advanced monitoring options, such as [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) and [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
+
+With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impacting applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs. More advanced monitoring using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 
 
 ## Diagnostics and metrics 
 
