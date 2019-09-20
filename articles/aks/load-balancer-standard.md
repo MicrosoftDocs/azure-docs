@@ -338,7 +338,7 @@ az aks update \
 ```
 
 > [!IMPORTANT]
-> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster.
+> The public IPs and IP prefixes must be in the same region and part of the same subscription as your AKS cluster. 
 
 ### Define your own public IP or prefixes at cluster create time
 
