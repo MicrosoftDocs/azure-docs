@@ -1,6 +1,6 @@
 ---
-title: Application Insights for Worker Service apps (Non-Http apps) | Microsoft Docs
-description: Monitoring .NET Core/.NET Framework non-http apps with Application Insights.
+title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft Docs
+description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
 services: application-insights
 documentationcenter: .net
 author: cithomas
@@ -14,7 +14,7 @@ ms.date: 09/15/2019
 ms.author: cithomas
 ---
 
-# Application Insights for Worker Service applications (non-http applications)
+# Application Insights for Worker Service applications (non-HTTP applications)
 
 Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsights.WorkerService`, which is best suited for non-HTTP workloads like messaging, background tasks, console applications etc. These types of applications don't have the notion of an incoming HTTP request like a traditional ASP.NET/ASP.NET Core Web Application, and hence using Application Insights packages for [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) applications is not supported.
 
