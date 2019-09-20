@@ -77,7 +77,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 It takes about 10 minutes to deploy the template. When completed, the output is similar to:
 
-![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-deployment-powershell-output.png)
+![Azure Standard Load Balancer Resource Manager template PowerShell deployment output](./media/quickstart-load-balancer-standard-public-template/azure-standard-load-balancer-resource-manager-template-powershell-output.png)
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
