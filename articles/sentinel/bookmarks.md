@@ -100,12 +100,12 @@ For instructions to use the investigation graph, see [Use the investigation grap
     > [!div class="mx-imgBorder"]
     > ![Add bookmarks to incident](./media/bookmarks/incident-actions.png)
 
-3. Select either **Create new incident** or **Add to existing incident**, as required:
+3. Select either **Create new incident** or **Add to existing incident**, as required. Then:
     
-    - For a new incident: Optionally update the details for the incident, and select **Create**.
+    - For a new incident: Optionally update the details for the incident, and then select **Create**.
     - For adding a bookmark to an existing incident: Select one incident, and then select **Add**. 
 
-To view the bookmark within the incident: Navigate to **Sentinel** > **Threat management** > **Incidents** and select the incident with your bookmark. Select **View full details**, and select the **Bookmarks** tab.
+To view the bookmark within the incident: Navigate to **Sentinel** > **Threat management** > **Incidents** and select the incident with your bookmark. Select **View full details**, and then select the **Bookmarks** tab.
 
 ## View bookmarked data in Log Analytics 
 
