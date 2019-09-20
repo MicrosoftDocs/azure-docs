@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ---
 
-# Train machine learning models with Azure Machine Learning
+# Train models with Azure Machine Learning
 
 Azure Machine Learning provides several ways to train your models. Use the following list to determine which training method is right for you:
 
@@ -34,7 +34,7 @@ Each of these training methods can use different types of compute resources for 
 
 ## Visual interface
 
-The visual interface (preview) enables you to prepare train machine learning models without writing code.
+The visual interface (preview) enables you to train models using a drag and drop interface in your web browser.
 
 __Concepts__
 
