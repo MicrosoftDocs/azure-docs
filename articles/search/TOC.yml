@@ -239,17 +239,17 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Knowledge store (preview)
-    items:
-    - name: Create a knowledge store in Azure portal
-      href: knowledge-store-create-portal.md
-    - name: Create using REST and Postman
-      href: knowledge-store-howto.md
-    - name: View with Storage Explorer
-      href: knowledge-store-view-storage-explorer.md
-    - name: Connect with Power BI
-      href: knowledge-store-connect-power-bi.md
-  - name: Query data
+    - name: Knowledge store (preview)
+      items:
+      - name: Create a knowledge store in Azure portal
+        href: knowledge-store-create-portal.md
+      - name: Create using REST and Postman
+        href: knowledge-store-howto.md
+      - name: View with Storage Explorer
+        href: knowledge-store-view-storage-explorer.md
+      - name: Connect with Power BI
+        href: knowledge-store-connect-power-bi.md
+  - name: Query documents
     items:
     - name: Create a basic query
       href: search-query-overview.md
@@ -265,7 +265,7 @@
       href: search-query-lucene-examples.md
     - name: moreLikeThis (preview)
       href: search-more-like-this.md
-  - name: Use filters
+  - name: Apply filters
     items:
     - name: Filter overview
       href: search-filters.md
@@ -283,18 +283,14 @@
     items:
     - name: Page-related features
       href: search-pagination-page-layout.md
-  - name: Relevance tuning
-    items:
-    - name: Add scoring profiles
+    - name: Relevance tuning (scoring profiles)
       href: index-add-scoring-profiles.md
-  - name: Administration
+  - name: Manage and monitor
     items:
     - name: Portal administration
       href: search-manage.md
     - name: PowerShell administration
       href: search-manage-powershell.md
-  - name: Monitoring
-    items:
     - name: Monitor activity and logging
       href: search-monitor-usage.md
     - name: Search traffic analytics

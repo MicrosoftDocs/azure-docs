@@ -985,6 +985,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
@@ -1035,6 +1037,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RENRAKU
+        href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
       - name: Reviewsnap
@@ -1472,6 +1476,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Blink
+        href: blink-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1556,6 +1562,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: Robin
+        href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
       - name: Salesforce
