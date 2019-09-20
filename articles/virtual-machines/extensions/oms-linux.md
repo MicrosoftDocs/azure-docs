@@ -3,7 +3,7 @@ title: Azure Monitor virtual machine extension for Linux | Microsoft Docs
 description: Deploy the Log Analytics agent on Linux virtual machine using a virtual machine extension.
 services: virtual-machines-linux
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Azure Monitor virtual machine extension for Linux
