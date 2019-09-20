@@ -14,6 +14,17 @@ ms.custom: seodec18
 ---
 
 # Release notes
+## Speech SDK 1.7.0: 2019-September release
+
+**New Features**
+*	Universal Windows Platform (UWP) support for Xamarin
+*	Android support for Xamarin
+*	iOS support for Xamarin
+*	iOS support for Unity
+*	Compressed input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
+
+**Bug fix**
+*	Fixed IL2CPP build issue on Unity 2019 for Android
 
 ## Speech SDK 1.6.0: 2019-June release
 
