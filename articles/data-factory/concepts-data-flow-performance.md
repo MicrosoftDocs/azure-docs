@@ -77,7 +77,12 @@ Clicking that icon will display the execution plan and subsequent performance pr
 ![New IR](media/data-flow/ir-new.png "New IR")
 
 * Increase the number of cores, which will increase the number of nodes, and provide you with more processing power to query and write to your Azure SQL DB.
-* Try "Compute Optimized" and "Memory Optimized" options to apply more resources to your compute nodes.
+* For data flows with many computations that can be kept in memory (derived columns, aggregations) try "Memory Optimized". For data flows that are more geared toward moving lots of data, try "Compute Optimized".
+* Increasing the number of cores on your Azure IR will result in additional worker nodes, which can provide more resources for data that can increase partitioning and parallel executions.
+* When executing debug actions in the Data Flow designer and in the pipeline designer, the cluster resources are maintained by ADF for 60 minutes from the last data preview or debug execution. This means that debug mode in Data Flows are always 60 minute TTLs.
+* You can set a custom TTL for your compute enviroment. On the Azure IR, set a custom TTL that will instruct ADF to maintain a warm pool of cluster resources for the number of minutes that you set. **Please note that this TTL only applies to triggered pipeline executions of your data flow activities.**
+
+When you utilize a TTL on your Azure IR, the pipeline execution of your data flow activity will be allowed to request a warm VM from the cluster pool. This can minimize the start-up time of your data flow activity as long as the TTL time has not expired.
 
 ### Unit test and performance test with debug
 
