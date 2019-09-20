@@ -62,7 +62,7 @@ Individual automatic tuning settings can be separately configured for each datab
 
 ![Database](./media/sql-database-automatic-tuning-enable/database.png)
 
-Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+Please note that DROP_INDEX option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. DROP_INDEX option at this time is not supported for Premium and Business Critical service tiers. 
 
 Once you have selected your desired configuration, click **Apply**.
 
