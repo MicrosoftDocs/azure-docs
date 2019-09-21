@@ -29,7 +29,7 @@ You can revisit your bookmarked data at any time on the **Bookmark** tab of the 
 
 Currently in preview, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
-Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
+Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from the bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
 ## Add a bookmark
 
@@ -37,14 +37,14 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 2. Select one of the hunting queries and on the right, in the hunting query details, select **Run Query**. 
 
-3. Select **View query results** to view the query results in the **Logs** blade. For example:
+3. Select **View query results** to view the query results. For example:
     
     > [!div class="mx-imgBorder"]
     > ![view query results from Azure Sentinel hunting](./media/bookmarks/new-processes-observed-example.png)
 
-4. In the log query results list, expand the row containing the information that you find interesting.
+4. In the **Logs** blade, log query results list, expand the row that contains the information you find interesting.
 
-5. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmark**:
+5. Select the ellipsis (...) at the end of the row, and then select **Add hunting bookmark**:
     
     > [!div class="mx-imgBorder"]
     > ![Add hunting bookmark to query](./media/bookmarks/add-hunting-bookmark.png)
@@ -74,8 +74,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
 
-5. To update tags and notes, make your changes in the editable text boxes, and then click **Save**.
-
+5. Make your changes in the editable text boxes.
 
 ## Exploring bookmarks in the investigation graph
 
@@ -86,7 +85,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to investigate.
 
-2. In the bookmark details pane, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see entries for **IP**, **Machine**, or **Account**.
+2. In the bookmark details, ensure that at least one entity is mapped. For example, for **ENTITIES**, you see entries for **IP**, **Machine**, or **Account**.
 
 3. Click **Investigate** to view the bookmark in the investigation graph.
 
@@ -113,19 +112,21 @@ For instructions to use the investigation graph, see [Use the investigation grap
 
 To view the bookmark within the incident: Navigate to **Sentinel** > **Threat management** > **Incidents** and select the incident with your bookmark. Select **View full details**, and then select the **Bookmarks** tab.
 
-## View bookmarked data in Log Analytics 
+## View bookmarked data in logs
 
-There are multiple options to viewing your bookmarked data in Log Analytics. 
+There are multiple options to viewing your bookmarked data in logs. 
 
-The easiest way to view bookmarked queries, results, or history is by selecting the desired bookmark in the **Bookmarks** table and use the links provided in the details pane. Options include: 
-- Click **View query** to view the source query in Log Analytics.  
-- Click **View bookmark history** to see all bookmark metadata including: who made the update, the updated values, and the time the update occurred. 
+The easiest way to view bookmarked queries, results, or history is by selecting the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane. Options include: 
 
-- You can also view the raw bookmark data for all bookmarks by clicking on **Bookmark logs** above the bookmark grid. This view will show the all your bookmarks in the hunting bookmark table with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.  
+- **View source query** to view the source query in the **Logs** blade.
+
+- **View bookmark logs** to see all bookmark metadata, which includes who made the update, the updated values, and the time the update occurred.
+
+You can also view the raw bookmark data for all bookmarks by clicking on **Bookmark logs** above the bookmark grid. This view will show the all your bookmarks in the hunting bookmark table with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.
 
 
 > [!NOTE]
-> There can be significant delay (measured in minutes) between the creation of a bookmark and when it is displayed in the **HuntingBookmark** table. It is recommended to create your bookmarks first, then analyze them after the data is ingested. 
+> There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab. Because of this delay, we recommend you create your bookmarks first, then analyze them after the data is ingested.
 
 ## Delete a bookmark
  
