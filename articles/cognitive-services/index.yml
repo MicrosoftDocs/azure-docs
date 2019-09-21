@@ -174,7 +174,7 @@ additionalContent:
             url: https://docs.microsoft.com/rest/api/cognitiveservices/
       - title: SDKs
         links:
-          - text: .Net
+          - text: .NET
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
           - text: Go
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices

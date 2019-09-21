@@ -35,20 +35,24 @@ ms.author: dapine
 
 **Q: Will containers be available for all Cognitive Services and what are the next set of containers we should expect?**
 
-**A:** We would like to make more Cognitive Services available as container offerings. Reach out to your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
+**A:** We would like to make more Cognitive Services available as container offerings. Contact to your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
 
 **Q: What will the Service-Level Agreement (SLA) be for Cognitive Services containers?**
 
 **A:** There is no Service-Level Agreement for Cognitive Services containers.
 
-Cognitive Services container configuration and resourcing is controlled by customers, so Microsoft will not offer an SLA for general availability. Customers are free to deploy containers on-premises, thus they define the host environments.
+Cognitive Services container configuration of resources is controlled by customers, so Microsoft will not offer an SLA for general availability. Customers are free to deploy containers on-premises, thus they define the host environments.
 
 > [!IMPORTANT]
 > To learn more about Cognitive Services Service-Level Agreements, [visit our SLA page](https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/).
 
-**Q: Is this available in sovereign clouds?**
+**Q: Is these containers available in sovereign clouds?**
 
-**A:** No, these are not natively supported in the sovereign cloud. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
+**A:** Not everyone is familiar with the term "sovereign cloud", so let's begin with define that.
+
+> The "sovereign cloud" consist of [Azure Government](../../azure-government), [Azure Germany](../../germany), and [Azure China 21Vianet](../../china).
+
+The answer to the question is "no". These containers are not natively supported in the sovereign cloud. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
 
 ### Versioning
 
@@ -65,6 +69,10 @@ Cognitive Services container configuration and resourcing is controlled by custo
 **A:** Major version changes indicate that there is a breaking change to the API signature. We anticipate that this will generally coincide with major version changes to the corresponding Cognitive Service cloud offering. Minor version changes indicate bug fixes, model updates, or new features that do not make a breaking change to the API signature.
 
 ## Technical Questions
+
+**Q: How should I run the Cognitive Services containers on IoT devices**
+
+Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 
 **Q: Who do I contact for support?**
 
@@ -111,7 +119,7 @@ Explore the following tags for potential questions and answers that align with y
 
 **A:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
  
-**Q 1: What happens to Cognitive Services containers when internet connectivity is lost?**
+**Q 1: What happens to Cognitive Services containers when internet connectivity is lost?**<br>
 **Q 2: How long can the container operate without being connected to Azure?**
 
 **A:** Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times.
