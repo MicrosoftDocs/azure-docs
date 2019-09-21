@@ -1,5 +1,5 @@
 ---
-title: FAQ - Cognitive Services containers
+title: Cognitive Services containers frequently asked questions (FAQ)
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions and answers.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.author: dapine
 
 **Q: What is being announced?**
 
-**A:** [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) allows developers to use the same intelligent APIs that are available in Azure, but with the flexibility that comes with containers. Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
+**A:** [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) allows developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
@@ -31,7 +31,7 @@ ms.author: dapine
 
 **Q: Is there any difference between the Cognitive Services cloud and the containers?**
 
-**A:** Cognitive Services containers are an alternative to the Cognitive Services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys and API signature are the same between the container and the corresponding cloud services. Here are the [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
+**A:** Cognitive Services containers are an alternative to the Cognitive Services cloud. Containers offer the same capabilities as the corresponding cloud services. Customers can deploy the containers on-premises or in Azure. The core AI technology, pricing tiers, API keys, and API signature are the same between the container and the corresponding cloud services. Here are the [features and benefits](../cognitive-services-container-support.md#features-and-benefits) for choosing containers over their cloud service equivalent.
 
 **Q: Will containers be available for all Cognitive Services and what are the next set of containers we should expect?**
 
@@ -39,20 +39,20 @@ ms.author: dapine
 
 **Q: What will the Service-Level Agreement (SLA) be for Cognitive Services containers?**
 
-**A:** There is no Service-Level Agreement for Cognitive Services containers.
+**A:** Cognitive Services containers do not have an SLA.
 
-Cognitive Services container configuration of resources is controlled by customers, so Microsoft will not offer an SLA for general availability. Customers are free to deploy containers on-premises, thus they define the host environments.
+Cognitive Services container configurations of resources are controlled by customers, so Microsoft will not offer an SLA for general availability (GA). Customers are free to deploy containers on-premises, thus they define the host environments.
 
 > [!IMPORTANT]
 > To learn more about Cognitive Services Service-Level Agreements, [visit our SLA page](https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/).
 
-**Q: Is these containers available in sovereign clouds?**
+**Q: Are these containers available in sovereign clouds?**
 
-**A:** Not everyone is familiar with the term "sovereign cloud", so let's begin with define that.
+**A:** Not everyone is familiar with the term "sovereign cloud", so let's begin with definition:
 
-> The "sovereign cloud" consist of [Azure Government](../../azure-government), [Azure Germany](../../germany), and [Azure China 21Vianet](../../china).
+> The "sovereign cloud" consists of the [Azure Government](../../azure-government), [Azure Germany](../../germany), and [Azure China 21Vianet](../../china) clouds.
 
-The answer to the question is "no". These containers are not natively supported in the sovereign cloud. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
+The answer to the question is "no". These containers are not natively supported in the sovereign clouds. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
 
 ### Versioning
 
@@ -139,15 +139,15 @@ Explore the following tags for potential questions and answers that align with y
  
 **Q: Are these containers currently supported on Windows?**
 
-**A:** These are Linux containers, however there is some support for Linux containers on Windows. Refer to the [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/) for more details.
+**A:** The Cognitive Services containers are Linux containers, however there is some support for Linux containers on Windows. For more information about Linux containers on Windows, see [Docker documentation](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
  
 **Q: How do I discover the containers?**
 
-**A:** Cognitive Services containers are available in various locations, such as the Azure portal, Docker hub and Azure container registries. For the most recent container locations, refer to [container repositories and images](../cognitive-services-container-support.md#container-repositories-and-images).
+**A:** Cognitive Services containers are available in various locations, such as the Azure portal, Docker hub, and Azure container registries. For the most recent container locations, refer to [container repositories and images](../cognitive-services-container-support.md#container-repositories-and-images).
 
-**Q: How does this compare to what else is in the market, particularly from AWS and Google?**
+**Q: How does Cognitive Services containers compare to AWS and Google offerings?**
 
-**A:** Microsoft is first cloud provider to move their pre-trained AI models in containers with simple billing per transaction just as though customers are using a cloud service. Microsoft believes a hybrid cloud gives customers more choice.
+**A:** Microsoft is first cloud provider to move their pre-trained AI models in containers with simple billing per transaction as though customers are using a cloud service. Microsoft believes a hybrid cloud gives customers more choice.
 
 **Q: What compliance certifications do containers have?**
 
