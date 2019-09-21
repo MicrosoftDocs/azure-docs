@@ -188,7 +188,7 @@ To reference and edit the values from the array, you can use the `@item()` funct
 
 1. In the code editor, edit action's `inputs` section to customize the table output the way that you want.
 
-This example returns only the column values and not the headers by omitting the `header` property and referencing the values in each `value` property that appears in the `columns` array:
+This example returns only the column values and not the headers from the `columns` array by setting the `header` property to an empty value and dereferencing each `value` property:
 
 ```json
 "Create_CSV_table": {
@@ -303,7 +303,7 @@ To reference and edit the values from the array, you can use the `@item()` funct
 
 1. In the code editor, edit action's `inputs` section to customize the table output the way that you want.
 
-This example returns only the column values and not the headers by omitting the `header` property value and referencing each `value` property that appears in the `columns` array:
+This example returns only the column values and not the headers from the `columns` array by setting the `header` property to an empty value and dereferencing each `value` property:
 
 ```json
 "Create_HTML_table": {
