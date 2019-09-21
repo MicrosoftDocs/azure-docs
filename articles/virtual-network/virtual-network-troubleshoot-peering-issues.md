@@ -38,15 +38,15 @@ To configure virtual network peering for the virtual networks that are in the sa
 > [!Note]
 > Connectivity doesn't work over global virtual network peering for the following resources: 
 >
-> * Virtual machines (VMs) behind Basic internal load balancer (ILB)
-> * Redis cache (uses Basic ILB)
-> * Application gateway (uses Basic ILB)
-> * Virtual machine scale sets (uses Basic ILB)
-> * Azure Service Fabric clusters (uses Basic ILB)
-> * SQL Server Always On (uses Basic ILB)
-> * Azure App Service Environment for PowerApps (uses Basic ILB)
-> * Azure API Management (uses Basic ILB)
-> * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB)
+> * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
+> * Redis cache (uses Basic ILB SKU)
+> * Application gateway (uses Basic ILB SKU)
+> * Virtual machine scale sets (uses Basic ILB SKU)
+> * Azure Service Fabric clusters (uses Basic ILB SKU)
+> * SQL Server Always On (uses Basic ILB SKU)
+> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
+> * Azure API Management (uses Basic ILB SKU)
+> * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
@@ -91,15 +91,15 @@ For help with troubleshooting the NVA device setup and routing, see [Network vir
 
 Transit over global virtual network peering is now supported. Connectivity does not work over global virtual network peering for the following resources:
 
-* VMs behind Basic ILB
-* Redis cache (uses Basic ILB)
-* Application gateway (uses Basic ILB)
-* Scale sets (uses Basic ILB)
-* Service Fabric clusters (uses Basic ILB)
-* SQL Server Always On (uses Basic ILB)
-* App Service Environment (uses Basic ILB)
-* API Management (uses Basic ILB)
-* Azure AD DS (uses Basic ILB)
+* VMs behind Basic ILB SKU
+* Redis cache (uses Basic ILB SKU)
+* Application gateway (uses Basic ILB SKU)
+* Scale sets (uses Basic ILB SKU)
+* Service Fabric clusters (uses Basic ILB SKU)
+* SQL Server Always On (uses Basic ILB SKU)
+* App Service Environment (uses Basic ILB SKU)
+* API Management (uses Basic ILB SKU)
+* Azure AD DS (uses Basic ILB SKU)
 
 To learn more about global peering requirements and restraints, see [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints).
 
@@ -117,7 +117,7 @@ To troubleshoot this issue:
 
    If you're using a firewall or NVA: 
    1. Document the UDR parameters so that you can restore them after this step is complete.
-   2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step works, see the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
+   2. Remove the UDR from the source VM subnet or NIC that points to the NVA as the next hop. Verify connectivity from the source VM directly to the destination that is bypassing the NVA. If this step doesn't work, see the [NVA troubleshooter](https://docs.microsoft.com/azure/virtual-network/virtual-network-troubleshoot-nva).
 
 2. Take a network trace: 
    1. Start a network trace on the destination VM. For Windows, you can use **Netsh**. For Linux, use **TCPDump**.
@@ -131,15 +131,15 @@ To troubleshoot this issue:
    > [!Note]
    > You can't connect to the following resource types over global virtual network peering (virtual networks in different regions):
    >
-   > * VMs behind Basic ILB
-   > * Redis cache (uses Basic ILB)
-   > * Application gateway (uses Basic ILB)
-   > * Scale sets (uses Basic ILB)
-   > * Service Fabric clusters (uses Basic ILB)
-   > * SQL Server Always On (uses Basic ILB)
-   > * App Service Environment (uses Basic ILB)
-   > * API Management (uses Basic ILB)
-   > * Azure AD DS (uses Basic ILB)
+   > * VMs behind Basic ILB SKU
+   > * Redis cache (uses Basic ILB SKU)
+   > * Application gateway (uses Basic ILB SKU)
+   > * Scale sets (uses Basic ILB SKU)
+   > * Service Fabric clusters (uses Basic ILB SKU)
+   > * SQL Server Always On (uses Basic ILB SKU)
+   > * App Service Environment (uses Basic ILB SKU)
+   > * API Management (uses Basic ILB SKU)
+   > * Azure AD DS (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering.
 
@@ -192,15 +192,15 @@ For more information, see [Service chaining](https://docs.microsoft.com/azure/vi
 
 Transit over global virtual network peering is now supported. Connectivity doesn't work over global virtual network peering for the following resources:
 
-* VMs behind Basic ILB
-* Redis cache (uses Basic ILB)
-* Application gateway (uses Basic ILB)
-* Scale sets (uses Basic ILB)
-* Service Fabric clusters (uses Basic ILB)
-* SQL Server Always On (uses Basic ILB)
-* App Service Environment (uses Basic ILB)
-* API Management (uses Basic ILB)
-* Azure AD DS (uses Basic ILB)
+* VMs behind Basic ILB SKU
+* Redis cache (uses Basic ILB SKU)
+* Application gateway (uses Basic ILB SKU)
+* Scale sets (uses Basic ILB SKU)
+* Service Fabric clusters (uses Basic ILB SKU)
+* SQL Server Always On (uses Basic ILB SKU)
+* App Service Environment (uses Basic ILB SKU)
+* API Management (uses Basic ILB SKU)
+* Azure AD DS (uses Basic ILB SKU)
 
 For more information, see the [requirements and constraints](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints) of global peering and [Different VPN Topologies](https://blogs.msdn.microsoft.com/igorpag/2016/02/11/hubspoke-daisy-chain-and-full-mesh-vnet-topologies-in-azure-arm-v2/).
 
