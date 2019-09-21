@@ -31,7 +31,7 @@ Currently in preview, if you find something that urgently needs to be addressed 
 
 Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
-## Run a Log Analytics query from Azure Sentinel and add a bookmark
+## Add a bookmark
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
@@ -51,18 +51,18 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 6. On the right, in the **Add hunting bookmark** blade, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-7. In the **Query information** section, use the drop down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result. For example:
+7. In the **Query Information** section, use the drop down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result. For example:
     
     > [!div class="mx-imgBorder"]
     > ![Map entity types for hunting bookmark](./media/bookmarks/map-entity-types-bookmark.png)
     
-    To view the bookmark in the investigation graph, you must map at least one entity type that is either **Account**, **Machine**, or **IP address**. 
+    To view the bookmark in the investigation graph (currently in preview), you must map at least one entity type that is either **Account**, **Host**, or **IP address**. 
 
 5. Click **Add** to commit your changes and add the bookmark. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
 
  
 > [!NOTE]
-> The log query results support bookmarks whenever this blade is opened from Azure Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. The ability to create bookmarks is not present when the **Logs** blade is opened from other locations, such as directly from Azure Monitor. 
+> The log query results support bookmarks whenever this blade is opened from Azure Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** blade is opened from other locations, such as directly from Azure Monitor.
 
 ## View and update bookmarks 
 
