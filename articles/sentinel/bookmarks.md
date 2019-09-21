@@ -27,7 +27,7 @@ Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries 
 
 You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** page. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Log Analytics. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
-Now in preview, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
+Currently in preview, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
 Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
@@ -78,8 +78,8 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 ## Exploring bookmarks in the investigation graph
 
 > [!IMPORTANT]
-> Exploring bookmarks in the investigation graph is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads.
+> Exploring bookmarks in the investigation graph and the investigation graph itself are currently in public preview.
+> These features are provided without a service level agreement, and not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to investigate.
