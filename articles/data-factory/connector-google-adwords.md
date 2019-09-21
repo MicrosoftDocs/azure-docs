@@ -27,7 +27,7 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 This Google AdWords connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 

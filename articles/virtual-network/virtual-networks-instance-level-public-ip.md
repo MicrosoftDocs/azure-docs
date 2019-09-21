@@ -4,7 +4,7 @@ description: Understand instance level public IP (ILPIP) addresses and how to ma
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 07eef6ec-7dfe-4c4d-a2c2-be0abfb48ec5
