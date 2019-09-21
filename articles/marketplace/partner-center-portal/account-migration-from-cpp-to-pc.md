@@ -18,7 +18,7 @@ If you have an existing Cloud Partner Portal (CPP) account, your account setting
 If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You may belong to one of the following two cases:
 
 - Your account has already been migrated, and you are ready to manage your Account Settings in Partner Center.
-- You need to take some further actions to complete your account migration to Partner Center.
+- You need to take further actions to complete your account migration to Partner Center.
 
 ### Your account has been migrated to Partner Center
 
@@ -50,7 +50,7 @@ To learn more about the Microsoft Partner Network, see [Join the Microsoft Partn
 
 To streamline account and offer management for Dynamics 365 Customer Engagement and Dynamics 365 Operations, the offers have been moved to [Partner Center](https://partner.microsoft.com/). This move ensures the same content is available to both public and seller catalogs.
 
-For specific information on what needs to be done and by when for your Dynamics 365-based solutions, please follow the instructions that apply to you:
+For specific information on what needs to be done and by when for your Dynamics 365-based solutions, follow the instructions that apply to you:
 
 - If you have published offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations and need to move them to Partner Center, see [Move published offers](#move-published-offers).
 - If you have draft offers for Dynamics 365 Customer Engagement or Dynamics 365 Operations already migrated to Partner Center, see [Activate draft offers](#activate-draft-offers).
@@ -79,7 +79,7 @@ If you have created Dynamics 365 Customer Engagement or Dynamics 365 Operations 
    * On the [Agreements](https://partner.microsoft.com/dashboard/account/agreements) page in Partner Center, make sure you’ve accepted the **Business Applications ISV Addendum** to enroll in the program.
    * On the [Account settings](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile) page, provide your billing information.
 
-4. Submit each new and existing offer for certification, even if your offers were previously certified. If eligible, you may request to participate in the premium tier during this process. If your offer was previously certified, **you must complete app recertification by October 15, 2019.** Certification or recertification will require that your app support the latest version of our Business Applications Platform.
+4. Submit each new and existing offer for certification, even if your offers were previously certified. If eligible, you may request to participate in the premium tier during this process. If your offer was previously certified, **you must complete app recertification by October 15, 2019.** Certification or recertification requires that your app supports the latest version of our Business Applications Platform.
 
 5. Go to the [One Commercial Partner GTM portal](https://msgtm.azurewebsites.net/en-US/Profile/SignIn) and add your AppSource listing URL in the Marketplace Links section. If you need help with this step, email us at cosell@microsoft.com.
 
@@ -92,7 +92,7 @@ You'll need to activate your draft offers in Partner Center to keep them availab
 >[!NOTE]
 >Publish each of your draft offers in Partner Center before **October 15, 2019** to make them available and avoid their removal from our seller catalog.
 
-For your convenience, we’ve created a draft of each offer based on content you previously provided. If the draft offer is not correct, we may have mis-categorized your offer type. In this case, please [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce) to prevent the automatic removal of the offer from the seller catalog.
+For your convenience, we’ve created a draft of each offer based on content you previously provided. If the draft offer is not correct, we may have mis-categorized your offer type. In this case, [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce) to prevent the automatic removal of the offer from the seller catalog.
 
 If the draft offer is correct, complete the following steps **by October 15, 2019** to publish the offer.
 
@@ -102,10 +102,10 @@ If the draft offer is correct, complete the following steps **by October 15, 201
 1. To access your draft offer, sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). You must have **Manager** (owner) credentials for the MPN account associated with the offer being migrated.
 2. On the [Agreements page](https://partner.microsoft.com/dashboard/account/agreements) for Partner Center, review and accept the Business Applications ISV Addendum.
 3. Make sure your billing information is correct and complete in [Account Settings](https://partner.microsoft.com/dashboard/account/accountsettings/billingprofile).
-4. Return to [Overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) and check that the **offer type** in draft status is **Dynamics 365 Customer Engagement** or **Dynamics 365 Operations**. If the offer type is incorrect, please [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce).
+4. Return to [Overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) and check that the **offer type** in draft status is **Dynamics 365 Customer Engagement** or **Dynamics 365 Operations**. If the offer type is incorrect, [contact Microsoft Support](https://support.microsoft.com/en-us/supportforbusiness/productselection?sapId=faff63bb-29e7-f13c-5876-4270797225ce).
 5. Before publishing the draft offer, confirm your offers are not already in AppSource by [searching for your offers](https://appsource.microsoft.com/).
     >[!NOTE]
-    >If your offer was found in AppSource, it may be a duplicate offer that can be deleted. However, before deleting the draft offer, please sign in to Partner Center and access the alternate offer to ensure that it contains co-selling collateral, contact information, and the same market coverage as this draft offer. Also, if you sell through multiple legal entities (e.g., Contoso Inc in USA and Contoso Ltd in Europe), you may want to have multiple offers for different legal entities in AppSource.
+    >If your offer was found in AppSource, it may be a duplicate offer that can be deleted. However, before deleting the draft offer, sign in to Partner Center and access the alternate offer to ensure that it contains co-selling collateral, contact information, and the same market coverage as this draft offer. Also, if you sell through multiple legal entities (e.g., Contoso Inc in USA and Contoso Ltd in Europe), you may want to have multiple offers for different legal entities in AppSource.
 
 6. If your offer is not in AppSource, select the draft offer from [Overview](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) and complete the offer information pages.
 7. Select **Submit**.
@@ -124,7 +124,7 @@ We could not associate your Dynamics 365 Customer Engagement or Dynamics 365 Ope
 
 Join the weekly [Dynamics ISV community call](https://aka.ms/DynamicsISV-CommunityCall) for support and updates.
 
-If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport). For reporting the wrong offer type or migrated-in-error only, please use [Microsoft Support](https://aka.ms/migrationoffertype) to contact us.
+If you need help publishing, certifying, or managing your marketplace offers, [submit a support ticket](https://aka.ms/MarketplacePublisherSupport). For reporting the wrong offer type or migrated-in-error only, use [Microsoft Support](https://aka.ms/migrationoffertype) to contact us.
 
 ## Next steps
 
