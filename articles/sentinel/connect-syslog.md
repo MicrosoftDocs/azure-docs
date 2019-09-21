@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: rkarlin
 
 ---
@@ -72,7 +72,7 @@ For more information, see [Syslog data sources in Azure Monitor](../azure-monito
 > This feature is provided without a service level agreement, and it's not recommended for production workloads.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-The syslog data that you collect can be used with machine learning (ML) to identify anomalous Secure Shell (SSH) login activity. Scenarios include:
+Azure Sentinel can apply machine learning (ML) to the syslog data to identify anomalous Secure Shell (SSH) login activity. Scenarios include:
 
 - Impossible travel – when two successful login events occur from two locations that are impossible to reach within the timeframe of the two login events.
 - Unexpected location – the location from where a successful login event occurred is suspicious. For example, the location has not been seen recently.
