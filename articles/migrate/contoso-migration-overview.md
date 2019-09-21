@@ -43,4 +43,4 @@ The articles in the series are summarized in the table below.
 ## Next steps
 
 - [Learn about](https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/) cloud migration.
-- Learn about migration strategies for other source/target pairs in the [Database Migration Guide](https://datamigration.microsoft.com/).
+- Learn about migrations strategies for other scenarios (source/target pairs) in the [Database Migration Guide](https://datamigration.microsoft.com/).
