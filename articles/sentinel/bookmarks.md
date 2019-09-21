@@ -35,9 +35,9 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
-1. To run a hunting campaign, select one of the hunting queries and on the left, review the results. 
+1. To run a hunting campaign, select one of the hunting queries and on the right, in the hunting query details, select **Run Query**. 
 
-1. Click **View query results** in the hunting query **Details** page to view the query results in Log Analytics. Here's an example of what you see if you ran a custom SSH brute force attack query.
+2. Select **View query results** to view the query results in Log Analytics. For example:
   
    ![show results](./media/bookmarks/ssh-bruteforce-example.png)
 
