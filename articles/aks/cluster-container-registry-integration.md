@@ -7,38 +7,23 @@ manager: gwallace
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: mlearned
 ---
 
-# Preview - Authenticate with Azure Container Registry from Azure Kubernetes Service
+# Authenticate with Azure Container Registry from Azure Kubernetes Service
 
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services.
 
 You can set up the AKS to ACR integration in a few simple commands with the Azure CLI.
-
-> [!IMPORTANT]
-> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
->
-> * [AKS Support Policies](support-policies.md)
-> * [Azure Support FAQ](faq.md)
 
 ## Before you begin
 
 You must have the following:
 
 * **Owner** or **Azure account administrator** role on the **Azure subscription**
-* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
+* You also need the Azure CLI version 2.0.73 or later
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
-
-## Install latest AKS CLI preview extension
-
-You need the **aks-preview 0.4.13** extension or later.
-
-```azurecli
-az extension remove --name aks-preview 
-az extension add -y --name aks-preview
-```
 
 ## Create a new AKS cluster with ACR integration
 
@@ -48,7 +33,7 @@ az login
 az acr create -n myContainerRegistry -g myContainerRegistryResourceGroup --sku basic [in case you do not have an existing ACR]
 az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resource-id>
 ```
-**An ACR resource id has the following format: 
+**An ACR resource ID has the following format:** 
 
 /subscriptions/<subscription-d>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/{name} 
   

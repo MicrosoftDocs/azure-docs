@@ -1,9 +1,9 @@
-- name: Azure Machine Learning service Documentation
+- name: Azure Machine Learning Documentation
   href: ../index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Machine Learning service?
+  - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: Architecture & terms
@@ -27,11 +27,16 @@
         href: tutorial-train-models-with-aml.md
       - name: 2. Deploy a model
         href: tutorial-deploy-models-with-aml.md
-    - name: Regression (NYC Taxi data)
+    - name: Regression with Automated ML (NYC Taxi data)
       items:
       - name: Auto-train an ML model
         displayName: automl, automated, auto ml,
         href: tutorial-auto-train-models.md
+    - name: Machine Learning pipelines (advanced)
+      items:
+      - name: Batch score a classification model
+        displayName: pipelines
+        href: tutorial-pipeline-batch-scoring-classification.md
   - name: Visual interface
     items:
     - name: 1. Train regression model
@@ -40,7 +45,7 @@
     - name: 2. Deploy regression model
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
-  - name: Automated machine learning
+  - name: Automated ML (interface)
     items:
     - name: Classification (Bank data)
       displayName: automl, automated, auto ml, portal, ui
@@ -50,26 +55,6 @@
   - name: Notebooks
     displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
-  - name: Visual interface experiments
-    items:
-    - name: "Predict price"
-      displayName: regression, studio
-      href:  ui-sample-regression-predict-automobile-price-basic.md
-    - name: "Predict price (advanced)"
-      displayName: regression, studio
-      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
-    - name: "Predict credit risk"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-credit-risk-basic.md
-    - name: "Predict credit risk (advanced)"
-      displayName: classification, studio
-      href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - name: "Predict churn"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-churn.md
-    - name: "Predict flight delays"
-      displayName: classification, studio
-      href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
@@ -123,13 +108,13 @@
     - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
-  - name: Set up development environment 
+  - name: Set up your environment 
     items:
-    - name: Configure dev environments
+    - name: Set up dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Manage software environment
-      displayName: pip, Conda
+    - name: Set up software environments
+      displayName: pip, Conda, anaconda
       href: how-to-use-environments.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
@@ -148,6 +133,9 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Train with datasets
+      displayName: data, dataset
+      href: how-to-train-with-datasets.md
   - name: Train models
     items:
     - name: Set up training environments
@@ -167,6 +155,27 @@
         href: how-to-train-pytorch.md
       - name: Use Chainer
         href: how-to-train-chainer.md
+    - name: Use visual interface
+      displayName: sample visual interface experiments
+      items:
+      - name: "Predict price"
+        displayName: regression, studio
+        href:  how-to-ui-sample-regression-predict-automobile-price-basic.md
+      - name: "Predict price (advanced)"
+        displayName: regression, studio
+        href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+      - name: "Predict credit risk"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-credit-risk-basic.md
+      - name: "Predict credit risk (advanced)"
+        displayName: classification, studio
+        href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+      - name: "Predict churn"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-churn.md
+      - name: "Predict flight delays"
+        displayName: classification, studio
+        href:  how-to-ui-sample-classification-predict-flight-delay.md
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
@@ -192,7 +201,7 @@
     - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
-    - name: Use automated ML (Azure portal)
+    - name: Use automated ML (workspace landing page)
       href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml

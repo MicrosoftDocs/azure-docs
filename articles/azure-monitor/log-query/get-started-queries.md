@@ -21,7 +21,9 @@ ms.author: bwren
 > [!NOTE]
 > You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) before completing this tutorial.
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
+
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
