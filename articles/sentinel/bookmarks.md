@@ -35,7 +35,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** to run queries for suspicious and anomalous behavior.
 
-1. To run a hunting campaign, select one of the hunting queries and on the right, in the hunting query details, select **Run Query**. 
+1. Select one of the hunting queries and on the right, in the hunting query details, select **Run Query**. 
 
 2. Select **View query results** to view the query results in Log Analytics. For example:
   
@@ -47,9 +47,13 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 2. Select the ellipsis (...) at the end of the row, and select **Add hunting bookmarks**.
 
-3. On the right, in the **Details** page, update the name, and add tags, and notes to help you identify what was interesting about the item.
+3. On the right, in the **Add hunting bookmark** blade, update the bookmark name, and add tags, and notes to help you identify what was interesting about the item.
 
-3. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
+4. In the **Query information** section, use the drop down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result.
+    
+    To view the bookmark in the investigation graph, you must map at least one entity type that is either **Account**, **Machine**, or **IP address**. 
+
+5. Click **Save** to commit your changes. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
 
    ![show results](./media/bookmarks/add-bookmark-la.png)
 
