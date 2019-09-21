@@ -1,13 +1,13 @@
 ---
-title: Tutorial - Azure Functions trigger for Azure Container Instances
-description: Create an HTTP-triggered serverless PowerShell function to automate creation of Azure container instances
+title: Tutorial - Trigger Azure Container Instances by an Azure function
+description: Create an HTTP-triggered, serverless PowerShell function to automate creation of Azure container instances
 services: container-instances
 author: dlepow
 manager: gwallace
 
 ms.service: container-instances
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 09/20/2019
 ms.author: danlep
 ms.custom: 
 ---
@@ -31,7 +31,7 @@ You learn how to:
 
 ## Prerequisites
 
-See [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md) for prerequisites to install and use Visual Studio Code with the Azure Functions on your OS.
+See [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md#prerequisites) for prerequisites to install and use Visual Studio Code with the Azure Functions on your OS.
 
 Some steps in this article use the Azure CLI. You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -92,7 +92,7 @@ This example creates a container group consisting of a single container instance
  
 ## Test function app locally
 
-Ensure that the function runs properly locally before republishing the function app project to Azure. As shown in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it.  For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
+Ensure that the function runs properly locally before republishing the function app project to Azure. As shown in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it. For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
 
 ## Republish Azure function app
@@ -175,7 +175,6 @@ Started container group mycontainergroup
 Verify that the container ran with the [az container logs][az-container-logs] command:
 
 ```azurecli
-
 az container logs --resource-group myfunctionapp --name mycontainergroup
 ```
 
