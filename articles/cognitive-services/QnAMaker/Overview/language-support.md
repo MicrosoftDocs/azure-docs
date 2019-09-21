@@ -7,54 +7,62 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/21/2019
+ms.topic: reference
+ms.date: 10/28/2019
 ms.author: diberry
-ms.custom: seodec18
 ---
 # Language support for QnA Maker
 
-The language of a knowledge base affects QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md), as well as the relevance of the results QnA Maker provides in response to user queries.
+The language of the first knowledge base affects QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md) of all knowledge bases in that resource, as well as the relevance of the results QnA Maker provides in response to user queries.
 
-## Auto extraction
-QnA Maker supports question/answer extraction in any language page, but the effectiveness of the extraction is much higher for the following languages, as QnA Maker uses keywords to identify questions.
+## One language for all knowledge bases 
 
-|Languages supported| Locale|
-|-----|----|
-|English|en-*|
-|French|fr-*|
-|Italian|it-*|
-|German|de-*|
-|Spanish|es-*|
+QnA Maker allows you to select the language for your QnA service, while creating the first knowledge base. For all the knowledge bases in a QnA Maker resource, they all must be in the same language.  
 
-## Primary Language detection
+Creating multiple knowledge bases in one service negatively affects the relevance of the results QnA Maker provides in response to user queries.
 
-The primary language used for detection is set for the QnA Maker resource, and all knowledge bases created on that resource, when the first document or URL is added to the first knowledge base. The language can't be changed. 
+Language select is part of the first knowledge base created in a resource. 
 
-If the user plans to support multiple languages, they need to have a new QnA Maker resource for each language. Learn how to [create a language-based QnA Maker knowledge base](../how-to/language-knowledge-base.md).  
+## Verify language
 
-Verify the primary language with the following steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com).  
-1. Look for and select the Azure Search resource created as part of your QnA Maker resource. The Azure Search resource name will begin with the same name as the QnA Maker resource and will have the type **Search service**. Please keep in mind, only one QnA Maker resource can be linked to one Azure Search resource.
-1. From the **Overview** page of the Search resource, select **Indexes**. 
-1. Select the **testkb** index.
-1. Select the **Fields** tab. 
-1. View the **Analyzer** column for the **questions** and **answer** fields. 
-
+You can verify the language of your QnA Maker resource from the service settings page in the Azure portal. 
 
 ## Query matching and relevance
-QnA Maker depends on [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search for providing results. Special re-ranking features are available for En-* languages that enable better relevance.
+QnA Maker depends on [language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) in Azure search for providing results. 
 
-While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in en-*, that are not yet available for other languages. We do not make these features available, as they are part of the internal working of the QnA Maker's ranker. 
+While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages. 
 
-QnA Maker [auto-detects the language of the knowledge base](#primary-language-detection) during creation and sets the analyzer accordingly. You can create knowledge bases in the following languages. 
+|Languages with additional ranker|
+|--|
+|Chinese|
+|Czech|
+|Dutch|
+|English|
+|French|
+|German|
+|Hungarian|
+|Italian|
+|Japanese|
+|Korean|
+|Polish|
+|Portuguese|
+|Spanish|
+|Swedish|
 
-|Languages supported|
-|-----|
+This additional ranking is an internal working of the QnA Maker's ranker.
+
+You can set the language analyzer for QnA service while creating the first knowledge base in new service. This language can’t be changed and all additional knowledge bases in this resource must be in the same language for expected ranking results.
+
+
+## Languages supported
+
+The following list contains the languages supported for a QnA Maker resource. 
+
+|Language|
+|--|
 |Arabic|
 |Armenian|
-Bengali|
+|Bengali|
 |Basque|
 |Bulgarian|
 |Catalan|
