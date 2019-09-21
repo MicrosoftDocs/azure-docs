@@ -165,11 +165,11 @@ If you prefer working in the code view editor, you can copy the example **Create
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
-By default, the **Columns** property is set to automatically create the columns based on the array items. To specify custom column headers and values, follow these steps:
+By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom column headers and values, follow these steps:
 
 1. Open the **Columns** list, and select **Custom**.
 
-1. To specify custom column headers, in the **Header** property, specify the column name.
+1. To specify custom headers, in the **Header** property, specify the column name.
 
 1. To specify custom values, in the **Key** property, specify the column value.
 
@@ -177,7 +177,7 @@ By default, the **Columns** property is set to automatically create the columns 
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
    > use the [Parse JSON](#parse-json-action) before calling the **Create CSV table** action.
 
-To omit the column headers, switch from designer view to code view, and edit the action's definition to use only the `value` property in the `columns` definition, and omit the `header` property, for example:
+To reference and edit the values from the array, or to edit or omit the column headers, you can use the `@item()` function. On the designer toolbar, select **Code view**. Edit the action's definition to use only the `value` property in the `columns` array object, and omit the `header` property, for example:
 
 ```json
 "Create_CSV_table": {
@@ -248,11 +248,11 @@ If you prefer working in the code view editor, you can copy the example **Create
 
 1. Save your logic app. On the designer toolbar, select **Save**.
 
-By default, the **Columns** property is set to automatically create the columns based on the array items. To specify custom column headers and values, follow these steps:
+By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom column headers and values, follow these steps:
 
 1. Open the **Columns** list, and select **Custom**.
 
-1. To specify custom column headers, in the **Header** property, specify the column name.
+1. To specify custom headers, in the **Header** property, specify the column name.
 
 1. To specify custom values, in the **Key** property, specify the column value.
 
@@ -260,7 +260,7 @@ By default, the **Columns** property is set to automatically create the columns 
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
    > use the [Parse JSON](#parse-json-action) before calling the **Create CSV table** action.
 
-To omit the column headers, switch from designer view to code view, and edit the action's definition to use only the `value` property in the `columns` definition, and omit the `header` property, for example:
+To reference and edit the values from the array, or to edit or omit the column headers, you can use the `@item()` function. On the designer toolbar, select **Code view**. Edit the action's definition to use only the `value` property in the `columns` array object, and omit the `header` property, for example:
 
 ```json
 "Create_HTML_table": {
