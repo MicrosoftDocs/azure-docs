@@ -12,24 +12,16 @@ ms.date: 09/10/2019
 ---
 # Fetch shared access signature tokens in code
 
-Execute operations on your storage account by fetching [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) from Key Vault. 
+You can manage your storage account with the [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) in your key vault. This article provides examples of C# code that fetches a SAS token and performs operations with it.  For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys) or [Manage storage account keys with Key Vault and Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
-There are three ways to authenticate to Key Vault:
-
-- Use a managed service identity. This approach is highly recommended.
-- Use a service principal and certificate. 
-- Use a service principal and password. This approach isn't recommended.
-
-For more information, see [Azure Key Vault: Basic concepts](basic-concepts.md).
-
-The following example demonstrates how to fetch shared access signature tokens. You fetch the tokens after you create a shared access signature definition. 
+In this example, the code fetches a SAS token from your key vault, uses it to create a new storage account, and creates a new Blob service client.  
 
 ```cs
 // After you get a security token, create KeyVaultClient with vault credentials.
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(securityToken));
 
 // Get a shared access signature token for your storage from Key Vault.
-// The format for SecretUri is https://<VaultName>.vault.azure.net/secrets/<ExamplePassword>
+// The format for SecretUri is https://<YourKeyVaultName>.vault.azure.net/secrets/<ExamplePassword>
 var sasToken = await kv.GetSecretAsync("SecretUri");
 
 // Create new storage credentials by using the shared access signature token.
@@ -41,7 +33,7 @@ var accountWithSas = new CloudStorageAccount(accountSasCredential, new Uri ("htt
 var blobClientWithSas = accountWithSas.CreateCloudBlobClient();
 ```
 
-If your shared access signature token is about to expire, fetch the shared access signature token again from Key Vault and update the code.
+If your shared access signature token is about to expire, you can fetch the shared access signature token from your key vault and update the code.
 
 ```cs
 // If your shared access signature token is about to expire,
@@ -52,7 +44,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 
 ## Next steps
-
-- [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
+- Learn how to [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys) or [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+- See [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
 - [Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

@@ -188,7 +188,8 @@ The commands in this section complete the following actions:
 - Set an account shared access signature definition. 
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
-
+- Verify that the shared access signature was saved in your key vault as a secret.
+- 
 ### Set variables
 
 First, set the variables to be used by the PowerShell cmdlets in the following steps. Be sure to update the <YourStorageAccountName> and <YourKeyVaultName> placeholders.
@@ -222,9 +223,39 @@ The value of $sasToken will look similar to this.
 
 Use the the Azure PowerShell [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet to create a shared access signature definition.  You can provide the name of your choice to the `-Name` parameter.
 
-```azurecli-interactive
-Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name accountsas -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
+```azurepowershell-interactive
+Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
 ```
+
+### Verify the shared access signature definition
+
+You can verify that the shared access signature definition has been stored in your key vault using the Azure PowerShell [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-2.6.0) cmdlet.
+
+First, find the shared access signature definition in your key vault.
+
+```azurepowershell-interactive
+Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+```
+
+The secret corresponding to your SAS definition will have these properties:
+
+```console
+Vault Name   : <YourKeyVaultName>
+Name         : <SecretName>
+...
+Content Type : application/vnd.ms-sastoken-storage
+Tags         :
+```
+
+You can now use the [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) cmdlet and the secret `Name` property to view the content of that secret.
+
+```azurepowershell-interactive
+$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
+
+Write-Host $secret.SecretValueText
+```
+
+The output of this command will show your SAS definition string.
 
 
 ## Next steps

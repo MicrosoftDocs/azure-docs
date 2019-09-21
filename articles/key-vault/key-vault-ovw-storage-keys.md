@@ -94,6 +94,7 @@ The commands in this section complete the following actions:
 - Set an account shared access signature definition `<YourSASDefinitionName>`. The definition is set on a Key Vault managed storage account `<YourStorageAccountName>` in your key vault `<YourKeyVaultName>`.
 - Create an account shared access signature token for Blob, File, Table, and Queue services. The token is created for resource types Service, Container, and Object. The token is created with all permissions, over https, and with the specified start and end dates.
 - Set a Key Vault managed storage shared access signature definition in the vault. The definition has the template URI of the shared access signature token that was created. The definition has the shared access signature type `account` and is valid for N days.
+- Verify that the shared access signature was saved in your key vault as a secret.
 
 ### Create a shared access signature token
 
@@ -118,6 +119,32 @@ Use the the Azure CLI [az keyvault storage sas-definition create](/cli/azure/key
 ```azurecli-interactive
 az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --account-name <YourStorageAccountName> -n <YourSASDefinitionName> --validity-period P2D --sas-type account --template-uri <OutputOfSasTokenCreationStep>
 ```
+
+### Verify the shared access signature definition
+
+You can verify that the shared access signature definition has been stored in your key vault using the Azure CLI [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) and [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) commands.
+
+First, find the shared access signature definition in your key vault using the [az keyvault secret list](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) command.
+
+```azurecli-interactive
+az keyvault secret list --vault-name <YourKeyVaultName>
+```
+
+The secret corresponding to your SAS definition will have these properties:
+
+```console
+    "contentType": "application/vnd.ms-sastoken-storage",
+    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
+```
+
+You can now use the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command and the `id` property to view the content of that secret.
+
+```azurecli-interactive
+az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+```
+
+The output of this command will show your SAS definition string as`value`.
+
 
 ## Next steps
 
