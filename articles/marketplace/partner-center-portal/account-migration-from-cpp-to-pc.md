@@ -30,25 +30,25 @@ Click on the banner to initiate your account migration process. You are expected
 
 1. Work email address: <br> <br> In most cases, sign in with the email address that you use to sign into CPP. In certain cases, a different email address must be used:
 
-    * Microsoft account: If the CPP account is a Microsoft account, then you need to enter a valid work email address associated with the tenant, for whom the Microsoft Partner Network (MPN) ID is registered. See [Sign up for Microsoft Partner Network Program](#sign-up-for-microsoft-partner-network-program) for more information.
+    * Microsoft account: If the CPP account is a Microsoft account, enter a valid work email associated with the tenant for whom the Microsoft Partner Network (MPN) ID is registered. For more information, see [Sign up for Microsoft Partner Network Program](#sign-up-for-microsoft-partner-network-program).
 
-    * Tenant mismatch: If your work email address does not belong to the tenant that is associated with the Microsoft Partner Network ID present on your CPP account, then you’ll see an error. To move past this error, enter an email address associated with the tenant. An error message will provide the name of the tenant.
+    * Tenant mismatch: If your work email address does not belong to the tenant that's associated with the Microsoft Partner Network ID present on your CPP account, then you’ll see an error. To move past this error, enter an email address associated with the tenant. An error message will provide the name of the tenant.
 
 2. Sign up for Microsoft Partner Network program
 
-    In the event that your CPP account does not have a Microsoft Partner Network ID, or has one that is invalid, you will have to sign up for the Microsoft Partner Network program as part of the activation process.
+    If your CPP account doesn't have a Microsoft Partner Network ID or has one that's invalid, you'll need to sign up for the Microsoft Partner Network program as part of the activation process.
 
 ## Sign up for Microsoft Partner Network program
 
-Companies who want to partner with Microsoft must join the Microsoft Partner Network (MPN) and get an MPN ID. If you’re already a member of the Microsoft Partner Network and you have an MPN ID, be sure to have it on hand as you’ll need to enter it during the account activation process.  
+Companies that want to partner with Microsoft must join the Microsoft Partner Network (MPN) and get an MPN ID. If you’re already a member of the Microsoft Partner Network and have an MPN ID, keep the information handy as you’ll need it during the account activation process.  
 
-If you are not yet a member of the Microsoft Partner Network, you can [join now](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Be sure to make a note of your MPN ID as you’ll need to enter it during the account activation process.
+If you're not a member of the Microsoft Partner Network, you can [join here](https://signup.microsoft.com/signup?sku=StoreForBusinessIW&origin=partnerdashboard&culture=en-us&ru=https://partner.microsoft.com/dashboard/account/v3/xpu/onboard?ru=/en-us/dashboard/account/v3/enrollment/companyprofile/basicpartnernetwork/new) to get an MPN ID. Make a note of your MPN ID as you’ll need to enter it during the account activation process.
 
-To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about how joining the Microsoft Partner Network benefits ISVs, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
+To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
 ## Move Dynamics 365-based solutions to Partner Center
 
-To streamline account and offer management for Dynamics 365 Customer Engagement and Dynamics 365 Operations, the offers have been moved to [Partner Center](https://partner.microsoft.com/). This move ensures the same content is available to both public and seller catalogs.
+To streamline account and offer management for Dynamics 365 Customer Engagement and Dynamics 365 Operations, the offers have been moved to [Partner Center](https://partner.microsoft.com/). The move ensures the same content is available to both public and seller catalogs.
 
 For specific information on what needs to be done and by when for your Dynamics 365-based solutions, follow the instructions that apply to you:
 
@@ -118,7 +118,10 @@ Once your app is approved, you'll receive an email that will direct you to retur
 
 Use this section if your Partner Center account was not detected and you need to create a new offer for Dynamics 365 Customer Engagement or Dynamics 365 Operations.
 
-We could not associate your Dynamics 365 Customer Engagement or Dynamics 365 Operations offer with an enrolled Partner Center account and were unable to migrate your offer. To make your offer available in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) or [Create a new Dynamics 365 Operations offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer) before the draft is removed from our seller catalog **October 15, 2019.**
+We could not associate your Dynamics 365 Customer Engagement or Dynamics 365 Operations offer with an enrolled Partner Center account and were unable to migrate your offer. To make your offer available in Partner Center, see [Create a new Dynamics 365 for Customer Engagement & PowerApps offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) or [Create a new Dynamics 365 Operations offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer).
+
+>[!NOTE]
+>The draft offer will be removed from our seller catalog **October 15, 2019.**
 
 ## Additional Resources
 
