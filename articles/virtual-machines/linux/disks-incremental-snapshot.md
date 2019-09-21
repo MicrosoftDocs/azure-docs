@@ -1,6 +1,6 @@
 ---
-title: Azure Disk Storage managed disk overview for Windows VMs | Microsoft Docs
-description: Overview of Azure managed disks, which handle the storage accounts for you when using Windows VMs
+title: Incremental snapshots (preview) for managed disks | Microsoft Docs
+description: Learn about incremental snapshots (preview) for managed disks, including how to create them using CLI, PowerShell, and ARM.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
