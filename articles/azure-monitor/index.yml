@@ -29,60 +29,66 @@ landingContent:
             url: overview.md
           - text: What is Application Insights?
             url: app-insights-overview.md
-        
+                   
+  # Card 
+  - title: About monitoring data   
+    linkLists:     
       - linkListType: concept
         links:
-          - text: Data sources 
+          - text: Data sources Overview
             url: platform/data-sources.md
-          - text: Data platform 
-            url: platform/data-sources.md
+          - text: Data platform Overview
+            url: platform/data-platform.md
 
   # Card 
-  - title: Get started
+  - title: 10 minute Quickstarts
     linkLists:
       - linkListType: get-started
         links:
-          - text: Monitor metrics
-            url: monitor-quick-resource-metric-alert-portal.md
+          - text: Monitor and alert on metrics
+            url: platform/alerts-metric.md
           - text: Analyze logs
-            url: get-started-analytics-portal.md
-          - text: Azure VMs
-            url: log-analytics-quick-collect-azurevm.md
-          - text: Analyze logs
-            url: get-started-analytics-portal.md
+            url: log-query/get-started-portal.md
+          - text: Azure VMs in Log Analytics
+            url: ./learn/quick-collect-azurevm.md
+          - text: Linux VMs in Log Analytics
+            url: ./learn/quick-collect-linux-computer.md
+          - text: Windows VMs in Log Analytics
+            url: ./learn/quick-collect-windows-computer.md
+          - text: Alert on Subscription events
+            url: ./learn/alerts-activity-log.md            
 
   # Card 
-  - title: Get started
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: Monitor metrics
-            url: monitor-quick-resource-metric-alert-portal.md
-          - text: Analyze logs
-            url: get-started-analytics-portal.md
-      - linkListType: video
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
   - title: Monitor Applications
     linkLists:
       - linkListType: get-started
         links:
-          - text: Application Insights Hub
+          - text: .NET
+            url: learn/quick-monitor-portal.md
+          - text: .NET Core
+            url: learn/dotnetcore-quick-start.md
+          - text: Node.js
+            url: learn/nodejs-quick-start.md
+          - text: Mobile
             url: azure-monitor-app-hub.md
-          - text: Analyze logs
-            url: get-started-analytics-portal.md
+          - text: Website
+            url: app/website-monitoring.md
 
-
-   # Card (optional)
+  # Card
   - title: Training
     linkLists: 
       - linkListType: learn
         links:
           - text: Free Pluralsite Training - Azure Administrator
             url: https://go.microsoft.com/fwlink/?linkid=2012827
+
+  # Card
+  - title: Reference
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: 
+            url: 
 
 
 
