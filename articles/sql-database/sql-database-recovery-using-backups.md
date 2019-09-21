@@ -130,13 +130,12 @@ Complete the process of creating a new database. Once the single Azure SQL Datab
 
 #### Managed instance database
 
-To geo-restore managed instance database from Azure portal to an existing managed instance in a region of your choice, follow these steps:
+To geo-restore managed instance database from Azure portal to an existing managed instance in a region of your choice, select a managed instance on which you wish a database to be restored, and follow these steps:
 
-1. Select the managed instance on which a new database will be restored
-2. Click on **+New database**
-3. Type in a desired database name
-4. Under Use existing data select option **Backup**
-5. Select a backup from the drop-down list of available geo-restore backups
+1. Click on **+New database**
+2. Type in a desired database name
+3. Under Use existing data select option **Backup**
+4. Select a backup from the drop-down list of available geo-restore backups
 
 ![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
@@ -146,11 +145,11 @@ Complete the process of creating a new database. Once the instance database is c
 
 #### Single Azure SQL Database
 
-For PowerShell script showing how to perform geo-restore for a single Azure SQL Database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+For PowerShell script showing how to perform geo-restore for a single Azure SQL Database, see [Use PowerShell to restore an Azure SQL single database to an earlier point in time](scripts/sql-database-restore-database-powershell.md).
 
 #### Managed instance database
 
-For PowerShell script showing how to perform geo-restore for a managed instance database, see [PowerShell to restore a Managed Instance database to another geo-region](scripts/sql-managed-instance-restore-geo-backup.md).
+For PowerShell script showing how to perform geo-restore for a managed instance database, see [Use PowerShell to restore a Managed Instance database to another geo-region](scripts/sql-managed-instance-restore-geo-backup.md).
 
 ### Geo-restore considerations
 
