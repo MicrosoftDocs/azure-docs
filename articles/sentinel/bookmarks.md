@@ -122,9 +122,6 @@ The easiest way to view bookmarked queries, results, or history is by selecting 
 
 - **View bookmark logs** to see all bookmark metadata, which includes who made the update, the updated values, and the time the update occurred.
 
-You can also view the raw bookmark data for all bookmarks by clicking on **Bookmark logs** above the bookmark grid. This view will show the all your bookmarks in the hunting bookmark table with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.
-
-
 > [!NOTE]
 > There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab. Because of this delay, we recommend you create your bookmarks first, then analyze them after the data is ingested.
 
