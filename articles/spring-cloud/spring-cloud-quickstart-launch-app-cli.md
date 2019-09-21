@@ -40,23 +40,43 @@ To complete this quickstart:
 4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 5. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 	
+## Install the Azure CLI extension
+
+Install the Azure Spring Cloud extension for the Azure CLI with the following command
+
+```Azure CLI
+az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.4/spring_cloud-0.4.0-py2.py3-none-any.whl
+```
+
 
 ## Provision a service instance on the Azure CLI
 
-1. First, be ready with resource name, subscription ID, and resource group. The following is a brief explanation of each.
+1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
-- Resource Name: Specify the name of your service instance.
-- Subscription: Select the subscription you want to be billed for this resource.
-- Resource group: Creating new resource groups for new resources is generally considered the best practice.
-
-2. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here. 
-
-```azurecli
-az asc create --name <resource name> --resource-group <resource group name> --is-public true
-az configure --defaults asc=<resource name>
+```Azure CLI
+az login
+az account list -o table
+az account set --subscription
 ```
 
-The service instance can take up to 10 minutes to be fully deployed.
+1. First, be ready with resource name and resource group. The following is a brief explanation of each.
+
+- Resource Name: Specify the name of your service instance.
+- Resource group: Creating new resource groups for new resources is generally considered the best practice.
+
+2. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+```
+The service instance will take around five minutes to be fully deployed.
+
+3. Set your default resource group name and cluster name using the following commands:
+
+```Azure CLI
+az configure --defaults group=<service group name>
+az configure --defaults spring-cloud=<service instance name>
+```
 
 ## Setup your configuration server
 
@@ -69,7 +89,7 @@ git clone https://github.com/xscript/piggymetrics-config
 2.	Then use the following command for each of the yaml files you cloned in the previous step.
 
 ```azurecli
-az asc config-sever set --config-file <yaml file path>
+az spring-cloud config-sever set --config-file -n
 ```
 
 ## Build the microservices applications locally
@@ -94,13 +114,17 @@ You should now have individual JAR files for each service in their respective fo
 1. Using the Azure CLI, create a corresponding application in Azure for the JAR files we just built in the previous step. For our example service, the name of the first application is **gateway**.
 
 ```azurecli
-az asc app create --name <app name> 
-az configure --defaults ascapp=<app name>
+az spring-cloud app create --name gateway
 ```
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 2. Repeat step 1 with the **auth-service** application and **account-service** application. These three microservice applications will comprise our Azure Spring Cloud service
+
+```Azure CLI
+az spring-cloud app create -n account-service
+az spring-cloud app create -n auth-service
+```
 
 
 >[!NOTE]
@@ -110,28 +134,24 @@ az configure --defaults ascapp=<app name>
 
 ## Deploy applications and set environment variables
 
-1. Finally, we need to actually deploy our application files to Azure. Use the following command for the gateway application:
+1. Finally, we need to actually deploy our applications to Azure. Use the following commands to deploy all three applications:
 
 ```azurecli
-az asc app deploy --name gateway --jar-path PiggyMetrics\gateway\target\gateway.jar
-```
-
-2. Next is the account-service application. We will also set an environment variable here, which essential to run the application. Use the following command:
-
-```azurecli
-az asc app deploy --name account-service --jar-path PiggyMetrics\account-service\target\account-service.jar --env security.oauth2.client.client-secret=XUoJBrTtqXBonU5zMVzSUtrLPKRQztLUQE4poDoIR1QdcDfGgnGgJO5wbFC7xCEL
-```
-
-3. Finally, we'll deploy the auth-service application. Use the following command:
-
-```azurecli
-az asc app deploy --name auth-service --jar-path PiggyMetrics\auth-service\target\auth-service.jar --env ACCOUNT_SERVICE_PASSWORD=XUoJBrTtqXBonU5zMVzSUtrLPKRQztLUQE4poDoIR1QdcDfGgnGgJO5wbFC7xCEL
+az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
+az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
+az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 ## Assign public IP to gateway
-???how to accesss application?
+
+Finally, we need a way to access the application via a web browser. Our gateway application needs a public facing IP, which can be assigned using the following command:
+
+```Azure CLI
+az spring-cloud app update -n gateway --is-public true
+```
+Now you can go to the assigned IP address and see the running application.
 
 ![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
@@ -147,7 +167,3 @@ In this quickstart, you learned how to:
 > * Deploy each microservice
 > * Edit environment variables for applications
 > * Assign public IP for your application gateway
-
-To learn more about Service Fabric and .NET, take a look at this tutorial:
-<!-- > [!div class="nextstepaction"]
-> [.NET application on Service Fabric](service-fabric-tutorial-create-dotnet-app.md) -->
