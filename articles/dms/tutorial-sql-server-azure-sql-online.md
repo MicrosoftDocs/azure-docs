@@ -78,7 +78,7 @@ To complete this tutorial, you need to:
     USE <DBName>;
     go
     SELECT is_tracked_by_cdc, name AS TableName
-    ?FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
+    FROM sys.tables WHERE type = 'U' and is_ms_shipped = 0 AND
     OBJECTPROPERTY(OBJECT_ID, 'TableHasPrimaryKey') = 0;
     ```
 
