@@ -113,7 +113,7 @@ Geo-restore is the default recovery option when your database is unavailable bec
 
 ### Geo-restore using Azure portal
 
-The general concept to geo-restore a database from Azure portal is performed through creating a new single or managed instance database and selecting an available geo-restore backup on the database create screen. The newly created database will contain the geo-restored backup data.
+General concept to geo-restore a database from Azure portal is performed through creating a new single or managed instance database and selecting an available geo-restore backup on the database create screen. The newly created database will contain the geo-restored backup data.
 
 #### Single Azure SQL Database
 
