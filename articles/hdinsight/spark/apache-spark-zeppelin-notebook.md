@@ -17,7 +17,7 @@ HDInsight Spark clusters include [Apache Zeppelin](https://zeppelin.apache.org/)
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
+* The URI scheme for your clusters primary storage. This would be `wasb://` for Azure Blob Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Blob Storage, the URI would be `wasbs://`.  See also, [Require secure transfer in Azure Storage](../../storage/common/storage-require-secure-transfer.md) for more information.
 
 ## Launch an Apache Zeppelin notebook
 
