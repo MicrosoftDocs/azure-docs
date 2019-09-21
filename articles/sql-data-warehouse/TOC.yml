@@ -140,7 +140,11 @@
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
     - name: Result set caching
-      href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+      items:
+      - name: Set for a database
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
+      - name: Set for a session 
+        href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
       items:
       - name: Overview
