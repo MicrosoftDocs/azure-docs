@@ -59,7 +59,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
  
 > [!NOTE]
-> You can also use bookmarks with arbitrary Log Analytics queries launched from the Azure Sentinel Log Analytics Logs page, or queries created on the fly from the Log Analytics page and opened from the Hunting page. You will not be able to add a bookmark if you launch Log Analytics independently from Azure Sentinel. 
+> The Log Analytics search supports bookmarks whenever this blade is opened from Azure Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. The ability to create bookmarks is not present when the Log Analytics search blade is opened from other locations, such as directly from Azure Monitor. 
 
 ## View and update bookmarks 
 
