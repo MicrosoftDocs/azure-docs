@@ -114,7 +114,7 @@ from azureml.core import Dataset, Datastore
 
 # create tabular dataset from a SQL database in datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
-tabular = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
+sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
 Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](http://aka.ms/azureml-tsd-notebook). 
 
