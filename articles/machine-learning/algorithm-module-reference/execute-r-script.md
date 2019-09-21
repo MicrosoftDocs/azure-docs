@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ROBOTS: NOINDEX
 ---
 
 # Execute R Script
@@ -62,7 +61,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
  > [!NOTE]
-    > Please check if the package already exists before install it to avoid repeat installing. Like `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")`  in above sample code. Repeat installing may cause web service request timeout.     
+  > Please check if the package already exists before install it to avoid repeat installing. Like `  if(!require(zoo)) install.packages("zoo",repos = "http://cran.us.r-project.org")`  in above sample code. Repeat installing may cause web service request timeout.     
 
 ## How to configure Execute R Script
 

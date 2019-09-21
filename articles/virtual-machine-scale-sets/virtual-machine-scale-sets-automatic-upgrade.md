@@ -65,6 +65,7 @@ The following SKUs are currently supported (and more are added periodically):
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## Requirements for configuring automatic OS image upgrade

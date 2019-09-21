@@ -10,7 +10,6 @@ tags: azure-service-management
 
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: web

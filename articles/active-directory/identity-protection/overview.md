@@ -42,10 +42,10 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 - Calculating sign-in risk levels
 - Calculating user risk levels
 
-**Investigating risk events:**
+**Investigating risk detections:**
 
-- Sending notifications for risk events
-- Investigating risk events using relevant and contextual information
+- Sending notifications for risk detections
+- Investigating risk detections using relevant and contextual information
 - Providing basic workflows to track investigations
 - Providing easy access to remediation actions such as password reset
 
@@ -73,10 +73,10 @@ For more details, see [Assigning administrator roles in Azure Active Directory](
 
 Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](vulnerabilities.md).
 
-### Risk events
+### Risk detections
 
-Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events.  
-For more details, see [Azure Active Directory risk events](../active-directory-identity-protection-risk-events.md).
+Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk detections.  
+For more details, see [Azure Active Directory risk detections](../active-directory-identity-protection-risk-events.md).
 
 ## Investigation
 
@@ -86,10 +86,10 @@ Your journey through Identity Protection typically starts with the Identity Prot
 
 The dashboard gives you access to:
 
-- Reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
+- Reports such as **Users flagged for risk**, **Risk detections** and **Vulnerabilities**
 - Settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
 
-It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
+It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
 
 You can tie your investigation activities to the [notifications](notifications.md) Azure Active Directory Protection sends per email.
 

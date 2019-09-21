@@ -14,7 +14,7 @@ ms.date: 04/30/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) is a Hadoop-based analytics service for processing data. HDInsight is an ETL (extract, transform, load) tool used to work with big data - either structured or unstructured. HDInsight supports several [cluster types](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) where each type supports a different set of components. 
+[Azure HDInsight](/azure/hdinsight/) is a Hadoop-based analytics service for processing data. HDInsight is an ETL (extract, transform, load) tool used to work with big data - either structured or unstructured. HDInsight supports several [cluster types](/azure/hdinsight/hadoop/apache-hadoop-introduction) where each type supports a different set of components. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 

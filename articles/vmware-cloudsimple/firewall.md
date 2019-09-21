@@ -19,7 +19,7 @@ Firewall tables and the associated rules allow you to specify restrictions on tr
 
 ## Add a new firewall table
 
-1. [Access the CloudSimple portal](monitor-activity.md) and select **Network** on the side menu.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
 2. Select **Firewall Tables**.
 3. Select **Create firewall table**.
 

@@ -6,19 +6,14 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/13/2019
+ms.date: 09/03/2019
 ms.author: heidist
 ---
 # What is Azure Search?
 
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing), issues query requests, and handles responses. The search experience is defined in your client code using functionality from Azure Search, with query execution over a persisted index that you create, own, and store on Azure Search.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architecture")
-
-<!-- + Build a search index containing only your data, sourced from multiple content types and platforms. 
-+ Leverage AI enrichments to extract text and features from image files, or entities and key phrases from raw text.
-+ Create intuitive search experiences with facet navigation and filters, synonyms, autocomplete, and text analysis for "did you mean" autocorrected search terms. Get relevance tuning through functions and boosting logic.
-+ Create search apps for specific use-cases. Geo-search supports a "find near me" experience. Multi-lingual search is supported through language analyzers for non-English full text search. -->
 
 Functionality is exposed through a simple [REST API](/rest/api/searchservice/) or [.NET SDK](search-howto-dotnet-sdk.md) that masks the inherent complexity of information retrieval. In addition to APIs, the Azure portal provides administration and content management support, with tools for prototyping and querying your indexes. Because the service runs in the cloud, infrastructure and availability are managed by Microsoft.
 
@@ -30,7 +25,7 @@ Azure Search is well suited for the following application scenarios:
 
 + Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Indexing unstructured text, or extracting text and information from image files. The cognitive search feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
++ Indexing unstructured text, or extracting text and information from image files. The [cognitive search](cognitive-search-concept-intro.md) feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
 
 + Linguistic requirements satisfied using the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
 
@@ -87,7 +82,9 @@ The pull model retrieves data from external data sources. It's supported through
 The push model is provided through the SDK or REST APIs, used for sending updated documents to an index. You can push data from virtually any dataset using the JSON format. See [Add, update, or delete Documents](/rest/api/searchservice/addupdate-or-delete-documents) or [How to use the .NET SDK)](search-howto-dotnet-sdk.md) for guidance on loading data.
 
 ### Step 4: Search
-After populating an index, you can [issue search queries](/rest/api/searchservice/Search-Documents) to your service endpoint using simple HTTP requests with REST API or the .NET SDK.
+After populating an index, you can [issue search queries](search-query-overview.md) to your service endpoint using simple HTTP requests with [REST API](/rest/api/searchservice/Search-Documents) or the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations).
+
+Step through [Create your first search app](tutorial-csharp-create-first-app.md) to build and then extend a web page that collects user input and handles results. You can also use [Postman for interactive REST](search-get-started-postman.md) calls or the built-in [Search Explorer](search-explorer.md) in Azure portal to query an existing index.
 
 ## How it compares
 

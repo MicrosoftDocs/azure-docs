@@ -1,5 +1,5 @@
 ---
-title: CreateUiDefitinion.json for Azure managed application's create experience | Microsoft Docs
+title: CreateUiDefinition.json for Azure managed application's create experience | Microsoft Docs
 description: Describes how to create UI definitions for Azure Managed Applications
 services: managed-applications
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.date: 08/06/2019
 ms.author: tomfitz
 
 ---
-# CreateUiDefitinion.json for Azure managed application's create experience
+# CreateUiDefinition.json for Azure managed application's create experience
 
 This document introduces the core concepts of the **createUiDefinition.json** file which Azure portal uses to define the user interface when creating a managed application.
 
@@ -48,13 +48,11 @@ The schema of the parameters property depends on the combination of the specifie
 
 Including `$schema` is recommended, but optional. If specified, the value for `version` must match the version within the `$schema` URI.
 
-You can use a JSON editor to create your UI definition then test it in the [UI Definition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
+You can use a JSON editor to create your createUiDefinition then test it in the [createUiDefinition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) to preview it. For more information about the sandbox, see [Test your portal interface for Azure Managed Applications](test-createuidefinition.md).
 
 ## Basics
 
 Basics is the first step generated when the Azure portal parses the file. In addition to displaying the elements specified in `basics`, the portal injects elements for users to choose the subscription, resource group, and location for the deployment. When possible, elements that query deployment-wide parameters, like the name of a cluster or administrator credentials, should go in this step.
-
-If an element's behavior depends on the user's subscription, resource group, or location, then that element can not be used in basics. For example, **Microsoft.Compute.SizeSelector** depends on the user's subscription and location to determine the list of available sizes. Therefore, **Microsoft.Compute.SizeSelector** can only be used in steps. Generally, only elements in the **Microsoft.Common** namespace can be used in basics. Although some elements in other namespaces (like **Microsoft.Compute.Credentials**) that do not depend on the user's context are still allowed.
 
 ## Steps
 
@@ -104,4 +102,4 @@ The createUiDefinition.json file itself has a simple schema. The real depth of i
 
 A current JSON schema for createUiDefinition is available here: https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json.
 
-For an example user interface file, see [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/samples/201-managed-app-using-existing-vnet/createUiDefinition.json).
+For an example user interface file, see [createUiDefinition.json](https://github.com/Azure/azure-managedapp-samples/blob/master/Managed%20Application%20Sample%20Packages/201-managed-app-using-existing-vnet/createUiDefinition.json).

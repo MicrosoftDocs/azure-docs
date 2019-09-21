@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 07/23/2019
+ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -201,9 +201,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it is often due to a very large [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.
+If you have a query that is consuming a large amount of memory or have received an error message related to allocation of tempdb, it could be due to a very large [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) or [INSERT SELECT](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) statement running that is failing in the final data movement operation. This can usually be identified as a ShuffleMove operation in the distributed query plan right before the final INSERT SELECT.  Use [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) to monitor ShuffleMove operations. 
 
-The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 1TB per node tempdb limit. You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node. 
+The most common mitigation is to break your CTAS or INSERT SELECT statement into multiple load statements so the data volume will not exceed the 1TB per node tempdb limit. You can also scale your cluster to a larger size which will spread the tempdb size across more nodes reducing the tempdb on each individual node.
+
+In addition to CTAS and INSERT SELECT statements, large, complex queries running with insufficient memory can spill into tempdb causing queries to fail.  Consider running with a larger [resource class](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) to avoid spilling into tempdb.
 
 ## Monitor memory
 
@@ -255,6 +257,31 @@ SELECT
 FROM sys.dm_pdw_nodes_tran_database_transactions t
 JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id
 GROUP BY t.pdw_node_id, nod.[type]
+```
+
+## Monitor PolyBase load
+The following query provides a ballpark estimate of the progress of your load. The query only shows files currently being processed. 
+
+```sql
+
+-- To track bytes and files
+SELECT
+    r.command,
+    s.request_id,
+    r.status,
+    count(distinct input_name) as nbr_files, 
+    sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+FROM
+    sys.dm_pdw_exec_requests r
+    inner join sys.dm_pdw_dms_external_work s
+        on r.request_id = s.request_id
+GROUP BY
+    r.command,
+    s.request_id,
+    r.status
+ORDER BY
+    nbr_files desc,
+    gb_processed desc;
 ```
 
 ## Next steps

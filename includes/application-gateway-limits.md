@@ -31,6 +31,7 @@ ms.author: victorh
 | Maximum file upload size, Standard |2 GB | |
 | Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |
 | WAF body size limit, without files|128 KB||
-|Maximum WAF custom rules|100||
+| Maximum WAF custom rules|100||
+| Maximum WAF exclusions|100||
 
 <sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.

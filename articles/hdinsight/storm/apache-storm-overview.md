@@ -61,7 +61,7 @@ The Nimbus node provides functionality similar to the Apache Hadoop JobTracker, 
 
 The default configuration for Apache Storm clusters is to have only one Nimbus node. Storm on HDInsight provides two Nimbus nodes. If the primary node fails, the Storm cluster switches to the secondary node while the primary node is recovered. The following diagram illustrates the task flow configuration for Storm on HDInsight:
 
-![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/nimbus.png)
+![Diagram of nimbus, zookeeper, and supervisor](./media/apache-storm-overview/storm-diagram-nimbus.png)
 
 ## Ease of creation
 

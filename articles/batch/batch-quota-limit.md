@@ -11,7 +11,6 @@ ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: lahugh

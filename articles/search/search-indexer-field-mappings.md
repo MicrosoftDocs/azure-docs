@@ -4,7 +4,7 @@ description: Configure Azure Search indexer field mappings to account for differ
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search

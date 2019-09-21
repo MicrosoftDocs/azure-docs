@@ -58,7 +58,7 @@ To build and deploy your module image, you need Docker to build the module image
     > [!TIP]
     > You can use a local Docker registry for prototype and testing purposes instead of a cloud registry.
 
-Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
+Unless you're developing your module in C, you also need the Python-based [Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/) in order to set up your local development environment to debug, run, and test your IoT Edge solution. If you haven't already done so, install [Python (2.7/3.6+) and Pip](https://www.python.org/) and then install **iotedgehubdev** by running this command in your terminal.
 
    ```cmd
    pip install --upgrade iotedgehubdev
@@ -86,7 +86,7 @@ The following steps show you how to create an IoT Edge module in your preferred 
 
 1. Enter a name for your module. Choose a name that's unique within your container registry.
 
-1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like ***\<registry name\>*.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/*\<your module name\>***.
+1. Provide the name of the module's image repository. Visual Studio Code autopopulates the module name with **localhost:5000/<your module name\>**. Replace it with your own registry information. If you use a local Docker registry for testing, then **localhost** is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **_\<registry name\>_.azurecr.io**. Only replace the **localhost:5000** part of the string so that the final result looks like **\<*registry name*\>.azurecr.io/_\<your module name\>_**.
 
    ![Provide Docker image repository](./media/how-to-develop-csharp-module/repository.png)
 
@@ -266,22 +266,22 @@ When debugging modules using this method, your modules are running on top of the
       ptvsd.break_into_debugger()
       ```
 
-     For example, if you want to debug the `receive_message_callback` method, you would insert that line of code as shown below:
+     For example, if you want to debug the `receive_message_listener` function, you would insert that line of code as shown below:
 
       ```python
-      def receive_message_callback(message, hubManager):
+      def receive_message_listener(client):
           ptvsd.break_into_debugger()
-          global RECEIVE_CALLBACKS
-          message_buffer = message.get_bytearray()
-          size = len(message_buffer)
-          print ( "    Data: <<<%s>>> & Size=%d" % (message_buffer[:size].decode ('utf-8'), size) )
-          map_properties = message.properties()
-          key_value_pair = map_properties.get_internals()
-          print ( "    Properties: %s" % key_value_pair )
-          RECEIVE_CALLBACKS += 1
-          print ( "    Total calls received: %d" % RECEIVE_CALLBACKS )
-          hubManager.forward_event_to_output("output1", message, 0)
-          return IoTHubMessageDispositionResult.ACCEPTED
+          global RECEIVED_MESSAGES
+          while True:
+              message = client.receive_message_on_input("input1")   # blocking call
+              RECEIVED_MESSAGES += 1
+              print("Message received on input1")
+              print( "    Data: <<{}>>".format(message.data) )
+              print( "    Properties: {}".format(message.custom_properties))
+              print( "    Total calls received: {}".format(RECEIVED_MESSAGES))
+              print("Forwarding message to output1")
+              client.send_message_to_output(message, "output1")
+              print("Message successfully forwarded")
       ```
 
 1. In the Visual Studio Code command palette:

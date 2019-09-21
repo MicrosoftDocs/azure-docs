@@ -12,7 +12,6 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
@@ -96,7 +95,7 @@ For example, you can start testing your web app in a **Free** App Service plan a
 
 The same works in the reverse. When you feel you no longer need the capabilities or features of a higher tier, you can scale down to a lower tier, which saves you money.
 
-For information on scaling up the App Service plan, see [Scale up an app in Azure](web-sites-scale.md).
+For information on scaling up the App Service plan, see [Scale up an app in Azure](manage-scale-up.md).
 
 If your app is in the same App Service plan with other apps, you may want to improve the app's performance by isolating the compute resources. You can do it by moving the app into a separate App Service plan. For more information, see [Move an app to another App Service plan](app-service-plan-manage.md#move).
 
