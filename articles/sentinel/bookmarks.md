@@ -114,13 +114,18 @@ To view the bookmark within the incident: Navigate to **Sentinel** > **Threat ma
 
 ## View bookmarked data in logs
 
-There are multiple options to viewing your bookmarked data in logs. 
-
-The easiest way to view bookmarked queries, results, or history is by selecting the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane. Options include: 
+To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane. Options include: 
 
 - **View source query** to view the source query in the **Logs** blade.
 
 - **View bookmark logs** to see all bookmark metadata, which includes who made the update, the updated values, and the time the update occurred.
+
+You can also view the raw bookmark data for all bookmarks by selecting **Bookmark Logs** from the **Hunting** blade:
+
+> [!div class="mx-imgBorder"]
+> ![Bookmark Logs](./media/bookmarks/bookmark-logs.png)
+
+This view shows all your bookmarks with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.
 
 > [!NOTE]
 > There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab. Because of this delay, we recommend you create your bookmarks first, then analyze them after the data is ingested.
