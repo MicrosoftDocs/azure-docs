@@ -536,14 +536,13 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 | `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
 | `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
 
-The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the current registry:
+The following example task uses several aliases to [purge](container-registry-auto-purge.md) image tags older than 7 days in the repo `samples/hello-world` in the run registry:
 
 ```yaml
 version: v1.1.0
 steps:
-  - cmd: acr login -r $RegistryName
-  - cmd: acr tag list -r $RegistryName --repository samples/hello-world
-  - cmd: purge -r $Registry --filter samples:hello-world --ago 7d
+  - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
+  - cmd: purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
 ```
 
 ### Custom alias
