@@ -91,7 +91,7 @@ To try an example, follow these steps by using the Logic App Designer. Or, if yo
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter `compose` as your filter. From the actions list, select the **Compose** action.
+1. Under **Choose an action**, in the search box, enter `compose` as your filter. From the actions list, select the **Compose** action.
 
    ![Select "Compose" action](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -131,7 +131,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 ## Create CSV table action
 
-To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Data Operations - Create CSV table** action. You can then use 
+To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create CSV table** action. You can then use 
 the resulting table in actions that follow the **Create CSV table** action.
 
 If you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
@@ -151,7 +151,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "create csv table" as your filter. From the actions list, select this action: **Create CSV table**
+1. Under **Choose an action**, in the search box, enter `create csv table` as your filter. From the actions list, select the **Create CSV table** action.
 
    ![Select "Create CSV table" action](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -165,7 +165,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    ![Finished "Create CSV table" action](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
-   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, select **Show advanced options**. To provide only custom values, change **Columns** to **Custom**. To provide custom column headers too, change **Include headers** to **Yes**.
+   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, open the **Columns** list. To provide only custom values, select **Custom**. To provide custom column headers too, in the **Header** property, specify the column name. In the **Key** property, specify the column value.
 
    > [!TIP]
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
@@ -183,7 +183,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create CSV table** action, select **Output**. 
 
-   This example uses the **Office 365 Outlook - Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
@@ -197,7 +197,7 @@ To confirm whether the **Create CSV table** action creates the expected results,
 
 ## Create HTML table action
 
-To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Data Operations - Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
+To create an HTML table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create HTML table** action. You can then use the resulting table in actions that follow the **Create HTML table** action.
 
 If you prefer working in the code view editor, you can copy the example **Create HTML table** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Create HTML table](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
 
@@ -215,7 +215,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (+) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "create html table" as your filter. From the actions list, select this action: **Create HTML table**
+1. Under **Choose an action**, in the search box, enter `create html table` as your filter. From the actions list, select the **Create HTML table** action.
 
    ![Select "Create HTML table" action](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -229,7 +229,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    ![Finished "Create HTML table" action](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
-   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, select **Show advanced options**. To provide only custom values, change **Columns** to **Custom**. To provide custom column headers too, change **Include headers** to **Yes**.
+   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, open the **Columns** list. To provide only custom values, select **Custom**. To provide custom column headers too, in the **Header** property, specify the column name. In the **Key** property, specify the column value.
 
    > [!TIP]
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
@@ -247,7 +247,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Create HTML table** action, select **Output**. 
 
-   This example uses the **Office 365 Outlook - Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
    
@@ -265,7 +265,7 @@ To confirm whether the **Create HTML table** action creates the expected results
 
 ## Filter array action
 
-To create a smaller array that has items, which meet specific criteria, from an existing array, use the **Data Operations - Filter array** action. You can then use the filtered array in actions that follow after the **Filter array** action.
+To create a smaller array that has items, which meet specific criteria, from an existing array, use the **Filter array** action. You can then use the filtered array in actions that follow after the **Filter array** action.
 
 > [!NOTE]
 > Any filter text that you use in your condition is case sensitive. Also, this action can't change the format or components of items in the array. 
@@ -294,7 +294,7 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "filter array" as your filter. From the actions list, select this action: **Filter array**
+1. In the search box, enter `filter array` as your filter. From the actions list, select the **Filter array** action.
 
    ![Select "Filter array" action](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -306,7 +306,7 @@ If you prefer working in the code view editor, you can copy the example **Filter
 
 1. For the condition, specify the array items to compare, select the comparison operator, and specify the comparison value.
 
-   This example uses the **item()** function for accessing each item in the array while the **Filter array** action searches for array items whose value is greater than 1:
+   This example uses the `item()` function for accessing each item in the array while the **Filter array** action searches for array items whose value is greater than one:
    
    ![Finished "Filter array" action](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
@@ -322,9 +322,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, select **Expression**. To get the array output from the **Filter array** action, enter this expression that includes the **Filter array** action's name:
 
-   ```json
-   @actionBody('Filter_array')
-   ```
+   `@actionBody('Filter_array')`
 
    This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the **actionBody('Filter_array')** expression in the email's body:
 
@@ -340,7 +338,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 ## Join action
 
-To create a string that has all the items from an array and separate those items with a specific delimiter character, use the **Data Operations - Join** action. You can then use the string in actions that follow after the **Join** action.
+To create a string that has all the items from an array and separate those items with a specific delimiter character, use the **Join** action. You can then use the string in actions that follow after the **Join** action.
 
 If you prefer working in the code view editor, you can copy the example **Join** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
 [Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
@@ -351,7 +349,7 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    ![Starting sample logic app](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
-1. In your logic app where you want to create the string from an array, follow one of these steps: 
+1. In your logic app where you want to create the string from an array, follow one of these steps:
 
    * To add an action under the last step, select **New step**.
 
@@ -359,9 +357,9 @@ If you prefer working in the code view editor, you can copy the example **Join**
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "join" as your filter. From the actions list, select this action: **Join**
+1. In the search box, enter `join` as your filter. From the actions list, select this action: **Join**
 
-   ![Select "Data Operations - Join" action](./media/logic-apps-perform-data-operations/select-join-action.png)
+   ![Select "Join" action](./media/logic-apps-perform-data-operations/select-join-action.png)
 
 1. In the **From** box, provide the array that has the items you want to join as a string.
 
@@ -387,7 +385,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Join** action, select **Output**. 
 
-   This example uses the **Office 365 Outlook - Send an email** action and includes the **Output** field in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the **Output** field in the email's body:
 
    !["Output" fields in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
@@ -401,7 +399,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 ## Parse JSON action
 
-To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Data operations - Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for your logic app. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
+To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for your logic app. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
 
 If you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
 [Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
@@ -420,7 +418,7 @@ If you prefer working in the code view editor, you can copy the example **Parse 
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. In the search box, enter "parse json" as your filter. From the actions list, select this action: **Parse JSON**
+1. In the search box, enter `parse json` as your filter. From the actions list, select the **Parse JSON** action.
 
    ![Select "Parse JSON" action](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -456,7 +454,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Parse JSON** action, you can now select the properties from the parsed JSON content.
 
-   This example uses the **Office 365 Outlook - Send an email** action and includes the **FirstName**, **LastName**, and **Email** fields in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the **FirstName**, **LastName**, and **Email** fields in the email's body:
 
    ![JSON properties in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-parse-json-action.png)
 
@@ -474,8 +472,7 @@ To confirm whether the **Parse JSON** action creates the expected results, send 
 
 ## Select action
 
-To create an array that has JSON objects built from values in an existing array, use the **Data operations - Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and how to map the values in the source array to those properties. And although you can change the components in those JSON objects, the output array 
-always has the same number of items as the source array.
+To create an array that has JSON objects built from values in an existing array, use the **Select** action. For example, you can create a JSON object for each value in an integer array by specifying the properties that each JSON object must have and how to map the values in the source array to those properties. And although you can change the components in those JSON objects, the output array always has the same number of items as the source array.
 
 > [!NOTE]
 > For actions to use the array output from the **Select** action, either those actions must accept 
@@ -498,7 +495,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
    * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
-1. Under **Choose an action**, select **Built-in**. In the search box, enter "select" as your filter. From the actions list, select this action: **Select**
+1. Under **Choose an action**, select **Built-in**. In the search box, enter `select` as your filter. From the actions list, select the **Select** action.
 
    ![Select the "Select" action](./media/logic-apps-perform-data-operations/select-select-action.png)
 
@@ -510,7 +507,7 @@ If you prefer working in the code view editor, you can copy the example **Select
 
 1. In the **Map** box's left-hand column, provide the property name you want to assign each value in the source array. In the right-hand column, specify an expression that represents the value you want to assign the property.
 
-   This example specifies "Product_ID" as the property name to assign each value in the integer array by using the **item()** function in an expression that accesses each array item. 
+   This example specifies "Product_ID" as the property name to assign each value in the integer array by using the `item()` function in an expression that accesses each array item. 
 
    ![Specify the JSON object property and values for the array you want to create](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
@@ -530,11 +527,9 @@ To confirm whether the **Select** action creates the expected results, send your
 
 1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, select **Expression**. To get the array output from the **Select** action, enter this expression that includes the **Select** action's name:
 
-   ```json
-   @actionBody('Select')
-   ```
+   `@actionBody('Select')`
 
-   This example uses the **Office 365 Outlook - Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
+   This example uses the Office 365 Outlook **Send an email** action and includes the outputs from the `@actionBody('Select')` expression in the email's body:
 
    ![Action outputs in the "Send an email" action](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
