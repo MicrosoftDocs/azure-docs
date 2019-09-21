@@ -92,7 +92,7 @@ You can restore a deleted database to the deletion time or an earlier point in t
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
 
-### Deleted database restore using Azure portal
+### Deleted database restore using the Azure portal
 
 To recover a deleted database using Azure portal, open the page for your server and in the Operations area, click **Deleted databases**.
 
@@ -113,30 +113,30 @@ Geo-restore is the default recovery option when your database is unavailable bec
 
 ### Geo-restore using Azure portal
 
-General concept of geo-restoring a database from Azure portal is performed through creating a new single or managed instance database at which time available geo-restore backup is selected.
+The general concept to geo-restore a database from Azure portal is performed through creating a new single or managed instance database and selecting an available geo-restore backup on the database create screen. The newly created database will contain the geo-restored backup data.
 
-To geo-restore single Azure SQL Database from Azure portal, follow these steps:
+To geo-restore single Azure SQL Database from Azure portal in the region and server of your choice, follow these steps:
 
-1. Click on add **+** in the marketplace and select **Create SQL Database**, fill out the required information under **Basics tab**
+1. Click on add **+Add** in the marketplace and select **Create SQL Database**, fill out the required information under **Basics tab**
 2. Select **Additional settings** tab
 3. Under Use existing data click on **Backup**
-4. Select backup from the drop-down list to use in restoring this database in the region and server of your choice. 
+4. Select a backup from the drop-down list of available geo-restore backups
 
 ![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 Complete the process of creating a new database. Once the single Azure SQL Database is created, it will contain restored geo-restore backup.
 
-To geo-restore managed instance database from Azure portal, follow these steps:
+To geo-restore managed instance database from Azure portal to an existing managed instance in a region of your choice, follow these steps:
 
 1. Select the managed instance on which a new database will be restored
 2. Click on **+New database**
-3. Type in desired database name
+3. Type in a desired database name
 4. Under Use existing data select option **Backup**
-5. Select backup from the drop-down list to use in restoring this database to the chosen managed instance
+5. Select a backup from the drop-down list of available geo-restore backups
 
 ![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
-Complete the process of creating a new database. Once the managed instance database is created, it will contain restored geo-restore backup.
+Complete the process of creating a new database. Once the instance database is created, it will contain restored geo-restore backup.
 
 ### Geo-restore using PowerShell
 
