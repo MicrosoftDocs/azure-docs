@@ -115,6 +115,8 @@ Geo-restore is the default recovery option when your database is unavailable bec
 
 The general concept to geo-restore a database from Azure portal is performed through creating a new single or managed instance database and selecting an available geo-restore backup on the database create screen. The newly created database will contain the geo-restored backup data.
 
+#### Single Azure SQL Database
+
 To geo-restore single Azure SQL Database from Azure portal in the region and server of your choice, follow these steps:
 
 1. Click on add **+Add** in the marketplace and select **Create SQL Database**, fill out the required information under **Basics tab**
@@ -125,6 +127,8 @@ To geo-restore single Azure SQL Database from Azure portal in the region and ser
 ![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 Complete the process of creating a new database. Once the single Azure SQL Database is created, it will contain restored geo-restore backup.
+
+#### Managed instance database
 
 To geo-restore managed instance database from Azure portal to an existing managed instance in a region of your choice, follow these steps:
 
@@ -140,7 +144,13 @@ Complete the process of creating a new database. Once the instance database is c
 
 ### Geo-restore using PowerShell
 
-For a sample PowerShell script showing how to perform a geo-restore, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+#### Single Azure SQL Database
+
+For PowerShell script showing how to perform geo-restore for a single Azure SQL Database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### Managed instance database
+
+For PowerShell script showing how to perform geo-restore for a managed instance database, see [PowerShell to restore a Managed Instance database to another geo-region](scripts/sql-managed-instance-restore-geo-backup.md).
 
 ### Geo-restore considerations
 
