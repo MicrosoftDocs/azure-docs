@@ -180,7 +180,6 @@ See [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](/azure
 Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. Note that the domain name is uppercase:
 
 ```shell
-
 ktutil
 ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
 Password for <username>@<DOMAIN.COM>: <password>
@@ -299,7 +298,7 @@ You can use the following REST endpoints to pull the necessary information in JS
 
 To be able to negotiate proper auth tokens with your Azure Active Directory user, you'll need to go through the gateway using the following format:
 
-*https://\<cluster dnsname>.azurehdinsight.net/api/v1/clusters/<cluster_name>/stack_versions/1/repository_versions/1*
+*https://\<cluster dnsname>.azurehdinsight.net/api/v1/clusters/<ClusterName>/stack_versions/1/repository_versions/1*
 
 ### How can I use Ambari Restful API to monitor YARN performance?
 
