@@ -19,7 +19,7 @@ The same techniques for large data also apply to long-running processes. In part
 
 The following sections explore three techniques for indexing large amounts of data.
 
-## 1 - Pass multiple documents
+## Option 1: Pass multiple documents
 
 One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you are using the [REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) or [IndexBatch](https://docs.microsoft.com/otnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
@@ -28,13 +28,13 @@ Batch indexing is implemented for individual requests using REST or .NET, or thr
 > [!NOTE]
 > To keep document size down, avoid adding non-queryable data to an index. Images and other binary data are not directly searchable and shouldn't be stored in the index. To integrate non-queryable data into search results, you should define a non-searchable field that stores a URL reference to the resource.
 
-## 2 - Add resources
+## Option 2: Add resources
 
 Services that are provisioned at one of the [Standard pricing tiers](search-sku-tier.md) often have underutilized capacity for both storage and workloads (queries or indexing), which makes [increasing the partition and replica counts](search-capacity-planning.md) an obvious solution for accommodating larger data sets. For best results, you need both resources: partitions for storage, and replicas for the data ingestion work.
 
 Increasing replicas and partitions are billable events that increase your cost, but unless you are continuously indexing under maximum load, you can add scale for the duration of the indexing process, and then adjust resource levels back downward after indexing is finished.
 
-## 3 - Use indexers
+## Option 3: Use indexers
 
 [Indexers](search-indexer-overview.md) are used to crawl external data sources on supported Azure data platforms for searchable content. While not specifically intended for large-scale indexing, several indexer capabilities are particularly useful for accommodating larger data sets:
 
