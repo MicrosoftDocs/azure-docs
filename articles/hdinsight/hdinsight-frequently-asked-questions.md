@@ -23,7 +23,7 @@ To review various types of HDInsight clusters that you can install and the avail
 
 ### How do I delete an existing HDInsight cluster?
 
-To learn more about deleting a cluster when it's no longer in use, see [Delete HDInsight clusters](hdinsight-delete-cluster.md).
+To learn more about deleting a cluster when it's no longer in use, see [Delete an HDInsight cluster](hdinsight-delete-cluster.md).
 
 Leave at least 30 to 60 minutes between create and delete operations. Otherwise the operation may fail with the following error message:
 
@@ -63,8 +63,8 @@ For more information, see [Create a support ticket to increase core](hdinsight-c
 
 Azure HDInsight clusters have different types of virtual machines, or nodes. Each node type plays a role in the operation of the system. For more information, see:
 
-- [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters).
-- The blog post [https://blogs.msdn.microsoft.com/azuredatalake/2017/03/10/nodes-in-hdinsight/](https://blogs.msdn.microsoft.com/azuredatalake/2017/03/10/nodes-in-hdinsight/)
+- [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters)
+- The blog post [Nodes in HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/03/10/nodes-in-hdinsight/)
 
 ## Individual components
 
@@ -81,13 +81,13 @@ Yes, you can install additional components or customize cluster configuration by
 > 
 > - Issues or errors that occur when loading a script. Any errors during the execution of custom scripts are outside the scope of a support ticket.
 >   
-> - Some additional applications that are part of the cluster creation process. For a list of supported components, see [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions). Support for individual components can vary by cluster type. For example, Spark is not supported on a Kafka cluster and vice-versa.
+> - Some additional applications that are part of the cluster creation process. For a list of supported components, see [Apache Hadoop components available with different HDInsight versions](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions). Support for individual components can vary by cluster type. For example, Spark is not supported on a Kafka cluster and vice-versa.
 >   
->   For applications and services outside of the cluster creation process, contact the vendor or service provider for support. You can also use many community support sites. Examples are the [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). An example is [Hadoop](https://hadoop.apache.org/). For more information about Azure support, see the [Azure Support FAQ](https://azure.microsoft.com/support/faq/).
+>   For applications and services outside of the cluster creation process, contact the vendor or service provider for support. You can also use many community support sites. Examples are the [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). An example is [Hadoop](https://hadoop.apache.org/). For more information about Azure support, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
 ### Can I upgrade the individual components that came pre-installed on the cluster?
 
-You may be able to upgrade built-in components or applications that comes pre-installed on your cluster, if you have root access. However, upgrading built-in components isn't supported by Microsoft, because these configurations aren't tested. Instead, consider using a HDInsight cluster with a different version that may already have the upgraded component pre-installed.
+You may be able to upgrade built-in components or applications that come pre-installed on your cluster, if you have root access. However, upgrading built-in components isn't supported by Microsoft, because these configurations aren't tested. Instead, consider using a HDInsight cluster with a different version that may already have the upgraded component pre-installed.
 
 For example, upgrading Hive as an individual component isn't a supported scenario, because HDInsight is a managed service, and many services are integrated with Ambari Server and tested. Upgrading will cause indexed binaries of the other components to change, leading to many integration issues in the cluster.
 
@@ -114,7 +114,7 @@ See [Tutorial: Migrate SQL Server to a single database or pooled database in Azu
 It depends on the type of metastore that your cluster is configured to use.
 
 - The **default metastore** is part of the cluster lifecycle. When you delete a cluster, the corresponding metastore and metadata are also deleted.
-- For a **custom metastore**, the lifecycle of the metastore is not tied to a cluster's lifecycle, so you can create and delete clusters without losing metadata. Metadata such as your Hive schemas will persist even after you delete and re-create the HDInsight cluster.
+- For a **custom metastore**, the lifecycle of the metastore isn't tied to a cluster's lifecycle, so you can create and delete clusters without losing metadata. Metadata such as your Hive schemas will persist even after you delete and re-create the HDInsight cluster.
 
 For more information, see [Use external metadata stores](hdinsight-use-external-metadata-stores.md).
 
@@ -124,11 +124,11 @@ No, the policy definition is in the Ranger database, so migrating the Ranger dat
 
 ### Can you migrate the Hive metastore from an ESP to non-ESP cluster, and vice-versa?
 
-Yes, that should not be a problem.
+Yes, that shouldn't be a problem.
 
 ### How can I estimate the size of the Hive metastore database?
 
-The Hive metastore stores the metadata for datasources used by the Hive server. The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in the [best practices document](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
+The Hive metastore stores the metadata for datasources used by the Hive server. The size requirements depend partly on the number and complexity of your Hive data sources, and can't be estimated up front. As outlined in [Hive metastore best practices](hdinsight-use-external-metadata-stores.md#hive-metastore-best-practices), you can start with a S2 tier, which provides 50 DTU and 250 GB of storage, and if you see a bottleneck, you can scale up the database.
 
 ### Do you support any other database beyond Azure SQL Database as an external metastore?
 
@@ -136,7 +136,7 @@ No, HDInsight only supports Azure SQL Database as an external custom metastore.
 
 ### Can I share metastores across multiple clusters?
 
-Yes, you can share custom metastores with multiple clusters, as long as they are using the same version of HDInsight.
+Yes, you can share custom metastores with multiple clusters, as long as they're using the same version of HDInsight.
 
 ## Connectivity and virtual networks 
 
@@ -148,7 +148,7 @@ Microsoft connects over ports 22 and 23 and the public IP of the head node to do
 - Monitor the health of the cluster by telemetry, and take remedial actions when needed
 - Auto scale, where configured
 
-When you block ports 22 and 23, Microsoft can't perform these operations, limiting the supportability of the cluster. These ports are also used for SSH, and blocking them can limit your ability to troubleshoot problems on the cluster. A better approach would be deploy your cluster into a virtual network and use *network security groups* (NSGs) to limit public access. For more information, see the following documents:
+When you block ports 22 and 23, Microsoft can't perform these operations, limiting the supportability of the cluster. These ports are also used for SSH, and blocking them can limit your ability to troubleshoot problems on the cluster. A better approach is to deploy your cluster into a virtual network and use *network security groups* (NSGs) to limit public access. For more information, see the following documents:
 
 - [Control network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic)
 - [Secure incoming traffic to HDInsight clusters in a virtual network with a private endpoint](https://azure.microsoft.com/en-in/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
@@ -158,8 +158,8 @@ When you block ports 22 and 23, Microsoft can't perform these operations, limiti
 
 Yes, you can:
 
-- Add an additional *edge node* to the cluster, following the procedure at [Use edge nodes](hdinsight-apps-use-edge-node.md).
-- Add a *standalone VM* to the same subnet, and access the cluster from that VM using the private endpoint. For more information, see [Network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
+- Add an additional *edge node* to the cluster, following the procedure at [Use empty edge nodes on Apache Hadoop clusters](hdinsight-apps-use-edge-node.md).
+- Add a *standalone VM* to the same subnet, and access the cluster from that VM using the private endpoint. For more information, see [Control network traffic](hdinsight-plan-virtual-network-deployment.md#networktraffic).
 
 ### Can I add an existing HDInsight cluster into another virtual network?
 
@@ -234,6 +234,7 @@ You can do one of the following:
 - Use [PowerShell](/azure/storage/scripts/storage-blobs-container-calculate-size-powershell).
   
 - Find the size of the */user/hive/.Trash/* folder on the HDInsight cluster, using the following command line:
+  
   `hdfs dfs -du -h /user/hive/.Trash/`
 
 ### How can I set up auditing for my blob storage account?
@@ -292,7 +293,7 @@ You can use the following REST endpoints to pull the necessary information in JS
 
 ### How can I retrieve the config details from the HDI cluster using my Azure Active Directory user?
 
-To be able to negotiate proper auth tokens with your Azure Active Directory user, you will need to go through the gateway using the following format:
+To be able to negotiate proper auth tokens with your Azure Active Directory user, you'll need to go through the gateway using the following format:
 
 *https://\<cluster dnsname>.azurehdinsight.net/api/v1/clusters/<cluster_name>/stack_versions/1/repository_versions/1*
 
@@ -327,17 +328,17 @@ If you call the command from outside the VNet or from a non-peered VNet, the com
 
 ### How much does it cost to deploy an HDInsight cluster?
 
-For information on pricing and billing, see [Pricing details](https://azure.microsoft.com/pricing/details/hdinsight/).
+For information on pricing and billing, see [Azure HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-### For Pay as you go subscriptions, what happens after I cancel or suspend my subscription?
+### For Pay as you go subscriptions, what happens after I cancel my subscription?
 
-For information, see [How to cancel an Azure subscription](/azure/billing/billing-how-to-cancel-azure-subscription).
+For information, see [Cancel your Azure subscription](/azure/billing/billing-how-to-cancel-azure-subscription).
 
 ## Other FAQs
 
 ### What real-time stream processing capabilities does HDInsight offer?
 
-For information about integration capabilities of stream processing in Azure HDinsight, see [Choosing a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing).
+For information about integration capabilities of stream processing in Azure HDInsight, see [Choosing a stream processing technology in Azure](/azure/architecture/data-guide/technology-choices/stream-processing).
 
 ### Is there a way to dynamically terminate the head node of a cluster when the cluster is idle for a specific period?
 
