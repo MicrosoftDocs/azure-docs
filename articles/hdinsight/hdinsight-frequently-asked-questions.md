@@ -35,46 +35,50 @@ The number of cores and other configuration may depend on various factors, but [
 
 ### What can I do if provisioning fails due to a capacity issue?
 
-Quotas are applied per resource group, subscription, account, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
+Quotas are applied per resource group, subscription, account, and other scopes. 
 
-- **Error: The deployment would exceed the quota of '800'**
-  
-  Azure has a quota limit of 800 deployments per resource group. To resolve this issue, delete deployments that are no longer needed, by using the Azure portal, CLI, or PowerShell. For more information, see [Resolve errors for resource quotas](/azure/azure-resource-manager/resource-manager-quota-errors).
-  
-- **Error: The maximum node exceeded the available cores in this region**
-  
-  Your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a resource with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
-  
-  To request a quota increase, follow these steps:
-  
-  1. Go to the [Azure portal](https://portal.azure.com), and select **Help + support**.
-     
-  1. Select **New support request**
-     
-  1. On the **Basics** tab of the **New support request** page, provide the following information:
-     
-     - **Issue type:** Select **Service and subscription limits (quotas)**
-     - **Subscription:** Select the subscription you want to modify
-     - **Quota type:** Select **HDInsight**
+For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine (VM) with more cores than the permitted amount, you receive an error stating the quota has been exceeded:
+
+**Error: The maximum node exceeded the available cores in this region**
+
+To request a quota increase, follow these steps:
+
+1. Go to the [Azure portal](https://portal.azure.com), and select **Help + support**.
+   
+1. Select **New support request**
+   
+1. On the **Basics** tab of the **New support request** page, provide the following information:
+   
+   - **Issue type:** Select **Service and subscription limits (quotas)**.
+   - **Subscription:** Select the subscription you want to modify.
+   - **Quota type:** Select **HDInsight**.
 
 For more information, see [Create a support ticket to increase core](hdinsight-capacity-planning.md#quotas).
 
+Azure has a quota limit of 800 deployments per resource group. If you exceed this quota, you receive an error message:
+
+**Error: The deployment would exceed the quota of '800'**
+
+To resolve this issue, delete deployments that are no longer needed, by using the Azure portal, CLI, or PowerShell. For more information, see [Resolve errors for resource quotas](/azure/azure-resource-manager/resource-manager-quota-errors).
+
 ### What are the various types of nodes in an HDInsight cluster?
 
-Azure HDInsight clusters have different types of virtual machines, or nodes. Each node type plays a role in the operation of the system. For more information, see:
+Azure HDInsight clusters have different types of VMs, or nodes. Each node type plays a role in the operation of the system. For more information, see:
 
 - [Resource types in Azure HDInsight clusters](hdinsight-virtual-network-architecture.md#resource-types-in-azure-hdinsight-clusters)
-- The blog post [Nodes in HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/03/10/nodes-in-hdinsight/)
+- [Nodes in HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/03/10/nodes-in-hdinsight/)
 
 ## Individual components
 
 ### Can I install additional components on my cluster?
 
-Yes, you can install additional components or customize cluster configuration by:
+Yes. To install additional components or customize cluster configuration, use:
 
-- Using scripts during or after creation. Such scripts are invoked via **Script Action**, which is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
-- Using `sudo` or other methods after the cluster is provisioned.
-- Using [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
+- Scripts during or after creation. Scripts are invoked via **Script Action**, which is a configuration option you can use from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK.
+  
+- `sudo` or other methods after you provision the cluster.
+  
+- [HDInsight Application Platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
 
 > [!NOTE]
 > Microsoft support teams support only:
@@ -140,13 +144,13 @@ Yes, you can share custom metastores with multiple clusters, as long as they're 
 
 ## Connectivity and virtual networks 
 
-### What are the implications of blocking port 22 and 23 on my network?
+### What are the implications of blocking ports 22 and 23 on my network?
 
-Microsoft connects over ports 22 and 23 and the public IP of the head node to do the following operations:
+Microsoft connects over ports 22 and 23 and the public IP of the head node to:
 
 - Apply security patches at the OS level
 - Monitor the health of the cluster by telemetry, and take remedial actions when needed
-- Auto scale, where configured
+- Do auto scaling, where configured
 
 When you block ports 22 and 23, Microsoft can't perform these operations, limiting the supportability of the cluster. These ports are also used for SSH, and blocking them can limit your ability to troubleshoot problems on the cluster. A better approach is to deploy your cluster into a virtual network and use *network security groups* (NSGs) to limit public access. For more information, see the following documents:
 
@@ -169,13 +173,13 @@ No, you can't. The virtual network should be specified at the time of provisioni
 
 ### What are the recommendations for malware protection on Azure HD insight clusters?
 
-See [Microsoft Antimalware for Azure cloud Services and Virtual Machines](/azure/security/fundamentals/antimalware) for guidance.
+See [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](/azure/security/fundamentals/antimalware) for guidance.
 
 ### How do I create a keytab for an HDInsight ESP cluster?
 
 Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. Note that the domain name is uppercase:
 
-```cmd
+```shell
 
 ktutil
 ktutil: addent -password -p <username>@<DOMAIN.COM> -k 1 -e RC4-HMAC
@@ -195,7 +199,7 @@ Open-source Hadoop relies on Kerberos, as opposed to OAuth, for authentication. 
 Using a certificate issued by a certificate authority is recommended, but using a self-signed certificate is also supported on ESP. For more information, see:
 
 - [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
-- [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps).
+- [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](/azure/active-directory-domain-services/tutorial-configure-ldaps)
 
 ### How can I pull login activity shown in Ranger?
 
@@ -229,7 +233,7 @@ You can find your settings in **Data Lake Storage Gen1 access** under your clust
 
 ### How can I calculate the usage of storage accounts and blob containers for my HDInsight clusters?
 
-You can do one of the following:
+Do one of the following:
 
 - Use [PowerShell](/azure/storage/scripts/storage-blobs-container-calculate-size-powershell).
   
@@ -280,7 +284,7 @@ After you create an edge node, you can connect to it by using SSH on port 22. Yo
 
 ### Why are persisted scripts not running automatically on newly created edge nodes?
 
-You use persisted scripts to customize new worker nodes added to the cluster through scaling operations. Persisted scripts don't apply for edge nodes.
+You use persisted scripts to customize new worker nodes added to the cluster through scaling operations. Persisted scripts don't apply to edge nodes.
 
 ## REST API
 
@@ -299,13 +303,13 @@ To be able to negotiate proper auth tokens with your Azure Active Directory user
 
 ### How can I use Ambari Restful API to monitor YARN performance?
 
-If you call the Curl command in the same VNet or a peered VNet, the command is:
+If you call the Curl command in the same virtual network or a peered virtual network, the command is:
 
 ```curl
-curl -u <cluster login username> -sS -G`
+curl -u <cluster login username> -sS -G
 http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/components/NODEMANAGER?fields=metrics/cpu
 ```
-If you call the command from outside the VNet or from a non-peered VNet, the command format is:
+If you call the command from outside the virtual network or from a non-peered virtual network, the command format is:
 
 - For a non-ESP cluster:
   
@@ -330,7 +334,7 @@ If you call the command from outside the VNet or from a non-peered VNet, the com
 
 For information on pricing and billing, see [Azure HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
 
-### For Pay as you go subscriptions, what happens after I cancel my subscription?
+### What happens after my Pay as you go subscription is canceled or suspended?
 
 For information, see [Cancel your Azure subscription](/azure/billing/billing-how-to-cancel-azure-subscription).
 
