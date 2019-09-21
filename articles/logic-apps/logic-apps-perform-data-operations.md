@@ -115,7 +115,7 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 1. In your logic app, add an action that can send you the results from the **Compose** action.
 
-1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**. 
+1. In that action, click anywhere you want the results to appear. When the dynamic content list opens, under the **Compose** action, select **Output**.
 
    This example uses the **Send an email** action and includes the **Output** fields in the email's body and subject:
 
@@ -131,11 +131,9 @@ To confirm whether the **Compose** action creates the expected results, send you
 
 ## Create CSV table action
 
-To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create CSV table** action. You can then use 
-the resulting table in actions that follow the **Create CSV table** action.
+To create a comma-separated value (CSV) table that has the properties and values from JavaScript Object Notation (JSON) objects in an array, use the **Create CSV table** action. You can then use the resulting table in actions that follow the **Create CSV table** action.
 
-If you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Create CSV table](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
+If you prefer working in the code view editor, you can copy the example **Create CSV table** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Create CSV table](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
 
@@ -165,13 +163,32 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    ![Finished "Create CSV table" action](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
-   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, open the **Columns** list. To provide only custom values, select **Custom**. To provide custom column headers too, in the **Header** property, specify the column name. In the **Key** property, specify the column value.
+1. Save your logic app. On the designer toolbar, select **Save**.
+
+By default, the **Columns** property is set to automatically create the columns based on the array items. To specify custom column headers and values, follow these steps:
+
+1. Open the **Columns** list, and select **Custom**.
+
+1. To specify custom column headers, in the **Header** property, specify the column name.
+
+1. To specify custom values, in the **Key** property, specify the column value.
 
    > [!TIP]
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
    > use the [Parse JSON](#parse-json-action) before calling the **Create CSV table** action.
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+To omit the column headers, switch from designer view to code view, and edit the action's definition to use only the `value` property in the `columns` definition, and omit the `header` property, for example:
+
+```json
+"Create_CSV_table": {
+   "inputs": {
+      "columns": [
+         { "value": "@item()?['Id']" },
+         { "value": "@item()?['Subject']" }
+      ]
+   }
+}
+```
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -213,7 +230,7 @@ If you prefer working in the code view editor, you can copy the example **Create
 
      ![Add action](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
-   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (+) appears. Select the plus sign, and then select **Add an action**.
+   * To add an action between steps, move your mouse over the connecting arrow so the plus sign (**+**) appears. Select the plus sign, and then select **Add an action**.
 
 1. Under **Choose an action**, in the search box, enter `create html table` as your filter. From the actions list, select the **Create HTML table** action.
 
@@ -229,13 +246,32 @@ If you prefer working in the code view editor, you can copy the example **Create
 
    ![Finished "Create HTML table" action](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
-   By default, this action automatically creates the columns based on the array items. To manually create the column headers and values, open the **Columns** list. To provide only custom values, select **Custom**. To provide custom column headers too, in the **Header** property, specify the column name. In the **Key** property, specify the column value.
+1. Save your logic app. On the designer toolbar, select **Save**.
+
+By default, the **Columns** property is set to automatically create the columns based on the array items. To specify custom column headers and values, follow these steps:
+
+1. Open the **Columns** list, and select **Custom**.
+
+1. To specify custom column headers, in the **Header** property, specify the column name.
+
+1. To specify custom values, in the **Key** property, specify the column value.
 
    > [!TIP]
    > To create user-friendly tokens for the properties in JSON objects so you can select those properties as inputs, 
-   > use the [Parse JSON](#parse-json-action) before calling the **Create HTML table** action.
+   > use the [Parse JSON](#parse-json-action) before calling the **Create CSV table** action.
 
-1. Save your logic app. On the designer toolbar, select **Save**.
+To omit the column headers, switch from designer view to code view, and edit the action's definition to use only the `value` property in the `columns` definition, and omit the `header` property, for example:
+
+```json
+"Create_HTML_table": {
+   "inputs": {
+      "columns": [
+         { "value": "@item()?['Id']" },
+         { "value": "@item()?['Subject']" }
+      ]
+   }
+}
+```
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -273,8 +309,7 @@ To create a smaller array that has items, which meet specific criteria, from an 
 > For actions to use the array output from the **Filter array** action, either those actions must accept arrays as input, or you might 
 > have to transform the output array into another compatible format.
 
-If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+If you prefer working in the code view editor, you can copy the example **Filter array** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Filter array](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
 
@@ -340,8 +375,7 @@ To confirm whether **Filter array** action creates the expected results, send yo
 
 To create a string that has all the items from an array and separate those items with a specific delimiter character, use the **Join** action. You can then use the string in actions that follow after the **Join** action.
 
-If you prefer working in the code view editor, you can copy the example **Join** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
+If you prefer working in the code view editor, you can copy the example **Join** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Join](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
 
@@ -401,8 +435,7 @@ To confirm whether the **Join** action creates the expected results, send yourse
 
 To reference or access properties in JavaScript Object Notation (JSON) content, you can create user-friendly fields or tokens for those properties by using the **Parse JSON** action. That way, you can select those properties from the dynamic content list when you specify inputs for your logic app. For this action, you can either provide a JSON schema or generate a JSON schema from your sample JSON content or payload.
 
-If you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+If you prefer working in the code view editor, you can copy the example **Parse JSON** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Parse JSON](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
 
@@ -478,8 +511,7 @@ To create an array that has JSON objects built from values in an existing array,
 > For actions to use the array output from the **Select** action, either those actions must accept 
 > arrays as input, or you might have to transform the output array into another compatible format. 
 
-If you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: 
-[Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+If you prefer working in the code view editor, you can copy the example **Select** and **Initialize variable** action definitions from this article into your own logic app's underlying workflow definition: [Data operation code examples - Select](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
 
 1. In the [Azure portal](https://portal.azure.com) or Visual Studio, open your logic app in Logic App Designer.
 
