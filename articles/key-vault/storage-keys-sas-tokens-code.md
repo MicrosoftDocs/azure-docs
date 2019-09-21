@@ -12,7 +12,7 @@ ms.date: 09/10/2019
 ---
 # Fetch shared access signature tokens in code
 
-You can manage your storage account with the [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) in your key vault. This article provides examples of C# code that fetches a SAS token and performs operations with it.  For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys) or [Manage storage account keys with Key Vault and Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+You can manage your storage account with the [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) in your key vault. This article provides examples of C# code that fetches a SAS token and performs operations with it.  For information on how to create and store SAS tokens, see [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys.md) or [Manage storage account keys with Key Vault and Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
 In this example, the code fetches a SAS token from your key vault, uses it to create a new storage account, and creates a new Blob service client.  
 
@@ -44,7 +44,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 
 ## Next steps
-- Learn how to [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys) or [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
+- Learn how to [Manage storage account keys with Key Vault and the Azure CLI](key-vault-ovw-storage-keys.md) or [Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 - See [Managed storage account key samples](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [About keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
 - [Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
