@@ -85,7 +85,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Inside of the Data Flow designer, use the Data Preview tab on transformations to view the results of your transformation logic.
 * Unit test your data flows from the pipeline designer by placing a Data Flow activity on the pipeline design canvas and use the "Debug" button to test.
 * Testing in debug mode will work against a live warmed cluster environment without the need to wait for a just-in-time cluster spin-up.
-* During Data Preview debugging inside of the Data Flow designer expreience, you can limit the amount of data that you test with for each source by setting the row limit from the Debug Settings link on the Data Flow designer UI. Please note that you must turn on Debug Mode first.
+* During Data Preview debugging inside of the Data Flow designer experience, you can limit the amount of data that you test with for each source by setting the row limit from the Debug Settings link on the Data Flow designer UI. Please note that you must turn on Debug Mode first.
 
 ![Debug Settings](media/data-flow/debug-settings.png "Debug Settings")
 
