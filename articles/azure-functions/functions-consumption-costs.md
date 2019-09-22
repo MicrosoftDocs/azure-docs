@@ -97,7 +97,7 @@ The resulting chart contains the totals for both execution metrics in the chosen
 
 As the number of execution units is so much greater than the execution count, the chart just shows execution units.
 
-This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1,024,000. In this example, the function app consumed `1,110,000,000 / 1,024,000 = 1,083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
+This chart shows a total of 1.11 billion `Function Execution Units` consumed in a two-hour period, measured in MB-milliseconds. To convert to GB-seconds, divide by 1024000. In this example, the function app consumed `1110000000 / 1024000 = 1083.98` GB-seconds. You can take this value and multiply by the current price of execution time on the [Functions pricing page][pricing page], which gives you the cost of these two hours, assuming you've already used any free grants of execution time. 
 
 ### Azure CLI
 
@@ -188,7 +188,7 @@ This command returns a JSON payload that looks like the following example:
   ]
 }
 ```
-This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, during which the app consumed 1,110,000,000 MB-milliseconds (1,083.98 GB-seconds).
+This particular response shows that from `2019-09-11T21:46` to `2019-09-11T23:18`, during which the app consumed 1110000000 MB-milliseconds (1083.98 GB-seconds).
 
 ## Determine memory usage
 
@@ -232,7 +232,7 @@ customMetrics
 | QueueTrigger MaxDurationMs | 90\.249                     |
 | QueueTrigger MinDurationMs | 8\.522                      |
 
-## Next Steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about Monitoring function apps](functions-monitoring.md)
