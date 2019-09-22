@@ -65,7 +65,7 @@ For more information about the text-to-speech service and how to get started, se
 
 ## Known differences from deprecated services 
 
-Video Indexer, Azure Media Services v3 AudioAnalyzerPreset, and Cognitive Services Speech Services are all more reliable and produces better quality output than the retired Azure Media Indexer 1 and Azure Media Indexer 2 processors.  
+You will find that Video Indexer, Azure Media Services v3 AudioAnalyzerPreset, and Cognitive Services Speech Services services are more reliable and produces better quality output than the retired Azure Media Indexer 1 and Azure Media Indexer 2 processors.  
 
 Some known differences include: 
 
