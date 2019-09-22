@@ -76,7 +76,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 4. Select individual bookmarks and view the bookmark details in the right-hand details blade.
 
-5. Make your changes in the editable text boxes.
+5. Make your changes as needed, which are automatically saved.
 
 ## Exploring bookmarks in the investigation graph
 
