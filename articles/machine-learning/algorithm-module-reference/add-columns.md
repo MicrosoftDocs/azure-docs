@@ -21,7 +21,7 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 
 
 ## How to configure Add Columns
-1. Add the **Add Columns** module to your experiment.
+1. Add the **Add Columns** module to your pipeline.
 
 2. Connect the two datasets that you want to concatenate. If you want to combine more than two datasets, you can chain together several combinations of **Add Columns**.
 
@@ -29,10 +29,10 @@ Use this module to concatenate two datasets. You combine all columns from the tw
 
     - You cannot choose individual columns to add. All the columns from each dataset are concatenated when you use **Add Columns**. Therefore, if you want to add only a subset of the columns, use Select Columns in Dataset to create a dataset with the columns you want.
 
-3. Run the experiment.
+3. Run the pipeline.
 
 ### Results
-After the experiment has run:
+After the pipeline has run:
 
 - To see the first rows of the new dataset, right-click the output of **Add Columns** and select Visualize.
 

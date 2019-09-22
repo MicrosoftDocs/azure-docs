@@ -46,7 +46,7 @@ This module lets you define a cleaning operation. You can also save the cleaning
 
 Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) module to a set of data, the same cleaning operation is applied to all columns that you select. Therefore, if you need to clean different columns using different methods, use separate instances of the module.
 
-1.  Add the [Clean Missing Data](./clean-missing-data.md) module to your experiment, and connect the dataset that has missing values.  
+1.  Add the [Clean Missing Data](./clean-missing-data.md) module to your pipeline, and connect the dataset that has missing values.  
   
 2.  For **Columns to be cleaned**, choose the columns that contain the missing values you want to change. You can choose multiple columns, but you must use the same replacement method in all selected columns. Therefore, typically you need to clean string columns and numeric columns separately.
 
@@ -59,7 +59,7 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
 
     3. For **Include**, select **Column type** from the dropdown list, and then select **Numeric**, or a more specific numeric type. 
   
-    Any cleaning or replacement method that you choose must be applicable to **all** columns in the selection. If the data in any column is incompatible with the specified operation, the module returns an error and stops the experiment.
+    Any cleaning or replacement method that you choose must be applicable to **all** columns in the selection. If the data in any column is incompatible with the specified operation, the module returns an error and stops the pipeline.
   
 3.  For **Minimum missing value ratio**, specify the minimum number of missing values required for the operation to be performed.  
   
@@ -109,7 +109,7 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
   
 7. **Generate missing value indicator column**: Select this option if you want to output some indication of whether the values in the column met the criteria for missing value cleaning. This option is particularly useful when you are setting up a new cleaning operation and want to make sure it works as designed.
   
-8. Run the experiment.
+8. Run the pipeline.
 
 ### Results
 
@@ -125,11 +125,11 @@ The module returns two outputs:
 
 If you need to repeat cleaning operations often, we recommend that you save your recipe for data cleansing as a *transform*, to reuse with the same dataset. Saving a cleaning transformation is particularly useful if you must frequently re-import and then clean data that has the same schema.  
       
-1.  Add the [Apply Transformation](./apply-transformation.md) module to your experiment.  
+1.  Add the [Apply Transformation](./apply-transformation.md) module to your pipeline.  
   
 2.  Add the dataset you want to clean, and connect the dataset to the right-hand input port.  
   
-3.  Expand the **Transforms** group in the left-hand pane of the interface. Locate the saved transformation and drag it into the experiment.  
+3.  Expand the **Transforms** group in the left-hand pane of the interface. Locate the saved transformation and drag it into the pipeline.  
   
 4.  Connect the saved transformation to the left input port of [Apply Transformation](./apply-transformation.md). 
 
@@ -137,7 +137,7 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
     However, suppose you created a transformation on a subset of numeric columns. You can apply this transformation to a dataset of mixed column types without raising an error, because the missing values are changed only in the matching numeric columns.
 
-6.  Run the experiment.  
+6.  Run the pipeline.  
 
 ## Next steps
 
