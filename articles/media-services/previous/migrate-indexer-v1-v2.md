@@ -18,7 +18,49 @@ ms.author: juliako
 ---
 # Migrate from Azure Media Indexer v1 and v2 to Azure Media Services Video Indexer
 
-This article discusses the steps for migrating from the legacy Azure Media Indexer v1 and v2 to Azure Media Services Video Indexer.  
+The [Azure Media Indexer v1 (GA)](media-services-index-content.md) and [Indexer v2 (Preview)](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2019. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors. 
 
+Video Indexer is built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see in what scenarios Video Indexer can be used, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
+
+Azure Media Services v3 enables you to extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+
+This article discusses the steps for migrating from the Azure Media Indexer v1 and Azure Media Indexer v2 to Azure Media Services Video Indexer.  
+
+## Migration options 
+
+|If you require  |then |
+|---|---|
+|a solution that provides the following: <br/>    - a speech-to-text transcription for any media file format in a closed caption file format (VTT, SRT, or TTML)<br/>    - as well as additional audio insights such as:<br/>    keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
+|speech-to-text capabilities| use the Cognitive Services Speech API directly.|  
+
+## Getting started with Video Indexer
+
+The [How can I get started with Video Indexer?](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) section points you to relevant links.
+
+## Getting started with Media Services v3 APIs
+
+...
+
+point to our new Java and .NET samples
+
+## Getting started with Cognitive Services Speech Services
+
+...
+
+## Known differences from deprecated services 
+
+Video Indexer, Azure Media Services v3 AudioAnalyzerPreset, and Cognitive Services Speech Services are all more reliable and produces better quality output than the retired Azure Media Indexer 1 and Azure Media Indexer 2 processors.  
+
+Some known differences include: 
+
+* Closed caption files in SAMI format will no longer be supported. This is an older caption format that is no longer widely used. It is replaced by TTML, WebVTT, and SRT.  
+* Audio Indexing Blob (AIB) files will no longer be supported. This feature was specific to the Indexer 1 technology and is no longer offered.  
+* Cognitive Services Speech Services does not support keyword extraction. However, Video Indexer and AMS v3 AudioAnalyzerPreset both offer a more robust set of keywords in JSON file format. 
+
+## Contact us 
+
+If you have questions on the deprecation of Azure Media Indexer 1 and Azure Media Indexer 2 or on migrating to any of the other services, please reach out to us via amshelp@microsoft.com 
+
+ 
 ## Next steps
 
