@@ -22,6 +22,7 @@ This article provides information and sample code to help you get started using 
 - A Java IDE of your choice
 - [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
 - Maven installed
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Get the Custom Vision SDK and sample code
 

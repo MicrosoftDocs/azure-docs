@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -85,11 +85,7 @@ Azure datacenters in Australia have an additional security notification. All the
 3. Affix the label on the box. 
 4. Book a pick-up online at the link https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference. 
 
-### [In Asia](#tab/in-asia)
-
-The pickup instructions are different for Japan, Korea, and Singapore.
-
-#### Pick up in Japan
+### [In Japan](#tab/in-japan)
 
 1. Write your company name and address information on the consignment note as your sender information.
 2. Email Quantium solution using the following email template.
@@ -116,7 +112,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 - Email：Customerservice.JP@quantiumsolutions.com 
 - Telephone：03-5755-0150 
 
-#### Pick up in Korea
+### [In Korea](#tab/in-korea)
 
 1. Make sure to include the return consignment note.
 2. To request pickup when consignment note is present:
@@ -130,7 +126,8 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
     4. You receive a verbal confirmation if the request is made via telephone.
 
-#### Pick up in Singapore
+
+### [In Singapore](#tab/in-singapore)
 
 1. Print the shipping label and attach onto the box. If the label is damaged or lost:
     - Go to **Overview > Download shipping label** and get a return shipping label.

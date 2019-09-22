@@ -32,7 +32,7 @@ The datacenter storage system exposes these exports:
     /goldline
     /goldline/templates
 
-The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload)).
+The data to be analyzed has been copied to an Azure Blob storage container named "sourcecollection" by using the [CLFSLoad utility](hpc-cache-ingest.md#pre-load-data-in-blob-storage-with-clfsload).
 
 To allow easy access through the cache, consider creating storage targets with these virtual namespace paths:
 

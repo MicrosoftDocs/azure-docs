@@ -1,7 +1,7 @@
 ---
 title: Example Jupyter notebooks
-titleSuffix: Azure Machine Learning service
-description: Find and use example Jupyter notebooks to explore the Azure Machine Learning service Python SDK.
+titleSuffix: Azure Machine Learning
+description: Find and use example Jupyter notebooks to explore the Azure Machine Learning Python for SDK.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
-# Explore Azure Machine Learning service with Jupyter notebooks
+# Explore Azure Machine Learning with Jupyter notebooks
 
 The [example Azure Machine Learning Notebooks repository](https://github.com/azure/machinelearningnotebooks) includes the latest Azure Machine Learning Python SDK samples. These Juypter notebooks are designed to help you explore the SDK and serve as models for your own machine learning projects.
 
@@ -52,7 +52,7 @@ The Data Science Virtual Machine (DSVM) is a customized VM image built specifica
 
 ## Next steps
 
-Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning service can do, or try these tutorials:
+Explore the [sample notebooks](https://aka.ms/aml-notebooks) to discover what Azure Machine Learning can do, or try these tutorials:
 
 - [Train and deploy an image classification model with MNIST](tutorial-train-models-with-aml.md)
 
