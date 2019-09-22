@@ -33,7 +33,7 @@ Before you start, you must:
 
 ## Create and activate a virtual environment (optional)
 
-You should use a Python 3.6.x environment to locally develop and test Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
+You should use a Python 3.6.x environment to locally develop and verify Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
 
 > [!NOTE]
 > If Python didn't install venv on your Linux distribution, you can install it using the following command:
@@ -150,7 +150,7 @@ The function runs locally using the Azure Functions runtime.
 
 1. Append the query string `?name=<yourname>` to this URL and execute the request. The following screenshot shows the response to the GET request that the local function returns to the browser:
 
-    ![Test locally in the browser](./media/functions-create-first-function-python/function-test-local-browser.png)
+    ![Verify locally in the browser](./media/functions-create-first-function-python/function-test-local-browser.png)
 
 1. Select Ctrl+C to shut down your function app.
 
