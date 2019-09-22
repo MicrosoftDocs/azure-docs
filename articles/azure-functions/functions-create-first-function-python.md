@@ -13,7 +13,7 @@ manager: gwallace
 
 # Create an HTTP triggered function in Azure
 
-This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. An HTTP request triggers the function you create. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
+This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 
 This article is the first of two Python quickstarts for Azure Functions. After you complete this quickstart, you can [add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md) to your function.
 
@@ -33,7 +33,7 @@ Before you start, you must:
 
 ## Create and activate a virtual environment (optional)
 
-You can use a Python 3.6.x environment to locally develop and test Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
+You should use a Python 3.6.x environment to locally develop and test Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
 
 > [!NOTE]
 > If Python didn't install venv on your Linux distribution, you can install it using the following command:
@@ -175,15 +175,15 @@ az functionapp create --resource-group myResourceGroup --os-type Linux \
 --name <APP_NAME> --storage-account  <STORAGE_NAME>
 ```
 
-The preceeding command will also provision an associated Azure Application Insights instance. It will be in the same resource group, which you can use for monitoring and viewing logs.
+The preceding command also provisions an associated Azure Application Insights instance in the same resource group. You can use this instance to monitor your function app and view logs.
 
 You're now ready to publish your local functions project to the function app in Azure.
 
 ## Deploy the function app project to Azure
 
-After you create the function app in Azure, you can use the [func azure functionapp publish](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this examples, replace `<APP_NAME>` with the name of your app.
+After you create the function app in Azure, you can use the [func azure functionapp publish](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
 
-```azurecli-interactive
+```console
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
@@ -205,7 +205,7 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-You can copy the `Invoke url` value for your `HttpTrigger` and use it to test your function in Azure. The URL contains a `code` query string value that is your function key, which makes it difficult for others to call your HTTP trigger endpoint in Azure.
+You can copy the `Invoke url` value for your `HttpTrigger` and use it to verify your function in Azure. The URL contains a `code` query string value that is your function key, which makes it difficult for others to call your HTTP trigger endpoint in Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 
