@@ -3,7 +3,7 @@ title: Azure Resource Manager template functions - numeric | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to work with numbers.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.author: tomfitz
 

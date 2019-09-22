@@ -83,7 +83,7 @@ If you want to perform data integration securely in a private network environmen
 ### Self-hosted IR compute resource and scaling
 Self-hosted IR needs to be installed on an on-premises machine or a virtual machine inside a private network. Currently, we only support running the self-hosted IR on a Windows operating system.  
 
-For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to create and configure self-hosted IR article under how to guides for details.
+For high availability and scalability, you can scale out the self-hosted IR by associating the logical instance with multiple on-premises machines in active-active mode.  For more information, see how to [create and configure self-hosted IR](create-self-hosted-integration-runtime.md) article under how to guides for details.
 
 ## Azure-SSIS Integration Runtime
 To lift and shift existing SSIS workload, you can create an Azure-SSIS IR to natively execute SSIS packages.

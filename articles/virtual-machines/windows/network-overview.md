@@ -4,7 +4,7 @@ description: Learn about networking as it relates to the basics of creating Wind
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn

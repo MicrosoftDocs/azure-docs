@@ -64,16 +64,13 @@ For nodes running Windows, the following versions are supported:
 - Windows 8.1
 - Windows 7
 
+The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016)
+standalone product sku does not contain an implementation of Desired State Configuraion
+so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
+
 For nodes running Linux, the following distros/versions are supported:
 
-The DSC Linux extension supports all the Linux distributions
-[endorsed on Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)
-except:
-
-Distribution | Version
--|-
-Debian	| all versions
-Ubuntu	| 18.04
+The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### DSC requirements
 
@@ -95,6 +92,12 @@ the following port and URLs are required for State Configuration (DSC) to commun
 * Global URL: *.azure-automation.net
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
+
+This provides network connectivity for the managed node to communicate with Azure Automation.
+If you are using DSC resources that communicate between nodes,
+such as the [WaitFor* resources](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource),
+you will also need to allow traffic between nodes.
+See the documentation for each DSC resource to understand those network requirements.
 
 #### Proxy Support
 
@@ -118,6 +121,7 @@ If you have an Automation account that's defined for a specific region, you can 
 | --- | --- |
 | West Central US | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| East US	| eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canada Central |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
@@ -137,18 +141,6 @@ For a list of region IP addresses instead of region names, download the [Azure D
 >An updated file is posted weekly. The file reflects the currently deployed ranges and any upcoming changes to the IP ranges. New ranges that appear in the file aren't used in the datacenters for at least one week.
 >
 > It's a good idea to download the new XML file every week. Then, update your site to correctly identify services running in Azure. Azure ExpressRoute users should note that this file is used to update the Border Gateway Protocol (BGP) advertisement of Azure space in the first week of each month.
-
-## Introduction video
-
-Prefer watching to reading? Have a look at the following video from May 2015, when Azure Automation
-State Configuration was first announced.
-
-> [!NOTE]
-> While the concepts and life cycle discussed in this video are correct, Azure Automation State
-> Configuration has progressed a lot since this video was recorded. It is now generally available,
-> has a much more extensive UI in the Azure portal, and supports many additional capabilities.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3467/player]
 
 ## Next steps
 

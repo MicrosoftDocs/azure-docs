@@ -4,7 +4,7 @@ description: Learn about monitoring options for Windows virtual machines in Azur
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

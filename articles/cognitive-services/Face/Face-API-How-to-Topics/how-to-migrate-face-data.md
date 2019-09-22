@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: This guide shows you how to migrate your stored face data from one Face API subscription to another.
 services: cognitive-services
 author: lewlu
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/06/2019
 ms.author: lewlu
 ---
 
 # Migrate your face data to a different Face subscription
 
-This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face API subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object by using a free trial subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across regions for a large enterprise operation.
+This guide shows you how to move face data, such as a saved PersonGroup object with faces, to a different Azure Cognitive Services Face API subscription. To move the data, you use the Snapshot feature. This way you avoid having to repeatedly build and train a PersonGroup or FaceList object when you move or expand your operations. For example, perhaps you created a PersonGroup object by using a free trial subscription and now want to migrate it to your paid subscription. Or you might need to sync face data across subscriptions in different regions for a large enterprise operation.
 
 This same migration strategy also applies to LargePersonGroup and LargeFaceList objects. If you aren't familiar with the concepts in this guide, see their definitions in the [Face recognition concepts](../concepts/face-recognition.md) guide. This guide uses the Face API .NET client library with C#.
 
@@ -37,7 +37,9 @@ This guide uses a simple console app to run the face data migration. For a full 
 
 ## Create face clients
 
-In the **Main** method in *Program.cs*, create two [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) instances for your source and target subscriptions. This example uses a Face subscription in the East Asia region as the source and a West US subscription as the target. This example demonstrates how to migrate data from one Azure region to another. If your subscriptions are in different regions, change the `Endpoint` strings.
+In the **Main** method in *Program.cs*, create two [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) instances for your source and target subscriptions. This example uses a Face subscription in the East Asia region as the source and a West US subscription as the target. This example demonstrates how to migrate data from one Azure region to another. 
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 var FaceClientEastAsia = new FaceClient(new ApiKeyServiceClientCredentials("<East Asia Subscription Key>"))

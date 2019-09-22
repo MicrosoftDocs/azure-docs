@@ -1,11 +1,9 @@
 ---
 title: Azure Data Lake Storage Gen2 Introduction
 description: Provides an overview of Azure Data Lake Storage Gen2 
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
@@ -62,7 +60,7 @@ The following are the equivalent entities, as described by different concepts. U
 | Concept                                | Top Level Organization | Lower Level Organization                                            | Data Container |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs – General purpose object storage | Container              | Virtual directory (SDK only – does not provide atomic manipulation) | Blob           |
-| ADLS Gen2 – Analytics Storage          | File system             | Directory                                                           | File           |
+| ADLS Gen2 – Analytics Storage          | Container            | Directory                                                           | File           |
 
 ## Supported open source platforms
 

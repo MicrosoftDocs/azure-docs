@@ -11,7 +11,6 @@ ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
@@ -94,7 +93,7 @@ In addition to being able to control access to your app, you can also restrict a
 
 ## Programmatic manipulation of access restriction rules ##
 
-There currently is no CLI or PowerShell for the new Access Restrictions capability but the values can be set manually with a PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+There currently is no CLI or PowerShell for the new Access Restrictions capability but the values can be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
 The location for this information in Resource Manager is:
 
@@ -102,15 +101,19 @@ management.azure.com/subscriptions/**subscription ID**/resourceGroups/**resource
 
 The JSON syntax for the earlier example is:
 
-    "ipSecurityRestrictions": [
-      {
-        "ipAddress": "131.107.159.0/24",
-        "action": "Allow",
-        "tag": "Default",
-        "priority": 100,
-        "name": "allowed access"
+    {
+      "properties": {
+        "ipSecurityRestrictions": [
+          {
+            "ipAddress": "122.133.144.0/24",
+            "action": "Allow",
+            "tag": "Default",
+            "priority": 100,
+            "name": "IP example rule"
+          }
+        ]
       }
-    ],
+    }
 
 ## Function App IP Restrictions
 

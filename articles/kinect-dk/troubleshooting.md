@@ -56,6 +56,31 @@ For more information, see below clip from header file:
 */
 ```
 
+Logging for the Body Tracking SDK K4ABT.dll is similar except that users should modify a different set of environment variable names:
+
+```console
+/**
+* environment variables
+* K4ABT_ENABLE_LOG_TO_A_FILE =
+*    0    - completely disable logging to a file
+*    log\custom.log - log all messages to the path and file specified - must end in '.log' to
+*                     be considered a valid entry
+*    ** When enabled this takes precedence over the value of K4A_ENABLE_LOG_TO_STDOUT
+*
+* K4ABT_ENABLE_LOG_TO_STDOUT =
+*    0    - disable logging to stdout
+*    all else  - log all messages to stdout
+*
+* K4ABT_LOG_LEVEL =
+*    'c'  - log all messages of level 'critical' criticality
+*    'e'  - log all messages of level 'error' or higher criticality
+*    'w'  - log all messages of level 'warning' or higher criticality
+*    'i'  - log all messages of level 'info' or higher criticality
+*    't'  - log all messages of level 'trace' or higher criticality
+*    DEFAULT - log all message of level 'error' or higher criticality
+*/
+```
+
 ## Device doesn't enumerate in device manager
 
 - Check the status LED behind the device, if it's blinking amber you have USB connectivity issue and it doesn't get enough power. The power supply cable should be plugged into the
@@ -128,15 +153,7 @@ The topic of USB host controllers gets even more complicated when a PC has more 
 
 To better understand which USB port is connected on your PC, repeat these steps for each USB port as you connect Azure Kinect DK to different USB ports on the PC.
 
-## Multi device synchronization
-
-### Stabilization
-
-When starting up devices using the multi device synchronization feature, it is highly recommended to do so using a fixed exposure setting.
-With a manual exposure set, it can take up to eight captures from the device before images and framerate stabilize. 
-With auto exposure, it can take up to 20 captures before images and framerate stabilize.
-
-### Depth camera auto powers down
+## Depth camera auto powers down
 
 The laser used by the depth camera to calculate image depth data, has a limited lifespan. To maximize the life of the lasers, the depth camera will detect when depth data is not being consumed. The depth camera power downs when the device is streaming for several minutes but the host PC is not reading the data. 
 It also impacts Multi Device Synchronization where subordinate devices start up in a state where the depth camera is streaming and depth frames are actively help up waiting for the master device to start synchronizing captures. To avoid this problem in Multi Device capture scenarios, ensure the master device starts within a minute of the first subordinate being started. 

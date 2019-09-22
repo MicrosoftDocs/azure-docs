@@ -96,8 +96,10 @@
         href: data-box-disk-deploy-set-up.md
       - name: 3 - Copy and validate
         href: data-box-disk-deploy-copy-data.md 
-      - name: 4 - Return, upload, verify
+      - name: 4 - Return
         href: data-box-disk-deploy-picked-up.md  
+      - name: 5 - Verify upload
+        href: data-box-disk-deploy-upload-verify.md 
     - name: Concepts
       items:
       - name: Review requirements
@@ -145,10 +147,20 @@
         items:
         - name: Via SMB
           href: data-box-heavy-deploy-copy-data.md 
+        - name: Via NFS
+          href: data-box-heavy-deploy-copy-data-via-nfs.md 
+        - name: Via REST
+          href: data-box-heavy-deploy-copy-data-via-rest.md 
+        - name: Via data copy service
+          href: data-box-heavy-deploy-copy-data-via-copy-service.md 
+        - name: To managed disks
+          href: data-box-heavy-deploy-copy-data-from-vhds.md 
       - name: 4 - Return, upload, verify
         href: data-box-heavy-deploy-picked-up.md  
     - name: Concepts
       items:
+      - name: Read safety guidelines
+        href: data-box-heavy-safety.md
       - name: Review tracking and logging
         href: data-box-logs.md
       - name: Review requirements

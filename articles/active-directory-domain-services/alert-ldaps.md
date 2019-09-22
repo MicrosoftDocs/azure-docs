@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Secure LDAP configuration | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Troubleshoot secure LDAP | Microsoft Docs'
 description: Troubleshooting Secure LDAP for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager:
 editor:
 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Azure AD Domain Services - Troubleshooting Secure LDAP configuration
 
-This article provides resolutions for common issues when [configuring secure LDAP](configure-ldaps.md) for Azure AD Domain Services.
+This article provides resolutions for common issues when [configuring secure LDAP](tutorial-configure-ldaps.md) for Azure AD Domain Services.
 
 ## AADDS101: Secure LDAP Network Security Group configuration
 
@@ -58,7 +58,7 @@ When secure LDAP is enabled, we recommend creating additional rules to allow inb
 
 **Resolution:**
 
-Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](configure-ldaps.md) article.
+Create a new secure LDAP certificate by following the steps outlined in the [Configure secure LDAP](tutorial-configure-ldaps.md) article.
 
 ## Contact us
 Contact the Azure Active Directory Domain Services product team to [share feedback or for support](contact-us.md).

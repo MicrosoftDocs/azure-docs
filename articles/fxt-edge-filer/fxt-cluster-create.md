@@ -4,7 +4,7 @@ description: How to create a hybrid storage cache cluster with the Azure FXT Edg
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 07/01/2019
 ms.author: v-erkell 
 ---
 
@@ -29,7 +29,10 @@ This procedure takes between 15 and 45 minutes, depending on how much research y
 
 Complete these prerequisites before starting this tutorial:
 
-* Install at least three Azure FXT Edge Filer hardware systems in your data center 
+* Install your Azure FXT Edge Filer hardware systems in your data center 
+
+  You only need one node to create the cluster, but you need to [add at least two more nodes](fxt-add-nodes.md) before you can configure the cluster and get it ready to use. 
+
 * Connect appropriate power and network cables to the system  
 * Power on at least one Azure FXT Edge Filer node and [set its root password](fxt-node-password.md)
 
@@ -109,7 +112,7 @@ Use the command `ifconfig` to see the addresses assigned to this system.
 
 For example, the command `ifconfig | grep -B5 inet` searches for ports with internet addresses and gives five lines of context to show the port identifier.
 
-Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for IPMI ports, not regular network ports.  
+Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for iDRAC/IPMI service ports.  
 
 ## Load the cluster configuration wizard
 
@@ -208,7 +211,7 @@ Settings in the **Management** section are for the network that provides adminis
 
 * **MTU** - If necessary, adjust the maximum transmission unit (MTU) for your cluster’s management network.
 
-* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. If you don't check this box, the management network uses the highest speed port available. 
+* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. (You must have 25GbE/10GbE ports available for all other traffic.) If you don't check this box, the management network uses the highest speed port available. 
 
 ### Configure the cluster network 
 
@@ -276,7 +279,7 @@ Use the Control Panel web interface to set up your new cluster. Follow the link 
 
 Sign in to the web interface with the username `admin` and the password that you set when creating the cluster.
 
-![web browser showing control panel login fields](media/fxt-cluster-config/admin-login.png)
+![web browser showing control panel login fields](media/fxt-cluster-create/admin-login.png)
 
 The Control Panel opens and shows the **Dashboard** page. As the cluster creation finishes, any warning messages should clear from the display.
 
@@ -284,7 +287,7 @@ Click the **Settings** tab to configure the cluster.
 
 On the **Settings** tab, the left sidebar shows a menu of configuration pages. The pages are organized by category. Click the + or - control at the top of the category name to expand or hide the individual pages.
 
-![Settings tab of control panel (in browser) with the Cluster > General Setup page loaded](media/fxt-cluster-config/settings-tab-populated.png)
+![Settings tab of control panel (in browser) with the Cluster > General Setup page loaded](media/fxt-cluster-create/settings-tab-populated.png)
 
 ## Cluster setup steps
 
@@ -310,7 +313,7 @@ These steps are needed for most or all clusters.
 
   Read [Configure the namespace](fxt-add-storage.md#configure-the-namespace) for details. This step includes:
   * Creating vservers
-  * Setting up junctions between the client network view and backend storage 
+  * Setting up junctions between the client network view and back-end storage 
   * Defining which client IP addresses are served by each vserver
 
   > [!Note] 
@@ -365,7 +368,7 @@ Follow these steps to set up support uploads.
 
 1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy. 
 
-   ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-config/fxt-privacy-policy.png)
+   ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-create/fxt-privacy-policy.png)
 
 1. Click the triangle to the left of **Customer Info** to expand the section.
 1. Click the **Revalidate upload information** button.
@@ -373,13 +376,13 @@ Follow these steps to set up support uploads.
 1. Check the boxes for **Statistics Monitoring**, **General Information Upload**, and **Crash Information Upload**.
 1. Click **Submit**.  
 
-   ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-config/fxt-support-info.png)
+   ![Screenshot containing completed customer info section of support settings page](media/fxt-cluster-create/fxt-support-info.png)
 
 1. Click the triangle to the left of **Secure Proactive Support (SPS)** to expand the section.
 1. Check the box for **Enable SPS Link**.
 1. Click **Submit**.
 
-   ![Screenshot containing completed Secure Proactive Support section on support settings page](media/fxt-cluster-config/fxt-support-sps.png)
+   ![Screenshot containing completed Secure Proactive Support section on support settings page](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## Next steps
 

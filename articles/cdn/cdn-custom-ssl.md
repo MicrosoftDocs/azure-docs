@@ -8,12 +8,12 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -127,7 +127,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. In **Secret permissions**, select **Get** to allow CDN to perform these permissions to get and list the certificates. 
+3. Select **Certificate permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the certificates.
 
 4. Select **OK**. 
 
@@ -187,15 +187,11 @@ Automatic validation typically takes a few hours. If you don’t see your domain
 ### Custom domain is not mapped to your CDN endpoint
 
 >[!NOTE]
->Email validation of custom domain ownership is currently unavailable for **Azure CDN from Akamai** profiles. If you are using **Azure CDN from Akamai**, your custom domain must be mapped to your cdn enpoint with a CNAME record as stated above.  This feature is currently in our backlog. 
+>If you are using **Azure CDN from Akamai**, your custom domain must be mapped to your cdn enpoint with a CNAME record as stated above.  This feature is currently in our backlog. 
 
 If the CNAME record entry contains the cdnverify subdomain, follow the rest of the instructions in this step.
 
-After you submit a request to enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS will be active on your custom domain. You have six business days to approve the domain. Requests that are not approved within six business days are automatically canceled. 
-
-![WHOIS record](./media/cdn-custom-ssl/whois-record.png)
-
-DigiCert also sends a verification email to additional email addresses. If the WHOIS registrant information is private, verify that you can approve directly from one of the following addresses:
+DigiCert sends a verification email to the following email addresses. Verify that you can approve directly from one of the following addresses:
 
 admin@&lt;your-domain-name.com&gt;  
 administrator@&lt;your-domain-name.com&gt;  
@@ -203,7 +199,7 @@ webmaster@&lt;your-domain-name.com&gt;
 hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;your-domain-name.com&gt;  
 
-You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add admin@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
+You should receive an email in a few minutes, similar to the following example, asking you to approve the request. If you are using a spam filter, add verification@digicert.com to its whitelist. If you don't receive an email within 24 hours, contact Microsoft support.
     
 ![Domain validation email](./media/cdn-custom-ssl/domain-validation-email.png)
 
@@ -313,6 +309,9 @@ The following table shows the operation progress that occurs when you disable HT
 
     Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application. If Microsoft detects there some non-SNI client requests made to your application, your domains will stay in the SAN certificate with IP-based TLS/SSL. In any case, there will be no interruption to your service or support to your client requests regardless of whether those requests are SNI or non-SNI.
 
+7. *How do cert renewals work with Bring Your Own Certificate?*
+
+    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propogate your new updated cert. 
 
 ## Next steps
 

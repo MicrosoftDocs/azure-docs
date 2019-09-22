@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Perform extract, transform, load (ETL) operations using Interactive Query on Azure HDInsight'
+title: 'Tutorial: Perform ETL operations using Interactive Query in Azure HDInsight'
 description: Tutorial - Learn how to extract data from a raw CSV dataset, transform it using Interactive Query on HDInsight, and then load the transformed data into Azure SQL database by using Apache Sqoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/02/2019
 ms.author: hrasheed
 ms.custom: hdinsightactive,mvc
 #Customer intent: As a data analyst, I need to load some data using Interactive Query, transform, and then export it to an Azure SQL database
@@ -28,7 +28,7 @@ This tutorial covers the following tasks:
 
 * An Interactive Query cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Interactive Query** for **Cluster type**.
 
-* An Azure SQL Database. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](/../sql-database/sql-database-single-database-get-started.md).
+* An Azure SQL Database. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](/azure/sql-database/sql-database-single-database-get-started).
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -55,6 +55,8 @@ There are many ways to upload data to the storage associated with an HDInsight c
     ```cmd
     scp FILENAME.zip sshuser@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.zip
     ```
+
+    If you are asked to enter yes or no to proceed, type yes at the command prompt and press enter. The text is not visible in the window as you type.
 
 2. After the upload has finished, connect to the cluster by using SSH. Edit the command below by replacing `CLUSTERNAME` with the name of the HDInsight cluster. Then enter the following command:
 

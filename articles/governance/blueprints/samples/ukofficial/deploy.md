@@ -26,8 +26,7 @@ before you begin.
 First, implement the blueprint sample by creating a new blueprint in your environment using the
 sample as a starter.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
@@ -55,8 +54,7 @@ Your copy of the blueprint sample has now been created in your environment. It's
 blueprint sample can be customized to your environment and needs, but that modification may move
 it away from the standard.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -72,8 +70,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 subscription within the management group it was saved to. This step is where parameters are
 provided to make each deployment of the copy of the blueprint sample unique.
 
-1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
-   page, select **Blueprints**.
+1. Select **All services** in the left pane. Search for and select **Blueprints**.
 
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the
    blueprint sample and then select it.
@@ -126,8 +123,8 @@ The following table provides a list of the blueprint artifact parameters:
 Artifact name|Artifact type|Parameter name|Description|
 |-|-|-|-|
 |Blueprint initiative for UK OFFICIAL or UK NHS|Policy assignment |Resource types to audit diagnostic logs (Policy: Blueprint initiative for UK OFFICIAL or UK NHS) |List of resource types to audit if diagnostic log setting is note enabled.  For acceptable values, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|[Preview]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope (Policy: [Preview]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|[Preview]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope (Policy: [Preview]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: Deploy Log Analytics Agent for Linux VMs |Policy assignment |Optional: List of VM images that have supported Linux OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Linux VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview\]: Deploy Log Analytics Agent for Windows VMs |Policy assignment |Optional: List of VM images that have supported Windows OS to add to scope (Policy: \[Preview\]: Deploy Log Analytics Agent for Windows VMs) |(Optional) Default value is _none_. For more information, see [Create a Log Analytics workspace in the Azure portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## Next steps
 
@@ -140,7 +137,7 @@ following articles to learn about the overview and control mapping:
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

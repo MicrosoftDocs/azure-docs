@@ -35,7 +35,7 @@ This article describes how to use Service Bus topics and subscriptions. The samp
 
     > [!NOTE]
     > You will create a **topic** and a **subscription** to the topic by using **Python** in this quickstart. 
-3. Install [Azure Python package][Azure Python package]. See the [Python Installation Guide](../python-how-to-install.md).
+3. Install [Azure Python package][Azure Python package]. See the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
 ## Create a topic
 
@@ -75,9 +75,9 @@ bus_service.create_topic('mytopic', topic_options)
 Subscriptions to topics are also created with the **ServiceBusService** object. Subscriptions are named and can have an optional filter that restricts the set of messages delivered to the subscription's virtual queue.
 
 > [!NOTE]
-> Subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
+> By default, subscriptions are persistent and will continue to exist until either they, or the topic to which they are subscribed, are deleted.
 > 
-> 
+> You can have the subscriptions automatically deleted by setting the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### Create a subscription with the default (MatchAll) filter
 
@@ -137,7 +137,8 @@ The following example demonstrates how to send five test messages to `mytopic`. 
 
 ```python
 for i in range(5):
-    msg = Message('Msg {0}'.format(i).encode('utf-8'), custom_properties={'messagenumber':i})
+    msg = Message('Msg {0}'.format(i).encode('utf-8'),
+                  custom_properties={'messagenumber': i})
     bus_service.send_topic_message('mytopic', msg)
 ```
 
@@ -149,7 +150,8 @@ a maximum size of 64 KB. There is no limit on the number of messages held in a t
 Messages are received from a subscription using the `receive_subscription_message` method on the **ServiceBusService** object:
 
 ```python
-msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=False)
+msg = bus_service.receive_subscription_message(
+    'mytopic', 'LowMessages', peek_lock=False)
 print(msg.body)
 ```
 
@@ -176,7 +178,7 @@ In the event that the application crashes after processing the message but befor
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent, and must be explicitly deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent unless the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) is set. They can be deleted either through the [Azure portal][Azure portal] or programmatically. The following example shows how to delete the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')

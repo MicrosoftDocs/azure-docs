@@ -1,7 +1,7 @@
 ---
-title: Enable logging in Azure Machine Learning service
-titleSuffix: Azure Machine Learning service
-description: Learn how to enable logging in Azure Machine Learning service using both the default Python logging package, as well as using SDK-specific functionality.
+title: Enable logging in Azure Machine Learning
+titleSuffix: Azure Machine Learning
+description: Learn how to enable logging in Azure Machine Learning using both the default Python logging package, as well as using SDK-specific functionality.
 ms.author: trbye
 author: trevorbye
 services: machine-learning
@@ -9,10 +9,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
+ms.date: 07/12/2019
 ---
 
-# Enable logging in Azure Machine Learning service
+# Enable logging in Azure Machine Learning
 
 The Azure Machine Learning Python SDK allows you to enable logging using both the default Python logging package, as well as using SDK-specific functionality both for local logging and logging to your workspace in the portal. Logs provide developers with real-time information about the application state, and can help with diagnosing errors or warnings. In this article, you learn different ways of enabling logging in the following areas:
 
@@ -22,7 +22,7 @@ The Azure Machine Learning Python SDK allows you to enable logging using both th
 > * Deployed models
 > * Python `logging` settings
 
-[Create an Azure Machine Learning service workspace](setup-create-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
+[Create an Azure Machine Learning workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 ## Training models and compute target logging
 
@@ -59,7 +59,7 @@ The SDK also supports using the default python logging package in certain scenar
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automated_ml_config = AutoMLConfig(task = 'regression',
+automated_ml_config = AutoMLConfig(task='regression',
                                    verbosity=logging.INFO,
                                    X=your_training_features,
                                    y=your_training_labels,
@@ -73,7 +73,8 @@ You can also use the `show_output` parameter when creating a persistent compute 
 ```python
 from azureml.core.compute import ComputeTarget
 
-compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_configuration=config)
+compute_target = ComputeTarget.attach(
+    workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
 ```
 
@@ -85,9 +86,10 @@ Enabling logging during image creation will allow you to see any errors during t
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```

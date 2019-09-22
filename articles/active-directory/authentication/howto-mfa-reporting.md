@@ -125,11 +125,11 @@ First, ensure that you have the [MSOnline V1 PowerShell module](https://docs.mic
 
 Identify users who have registered for MFA using the PowerShell that follows.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
 Identify users who have not registered for MFA using the PowerShell that follows.
 
-```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
+```Get-MsolUser -All | Where-Object {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 ## Possible results in activity reports
 
@@ -185,5 +185,6 @@ The following table may be used to troubleshoot multi-factor authentication usin
 
 ## Next steps
 
+* [SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 * [For Users](../user-help/multi-factor-authentication-end-user.md)
 * [Where to deploy](concept-mfa-whichversion.md)

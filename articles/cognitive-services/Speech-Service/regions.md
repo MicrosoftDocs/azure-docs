@@ -1,6 +1,6 @@
 ---
-title: Regions - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Regions - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Reference for regions of the Speech Service.
 services: cognitive-services
 author: mahilleb-msft
@@ -31,15 +31,15 @@ The Speech SDK is available in these regions for **speech recognition**, **text-
   Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
  West US | `westus` | https://westus.cris.ai
- West US2 | `westus2` | https://westus2.cris.ai
+ West US 2 | `westus2` | https://westus2.cris.ai
  East US | `eastus` | https://eastus.cris.ai
- East US2 | `eastus2` | https://eastus2.cris.ai
+ East US 2 | `eastus2` | https://eastus2.cris.ai
  Central US | `centralus` | https://centralus.cris.ai
  North Central US | `northcentralus` | https://northcentralus.cris.ai
  South Central US | `southcentralus` | https://southcentralus.cris.ai
  Central India | `centralindia` | https://centralindia.cris.ai
  East Asia | `eastasia` | https://eastasia.cris.ai
- South East Asia | `southeastasia` | https://southeastasia.cris.ai
+ Southeast Asia | `southeastasia` | https://southeastasia.cris.ai
  Japan East | `japaneast` | https://japaneast.cris.ai
  Korea Central | `koreacentral` | https://koreacentral.cris.ai
  Australia East | `australiaeast` | https://australiaeast.cris.ai
@@ -69,6 +69,20 @@ Available regions for **intent recognition** via the Speech SDK are the followin
  South America | Brazil South | `brazilsouth`
 
 This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
+
+### Voice-first virtual assistants
+
+The [Speech SDK](speech-sdk.md) supports **voice-first virtual assistant** capabilities in these regions:
+
+Region | Speech SDK Parameter
+-------|---------------------
+West US | `westus`
+West US 2 | `westus2`
+East US | `eastus`
+East US 2 | `eastus2`
+West Europe | `westeurope`
+North Europe | `northeurope`
+Southeast Asia | `southeastasia`
 
 ## REST APIs
 

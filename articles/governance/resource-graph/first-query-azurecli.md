@@ -3,11 +3,10 @@ title: Run your first query using Azure CLI
 description: This article walks you through the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/22/2018
+ms.date: 07/26/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Run your first Resource Graph query using Azure CLI
 
@@ -38,7 +37,7 @@ Docker image](https://hub.docker.com/r/microsoft/azure-cli/), or locally install
    az extension add --name resource-graph
    ```
 
-1. Validate that the extension has been installed and is the expected version (at least **0.1.7**):
+1. Validate that the extension has been installed and is the expected version (at least **1.0.0**):
 
    ```azurecli-interactive
    # Check the extension list (note that you may have other extensions installed)
@@ -99,10 +98,6 @@ using the following command:
 # Remove the Resource Graph extension from the Azure CLI environment
 az extension remove -n resource-graph
 ```
-
-> [!NOTE]
-> This does not delete the extension file downloaded earlier. It only removes it from the running
-> Azure CLI environment.
 
 ## Next steps
 

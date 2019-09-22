@@ -14,7 +14,7 @@ ms.date: 05/26/2017
 
 # Create custom APIs you can call from Azure Logic Apps
 
-Although Azure Logic Apps offers [100+ built-in connectors](../connectors/apis-list.md) 
+Although Azure Logic Apps offers [hundreds of connectors](../connectors/apis-list.md) 
 that you can use in logic app workflows, you might want to call APIs, 
 systems, and services that aren't available as connectors. 
 You can create your own APIs that provide actions and triggers to use in logic apps. 
@@ -29,7 +29,7 @@ Basically, connectors are web APIs that use REST for pluggable interfaces,
 [Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. Because connectors are REST APIs 
 that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building connectors. 
+like .NET, Java, Python, or Node.js, for building connectors. 
 You can also host your APIs on [Azure App Service](../app-service/overview.md), 
 a platform-as-a-service (PaaS) offering that provides one of the best, easiest, 
 and most scalable ways for API hosting. 
@@ -74,7 +74,7 @@ are web APIs that use REST for pluggable interfaces,
 [Swagger metadata format](https://swagger.io/specification/) for documentation, 
 and JSON as their data exchange format. And because these APIs and connectors 
 are REST APIs that communicate through HTTP endpoints, you can use any language, 
-like .NET, Java, or Node.js, for building custom APIs and connectors.
+like .NET, Java, Python, or Node.js, for building custom APIs and connectors.
 
 Custom APIs let you call APIs that aren't connectors, 
 and provide endpoints that you can call with HTTP + Swagger, 

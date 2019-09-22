@@ -12,6 +12,8 @@ manager: peterpfr
 
 # Use device sets in your Azure IoT Central application
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 
 A device set is a list of devices that are grouped together because they match some specified criteria. Device sets help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you can create a device set to list all the air conditioner devices in Seattle to enable a technician to find the devices for which they're responsible. This article shows you how to create and configure device sets.
@@ -79,6 +81,8 @@ After you create your device set, you can configure its **Dashboard**. The **Das
         > You can add multiple images, links, and grids.
   
     1. Select **Done**.
+
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ### Configure a location map in your device sets dashboard
 

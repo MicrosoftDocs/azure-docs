@@ -2,12 +2,12 @@
 title: Use your own TLS certificates for ingress with Azure Kubernetes Service (AKS) cluster
 description: Learn how to install and configure an NGINX ingress controller that uses your own certificates in an Azure Kubernetes Service (AKS) cluster.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Create an HTTPS ingress controller and use your own TLS certificates on Azure Kubernetes Service (AKS)
@@ -129,7 +129,7 @@ Both applications are now running on your Kubernetes cluster, however they're co
 In the following example, traffic to the address `https://demo.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo.azure.com/hello-world-two` is routed to the `ingress-demo` service. For this article, you don't need to change those demo host names. For production use, provide the names specified as part of the certificate request and generation process.
 
 > [!TIP]
-> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, you ingress controller displays a *Kubernetes Ingress Controller Fake Certificate*. Make sure your certificate and ingress route host names match.
+> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, you ingress controller displays a *Kubernetes Ingress Controller Fake Certificate* warning. Make sure your certificate and ingress route host names match.
 
 The *tls* section tells the ingress route to use the Secret named *aks-ingress-tls* for the host *demo.azure.com*. Again, for production use, specify your own host address.
 

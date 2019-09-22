@@ -3,7 +3,7 @@ title: Customize the Azure IoT Central UI | Microsoft Docs
 description: How to customize the theme and help links for your Azure IoT central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,11 +13,13 @@ manager: philmea
 
 ---
 
-# Customize the Azure IoT Central UI 
+# Customize the Azure IoT Central UI
 
-*This article applies to administrators.*
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-IoT Central lets you customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. The following screenshot shows a page using the standard theme:
+This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources.
+
+The following screenshot shows a page using the standard theme:
 
 ![Standard IoT Central theme](./media/howto-customize-ui/standard-ui.png)
 
@@ -37,7 +39,7 @@ On this page, you can customize the following aspects of your application:
 
 A PNG image, no larger than 1 MB, with a transparent background. This logo displays to the left on the IoT Central application title bar.
 
-If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage application settings](./howto-administer.md#manage-application-settings).
+If your logo image includes the name of your application, you can hide the application name text. For more information, see [Manage your Application](./howto-administer.md#change-application-name-and-url).
 
 ### Browser icon (favicon)
 

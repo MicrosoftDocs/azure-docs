@@ -1,5 +1,5 @@
 ---
-ms.title: Retrieve Azure Kinect IMU samples
+title: Retrieve Azure Kinect IMU samples
 description: Retrieve IMU samples using Azure Kinect 
 author: qm13
 ms.author: cedmonds
@@ -22,7 +22,7 @@ See the Azure Kinect DK [hardware specification](hardware-specification.md) for 
 > [!NOTE]
 > IMU sensors can only work when the color and/or the depth cameras are running. IMU sensors cannot work alone.
 
-To start the cameras, use [k4a_device_start_cameras](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb).
+To start the cameras, use [k4a_device_start_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaad7a85e1e5471810262442fc4a8e217a.html#gaad7a85e1e5471810262442fc4a8e217a).
 
 ```C
 k4a_device_configuration_t config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;

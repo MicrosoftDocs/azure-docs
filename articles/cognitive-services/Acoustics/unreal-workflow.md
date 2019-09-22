@@ -3,14 +3,15 @@ title: Project Acoustics Unreal Design Tutorial
 titlesuffix: Azure Cognitive Services
 description: This tutorial describes the design workflow for Project Acoustics in Unreal and Wwise.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unreal/Wwise Design Tutorial
@@ -118,6 +119,11 @@ To manage the acoustic data streaming yourself instead of streaming automaticall
 Tile size must already be set before calling Force Load Tile. For example, you could do something like this to load an ACE file, set your tile size, and stream in a region:
 
 ![Screenshot of Streaming Setup options in Unreal](media/streaming-setup.png)
+
+The Load Acoustics Data blueprint function used in this example has the following parameters:
+
+* **Target:** The AcousticsSpace actor.
+* **New Bake:** The acoustics data asset to be loaded. Leaving this blank/setting it to null will unload the current bake without loading a new one.
 
 ### Optionally query for surface proximity
 If you want to see how close surfaces are in a particular direction around the listener, you can use the Query Distance function. This function can be useful for driving directional delayed reflections, or for other game logic driven by surface proximity. The query is less expensive than a ray-cast because the results are pulled from the acoustics lookup table.

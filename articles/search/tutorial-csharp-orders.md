@@ -455,8 +455,8 @@ To display results based on geographical distance, several steps are required.
 
 4. Now you have to tie these concepts together. However, these code snippets are as far as our tutorial goes, building a map-based app is left as an exercise for the reader. To take this example further, consider either entering a city name with a radius, or locating a point on a map, and selecting a radius. To investigate these options further, see the following resources:
 
-* [Azure Maps Documentation](https://docs.microsoft.com/en-us/azure/azure-maps/)
-* [Find an address using the Azure Maps search service](https://docs.microsoft.com/en-us/azure/azure-maps/how-to-search-for-address)
+* [Azure Maps Documentation](https://docs.microsoft.com/azure/azure-maps/)
+* [Find an address using the Azure Maps search service](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
 
 ## Order results based on a scoring profile
 
@@ -952,7 +952,7 @@ Let's look at three examples of scoring profiles, and consider how each _should_
 
 ### Resources
 
-For more information, see the following [Add scoring profiles to an Azure Search index](https://docs.microsoft.com/en-us/azure/search/index-add-scoring-profiles).
+For more information, see the following [Add scoring profiles to an Azure Search index](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
 
 ## Takeaways
 

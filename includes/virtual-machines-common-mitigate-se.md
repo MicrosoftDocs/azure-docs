@@ -5,19 +5,19 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/04/2019
+ ms.date: 08/08/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 4 June 2019 3:00 PM PST.
+**Last document update**: 9 August 2019 10:00 AM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
 Microsoft has deployed mitigations across all our cloud services. The infrastructure that runs Azure and isolates customer workloads from each other is protected. This means that a potential attacker using the same infrastructure can’t attack your application using these vulnerabilities.
 
-Azure is using [memory preserving maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-not-requiring-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
+Azure is using [memory preserving maintenance](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot) whenever possible, to minimize customer impact and eliminate the need for reboots. Azure will continue utilizing these methods when making systemwide updates to the host and protect our customers.
 
 More information about how security is integrated into every aspect of Azure is available on the [Azure Security Documentation](https://docs.microsoft.com/azure/security/) site. 
 
@@ -164,6 +164,7 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2017-5715 - Branch Target Injection (BTI)  
 - CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows Kernel Information – variant of Spectre Variant 1
  
 [L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)

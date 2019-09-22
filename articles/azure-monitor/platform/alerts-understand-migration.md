@@ -4,7 +4,7 @@ description: Understand how the alerts migration tool works and troubleshoot pro
 author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 07/10/2019
 ms.author: snmuvva
 ms.subservice: alerts
 ---
@@ -27,9 +27,10 @@ Although the tool can migrate almost all [classic alert rules](monitoring-classi
 - Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
 - Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
 - Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
-- Classic alert rules on some Cosmos DB metrics. Details will be added in a future update.
+- Classic alert rules on some Cosmos DB metrics. See [details](#cosmos-db-metrics) later in this article.
+- Classic alert rules on all classic virtual machines and cloud services metrics (Microsoft.ClassicCompute/virtualMachines and Microsoft.ClassicCompute/domainNames/slots/roles). See [details](#classic-compute-metrics) later in this article.
 
-If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
+If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. You can also continue to create new classic alerts on the above listed exceptions till June 2020. However for everything else, no new classic alerts can be created after August 2019.
 
 > [!NOTE]
 > Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.
@@ -61,6 +62,44 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
 Classic alert rules on AnonymousThrottlingError, SASThrottlingError and ThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
+
+### Cosmos DB metrics
+
+All classic alerts on Cosmos DB metrics can be migrated except alerts on these metrics:
+
+- Average Requests per Second
+- Consistency Level
+- Http 2xx
+- Http 3xx
+- Http 400
+- Http 401
+- Internal Server Error
+- Max RUPM Consumed Per Minute
+- Max RUs Per Second
+- Mongo Count Failed Requests
+- Mongo Delete Failed Requests
+- Mongo Insert Failed Requests
+- Mongo Other Failed Requests
+- Mongo Other Request Charge
+- Mongo Other Request Rate
+- Mongo Query Failed Requests
+- Mongo Update Failed Requests
+- Observed Read Latency
+- Observed Write Latency
+- Service Availability
+- Storage Capacity
+- Throttled Requests
+- Total Requests
+
+Average Requests per Second, Consistency Level, Max RUPM Consumed Per Minute, Max RUs Per Second, Observed Read Latency, Observed Write Latency, Storage Capacity are not currently available in the [new system](metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
+
+Alerts on request metrics like Http 2xx, Http 3xx, Http 400, Http 401, Internal Server Error, Service Availability, Throttled Requests and Total Requests are not migrated because the way requests are counted is different between classic metrics and new metrics. Alerts on these will need to be manually recreated with thresholds adjusted.
+
+Alerts on Mongo Failed Requests metrics must be split into multiple alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
+
+### Classic compute metrics
+
+Any alerts on classic compute metrics will not be migrated using the migration tool as classic compute resources are not yet supported with new alerts. Support for new alerts on these resource types will be added in future. Once that is available, customers must recreate new equivalent alert rules based on their classic alert rules before June 2020.
 
 ### Classic alert rules on deprecated metrics
 
@@ -153,9 +192,34 @@ For Application Insights, equivalent metrics are as shown below:
 | requestFailed.count | requests/failed| Use `aggregationType` 'count' instead of 'sum'.   |
 | view.count | pageViews/count| Use `aggregationType` 'count' instead of 'sum'.   |
 
+### Microsoft.DocumentDB/databaseAccounts
+
+For Cosmos DB, equivalent metrics are as shown below:
+
+| Metric in classic alerts | Equivalent metric in new alerts | Comments|
+|--------------------------|---------------------------------|---------|
+| AvailableStorage     |AvailableStorage|   |
+| Data Size | DataUsage| |
+| Document Count | DocumentCount||
+| Index Size | IndexUsage||
+| Mongo Count Request Charge| MongoRequestCharge with dimension "CommandName" = "count"||
+| Mongo Count Request Rate | MongoRequestsCount with dimension "CommandName" = "count"||
+| Mongo Delete Request Charge | MongoRequestCharge with dimension "CommandName" = "delete"||
+| Mongo Delete Request Rate | MongoRequestsCount with dimension "CommandName" = "delete"||
+| Mongo Insert Request Charge | MongoRequestCharge with dimension "CommandName" = "insert"||
+| Mongo Insert Request Rate | MongoRequestsCount with dimension "CommandName" = "insert"||
+| Mongo Query Request Charge | MongoRequestCharge with dimension "CommandName" = "find"||
+| Mongo Query Request Rate | MongoRequestsCount with dimension "CommandName" = "find"||
+| Mongo Update Request Charge | MongoRequestCharge with dimension "CommandName" = "update"||
+| Service Unavailable| ServiceAvailability||
+| TotalRequestUnits | TotalRequestUnits||
+
 ### How equivalent action groups are created
 
 Classic alert rules had email, webhook, logic app and runbook actions tied to the alert rule itself. New alert rules use action groups which can be reused across multiple alert rules. The migration tool creates single action group for same actions irrespective of how many alert rules are using the action. Action groups created by the migration tool use the naming format 'Migrated_AG*'.
+
+> [!NOTE]
+> Classic alerts sent localized emails based on the locale of classic administrator when used to notify classic administrator roles. New alert emails are sent via Action Groups and are only in English.
 
 ## Rollout phases
 
@@ -167,7 +231,6 @@ The migration tool is rolling out in phases to customers that use classic alert 
 Most of the subscriptions are currently marked as ready for migration. Only subscriptions that have classic alerts on following resource types are still not ready for migration.
 
 - Microsoft.classicCompute/domainNames/slots/roles
-- Microsoft.documentDB/databases
 - Microsoft.insights/components
 
 ## Who can trigger the migration?
@@ -178,6 +241,7 @@ Any user who has the built-in role of Monitoring Contributor at the subscription
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > In addition to having above permissions, your subscription should additionally be registered with Microsoft.AlertsManagement resource provider. This is required to successfully migrate Failure Anomaly alerts on Application Insights. 
@@ -190,9 +254,16 @@ After you [trigger the migration](alerts-using-migration-tool.md), you'll receiv
 
 Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This problem is temporary. You can restart the migration after the migration status moves back **Ready for migration** in a few days.
 
-### Policy or scope lock preventing us from migrating your rules
+### Scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, there's either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock or policy temporarily and triggering the migration again.
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a scope lock can prevent us from creating or deleting resources. Depending on the scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock for the subscription, resource group, or resource, which is listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel), and triggering the migration again. Scope lock can't be disabled and must be removed for the duration of the migration process. [Learn more about managing scope locks](../../azure-resource-manager/resource-group-lock-resources.md#portal).
+
+### Policy with 'Deny' effect preventing us from migrating your rules
+
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, a policy can prevent us from creating resources. Depending on the policy, some or all rules could not be migrated. The policies that are blocking the process are listed in the [migration tool](https://portal.azure.com/#blade/Microsoft_Azure_Monitoring/MigrationBladeViewModel). Resolve this problem by either:
+
+- Excluding the subscriptions, or resource groups for the duration of the migration process from the policy assignment. [Learn more about managing policies exclusion scope](../../governance/policy/tutorials/create-and-manage.md#exempt-a-non-compliant-or-denied-resource-using-exclusion).
+- Removing or changing effect to 'audit' or 'append' (which, for example, can solve issues relating to missing tags). [Learn more about managing policies effect](../../governance/policy/concepts/definition-structure.md#policy-rule).
 
 ## Next steps
 

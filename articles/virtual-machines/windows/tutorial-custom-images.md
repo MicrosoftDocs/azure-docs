@@ -4,13 +4,12 @@ description: In this tutorial, you learn how to use Azure PowerShell to create a
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -31,6 +30,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Create a VM from a custom image
 > * List all the images in your subscription
 > * Delete an image
+
+In public preview, we have the [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) service. Simply describe your customizations in a template, and it will handle the image creation steps in this article. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## Before you begin
 

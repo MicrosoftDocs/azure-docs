@@ -2,7 +2,8 @@
 title: Quickstart - Build your first Azure Kinect body tracking application 
 description: Step by step instructions to build your first Azure Kinect body tracking application 
 author: qm13
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: quickstart
@@ -23,7 +24,7 @@ Getting started with the Body Tracking SDK? This quickstart will get you up and 
 - Walk through how to [build your first Azure Kinect application](build-first-app.md) quickstart.
 - Familiarize yourself with the following Sensor SDK functions:
   - [k4a_device_open()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga3d4eb5dfbf4d576d4978b66ea419f113.html#ga3d4eb5dfbf4d576d4978b66ea419f113)
-  - [k4a_device_start_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4dc81cbeb54b07e4bbb7d639c448f6eb.html#ga4dc81cbeb54b07e4bbb7d639c448f6eb)
+  - [k4a_device_start_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_gaad7a85e1e5471810262442fc4a8e217a.html#gaad7a85e1e5471810262442fc4a8e217a)
   - [k4a_device_stop_cameras()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8)
   - [k4a_device_close()](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga7a3931d9a690b3971caaac83b43f9423.html#ga7a3931d9a690b3971caaac83b43f9423)
 - Review the documentation on the following Body Tracking SDK functions:
@@ -55,12 +56,12 @@ You can find more information on Azure Kinect depth modes on these pages:
 and [k4a_depth_mode_t](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___enumerations_ga3507ee60c1ffe1909096e2080dd2a05d.html#ga3507ee60c1ffe1909096e2080dd2a05d) enumerations.
 
 ```C
-k4a_device_t device = nullptr;
+k4a_device_t device = NULL;
 k4a_device_open(0, &device);
 
 // Start camera. Make sure depth camera is enabled.
 k4a_device_configuration_t deviceConfig = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
-deviceConfig.depth_mode = K4A_DEPTH_MODE_WFOV_2X2BINNED;
+deviceConfig.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
 deviceConfig.color_resolution = K4A_COLOR_RESOLUTION_OFF;
 k4a_device_start_cameras(device, &deviceConfig);
 ```
@@ -71,10 +72,11 @@ The first step in getting body tracking results is to create a body tracker. It 
 
 ```C
 k4a_calibration_t sensor_calibration;
-k4a_device_get_calibration(device, device_config.depth_mode, K4A_COLOR_RESOLUTION_OFF, &sensor_calibration);
+k4a_device_get_calibration(device, deviceConfig.depth_mode, deviceConfig.color_resolution, &sensor_calibration);
 
 k4abt_tracker_t tracker = NULL;
-k4abt_tracker_create(&sensor_calibration, &tracker);
+k4abt_tracker_configuration_t tracker_config = K4ABT_TRACKER_CONFIG_DEFAULT;
+k4abt_tracker_create(&sensor_calibration, tracker_config, &tracker);
 ```
 
 ## Get captures from the Azure Kinect device
@@ -93,7 +95,7 @@ The tracker internally maintains an input queue and an output queue to asynchron
 Your first body tracking application uses the real-time processing pattern. Refer to [get body tracking results](get-body-tracking-results.md) for a detailed explanation of the other patterns.
 
 ```C
-k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, 0);
+k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
 k4a_capture_release(sensor_capture); // Remember to release the sensor capture once you finish using it
 if (queue_capture_result == K4A_WAIT_RESULT_FAILED)
 {
@@ -102,7 +104,7 @@ if (queue_capture_result == K4A_WAIT_RESULT_FAILED)
 }
 
 k4abt_frame_t body_frame = NULL;
-k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, 0);
+k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, K4A_WAIT_INFINITE);
 if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
 {
     // Successfully popped the body tracking result. Start your processing
@@ -152,19 +154,22 @@ k4a_device_close(device);
 
 int main()
 {
-    k4a_device_configuration_t device_config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
-    device_config.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
-
-    k4a_device_t device;
+    k4a_device_t device = NULL;
     VERIFY(k4a_device_open(0, &device), "Open K4A Device failed!");
-    VERIFY(k4a_device_start_cameras(device, &device_config), "Start K4A cameras failed!");
+
+    // Start camera. Make sure depth camera is enabled.
+    k4a_device_configuration_t deviceConfig = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
+    deviceConfig.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
+    deviceConfig.color_resolution = K4A_COLOR_RESOLUTION_OFF;
+    VERIFY(k4a_device_start_cameras(device, &deviceConfig), "Start K4A cameras failed!");
 
     k4a_calibration_t sensor_calibration;
-    VERIFY(k4a_device_get_calibration(device, device_config.depth_mode, device_config.color_resolution, &sensor_calibration),
+    VERIFY(k4a_device_get_calibration(device, deviceConfig.depth_mode, deviceConfig.color_resolution, &sensor_calibration),
         "Get depth camera calibration failed!");
 
     k4abt_tracker_t tracker = NULL;
-    VERIFY(k4abt_tracker_create(&sensor_calibration, &tracker), "Body tracker initialization failed!");
+    k4abt_tracker_configuration_t tracker_config = K4ABT_TRACKER_CONFIG_DEFAULT;
+    VERIFY(k4abt_tracker_create(&sensor_calibration, tracker_config, &tracker), "Body tracker initialization failed!");
 
     int frame_count = 0;
     do
@@ -175,7 +180,7 @@ int main()
         {
             frame_count++;
             k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);
-            k4a_capture_release(sensor_capture);
+            k4a_capture_release(sensor_capture); // Remember to release the sensor capture once you finish using it
             if (queue_capture_result == K4A_WAIT_RESULT_TIMEOUT)
             {
                 // It should never hit timeout when K4A_WAIT_INFINITE is set.
@@ -192,10 +197,12 @@ int main()
             k4a_wait_result_t pop_frame_result = k4abt_tracker_pop_result(tracker, &body_frame, K4A_WAIT_INFINITE);
             if (pop_frame_result == K4A_WAIT_RESULT_SUCCEEDED)
             {
+                // Successfully popped the body tracking result. Start your processing
+
                 size_t num_bodies = k4abt_frame_get_num_bodies(body_frame);
                 printf("%zu bodies are detected!\n", num_bodies);
 
-                k4abt_frame_release(body_frame);
+                k4abt_frame_release(body_frame); // Remember to release the body frame once you finish using it
             }
             else if (pop_frame_result == K4A_WAIT_RESULT_TIMEOUT)
             {

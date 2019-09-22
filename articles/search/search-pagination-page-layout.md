@@ -2,7 +2,7 @@
 title: How to work with search results - Azure Search
 description: Structure and sort search results, get a document count, and add content navigation to search results in Azure Search.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: 
@@ -34,15 +34,15 @@ In Azure Search, you use the `$count`, `$top`, and `$skip` parameters to return 
 
 Retrieve documents in groups of 15, and also show the total hits, starting at the first page:
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
 Paginating results requires both `$top` and `$skip`, where `$top` specifies how many items to return in a batch, and `$skip` specifies how many items to skip. In the following example, each page shows the next 15 items, indicated by the incremental jumps in the `$skip` parameter.
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=0&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=0&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=15&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=15&$count=true
 
-    GET /indexes/online-catalog/docs?search=*$top=15&$skip=30&$count=true
+    GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
 ## Layout
 

@@ -3,13 +3,13 @@ title: "Features: Action and context - Personalizer"
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses features, information about actions and context, to make better ranking suggestions. Features can be very generic, or specific to an item.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: concept
-ms.date: 06/24/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 08/13/2019
+ms.author: diberry
 ---
 
 # Features are information about actions and context
@@ -20,7 +20,7 @@ Personalizer uses **features**, which is information about the **current context
 
 For example, you may have a **feature** about:
 
-* The _user_ such as a `UserID`. 
+* The _user persona_ such as a `Sports_Shopper`. This should not be an individual user ID. 
 * The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 * The _current_ period of time such as which day of the week it is.
 
@@ -29,8 +29,8 @@ Personalizer does not prescribe, limit, or fix what features you can send for ac
 * You can send some features for some actions and not for others, if you don't have them. For example, TV series may have attributes movies don't have.
 * You may have some features available only some times. For example, a mobile application may provide more information than a web page. 
 * Over time, you may add and remove features about context and actions. Personalizer continues to learn from available information.
-* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions. 
-* Personalizer will try to choose actions that work best for everyone at any time.
+* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions.
+* For categorical features, you don't need to define the possible values, and you don't need to pre-define ranges for numerical values.
 
 ## Supported feature types
 
@@ -61,9 +61,11 @@ The following are examples of feature namespaces used by applications:
 * current_time
 * NewsArticle_TextAnalytics
 
-You can name feature namespaces following your own conventions as long as they are valid JSON keys.
+You can name feature namespaces following your own conventions as long as they are valid JSON keys. Namespaces are used to organize features into distinct sets, and to disambiguate features with similar names. You can think of namespaces as a 'prefix' that is added to feature names. Namespaces cannot be nested.
 
-In the following JSON, `user`, `state`, and `device` are feature namespaces.
+
+In the following JSON, `user`, `state`, and `device` are feature namespaces. 
+Public Preview Note: Currently we strongly recommend using names for feature namespaces that are UTF-8 based and start with different letters. For example, `user`, `state`, and `device` start with `u`, `s`, and `d`. Currently having namespaces with same first characters could result in collisions in indexes used for machine learning.
 
 JSON objects can include nested JSON objects and simple property/values. An array can be included only if the array items are numbers. 
 
@@ -72,7 +74,7 @@ JSON objects can include nested JSON objects and simple property/values. An arra
     "contextFeatures": [
         { 
             "user": {
-                "name":"Doug",
+                "profileType":"AnonymousUser",
                 "latlong": [47.6, -122.1]
             }
         },
@@ -144,7 +146,7 @@ You can use several other [Azure Cognitive Services](https://www.microsoft.com/c
 
 Each action:
 
-* Has an ID.
+* Has an _event_ ID. If you already have an event ID, you should submit that. If you do not have an event ID, do not send one, Personalizer creates one for you and returns it in the response of the Rank request. The ID is associated with the Rank event, not the user. If you create an ID, a GUID works best. 
 * Has a list of features.
 * The list of features can be large (hundreds) but we recommend evaluating feature effectiveness to remove features that aren't contributing to getting rewards. 
 * The features in the **actions** may or may not have any correlation with features in the **context** used by Personalizer.

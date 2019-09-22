@@ -3,13 +3,12 @@ title: Run tasks under user accounts - Azure Batch | Microsoft Docs
 description: Configure user accounts for running tasks in Azure Batch
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: 
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm:
 ms.workload: big-compute

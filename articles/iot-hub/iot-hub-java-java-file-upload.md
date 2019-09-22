@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ---
 
-# Upload files from your device to the cloud with IoT Hub
+# Upload files from your device to the cloud with IoT Hub (Java)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
-This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
+This tutorial builds on the code in the [Send cloud-to-device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial to show you how to use the [file upload capabilities of IoT Hub](iot-hub-devguide-file-upload.md) to upload a file to [Azure blob storage](../storage/index.yml). The tutorial shows you how to:
 
 * Securely provide a device with an Azure blob URI for uploading a file.
 
 * Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-The [Send telemetry to IoT Hub (Java)](quickstart-send-telemetry-java.md) and [Send Cloud-to-Device messages with IoT Hub (Java)](iot-hub-java-java-c2d.md) tutorials show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure message routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
+The [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md) quickstart and [Send cloud-to-device messages with IoT Hub](iot-hub-java-java-c2d.md) tutorial show the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Configure message routing with IoT Hub](tutorial-routing.md) tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. For example:
 
 * Large files that contain images
 * Videos
@@ -32,18 +32,18 @@ These files are typically batch processed in the cloud using tools such as [Azur
 
 At the end of this tutorial you run two Java console apps:
 
-* **simulated-device**, a modified version of the app created in the [Send Cloud-to-Device messages with IoT Hub] tutorial. This app uploads a file to storage using a SAS URI provided by your IoT hub.
+* **simulated-device**, a modified version of the app created in the [Send cloud-to-device messages with IoT Hub] tutorial. This app uploads a file to storage using a SAS URI provided by your IoT hub.
 
 * **read-file-upload-notification**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
-* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -51,7 +51,7 @@ To complete this tutorial, you need the following:
 
 ## Upload a file from a device app
 
-In this section, you modify the device app you created in [Send Cloud-to-Device messages with IoT Hub](iot-hub-java-java-c2d.md) to upload a file to IoT hub.
+In this section, you modify the device app you created in [Send cloud-to-device messages with IoT Hub](iot-hub-java-java-c2d.md) to upload a file to IoT hub.
 
 1. Copy an image file to the `simulated-device` folder and rename it `myimage.png`.
 
@@ -115,11 +115,15 @@ In this section, you modify the device app you created in [Send Cloud-to-Device 
     mvn clean package -DskipTests
     ```
 
+## Get the IoT hub connection string
+
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## Receive a file upload notification
 
 In this section, you create a Java console app that receives file upload notification messages from IoT Hub.
-
-You need the **iothubowner** connection string for your IoT Hub to complete this section. You can find the connection string in the [Azure portal](https://portal.azure.com/) on the **Shared access policy** blade.
 
 1. Create a Maven project called **read-file-upload-notification** using the following command at your command prompt. Note this command is a single, long command:
 
@@ -156,7 +160,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
     import java.util.concurrent.Executors;
     ```
 
-7. Add the following class-level variables to the **App** class:
+7. Add the following class-level variables to the **App** class. Replace the `{Your IoT Hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";
@@ -260,7 +264,9 @@ You can use the portal to view the uploaded file in the storage container you co
 In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
+
 * [Introduction to C SDK](iot-hub-device-sdk-c-intro.md)
+
 * [Azure IoT SDKs](iot-hub-devguide-sdks.md)
 
 To further explore the capabilities of IoT Hub, see:
