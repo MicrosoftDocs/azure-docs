@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -25,6 +25,11 @@ ms.author: rkarlin
 This article lists resources that can help you get more information about working with Azure Sentinel.
 
 Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
+
+
+## Auditing and reporting
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+
 
 ## Vendor documentation
 
