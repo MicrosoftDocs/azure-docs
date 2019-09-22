@@ -27,15 +27,14 @@ The **Azure Media Indexer 2 Preview** MP is currently in Preview.
 
 This article shows how to create indexing jobs with **Azure Media Indexer 2 Preview**.
 
-> [!NOTE]
-> The following considerations apply:
-> 
-> Indexer 2 is not supported in Azure China and Azure Government.
-> 
-> When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
-> 
-> 
+## Considerations
 
+The following considerations apply:
+ 
+Indexer 2 is not supported in Azure China and Azure Government.
+ 
+When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
+ 
 This article gives details about  **Azure Media Indexer 2 Preview** and shows how to use it with Media Services SDK for .NET
 
 ## Input and output files
