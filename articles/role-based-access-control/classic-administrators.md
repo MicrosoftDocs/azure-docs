@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/19/2019
+ms.date: 09/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -52,7 +52,7 @@ This article describes how to add or change the Co-Administrator and Service Adm
 
 [Guest users](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) that have been assigned the Co-Administrator role might see some differences as compared to member users with the Co-Administrator role. Consider the following scenario:
 
-- User A with an Azure AD Work or School account is a Service Administrator for an Azure subscription.
+- User A with an Azure AD account (work or school account) is a Service Administrator for an Azure subscription.
 - User B has a Microsoft account.
 - User A assigns the Co-Administrator role to user B.
 - User B can do almost everything, but is unable to register applications or look up users in the Azure AD directory.
@@ -123,14 +123,14 @@ There are two ways to change the Service Administrator. You can change in the **
 
 ### Limitations for changing the Service Administrator
 
-Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
+Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is an Azure AD account (work or school account). If the Account Administrator is an Azure AD account, they can change the Service Administrator to another account in your organization. The other account can be either a Microsoft account or an Azure AD account. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but can't change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. However, if the Account Administrator is a Microsoft account, they cannot change the Service Administrator to an Azure AD account. There can only be one Service Administrator per Azure subscription.
 
-If you are signed in with a work or school account, you can add other accounts in your organization as Service Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator, but can't add john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. Users signed in with work or school accounts can continue to add Microsoft account users as Service Administrator. There can only be one Service Administrator per Azure subscription.
+| Account Administrator account | Can change the Service Administrator to a Microsoft account in the same organization? | Can change the Service Administrator to an Azure AD account in the same organization? | Can change the Service Administrator to an Azure AD account in different organization? |
+| --- | --- | --- | --- |
+| Microsoft account | Yes | No | No |
+| Azure AD account<br/>(Work or school account) | Yes | Yes | No |
 
-  | Sign-in method | Is the Service Administrator adding a Microsoft account user? | Is the Service Administrator adding a school or work account that is from the same organization? | Is the Service Administrator adding a school or work account that is from a different organization? |
-  | --- | --- | --- | --- |
-  |  Microsoft account |Yes |No |No |
-  |  Work or school account |Yes |Yes |No |
+For more information about Microsoft accounts and Azure AD accounts, see [What is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
 ## View the Account Administrator
 

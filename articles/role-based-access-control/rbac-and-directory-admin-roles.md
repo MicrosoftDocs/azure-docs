@@ -60,6 +60,8 @@ An Azure account represents a billing relationship. An Azure account is a user i
 
 Azure subscriptions help you organize access to Azure resources. They also help you control how resource usage is reported, billed, and paid for. Each subscription can have a different billing and payment setup, so you can have different subscriptions and different plans by office, department, project, and so on. Every service belongs to a subscription, and the subscription ID may be required for programmatic operations.
 
+Each subscription is associated with an Azure AD directory. To find the directory the subscription is associated with, open **Subscriptions** in the Azure portal and then select a subscription to see the directory.
+
 Accounts and subscriptions are managed in the [Azure Account Center](https://account.azure.com/Subscriptions).
 
 ## Azure RBAC roles
