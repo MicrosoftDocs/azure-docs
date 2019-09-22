@@ -25,9 +25,9 @@ Threat hunting typically requires reviewing mountains of log data looking for ev
 
 Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** page. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Log Analytics. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** blade. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Azure Monitor. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
-Currently in preview, if you find something that urgently needs to be addressed while hunting in Log Analytics, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
+Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
 Also in preview, you can visualize your bookmarked data, by clicking **Investigate** from the bookmark details. This launches the investigation experience in which you can view, investigate, and visually communicate your findings using an interactive entity-graph diagram and timeline.
 
@@ -72,7 +72,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 3. To help you find a specific bookmark, use the search box or filter options.
 
-4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
+4. Select individual bookmarks and view the bookmark details in the right-hand details blade.
 
 5. Make your changes in the editable text boxes.
 
@@ -114,7 +114,7 @@ To view the bookmark within the incident: Navigate to **Sentinel** > **Threat ma
 
 ## View bookmarked data in logs
 
-To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane. Options include: 
+To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details blade: 
 
 - **View source query** to view the source query in the **Logs** blade.
 
@@ -125,7 +125,7 @@ You can also view the raw bookmark data for all bookmarks by selecting **Bookmar
 > [!div class="mx-imgBorder"]
 > ![Bookmark Logs](./media/bookmarks/bookmark-logs.png)
 
-This view shows all your bookmarks with associated metadata. You can use KQL queries to filter down to the latest version of the specific bookmark you are looking for.
+This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
 
 > [!NOTE]
 > There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab. Because of this delay, we recommend you create your bookmarks first, then analyze them after the data is ingested.
