@@ -30,7 +30,7 @@ This article discusses the steps for migrating from the Azure Media Indexer v1 a
 
 |If you require  |then |
 |---|---|
-|a solution that provides the following: <br/>a speech-to-text transcription for any media file format in a closed caption file formats:<br/>VTT, SRT, or TTML<br/>as well as additional audio insights such as:<br/>keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
+|a solution that provides a speech-to-text transcription for any media file format in a closed caption file formats:<br/>    VTT, SRT, or TTML<br/>as well as additional audio insights such as:<br/>    keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
 |speech-to-text capabilities| use the Cognitive Services Speech API directly.|  
 
 ## Getting started with Video Indexer
