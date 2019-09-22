@@ -61,7 +61,7 @@ To get started see:
 > [!NOTE] 
 > The speech-to-text service does not take video file formats and only takes [certain audio formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
 
-For more information about the text-to-speech service and how to get started, see (What is speech-to-text?)[https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text]
+For more information about the text-to-speech service and how to get started, see [What is speech-to-text?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
 
 ## Known differences from deprecated services 
 
