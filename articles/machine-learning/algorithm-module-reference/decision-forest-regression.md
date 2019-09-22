@@ -54,7 +54,7 @@ For more information about the theoretical framework for this algorithm and its 
 
     - **Single Parameter**
 
-      If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by pipelineation or received them as guidance.
+      If you know how you want to configure the model, you can provide a specific set of values as arguments. You might have learned these values by experimentation or received them as guidance.
 
 
 

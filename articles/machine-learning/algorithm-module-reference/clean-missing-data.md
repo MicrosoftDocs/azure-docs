@@ -40,7 +40,7 @@ This module lets you define a cleaning operation. You can also save the cleaning
 + To apply a cleaning transformation to new data
  
 > [!IMPORTANT]
-> The cleaning method that you use for handling missing values can dramatically affect your results. We recommend that you pipeline with different methods. Consider both the justification for use of a particular method, and the quality of the results.
+> The cleaning method that you use for handling missing values can dramatically affect your results. We recommend that you experiment with different methods. Consider both the justification for use of a particular method, and the quality of the results.
 
 ### Replace missing values  
 

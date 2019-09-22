@@ -93,8 +93,6 @@ After training is complete:
 
 + To use the model for scoring, connect it to [Score Model](./score-model.md), to predict values for new input examples.
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output of the training module and select **Save As**. The copy of the trained model that you save is not updated on successive runs of the pipeline.
-
 ## Next steps
 
 See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
