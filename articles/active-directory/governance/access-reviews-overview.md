@@ -113,7 +113,7 @@ Here are some example license scenarios to help you determine the number of lice
 
 | Scenario | Calculation | Required number of licenses |
 | --- | --- | --- |
-| An OrgA administrator creates an access review of Group A with 75 users and 1 group owner. Makes it a group owner review. | 1 license for the group owner as reviewer | 6 |
+| An OrgA administrator creates an access review of Group A with 75 users and 1 group owner. Makes it a group owner review. | 1 license for the group owner as reviewer | 1 |
 | An OrgA administrator creates an access review of Group B with 500 users and 3 group owners. Makes it a group owner review. | 3 licenses for each group owner as reviewers | 3 |
 | An OrgA administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers | 500 |
 | An OrgA administrator creates an access review of Group C with 50 member users and 25 guest users. Makes it a self-review. | 50 licenses for each user as self-reviewers.<br/>(guest users are covered in the required 1:5 ratio) | 50 |

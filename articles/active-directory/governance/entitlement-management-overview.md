@@ -163,7 +163,7 @@ Here are some example license scenarios to help you determine the number of lice
 | Scenario | Calculation | Required number of licenses |
 | --- | --- | --- |
 | An OrgA Global Administrator creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
-| An OrgA Global Administrator creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner OrgB** (guests) can request the same access packages subject to approval. OrgB has 30,000 users. 150 employees request the access packages and 10,500 users from OrgB request access. | 2,000 employees + 500 guest users from OrgB that exceed the 1:5 ratio (10,500 guest users - (2,000 users * 5 )) | 2,500 |
+| An OrgA Global Administrator creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner OrgB** (guests) can request the same access packages subject to approval. OrgB has 30,000 users. 150 employees request the access packages and 10,500 users from OrgB request access. | 2,000 employees + 500 guest users from OrgB that exceed the 1:5 ratio (10,500 - (2,000 * 5)) | 2,500 |
 
 ## Next steps
 
