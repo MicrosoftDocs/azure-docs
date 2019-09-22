@@ -73,6 +73,9 @@ Some known differences include:
 
 If you have questions on the deprecation of Azure Media Indexer 1 and Azure Media Indexer 2 or on migrating to any of the other services, please reach out to us via amshelp@microsoft.com 
 
- 
 ## Next steps
+
+* [Legacy components](legacy-components.md)
+* [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
+
 
