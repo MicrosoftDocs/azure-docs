@@ -6,7 +6,7 @@ ms.date: 09/19/2019
 ms.author: cynthn
 ---
 
-With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impacting applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs. More advanced monitoring using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 
+With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impacting applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs. More advanced monitoring using [Azure Monitor for VMs](../../../azure-monitor/insights/vminsights-overview.md) and [Application Insights](../../../azure-monitor/app/app-insights-overview.md) 
 
 ## Diagnostics and metrics 
 
