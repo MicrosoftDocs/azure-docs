@@ -119,7 +119,7 @@ Returns the conjugate for the values in the selected column.
 
 Calculates the cube root for the values in the selected column.  
 
-### DoubleFactorial**  
+### DoubleFactorial  
  Calculates the double factorial for values in the selected column. The double factorial is an extension of the normal factorial function, and it is denoted as x!!.  
 
 ### Eps
