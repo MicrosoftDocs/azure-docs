@@ -249,7 +249,7 @@ The procedure in the [Local computer](#local) section installs necessary compone
     import sys
     sys.path
     ```
-
+    
 1. To configure the Jupyter Notebook to use your Azure Machine Learning workspace, go to the [Create a workspace configuration file](#workspace) section.
 
 
