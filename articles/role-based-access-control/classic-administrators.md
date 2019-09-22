@@ -129,7 +129,7 @@ There can only be one Service Administrator per Azure subscription. Changing the
 
 If the Account Administrator is a Microsoft account, they can change the Service Administrator to another Microsoft account in the same organization, but cannot change the Service Administrator to an Azure AD account.
 
-If the Account Administrator is an Azure AD account, they can change the Service Administrator to a Microsoft account or an Azure AD account in the same organization, but not a different organization. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
+If the Account Administrator is an Azure AD account, they can change the Service Administrator to a Microsoft account or an Azure AD account in the same organization, but not in a different organization. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
 
 | Account Administrator account | Can change the Service Administrator to a Microsoft account in the same organization? | Can change the Service Administrator to an Azure AD account in the same organization? | Can change the Service Administrator to an Azure AD account in a different organization? |
 | --- | --- | --- | --- |
