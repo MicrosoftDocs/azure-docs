@@ -1,6 +1,6 @@
 ---
-title: Execute SSIS packages with Azure-enabled dtexec utility | Microsoft Docs
-description: Learn how to execute SSIS packages with Azure-enabled dtexec utility. 
+title: Execute SQL Server Integration Services (SSIS) packages with Azure-enabled dtexec utility | Microsoft Docs
+description: Learn how to execute SQL Server Integration Services (SSIS) packages with Azure-enabled dtexec utility. 
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -15,65 +15,65 @@ ms.reviewer: douglasl
 manager: craigg
 ---
 
-# Run SSIS packages with Azure-enabled dtexec utility
-This article describes the Azure-enabled **dtexec** (**AzureDTExec**) command prompt utility that you can use to run SQL Server Integration Services (SSIS) packages on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF).
+# Run SQL Server Integration Services (SSIS) packages with Azure-enabled dtexec utility
+This article describes the Azure-enabled **dtexec** (**AzureDTExec**) command prompt utility.  It is used to run SSIS packages on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF).
 
-The traditional **dtexec** utility comes with SQL Server and is often invoked by 3rd party orchestrators/schedulers, such as Active Batch, Control-M, etc., to run SSIS packages on premises, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  The modern **AzureDTExec** utility comes with SQL Server Management Studio (SSMS) tool and can also be invoked by 3rd party orchestrators/schedulers to run SSIS packages in Azure.  It facilitates the lifting & shifting/migration of your SSIS packages to the cloud, especially if you want to keep using 3rd party orchestrators/schedulers in your day-to-day operations, since they can now invoke **AzureDTExec** instead of **dtexec**.
+The traditional **dtexec** utility comes with SQL Server, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  It is often invoked by third party orchestrators/schedulers, such as Active Batch, Control-M, etc., to run SSIS packages on premises.  The modern **AzureDTExec** utility comes with SQL Server Management Studio (SSMS) tool.  It can also be invoked by third party orchestrators/schedulers to run SSIS packages in Azure.  It facilitates the lifting & shifting/migration of your SSIS packages to the cloud.  After migration, if you want to keep using third party orchestrators/schedulers in your day-to-day operations, they can now invoke **AzureDTExec** instead of **dtexec**.
 
-**AzureDTExec** will run your packages as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.  It can be configured via SSMS to use an Azure Active Directory (AAD) application that generates pipelines in your ADF and access file systems/file shares/Azure Files where you store your packages.  Based on the values you give for its invocation options, **AzureDTExec** will generate and run a unique ADF pipeline with Execute SSIS Package activity in it.  Invoking **AzureDTExec** with the same values for its options will rerun the existing pipeline.  Invoking **AzureDTExec** with new values for its options will generate a new pipeline.
+**AzureDTExec** will run your packages as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.  It can be configured via SSMS to use an Azure Active Directory (AAD) application that generates pipelines in your ADF.  It can also be configured to access file systems/file shares/Azure Files where you store your packages.  Based on the values you give for its invocation options, **AzureDTExec** will generate and run a unique ADF pipeline with Execute SSIS Package activity in it.  Invoking **AzureDTExec** with the same values for its options will rerun the existing pipeline.  Invoking **AzureDTExec** with new values for its options will generate a new pipeline.
 
 ## Prerequisites
-To use **AzureDTExec**, please download and install the latest SSMS (version 18.3 or later) from [here](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+To use **AzureDTExec**, download and install the latest SSMS (version 18.3 or later) from [here](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 ## Configure AzureDTExec utility
 Installing SSMS on your local machine will also install **AzureDTExec**.  To configure its settings, launch SSMS with **Run as administrator** option and select the cascaded dropdown menu item **Tools -> Migrate to Azure -> Configure Azure-enabled DTExec**.
 
 ![Configure Azure-enabled dtexec menu](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
-This will pop up **AzureDTExecConfig** window that needs to be opened with administrative privileges for it to write into **AzureDTExec.settings** file.  If you have not run SSMS as an administrator, a User Account Control (UAC) window will pop up for you to enter your admin password in order to elevate your privileges.
+This action will pop up **AzureDTExecConfig** window that needs to be opened with administrative privileges for it to write into **AzureDTExec.settings** file.  If you have not run SSMS as an administrator, a User Account Control (UAC) window will pop up for you to enter your admin password in order to elevate your privileges.
 
 ![Configure Azure-enabled dtexec settings](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-settings.png)
 
 On **AzureDTExecConfig** window, you can enter your configuration settings as follows:
 
-- **ApplicationId**: This is the unique identifier of AAD app that you create with the right permissions to generate pipelines in your ADF, see [Create an AAD app and service principal via Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) article for more info.
+- **ApplicationId**: Enter the unique identifier of AAD app that you create with the right permissions to generate pipelines in your ADF, see [Create an AAD app and service principal via Azure portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) article for more info.
 
-- **AuthenticationKey**: This is the authentication key for your AAD app.
+- **AuthenticationKey**: Enter the authentication key for your AAD app.
 
-- **TenantId**: This is the unique identifier of AAD tenant, under which your AAD app is created.
+- **TenantId**: Enter the unique identifier of AAD tenant, under which your AAD app is created.
 
-- **SubscriptionId**: This is the unique identifier of Azure subscription, under which your ADF was created.
+- **SubscriptionId**: Enter the unique identifier of Azure subscription, under which your ADF was created.
 
-- **ResourceGroup**: This is the Azure resource group, in which your ADF was created.
+- **ResourceGroup**: Enter the name of Azure resource group, in which your ADF was created.
 
-- **DataFactory**:  This is your ADF, in which unique pipelines with Execute SSIS Package activity in them are generated based on the values of options provided when invoking **AzureDTExec**.
+- **DataFactory**:  Enter the name of your ADF, in which unique pipelines with Execute SSIS Package activity in them are generated based on the values of options provided when invoking **AzureDTExec**.
 
-- **IRName**: This is the Azure-SSIS IR in your ADF, on which the packages specified in their Universal Naming Convention (UNC) path when invoking **AzureDTExec** will run.
+- **IRName**: Enter the name of Azure-SSIS IR in your ADF, on which the packages specified in their Universal Naming Convention (UNC) path when invoking **AzureDTExec** will run.
 
-- **PackageAccessDomain**: This is the domain credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
+- **PackageAccessDomain**: Enter the domain credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
 
-- **PackageAccessUserName**:  This is the username credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
+- **PackageAccessUserName**:  Enter the username credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
 
-- **PackageAccessPassword**: This is the password credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
+- **PackageAccessPassword**: Enter the password credential to access your packages in their UNC path specified when invoking **AzureDTExec**.
 
-- **LogPath**:  This the UNC path of log folder, into which log files from your package executions on Azure-SSIS IR will be written.
+- **LogPath**:  Enter the UNC path of log folder, into which log files from your package executions on Azure-SSIS IR will be written.
 
-- **LogLevel**:  This is the selected scope of logging from predefined **null**/**Basic**/**Verbose**/**Performance** options for your package executions on Azure-SSIS IR.
+- **LogLevel**:  Enter the selected scope of logging from predefined **null**/**Basic**/**Verbose**/**Performance** options for your package executions on Azure-SSIS IR.
 
-- **LogAccessDomain**: This is the domain credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
+- **LogAccessDomain**: Enter the domain credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
 
-- **LogAccessUserName**: This is the username credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
+- **LogAccessUserName**: Enter the username credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
 
-- **LogAccessPassword**: This is the password credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
+- **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
 
-- **PipelineNameHashStrLen**: This is the length of hash strings generated from the values of options you provide when invoking **AzureDTExec**.  The strings will be used to form unique names for ADF pipelines that run your packages on Azure-SSIS IR.  A length of 32 characters is usually sufficient.
+- **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when invoking **AzureDTExec**.  The strings will be used to form unique names for ADF pipelines that run your packages on Azure-SSIS IR.  A length of 32 characters is sufficient.
 
-If you plan to use file systems/file shares on premises to store your packages and log files, you should join your Azure-SSIS IR to a VNet connected to your on-premises network, so it can fetch your packages and write your log files, see [Join Azure-SSIS IR to a VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) article for more info.
+If you plan to store your packages and log files in file systems/file shares on premises, you should join your Azure-SSIS IR to a VNet connected to your on-premises network, so it can fetch your packages and write your log files, see [Join Azure-SSIS IR to a VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) article for more info.
 
 To avoid showing sensitive values written into **AzureDTExec.settings** file in plain text, we will encode them into strings of Base64 encoding.  When you invoke **AzureDTExec**, all Base64-encoded strings will be decoded back into their original values.  You can further secure **AzureDTExec.settings** file by limiting the accounts that can access it.
 
 ## Invoke AzureDTExec utility
-You can invoke **AzureDTExec** at the command line prompt and provide the relevant values for specific options in your use case scenario, e.g.
+You can invoke **AzureDTExec** at the command line prompt and provide the relevant values for specific options in your use case scenario, for example:
 
 `AzureDTExec.exe
   /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx
@@ -82,7 +82,7 @@ You can invoke **AzureDTExec** at the command line prompt and provide the releva
   /Set \package.variables[MyVariable].Value;MyValue
   /De MyEncryptionPassword`
 
-The options you can use when invoking **AzureDTExec** are similar to those you can use when invoking **dtexec**, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  Here are the options that are currently supported:
+Invoking **AzureDTExec** offers similar options as invoking **dtexec**, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  Here are the options that are currently supported:
 
 - **/F[ile]**: Loads a package that is stored in file system/file share/Azure Files.  As the value for this option, you can specify the UNC path for your package file in file system/file share/Azure Files with its dtsx extension.  If the UNC path specified contains any space, you must put quotation marks around the whole path.
 
@@ -90,7 +90,7 @@ The options you can use when invoking **AzureDTExec** are similar to those you c
 
 - **/Conn[ection]**: Specifies connection strings for existing connection managers in your package.  Using this option, you can set run-time connection strings for existing connection managers in your package that differ from the ones specified at design time.  As the value for this option, you can specify it as follows: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
 
-- **/Set**: Overrides the configuration of a parameter, variable, property, container, log provider, Foreach enumerator, or connection in your package.  This option can be specified multiple times.  As the value for this option, you can specify it as follows: `property_path;value`, e.g. `\package.variables[counter].Value;1` overrides the value of `counter` variable as 1.  You can use Package Configuration Wizard to find, copy, and paste the value of `property_path` for items in your package whose value you want to override, see [Package Configuration Wizard](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014) documentation for more info.
+- **/Set**: Overrides the configuration of a parameter, variable, property, container, log provider, Foreach enumerator, or connection in your package.  This option can be specified multiple times.  As the value for this option, you can specify it as follows: `property_path;value`, for example `\package.variables[counter].Value;1` overrides the value of `counter` variable as 1.  You can use Package Configuration Wizard to find, copy, and paste the value of `property_path` for items in your package whose value you want to override, see [Package Configuration Wizard](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014) documentation for more info.
 
 - **/De[crypt]**: Sets the decryption password for your package that is configured with **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection level.
 
