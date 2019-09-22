@@ -28,7 +28,7 @@ If you don't want to use the loading utility, or if you want to add content to a
 
 You can use the <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad is the most efficient way to populate a Blob storage container for use with the cache.
 
-The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact for it, or open a [support ticket](hpc-cache-support-ticket) to request assistance.
+The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact for it, or open a [support ticket](hpc-cache-support-ticket.md) to request assistance.
 
 This option works with new, empty containers only. Create the container before using Avere CLFSLoad.
 
