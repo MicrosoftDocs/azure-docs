@@ -26,6 +26,11 @@ This article lists resources that can help you get more information about workin
 
 Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
+
+## Auditing and reporting
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+
+
 ## Vendor documentation
 
 | **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
