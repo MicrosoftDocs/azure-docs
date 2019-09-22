@@ -57,7 +57,7 @@ After you [connected your data sources](quickstart-onboard.md) to Azure Sentin
 
 To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses [analytics to correlate alerts into incidents](tutorial-detect-threats-built-in.md). **Incidents** are groups of related alerts that together create an actionable possible-threat that you can investigate and resolve. Use the built-in correlation rules as-is, or use them as a starting point to build your own. Azure Sentinel also provides machine learning rules to map your network behavior and then look for anomalies across your resources. These analytics connect the dots, by combining low fidelity alerts about different entities into potential high-fidelity security incidents.
 
-![Incidents](./media/overview/cases.png)
+![Incidents](./media/tutorial-investigate-cases/incident-severity.png)
 
 
 ## Security automation & orchestration
@@ -70,11 +70,11 @@ For example, if you use the ServiceNow ticketing system, you can use the tools p
 
 
 
-## Investigation
+## Investigation (preview)
 
 Azure Sentinel [deep investigation](tutorial-investigate-cases.md) tools help you to understand the scope and find the root cause, of a potential security threat. You can choose an entity on the interactive graph to ask interesting questions for a specific entity, and drill down into that entity and its connections to get to the root cause of the threat. 
 
-![Investigation](./media/overview/investigation.png)
+![Investigation](./media/tutorial-investigate-cases/map-timeline.png)
 
 
 ## Hunting
