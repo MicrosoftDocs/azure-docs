@@ -28,7 +28,7 @@ landingContent:
           - text: What is Azure Monitor logs / Log Analytics?
             url: overview.md
           - text: What is Application Insights?
-            url: app-insights-overview.md
+            url: app/app-insights-overview.md
                    
   # Card 
   - title: About monitoring data   
@@ -43,20 +43,20 @@ landingContent:
   # Card 
   - title: 10 minute Quickstarts
     linkLists:
-      - linkListType: get-started
+      - linkListType: quickstart
         links:
           - text: Monitor and alert on metrics
             url: platform/alerts-metric.md
           - text: Analyze logs
             url: log-query/get-started-portal.md
           - text: Azure VMs in Log Analytics
-            url: ./learn/quick-collect-azurevm.md
+            url: learn/quick-collect-azurevm.md
           - text: Linux VMs in Log Analytics
-            url: ./learn/quick-collect-linux-computer.md
+            url: learn/quick-collect-linux-computer.md
           - text: Windows VMs in Log Analytics
-            url: ./learn/quick-collect-windows-computer.md
+            url: learn/quick-collect-windows-computer.md
           - text: Alert on Subscription events
-            url: ./learn/alerts-activity-log.md            
+            url: platform/alerts-activity-log.md            
 
   # Card 
   - title: Monitor Applications
@@ -82,6 +82,17 @@ landingContent:
           - text: Free Pluralsite Training - Azure Administrator
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
+  # Card
+  - title: Reference
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: CLI Reference
+            url: 
+          - text: PowerShell Reference
+            url: 
+          - text: REST API
+            url: 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
