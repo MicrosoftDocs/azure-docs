@@ -38,7 +38,10 @@ Azure Sentinel enables you to connect alerts from [Azure Security Center](../sec
 ## Connect to Azure Security Center
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure Security Center** tile.
+
 1. In the right, click **Connect** next to each subscription whose alerts you want to stream into Azure Sentinel. Make sure to upgrade each subscription to Azure Security Center Standard tier to stream alerts to Azure Sentinel.
+
+1. You can select whether you want the alerts from Azure Security Center to automatically generate incidents in Azure Sentinel automatically. Under **Create incidents** select **Enable** to enable the default analytic rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
 
 3. Click **Connect**.
 

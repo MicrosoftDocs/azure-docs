@@ -39,9 +39,11 @@ If Azure ATP is deployed and ingesting your data, the suspicious alerts can easi
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure ATP** tile.
 
-2. Click **Connect**.
+1. You can select whether you want the alerts from Azure ATP to automatically generate incidents in Azure Sentinel automatically. Under **Create incidents** select **Enable** to enable the default analytic rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
 
-6. To use the relevant schema in Log Analytics for the Azure ATP alerts, search for **SecurityAlert**.
+1. Click **Connect**.
+
+1. To use the relevant schema in Log Analytics for the Azure ATP alerts, search for **SecurityAlert**.
 
 > [!NOTE]
 > If the alerts are larger than 30 KB, Azure Sentinel stops displaying the Entities field in the alerts.
