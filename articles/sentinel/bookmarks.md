@@ -37,12 +37,14 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 2. Select one of the hunting queries and on the right, in the hunting query details, select **Run Query**. 
 
-3. Select **View query results** to view the query results. For example:
+3. Select **View query results**. For example:
     
     > [!div class="mx-imgBorder"]
     > ![view query results from Azure Sentinel hunting](./media/bookmarks/new-processes-observed-example.png)
+    
+    This action opens the query results in the **Logs** blade.
 
-4. In the **Logs** blade, log query results list, expand the row that contains the information you find interesting.
+4. From the log query results list, expand the row that contains the information you find interesting.
 
 5. Select the ellipsis (...) at the end of the row, and then select **Add hunting bookmark**:
     
