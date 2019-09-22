@@ -16,7 +16,7 @@ ms.date: 09/20/2019
 ms.author: juliako
 
 ---
-# Migrate from Azure Media Indexer v1 and v2 to Azure Media Services Video Indexer
+# Migrate from Media Indexer v1 and Media Indexer v2 to Video Indexer
 
 The [Azure Media Indexer v1 (GA)](media-services-index-content.md) and [Indexer v2 (Preview)](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2019. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors. 
 
