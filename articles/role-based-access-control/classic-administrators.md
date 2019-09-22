@@ -127,7 +127,7 @@ Each subscription is associated with an Azure AD directory. To find the director
 
 If you are signed in with a work or school account, you can add other accounts in your organization as Service Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator, but can't add john@notcontoso.com unless john@notcontoso.com has presence in the contoso.com directory. Users signed in with work or school accounts can continue to add Microsoft account users as Service Administrator. There can only be one Service Administrator per Azure subscription.
 
-  | Sign-in method | Add Microsoft account user as a Service Administrator? | Add work or school account in the same organization as a Service Administrator? | Add work or school account in different organization as a Service Administrator? |
+  | Sign-in method | Is the Service Administrator adding a Microsoft account user? | Is the Service Administrator adding a school or work account that is from the same organization? | Is the Service Administrator adding a school or work account that is from a different organization? |
   | --- | --- | --- | --- |
   |  Microsoft account |Yes |No |No |
   |  Work or school account |Yes |Yes |No |
