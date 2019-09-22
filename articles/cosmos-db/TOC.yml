@@ -225,6 +225,8 @@
       items:
       - name: Introduction
         href: spark-api-introduction.md
+      - name: Jupyter notebooks
+        href: cosmosdb-jupyter-notebooks.md
       - name: Lambda architecture
         href: lambda-architecture.md 
     - name: Server-side programming
