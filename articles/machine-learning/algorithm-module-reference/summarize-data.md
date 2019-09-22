@@ -16,9 +16,9 @@ ms.date: 09/09/2019
 
 This article describes a module of Azure Machine Learning visual interface.
 
-Use the Summarize Data module in Azure Machine Learning visual interface, to create a set of standard statistical measures that describe each column in the input table.
+Use the Summarize Data module to create a set of standard statistical measures that describe each column in the input table.
 
-Such summary statistics are useful when you want to understand the characteristics of the complete dataset. For example, you might need to know:
+Summary statistics are useful when you want to understand the characteristics of the complete dataset. For example, you might need to know:
 
 - How many missing values are there in each column?
 - How many unique values are there in a feature column?
@@ -30,13 +30,13 @@ The module calculates the important scores for each column, and returns a row of
 
 1. Add the **Summarize Data** module to your pipeline. You can find this module in the **Statistical Functions** category in visual interface.
 
-2. Connect the dataset for which you want to generate a report.
+1. Connect the dataset for which you want to generate a report.
 
     If you want to report on only some columns, use the [Select Columns in Dataset](select-columns-in-dataset.md) module to project a subset of columns to work with.
 
-3. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
+1. No additional parameters are required. By default, the module analyzes all columns that are provided as input, and depending on the type of values in the columns, outputs a relevant set of statistics as described in the [Results](#results) section.
 
-4. Run the pipeline, or right-click the module, and select **Run selected**.
+1. Run the pipeline, or right-click the module, and select **Run selected**.
 
 ## Results
 

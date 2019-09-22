@@ -30,17 +30,17 @@ If you need to apply clipping methods or different criteria to some columns, you
 
 1.  Add the **Clip Values** module to your pipeline and connect it to the dataset you want to modify. You can find this module under **Data Transformation**, in the **Scale and Reduce** category. 
   
-2.  In **List of columns**, use the Column Selector to choose the columns to which **Clip Values** will be applied.  
+1.  In **List of columns**, use the Column Selector to choose the columns to which **Clip Values** will be applied.  
   
-3.  For **Set of thresholds**, choose one of the following options from the dropdown list. These options determine how you set the upper and lower boundaries for acceptable values vs. values that must be clipped.  
+1.  For **Set of thresholds**, choose one of the following options from the dropdown list. These options determine how you set the upper and lower boundaries for acceptable values vs. values that must be clipped.  
   
     - **ClipPeaks**: When you clip values by peaks, you specify only an upper boundary. Values greater than that boundary value are replaced.
   
-    -  **ClipSubpeaks**: When you clip values by sub-peaks, you specify only a lower boundary. Values that are less than that boundary value are replaced.  
+    -  **ClipSubpeaks**: When you clip values by subpeaks, you specify only a lower boundary. Values that are less than that boundary value are replaced.  
   
-    - **ClipPeaksAndSubpeaks**: When you clip values by peaks and sub-peaks, you can specify both the upper and lower boundaries. Values that are outside that range are replaced. Values that match the boundary values are not changed.
+    - **ClipPeaksAndSubpeaks**: When you clip values by peaks and subpeaks, you can specify both the upper and lower boundaries. Values that are outside that range are replaced. Values that match the boundary values are not changed.
   
-4.  Depending on your selection in the preceding step, you can set the following threshold values: 
+1.  Depending on your selection in the preceding step, you can set the following threshold values: 
 
     + **Lower threshold**: Displayed only if you choose **ClipSubPeaks**
     + **Upper threshold**: Displayed only if you choose **ClipPeaks**
@@ -48,17 +48,17 @@ If you need to apply clipping methods or different criteria to some columns, you
 
     For each threshold type, choose either **Constant** or **Percentile**.
 
-5. If you select **Constant**, type the maximum or minimum value in the text box. For example, assume that you know the value 999 was used as a placeholder value. You could choose **Constant** for the upper threshold, and type 999 in **Constant value for upper threshold**.
+1. If you select **Constant**, type the maximum or minimum value in the text box. For example, assume that you know the value 999 was used as a placeholder value. You could choose **Constant** for the upper threshold, and type 999 in **Constant value for upper threshold**.
   
-6. If you choose **Percentile**, you constrain the column values to a percentile range. 
+1. If you choose **Percentile**, you constrain the column values to a percentile range. 
 
     For example, assume you want to keep only the values in the 10-80 percentile range, and replace all others. You would choose **Percentile**, and then type 10 for **Percentile value for lower threshold**, and type 80 for **Percentile value for upper threshold**. 
 
     See the section on [percentiles](#examples-for-clipping-using-percentiles) for some examples of how to use percentile ranges.  
   
-5.  Define a substitute value.
+1.  Define a substitute value.
 
-    Numbers that exactly match the boundaries you just specified are considered to be inside the allowed range of values, and thus are not replaced. All numbers that fall outside the specified range are replaced with the substitute value. 
+    Numbers that exactly match the boundaries you specified are considered to be inside the allowed range of values, and thus are not replaced. All numbers that fall outside the specified range are replaced with the substitute value. 
   
     + **Substitute value for peaks**: Defines the value to substitute for all column values that are greater than the specified threshold.  
     + **Substitute value for subpeaks**: Defines the value to use as a substitute for all column values that are less than the specified threshold.  
@@ -74,13 +74,13 @@ If you need to apply clipping methods or different criteria to some columns, you
   
     -   **Missing**. Replaces clipped values with the missing (empty) value.  
   
-6.  **Add indicator columns**: Select this option if you want to generate a new column that tells you whether or not the specified clipping operation applied to the data in that row. This option is particularly handy when you are testing a new set of clipping and substitution values.  
+1.  **Add indicator columns**: Select this option if you want to generate a new column that tells you whether or not the specified clipping operation applied to the data in that row. This option is useful when you are testing a new set of clipping and substitution values.  
   
-7. **Overwrite flag**: Indicate how you want the new values to be generated. By default, **Clip Values** constructs a new column with the peak values clipped to the desired threshold. New values overwrite the original column.  
+1. **Overwrite flag**: Indicate how you want the new values to be generated. By default, **Clip Values** constructs a new column with the peak values clipped to the desired threshold. New values overwrite the original column.  
   
     To keep the original column and add a new column with the clipped values, deselect this option.  
   
-8.  Run the pipeline.  
+1.  Run the pipeline.  
   
     Right-click the output of the **Clip Values** module and select **Visualize** to review the values and make sure the clipping operation met your expectations.  
  
@@ -88,27 +88,27 @@ If you need to apply clipping methods or different criteria to some columns, you
 
 To understand how clipping by percentiles works, consider a dataset with 10 rows, which have one instance each of the values 1-10.  
   
-+ If you are using percentile as the upper threshold, at the value for the 90th percentile, 90 percent of all values in the dataset must be less than that value.  
+- If you are using percentile as the upper threshold, at the value for the 90th percentile, 90 percent of all values in the dataset must be less than that value.  
   
-+ If you are using percentile as the lower threshold, at the value for the 10th percentile, 10 percent of all values in the dataset must be less than that value.  
+- If you are using percentile as the lower threshold, at the value for the 10th percentile, 10 percent of all values in the dataset must be less than that value.  
   
 1.  For **Set of thresholds**, choose **ClipPeaksAndSubPeaks**.  
   
-2.  For **Upper threshold**, choose **Percentile**, and for **Percentile number**, type 90.  
+1.  For **Upper threshold**, choose **Percentile**, and for **Percentile number**, type 90.  
   
-3.  For **Upper substitute value**, choose **Missing Value**.  
+1.  For **Upper substitute value**, choose **Missing Value**.  
   
-4.  For **Lower threshold**, choose **Percentile**, and for **Percentile number**, type 10.  
+1.  For **Lower threshold**, choose **Percentile**, and for **Percentile number**, type 10.  
   
-5.  For **Lower substitute value**, choose **Missing Value**.  
+1.  For **Lower substitute value**, choose **Missing Value**.  
   
-6.  Deselect the option **Overwrite flag**, and select the option, **Add indicator column**.  
+1.  Deselect the option **Overwrite flag**, and select the option, **Add indicator column**.  
   
 Now try the same pipeline using 60 as the upper percentile threshold and 30 as the lower percentile threshold, and use the threshold value as the replacement value. The following table compares these two results:  
   
 1.  Replace with missing; Upper threshold = 90; Lower threshold = 20  
   
-2.  Replace with threshold; Upper percentile = 60; Lower percentile = 40  
+1.  Replace with threshold; Upper percentile = 60; Lower percentile = 40  
   
 |Original data|Replace with missing|Replace with threshold|  
 |-------------------|--------------------------|----------------------------|  

@@ -25,7 +25,7 @@ Using the Apply SQL Transformation module, you can:
 -   Execute SQL query statements to filter or alter data and return the query results as a data table.  
 
 > [!IMPORTANT]
-> The SQL engine used in this module is **SQLite**. If you are unfamiliar with SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.  
+> The SQL engine used in this module is **SQLite**. For more information about SQLite syntax, see [SQL as Understood by SQLite](https://www.sqlite.org/index.html) for more information.  
 
 ## How to configure Apply SQL Transformation  
 
@@ -47,13 +47,13 @@ This section contains implementation details, tips, and answers to frequently as
 
 Although SQLite supports much of the ANSI SQL standard, it does not include many features supported by commercial relational database systems. For more information, see [SQL as Understood by SQLite](http://www.sqlite.org/lang.html). Also, be aware of the following restrictions when creating SQL statements:  
   
-+ SQLite uses dynamic typing for values, rather than assigning a type to a column as in most relational database systems. It is weakly typed, and allows implicit type conversion.  
+- SQLite uses dynamic typing for values, rather than assigning a type to a column as in most relational database systems. It is weakly typed, and allows implicit type conversion.  
   
-+ `LEFT OUTER JOIN` is implemented, but not `RIGHT OUTER JOIN` or `FULL OUTER JOIN`.  
+- `LEFT OUTER JOIN` is implemented, but not `RIGHT OUTER JOIN` or `FULL OUTER JOIN`.  
 
-+ You can use `RENAME TABLE` and `ADD COLUMN` statements with the `ALTER TABLE` command, but other clauses are not supported, including `DROP COLUMN`, `ALTER COLUMN`, and `ADD CONSTRAINT`.  
+- You can use `RENAME TABLE` and `ADD COLUMN` statements with the `ALTER TABLE` command, but other clauses are not supported, including `DROP COLUMN`, `ALTER COLUMN`, and `ADD CONSTRAINT`.  
   
-+ You can create a VIEW within SQLite, but thereafter views are read-only. You cannot execute a `DELETE`, `INSERT`, or `UPDATE` statement on a view. However, you can create a trigger that fires on an attempt to `DELETE`, `INSERT`, or `UPDATE` on a view and perform other operations in the body of the trigger.  
+- You can create a VIEW within SQLite, but thereafter views are read-only. You cannot execute a `DELETE`, `INSERT`, or `UPDATE` statement on a view. However, you can create a trigger that fires on an attempt to `DELETE`, `INSERT`, or `UPDATE` on a view and perform other operations in the body of the trigger.  
   
 
 In addition to the list of non-supported functions provided on the official SQLite site, the following wiki provides a list of other unsupported features: [SQLite - Unsupported SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  

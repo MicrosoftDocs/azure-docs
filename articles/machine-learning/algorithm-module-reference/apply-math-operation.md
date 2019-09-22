@@ -1,7 +1,7 @@
 ---
 title:  "Apply Math Operation"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Apply Math Operation module in Azure Machine Learning service to apply a mathematical operation to column values for use in a pipeline.
+description: Learn how to use the Apply Math Operation module in Azure Machine Learning service to apply a mathematical operation to column values in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -24,7 +24,7 @@ After you define an operation and run the pipeline, the values are added to your
 
 + Append the results to your dataset. This is particularly useful when you are verifying the result of the operation.
 + Replace columns values with the new, computed values.
-+ Generate a new column for results, and not show the orginal data. 
++ Generate a new column for results, and not show the original data. 
 
 Look for the operation you need in these categories:  
 
@@ -67,8 +67,8 @@ Each instance of this module can perform only one type of operation at a time. T
 
 1.  Select one or more source columns on which to perform the calculation.   
   
-    + Any column that you choose must be a numeric data type. 
-    + The range of data must be valid for the selected mathematical operation. Otherwise an error or NaN (not a number) result may occur. For example, Ln(-1.0) is an invalid operation and results in a value of `NaN`.
+    - Any column that you choose must be a numeric data type. 
+    - The range of data must be valid for the selected mathematical operation. Otherwise an error or NaN (not a number) result may occur. For example, Ln(-1.0) is an invalid operation and results in a value of `NaN`.
   
 1.  Click **Category** to select the **type** of math operation to perform.
     
@@ -95,7 +95,7 @@ Even if you use the **Inplace** option, the source data is not deleted or change
     
 ## Basic math operations 
 
-The functions in the **Basic** category usually take a single value from a column, perform the predefined operation, and return a single value. For some functions you can specify a constant or a column set as a second argument.  
+The functions in the **Basic** category usually take a single value from a column, perform the predefined operation, and return a single value. For some functions, you can specify a constant or a column set as a second argument.  
   
  Azure Machine Learning supports the following functions in the **Basic** category:  
 
@@ -136,7 +136,7 @@ Returns the base-2 exponential of the arguments, solving for y = x * 2<sup>t</su
 
 In  **Column set**, select the column that contains the exponent values t.
 
-For **Exp2** you can specify a second argument x, which can be either a constant or another column of values  In **Second argument type**, indicate whether you will provide the multiplier x as a constant, or a value in a column.  
+For **Exp2** you can specify a second argument x, which can be either a constant or another column of values. In **Second argument type**, indicate whether you will provide the multiplier x as a constant, or a value in a column.  
 
 For example, if you select a column with the values {0,1,2,3,4,5} for both the multiplier and the exponent, the function returns {0, 2, 8, 24, 64 160).  
 
@@ -166,11 +166,11 @@ You can specify the base (the second argument) either as a constant or by select
 
 ### Log10
 
-Returns the base 10 logarithm the values in the selected column.  
+Returns the base 10 logarithm values for the selected column.  
 
 ### Log2
 
-Returns the base 2 logarithm for the values in the selected column.  
+Returns the base 2 logarithm values for the selected column.  
 
 ### NthRoot
 Returns the nth root of the value, using an n that you specify.  
@@ -184,7 +184,7 @@ If the second argument is a column, each value in the column is used as the valu
 
 Calculates X raised to the power of Y for each of the values in the selected column.  
 
-First, select the columns that contains the **base**, which should be a float, by using the **ColumnSet** option.  
+First, select the columns that contain the **base**, which should be a float, by using the **ColumnSet** option.  
 
 In **Second argument type**, select the column that contains the exponent, or specify a constant to use as the exponent.  
 
@@ -204,10 +204,10 @@ Squares the values in the selected column.
 
 ## Comparison operations  
 
-Use the comparison functions in Azure Machine Learning visual interface any time that you need to test two sets of values against each other. For example, in a pipeline you might need to do these comparison operations:  
+Use the comparison functions in Azure Machine Learning visual interface anytime that you need to test two sets of values against each other. For example, in a pipeline you might need to do these comparison operations:  
 
 - Evaluate a column of probability scores model against a threshold value.
-- Determine if two sets of results are the same, and for each row that is different, add a FALSE flag that can be used for further processing or filtering.  
+- Determine if two sets of results are the same. For each row that is different, add a FALSE flag that can be used for further processing or filtering.  
 
 ### EqualTo
 
@@ -243,7 +243,7 @@ Returns the value that is lesser—the value in **Column set** or the value in t
   
 ##  Arithmetic operations   
 
-Includes the basic arithmetic operations: addition and subtraction, division and multiplication.  Because most operations are binary, requiring two numbers, you first choose the operation, and then choose the column or numbers to use in the first and second arguments.
+Includes the basic arithmetic operations: addition and subtraction, division, and multiplication.  Because most operations are binary, requiring two numbers, you first choose the operation, and then choose the column or numbers to use in the first and second arguments.
 
 The order in which you choose the columns for division and subtraction might seem counterintuitive; however, to make it easier to understand the results, the column heading provides the operation name, and the order in which the columns were used.
 
@@ -278,9 +278,9 @@ Specify the column of values to operate on (the *minuend*), by choosing a differ
 
 Azure Machine Learning visual interface supports a variety of rounding operations. For many operations, you must specify the amount of  precision to use when rounding. You can use either a static precision level, specified as a constant, or you can apply a dynamic precision value obtained from a column of values.  
 
-+ If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the module does not raise an error, but results can be unexpected.  
+- If you use a constant, set **Precision Type** to **Constant** and then type the number of digits as an integer in the **Constant Precision** text box. If you type a non-integer, the module does not raise an error, but results can be unexpected.  
 
-+ To use a different precision value for each row in your dataset, set **Precision Type** to **ColumnSet**, and then choose the column that contains appropriate precision values.  
+- To use a different precision value for each row in your dataset, set **Precision Type** to **ColumnSet**, and then choose the column that contains appropriate precision values.  
 
 ### Ceiling
 
@@ -578,7 +578,7 @@ Assume your dataset has multiple columns, and you add the dataset to itself. In 
 
 If you need to perform more complex calculations, you can chain multiple instances of **Apply Math Operation**. For example, you might add two columns by using one instance of **Apply Math Operation**, and then use another instance of **Apply Math Operation** to divide the sum by a constant to obtain the mean.  
   
-Alternatively, use one of the following modules to do all the calculations at once, using SQL, R, or Python script :
+Alternatively, use one of the following modules to do all the calculations at once, using SQL, R, or Python script:
  
 + [Execute R Script](execute-r-script.md)
 + [Execute Python Script](execute-python-script.md)
