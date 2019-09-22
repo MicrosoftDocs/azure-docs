@@ -22,7 +22,10 @@ The [Azure Media Indexer v1 (GA)](media-services-index-content.md) and [Indexer 
 
 Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see in what scenarios Video Indexer can be used, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
 
-You can extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs. To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
+You can extract insights from your video and audio files by using the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md) or directly by using the [Video Indexer APIs](https://api-portal.videoindexer.ai/). Currently, there is an overlap between features offered by the Video Indexer APIs and the Media Services v3 APIs.
+
+> [!NOTE]
+> To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the [comparison document](../video-indexer/compare-video-indexer-with-media-services-presets.md). 
 
 This article discusses the steps for migrating from the Azure Media Indexer v1 and Azure Media Indexer v2 to Azure Media Services Video Indexer.  
 
