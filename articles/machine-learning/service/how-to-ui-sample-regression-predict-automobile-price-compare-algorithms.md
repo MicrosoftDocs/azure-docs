@@ -95,3 +95,4 @@ Explore the other samples available for the visual interface:
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
