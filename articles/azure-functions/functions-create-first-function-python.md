@@ -33,7 +33,7 @@ Before you start, you must:
 
 ## Create and activate a virtual environment (optional)
 
-You should use a Python 3.6.x environment to locally develop and verify Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
+You should use a Python 3.6.x environment to locally develop Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
 
 > [!NOTE]
 > If Python didn't install venv on your Linux distribution, you can install it using the following command:
