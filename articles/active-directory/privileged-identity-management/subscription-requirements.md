@@ -22,32 +22,37 @@ ms.collection: M365-identity-device-management
 
 # License requirements to use PIM
 
-To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to the administrators and relevant users. This article describes the license requirements to use PIM.
+To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to relevant users. This article describes the license requirements to use PIM.
 
 ## Prerequisites
 
-To use PIM, your directory must have one of the following paid or trial licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
-
-For more information, see [What is Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
 ## Which users must have licenses?
 
-Each administrator or user who interacts with or receives a benefit from PIM must have a license. Examples include:
+Your directory must have Azure AD Premium P2 licenses for the following users:
 
-- Administrators with Azure AD roles managed using PIM
-- Administrators with Azure resource roles managed using PIM
-- Administrators assigned to the Privileged Role Administrator role
 - Users assigned as eligible to Azure AD roles managed using PIM
-- Users able to approve/reject requests in PIM
+- Users able to approve or reject activation requests in PIM
 - Users assigned to an Azure resource role with just-in-time or direct (time-based) assignments  
 - Users assigned to an access review
 - Users who perform access reviews
 
+Azure AD Premium P2 licenses are **not** required for the following users:
+
+- No licenses are required for users with the Global Administrator or Privileged Role Administrator roles that set up PIM, configures policies, receive alerts, and sets up access reviews.
+
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+
+## Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Required number of licenses |
+| --- | --- | --- |
+| OrgA has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make 5 administrators eligible. | 5 license for the administrators that are eligible | 5 |
+| OrgB has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are 3 different users in the organization who can approve activations. | 14 licenses for the eligible roles + 3 approvers | 17 |
+| OrgC has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are 5 different users in the organization who can approve activations. OrgC also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which 6 are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + 5 approvers + 6 reviewers | 53 |
 
 ## What happens when a license expires?
 

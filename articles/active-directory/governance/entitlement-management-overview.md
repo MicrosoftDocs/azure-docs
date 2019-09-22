@@ -140,15 +140,30 @@ Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21V
 
 ### Which users must have licenses?
 
-Your tenant must have at least as many Azure AD Premium P2 licenses as you have active member users. Active member users in entitlement management include:
+Your directory must have Azure AD Premium P2 licenses for the following users:
 
-- A user that initiates or approves a request for an access package.
-- A user that has been assigned an access package. 
-- A user that manages access packages.
+- Member and guest users who request an access package.
+- Member users who **can** request an access package.
+- Member and guest users who approve requests for an access package.
 
-As part of the licenses for member users, you can also allow a number of guest users to interact with entitlement management. For information about how to calculate the number of guest users you can include, see [Azure Active Directory B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+Azure AD Premium P2 licenses are **not** required for the following users:
+
+- No licenses are required for users with the Global Administrator role who set up the initial catalogs, access packages, and policies, and delegates administrative tasks to other users.
+- No licenses are required for users who have been delegated administrative tasks, such as catalog creator, catalog owner, and access package manager.
+- No licenses are required for guests who **can** request access packages, but do not request an access package.
+
+For each paid Azure AD Premium P2 license that you assign to one of your member users (employees), you can use Azure AD B2B to invite up to 5 guest users. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
 
 For information about how to assign licenses to your users, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+
+### Example license scenarios
+
+Here are some example license scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Required number of licenses |
+| --- | --- | --- |
+| An OrgA Global Administrator creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. 150 employees request the access packages. | 2,000 employees who **can** request the access packages | 2,000 |
+| An OrgA Global Administrator creates initial catalogs and delegates administrative tasks to 6 other users. One of the policies specifies that **All employees** (2,000 employees) can request a specific set of access packages. Another policy specifies that some users from **Users from partner OrgB** (guests) can request the same access packages subject to approval. OrgB has 30,000 users. 150 employees request the access packages and 10,500 users from OrgB request access. | 2,000 employees + 500 guest users from OrgB that exceed the 1:5 ratio (10,500 guest users - (2,000 users * 5 )) | 2,500 |
 
 ## Next steps
 
