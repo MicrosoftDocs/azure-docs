@@ -30,7 +30,7 @@ This article discusses the steps for migrating from the Azure Media Indexer v1 a
 
 |If you require  |then |
 |---|---|
-|a solution that provides the following: <br/>    - a speech-to-text transcription for any media file format in a closed caption file format (VTT, SRT, or TTML)<br/>    - as well as additional audio insights such as:<br/>    keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
+|a solution that provides the following: <br/>a speech-to-text transcription for any media file format in a closed caption file formats:<br/>VTT, SRT, or TTML<br/>as well as additional audio insights such as:<br/>keywords, topic inferencing, acoustic events, speaker diarization, entities extraction and translation| update your applications to use the Azure Video Indexer capabilities through the Video Indexer v2 REST API or the Azure Media Services v3 Audio Analyzer preset.|
 |speech-to-text capabilities| use the Cognitive Services Speech API directly.|  
 
 ## Getting started with Video Indexer
@@ -39,13 +39,20 @@ The [How can I get started with Video Indexer?](https://docs.microsoft.com/en-us
 
 ## Getting started with Media Services v3 APIs
 
-...
+Azure Media Services v3 API enables you to extract insights from your video and audio files through the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md). 
 
-point to our new Java and .NET samples
+AudioAnalyzerPreset enables you to extract multiple audio insights from an audio or video file. The output includes a VTT or TTML file for the audio transcript and a JSON file (with all the additional audio insights). The audio insights include keywords, speaker indexing, and speech sentiment analysis. AudioAnalyzerPreset also supports language detection for specific languages. For detailed information, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+
+### Get started
+
+To get started see:
+
+* [Tutorial](../latest/analyze-videos-tutorial-with-api.md)
+* [Java SDK sample](https://github.com/Azure-Samples/media-services-v3-java/tree/master/AudioAnalytics/AudioAnalyzer) or [.NET SDK sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/AudioAnalytics/AudioAnalyzer)
 
 ## Getting started with Cognitive Services Speech Services
 
-...
+Microsoft Cognitive Services provides a Speech-to-text service that transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Note that it does not take video file formats and only takes [certain audio formats](../../cognitive-services/speech-service/rest-speech-to-text#audio-formats.md).  You can also use Speech-to-text to [customize your own acoustic model, language model, or pronunciation model](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). For more information, see ]Cognitive Services Speech-to-text](../../cognitive-services/speech-service/speech-to-text.md). 
 
 ## Known differences from deprecated services 
 
