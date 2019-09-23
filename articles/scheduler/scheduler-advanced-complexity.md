@@ -18,7 +18,7 @@ ms.date: 11/14/2018
 > [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, which is 
 > [being retired](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). 
 > To continue working with the jobs that you set up in Scheduler, please 
-> [migrate to Azure Logic Apps]((../scheduler/migrate-from-scheduler-to-logic-apps.md)) as soon as possible.
+> [migrate to Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) as soon as possible.
 
 Within an [Azure Scheduler](../scheduler/scheduler-intro.md) job, 
 the schedule is the core that determines when and how the Scheduler 
