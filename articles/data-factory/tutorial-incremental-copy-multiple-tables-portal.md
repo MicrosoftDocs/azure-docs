@@ -347,7 +347,7 @@ In this step, you create datasets to represent the data source, the data destina
 	
 1. In the **Add Dynamic Content** window, select **SinkTableName** in the **Parameters** section. 
  
-1. After clicking **Finish**, you see"@dataset().SinkTableName"as the table name.
+1. After clicking **Finish**, you see "@dataset().SinkTableName" as the table name.
 
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
