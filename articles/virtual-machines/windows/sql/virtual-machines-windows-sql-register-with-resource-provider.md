@@ -363,6 +363,9 @@ Yes. There are no restrictions to registering a SQL Server instance on an Azure 
 **What is the cost for registering with the SQL VM resource provider, or with upgrading to full manageability mode?**
 None. There is no fee associated with registering with the SQL VM resource provider, or with using any of the three manageability modes. Managing your SQL Server VM with the resource provider is completely free. 
 
+**What is the performance impact of using the different manageability modes?**
+There is no impact when using the *NoAgent* and *lightweight* manageability modes. There is minimal impact when using the *full* manageability mode from two services that are installed to the OS. These can be monitored via task manager. 
+
 ## Next steps
 
 For more information, see the following articles: 
