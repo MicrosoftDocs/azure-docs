@@ -36,7 +36,7 @@ For more information, see [Capacity planning for HDInsight clusters](https://doc
 
 Common capacity issue errors and mitigation techniques are provided in this section.
 
-### Error: The deployment would exceed the quota of '800'
+#### Error: The deployment would exceed the quota of '800'
 
 Azure has a quota limit of 800 deployments per resource group. Different quotas are applied per resource group, subscription, account, or other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you try to deploy a virtual machine that has more cores than the permitted amount, you receive an error message that states that the quota was exceeded.
 
@@ -44,7 +44,7 @@ To resolve this issue, delete the deployments that are no longer needed by using
 
 For more information, see [Resolve errors for resource quotas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors).
 
-### Error: The maximum node exceeded the available cores in this region
+#### Error: The maximum node exceeded the available cores in this region
 
 Your subscription may be configured to limit the number of cores for a region. If you try to deploy a resource that has more cores than the permitted amount, you receive an error message that states that the quota was exceeded.
 
@@ -58,7 +58,7 @@ To request a quota increase, follow these steps:
    * Subscription: The subscription that you want to modify
    * Quota type: HDInsight
 
-For more information, see [Create a support ticket to increase core](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning#quotas).
+For more information, see [Create a support ticket to increase cores](https://docs.microsoft.com/azure/hdinsight/hdinsight-capacity-planning#quotas).
 
 ### What are the various types of nodes in an HDInsight cluster?
 
@@ -85,7 +85,7 @@ For a list of supported components see [What are the Apache Hadoop components an
 
 Support for individual components can also vary by cluster type. For example, Spark is not supported on a Kafka cluster, and vice-versa.
 
-For applications or services outside the cluster creation process, please contact the respective vendor or service provider for support. You can also use community sites for support for these actions. Many community sites are available. Examples include [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/). Apache projects also have project sites on the [Apache website](https://apache.org/). One example is [Hadoop](https://hadoop.apache.org/).
+For applications or services outside the cluster creation process, please contact the respective vendor or service provider for support. You can also use community sites for support for these actions. Many community sites are available. Examples include [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/questions/tagged/hdinsight). Apache projects also have project sites on the [Apache website](https://apache.org/). One example is [Hadoop](https://hadoop.apache.org/).
 
  For more questions that are related to Azure support, review the [Azure Support FAQ](https://azure.microsoft.com/en-us/support/faq/).
 
@@ -106,7 +106,7 @@ No, it is not possible to run Apache Kafka and Apache Spark on the same HDInsigh
 
    ![Ambari Settings](media/hdinsight-faq/ambari-settings.png)
 
-3. In the User Settings window, select the new timezone from the Timezone drop down.
+3. In the User Settings window, select the new timezone from the Timezone drop down, and then click Save.
 
    ![Ambari User Settings](media/hdinsight-faq/ambari-user-settings.png)
 
@@ -124,7 +124,7 @@ For a default metastore: The default metastore is part of the cluster lifecycle.
 
 For a custom metastore: The lifecycle of the metastore is not tied to a cluster’s lifecycle. Therefore, you can create and delete clusters without losing metadata. Metadata such as your Hive schemas persists even after you delete and re-create the HDInsight cluster.
 
-For more information, see Use external metadata stores in Azure HDInsight.
+For more information, see [Use external metadata stores in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores).
 
 ### Does migrating a Hive metastore also migrate the default policies of the Ranger database?
 
@@ -136,11 +136,11 @@ Yes, you can migrate a Hive metastore from an ESP to a non-ESP cluster.
 
 ### How can I estimate the size of a Hive metastore database?
 
-A Hive metastore is used to store the metadata for data sources that is used by the Hive server. Therefore, the size requirements are affected by the number of data sources you may have to use for the Hive and by how complex the data sources are. Therefore, the size cannot be estimated upfront. As outlined in [Hive metastore best practices](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#hive-metastore-best-practices), you can start at an S2 tier. This provides 50 DTU and 250 GB of storage. If you encounter a bottleneck, you can scale up the database.
+A Hive metastore is used to store the metadata for data sources that are used by the Hive server. Therefore, the size requirements are affected by the number of data sources you may have to use for the Hive and by how complex the data sources are. Therefore, the size cannot be estimated upfront. As outlined in [Hive metastore best practices](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#hive-metastore-best-practices), you can start at an S2 tier. This provides 50 DTU and 250 GB of storage. If you encounter a bottleneck, you can scale up the database.
 
 ### Do you support any other database other than Azure SQL Database as an external metastore ?
 
-No, Microsoft supports only Azure SQL database as an external custom metastore.
+No, Microsoft supports only Azure SQL Database as an external custom metastore.
 
 ### Can I share a metastore across multiple clusters?
 
@@ -204,7 +204,7 @@ For more information, see:
 
 ### How can I pull login activity shown in Ranger?
 
-For auditing requirements, Microsoft recommends enabling Azure Monitor logs as described in [Azure Monitor logs](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial).
+For auditing requirements, Microsoft recommends enabling Azure Monitor logs as described in [Use Azure Monitor logs to monitor HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial).
 
 ### Can I disable Clamscan on my cluster?
 
@@ -251,7 +251,7 @@ To audit blob storage accounts, you have to configuring monitoring for the blob 
 You can transfer files between a blob container and an HDInsight head node by running a shell script that resembles the following on your head node:
 
 ```
-for i in `cat filenames.txt
+for i in cat filenames.txt
 
 do
          hadoop fs -get $i <local destination>
@@ -263,7 +263,7 @@ done
  
 ### Are there any Ranger plugins for storage?
 
-Currently, no Ranger plugins exist for blob storage, Azure Data Lake Storage (ADLS) Gen1, or Azure Data Lake Storage Gen2. For ESP clusters, you should use ADLS As a best practice. This is because you can, at least, set fine-grain permissions manually at the file system level by using HDFS tools. Also, ESP clusters will do some of the file system access control by using AAD at the cluster level when you use ADLS. 
+Currently, no Ranger plugins exist for blob storage, Azure Data Lake Storage (ADLS) Gen1, or Azure Data Lake Storage Gen2. For ESP clusters, you should use ADLS as a best practice. This is because you can, at least, set fine-grain permissions manually at the file system level by using HDFS tools. Also, ESP clusters will do some of the file system access control by using AAD at the cluster level when you use ADLS. 
 
 You should be able to use the Azure Storage Explorer to assign data access policies to security groups where your users are located by using the procedures that are documented in the following articles:
 
@@ -340,6 +340,12 @@ For information about how to cancel your subscription, see [Cancel your Azure su
 For information about your subscription after its cancelled, see
 [What happens after I cancel my subscription?](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription#what-happens-after-i-cancel-my-subscription)
 
+## Hive
+
+### Why does the Hive version appear as 1.2.1000 instead of 2.1 in the Ambari UI even though I am running an HDInsight 3.6 cluster?
+
+Although only 1.2 appears in the Ambari UI, HDInsight 3.6 contains both Hive 1.2 and Hive 2.1.
+
 ## Other FAQ
 
 ### What does HDInsight offer in terms of real-time stream processing capabilities?
@@ -349,9 +355,3 @@ For information about the integration capabilities of stream processing in Azure
 ### Is there a way to dynamically terminate the head node of the cluster when the cluster is idle for a specific period?
 
 No, you cannot dynamically terminate the head node of the cluster. You can use Azure Data Factory for this scenario.
-
-## Hive
-
-### Why does the Hive version appear as 1.2.1000 instead of 2.1 in the Ambari UI even though I am running an HDInsight 3.6 cluster?
-
-Although only 1.2 appears in the Ambari UI, HDInsight 3.6 contains both Hive 1.2 and Hive 2.1.
