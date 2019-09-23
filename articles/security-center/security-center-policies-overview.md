@@ -3,18 +3,16 @@ title: Azure Security Center settings | Microsoft Docs
 description: Configure Azure Security Center settings.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: f24b1e4a-cc36-4542-b21e-041453cdfcd8
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/3/2018
-ms.author: rkarlin
+ms.date: 09/03/2018
+ms.author: memildin
 
 ---
 # Security Center settings
