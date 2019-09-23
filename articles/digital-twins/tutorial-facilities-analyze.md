@@ -34,6 +34,9 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - The [Digital Twins C# samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) downloaded and extracted on your work machine.
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
 
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
+
 ## Stream data by using Event Hubs
 
 You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to create a pipeline to stream your data. This section shows you how to create your event hub as the connector between your Azure Digital Twins and Time Series Insights instances.

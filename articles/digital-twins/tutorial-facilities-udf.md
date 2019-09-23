@@ -33,6 +33,9 @@ This tutorial assumes that you have [finished your Azure Digital Twins setup](tu
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Run `dotnet --version` to verify that the right version is installed. 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
+
 ## Define conditions to monitor
 
 You can define a set of specific conditions to monitor in the device or sensor data, called *matchers*. You can then define functions called *user-defined functions*. User-defined functions execute custom logic on data that comes from your spaces and devices, when the conditions specified by the matchers occur. For more information, read [Data processing and user-defined functions](concepts-user-defined-functions.md). 

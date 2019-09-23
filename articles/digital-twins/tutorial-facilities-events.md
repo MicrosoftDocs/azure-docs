@@ -35,6 +35,9 @@ This tutorial assumes that you have [configured](tutorial-facilities-setup.md) a
 - [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to run the sample. Run `dotnet --version` to verify that the right version is installed.
 - An Office 365 account to send notification e-mails.
 
+> [!TIP]
+> Use a unique Digital Twins instance name if you're provisioning a new instance.
+
 ## Integrate events with Event Grid
 
 In this section, you set up [Event Grid](../event-grid/overview.md) to collect events from your Azure Digital Twins instance, and redirect them to an [event handler](../event-grid/event-handlers.md) such as Logic Apps.
