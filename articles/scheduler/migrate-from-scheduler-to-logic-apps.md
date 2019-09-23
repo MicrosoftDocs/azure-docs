@@ -260,7 +260,9 @@ To learn more about exception handling, see
 
   * For jobs that you don't want to continue running after Scheduler is removed from the portal, please [disable or delete your job collections](https://docs.microsoft.com/azure/scheduler/scheduler-get-started-portal#monitor-and-manage-jobs) before October 31, 2019.
 
-* *December 31, 2019*: Scheduler is fully retired. *All jobs* stop running, and *all data* is deleted from the system.
+* *December 31, 2019*
+
+  * Scheduler is fully retired. *All jobs* stop running, and *all data* is deleted from the system.
 
 **Q**: What happens to my job collections and jobs after the service retires? <br>
 **A**: All Scheduler job collections and jobs will stop running and be deleted from the system.
