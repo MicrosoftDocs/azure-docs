@@ -18,7 +18,7 @@
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create Standard Load Balancer - Azure PowerShell
     href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Standard Load Balancer - Azure Resource Manager template
+  - name: Create Standard Load Balancer - template
     displayName: ARM
     href: quickstart-load-balancer-standard-public-template.md
 - name: Tutorials
@@ -123,6 +123,16 @@
     href: load-balancer-query-metrics-rest-api.md
   - name: Configure High Availability Ports for Internal Load Balancer
     href: load-balancer-configure-ha-ports.md
+  - name: Move across regions
+    items:
+    - name: External load balancer - Portal
+      href: move-across-regions-external-load-balancer-portal.md
+    - name: External load balancer - PowerShell
+      href: move-across-regions-external-load-balancer-powershell.md
+    - name: Internal load balancer - Portal
+      href: move-across-regions-internal-load-balancer-portal.md
+    - name: Internal load balancer - PowerShell
+      href: move-across-regions-internal-load-balancer-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Azure Load Balancer

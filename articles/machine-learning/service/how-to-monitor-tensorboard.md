@@ -1,6 +1,6 @@
 ---
 title: Visualize experiments with TensorBoard
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Launch TensorBoard to visualize experiment run histories, and identify potential areas for hyperparameter tuning and retraining.
 services: machine-learning
 ms.service: machine-learning
@@ -13,7 +13,7 @@ ms.date: 06/28/2019
 
 # Visualize experiment runs and metrics with TensorBoard and Azure Machine Learning
 
-In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning service SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
+In this article, you learn how to view your experiment runs and metrics in TensorBoard using [the `tensorboard` package](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py) in the main Azure Machine Learning SDK. Once you've inspected your experiment runs, you can better tune and retrain your machine learning models.
 
 [TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) is a suite of web applications for inspecting and understanding your experiment structure and performance.
 
@@ -38,7 +38,7 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
 
     * Your own Juptyer notebook server
           * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
-          * [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).  
+          * [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  
           * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
@@ -67,7 +67,7 @@ if not path.exists(exp_dir):
 
 ### Download TensorFlow demo experiment code
 
-TensorFlow's repository has an MNIST demo with extensive TensorBoard instrumentation. We do not, nor need to, alter any of this demo's code for it to work with the Azure Machine Learning service. In the following code, we download the MNIST code and save it in our newly created experiment folder.
+TensorFlow's repository has an MNIST demo with extensive TensorBoard instrumentation. We do not, nor need to, alter any of this demo's code for it to work with Azure Machine Learning. In the following code, we download the MNIST code and save it in our newly created experiment folder.
 
 ```python
 import requests

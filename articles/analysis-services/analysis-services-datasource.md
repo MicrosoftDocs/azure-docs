@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -37,7 +37,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 **Provider**   
 In-memory and DirectQuery models connecting to Azure data sources use .NET Framework Data Provider for SQL Server.
 
-## On-premises data sources
+## Other data sources
 
 Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
@@ -108,6 +108,10 @@ For on-premises data sources:
 For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
+
+## OAuth credentials
+
+For tabular models at the 1400 and higher compatibility level, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
 
 ## Next steps
 [On-premises gateway](analysis-services-gateway.md)   

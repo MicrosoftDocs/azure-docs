@@ -41,6 +41,8 @@
     href: howto-develop-with-vs-vscode.md
   - name: Install IoT explorer
     href: howto-install-iot-explorer.md
+  - name: Install Azure CLI extension
+    href: howto-install-pnp-cli.md    
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
   - name: Manage models
