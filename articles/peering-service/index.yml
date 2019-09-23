@@ -1,0 +1,66 @@
+### YamlMime:Landing
+
+title: Peering-Service 
+summary: Learn how to create peering service.
+
+---
+title: Microsoft Azure Peering Service | Microsoft Docs
+description: Learn about Microsoft Azure Peering Service
+services: peering-service
+author: v-meravi
+ms.service: peering-service
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 
+owner: ypitsch
+---
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Peering Service
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Peering Service?
+            url: peering-service-about.md
+      - linkListType: concept
+        links:
+          - text: Why Peering Service?
+            url: peering-service-about.md
+          - text: Benefits
+            url: peering-service-about.md
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Onboarding Peering Service
+            url: peering-service-onboarding-peering-service.md
+        
+  # Card
+  - title: Manage Access
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Create Peering Service - Azure Portal
+            url: virtual-wan-global-transit-network-architecture.md
+          - text: Create Peering Service - Azure Powershell
+            url: virtual-wan-office365-overview.md
+
+ # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Location and Partners
+            url: peering-service-location-partners.md
+          - text: Pricing
+            url: /powershell/module/az.network#networking
+          - text: FAQ
+            url: /rest/api/virtualwan
