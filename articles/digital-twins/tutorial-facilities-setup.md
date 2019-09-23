@@ -6,7 +6,7 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 08/16/2019
+ms.date: 09/17/2019
 ms.author: alinast
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to use the features of Digital Twins to create a spatially aware intelligent IoT solution. 
 ---
@@ -39,15 +39,11 @@ These tutorials use and modify the same samples that the [quickstart to find ava
 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
-<a id="deploy"></a>
-
 ## Deploy Digital Twins
 
 Use the steps in this section to create a new instance of the Azure Digital Twins service. Only one instance can be created per subscription. Skip to the next section if you already have one running. 
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
-
-<a id="permissions"></a>
 
 ## Grant permissions to your app
 
@@ -72,7 +68,7 @@ If you already have the samples downloaded for the [quickstart to find available
 
 In the extracted sample folder, open the file **digital-twins-samples-csharp\digital-twins-samples.code-workspace** in Visual Studio Code. It contains two projects:
 
-* You can use the provisioning sample **occupancy-quickstart** to configure and provision a [spatial intelligence graph](concepts-objectmodel-spatialgraph.md#graph). This graph is the digitized image of your physical spaces and the resources in them. It uses an [object model](concepts-objectmodel-spatialgraph.md#model), which defines objects for a smart building. For a complete list of Digital Twins objects and REST APIs, visit [this REST API documentation](https://docs.westcentralus.azuresmartspaces.net/management/swagger) or the Management API URL that was created for [your instance](#deploy).
+* You can use the provisioning sample **occupancy-quickstart** to configure and provision a [spatial intelligence graph](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). This graph is the digitized image of your physical spaces and the resources in them. It uses an [object model](concepts-objectmodel-spatialgraph.md#digital-twins-object-models), which defines objects for a smart building. For a complete list of Digital Twins objects and REST APIs, visit [this REST API documentation](https://docs.westcentralus.azuresmartspaces.net/management/swagger) or the Management API URL that was created for [your instance](#deploy-digital-twins).
 
    To explore the sample to see how it communicates with your Digital Twins instance, you can start with the **src\actions** folder. The files in this folder implement the commands that you'll use in these tutorials:
     - The **provisionSample.cs** file shows how to provision your spatial graph.
@@ -97,17 +93,15 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
     ```
 
 1. In Visual Studio Code, open the [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) file in the **occupancy-quickstart** project. Update the following values:
-   * **ClientId**: Enter the application ID of your Azure AD app registration. You noted this ID in the section where you [set app permissions](#permissions).
-   * **Tenant**: Enter the directory ID of your [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). You also noted this ID in the section where you [set app permissions](#permissions).
-   * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy). Replace **swagger/** with **api/v1.0/**.
+   * **ClientId**: Enter the application ID of your Azure AD app registration. You noted this ID in the section where you [set app permissions](#grant-permissions-to-your-app).
+   * **Tenant**: Enter the directory ID of your [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). You also noted this ID in the section where you [set app permissions](#grant-permissions-to-your-app).
+   * **BaseUrl**: Enter the URL of your Digital Twins instance. To get this URL, replace the placeholders in this URL with values for your instance: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. You can also get this URL by modifying the Management API URL from [the deployment section](#deploy-digital-twins). Replace **swagger/** with **api/v1.0/**.
 
 1. See a list of Digital Twins features that you can explore by using the sample. Run the following command:
 
     ```cmd/sh
     dotnet run
     ```
-
-<a id="provision-spaces"></a>
 
 ## Understand the provisioning process
 
