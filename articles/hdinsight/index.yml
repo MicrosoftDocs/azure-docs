@@ -182,10 +182,6 @@ landingContent:
         links:
           - text: HDInsight security overview
             url: ./domain-joined/hdinsight-security-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Create Apache Spark clusters in the Azure portal
-            url: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
       - linkListType: concept
         links:
           - text: Plan virtual network
@@ -224,7 +220,7 @@ landingContent:
             url: ./storm/apache-storm-overview.md
       - linkListType: quickstart
         links:
-          - text: Create and Apache Storm topology
+          - text: Create an Apache Storm topology
             url: ./storm/apache-storm-quickstart.md      
       - linkListType: tutorial
         links:

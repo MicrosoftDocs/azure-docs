@@ -446,6 +446,8 @@ Here is the sample output:
         },
         "isLatest":true
     }
+    ```
+    
 2. Run the following script to retrieve copy activity run details, for example, size of the data read/written.
 
     ```powershell

@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/07/2019 
+ms.date: 09/10/2019 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -56,7 +56,7 @@ The following is a common Media Services streaming workflow where Dynamic Packag
 
 The following diagram shows the on-demand streaming with Dynamic Packaging workflow.
 
-![Diagram of a workflow for on-demand streaming with Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
+![Diagram of a workflow for on-demand streaming with Dynamic Packaging](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
 ### Encode to adaptive bitrate MP4s
 
