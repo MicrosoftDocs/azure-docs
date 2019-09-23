@@ -18,7 +18,7 @@ ms.subservice: B2C
 >[!NOTE]
 > You must use the [Azure AD Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-operations-overview) to manage users in an Azure AD B2C directory. This is different from the Microsoft Graph API. Learn more [here](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/).
 
-Azure Active Directory (Azure AD) B2C tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
+Azure Active Directory B2C (Azure AD B2C) tenants tend to be very large. This means that many common tenant management tasks need to be performed programmatically. A primary example is user management. You might need to migrate an existing user store to a B2C tenant. You may want to host user registration on your own page and create user accounts in your Azure AD B2C directory behind the scenes. These types of tasks require the ability to create, read, update, and delete user accounts. You can do these tasks by using the Azure AD Graph API.
 
 For B2C tenants, there are two primary modes of communicating with the Graph API.
 
@@ -39,10 +39,10 @@ After you have a B2C tenant, you need to register your application using the [Az
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD B2C tenant by selecting your account in the top right corner of the page.
 3. In the left-hand navigation pane, choose **All Services**, click **App Registrations**, and click **New registration**.
-4. Follow the prompts and create a new application. 
+4. Follow the prompts and create a new application.
     1. Add an appropriate name
     2. Select **Accounts in this Organizational directory only**
-    3. Select **Web** as the Application Type and provide **any Sign-on URL** (e.g. `https://B2CGraphAPI`) as it's not relevant for this example.  
+    3. Select **Web** as the Application Type and provide **any Sign-on URL** (e.g. `https://B2CGraphAPI`) as it's not relevant for this example.
     4. Click Register.
 5. The application will now show up in the list of applications, click on it to obtain the **Application ID** (also known as Client ID). Copy it as you'll need it in a later section.
 6. In the Settings menu, click **Certificates & secrets**.
@@ -61,8 +61,8 @@ You now have an application that has permission to create, read and update users
 
 > [!NOTE]
 > Granting permissions may take a few minutes to fully process.
-> 
-> 
+>
+>
 
 ## Configure delete or update password permissions for your application
 Currently, the *Read and write directory data* permission does **NOT** include the ability to delete users or update user passwords. If you want to give your application the ability to delete users or update passwords, you'll need to do these extra steps that involve PowerShell, otherwise, you can skip to the next section.
@@ -128,8 +128,8 @@ Any request to the Graph API requires an access token for authentication. `B2CGr
 
 > [!NOTE]
 > This code sample uses ADAL v2 in order to communicate with the Graph API.  You must use ADAL v2 or v3 in order to get access tokens which can be used with the Azure AD Graph API.
-> 
-> 
+>
+>
 
 When `B2CGraphClient` runs, it creates an instance of the `B2CGraphClient` class. The constructor for this class sets up an ADAL authentication scaffolding:
 
@@ -256,8 +256,8 @@ You can see how the POST request is constructed in `B2CGraphClient.SendGraphPost
 
 > [!NOTE]
 > If the accounts that you want to migrate from an existing user store has lower password strength than the [strong password strength enforced by Azure AD B2C](/previous-versions/azure/jj943764(v=azure.100)), you can disable the strong password requirement using the `DisableStrongPassword` value in the `passwordPolicies` property. For instance, you can modify the create user request provided above as follows: `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
-> 
-> 
+>
+>
 
 ### Update consumer user accounts
 When you update user objects, the process is similar to the one you use to create user objects. But this process uses the HTTP `PATCH` method:

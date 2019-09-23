@@ -1,5 +1,5 @@
 ---
-title: Add storage to an Azure HPC Cache 
+title: Add storage to an Azure HPC Cache (preview)
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
 ms.service: hpc-cache
@@ -8,7 +8,7 @@ ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
-# Add storage
+# Add storage targets
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache instance. You can add NFS storage, like an on-premises hardware system, or store data in Azure Blob.
 
@@ -22,13 +22,15 @@ You can add storage targets while creating your Azure HPC Cache, or afterward. T
 
 Use the **Storage targets** tab of the cache creation wizard to define storage at the same time you create the cache instance.
 
-![screenshot of storage targets page](media/create-targets.png)
+![screenshot of storage targets page](media/hpc-cache-storage-targets-pop.png)
 
 Click the **Add storage target** link to add storage.
 
 ## Add storage targets from the cache
 
 From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar. The storage target page lists all existing targets and gives a link to add a new one.
+
+![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
 
 ## Add a new Azure Blob storage target
 
@@ -47,15 +49,13 @@ To define an Azure Blob container, enter this information.
 
 * **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
-
 When finished, click **OK** to add the storage target.
 
 ### Add the access control roles to your account
 
 The Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
 
-The storage account owner must explicitly add the rolls [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
+The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
 
@@ -107,8 +107,8 @@ For each export, fill in these values:
 
 When finished, click **OK** to add the storage target.
 
-### Choose a usage model 
-<!-- link in GUI to this heading -->
+### Choose a usage model
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
 

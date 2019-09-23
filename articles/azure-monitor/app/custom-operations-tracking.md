@@ -350,7 +350,7 @@ When you instrument message deletion, make sure you set the operation (correlati
 
 ### Dependency Types
 
-Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure-monitor/app/transaction-diagnostics):
+Application Insights uses dependency type to cusomize UI experiences. For queues it recognizes following types of `DependencyTelemetry` that improve [Transaction diagnostics experience](/azure/azure-monitor/app/transaction-diagnostics):
 - `Azure queue` for Azure Storage Queues
 - `Azure Event Hubs` for Azure Event Hubs
 - `Azure Service Bus` for Azure Service Bus
