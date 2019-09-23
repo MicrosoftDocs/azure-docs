@@ -23,11 +23,11 @@ Currently, most of the Cognitive Services container offerings are available as a
 | [Speech Service API][sp-containers] | Speech-to-text and Text-to-speech | ✔️ |
 | [Text Analytics][ta-containers] | Key Phrase, Language Detection, and Sentiment Analysis | ✔️ |
 
-[ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
-[cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ../face/face-how-to-install-containers.md
-[fr-containers]: ../form-recognizer/form-recognizer-container-howto.md
-[lu-containers]: ../luis/luis-container-howto.md
-[sp-containers]: ../speech-service/speech-container-howto.md
-[ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
+[ad-containers]: ../../anomaly-Detector/anomaly-detector-container-howto.md
+[cv-containers]: ../../computer-vision/computer-vision-how-to-install-containers.md
+[fa-containers]: ../../face/face-how-to-install-containers.md
+[fr-containers]: ../../form-recognizer/form-recognizer-container-howto.md
+[lu-containers]: ../../luis/luis-container-howto.md
+[sp-containers]: ../../speech-service/speech-container-howto.md
+[ta-containers]: ../../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+<!-- [tt-containers]: ../../translator/how-to-install-containers.md -->
