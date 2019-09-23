@@ -4,7 +4,7 @@ description: Learn about incremental snapshots (preview) for managed disks, incl
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 ms.author: rogarana
 ms.subservice: disks
 ---
