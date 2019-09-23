@@ -172,11 +172,11 @@ SDN is openshift-ovs-networkpolicy and is not configurable.
 
 ## Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
 
-Not applicable to this offering.  Node access is forbidden.
+Not applicable to this offering. Node access is forbidden.
 
 ## Which OCP rights do we have? Cluster-admin? Project-admin?
 
-The following document describes the permissions [available](https://docs.openshift.com/aro/admin_guide/index.html)
+For details, see the Azure Red Hat OpenShift [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html).
 
 ## Which kind of federation with LDAP?
 
@@ -192,7 +192,7 @@ Two storage classes are available to select from: Azure Disk and Azure File.
 
 ## How is a cluster updated (including majors and minors due to vulnerabilities)?
 
-More info available here: https://docs.microsoft.com/en-us/azure/openshift/openshift-faq#what-is-the-general-upgrade-process
+See [What is the general upgrade process?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
 
 ## What Azure Load balancer is used by ARO?  Is it Standard or Basic and is it configurable?
 
