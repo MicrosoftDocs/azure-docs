@@ -3,7 +3,7 @@ title: Sample - Canada Federal PBMM blueprint - Control mapping
 description: Control mapping of the Canada Federal PBMM blueprint sample to Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
@@ -43,7 +43,7 @@ groups to "Canada Central" and "Canada East" by assigning following Azure Policy
 
 ## AC-2 Account Management
 
-This blueprint helps you review accounts that may not comply with your organization’s account 
+This blueprint helps you review accounts that may not comply with your organization's account 
 management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
 definitions that audit external accounts with read, write and owner permissions on a subscription 
 and deprecated accounts. By reviewing the accounts audited by these policies, you can take 
@@ -251,7 +251,7 @@ This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions t
 virtual machines that allow remote connections from accounts without passwords and/or have incorrect
 permissions set on the passwd file. This blueprint also assigns policy definitions that audit the
 configuration of the password encryption type for Windows virtual machines. Monitoring these
-indicators helps you ensure that system authenticators comply with your organization’s
+indicators helps you ensure that system authenticators comply with your organization's
 identification and authentication policy.
 
 - \[Preview\]: Audit Linux VMs that do not have the passwd file permissions set to 0644
@@ -265,7 +265,7 @@ This blueprint helps you enforce strong passwords by assigning [Azure Policy](..
 definitions that audit Windows virtual machines that don't enforce minimum strength and other
 password requirements. Awareness of virtual machines in violation of the password strength policy
 helps you take corrective actions to ensure passwords for all virtual machine user accounts comply
-with your organization’s password policy.
+with your organization's password policy.
 
 - \[Preview\]: Audit Windows VMs that allow re-use of the previous 24 passwords
 - \[Preview\]: Audit Windows VMs that do not have a maximum password age of 70 days
@@ -309,7 +309,7 @@ capabilities to help you understand vulnerabilities in your deployed resources.
 
 ## SC-5 Denial of Service Protection
 
-Azure’s distributed denial of service (DDoS) standard tier provides additional features and
+Azure's distributed denial of service (DDoS) standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
 integration and the ability to review post-attack mitigation reports. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
 definition that audits if the DDoS standard tier is enabled. Understanding the capability difference
@@ -360,7 +360,7 @@ yet been configured.
 This blueprint helps you protect the confidential and integrity of transmitted information by 
 assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor 
 cryptographic mechanism implemented for communications protocols. Ensuring communications are 
-properly encrypted can help you meet your organization’s requirements or protecting information 
+properly encrypted can help you meet your organization's requirements or protecting information 
 from unauthorized disclosure and modification.
 
 - API App should only be accessible over HTTPS
@@ -455,6 +455,13 @@ you can take appropriate action.
 > clouds. 
 
 ## Next steps
+
+You've reviewed the control mapping of the Canada Federal PBMM blueprint sample. Next, visit the
+following articles to learn about the overview and how to deploy this sample:
+
+> [!div class="nextstepaction"]
+> [Canada Federal PBMM blueprint - Overview](./control-mapping.md)
+> [Canada Federal PBMM blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

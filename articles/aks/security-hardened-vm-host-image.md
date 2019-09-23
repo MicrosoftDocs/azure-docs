@@ -11,18 +11,18 @@ ms.author: saudas
 ms.custom: mvc
 ---
 
-# Introduction 
+# Security hardening in AKS virtual machine hosts 
 
-Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This document covers the security hardening applied to AKS virtual machine hosts. For more information on AKS security, see:  [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-security) 
+Azure Kubernetes Service (AKS) is a secure service compliant with SOC, ISO, PCI DSS, and HIPAA standards. This article covers the security hardening applied to AKS virtual machine hosts. For more information about AKS security, see [Security concepts for applications and clusters in Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/concepts-security).
 
 AKS clusters are deployed on host virtual machines, which run a security optimized OS. This host OS is currently based on an Ubuntu 16.04.LTS image with a set of additional security hardening steps applied (see Security hardening details).   
 
 The goal of the security hardened host OS is to reduce the surface area of attack and allow the deployment of containers in a secure fashion. 
 
 > [!Important]
-> The security hardened OS is NOT CIS benchmarked. While there are overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoft’s own internal host security standards. 
+> The security hardened OS is NOT CIS benchmarked. While there are overlaps with CIS benchmarks, the goal is not to be CIS-compliant. The goal for host OS hardening is to converge on a level of security consistent with Microsoftâ€™s own internal host security standards. 
 
-# Security hardening features 
+## Security hardening features 
 
 * AKS provides a security optimized host OS by default. There is no current option to select an alternate operating system. 
 
@@ -34,7 +34,7 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 
 ## What's configured?
 
-| CIS  | Audit Description| 
+| CIS  | Audit description| 
 |---|---|
 | 1.1.1.1 |Ensure mounting of cramfs filesystems is disabled|
 | 1.1.1.2 |Ensure mounting of freevxfs filesystems is disabled|
@@ -73,15 +73,17 @@ AKS-Engine does not promote or adhere to any specific security standard at this 
 |5.4.4 |Ensure default user umask is 027 or more restrictive |
 |5.6 |Ensure access to the su command is restricted|
 
-# Additional notes
+(*) Must be enabled. See the cluster definition [documentation](https://github.com/Azure/aks-engine/blob/master/docs/topics/clusterdefinitions.md).
+
+## Additional notes
  
 * To further reduce the attack surface area, some unnecessary kernel module drivers have been disabled in the OS. 
 
 * The security hardened OS is NOT supported outside of the AKS platform. 
 
-# Next Steps  
+## Next steps  
 
-See the following documents for more information on AKS security: 
+See the following articles for more information about AKS security: 
 
 [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)
 
