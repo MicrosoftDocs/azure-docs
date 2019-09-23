@@ -114,10 +114,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 2. Click the ellipses (...) next to **Group 1: Start** > **Add post action**.
 3. In **Insert action**, verify that **Script** is selected, and specify a name for the script (**Hello World**).
-
-    ![The Update action blade](media/site-recovery-runbook-automation-new/group1.png)
-
-5. Specify an automation account and select a runbook. To save the script, click **OK**. The script is added to **Group 1: Post-steps**.
+4. Specify an automation account and select a runbook. To save the script, click **OK**. The script is added to **Group 1: Post-steps**.
 
 
 ## Reuse a runbook script
