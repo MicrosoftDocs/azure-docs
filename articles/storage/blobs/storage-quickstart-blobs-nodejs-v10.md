@@ -4,7 +4,7 @@ description: Create, upload, and delete blobs and containers in Node.js with Azu
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 09/24/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -72,6 +72,7 @@ Blob "quickstart.txt" is deleted
 Container "demo" is deleted
 Done
 ```
+
 If you're using a new storage account for this quickstart, then you may not see container names listed under the label "*Containers*".
 
 ## Understanding the code
@@ -132,6 +133,7 @@ Requests made by the API can be set to time-out after a given interval. The [Abo
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
+
 ### Calling code
 
 To support JavaScript's *async/await* syntax, all the calling code is wrapped in a function named *execute*. Then *execute* is called and handled as a promise.
@@ -143,6 +145,7 @@ async function execute() {
 
 execute().then(() => console.log("Done")).catch((e) => console.log(e));
 ```
+
 All of the following code runs inside the execute function where the `// commands...` comment is placed.
 
 First, the relevant variables are declared to assign names, sample content and to point to the local file to upload to Blob storage.
@@ -161,6 +164,7 @@ const credentials = new SharedKeyCredential(STORAGE_ACCOUNT_NAME, ACCOUNT_ACCESS
 const pipeline = StorageURL.newPipeline(credentials);
 const serviceURL = new ServiceURL(`https://${STORAGE_ACCOUNT_NAME}.blob.core.windows.net`, pipeline);
 ```
+
 The following classes are used in this block of code:
 
 - The [SharedKeyCredential](/javascript/api/%40azure/storage-blob/sharedkeycredential?view=azure-node-preview) class is responsible for wrapping storage account credentials to provide them to a request pipeline.
@@ -175,6 +179,7 @@ The instance of *ServiceURL* is used with the [ContainerURL](/javascript/api/%40
 const containerURL = ContainerURL.fromServiceURL(serviceURL, containerName);
 const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, blobName);
 ```
+
 The *containerURL* and *blockBlobURL* variables are reused throughout the sample to act on the storage account. 
 
 At this point, the container doesn't exist in the storage account. The instance of *ContainerURL* represents a URL that you can act upon. By using this instance, you can create and delete the container. The location of this container equates to a location such as this:
@@ -188,6 +193,7 @@ The *blockBlobURL* is used to manage individual blobs, allowing you to upload, d
 ```bash
 https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 ```
+
 As with the container, the block blob doesn't exist yet. The *blockBlobURL* variable is used later to create the blob by uploading content.
 
 ### Using the Aborter class
@@ -197,6 +203,7 @@ Requests made by the API can be set to time-out after a given interval. The *Abo
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
 ```
+
 Aborters give you control over requests by allowing you to:
 
 - designate the amount of time given for a batch of requests
@@ -216,15 +223,16 @@ await showContainerNames(serviceURL, aborter);
 The *showContainerNames* function uses the *listContainersSegment* method to request batches of container names from the storage account.
 
 ```javascript
-async function showContainerNames(aborter, serviceURL) {
+async function showContainerNames(aborter, serviceURL)
+{
+    let marker = undefined;
 
-    let response;
-    let marker;
-
-    do {
-        response = await serviceURL.listContainersSegment(aborter, marker);
-        marker = response.marker;
-        for(let container of response.containerItems) {
+    do
+    {
+        const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
+        marker = listContainersResponse.nextMarker;
+        for(let container of listContainersResponse.containerItems)
+        {
             console.log(` - ${ container.name }`);
         }
     } while (marker);
@@ -325,6 +333,7 @@ Just as accounts can contain many containers, each container can potentially con
 console.log(`Blobs in "${containerName}" container:`);
 await showBlobNames(aborter, containerURL);
 ```
+
 The function *showBlobNames* calls *listBlobFlatSegment* to request batches of blobs from the container.
 
 ```javascript
@@ -336,12 +345,10 @@ async function showBlobNames(aborter, containerURL)
     {
         const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
         marker = listBlobsResponse.nextMarker;
-
         for (const blob of listBlobsResponse.segment.blobItems)
         {
             console.log(` - ${ blob.name }`);
         }
-
     } while (marker);
 }
 ```
