@@ -26,7 +26,7 @@ This Azure Data Explorer connector is supported for the following activities:
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores#supported-data-stores-and-formats](copy-activity-overview.md) table.
+You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 >[!NOTE]
 >Copying data to or from Azure Data Explorer through an on-premises data store by using self-hosted integration runtime is supported in version 3.14 and later.
@@ -71,9 +71,9 @@ The following properties are supported for the Azure Data Explorer linked servic
 | type | The **type** property must be set to **AzureDataExplorer**. | Yes |
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is generally known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
-| servicePrincipalId | Specify the application's client ID. This is generally known as "AAD application client ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is generally known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
+| servicePrincipalId | Specify the application's client ID. This is known as "AAD application client ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
+| servicePrincipalKey | Specify the application's key. This is known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Linked Service Properties Example:**
 
