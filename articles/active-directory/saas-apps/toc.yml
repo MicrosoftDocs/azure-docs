@@ -109,6 +109,8 @@
         href: apptio-tutorial.md
       - name: Aravo
         href: aravo-tutorial.md
+      - name: ARC Facilities
+        href: arc-facilities-tutorial.md
       - name: Arc Publishing - SSO
         href: arc-tutorial.md
       - name: ArcGIS Enterprise
@@ -171,6 +173,8 @@
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
         href: birst-tutorial.md
+      - name: BIS
+        href: bis-tutorial.md
       - name: BitaBIZ
         href: bitabiz-tutorial.md
       - name: Blackboard Learn
@@ -217,6 +221,8 @@
       items:
       - name: CA PPM
         href: cappm-tutorial.md
+      - name: CakeHR
+        href: cakehr-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -305,6 +311,8 @@
         href: complianceelf-tutorial.md
       - name: Concur
         href: concur-tutorial.md
+      - name: Concur Travel and Expense
+        href: concur-travel-and-expense-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
       - name: Confirmit Horizons
@@ -445,6 +453,8 @@
         href: expiration-reminder-tutorial.md
     - name: F - G
       items:
+      - name: F5
+        href: headerf5-tutorial.md
       - name: FactSet
         href: factset-tutorial.md
       - name: Fidelity NetBenefits
@@ -561,6 +571,8 @@
         href: hornbill-tutorial.md
       - name: Hosted Graphite
         href: hostedgraphite-tutorial.md
+      - name: Hosted Heritage Online SSO
+        href: hosted-heritage-online-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -585,6 +597,8 @@
         href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
+      - name: IDC
+        href: idc-tutorial.md
       - name: IdeaScale
         href: ideascale-tutorial.md
       - name: iDiD Manager
@@ -831,6 +845,8 @@
         href: moxtra-tutorial.md
       - name: Mozy Enterprise
         href: mozy-enterprise-tutorial.md
+      - name: MS Azure SSO Access for Ethidex Compliance Office™
+        href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
       - name: My Award Points Top Sub/Top Team
         href: myawardpoints-tutorial.md
       - name: myPolicies
@@ -920,7 +936,7 @@
       - name: Palo Alto Networks - Captive Portal
         href: paloaltonetworks-captiveportal-tutorial.md
       - name: Palo Alto Networks - GlobalProtect
-        href: paloaltoglobalprotect-tutorial.md
+        href: palo-alto-networks-globalprotect-tutorial.md
       - name: PandaDoc
         href: pandadoc-tutorial.md
       - name: Panopto
@@ -977,6 +993,8 @@
         href: predictixpricereporting-tutorial.md
       - name: Printix
         href: printix-tutorial.md
+      - name: Prisma Cloud
+        href: prisma-cloud-tutorial.md
       - name: Procore SSO
         href: procoresso-tutorial.md
       - name: productboard
@@ -1027,6 +1045,8 @@
         href: redvector-tutorial.md
       - name: Reflektive
         href: reflektive-tutorial.md
+      - name: RENRAKU
+        href: renraku-tutorial.md
       - name: Replicon
         href: replicon-tutorial.md
       - name: Reviewsnap
@@ -1171,6 +1191,8 @@
         href: skydeskemail-tutorial.md
       - name: Skyhigh Networks
         href: skyhighnetworks-tutorial.md
+      - name: SKYSITE
+        href: skysite-tutorial.md
       - name: Skytap
         href: skytap-tutorial.md
       - name: Skyward Qmlativ
@@ -1197,6 +1219,8 @@
         href: softeon-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
+      - name: Sonarqube
+        href: sonarqube-tutorial.md
       - name: Soonr Workplace
         href: soonr-tutorial.md
       - name: SpaceIQ
@@ -1266,7 +1290,7 @@
       - name: TextMagic
         href: textmagic-tutorial.md
       - name: The Funding Portal
-        href: thefundingportal-tutorial.md
+        href: the-funding-portal-tutorial.md
       - name: ThirdLight
         href: thirdlight-tutorial.md
       - name: ThirdPartyTrust
@@ -1371,6 +1395,8 @@
         href: work-com-tutorial.md
       - name: Workable
         href: workable-tutorial.md
+      - name: WorkBoard
+        href: workboard-tutorial.md
       - name: Workday
         href: workday-tutorial.md
       - name: Workfront
@@ -1460,6 +1486,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Blink
+        href: blink-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1488,18 +1516,28 @@
         href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
+      - name: Elium
+        href: elium-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
       - name: Fuze
         href: fuze-provisioning-tutorial.md
+      - name: Flock
+        href: flock-provisioning-tutorial.md
+      - name: Foodee
+        href: foodee-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Insight4GRC
+        href: insight4grc-provisioning-tutorial.md
+      - name: iPass SmartConnect
+        href: ipass-smartconnect-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1534,6 +1572,8 @@
         href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
+      - name: Robin
+        href: robin-provisioning-tutorial.md
       - name: Rollbar
         href: rollbar-provisioning-tutorial.md
       - name: Salesforce
@@ -1542,6 +1582,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Cloud Platform Identity Authentication
+        href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Slack
@@ -1556,6 +1598,8 @@
         href: smartfile-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
@@ -1566,6 +1610,8 @@
         href: theorgwiki-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
+      - name: Visitly
+        href: visitly-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
       - name: Workteam
@@ -1574,6 +1620,8 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Workgrid
         href: workgrid-provisioning-tutorial.md
+      - name: Wrike
+        href: wrike-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler

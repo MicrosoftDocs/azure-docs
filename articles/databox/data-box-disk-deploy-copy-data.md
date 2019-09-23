@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 ::: zone target="docs"
@@ -21,7 +22,7 @@ Customer intent: As an IT admin, I need to be able to order Data Box Disk to upl
 
 ## Copy data to Azure Data Box Disk and validate
 
-After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should the data that you have copied. The validation ensures that the data will successfully upload to Azure later.
+After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
 ::: zone-end
 
@@ -330,6 +331,6 @@ Take the following steps to verify your data.
 1. Run the `DataBoxDiskValidation.cmd` for checksum validation in the *DataBoxDiskImport* folder of your drive.
 2. Use option 2 to validate your files and generate checksums. Depending upon your data size, this step may take a while. If there are any errors during validation and checksum generation, you are notified and a link to the error logs is also provided.
 
-    For more information on data validation, see [Validate data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). If you experience errors during validation, see [troubleshoot validation errors](https://docs.microsoft.com/en-us/azure/databox/data-box-disk-troubleshoot){:target="_blank"}.
+    For more information on data validation, see [Validate data](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-copy-data#validate-data). If you experience errors during validation, see [troubleshoot validation errors](data-box-disk-troubleshoot.md).
 
 ::: zone-end

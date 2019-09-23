@@ -103,7 +103,7 @@ You can create and then assign a token lifetime policy to a specific application
 * If a policy is explicitly assigned to the service principal, it is enforced.
 * If no policy is explicitly assigned to the service principal, a policy explicitly assigned to the parent organization of the service principal is enforced.
 * If no policy is explicitly assigned to the service principal or to the organization, the policy assigned to the application is enforced.
-* If no policy has been assigned to the service principal, the organization, or the application object, the default values is enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
+* If no policy has been assigned to the service principal, the organization, or the application object, the default values are enforced. (See the table in [Configurable token lifetime properties](#configurable-token-lifetime-properties).)
 
 For more information about the relationship between application objects and service principal objects, see [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md).
 
