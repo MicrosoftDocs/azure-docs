@@ -131,13 +131,13 @@ To populate your team repositories with the contents of the group common reposit
    
 1. On the **TeamTemplate is empty** page, select **Import**. 
    
-   ![Select Import](./media/team-manager-tasks/import-repo.png)
+   ![Select Import](./media/team-lead-tasks/import-repo.png)
    
 1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your group common template repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/_git/\<group template repository name>*. For example: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Select **Import**. The contents of your group template repository are imported into your team template repository. 
    
-   ![Import group common template repository](./media/team-manager-tasks/import-repo-2.png)
+   ![Import group common template repository](./media/team-lead-tasks/import-repo-2.png)
    
 1. At the top of your project's **Repos** page, drop down and select the **TeamUtilities** repository.
    
@@ -157,19 +157,19 @@ If you want to customize the contents of your team repositories to meet your tea
    
    - To create new folders or files, select the arrow next to **New**. 
      
-     ![Create New file](./media/team-manager-tasks/new-file.png)
+     ![Create New file](./media/team-lead-tasks/new-file.png)
      
    - To upload files, select **Upload file(s)**. 
      
-     ![Upload files](./media/team-manager-tasks/upload-files.png)
+     ![Upload files](./media/team-lead-tasks/upload-files.png)
      
    - To edit existing files, navigate to the file and then select **Edit**. 
      
-     ![Edit a file](./media/team-manager-tasks/edit-file.png)
+     ![Edit a file](./media/team-lead-tasks/edit-file.png)
      
 1. After adding or editing files, select **Commit**.
    
-   ![Commit changes](./media/team-manager-tasks/commit.png)
+   ![Commit changes](./media/team-lead-tasks/commit.png)
 
 If you want to work with the team repositories or other team assets on your local machine or DSVM, follow the instructions at [Work on your local machine or DSVM](#work-on-your-local-machine-or-dsvm).
 
@@ -181,15 +181,15 @@ To add members to the team:
    
 1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **MyTeam Team**. 
    
-   ![Configure Teams](./media/team-manager-tasks/teams.png)
+   ![Configure Teams](./media/team-lead-tasks/teams.png)
    
 1. On the **Team Profile** page, select **Add**.
    
-   ![Add to MyTeam Team](./media/team-manager-tasks/add-to-team.png)
+   ![Add to MyTeam Team](./media/team-lead-tasks/add-to-team.png)
    
 1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**. 
    
-   ![Add users and groups](./media/team-manager-tasks/add-users.png)
+   ![Add users and groups](./media/team-lead-tasks/add-users.png)
    
 
 To configure permissions for team members:
@@ -202,7 +202,7 @@ To configure permissions for team members:
    
 1. In the **Invite members** popup, search for and select members to grant that permission level, and then select **Save**. 
    
-   ![Grant permissions to members](./media/team-manager-tasks/grant-permissions.png)
+   ![Grant permissions to members](./media/team-lead-tasks/grant-permissions.png)
 
 ## Work on your local machine or DSVM
 
