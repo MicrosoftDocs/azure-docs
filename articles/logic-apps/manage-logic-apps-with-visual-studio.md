@@ -63,9 +63,9 @@ In Visual Studio, you can find all the logic apps that are associated with your 
 
 1. Open Visual Studio. On the **View** menu, select **Cloud Explorer**.
 
-1. In Cloud Explorer, choose **Account Management**. Select the Azure subscription associated with your logic apps, and then choose **Apply**. For example:
+1. In Cloud Explorer, select **Account Management**. Select the Azure subscription associated with your logic apps, and then select **Apply**. For example:
 
-   ![Choose "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
+   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
 1. Based on whether you're searching by **Resource Groups** or **Resource Types**, follow these steps:
 
@@ -90,7 +90,7 @@ In Visual Studio, you can open logic apps previously created and deployed either
 
    ![Open deployed logic app from Azure portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   After the logic app opens in Logic Apps Designer, at the bottom of the designer, you can choose **Code View** so that you can review the underlying logic app definition structure. If you want to create a deployment template for the logic app, learn [how to download an Azure Resource Manager template](#download-logic-app) for that logic app. Learn more about [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
+   After the logic app opens in Logic Apps Designer, at the bottom of the designer, you can select **Code View** so that you can review the underlying logic app definition structure. If you want to create a deployment template for the logic app, learn [how to download an Azure Resource Manager template](#download-logic-app) for that logic app. Learn more about [Resource Manager templates](../azure-resource-manager/template-deployment-overview.md).
 
 <a name="download-logic-app"></a>
 
@@ -105,11 +105,11 @@ You can download logic apps from the [Azure portal](https://portal.azure.com) an
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
-   The Logic App Designer opens and shows the logic app. To review logic app's underlying definition and structure, at the bottom of the designer, choose **Code View**. 
+   The Logic App Designer opens and shows the logic app. To review logic app's underlying definition and structure, at the bottom of the designer, select **Code View**.
 
-1. On the designer toolbar, choose **Download**.
+1. On the designer toolbar, select **Download**.
 
-   ![Choose "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
+   ![Select "Download"](./media/manage-logic-apps-with-visual-studio/download-logic-app.png)
 
 1. When you're prompted for a location, browse to that location and save the Resource Manager template for the logic app definition in JSON (.json) file format.
 
@@ -148,7 +148,7 @@ When you set the **Integration Account** property in Visual Studio and save your
 
 If you edit your logic app in the Azure portal and want to keep those changes, make sure that you refresh that app's version in Visual Studio with those changes.
 
-* In Visual Studio, on the Logic App Designer toolbar, choose **Refresh**.
+* In Visual Studio, on the Logic App Designer toolbar, select **Refresh**.
 
   -or-
 
@@ -158,13 +158,13 @@ If you edit your logic app in the Azure portal and want to keep those changes, m
 
 ## Publish logic app updates
 
-When you're ready to deploy your logic app updates from Visual Studio to Azure, on the Logic App Designer toolbar, choose **Publish**.
+When you're ready to deploy your logic app updates from Visual Studio to Azure, on the Logic App Designer toolbar, select **Publish**.
 
 ![Publish updated logic app](./media/manage-logic-apps-with-visual-studio/publish-logic-app.png)
 
 ## Manually run your logic app
 
-You can manually trigger a logic app deployed in Azure from Visual Studio. On the Logic App Designer toolbar, choose **Run Trigger**.
+You can manually trigger a logic app deployed in Azure from Visual Studio. On the Logic App Designer toolbar, select **Run Trigger**.
 
 ![Manually run logic app](./media/manage-logic-apps-with-visual-studio/manually-run-logic-app.png)
 
@@ -181,7 +181,7 @@ To check the status and diagnose problems with logic app runs, you can review th
    ![Detailed run history](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
-   > To sort the table by property, choose the column header for that property.
+   > To sort the table by property, select the column header for that property.
 
 1. Expand the steps whose inputs and outputs you want to review, for example:
 
