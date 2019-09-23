@@ -52,7 +52,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 
 # You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
-# SourceResourceId is the Azure Resource Manager (ARM) resource Id of the parent disk. 
+# SourceResourceId is the Azure Resource Manager resource ID of the parent disk. 
 # SourceUniqueId is the value inherited from the UniqueId property of the disk. If you delete a disk and then create a disk with the same name, the value of the UniqueId property will change. 
 # Following script shows how to get all the incremental snapshots in a resource group of same disk
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
