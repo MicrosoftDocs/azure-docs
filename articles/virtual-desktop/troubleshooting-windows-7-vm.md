@@ -15,7 +15,7 @@ Use this article to troubleshoot issues you're having when configuring the Windo
 
 ## Known issues
 
-Windows 7 on Windows Virtual Desktops doesn't support the following:
+Windows 7 on Windows Virtual Desktops doesn't support the following features:
 
 - Virtualized applications (RemoteApps)
 - Time zone redirection
@@ -32,7 +32,7 @@ If Windows Virtual Desktop can't find you or your users' credentials in the Remo
 - "This user is not a member of the Remote Desktop User group"
 - "You must be granted permissions to sign in through Remote Desktop Services"
 
-To fix this, add the user to the Remote Desktop User group:
+To fix this error, add the user to the Remote Desktop User group:
 
 1. Open the Azure portal.
 2. Select the virtual machine you saw the error message on.
