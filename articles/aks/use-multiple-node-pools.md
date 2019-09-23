@@ -242,8 +242,7 @@ An AKS cluster has two cluster resource objects with Kubernetes versions associa
 
 1. Upgrading the control plane requires using `az aks upgrade`
    * This will upgrade the control plane version and all node pools in the cluster
-   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane will be upgraded and none of the associated node pools will be changed
-   * > [!NOTE] The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher
+   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane will be upgraded and none of the associated node pools will be changed. The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher.
 1. Upgrading individual node pools requires using `az aks nodepool upgrade`
    * This will upgrade only the target node pool with the specified Kubernetes version
 
