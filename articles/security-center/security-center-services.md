@@ -3,9 +3,8 @@ title: Supported features available in Azure Security Center | Microsoft Docs
 description: This document provides a list of services supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 # Supported features available in Azure Security Center
 

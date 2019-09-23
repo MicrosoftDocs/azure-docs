@@ -221,8 +221,10 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/QnAMaker
   - name: UserVoice
-    href: https://aka.ms/qnamaker-uservoice
+    href: https://cognitive.uservoice.com/forums/578689-qna-maker-api
   - name: Search
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
+- name: QnA Maker portal
+  href: https://www.qnamaker.ai
