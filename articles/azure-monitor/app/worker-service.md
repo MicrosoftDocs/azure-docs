@@ -531,7 +531,7 @@ Use this sample if you are using a Console Application written in either .NET Co
 Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)
 
 [.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
-Use this sample     if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
+Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
 
 ## Open-source SDK
 
