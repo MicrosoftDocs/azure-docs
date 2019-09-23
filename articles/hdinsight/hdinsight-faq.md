@@ -300,7 +300,7 @@ You can use the following REST endpoints to pull the necessary information where
 
 * "Tez Query" view – https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/
 
-* "Tez Dag" view - https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/
+* "Tez DAG" view - https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/
 
 ### How do I retrieve the configuration details from HDI cluster by using an Azure Active Directory user?
 
