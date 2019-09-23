@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/16/2019
+ms.date: 09/23/2019
 ms.author: danlep
 ---
 
@@ -17,7 +17,7 @@ Azure Container Registry gives you the option to set a *retention policy* for st
 
 For background on container images and manifests, see [About registries, repositories, and images](container-registry-concepts.md).
 
-You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.73 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
+You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the command examples in this article. If you'd like to use it locally, version 2.0.74 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -40,18 +40,18 @@ The following example shows you how to use the Azure CLI to set a retention poli
 
 By default, no retention policy is set in a container registry. To set or update a retention policy, run the [az acr config retention update][az-acr-config-retention-update] command in the Azure CLI. You can specify a number of days between 0 and 365 to retain the untagged manifests. If you don't specify a number of days, the command sets a default of 7 days. After the retention period, all untagged manifests in the registry are automatically deleted.
 
-The retention policy doesn't apply to any untagged manifest that has the `delete-enabled` attribute set to `false`. For information about locked images and manifests, see [Lock a container image in an Azure container registry](container-registry-image-lock.md).
+The retention policy doesn't apply to any untagged manifest that has the `delete-enabled` attribute set to `false`, or the `write-enabled` attribute set to `true`. For information about locked images and manifests, see [Lock a container image in an Azure container registry](container-registry-image-lock.md).
 
 The following example sets a retention policy of 30 days for untagged manifests in the registry *myregistry*:
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 30
+az acr config retention update --name myregistry --status enabled --days 30 --type UntaggedManifests
 ```
 
 The following example sets a policy to delete any manifest in the registry as soon as it's untagged. Create this policy by setting a retention period of 0 days:
 
 ```azurecli
-az acr config retention update --name myregistry --status enabled --days 0
+az acr config retention update --name myregistry --status enabled --days 0 --type UntaggedManifests
 ```
 
 ### Disable a retention policy
