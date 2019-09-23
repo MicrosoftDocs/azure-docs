@@ -13,14 +13,25 @@ ms.author: dapine
 
 # Azure Cognitive Services offline containers
 
-We're thrilled to announce Azure Cognitive Services offline containers, available now in limited preview to customers with an *Enterprise Agreement*. Offline containers enable customers can run APIs in a fully disconnected environment. You can use the same rich APIs that are available in Azure, with finite control of deployment and hosting. Cognitive Services containers offer many [features and benefits](../cognitive-services-container-support.md#features-and-benefits), such as:
+We're thrilled to announce Azure Cognitive Services offline containers, available now in limited preview to customers with an *Enterprise Agreement*. Offline containers enable customers can run Cognitive Services in fully disconnected environments. You can use the same rich APIs that are available in Azure, with finite control of deployment and hosting. Cognitive Services containers offer many [features and benefits](../cognitive-services-container-support.md#features-and-benefits), such as:
 
 * Control of your data.
 * Low-latency execution of artificial intelligence (AI) models near application logic.
-* Disconnected scenarios on the edge.
+* Disconnected scenarios on the [intelligent edge](https://azure.microsoft.com/overview/future-of-cloud).
+
+Currently, all of the Cognitive Services container offering as also available as an offline container:
+
+> [!div class="checklist"]
+> * [Anomaly Detector][ad-containers]
+> * [Computer Vision][cv-containers]
+> * [Face][fa-containers]
+> * [Form Recognizer][fr-containers]
+> * [Language Understanding (LUIS)][lu-containers]
+> * [Speech Service API][sp-containers]
+> * [Text Analytics][ta-containers]
 
 > [!IMPORTANT]
-> Offline containers are in limited preview, and eligibility criteria is in place to help guide customers. [Sign up here][sign-up] to learn more.
+> Offline containers are in limited preview, and eligibility criteria is in place to help guide customers. [Sign up here][sign-up] for early access.
 
 ## Use cases
 
@@ -38,14 +49,14 @@ Offline containers support several retail scenarios, including helping to build 
 
 Offline containers can be used as recommendation engines for handling tickets and assigning them to the correct team. They could be used to detect sentiment within customer tickets and prioritize which scenarios need to get addressed first. Likewise, you could automate the resolution of tickets by troubleshooting and determining resolution without manual intervention.
 
-## Offline container eligibility
+## Customer eligibility
 
 > [!NOTE]
 > During preview, offline containers are limited to customers with an [Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise) from Microsoft.
 
 An approval process and decision will be made after validating business use cases for fully disconnected environments. Customers who do not have an Enterprise Agreement but are still interested in offline containers should refer to the [FAQs](container-faq.md) to learn more.
 
-## Offline containers frequently asked questions (FAQs)
+## Frequently asked questions (FAQs)
 
 ### Eligibility and approval process
 
@@ -88,4 +99,13 @@ If you still have questions, see [FAQs](container-faq.md) for potential answers.
 > [!div class="nextstepaction"]
 > [Sign up for offline containers][sign-up]
 
-[sign-up]: https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+[sign-up]: https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
+
+[ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
+[cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
+[fa-containers]: ../face/face-how-to-install-containers.md
+[fr-containers]: ../form-recognizer/form-recognizer-container-howto.md
+[lu-containers]: ../luis/luis-container-howto.md
+[sp-containers]: ../speech-service/speech-container-howto.md
+[ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+<!-- [tt-containers]: ../translator/how-to-install-containers.md -->

@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 ms.author: dapine
 ---
 
@@ -103,14 +103,14 @@ Explore the following tags for potential questions and answers that align with y
 
 **A:** Customers are charged based on consumption, similar to the Cognitive Services cloud. The containers need to be configured to send metering data to Azure, and transactions will be billed accordingly. Resources used across the hosted and on-premises services will add to single quota with tiered pricing, counting against both usages. For more detail, refer to pricing page of the corresponding offering.
 
-* [Anomaly Detector - billing][ad-containers-billing]
-* [Computer Vision - billing][cv-containers-billing]
-* [Face - billing][fa-containers-billing]
-* [Form Recognizer - billing][fr-containers-billing]
-* [Language Understanding (LUIS) - billing][lu-containers-billing]
-* [Speech Service API - billing][sp-containers-billing]
-* [Text Analytics - billing][ta-containers-billing]
-<!-- * [Translator Text - billing][tt-containers-billing] -->
+* [Anomaly Detector][ad-containers-billing]
+* [Computer Vision][cv-containers-billing]
+* [Face][fa-containers-billing]
+* [Form Recognizerg][fr-containers-billing]
+* [Language Understanding (LUIS)][lu-containers-billing]
+* [Speech Service API][sp-containers-billing]
+* [Text Analytics][ta-containers-billing]
+<!-- * [Translator Text][tt-containers-billing] -->
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data to Microsoft.
