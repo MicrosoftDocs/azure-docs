@@ -39,7 +39,11 @@ Learn how to take the following actions:
 
 For this tutorial, download the [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) project. The files in the `model-training` and `model-deployment` directories are used by the steps in this tutorial.
 
-To get a local copy of the files, either [download a .zip archive](https://github.com/microsoft/MLOps/archive/master.zip), or use Git command to clone the repository. The URL to use when cloning the repository is `https://github.com/microsoft/MLOps.git`.
+To get a local copy of the files, either [download a .zip archive](https://github.com/microsoft/MLOps/archive/master.zip), or use the following Git command to clone the repository:
+
+```azurecli-interactive
+git clone https://github.com/microsoft/MLOps.git
+```
 
 ### Training files
 
@@ -63,6 +67,9 @@ The `model-deployment` directory contains the following files, which are used to
 
 ## Connect to your Azure subscription
 
+> [!IMPORTANT]
+> If you are using the Azure Cloud Shell, you do not need to authenticate. The cloud shell is automatically authenticated using your currently selected subscription. For more information, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
+
 There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
 ```azurecli
@@ -85,7 +92,7 @@ az extension add -n azure-cli-ml
 
 A resource group is a basic container of resources on the Azure platform. When working with the Azure Machine Learning service, the resource group will contain your Azure Machine Learning service workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
 
-You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
+To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
 > [!TIP]
 > You should select a region where the Azure Machine Learning service is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
@@ -116,9 +123,6 @@ For more information on working with resource groups, see [az group](https://doc
 
 To create a new workspace use the following command. Replace `<workspace-name>` with the name you want to use for this workspace. Replace `<resource-group-name>` with the name of the resource group:
 
-> [!TIP]
-> This command creates a workspace and the Azure services it depends on. For information on creating a workspace that uses existing Azure services, see [Create workspaces with the CLI](how-to-manage-workspace-cli.md).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -148,12 +152,10 @@ The output of this command is similar to the following JSON:
 
 ## Connect local project to workspace
 
-> [!TIP]
-> This step is optional. If you do not attach the folder, then you must provide the `-w <workspace-name>` and `-g <resource-group-name>` information to all the other commands after this section.
-
-From a terminal or command prompt, change directories to the `MLOps` directory, then use the following command to connect to your workspace:
+From a terminal or command prompt, use the following commands change directories to the `mlops` directory, then connect to your workspace:
 
 ```azurecli-interactive
+cd ~/mlops
 az ml folder attach -w <workspace-name> -g <resource-group-name>
 ```
 
@@ -169,7 +171,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-This command creates a `.azureml/config.json` file, which contains information needed to connect to your workspace.
+This command creates a `.azureml/config.json` file, which contains information needed to connect to your workspace. The rest of the `az ml` commands used in this tutorial will use this file, so you don't have to add the workspace and resource group to all commands.
 
 ## Create the compute target for training
 
@@ -192,17 +194,15 @@ The output of this command is similar to the following JSON:
 
 This command creates a new compute target named `cpu`, with a maximum of 4 nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
 
-> [!TIP]
-> When not in use, the VM scales down to 0 nodes to reduce costs.
-
 > [!IMPORTANT]
-> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml
+> The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/sklearn.runconfig` file used in the next section.
 
 ## Submit the training run
 
 To start a training run on the `cpu` compute target, change directories to the `model-training` directory and then use the following command:
 
 ```azurecli-interactive
+cd ~/mlops/model-training
 az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runoutput.json train-sklearn.py
 ```
 
@@ -265,7 +265,9 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-Note the version number. This is incremented each time you register a new model with this name. For example, you can download the model and register it from a local file by using the following commands:
+### Model versioning
+
+Note the version number returned for the model. This is incremented each time you register a new model with this name. For example, you can download the model and register it from a local file by using the following commands:
 
 ```azurecli-interactive
 az ml model download -i "mymodel:1" -t .
@@ -315,7 +317,9 @@ ACI service creation operation finished, operation "Succeeded"
 }
 ```
 
-The `scoringUri` is the REST endpoint for the deployed service. You can also get this URI by using the following command:
+### The scoring URI
+
+The `scoringUri` returned from the deployment is the REST endpoint for a model deployed as a web service. You can also get this URI by using the following command:
 
 ```azurecli-interactive
 az ml service show -n myservice
