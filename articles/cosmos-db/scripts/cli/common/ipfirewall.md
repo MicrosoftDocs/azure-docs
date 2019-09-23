@@ -11,7 +11,7 @@ ms.date: 9/25/2019
 
 # Create an Azure Cosmos Account with IP Firewall using Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -20,7 +20,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 > [!NOTE]
 > This sample demonstrates using a SQL (Core) API account. To use this sample for other APIs, apply the `ip-range-filter` parameter in the script below to the related namespace for your API specific script.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/common/ipfirewall.sh "Create an Azure Cosmos account with ip firewall.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/ipfirewall.sh "Create an Azure Cosmos account with ip firewall.")]
 
 ## Clean up deployment
 

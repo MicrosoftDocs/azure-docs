@@ -11,7 +11,7 @@ ms.date: 9/25/2019
 
 # Work with account keys and connection strings for an Azure Cosmos Account using Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -27,7 +27,7 @@ This script demonstrates four operations.
 > [!NOTE]
 > This sample demonstrates using a SQL (Core) API account but the account key and connection string operations are identical across all database APIs in Cosmos DB.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/common/keys.sh "Keys and connection string operations for Cosmos DB.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/common/keys.sh "Keys and connection string operations for Cosmos DB.")]
 
 ## Clean up deployment
 

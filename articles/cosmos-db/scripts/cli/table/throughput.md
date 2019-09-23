@@ -11,7 +11,7 @@ ms.date: 9/25/2019
 
 # Update RU/s for a Table API table for Azure Cosmos DB Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -19,7 +19,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 This script creates a Table API table then updates the throughput the table.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/table/throughput.sh "Update RU/s for a Table API table.")]
 
 ## Clean up deployment
 

@@ -11,7 +11,7 @@ ms.date: 9/25/2019
 
 # Update RU/s for a SQL (Core) API database and container for Azure Cosmos DB using Azure CLI
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this topic requires that you are running the Azure CLI version 2.0.73 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -19,7 +19,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 This script creates a SQL (Core) API database with shared throughput and a SQL (Core) API container with dedicated throughput, then updates the throughput for both the database and container.
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
+[!code-azurecli-interactive[main](../../../../../cli_scripts/cosmosdb/sql/throughput.sh "Update RU/s for a SQL database and container.")]
 
 ## Clean up deployment
 
