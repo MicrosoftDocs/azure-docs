@@ -2,11 +2,11 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 ms.author: cynthn
 ---
 
-With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric and log data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs from the guest operating system. In-depth monitoring using [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) delivers advanced features to monitor the application components, the guest operating system, or other supporting services running on the VM supporting that critical business function as part of the unified capabilities offered in Azure Monitor.
+With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric and log data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs from the guest operating system. In-depth monitoring is available using [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md), which are comprehensive features delivered as part of Azure Monitor.
 
 ## Diagnostics and metrics 
 
@@ -59,16 +59,7 @@ Some of the things you can do with diagnostics logs include:
 
 ## Advanced monitoring
 
-[Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) 
-
-
-- [Azure Monitor](../articles/azure-monitor/overview.md) is a service that monitors your cloud and on-premises environments to maintain their availability and performance. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. You can install an extension on a [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) that installs the Log Analytics agent to collect log data and store in a Log Analytics workspace.
-
-    For Windows and Linux VMs, the recommended method for collecting logs is by installing the Log Analytics agent. The easiest way to install the Log Analytics agent on a VM is through the [Log Analytics VM Extension](../articles/log-analytics/log-analytics-azure-vm-extension.md). Using the extension simplifies the installation process and automatically configures the agent to send data to the Log Analytics workspace that you specify. The agent is also upgraded automatically, ensuring that you have the latest features and fixes.
-
-- [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) enables you to monitor your VM and its associated resources as they relate to the network that they are in. You can install the Network Watcher Agent extension on a [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md).
-
-- [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. 
+[Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including the different processes and interconnected dependencies on other resources and external processes it discovers. It also includes several trend performance charts to help during investigation of problems and assess capacity of your VMs, and with the dependency map, you can see application component dependencies (running processes) that interact between multiple VMs over the active network connections and ports identified. 
 
 ## Next steps
 - Walk through the steps in [Monitor a Windows Virtual Machine with Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) or [Monitor a Linux Virtual Machine with the Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
