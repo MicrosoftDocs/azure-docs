@@ -151,17 +151,17 @@ The result of this deployment is:
 - An SAP application layer that's located through availability sets in the same Azure datacenters as the DBMS VM or VMs.
 
 > [!NOTE]
-> As you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you are going to require different proximity placement groups for each of the zones. Same si true for the availability set you might use
+> Because you deploy one DBMS VM into one zone and the second DBMS VM into another zone to create a high availability configuration, you'll need a different proximity placement group for each of the zones. The same is true for any availability set that you use.
 
-## Get an existing system into Azure proximity placement groups
-As you have SAP systems deployed already, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. In the stage of public preview of proximity placement group functionality, a deletion of the VMs and a new creation of the VMs is necessary to perform such a move into proximity placement groups. At this stage of the functionality, it is not good enough to shut down the VMs to be able to assign those shutdown virtual machines to proximity placement groups.
+## Move an existing system into proximity placement groups
+If you already have SAP systems deployed, you might want to optimize the network latency of some of your critical systems and locate the application layer and the DBMS layer in the same datacenter. During the public preview of proximity placement group functionality, you need to delete the VMs and create new ones to move the system into proximity placement groups. You can’t currently just shut down the VMs and assign them to proximity placement groups.
 
 
-## Next Steps
-Consult the documentation:
+## Next steps
+Check out the documentation:
 
-- [SAP workload on Azure planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
+- [SAP workloads on Azure planning and deployment checklist](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
 - [Preview: Deploy VMs to proximity placement groups using Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
 - [Preview: Deploy VMs to proximity placement groups using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 
