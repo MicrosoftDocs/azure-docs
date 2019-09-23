@@ -31,7 +31,7 @@ Deploying a SQL Server VM Azure Marketplace image through the Azure portal autom
 
 - **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](virtual-machines-windows-sql-automated-patching.md), [automated backup](virtual-machines-windows-sql-automated-backup-v2.md), and monitoring and manageability capabilities. It also unlocks [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these features were available only to SQL Server VM images from Azure Marketplace.
 
-To utilize the SQL VM resource provider, you must also register the SQL VM resource provider with your subscription. You can accomplish this by using the Azure portal, the Azure CLI, or PowerShell. 
+To utilize the SQL VM resource provider, you must also register the SQL VM resource provider with your subscription. You can accomplish this by using the Azure portal, the Azure CLI, or PowerShell. There is no cost associated with registering with the SQL VM resource provider. 
 
 ## Prerequisites
 
@@ -359,6 +359,9 @@ Yes. SQL Server failover cluster instances on an Azure VM can be registered with
 **Can I register my VM with the SQL VM resource provider if an Always On availability group is configured?**
 
 Yes. There are no restrictions to registering a SQL Server instance on an Azure VM with the SQL VM resource provider if you're participating in an Always On availability group configuration.
+
+**What is the cost for registering with the SQL VM resource provider, or with upgrading to full manageability mode?**
+None. There is no fee associated with registering with the SQL VM resource provider, or with using any of the three manageability modes. Managing your SQL Server VM with the resource provider is completely free. 
 
 ## Next steps
 
