@@ -40,7 +40,7 @@ For the preview, VMs will be evicted based on capacity and the max price you set
 Pricing for low-priority VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/). 
 
 
-You can set a max price, in USD, using up to 5 decimal places. For example, the value `0.00432`would be a max price of $0.00432 USD per hour. You can also set the max price to be `-1`, which means that the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
+You can set a max price, in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. You can also set the max price to be `-1`, which means that the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
 
 ## Use the Azure CLI
 
@@ -72,7 +72,7 @@ Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Micros
 
 Create a low priority VM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority low` and set `-MaxPrice` to either:
 - `-1` so the VM is not evicted based on price.
-- a dollar amount, up to 4 digits. For example `-MaxPrice .0123` means that the VM will be deallocated once the price for a low priority VM goes about $.9876 per hour.
+- a dollar amount, up to 5 digits. For example `-MaxPrice .98765` means that the VM will be deallocated once the price for a low priority VM goes about $.98765 per hour.
 
 This example creates a low priority VM that will not be deallocated based on pricing (only when Azure needs the capacity back).
 
@@ -104,7 +104,7 @@ Add-AzVMNetworkInterface -Id $nic.Id
 New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Query to see the max price for all of the VMs in the resource group.
+After the VM is created, you can query to see the max price for all of the VMs in the resource group.
 
 ```powershell
 Get-AzVM -ResourceGroupName $resourceGroup | `
