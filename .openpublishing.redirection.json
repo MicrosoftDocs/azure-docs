@@ -26035,6 +26035,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/tutorial-detect-threats.md",
+      "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sentinel/user-analytics.md",
       "redirect_url": "/azure/sentinel/overview",
       "redirect_document_id": false

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -32,8 +32,6 @@ This tutorial helps you monitor your data in Azure Sentinel.
 ## Prerequisites
 
 - You must have at least Workbook reader or Workbook contributor permissions on the resource group of the Azure Sentinel workspace.
-
-- The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel's workspace resource group and are tagged by the workspace in which they were created.
 
 > [!NOTE]
 > The workbooks that you can see in Azure Sentinel are saved within the Azure Sentinel workspace resource group and are tagged by the workspace in which they were created.
@@ -91,6 +89,4 @@ To delete a customized workbook:
 
 In this tutorial, you learned how to view your data in Azure Sentinel.
 
-To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
-
-[Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
+To learn how to automate your responses to threats, see [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).

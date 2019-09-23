@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/10/2019
+ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
@@ -36,6 +36,8 @@ If Cloud App Security is deployed and ingesting your data, the alert data can ea
 1. In Azure Sentinel, select **Data connectors** and then click the **Cloud App Security** tile.
 
 1. Select which logs you want to stream into Azure Sentinel, you can choose **Alerts**. 
+
+1. You can select whether you want the alerts from Microsoft Cloud App Security to automatically generate incidents in Azure Sentinel automatically. Under **Create incidents** select **Enable** to enable the default analytic rule that creates incidents automatically from alerts generated in the connected security service. You can then edit this rule under **Analytics** and then **Active rules**.
 
 1. Click **Connect**.
 

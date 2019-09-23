@@ -11,13 +11,10 @@
     href: quickstart-get-visibility.md
 - name: Tutorials
   items:
-  - name: Detect suspicious threats
-    href: tutorial-detect-threats.md
-    items:
-    - name: Use built-in analytics
-      href: tutorial-detect-threats-built-in.md
-    - name: Use custom rules
-      href: tutorial-detect-threats-custom.md  
+  - name: Use built-in analytics to detect threats
+    href: tutorial-detect-threats-built-in.md
+  - name: Create custom rules to detect threats
+    href: tutorial-detect-threats-custom.md  
   - name: Monitor your data
     href: tutorial-monitor-your-data.md
   - name: Investigate incidents
