@@ -255,7 +255,7 @@
 
 - name: Reference Architecture
   href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/
-  - name: Partner implementations
+    - name: Partner implementations
     items:
     - name: Intel Connected Logistics Platform
       href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
