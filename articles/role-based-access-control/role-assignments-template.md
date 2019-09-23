@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/06/2019
+ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -332,4 +332,5 @@ The following shows an example of the Contributor role assignment to a new manag
 
 - [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
+- [Create resource groups and resources at the subscription level](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?term=rbac)
