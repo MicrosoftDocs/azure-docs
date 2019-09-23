@@ -60,7 +60,7 @@
       href: backup-azure-security-feature.md
     - name: Built-in security controls
       href: backup-security-controls.md
-  - name: Frequently asked quesions(FAQ)
+  - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
