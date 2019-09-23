@@ -354,18 +354,17 @@ Search-AzGraph -Query "Resources | where type=~'Microsoft.Compute/virtualMachine
 This query returns Network Security Groups (NSGs) that aren't associated to a network interface or subnet.
 
 ```kusto
-where type =~ "microsoft.network/networksecuritygroups"
-| where isnull(properties.networkInterfaces) and isnull(properties.subnets)
+where type =~ "microsoft.network/networksecuritygroups" and isnull(properties.networkInterfaces) and isnull(properties.subnets)
 | project name, resourceGroup
 | sort by name asc
 ```
 
 ```azurecli-interactive
-az graph query -q "where type =~ 'microsoft.network/networksecuritygroups' | where isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
+az graph query -q "where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type =~ 'microsoft.network/networksecuritygroups' | where isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
+Search-AzGraph -Query "where type =~ 'microsoft.network/networksecuritygroups' and isnull(properties.networkInterfaces) and isnull(properties.subnets) | project name, resourceGroup | sort by name asc"
 ```
 
 ## Next steps
