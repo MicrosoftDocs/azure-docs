@@ -1,7 +1,7 @@
 ---
 title: "Visual interface example #5: Classification to predict churn + appetency + up-selling"
 titleSuffix: Azure Machine Learning
-description: This visual interface sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: This visual interface sample pipeline shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,31 +14,31 @@ ms.date: 05/10/2019
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface.
+Learn how to build a complex machine learning pipeline without writing a single line of code using the visual interface.
 
-This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the visual interface to combine data sets and train a model using the scrambled values.
+This pipeline trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the visual interface to combine data sets and train a model using the scrambled values.
 
 Because you're trying to answer the question "Which one?" this is called a classification problem, but you can apply the same logic in this project to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
-Here's the completed graph for this experiment:
+Here's the completed graph for this pipeline:
 
-![Experiment graph](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
+![Pipeline graph](./media/how-to-ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## Prerequisites
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 5 experiment.
+4. Select the **Open** button for the Sample 5 pipeline.
 
-    ![Open the experiment](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
+    ![Open the pipeline](media/how-to-ui-sample-classification-predict-churn/open-sample5.png)
 
 ## Data
 
-The data for this experiment is from KDD Cup 2009. It has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
+The data for this pipeline is from KDD Cup 2009. It has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. For more information about the data and the task, see the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
-## Experiment summary
+## Pipeline summary
 
-This visual interface sample experiment shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
+This visual interface sample pipeline shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
 
 First, do some simple data processing.
 
