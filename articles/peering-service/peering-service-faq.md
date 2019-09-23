@@ -17,7 +17,7 @@ ms.author: ypitsch
 
 **Q0: Who are the target customers?**
 
-A0. Test - Enterprises who connect to Microsoft Cloud using Internet as transport.
+A0. Enterprises who connect to Microsoft Cloud using Internet as transport.
 
 **Q1: How can customers enable MAPS?**
  	
