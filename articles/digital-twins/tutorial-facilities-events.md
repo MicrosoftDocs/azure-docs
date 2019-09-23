@@ -8,6 +8,7 @@ ms.service: digital-twins
 ms.topic: tutorial 
 ms.date: 09/17/2019
 ms.author: alinast
+#Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to capture events from a Azure Digital Twins space. 
 ---
 
 # Tutorial: Receive notifications from your Azure Digital Twins spaces by using Logic Apps
