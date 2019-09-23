@@ -70,7 +70,7 @@ $incrementalSnapshots
 
 ## Resource Manager template
 
-You can also use Azure resource manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2019-03-01** and that the incremental property is also set to true. The following snippit is an example of how to create an incremental snapshot with resource manager templates:
+You can also use Azure Resource Manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2019-03-01** and that the incremental property is also set to true. The following snippet is an example of how to create an incremental snapshot with Resource Manager templates:
 
 ```json
 {
