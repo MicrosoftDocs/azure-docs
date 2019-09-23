@@ -5,13 +5,14 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/09/2019
-author: sharonlo101
-ms.author: shlo
-manager: craigg
 ---
+
 # Copy or clone a data factory in Azure Data Factory
 
 This article describes how to copy or clone a data factory in Azure Data Factory.
@@ -30,7 +31,7 @@ Here are some of the circumstances in which you may find it useful to copy or cl
 
 1. As a prerequisite, you need to create your target data factory from the Azure portal.
 
-1. If you have a SelfHosted IntegrationRuntime in your source factory, you need to precreate it with the same name in the target factory. If you want to share the SelfHosted IRs between different factories, you can use the pattern published [here](author-visually.md#best-practices-for-git-integration).
+1. If you have a SelfHosted IntegrationRuntime in your source factory, you need to precreate it with the same name in the target factory. If you want to share the SelfHosted IRs between different factories, you can use the pattern published [here](source-control.md#best-practices-for-git-integration).
 
 1. If you are in GIT mode, every time you publish from the portal, the factory's Resource Manager template is saved into GIT in the adf_publish branch of the repository.
 

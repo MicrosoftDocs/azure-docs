@@ -3,7 +3,7 @@ title: "Azure Status Monitor v2 API reference: Get status | Microsoft Docs"
 description: Status Monitor v2 API reference. Get-ApplicationInsightsMonitoringStatus. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -33,7 +33,6 @@ This cmdlet will report version information and information about key files requ
 Run the command `Get-ApplicationInsightsMonitoringStatus` to display the monitoring status of web sites.
 
 ```
-Machine Identifier:
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
 Machine Identifier:
 811D43F7EC807E389FEA2E732381288ACCD70AFFF9F569559AC3A75F023FA639

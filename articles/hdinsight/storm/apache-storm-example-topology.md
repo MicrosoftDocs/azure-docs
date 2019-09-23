@@ -9,6 +9,7 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
 ---
+
 # Example Apache Storm topologies and components for Apache Storm on HDInsight
 
 The following is a list of examples created and maintained by Microsoft for use with [Apache Storm](https://storm.apache.org/) on HDInsight. These examples cover a variety of topics, from creating basic C# and Java topologies to working with Azure services such as Event Hubs, Cosmos DB, SQL Database, [Apache HBase](https://hbase.apache.org/) on HDInsight, and Azure Storage. Some examples also demonstrate how to work with non-Azure, or even non-Microsoft technologies, such as SignalR and Socket.IO.
@@ -25,7 +26,6 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Extract, Transform, and Load (ETL) from Azure Event Hubs to Apache HBase, using Apache Storm on HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Template C# Storm topology project for working with Azure services from Apache Storm on HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |
 | [Scalability benchmarks for reading from Azure Event Hubs using Apache Storm on HDInsight][d6c540e3] |Message throughput, Event Hubs, SQL Database |C#, Java |
-| [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topology.md) |Python components with a Flux topology |Python |
 | [Use Apache Kafka with Apache Storm on HDInsight](../hdinsight-apache-storm-with-kafka.md) | Apache Storm reading and writing to Apache Kafka | Java |
 
 > [!WARNING]  
@@ -33,7 +33,11 @@ The following is a list of examples created and maintained by Microsoft for use 
 >
 > Linux is the only operating system used on HDInsight version 3.4 or later.
 
-### Next Steps
+## Python only
+
+See [Use Python with Apache Storm on HDInsight](apache-storm-develop-python-topology.md) for an example of Python components with a Flux topology.
+
+## Next Steps
 
 * [Create and monitor an Apache Storm topology in Azure HDInsight](./apache-storm-quickstart.md)
 * [Learn how to deploy and manage Apache Storm topologies with Apache Storm on HDInsight][6eb0d3b8]

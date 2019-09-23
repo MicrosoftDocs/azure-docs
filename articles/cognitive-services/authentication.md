@@ -7,7 +7,7 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 07/24/2019
 ms.author: erhopf
 ---
 
@@ -18,6 +18,7 @@ Each request to an Azure Cognitive Service must include an authentication header
 * [Authenticate with a single-service subscription key](#authenticate-with-a-single-service-subscription-key)
 * [Authenticate with a multi-service subscription key](#authenticate-with-a-multi-service-subscription-key)
 * [Authenticate with a token](#authenticate-with-an-authentication-token)
+* [Authenticate with Azure Active Directory (AAD)](#authenticate-with-azure-active-directory)
 
 ## Prerequisites
 
@@ -60,7 +61,7 @@ The following video demonstrates using a Cognitive Services key.
 ## Authenticate with a multi-service subscription key
 
 >[!WARNING]
-> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, and Custom Vision.
+> At this time, these services **don't** support multi-service keys: QnA Maker, Speech Services, Custom Vision, and Anomaly Detector.
 
 This option also uses a subscription key to authenticate requests. The main difference is that a subscription key is not tied to a specific service, rather, a single key can be used to authenticate requests for multiple Cognitive Services. See [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) for information about regional availability, supported features, and pricing.
 
@@ -153,8 +154,10 @@ curl -X POST 'https://api.cognitive.microsofttranslator.com/translate?api-versio
 --data-raw '[{ "text": "How much for the cup of coffee?" }]' | json_pp
 ```
 
+[!INCLUDE [](../../includes/cognitive-services-azure-active-directory-authentication.md)]
+
 ## See also
 
 * [What is Cognitive Services?](welcome.md)
 * [Cognitive Services pricing](https://azure.microsoft.com/pricing/details/cognitive-services/)
-* [Create an account](cognitive-services-apis-create-account.md)
+* [Custom subdomains](cognitive-services-custom-subdomains.md)

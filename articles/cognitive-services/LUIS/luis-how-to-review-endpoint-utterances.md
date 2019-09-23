@@ -1,6 +1,6 @@
 ---
-title: Review user utterances
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Review user utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 03/25/2019
+ms.topic: conceptual
+ms.date: 09/05/2019
 ms.author: diberry
 ---
 
@@ -20,11 +20,11 @@ ms.author: diberry
 
 ## Enable active learning
 
-To enable active learning, log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) with the `log=true` querystring parameter and value.
+To enable active learning, log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=true` querystring parameter and value.
 
 ## Disable active learning
 
-To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) with the `log=false` querystring parameter and value.
+To disable active learning, don't log user queries. This is accomplished by setting the [endpoint query](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) with the `log=false` querystring parameter and value.
 
 ## Filter utterances
 

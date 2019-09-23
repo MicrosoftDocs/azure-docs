@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 09/13/2019
 ms.author: jingwang
 ---
 
@@ -72,7 +72,7 @@ The following properties are supported for Azure Search linked service:
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the datasets article. This section provides a list of properties supported by Azure Search dataset.
+For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Azure Search dataset.
 
 To copy data into Azure Search, the following properties are supported:
 
@@ -88,12 +88,13 @@ To copy data into Azure Search, the following properties are supported:
     "name": "AzureSearchIndexDataset",
     "properties": {
         "type": "AzureSearchIndex",
+        "typeProperties" : {
+            "indexName": "products"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Search linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties" : {
-            "indexName": "products"
         }
    }
 }
@@ -160,7 +161,7 @@ Azure Search service supports writing documents as a batch. A batch can contain 
 ]
 ```
 
-### Data type support
+## Data type support
 
 The following table specifies whether an Azure Search data type is supported or not.
 
@@ -174,6 +175,8 @@ The following table specifies whether an Azure Search data type is supported or 
 | DataTimeOffset | Y |
 | String Array | N |
 | GeographyPoint | N |
+
+Currently other data types e.g. ComplexType are not supported. For a full list of Azure Serach supported data type, see [Supported data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

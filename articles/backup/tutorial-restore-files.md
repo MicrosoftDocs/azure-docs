@@ -1,7 +1,7 @@
 ---
 title: Restore files to a VM with Azure Backup
 description: Learn how to perform file-level restores on an Azure VM with Backup and Recovery Services.
-services: backup
+
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -102,7 +102,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
 
     The script is downloaded and a password is displayed, as in the following example:
 
-    ```
+    ```output
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 
@@ -138,7 +138,7 @@ With the recovery script copied to your VM, you can now connect the recovery poi
 
     The output from the script gives you the path for the recovery point. The following example output shows that the recovery point is mounted at */home/azureuser/myVM-20170919213536/Volume1*:
 
-    ```
+    ```output
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465

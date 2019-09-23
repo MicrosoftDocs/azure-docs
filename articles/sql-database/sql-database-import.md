@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 06/20/2019
 ---
 # Quickstart: Import a BACPAC file to a database in Azure SQL Database

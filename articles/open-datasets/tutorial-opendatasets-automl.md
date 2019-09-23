@@ -32,7 +32,7 @@ This tutorial requires the following prerequisites.
 
 ### Create a workspace
 
-Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
+Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
 
 ### Create a Python environment
 
@@ -86,8 +86,8 @@ Begin by creating a dataframe to hold the taxi data. When working in a non-Spark
 
 ```python
 green_taxi_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     temp_df_green = NycTlcGreen(start + relativedelta(months=sample_month), end + relativedelta(months=sample_month)) \
@@ -400,7 +400,9 @@ def build_time_features(vector):
 
     return pd.Series((month_num, day_of_month, day_of_week, hour_of_day, country_code))
 
-green_taxi_df[["month_num", "day_of_month","day_of_week", "hour_of_day", "country_code"]] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
+
+green_taxi_df[["month_num", "day_of_month", "day_of_week", "hour_of_day", "country_code"]
+              ] = green_taxi_df[["lpepPickupDatetime"]].apply(build_time_features, axis=1)
 green_taxi_df.head(10)
 ```
 
@@ -697,11 +699,12 @@ Remove some of the columns that you won't need for modeling or additional featur
 columns_to_remove = ["lpepDropoffDatetime", "puLocationId", "doLocationId", "extra", "mtaTax",
                      "improvementSurcharge", "tollsAmount", "ehailFee", "tripType", "rateCodeID",
                      "storeAndFwdFlag", "paymentType", "fareAmount", "tipAmount"
-                    ]
+                     ]
 for col in columns_to_remove:
     green_taxi_df.pop(col)
 
-green_taxi_df = green_taxi_df.rename(columns={"lpepPickupDatetime": "datetime"})
+green_taxi_df = green_taxi_df.rename(
+    columns={"lpepPickupDatetime": "datetime"})
 green_taxi_df["datetime"] = green_taxi_df["datetime"].dt.normalize()
 green_taxi_df.head(5)
 ```
@@ -929,12 +932,14 @@ holidays_df.head(5)
 Rename the `countryRegionCode` and `date` columns to match the respective field names from the taxi data, and also normalize the time so it can be used as a key. Next, join the holiday data with the taxi data by performing a left-join using the Pandas `merge()` function. This will preserve all records from `green_taxi_df`, but add in holiday data where it exists for the corresponding `datetime` and `country_code`, which in this case is always `"US"`. Preview the data to verify that they were merged correctly.
 
 ```python
-holidays_df = holidays_df.rename(columns={"countryRegionCode": "country_code", "date": "datetime"})
+holidays_df = holidays_df.rename(
+    columns={"countryRegionCode": "country_code", "date": "datetime"})
 holidays_df["datetime"] = holidays_df["datetime"].dt.normalize()
 holidays_df.pop("countryOrRegion")
 holidays_df.pop("holidayName")
 
-taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=["datetime", "country_code"])
+taxi_holidays_df = pd.merge(green_taxi_df, holidays_df, how="left", on=[
+                            "datetime", "country_code"])
 taxi_holidays_df.head(5)
 ```
 
@@ -1082,8 +1087,8 @@ Now you append NOAA surface weather data to the taxi and holiday data. Use a sim
 from azureml.opendatasets import NoaaIsdWeather
 
 weather_df = pd.DataFrame([])
-start = datetime.strptime("1/1/2016","%m/%d/%Y")
-end = datetime.strptime("1/31/2016","%m/%d/%Y")
+start = datetime.strptime("1/1/2016", "%m/%d/%Y")
+end = datetime.strptime("1/31/2016", "%m/%d/%Y")
 
 for sample_month in range(12):
     tmp_df = NoaaIsdWeather(cols=["temperature", "precipTime", "precipDepth", "snowDepth"], start_date=start + relativedelta(months=sample_month), end_date=end + relativedelta(months=sample_month))\
@@ -1255,7 +1260,7 @@ weather_df.head(10)
 
 Again call `pandas.Series.dt.normalize` on the `datetime` field in the weather data so it matches the time key in `taxi_holidays_df`. Delete the unneeded columns, and filter out records where the temperature is `NaN`.
 
-Next group the weather data so that you have daily aggregated weather values. Define a dict `aggregations` to define how to aggregate each field at a daily level. For `snowDepth` and `temperature` take the mean and for `precipTime` and `precipDepth` take the daily maximum. Use the `groupby()` function along with the aggregations to group the data. Preview the data to ensure there is one record per day.
+Next group the weather data so that you have daily aggregated weather values. Define a dict named `aggregations` to define how to aggregate each field at a daily level. For `snowDepth` and `temperature` take the mean and for `precipTime` and `precipDepth` take the daily maximum. Use the `groupby()` function along with the aggregations to group the data. Preview the data to ensure there is one record per day.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()
@@ -1268,7 +1273,8 @@ weather_df.pop("latitude")
 weather_df = weather_df.query("temperature==temperature")
 
 # group by datetime
-aggregations = {"snowDepth": "mean", "precipTime": "max", "temperature": "mean", "precipDepth": "max"}
+aggregations = {"snowDepth": "mean", "precipTime": "max",
+                "temperature": "mean", "precipDepth": "max"}
 weather_df_grouped = weather_df.groupby("datetime").agg(aggregations)
 weather_df_grouped.head(10)
 ```
@@ -1388,7 +1394,8 @@ weather_df_grouped.head(10)
 Merge the taxi and holiday data you prepared with the new weather data. This time you only need the `datetime` key, and again perform a left-join of the data. Run the `describe()` function on the new dataframe to see summary statistics for each field.
 
 ```python
-taxi_holidays_weather_df = pd.merge(taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
+taxi_holidays_weather_df = pd.merge(
+    taxi_holidays_df, weather_df_grouped, how="left", on=["datetime"])
 taxi_holidays_weather_df.describe()
 ```
 
@@ -1590,13 +1597,16 @@ From the summary statistics, you see that there are several fields that have out
 Filter out these anomalies using query functions, and then remove the last few columns unnecessary for training.
 
 ```python
-final_df = taxi_holidays_weather_df.query("pickupLatitude>=40.53 and pickupLatitude<=40.88")
-final_df = final_df.query("pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
+final_df = taxi_holidays_weather_df.query(
+    "pickupLatitude>=40.53 and pickupLatitude<=40.88")
+final_df = final_df.query(
+    "pickupLongitude>=-74.09 and pickupLongitude<=-73.72")
 final_df = final_df.query("tripDistance>0 and tripDistance<75")
 final_df = final_df.query("passengerCount>0 and passengerCount<100")
 final_df = final_df.query("totalAmount>0")
 
-columns_to_remove_for_training = ["datetime", "pickupLongitude", "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
+columns_to_remove_for_training = ["datetime", "pickupLongitude",
+                                  "pickupLatitude", "dropoffLongitude", "dropoffLatitude", "country_code"]
 for col in columns_to_remove_for_training:
     final_df.pop(col)
 ```
@@ -1779,7 +1789,8 @@ Now you split the data into training and test sets by using the `train_test_spli
 ```python
 from sklearn.model_selection import train_test_split
 
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=222)
+X_train, X_test, y_train, y_test = train_test_split(
+    x_df, y_df, test_size=0.2, random_state=222)
 ```
 
 ### Load workspace and configure experiment
@@ -1791,7 +1802,8 @@ Load your Azure Machine Learning service workspace using the `get()` function wi
 from azureml.core.workspace import Workspace
 from azureml.core.experiment import Experiment
 
-workspace = Workspace.get(subscription_id="<your-subscription-id>", name="<your-workspace-name>", resource_group="<your-resource-group>")
+workspace = Workspace.get(subscription_id="<your-subscription-id>",
+                          name="<your-workspace-name>", resource_group="<your-resource-group>")
 experiment = Experiment(workspace, "opendatasets-ml")
 ```
 
@@ -1816,7 +1828,7 @@ automl_config = AutoMLConfig(task="regression",
                              primary_metric="spearman_correlation",
                              preprocess=True,
                              n_cross_validations=5
-                            )
+                             )
 ```
 
 ### Submit experiment

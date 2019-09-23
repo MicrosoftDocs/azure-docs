@@ -12,6 +12,8 @@ manager: peterpr
 
 # Export your data to Azure Blob Storage
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 *This topic applies to administrators.*
 
 This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
@@ -281,6 +283,7 @@ import json
 import pandavro as pdx
 import pandas as pd
 
+
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
@@ -292,16 +295,17 @@ def parse(filePath):
 
     # The SystemProperties column contains a dictionary
     # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(lambda x: x["connectionDeviceId"])
+    transformed["device_id"] = measurements["SystemProperties"].apply(
+        lambda x: x["connectionDeviceId"])
 
     # The Body column is a series of UTF-8 bytes that is stringified
     # and parsed as JSON. This example pulls the humidity property
     # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
+    transformed["humidity"] = measurements["Body"].apply(
+        lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
     # Finally, print the new DataFrame with our device IDs and humidities.
     print(transformed)
-
 ```
 
 #### Parse a devices Avro file
@@ -310,6 +314,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -325,17 +330,19 @@ def parse(filePath):
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
-    transformed["template_id"] = devices["deviceTemplate"].apply(lambda x: x["id"])
-    transformed["template_version"] = devices["deviceTemplate"].apply(lambda x: x["version"])
+    transformed["template_id"] = devices["deviceTemplate"].apply(
+        lambda x: x["id"])
+    transformed["template_version"] = devices["deviceTemplate"].apply(
+        lambda x: x["version"])
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = devices["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = devices["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.
     print(transformed)
-
 ```
 
 #### Parse a device templates Avro file
@@ -344,6 +351,7 @@ def parse(filePath):
 import json
 import pandavro as pdx
 import pandas as pd
+
 
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
@@ -360,7 +368,8 @@ def parse(filePath):
 
     # The fanSpeed setting value is located in a nested dictionary
     # under the settings column.
-    transformed["fan_speed"] = templates["settings"].apply(lambda x: x["device"]["fanSpeed"])
+    transformed["fan_speed"] = templates["settings"].apply(
+        lambda x: x["device"]["fanSpeed"])
 
     # Finally, print the new DataFrame with our device and template
     # information, along with the value of the fan speed.

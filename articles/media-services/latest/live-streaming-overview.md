@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/16/2019
+ms.date: 08/26/2019
 ms.author: juliako
 
 ---
@@ -22,7 +22,7 @@ Azure Media Services enables you to deliver live events to your customers on the
 
 - A camera that is used to capture the live event.<br/>For setup ideas, check out [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT).
 
-    If you do not have access to a camera, tools such as [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) can be used generate a live feed from a video file.
+    If you do not have access to a camera, tools such as [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) can be used to generate a live feed from a video file.
 - A live video encoder that converts signals from a camera (or another device, like a laptop) into a contribution feed that is sent to Media Services. The contribution feed can include signals related to advertising, such as SCTE-35 markers.<br/>For a list of recommended live streaming encoders, see [live streaming encoders](recommended-on-premises-live-encoders.md). Also, check out this blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT).
 - Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
@@ -73,13 +73,29 @@ To understand the live streaming workflow in Media Services v3, you have to firs
 2. Create a [Live Event](live-events-outputs-concept.md). <br/>When creating the event, you can specify to autostart it. Alternatively, you can start the event when you are ready to start streaming.<br/> When autostart is set to true, the Live Event will be started right after creation. The billing starts as soon as the Live Event starts running. You must explicitly call Stop on the Live Event resource to halt further billing. For more information, see [Live Event states and billing](live-event-states-billing.md).
 3. Get the ingest URL(s) and configure your on-premises encoder to use the URL to send the contribution feed.<br/>See [recommended live encoders](recommended-on-premises-live-encoders.md).
 4. Get the preview URL and use it to verify that the input from the encoder is actually being received.
-5. Create a new **Asset** object.
-6. Create a **Live Output** and use the asset name that you created.<br/>The **Live Output** will archive the stream into the **Asset**.
-7. Create a **Streaming Locator** with the [built-in Streaming Policy types](streaming-policy-concept.md)
+5. Create a new **Asset** object. 
+
+    Each Live Output is associated with an asset, which it uses to record the video into the associated Azure blob storage container. 
+6. Create a **Live Output** and use the asset name that you created so that the stream can be archived into the asset.
+
+    Live Outputs start on creation and stop when deleted. When you delete the Live Output, you are not deleting the underlying asset and content in the asset.
+7. Create a **Streaming Locator** with the [built-in Streaming Policy types](streaming-policy-concept.md).
+
+    To publish the Live Output, you must create a Streaming Locator for the associated asset. 
 8. List the paths on the **Streaming Locator** to get back the URLs to use (these are deterministic).
 9. Get the hostname for the **Streaming Endpoint** (Origin) you wish to stream from.
 10. Combine the URL from step 8 with the hostname in step 9 to get the full URL.
 11. If you wish to stop making your **Live Event** viewable, you need to stop streaming the event and delete the **Streaming Locator**.
+12. If you are done streaming events and want to clean up the resources provisioned earlier, follow the following procedure.
+
+    * Stop pushing the stream from the encoder.
+    * Stop the Live Event. Once the Live Event is stopped, it will not incur any charges. When you need to start it again, it will have the same ingest URL so you won't need to reconfigure your encoder.
+    * You can stop your Streaming Endpoint, unless you want to continue to provide the archive of your live event as an on-demand stream. If the Live Event is in stopped state, it will not incur any charges.
+
+The asset that the live output is archiving to, automatically becomes an on-demand asset when the live output is deleted. You must delete all live outputs before a live event can be stopped. You can use an optional flag [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) to automatically remove live outputs on stop. 
+
+> [!TIP]
+> See [Live streaming tutorial](stream-live-tutorial-with-api.md), the article examines the code that implements the steps described above.
 
 ## Other important articles
 

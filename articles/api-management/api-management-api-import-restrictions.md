@@ -11,7 +11,6 @@ ms.assetid: 7a5a63f0-3e72-49d3-a28c-1bb23ab495e2
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
@@ -35,6 +34,7 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   Custom extensions are ignored on import and aren't saved or preserved for export.
 -   **Recursion** - API Management doesn't support definitions defined recursively (for example, schemas referring to themselves).
 -   Source file URL (if available) is applied to relative server URLs.
+-   Security definitions are ignored.
 
 ### <a name="open-api-v2"> </a>OpenAPI version 2
 
@@ -45,9 +45,6 @@ If you're receiving errors importing your OpenAPI document, make sure you've val
 -   If many **servers** are specified, API Management will try to select the first HTTPs URL. If there aren't any HTTPs URLs - the first HTTP URL. If there aren't any HTTP URLs - the server URL will be empty.
 -   **Examples** isn't supported, but **example** is.
 -   **Multipart/form-data** isn't supported.
-
-> [!IMPORTANT]
-> See this [document](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/) for important information and tips related to OpenAPI import.
 
 ## <a name="wsdl"> </a>WSDL
 

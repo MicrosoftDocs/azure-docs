@@ -227,6 +227,10 @@
         href: spark-api-introduction.md
       - name: Lambda architecture
         href: lambda-architecture.md 
+    - name: Built-in analytics with Jupyter notebooks
+      items:
+      - name: Jupyter notebooks overview
+        href: cosmosdb-jupyter-notebooks.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -272,8 +276,10 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
-        - name: Security attributes
-          href: cosmos-db-security-attributes.md
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced threat protection
+        - name: Built-in security controls
+          href: cosmos-db-security-controls.md
     - name: Enterprise readiness 
       items:
       - name: Online backup and on-demand restore
@@ -453,6 +459,14 @@
         items:
         - name: 1 - Query data
           href: tutorial-query-graph.md
+      - name: Reference
+        items:
+        - name: Response Headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
+        - name: Compatibility
+          href: gremlin-compatibility.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -463,6 +477,12 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Use resource tokens
+          href: how-to-use-resource-tokens-gremlin.md
+        - name: Use regional endpoints
+          href: how-to-use-regional-gremlin.md
+        - name: Access system document properties
+          href: how-to-access-system-properties-gremlin.md
         - name: Visualize graph data
           href: graph-visualization.md
         - name: Store and manage Spring Data
@@ -539,7 +559,7 @@
           - name: Python
             href: table-sdk-python.md  
           - name: Table storage REST APIs
-            href: /rest/api/storageservices/Table-Service-Concepts
+            href: /rest/api/storageservices/table-service-rest-api
     - name: Etcd API
       items:
       - name: Introduction
@@ -577,6 +597,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Estimate RU/s with Cosmos capacity planner
+        displayName: request units, RUs, RU, capacity 
+        href: estimate-ru-with-capacity-planner.md        
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
@@ -643,6 +666,12 @@
         href: how-to-create-multiple-cosmos-db-triggers.md
       - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
+      - name: Change feed processor start time
+        href: how-to-configure-change-feed-start-time.md
+      - name: Using the change feed estimator
+        href: how-to-use-change-feed-estimator.md
+      - name: Migrate from change feed processor library
+        href: how-to-migrate-from-change-feed-library.md
     - name: Built-in analytics with Apache Spark
       items:
       - name: Azure Databricks Spark connector
@@ -681,11 +710,11 @@
       - name: Application logging with Logic Apps
         href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
         maintainContext: true 
-    - name : Monitor with Metrics
+    - name : Monitor with metrics
       items:
       - name: View metrics from Cosmos DB account 
         href: use-metrics.md
-      - name: View Metrics from Azure Monitor
+      - name: View metrics from Azure Monitor
         href: cosmos-db-azure-monitor-metrics.md
       - name: Monitor SLAs
         href: monitor-accounts.md
@@ -703,6 +732,8 @@
       items:
       - name: Use Power BI 
         href: powerbi-visualize.md
+      - name: Create a live weather dashboard 
+        href: create-real-time-weather-dashboard-powerbi.md  
       - name: Use Qlik Sense
         href: visualize-qlik-sense.md
     - name: Integrate with other Azure services
@@ -736,6 +767,18 @@
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
+    - name: Migrate data to Cosmos DB
+      items: 
+      - name: Migrate to SQL API using Striim
+        href: cosmosdb-sql-api-migrate-data-striim.md
+      - name: Migrate to Cassandra API using Striim
+        href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate - Oracle DB to Cassandra API using Blitzz
+        href: oracle-migrate-cosmos-db-blitzz.md
+      - name: Migrate - Apache Cassandra to Cassandra API using Blitzz
+        href: cassandra-migrate-cosmos-db-blitzz.md
+      - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
+        href: migrate-cosmosdb-data.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

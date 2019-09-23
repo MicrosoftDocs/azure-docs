@@ -14,7 +14,9 @@ manager: carmonm
 
 There's no difference in the structure of runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker. Runbooks that you use with each most likely differ significantly. This difference is because runbooks that target a Hybrid Runbook Worker typically manage resources on the local computer itself or against resources in the local environment where it's deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud.
 
-When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. This behavior can introduce subtle differences when authoring runbooks for a Hybrid Runbook Worker. These changes should be reviewed when you're writing your runbooks.
+When you author runbooks to run on a Hybrid Runbook Worker, you should edit and test the runbooks within the machine that hosts the Hybrid worker. The host machine has all of the PowerShell modules and network access you need to manage and access the local resources. Once a runbook is tested on the Hybrid worker machine, you can then upload it to the Azure Automation environment where it's available to run in the Hybrid worker. It's important to know that jobs that run under the Local System account for Windows or a special user account `nxautomation` on Linux. On Linux, this means that you must ensure that the `nxautomation` account has access to the location where you store your modules. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, specify **AllUsers** to the `-Scope` parameter to confirm that the `naxautomation` account has access.
+
+For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](https://docs.microsoft.com/powershell/scripting/whats-new/known-issues-ps6?view=powershell-6#known-issues-for-powershell-on-non-windows-platforms).
 
 ## Starting a runbook on Hybrid Runbook Worker
 
@@ -53,7 +55,7 @@ You can also use [InlineScript](automation-powershell-workflow.md#inlinescript),
 
 ### RunAs account
 
-By default the Hybrid Runbook Worker uses Local System for Windows and a special user account `nxautomation` for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
+By default the Hybrid Runbook Worker uses Local System for Windows and a special user account `nxautomation` for Linux to execute runbooks. Instead of having runbooks provide their own authentication to local resources, you can specify a **RunAs** account for a Hybrid worker group. You specify a [credential asset](automation-credentials.md) that has access to local resources, including certificate stores and all runbooks run under these credentials when running on a Hybrid Runbook Worker in the group.
 
 The user name for the credential must be in one of the following formats:
 
@@ -265,7 +267,7 @@ sudo gpg --generate-key
 
 GPG will guide you through the steps to create the keypair. You'll need to provide a name, an email address, expiration time, passphrase, and wait for enough entropy on the machine for the key to be generated.
 
-Because the GPG directory was generated with sudo, you need to change its owner to `nxautomation`. 
+Because the GPG directory was generated with sudo, you need to change its owner to `nxautomation`.
 
 Run the following command to change the owner.
 
@@ -306,3 +308,4 @@ The signed runbook can now be uploaded to Azure Automation, and can be executed 
 * To learn more about the different methods that can be used to start a runbook, see [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
 * To understand the different ways to work with PowerShell runbooks in Azure Automation using the textual editor, see [Editing a Runbook in Azure Automation](automation-edit-textual-runbook.md)
 * If your runbooks aren't completing successfully, review the troubleshooting guide on [runbook execution failures](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails).
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).

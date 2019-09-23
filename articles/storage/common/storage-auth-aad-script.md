@@ -22,7 +22,7 @@ You can assign permissions to blob and queue data to an Azure AD security princi
 
 The extensions are supported for operations on containers and queues. Which operations you may call depends on the permissions granted to the Azure AD security principal with which you sign in to Azure CLI or PowerShell. Permissions to Azure Storage containers or queues are assigned via role-based access control (RBAC). For example, if you are assigned the **Blob Data Reader** role, then you can run scripting commands that read data from a container or queue. If you are assigned the **Blob Data Contributor** role, then you can run scripting commands that read, write, or delete a container or queue or the data they contain. 
 
-For details about the permissions required for each Azure Storage operation on a container or queue, see [Call storage operations with OAuth tokens](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+For details about the permissions required for each Azure Storage operation on a container or queue, see [Call storage operations with OAuth tokens](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
 
 ## Call CLI commands using Azure AD credentials
 
@@ -78,15 +78,17 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Azure AD credentials, create a storage context to reference the storage account, and including the `-UseConnectedAccount` parameter.
+To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Azure AD credentials, create a storage context to reference the storage account, and include the `-UseConnectedAccount` parameter.
 
 The following example shows how to create a container in a new storage account from Azure PowerShell using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to enter your Azure AD credentials: 
+1. Sign in to your Azure account with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command:
 
     ```powershell
     Connect-AzAccount
     ```
+
+    For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 

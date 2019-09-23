@@ -1,11 +1,10 @@
 ---
 title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
 description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer files.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 05/14/2019
+ms.topic: conceptual
+ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -23,11 +22,13 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file to any directory on your computer. 
+First, download the AzCopy V10 executable file to any directory on your computer.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+
+AzCopy V10 is just an executable file, so there's nothing to install.
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
@@ -59,23 +60,25 @@ Use this table as a guide:
 |**Blob storage (hierarchial namespace)** | Azure AD & SAS |
 |**File storage** | SAS only |
 
-### Option 1: Use Azure AD
+### Option 1: Use Azure Active Directory
 
-By using Azure AD, you can provide credentials once instead of having to append a SAS token to each command.  
+By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.  
+
+> [!NOTE]
+> In the current release, if you plan to copy blobs between storage accounts, you’ll have to append a SAS token to each source URL. You can omit the SAS token only from the destination URL. For examples, see [Copy blobs between storage accounts](storage-use-azcopy-blobs.md).
 
 The level of authorization that you need is based on whether you plan to upload files or just download them.
 
-If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity or service principal. 
+If you just want to download files, then verify that the [Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) has been assigned to your user identity, managed identity, or service principal.
 
-> [!NOTE]
-> User identities and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
+> User identities, managed identities, and service principals are each a type of *security principal*, so we'll use the term *security principal* for the remainder of this article.
 
 If you want to upload files, then verify that one of these roles has been assigned to your security principal:
 
 - [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor)
 - [Storage Blob Data Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner)
 
-These roles can be assigned to your identity in any of these scopes:
+These roles can be assigned to your security principal in any of these scopes:
 
 - Container (file system)
 - Storage account
@@ -84,8 +87,8 @@ These roles can be assigned to your identity in any of these scopes:
 
 To learn how to verify and assign roles, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-> [!NOTE] 
-> Keep in mind that RBAC role assignments may take up to five minutes to propagate.
+> [!NOTE]
+> Keep in mind that RBAC role assignments can take up to five minutes to propagate.
 
 You don't need to have one of these roles assigned to your security principal if your security principal is added to the access control list (ACL) of the target container or directory. In the ACL, your security principal needs write permission on the target directory, and execute permission on container and each parent directory.
 
@@ -117,11 +120,11 @@ A sign-in window will appear. In that window, sign into your Azure account by us
 
 #### Authenticate a service principal
 
-This is a great option if you plan to use AzCopy inside of a script that runs without user interaction. 
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, particularly when running on-premises. If you plan to run AzCopy on VMs that run in Azure, a managed service identity is easier to administer. To learn more, see the [Authenticate a managed identity](#managed-identity) section of this article.
 
-Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
+Before you run a script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information.
 
-You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration. 
+You can sign into your account by using a client secret or by using the password of a certificate that is associated with your service principal's app registration.
 
 To learn more about creating service principal, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -129,7 +132,7 @@ To learn more about service principals in general, see [Application and service 
 
 ##### Using a client secret
 
-Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration. 
+Start by setting the `AZCOPY_SPA_CLIENT_SECRET` environment variable to the client secret of your service principal's app registration.
 
 > [!NOTE]
 > Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
@@ -141,7 +144,7 @@ $env:AZCOPY_SPA_CLIENT_SECRET="$(Read-Host -prompt "Enter key")"
 ```
 
 > [!NOTE]
-> Consider using a prompt as shown in this example. That way, the client secret won't appear in your console's command history. 
+> Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history.  
 
 Next, type the following command, and then press the ENTER key.
 
@@ -162,7 +165,7 @@ Next, set the `AZCOPY_SPA_CERT_PASSWORD` environment variable to the certificate
 > [!NOTE]
 > Make sure to set this value from your command prompt, and not in the environment variable settings of your operating system. That way, the value is available only to the current session.
 
-This example shows how you could do this in PowerShell.
+This example shows how you could do this task in PowerShell.
 
 ```azcopy
 $env:AZCOPY_SPA_CERT_PASSWORD="$(Read-Host -prompt "Enter key")"
@@ -179,6 +182,50 @@ Replace the `<path-to-certificate-file>` placeholder with the relative or fully-
 > [!NOTE]
 > Consider using a prompt as shown in this example. That way, your password won't appear in your console's command history. 
 
+<a id="managed-identity" />
+
+#### Authenticate a managed identity
+
+This is a great option if you plan to use AzCopy inside of a script that runs without user interaction, and the script runs from an Azure Virtual Machine (VM). When using this option, you won't have to store any credentials on the VM.
+
+You can sign into your account by using the a system-wide managed identity that you've enabled on your VM, or by using the client ID, Object ID, or Resource ID of a user-assigned managed identity that you've assigned to your VM.
+
+To learn more about how to enable a system-wide managed identity or create a user-assigned managed identity, see [Configure managed identities for Azure resources on a VM using the Azure portal](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm).
+
+##### Using a system-wide managed identity
+
+First, make sure that you've enabled a system-wide managed identity on your VM. See [System-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity).
+
+Then, in your command console, type the following command, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity
+```
+
+##### Using a user-assigned managed identity
+
+First, make sure that you've enabled a user-assigned managed identity on your VM. See [User-assigned managed identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity).
+
+Then, in your command console, type any of the following commands, and then press the ENTER key.
+
+```azcopy
+azcopy login --identity --identity-client-id "<client-id>"
+```
+
+Replace the `<client-id>` placeholder with the client ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-object-id "<object-id>"
+```
+
+Replace the `<object-id>` placeholder with the object ID of the user-assigned managed identity.
+
+```azcopy
+azcopy login --identity --identity-resource-id "<resource-id>"
+```
+
+Replace the `<resource-id>` placeholder with the resource ID of the user-assigned managed identity.
+
 ### Option 2: Use a SAS token
 
 You can append a SAS token to each source or destination URL that use in your AzCopy commands.
@@ -186,10 +233,10 @@ You can append a SAS token to each source or destination URL that use in your Az
 This example command recursively copies data from a local directory to a blob container. A fictitious SAS token is appended to the end of the of the container URL.
 
 ```azcopy
-azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
+azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
 
-To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1).
+To learn more about SAS tokens and how to obtain one, see [Using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview).
 
 ## Transfer files
 
@@ -207,9 +254,9 @@ To find example commands, see any of these articles.
 
 ## Use AzCopy in a script
 
-Before you run that script, you have to sign-in interactively at least one time so that you can provide AzCopy with the credentials of your service principal.  Those credentials are stored in a secured and encrypted file so that your script doesn't have to provide that sensitive information. For examples, see the [Authenticate your service principal](#service-principal) section of this article.
+### Obtain a static download link
 
-Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon. 
+Over time, the AzCopy [download link](#download-and-install-azcopy) will point to new versions of AzCopy. If your script downloads AzCopy, the script might stop working if a newer version of AzCopy modifies features that your script depends upon.
 
 To avoid these issues, obtain a static (un-changing) link to the current version of AzCopy. That way, your script downloads the same exact version of AzCopy each time that it runs.
 
@@ -230,9 +277,13 @@ The URL appears in the output of this command. Your script can then download AzC
 | **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
+### Escape special characters in SAS tokens
+
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. 
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 

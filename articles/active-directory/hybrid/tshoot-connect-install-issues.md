@@ -53,7 +53,7 @@ However, if you don’t meet the express installation criteria and must do the c
 
 ## Next steps
 - [Azure AD Connect sync](how-to-connect-sync-whatis.md).
-- [What is hybrid identity?](whatis-hybrid-identity.md).
+- [What is hybrid identity?](whatis-hybrid-identity.md)
 
 
 

@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database
@@ -52,7 +51,23 @@ You can use automatic database backups to restore a database to a point in time 
 
 If the maximum supported backup retention period for point-in-time restore (PITR) is not sufficient for your application, you can extend it by configuring a long-term retention (LTR) policy for the database(s). For more information, see [Long-term backup retention](sql-database-long-term-retention.md).
 
-## Recover a database to another Azure region
+## Compare geo-replication with failover groups
+
+[Auto-failover groups](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) simplify the deployment and usage of [geo-replication](sql-database-active-geo-replication.md) and add the additional capabilities as described in the following table:
+
+|                                              | Geo-replication | Failover groups  |
+|:---------------------------------------------| :-------------- | :----------------|
+| Automatic failover                           |     No          |      Yes         |
+| Fail over multiple databases simultaneously  |     No          |      Yes         |
+| Update connection string after failover      |     Yes         |      No          |
+| Managed instance supported                   |     No          |      Yes         |
+| Can be in same region as primary             |     Yes         |      No          |
+| Multiple replicas                            |     Yes         |      No          |
+| Supports read-scale                          |     Yes         |      Yes         |
+| &nbsp; | &nbsp; | &nbsp; |
+
+
+## Recover a database to the existing server
 
 Although rare, an Azure data center can have an outage. When an outage occurs, it causes a business disruption that might only last a few minutes or might last for hours.
 
@@ -120,7 +135,7 @@ If you are using the automated backups with geo-redundant storage (enabled by de
 After recovery from either recovery mechanism, you must perform the following additional tasks before your users and applications are back up and running:
 
 - Redirect clients and client applications to the new server and restored database
-- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal) to enable appropriate rules.
+- Ensure appropriate server-level IP firewall rules are in place for users to connect or use [database-level firewalls](sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) to enable appropriate rules.
 - Ensure appropriate logins and master database level permissions are in place (or use [contained users](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable))
 - Configure auditing, as appropriate
 - Configure alerts, as appropriate
