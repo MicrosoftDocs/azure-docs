@@ -35,7 +35,7 @@ Now let's switch to working with code by downloading a sample .NET application f
 git clone https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started.git
 ```
 
-The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample." You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it.
+The cloned repository contains two samples "BulkImportSample" and "BulkUpdateSample". You can open either of the sample applications, update the connection strings in App.config file with your Azure Cosmos DB account’s connection strings, build the solution, and run it.
 
 The "BulkImportSample" application generates random documents and bulk imports them to your Azure Cosmos account. The "BulkUpdateSample" application bulk updates the imported documents by specifying patches as operations to perform on specific document fields. In the next sections, you will review the code in each of these sample apps.
 
@@ -97,7 +97,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    
    |**Parameter**  |**Description** |
    |---------|---------|
-   |enableUpsert    |   A flag to enable upsert of the documents. If a document with the given ID already exists, it's updated. By default, it is set to false.      |
+   |enableUpsert    |   A flag to enable upsert operations on the documents. If a document with the given ID already exists, it's updated. By default, it is set to false.      |
    |disableAutomaticIdGeneration    |    A flag to disable automatic generation of ID. By default, it is set to true.     |
    |maxConcurrencyPerPartitionKeyRange    | The maximum degree of concurrency per partition key range, setting to null will cause library to use a default value of 20. |
    |maxInMemorySortingBatchSize     |  The maximum number of documents that are pulled from the document enumerator, which is passed to the API call in each stage. For in-memory sorting phase that happens before bulk importing, setting this parameter to null will cause library to use default minimum value (documents.count, 1000000).       |
@@ -111,7 +111,7 @@ The "BulkImportSample" application generates random documents and bulk imports t
    |NumberOfDocumentsImported (long)   |  The total number of documents that were successfully imported out of the total documents supplied to the bulk import API call.       |
    |TotalRequestUnitsConsumed (double)   |   The total request units (RU) consumed by the bulk import API call.      |
    |TotalTimeTaken (TimeSpan)    |   The total time taken by the bulk import API call to complete the execution.      |
-   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. You should fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
+   |BadInputDocuments (List\<object>)   |     The list of bad-format documents that were not successfully imported in the bulk import API call. Fix the documents returned and retry import. Bad-formatted documents include documents whose ID value is not a string (null or any other datatype is considered invalid).    |
 
 ## Bulk update data in your Azure Cosmos account
 
@@ -119,7 +119,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
 
 1. Navigate to the "BulkUpdateSample" folder and open the "BulkUpdateSample.sln" file.  
 
-2. Define the update items along with the corresponding field update operations. In this example, you will use `SetUpdateOperation` to update the `Name` field and `UnsetUpdateOperation` to remove the `Description` field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the the bulk update API, refer to the [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
+2. Define the update items along with the corresponding field update operations. In this example, you will use `SetUpdateOperation` to update the `Name` field and `UnsetUpdateOperation` to remove the `Description` field from all the documents. You can also perform other operations like increment a document field by a specific value, push specific values into an array field, or remove a specific value from an array field. To learn about different methods provided by the bulk update API, refer to the [API documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.bulkupdate?view=azure-dotnet).
 
    ```csharp
    SetUpdateOperation<string> nameUpdate = new SetUpdateOperation<string>("Name", "UpdatedDoc");
@@ -150,7 +150,7 @@ You can update existing documents by using the BulkUpdateAsync API. In this exam
    |**Parameter**  |**Description** |
    |---------|---------|
    |maxConcurrencyPerPartitionKeyRange    |   The maximum degree of concurrency per partition key range, setting this parameter to null will make the library to use the default value(20).   |
-   |maxInMemorySortingBatchSize    |    The maximum number of update items pulled from the update items enumerator passed to the API call in each stage. Forr the in-memory sorting phase that happens before bulk updating, setting this parameter to null will cause the library to use the default minimum value(updateItems.count, 1000000).     |
+   |maxInMemorySortingBatchSize    |    The maximum number of update items pulled from the update items enumerator passed to the API call in each stage. For the in-memory sorting phase that happens before bulk updating, setting this parameter to null will cause the library to use the default minimum value(updateItems.count, 1000000).     |
    | cancellationToken|The cancellation token to gracefully exit the bulk update operation. |
 
    **Bulk update response object definition**
