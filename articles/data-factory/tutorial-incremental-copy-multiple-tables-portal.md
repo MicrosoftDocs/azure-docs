@@ -234,14 +234,14 @@ END
  
    The name of the Azure data factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name "ADFIncCopyTutorialDF" is not available`
+   `Data factory name "ADFIncCopyTutorialDF" is not available`
+
 4. Select your Azure **subscription** in which you want to create the data factory. 
 5. For the **Resource Group**, do one of the following steps:
      
-      - Select **Use existing**, and select an existing resource group from the drop-down list. 
-      - Select **Create new**, and enter the name of a resource group.   
-         
-        To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
+    - Select **Use existing**, and select an existing resource group from the drop-down list. 
+    - Select **Create new**, and enter the name of a resource group.   
+    To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
 6. Select **V2** for the **version**.
 7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 8. Click **Create**.      
@@ -257,10 +257,10 @@ As you are moving data from a data store in a private network (on-premises) to a
 
 1. In the **Integration Runtimes** tab, click **+ New**. 
 
-1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
+1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Continue**. 
 
-1. Select **Self-Hosted**, and click **Next**. 
-1. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
+1. Select **Self-Hosted**, and click **Continue**. 
+1. Enter **MySelfHostedIR** for **Name**, and click **Create**. 
 
 1. Click **Click here to launch the express setup for this computer** in the **Option 1: Express setup** section. 
 
@@ -274,7 +274,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL database. 
 
 ### Create the SQL Server linked service
 In this step, you link your on-premises SQL Server database to the data factory.
@@ -445,8 +445,10 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
     1. In the **Dataset properties**, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
     1. For **Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
-    1. For **Table Type** property, enter `@{item().TableType}`.
+    1. For **Table type** property, enter `@{item().TableType}`.
+    1. For **Table type parameter name**, enter `@{item().TABLE_NAME}`.
 
+    ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
 
 1. Select the **Stored Procedure** activity in the pipeline, and enter **StoredProceduretoWriteWatermarkActivity** for **Name** in the **General** tab of the **Properties** window. 
@@ -500,6 +502,7 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 
 1. Switch to the **Monitor** tab on the left. You see the pipeline run triggered by the **manual trigger**. Click **Refresh** button to refresh the list. Links in the **Actions** column allow you to view activity runs associated with the pipeline run, and to rerun the pipeline. 
 
+    ![Pipeline runs](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
 1. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
 
 ## Review the results
@@ -600,7 +603,7 @@ VALUES
 1. Click **View Activity Runs** link in the **Actions** column. You see all the activity runs associated with the selected pipeline run. 
 
 ## Review the final results
-In SQL Server Management Studio, run the following queries against the target database to verify that the updated/new data was copied from source tables to destination tables. 
+In SQL Server Management Studio, run the following queries against the target SQL database to verify that the updated/new data was copied from source tables to destination tables. 
 
 **Query** 
 ```sql
