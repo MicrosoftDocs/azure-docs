@@ -54,6 +54,10 @@ Cognitive Services container configurations of resources are controlled by custo
 
 Unfortunately, the Cognitive Services containers are *not* natively supported in the sovereign clouds. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
 
+**Q: Are Cognitive Services containers available for offline usage?**
+
+**A:** See [Azure Cognitive Services offline containers](offline-containers.md) for details regarding the various disconnected scenarios available.
+
 ### Versioning
 
 **Q: How are containers updated to the latest version?**

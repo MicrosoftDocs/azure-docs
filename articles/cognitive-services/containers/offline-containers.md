@@ -19,16 +19,7 @@ We're thrilled to announce Azure Cognitive Services offline containers, availabl
 * Low-latency execution of artificial intelligence (AI) models near application logic.
 * Disconnected scenarios on the [intelligent edge](https://azure.microsoft.com/overview/future-of-cloud).
 
-Currently, all of the Cognitive Services container offering as also available as an offline container:
-
-> [!div class="checklist"]
-> * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
-> * [Face][fa-containers]
-> * [Form Recognizer][fr-containers]
-> * [Language Understanding (LUIS)][lu-containers]
-> * [Speech Service API][sp-containers]
-> * [Text Analytics][ta-containers]
+[!INCLUDE [Cognitive Services offline containers](includes/cognitive-services-offline-containers.md)]
 
 > [!IMPORTANT]
 > Offline containers are in limited preview, and eligibility criteria is in place to help guide customers. [Sign up here][sign-up] for early access.
@@ -70,13 +61,13 @@ An approval process and decision will be made after validating business use case
 
 **Q: What is the pricing of offline containers?**
 
-**A:** Offline containers are currently in limited preview and handled on a case-by-case basis. With that being said, the pricing structure is non-standard. Pricing is determined after the application is we reviewed.
+**A:** Offline containers are currently in limited preview and handled on a case-by-case basis. With that being said, the pricing structure is non-standard. Pricing is determined after application have been reviewed.
 
 ### Product availability
 
 **Q: What services are available in offline containers?**
 
-**A:** All of the Cognitive Services containers that are available, are also available as "offline containers". We would like to make more Cognitive Services available as container offerings. Contact to your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
+**A:** Most of the Cognitive Services containers that are available, are also available as "offline containers". We would like to make more Cognitive Services available as container offerings. Contact to your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
 
 ### Technical questions
 
