@@ -21,7 +21,7 @@ While users can publish any custom `EventCounters` to meet their needs, the .NET
 
 ## Using Application Insights to collect EventCounters
 
-Application Insights supports collecting `EventCounters` with its `EventCounterCollectionModule`, which is part of the newly released nuget package [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` is automatically enabled when using either [AspNetCore](asp-net-core.md) or [WorkerService](worker-service.md) instructions. `EventCounterCollectionModule` collects counters with a non-configurable collection frequency of 60 seconds. There are no special permissions required to collect EventCounters.
+Application Insights supports collecting `EventCounters` with its `EventCounterCollectionModule`, which is part of the newly released nuget package [Microsoft.ApplicationInsights.EventCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventCounterCollector). `EventCounterCollectionModule` is automatically enabled when using either [AspNetCore](asp-net-core.md) or [WorkerService](worker-service.md). `EventCounterCollectionModule` collects counters with a non-configurable collection frequency of 60 seconds. There are no special permissions required to collect EventCounters.
 
 ## Default counters collected
 
@@ -53,11 +53,12 @@ For apps running in .NET Core 3.0, the following set of counters are collected a
 |`Microsoft.AspNetCore.Hosting` | `current-requests` |
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
-Note: Counters of category Microsoft.AspNetCore.Hosting are only added in Asp.Net Core Applications.
+[!NOTE]
+Counters of category Microsoft.AspNetCore.Hosting are only added in Asp.Net Core Applications.
 
 ## Customizing counters to be collected
 
-The following example shows how to add/remove counters. This customization would be done in `ConfigureServices` of your application after application insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an Asp.Net Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.
+The following example shows how to add/remove counters. This customization would be done in the `ConfigureServices` method of your application after Application Insights telemetry collection is enabled using either `AddApplicationInsightsTelemetry()` or `AddApplicationInsightsWorkerService()`. Following is an example code from an ASP.NET Core application. For other type of applications, refer to [this](worker-service.md#configuring-or-removing-default-telemetrymodules) document.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
@@ -95,7 +96,7 @@ The following example shows how to add/remove counters. This customization would
 
 To view EventCounter metrics in [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under PerformanceCounter category.
 
-![Event counters reported in Application Insights](./media/event-counters/meticsexplorer-counterlist.png)
+![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
@@ -125,6 +126,12 @@ Like other telemetry, **performanceCounters** also has a column `cloud_RoleInsta
 
 ## Alerts
 Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if an event counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.
+
+## Frequently asked questions
+
+### Can I see EventCounters in Live Metrics ?
+
+No. Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analytics to see the telemetry.
 
 ## <a name="next"></a>Next steps
 

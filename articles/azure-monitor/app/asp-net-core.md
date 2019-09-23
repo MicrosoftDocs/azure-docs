@@ -146,11 +146,11 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 
 ### ILogger logs
 
-[ILogger logs](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) of severity `Warning` or greater  are automatically captured in SDK versions 2.7.0-beta3 and later.
+Logs emitted via `ILogger` of severity `Warning` or greater are automatically captured. Follow [ILogger docs](ilogger.md#control-logging-level) to customize which log levels are captured by Application Insights.
 
 ### Live Metrics
 
-It might take a few minutes before telemetry starts appearing in the portal. To quickly make sure everything is working, it's best to use [Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) when you make requests to the running application.
+[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights is setup correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real-time. It can also show other telemetry like Requests, Dependencies, Traces etc.
 
 ## Enable client-side telemetry for web applications
 
