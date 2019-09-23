@@ -47,25 +47,25 @@ In the [previous quickstart article](functions-create-first-function-vs-code.md)
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
-
+---
 Now, you can add the storage output binding to your project.
 
 ## Add an output binding
 
 In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 Binding attributes are defined directly in the function.json file. Depending on the binding type, additional properties may be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding. The extension makes it easy to add bindings to the function.json file. 
 
@@ -112,15 +112,17 @@ A binding is added to the `bindings` array in your function.json file, which sho
 }
 ```
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+---
 
 ## Add code that uses the output binding
 
 After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 Add code that uses the `msg` output binding object on `context.bindings` to create a queue message. Add this code before the`context.res` statement.
 
@@ -154,9 +156,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### C\#
+# [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
