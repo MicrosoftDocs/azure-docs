@@ -22,7 +22,7 @@ We're thrilled to announce Azure Cognitive Services offline containers, availabl
 > [!IMPORTANT]
 > Offline containers are in limited preview, and eligibility criteria is in place to help guide customers. [Sign up here][sign-up] to learn more.
 
-## Use Cases
+## Use cases
 
 There are many use cases for offline Cognitive Services containers, here are some of the more common use cases we've experienced.
 
@@ -47,7 +47,7 @@ An approval process and decision will be made after validating business use case
 
 ## Offline containers frequently asked questions (FAQs)
 
-### Eligibility and approval process 
+### Eligibility and approval process
 
 **Q:  What customer should do to get EA with Microsoft?**
 
@@ -67,7 +67,7 @@ An approval process and decision will be made after validating business use case
 
 **A:** All of the Cognitive Services containers that are available, are also available as "offline containers". We would like to make more Cognitive Services available as container offerings. Contact to your local Microsoft account manager to get updates on new container releases and other Cognitive Services announcements.
 
-### Technical Questions 
+### Technical questions
 
 **Q: How should I run the Cognitive Services containers on-premises?**
 
@@ -81,7 +81,7 @@ Azure Cognitive Services containers are just like any other Docker container, an
 
 **A:** Cognitive Services containers do not have any compliance certifications.
 
-## Next Steps
+## Next steps
 
 If you still have questions, see [FAQs](container-faq.md) for potential answers.
 
@@ -89,21 +89,3 @@ If you still have questions, see [FAQs](container-faq.md) for potential answers.
 > [Sign up for offline containers][sign-up]
 
 [sign-up]: https://forms.office.com/Pages/DesignPage.aspx#FormId=v4j5cvGGr0GRqy180BHbRyQZ7B8Cg2FEjpibPziwPcZUNlQ4SEVORFVLTjlBSzNLRlo0UzRRVVNPVy4u
-
-[ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
-[cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
-[fa-containers-billing]: ../face/face-how-to-install-containers.md#billing
-[fr-containers-billing]: ../form-recognizer/form-recognizer-container-howto.md#billing
-[lu-containers-billing]: ../luis/luis-container-howto.md#billing
-[sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
-[ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
-<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
-
-[ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
-[cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
-[fa-containers-recommendations]: ../face/face-how-to-install-containers.md#container-requirements-and-recommendations
-[fr-containers-recommendations]: ../form-recognizer/form-recognizer-container-howto.md#container-requirements-and-recommendations
-[lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
-[sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
-[ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
-<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

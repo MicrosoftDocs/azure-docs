@@ -13,7 +13,7 @@ ms.author: dapine
 
 # Azure Cognitive Services containers frequently asked questions (FAQ)
 
-## General Questions
+## General questions
 
 **Q: What is being announced?**
 
@@ -68,7 +68,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **A:** Major version changes indicate that there is a breaking change to the API signature. We anticipate that this will generally coincide with major version changes to the corresponding Cognitive Service cloud offering. Minor version changes indicate bug fixes, model updates, or new features that do not make a breaking change to the API signature.
 
-## Technical Questions
+## Technical questions
 
 **Q: How should I run the Cognitive Services containers on IoT devices**
 
