@@ -27,6 +27,8 @@ Azure Machine Learning provides several ways to train your models. Use the follo
 
     + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability. Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline. You can create templates and publish a pipeline as a parameterized REST API, which can then be used to start or schedule runs.
 
+    In addition to the Python SDK, you can also start training runs (including estimators, automated machine learning, and pipelines) from the Azure CLI by using the [machine learning CLI extension](reference-azure-machine-learning-cli.md).
+
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
 ## Visual interface
@@ -64,7 +66,7 @@ Estimators make it easy to train models using popular ML frameworks.
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined.
 
 > [!TIP]
-> You can use Automated ML through the Azure Machine Learning Python SDK or the [workspace landing page (preview)](https://ml.azure.com).
+> In addtion to the Python SDK, you can also use Automated ML through the [workspace landing page (preview)](https://ml.azure.com).
 
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
