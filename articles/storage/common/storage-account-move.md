@@ -227,7 +227,7 @@ Here's some ways to move your data over.
 
 :heavy_check_mark: **Azure Storage Explorer**
 
-  It's easy-to-use, and suitable for small data sets. You can drag containers and file shares, and then paste them into the target account.
+  It's easy-to-use, and suitable for small data sets. You can copy containers and file shares, and then paste them into the target account.
 
   See [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
 
