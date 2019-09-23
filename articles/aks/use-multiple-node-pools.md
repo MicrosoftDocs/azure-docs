@@ -31,7 +31,7 @@ You need the Azure CLI version 2.0.61 or later installed and configured. Run `az
 
 ### Install aks-preview CLI extension
 
-To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.12 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+To use multiple node pools, you need the *aks-preview* CLI extension version 0.4.16 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli-interactive
 # Install the aks-preview extension
@@ -241,8 +241,9 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 An AKS cluster has two cluster resource objects with Kubernetes versions associated. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
 1. Upgrading the control plane requires using `az aks upgrade`
-   * This will upgrade the control plane version and all node pools in the cluster unless you pass the `--control-plane-only` flag
-   * By passing `az aks upgrade` with the `--control-plane-only` you will only upgrade the cluster control plane and none of the associated node pools
+   * This will upgrade the control plane version and all node pools in the cluster
+   * By passing `az aks upgrade` with the `--control-plane-only` flag you will only upgrade the cluster control plane and none of the associated node pools
+          * The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher
 1. Upgrading individual node pools requires using `az aks nodepool upgrade`
    * This will upgrade only the target node pool with the specified Kubernetes version
 
