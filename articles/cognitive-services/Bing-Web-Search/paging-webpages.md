@@ -1,23 +1,21 @@
 ---
-title: How to page through search results - Bing Web Search API
+title: How to page through search results - Bing Search APIs
 titleSuffix: Azure Cognitive Services
-description: Learn how to page through search results from the Bing Web Search API.
+description: Learn how to page through search results from the Bing Search APIs.
 services: cognitive-services
-author: swhite-msft
+author: aahill
 manager: nitinme
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 09/23/2019
 ms.author: aahi
 ---
 
-# How to page through results from the Bing Web Search API
+# How to page through results from the Bing Search APIs
 
-When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) field.  
-
-The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
+When you send a call to the Bing Web, Custom, Image, News and Video Search APIs, Bing returns a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's `totalEstimatedMatches` field. For example: 
 
 ```json
 {
@@ -30,15 +28,21 @@ The following example shows the `totalEstimatedMatches` field that a Web answer 
 }  
 ```
 
-To page through the available webpages, use the [count](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) and [offset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) query parameters.  
+## Paging through search results
 
-The `count` parameter specifies the number of results to return in the response. The maximum number of results that you may request in the response is 50. The default is 10. The actual number delivered may be less than requested.
+> [!NOTE]
+>
+> * Paging with the Bing Video, Image, and News APIs applies only to general video (`/video/search`), news (`/news/search`) and image (`/image/search`) searches. Paging through trending topics and categories is not supported.  
+> * The `TotalEstimatedAnswers` field is an estimate of the total number of search results for the current query. When you set the `count` and `offset` parameters, this estimate may change.
 
-The `offset` parameter specifies the number of results to skip. The `offset` is zero-based and should be less than (`totalEstimatedMatches` - `count`).  
+To page through the available results, use the `count` and `offset` query parameters when sending your request.  
 
-If you want to display 15 webpages per page, you would set `count` to 15 and `offset` to 0 to get the first page of results. For each subsequent page, you would increment `offset` by 15 (for example, 15, 30).  
+| Parameter | Description                                                                                                                                                                |
+|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `count`   | Specifies the number of results to return in the response. Note that the default value of `count`, and the maximum number of results that you may request may vary by API. |
+| `offset`  | Specifies the number of results to skip. The `offset` is zero-based and should be less than (`totalEstimatedMatches` - `count`).                                           |
 
-The following example requests 15 webpages beginning at offset 45.  
+As an example, if you want to display 15 results per page, you would set `count` to 15 and `offset` to 0 to get the first page of results. For each subsequent API call, you would increment `offset` by 15. The following example requests 15 webpages beginning at offset 45.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -46,7 +50,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-If the default `count` value works for your implementation, you only need to specify the `offset` query parameter.  
+If you use the default `count` value, you only need to specify the `offset` query parameter in your API calls.  
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -54,13 +58,18 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-The Web Search API returns results that include webpages and may include images, videos, and news. When you page the search results, you are paging the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) answer and not the other answers such as images or news. For example, if you set `count` to 50, you get back 50 webpage results, but the response may include results for the other answers as well. For example, the response may include 15 images and 4 news articles. It is also possible that the results may include news on the first page but not the second page, or vice versa.   
-
-If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters. 
-
 > [!NOTE]
-> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 
+> The Bing Web Search API returns search results that can include webpages, images, videos, and news. When you page through search results from the Bing Web Search API, you are paging only [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer), and not other answer types such as images or news. Search results from `WebAnswer` may include results that appear in other answer types as well.
+>
+> If you use the `responseFilter` query parameter without specifying any filter values, don't use the `count` and `offset` parameters. 
+
 
 ## Next steps
 
-* [What is the Bing Web Search API](overview.md)?
+* [What are the Bing Web Search APIs?](bing-api-comparison.md)
+
+* [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-referenc)
+* [Bing Custom Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+* [Bing News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+* [Bing Video Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
+* [Bing Image Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
