@@ -22,13 +22,13 @@ This tag contains the IP addresses of health and management services for all of 
 
 ## HDInsight service tag option two
 
-If option one won't work because you need more restrictive whitelisting for your firewall, then you can add only the service tags applicable for your region. This may be one or more service tags, and differs based on the region where your cluster is created.
+If option one won't work because you need more restrictive permissions for your firewall, then you can allow only the service tags applicable for your region. The applicable service tags may be one, two, or three service tags, depending on the region where your cluster is created.
 
-To find out which service tags to add for your region, please consult the following sections of the document.
+To find out which service tags to add for your region, read the following sections of the document.
 
-### Whitelist only a regional service tag
+### Allow only a regional service tag
 
-If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you will only need to add a single regional service tag to your firewall.
+If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you only need to add a single regional service tag to your firewall.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -54,13 +54,13 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
 
-### Whitelist regional and global service tags
+### Allow regional and global service tags
 
-If you prefer service tag option two but the region where your cluster is created was not listed above, then you need to whitelist one regional service tag and one or more global service tags. The remaining regions are divided into groups based on which global service tags they use.
+If you prefer service tag option two, and the region where your cluster is created was not listed above, then you need to allow one regional service tag and one or more global service tags. The remaining regions are divided into groups based on which global service tags they use.
 
 #### Group 1
 
-If your cluster is in one of the regions in the table below, whitelist the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed.
+If your cluster is created in one of the regions in the table below, allow the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed. Regions in this section require three service tags.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -79,15 +79,15 @@ If your cluster is in one of the regions in the table below, whitelist the servi
 
 #### Group 2
 
-Clusters in the regions of **China North** and **China East**, need to whitelist the service tags `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
+Clusters in the regions of **China North** and **China East**, need to allow two service tags: `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
 
 #### Group 3
 
-Clusters in the regions of **US Gov Iowa** and **US Gov Virginia**, need to whitelist the service tags `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
+Clusters in the regions of **US Gov Iowa** and **US Gov Virginia**, need to allow two service tags: `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
 
 #### Group 4
 
-Clusters in the regions of **Germany Central** and ***Germany Northeast**, need to whitelist the service tags `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
+Clusters in the regions of **Germany Central** and ***Germany Northeast**, need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
 
 ## Next steps
 
