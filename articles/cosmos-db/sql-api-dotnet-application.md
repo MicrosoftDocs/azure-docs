@@ -130,7 +130,7 @@ Next, let's create the following three views.
    * In **Model class**, select **Item (todo.Models)**.
    * Select **Use a layout page** and enter *~/Views/Shared/_Layout.cshtml*.
 
-   ![Screenshot showing the Add MVC View dialog box](./media/sql-api-dotnet-application/.png)
+   ![Screenshot showing the Add MVC View dialog box](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
 
 1. After you add these values, select **Add** and let Visual Studio create a new template view.
 
