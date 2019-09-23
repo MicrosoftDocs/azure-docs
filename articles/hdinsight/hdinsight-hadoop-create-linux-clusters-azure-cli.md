@@ -1,6 +1,6 @@
 ---
 title: Create Apache Hadoop clusters using the Azure CLI - Azure HDInsight
-description: Learn how to create HDInsight clusters using the cross-platform Azure CLI.
+description: Learn how to create Azure HDInsight clusters using the cross-platform Azure CLI.
 author: hrasheed-msft
 ms.reviewer: jasonh
 

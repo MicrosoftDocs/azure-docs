@@ -3,16 +3,13 @@ title: Create an application gateway with URL path-based routing rules - Azure P
 description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/26/2018
+ms.date: 09/05/2019
 ms.author: victorh
 
 ---
+
 # Create an application gateway with URL path-based routing rules using Azure PowerShell
 
 You can use Azure PowerShell to configure [URL path-based routing rules](application-gateway-url-route-overview.md) when you create an [application gateway](application-gateway-introduction.md). In this tutorial, you create backend pools using a [virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
@@ -302,6 +299,7 @@ for ($i=1; $i -le 3; $i++)
     -ImageReferenceOffer WindowsServer `
     -ImageReferenceSku 2016-Datacenter `
     -ImageReferenceVersion latest
+    -OsDiskCreateOption FromImage
   Set-AzVmssOsProfile $vmssConfig `
     -AdminUsername azureuser `
     -AdminPassword "Azure123456!" `

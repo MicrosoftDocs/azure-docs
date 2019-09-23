@@ -100,7 +100,6 @@ Enable backup as follows:
         -Policy $policy
     ```
 
-
 ## Start a backup job
 
 Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:
@@ -141,7 +140,7 @@ Run an ad hoc backup job as follows:
     ```
     Output is similar to the following example, which shows the job as **InProgress**:
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14
@@ -154,7 +153,7 @@ Run an ad hoc backup job as follows:
 ## Clean up the deployment
 
 If you no longer need to back up the VM, you can clean it up.
-- If you want to try out restoring the VM, skip the clean up.
+- If you want to try out restoring the VM, skip the clean-up.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
 Disable protection, remove the restore points and vault. Then delete the resource group and associated VM resources, as follows:

@@ -53,8 +53,8 @@ WITH
 
 --Gen2
 CREATE DATABASE myComputeSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000c'
+(Edition = 'Datawarehouse'
+ ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```

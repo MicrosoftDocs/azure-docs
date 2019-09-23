@@ -42,7 +42,9 @@ In this tutorial, you learn how to:
 > * Demonstrate how an internal user can request the access package
 > * Approve the access request
 
-If you don't have an Azure AD Premium P2 or Enterprise Mobility + Security E5 license, create a free [Enterprise Mobility + Security E5 trial](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
+For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
+
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## Prerequisites
 
@@ -50,6 +52,8 @@ To use Azure AD entitlement management (Preview), you must have one of the follo
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) E5 license
+
+If you don't have an Azure AD Premium P2 or Enterprise Mobility + Security E5 license, create a free [Enterprise Mobility + Security E5 trial](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1).
 
 ## Step 1: Set up users and group
 

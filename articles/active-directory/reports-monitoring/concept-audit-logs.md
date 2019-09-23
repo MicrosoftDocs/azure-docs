@@ -4,7 +4,7 @@ title: Audit activity reports in the Azure Active Directory portal | Microsoft D
 description: Introduction to the audit activity reports in the Azure Active Directory portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 # Audit activity reports in the Azure Active Directory portal 
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing..
 
 The reporting architecture consists of the following components:
 

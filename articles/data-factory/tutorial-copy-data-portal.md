@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 06/21/2018
 ms.author: jingwang
@@ -168,6 +166,10 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
     ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
+
+You can optionally map the schema of the source to corresponding schema of destination by following [Schema mapping in copy activity
+](copy-activity-schema-and-type-mapping.md)
+    
 ## Validate the pipeline
 To validate the pipeline, select **Validate** from the tool bar.
  

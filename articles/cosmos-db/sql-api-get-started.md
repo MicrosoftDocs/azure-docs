@@ -248,7 +248,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
 
 Select **F5** to run your application.
 
-Congratulations! You have successfully created an Azure Cosmos DB database.  
+Congratulations! You have successfully created an Azure Cosmos database.  
 
 ## <a id="CreateColl"></a>Step 5: Create a container
 > [!WARNING]
@@ -278,10 +278,10 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
 
    Select **F5** to run your application.
 
-Congratulations! You have successfully created an Azure Cosmos DB container.  
+Congratulations! You have successfully created an Azure Cosmos container.  
 
 ## <a id="CreateDoc"></a>Step 6: Add items to the container
-An item can be created by using the [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos DB container.
+An item can be created by using the [**CreateItemAsync**](/dotnet/api/microsoft.azure.cosmos.container.createitemasync?view=azure-dotnet#Microsoft_Azure_Cosmos_Container_CreateItemAsync__1___0_System_Nullable_Microsoft_Azure_Cosmos_PartitionKey__Microsoft_Azure_Cosmos_ItemRequestOptions_System_Threading_CancellationToken_) function of the **CosmosContainer** class. When using the SQL API, items are projected as documents, which are user-defined (arbitrary) JSON content. You can now insert an item into your Azure Cosmos container.
 
 First, let's create a **Family** class that will represent objects stored within Azure Cosmos DB in this sample. We will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. Note item must have an **Id** property serialized as **id** in JSON.
 
@@ -315,10 +315,10 @@ The code checks to make sure an item with the same ID does not already exist bef
 
 Select **F5** to run your application.
 
-Congratulations! You have successfully created two Azure Cosmos DB items.  
+Congratulations! You have successfully created two Azure Cosmos items.  
 
 ## <a id="Query"></a>Step 7: Query Azure Cosmos DB resources
-Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each collection. The following sample code shows how to run a query against the items we inserted in the previous step.
+Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON documents stored in each container. The following sample code shows how to run a query against the items we inserted in the previous step.
 
 1. Copy and paste the **QueryItemsAsync** method below your **AddItemsToContainerAsync** method.
 
@@ -342,7 +342,7 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
 
 Select **F5** to run your application.
 
-Congratulations! You have successfully queried against an Azure Cosmos DB container.
+Congratulations! You have successfully queried against an Azure Cosmos container.
 
 ## <a id="ReplaceItem"></a>Step 8: Replace a JSON item
 Now, we will update an item in Azure Cosmos DB.
@@ -370,7 +370,7 @@ Now, we will update an item in Azure Cosmos DB.
 
    Select **F5** to run your application.
 
-Congratulations! You have successfully replaced an Azure Cosmos DB item.
+Congratulations! You have successfully replaced an Azure Cosmos item.
 
 ## <a id="DeleteDocument"></a>Step 9: Delete item
 Now, we will delete an item in Azure Cosmos DB.
@@ -399,7 +399,7 @@ Now, we will delete an item in Azure Cosmos DB.
 
 Select **F5** to run your application.
 
-Congratulations! You have successfully deleted an Azure Cosmos DB item.
+Congratulations! You have successfully deleted an Azure Cosmos item.
 
 ## <a id="DeleteDatabase"></a>Step 10: Delete the database
 Now we will delete our database. Deleting the created database will remove the database and all children resources (containers, items, and any stored procedures, user-defined functions, and triggers). We will also dispose of the **CosmosClient** instance.
@@ -414,7 +414,7 @@ Now we will delete our database. Deleting the created database will remove the d
 
 Select **F5** to run your application.
 
-Congratulations! You have successfully deleted an Azure Cosmos DB database.
+Congratulations! You have successfully deleted an Azure Cosmos database.
 
 ## <a id="Run"></a>Step 11: Run your C# console application all together!
 Select F5 in Visual Studio to build and run the application in debug mode.

@@ -8,7 +8,7 @@ manager: jroth
 tags: azure-resource-manager
 ms.assetid: aa5bf144-37a3-4781-892d-e0e300913d03
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -49,7 +49,7 @@ Prepare both the source SQL Server VM and the target region for the move.
 - For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM. 
 - Make sure you're not using an authentication proxy to control network connectivity for the VMs that you want to move. 
 - If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, check the requirements. 
-- Identify the source networking layout and all the resources that your'e currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs. 
+- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs. 
 
 ### Prepare the target region
 

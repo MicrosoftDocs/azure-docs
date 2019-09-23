@@ -8,8 +8,8 @@ services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
 ---
 # Iterative development and debugging with Azure Data Factory
@@ -45,6 +45,10 @@ You can visualize all the debug runs that are in progress for your data factory 
 ![Select the View active debug runs icon](media/iterative-development-debugging/view-debug-runs-image1.png)
 
 ![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+If you have active Data Flow debug sessions, those sessions will appear on the bottom part of the active debug window. You can select an active data flow session and stop the respective cluster.
+
+![Sample list of active data flow debug runs](media/data-flow/dfsessions.png)
 
 ## Monitoring debug runs
 

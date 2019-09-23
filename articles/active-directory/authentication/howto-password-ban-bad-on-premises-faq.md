@@ -31,6 +31,8 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
 
+The Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in non-public clouds; such changes will be persisted but otherwise will never take effect. Registration of on-premises proxy agents or forests is unsupported when non-public cloud credentials are used, and any such registration attempts will always fail.
+
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
 Not supported. Once deployed and enabled, Azure AD Password Protection doesn't discriminate - all users receive equal security benefits.
@@ -61,7 +63,7 @@ Not supported. Azure AD Password Protection is an Azure feature that supports be
 
 **Q: How can I modify the contents of the policy at the Active Directory level?**
 
-Not supported. The policy can only be administered using the Azure AD management portal. Also see previous question.
+Not supported. The policy can only be administered using the Azure AD portal. Also see previous question.
 
 **Q: Why is DFSR required for sysvol replication?**
 
@@ -72,6 +74,13 @@ For more information, please see the following articles:
 [The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
 
 [The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+
+If your domain is not already using DFSR, you MUST migrate it to use DFSR before installing Azure AD Password Protection. For more information, see the following link:
+
+[SYSVOL Replication Migration Guide: FRS to DFS Replication](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd640019(v=ws.10))
+
+> [!WARNING]
+> The Azure AD Password Protection DC Agent software will currently install on domain controllers in domains that are still using FRS for sysvol replication, but the software will NOT work properly in this environment. Additional negative side-effects include individual files failing to replicate, and sysvol restore procedures appearing to succeed but silently failing to replicate all files. You should migrate your domain to use DFSR as soon as possible, both for DFSR's inherent benefits and also to unblock the deployment of Azure AD Password Protection. Future versions of the software will be automatically disabled when running in a domain that is still using FRS.
 
 **Q: How much disk space does the feature require on the domain sysvol share?**
 
@@ -115,15 +124,19 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 
 **Q: Why is custom smart lockout not working even after the agents are installed in my on-premises Active Directory environment?**
 
-Custom smart lockout is only supported in Azure. Changes to the custom smart lockout settings in the Azure management portal have no effect on the on-premises Active Directory environment, even with the agents installed.
+Custom smart lockout is only supported in Azure AD. Changes to the custom smart lockout settings in the Azure AD portal have no effect on the on-premises Active Directory environment, even with the agents installed.
 
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
 
-**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+**Q: Why is Azure AD still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
 
-Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
+Audit mode is only supported in the on-premises Active Directory environment. Azure AD is implicitly always in "enforce" mode when it evaluates passwords.
+
+**Q: My users see the traditional Windows error message when a password is rejected by Azure AD Password Protection. Is it possible to customize this error message so that users know what really happened?**
+
+No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
 ## Additional content
 

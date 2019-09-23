@@ -6,9 +6,9 @@
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/index
     items:
-    - name: Hadoop
+    - name: Spark
       tocHref: /azure/hdinsight/hadoop/
       topicHref: /azure/hdinsight/spark/index
-    - name: Enterprise Security
+    - name: Spark
       tocHref: /azure/hdinsight/domain-joined/
       topicHref: /azure/hdinsight/spark/index

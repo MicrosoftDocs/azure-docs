@@ -1,6 +1,6 @@
 ---
 title: Create automated ML experiments
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -29,7 +29,7 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in the Azure portal](how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure portal](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
@@ -67,6 +67,11 @@ automl_config = AutoMLConfig(task="classification")
 Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
 * Numpy arrays X (features) and y (target variable or also known as label)
 * Pandas dataframe
+
+>[!Important]
+> Requirements for training data:
+>* Data must be in tabular form.
+>* The value you want to predict (target column) must be present in the data.
 
 Examples:
 
@@ -197,6 +202,8 @@ The three different `task` parameter values determine the list of algorithms to 
 ### Primary Metric
 The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
 
+Learn about the specific definitions of these in [Understand automated machine learning results](how-to-understand-automated-ml.md).
+
 |Classification | Regression | Time Series Forecasting
 |-- |-- |--
 |accuracy| spearman_correlation | spearman_correlation
@@ -210,6 +217,12 @@ The primary metric; as shown in the examples above determines the metric to be u
 In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
 
 ### Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
@@ -538,13 +551,13 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+Display the URL to view feature importance using the run object:
 
 ```
 automl_run.get_portal_url()
 ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
+You can visualize the feature importance chart in your workspace in the Azure portal or from your [workspace landing page (preview)](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails

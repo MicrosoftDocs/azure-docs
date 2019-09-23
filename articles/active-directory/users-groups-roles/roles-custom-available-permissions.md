@@ -42,12 +42,12 @@ Details for the following permissions for the custom roles preview are listed in
 
 ### Create and delete
 
-There are two permissions available for granting the ability to create app registrations:
+There are two permissions available for granting the ability to create application registrations, each with different behavior:
 
-- **microsoft.directory/applications/createAsOwner**
-- **microsoft.directory/applications/create**
+- **microsoft.directory/applications/createAsOwner**: Assigning this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
+- **microsoft.directory/applicationPolicies/create**: Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
 
-If both permissions are assigned, the create permission will take precedence. Though the createAsOwner permission does not automatically add the creator as the first owner, owners can be specified during the creation of the app registration when using Graph APIs or PowerShell cmdlets.
+If both permissions are assigned, the /create permission will take precedence. Though the /createAsOwner permission does not automatically add the creator as the first owner, owners can be specified during the creation of the app registration when using Graph APIs or PowerShell cmdlets.
 
 Create permissions grant access to the **New registration** command.
 

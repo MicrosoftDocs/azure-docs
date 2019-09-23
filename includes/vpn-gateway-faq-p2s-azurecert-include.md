@@ -5,15 +5,19 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 08/14/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
-### Can I use my own internal PKI root CA for Point-to-Site connectivity?
+### Can I use my own internal PKI root CA to generate certificates for Point-to-Site connectivity?
 
 Yes. Previously, only self-signed root certificates could be used. You can still upload 20 root certificates.
+
+### Can I use certificates from Azure Key Vault?
+
+No.
 
 ### What tools can I use to create certificates?
 

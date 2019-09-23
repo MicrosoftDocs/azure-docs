@@ -94,11 +94,22 @@ There are three fundamental sources of metrics collected by Azure Monitor. Once 
 
 ## Retention of Metrics
 For most resources in Azure, metrics are stored for 93 days. There are some exceptions:
-  * **Classic Guest OS metrics**. Classic guest OS metrics are retained for 14 days. For longer retention, we recommend using new Guest OS metrics that are collected with [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) and for Linux virtual machines with [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/).
-  * **Application Insights log-based metrics**. Behind the scene, [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md) translate into log queries. Their retention matches the retention of events in underlying logs. For Application Insights resources, logs are stored for 90 days. 
+
+**Guest OS metrics**
+-	**Classic guest OS metrics**. These are performance counters collected by the [Windows Diagnostic Extension (WAD)](../platform/diagnostics-extension-overview.md) or the [Linux Diagnostic Extension (LAD)](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure storage account. Retention for these metrics is 14 days.
+-	**Guest OS metrics sent to Azure Monitor Metrics**. These are performance counters collected by the Windows Diagnostic Extension (WAD) and send to the [Azure Monitor Sink](diagnostics-extension-overview.md#data-storage), or via the [InfluxData Telegraf Agent](https://www.influxdata.com/time-series-platform/telegraf/) on Linux machines. Retention for these metrics is 93 days.
+-	**Guest OS metrics collected by Log Analytics agent**. These are performance counters collected by the Log Analytics agent and sent to a Log Analytics workspace. Retention for these metrics is 31 days, and can be extended up to 2 years.
+
+**Application Insights log-based metrics**. 
+- Behind the scene, [log-based metrics](../app/pre-aggregated-metrics-log-metrics.md) translate into log queries. Their retention matches the retention of events in underlying logs. For Application Insights resources, logs are stored for 90 days.
+
 
 > [!NOTE]
 > You can [send platform metrics for Azure Monitor resources to a Log Analytics workspace](diagnostic-logs-stream-log-store.md) for long term trending.
+
+
+
+
 
 ## Next steps
 

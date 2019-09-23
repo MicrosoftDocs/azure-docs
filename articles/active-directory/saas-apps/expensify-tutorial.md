@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Expensify single sign-on (SSO) enabled subscription.
 
 ## Scenario description
@@ -53,20 +53,20 @@ To configure the integration of Expensify into Azure AD, you need to add Expensi
 1. In the **Add from the gallery** section, type **Expensify** in the search box.
 1. Select **Expensify** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for Expensify
 
 Configure and test Azure AD SSO with Expensify using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Expensify.
 
 To configure and test Azure AD SSO with Expensify, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure Expensify SSO](#configure-expensify-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-5. **[Create Expensify test user](#create-expensify-test-user)** - to have a counterpart of B.Simon in Expensify that is linked to the Azure AD representation of user.
+    1. **[Create Expensify test user](#create-expensify-test-user)** - to have a counterpart of B.Simon in Expensify that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -81,11 +81,14 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	a. In the **Sign on URL** text box, type a URL:
     `https://www.expensify.com/authentication/saml/login`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://www.<companyname>.expensify.com`
+    b. In the **Identifier (Entity ID)** text box, type a URL:
+    `https://www.expensify.com`
+
+    c. b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://www.expensify.com/authentication/saml/loginCallback?domain=<yourdomain>`
 
 	> [!NOTE]
-	> The Identifier value is not real. Update this value with the actual Identifier. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> The Reply URL value is not real. Update this value with the actual Reply URL. Contact [Expensify Client support team](mailto:help@expensify.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
@@ -94,20 +97,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Expensify** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-### Configure Expensify SSO
-
-To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](https://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
-
-![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
-
-1. Sign on to your Expensify application.
-
-2. In the left panel, click **Settings** and navigate to **SAML**.
-
-3. Toggle the **SAML Login** option as **Enabled**.
-
-4. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
 
 ### Create an Azure AD test user
 
@@ -139,11 +128,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure Expensify SSO
+
+To enable SSO in Expensify, you first need to enable **Domain Control** in the application. You can enable Domain Control in the application through the steps listed [here](https://help.expensify.com/domain-control). For additional support, work with [Expensify Client support team](mailto:help@expensify.com). Once you have Domain Control enabled, follow these steps:
+
+![Configure Single Sign-On](./media/expensify-tutorial/tutorial_expensify_51.png)
+
+1. Sign on to your Expensify application.
+
+2. In the left panel, click **Settings** and navigate to **SAML**.
+
+3. Toggle the **SAML Login** option as **Enabled**.
+
+4. Open the downloaded Federation Metadata from Azure AD in notepad, copy the content, and then paste it into the **Identity Provider Metadata** textbox.
+
 ### Create Expensify test user
 
 In this section, you create a user called B.Simon in Expensify. Work with [Expensify Client support team](mailto:help@expensify.com) to add the users in the Expensify platform.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 

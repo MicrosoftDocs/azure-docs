@@ -5,7 +5,7 @@ services: azure-policy
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 08/21/2019
 ms.author: dacoulte
 ms.custom: include file
 ---
@@ -19,4 +19,3 @@ ms.custom: include file
 | [Deny cool access tiering for storage accounts](../articles/governance/policy/samples/deny-cool-access-tiering.md) | Prohibits the use of cool access tiering for blob storage accounts.  |
 | [Ensure https traffic only for storage account](../articles/governance/policy/samples/ensure-https-storage-account.md) | Requires storage accounts to use HTTPS traffic.  |
 | [Ensure storage file encryption](../articles/governance/policy/samples/ensure-storage-file-encryption.md) | Requires that file encryption is enabled for storage accounts.  |
-| [Require storage account encryption](../articles/governance/policy/samples/require-storage-account-encryption.md) | Requires the storage account use blob encryption.  |

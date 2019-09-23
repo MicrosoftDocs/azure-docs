@@ -65,7 +65,7 @@ Azure responds with a list of all enrollment accounts you have access to:
 }
 ```
 
-Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `name` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `name` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This identifier is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
 ## [PowerShell](#tab/azure-powershell)
 
@@ -113,7 +113,7 @@ Azure responds with a list of enrollment accounts you have access to:
 ]
 ```
 
-Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `name` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
+Use the `principalName` property to identify the account that you want subscriptions to be billed to. Copy the `name` of that account. For example, if you wanted to create subscriptions under the SignUpEngineering@contoso.com enrollment account, you'd copy ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. This identifier is the object ID of the enrollment account. Paste this value somewhere so that you can use it in the next step as `enrollmentAccountObjectId`.
 
 ---
 
@@ -169,7 +169,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 | `OwnerSignInName`    | No       | String | The email address of any user that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`.|
 | `OwnerApplicationId` | No       | String | The application ID of any service principal that you'd like to add as an RBAC Owner on the subscription when it's created. You can use this parameter instead of `OwnerObjectId`. When using this parameter, the service principal must have [read access to the directory](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
-To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription.preview).
+To see a full list of all parameters, see [New-AzSubscription](/powershell/module/az.subscription).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -197,7 +197,7 @@ To see a full list of all parameters, see [az account create](/cli/azure/ext/sub
 ## Limitations of Azure Enterprise subscription creation API
 
 - Only Azure Enterprise subscriptions can be created using this API.
-- There's a limit of 200 subscriptions per enrollment account. After that, subscriptions can only be created through the Account Center. If you want to create more subscriptions through the API, create another enrollment account.
+- There's a limit of 200 subscriptions per enrollment account. After that, more subscriptions for the account can only be created through the Account Center. If you want to create more subscriptions through the API, create another enrollment account.
 - Users who aren't Account Owners, but were added to an enrollment account via RBAC, can't create subscriptions using the Account Center.
 - You can't select the tenant for the subscription to be created in. The subscription is always created in the home tenant of the Account Owner. To move the subscription to a different tenant, see [change subscription tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

@@ -8,14 +8,14 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # About user interface customization in Azure Active Directory B2C
 
-The ability for you to brand and customize the user interface (UI) that Azure Active Directory (Azure AD) B2C serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
+The ability for you to brand and customize the user interface (UI) that Azure Active Directory B2C (Azure AD B2C) serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
 
 Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
 
@@ -130,6 +130,9 @@ For customization examples, download and review these [sample template files](ht
 
 ## Next steps
 
-- If you're using user flows, you can start customizing your UI with the tutorial: [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
-- If you're using custom policies, you can start customizing the UI with the article: [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+- If you're using **user flows**, you can start customizing your UI with the tutorial:
 
+    [Customize the user interface of your applications in Azure Active Directory B2C](tutorial-customize-ui.md).
+- If you're using **custom policies**, you can start customizing the UI with the article:
+
+    [Customize the user interface of your application using a custom policy in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).

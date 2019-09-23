@@ -1,0 +1,39 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: IoT Plug and Play Preview Documentation
+metadata:
+  title: IoT Plug and Play Preview Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Learn how to use IoT Plug and Play with the help of tutorials, API references, videos, and other documentation.
+  author: dominicbetts
+  manager: philmea
+  ms.service: iot-pnp
+  services: iot-pnp
+  ms.topic: landing-page
+  ms.date: 07/23/2019
+  ms.author: dobett
+abstract:
+  description: Learn how to use IoT Plug and Play Preview to define a device model that enables cloud solutions to automatically understand your device and start interacting with it — all without writing any device code. Tutorials, API references, videos, and other documentation help you connect devices to cloud solutions such as Azure IoT Central or partner applications. 
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video-thumb-pnp-introduction.png
+      width: 250  
+    title: Introduction to IoT Plug and Play. (11:54)
+    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Introduction-to-IoT-Plug-and-Play/player
+    width: 250
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to <a href="quickstart-create-pnp-device">use a device capability model to create a device</a>.
+  - type: paragraph
+    text: Learn how to <a href="quickstart-connect-pnp-device-solution">connect a device to your solution</a>.
+- title: Step-by-Step Tutorials
+  items:
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-pnp-visual-studio-code">Create a device using Visual Studio Code</a>
+    - html: <a href="tutorial-build-device-certification">Build a device ready for certification</a>
+    - html: <a href="tutorial-certification-test">Certify your device</a>

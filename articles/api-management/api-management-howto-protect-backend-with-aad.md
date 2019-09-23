@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
@@ -19,6 +18,9 @@ ms.author: apimpm
 # Protect an API by using OAuth 2.0 with Azure Active Directory and API Management
 
 This guide shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> This feature is available in **Developer**, **Standard** and **Premium** tiers of API Management.
 
 ## Prerequisites
 To follow the steps in this article, you must have:

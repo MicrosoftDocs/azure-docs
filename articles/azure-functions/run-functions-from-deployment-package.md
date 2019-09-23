@@ -7,7 +7,6 @@ author: ggailey777
 manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
