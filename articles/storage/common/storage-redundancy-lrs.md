@@ -21,3 +21,4 @@ ms.subservice: common
 - [Azure Storage replication](storage-redundancy.md)
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
 - [Geo-redundant storage (GRS): Cross-regional replication for Azure Storage](storage-redundancy-grs.md)
+- [Build highly available Azure Storage applications with geo-zone-redundant storage (GZRS) (preview)](storage-redundancy-gzrs.md)
