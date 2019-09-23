@@ -6348,7 +6348,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/windows-virtual-desktop.svg" alt="" />
+                                                        <img src="media/index/windows-virtual-desktop.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
