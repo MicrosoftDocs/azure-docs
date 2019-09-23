@@ -20,9 +20,6 @@ Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsigh
 
 The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
-> [!NOTE]
-> This article is about a new package from Application Insights SDK for Worker Services. This package is available as a beta package today. This document will be updated when a stable package is available.
-
 ## Supported scenarios
 
 The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced [.NET Core 3.0 Worker Service](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework), etc.
@@ -38,7 +35,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 

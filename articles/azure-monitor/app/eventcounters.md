@@ -53,8 +53,8 @@ For apps running in .NET Core 3.0, the following counters are collected automati
 |`Microsoft.AspNetCore.Hosting` | `current-requests` |
 |`Microsoft.AspNetCore.Hosting` | `failed-requests` |
 
-[!NOTE]
-Counters of category Microsoft.AspNetCore.Hosting are only added in Asp.Net Core Applications.
+> [!NOTE]
+> Counters of category Microsoft.AspNetCore.Hosting are only added in Asp.Net Core Applications.
 
 ## Customizing counters to be collected
 
