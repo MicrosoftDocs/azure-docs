@@ -210,24 +210,12 @@ Create a managed image from a generalized OS VHD in a storage account. You need 
 1.  Create some variables.
 
     ```azurepowershell-interactive
-	$vmName = "myVM"
 	$rgName = "myResourceGroup"
 	$location = "EastUS"
 	$imageName = "myImage"
 	$osVhdUri = "https://mystorageaccount.blob.core.windows.net/vhdcontainer/vhdfilename.vhd"
     ```
-2. Stop/deallocate the VM.
-
-    ```azurepowershell-interactive
-	Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
-	```
-	
-3. Mark the VM as generalized.
-
-    ```azurepowershell-interactive
-	Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized	
-	```
-4.  Create the image by using your generalized OS VHD.
+2.  Create the image by using your generalized OS VHD.
 
     ```azurepowershell-interactive
 	$imageConfig = New-AzImageConfig -Location $location
