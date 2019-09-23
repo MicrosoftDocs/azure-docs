@@ -23,7 +23,7 @@ Get-AzDeletedWebApp -Name <your_deleted_app>
 
 The detailed information includes:
 
-- **DeletedSiteId**: Unique identifier for the app, this is used for scenarios where multiple apps with the same name have been deleted
+- **DeletedSiteId**: Unique identifier for the app, used for scenarios where multiple apps with the same name have been deleted
 - **SubscriptionID**: Subscription containing the deleted resource
 - **Location**: Location of the original app
 - **ResourceGroupName**: Name of the original resource group
@@ -33,7 +33,7 @@ The detailed information includes:
 
 ## Restore deleted app
 
-Once you have identified the deleted app, you can restore it using `Restore-AzDeletedWebApp`.
+Once the app you want to restore has been identified, you can restore it using `Restore-AzDeletedWebApp`.
 
 ```powershell
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
