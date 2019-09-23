@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
-ms.date: 07/22/2019
+ms.date: 09/23/2019
 #Customer intent: As a user of Azure HDInsight, I want to learn the means that Azure HDInsight offers to ensure security for the enterprise.
 ---
 
@@ -69,6 +69,7 @@ The following table provides links to resources for each type of security soluti
 | Data Access Security | Configure [access control lists ACLs](../../storage/blobs/data-lake-storage-access-control.md) for Azure Data Lake Storage Gen1 and Gen2  | Customer |
 |  | Enable the ["Secure transfer required"](../../storage/common/storage-require-secure-transfer.md) property on storage accounts. | Customer |
 |  | Configure [Azure Storage firewalls](../../storage/common/storage-network-security.md) and virtual networks | Customer |
+|  | Configure [Azure virtual network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) for Cosmos DB and [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
 |  | Ensure [TLS encryption](../../storage/common/storage-security-tls.md) is enabled for data in transit. | Customer |
 |  | Configure [customer-managed keys](../../storage/common/storage-encryption-keys-portal.md) for Azure Storage encryption | Customer |
 | Application and middleware security | Integrate with AAD-DS and [Configure Authentication](apache-domain-joined-configure-using-azure-adds.md) | Customer |
