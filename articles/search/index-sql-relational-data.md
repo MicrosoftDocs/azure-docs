@@ -147,11 +147,11 @@ Given the previous result set and the above index schema, you have all the requi
 
 ## Next steps
 
-You can use the [Import data wizard](search-import-data-portal.md) to index a rowset similar to the one described in this article. The wizard detects the embedded JSON collection in *Rooms* and infers an index schema that provides the appropriate complex type collection. 
+Using your own data set, you can use the [Import data wizard](search-import-data-portal.md) to create and load the index. The wizard detects the embedded JSON collection, such as the one contained in *Rooms*, and infers an index schema that includes a complex type collection. 
 
   ![Index inferred by Import data wizard](media/index-sql-relational-data/search-index-rooms-complex-collection.png "Index inferred by Import data wizard")
 
-To complete the import and create a usable index, you would have to select the key and set attributes yourself. If you are unfamiliar with this wizard, try the following quickstart to learn the basic steps.
+Try the following quickstart to learn the basic steps of the Import data wizard.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a search index using Azure portal](search-get-started-portal.md)
