@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 3 - Classification: Predict credit risk
 
-Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
+Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample pipeline a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
@@ -33,12 +33,11 @@ Here's the final pipeline graph for this sample:
 ## Related sample
 
 [Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced pipeline that solves the same problem as this project. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
+provides an advanced pipeline that solves the same problem as this sample. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
 
 ## Data
 
-The sample uses the German Credit Card dataset from the UC Irvine repository.
-The dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+The sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Pipeline summary
 

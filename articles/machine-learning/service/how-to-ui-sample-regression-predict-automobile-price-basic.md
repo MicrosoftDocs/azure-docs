@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 1 - Regression: Predict price
@@ -25,7 +25,7 @@ The fundamental steps of a training machine learning model are:
 1. Train the model
 1. Evaluate the model
 
-Here's the final, completed graph of the pipeline we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
+Here's the final, completed graph of the pipeline. This article provides the rationale for all the modules so you can make similar decisions on your own.
 
 ![Graph of the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 

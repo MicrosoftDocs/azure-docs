@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.date: 09/23/2019
 ---
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
@@ -34,7 +34,7 @@ Here's the completed graph for this pipeline:
 
 ## Data
 
-This sample uses the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Pipeline summary
 
@@ -142,7 +142,9 @@ To view the results of the pipeline, you can right-click the Visualize output of
 ![Visualize output](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 The first column lists the machine learning algorithm used to generate the model.
+
 The second column indicates the type of the training set.
+
 The third column contains the cost-sensitive accuracy value.
 
 From these results, you can see that the best accuracy is provided by the model that was created with **Two-Class Support Vector Machine** and trained on the replicated training dataset.
