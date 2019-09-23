@@ -6,18 +6,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-<<<<<<< HEAD
-author: sdgilley
-<<<<<<< HEAD
-ms.date: 05/15/2019
-=======
-ms.date: 10/14/2019
->>>>>>> 3abea546a8e... update AML name
-=======
+
 author: xiaoharper
-ms.date: 9/20/2019
->>>>>>> 6f533b80e57... update date
+ms.author: zhanxia
+ms.date: 9/23/2019
 # As a data scientist, I want to understand the big picture about how the visual interface for Azure Machine Learning works.
 ---
 
