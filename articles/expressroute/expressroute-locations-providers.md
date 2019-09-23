@@ -5,7 +5,7 @@ services: expressroute
 author: cherylmc
 
 ms.service: expressroute
-ms.workload: infrastructure-services
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: cherylmc
 ---
