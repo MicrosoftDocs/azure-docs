@@ -217,7 +217,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | CRM Online |12076:5040 |
 | Azure Global Services* | 12076:5050 |
 | Azure Active Directory |12076:5060 |
-| Other Office 365 Online services | 12076:5100 |
+| Other Office 365 Online services** | 12076:5100 |
 
 *Azure Global Services includes only Azure DevOps at this time.
 ** Authorization required from Microsoft, refer [Configure route filters for Microsoft Peering](how-to-routefilter-portal.md) 
