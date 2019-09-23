@@ -140,7 +140,7 @@ Provide an exhaustive set of all certificates issued in the past 12 months.
 
 ### Document the standard operating procedure for securely deleting cryptographic keys
 
-During the lifetime of a CA, key deletion might happen only rarely. This is why no user has Key Vault Certificate Delete right assigned, and why there are no APIs exposed to delete an Issuer CA certificate. The manual standard operating procedure for securely deleting certification authority cryptographic keys is only available by directly accessing the Key Vault in the Azure portal. You can also delete the certificate group in Key Vault. To ensure immediate deletion, disable the 
+During the lifetime of a CA, key deletion might happen only rarely. This is why no user has Key Vault Certificate Delete right assigned, and why there are no APIs exposed to delete an Issuer CA certificate. The manual standard operating procedure for securely deleting certification authority cryptographic keys is only available by directly accessing Key Vault in the Azure portal. You can also delete the certificate group in Key Vault. To ensure immediate deletion, disable the 
 [Key Vault soft delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) functionality.
 
 ## Certificates
