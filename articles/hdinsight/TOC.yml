@@ -217,6 +217,8 @@
         href: ./hdinsight-release-notes.md    
       - name: HDInsight 3.6 full release notes
         href: ./hdinsight-release-notes-archive.md 
+    - name: FAQ
+      href: ./hdinsight-faq.md
     - name: Migrate to granular role-based access for cluster configurations
       href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
