@@ -85,7 +85,8 @@ Machine learning pipelines optimize your workflow with the following key feature
 | Unattended runs | Schedule steps to run in parallel or in sequence in a reliable and unattended manner. Perfect for long running tasks such as data preparation or long running training jobs. |
 | Heterogenous compute | Use multiple ML pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations. |
 | Reusability | Create ML pipeline templates for specific scenarios, such as training or batch scoring. Publish the pipelines as a REST endpoint and trigger via REST calls. |
-| Tracking and versioning | ML pipelines can explicitly name and version your data sources, inputs, and outputs. You can also manage scripts and data separately for increased productivity. |
+| Tracking and versioning | ML pipelines can explicitly name and version your data sources, inputs, and outputs. |
+| Modularity | Implement your workflow as a series of steps that can be maintained separately for increased productivity. |
 | Collaboration | ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps. |
 
 > [!TIP]
