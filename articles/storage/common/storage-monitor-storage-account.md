@@ -1,5 +1,5 @@
 ---
-title: How to monitor an Azure Storage account | Microsoft Docs
+title: How to monitor an Azure Storage account in the Azure portal | Microsoft Docs
 description: Learn how to monitor a storage account in Azure by using the Azure portal.
 author: normesta
 ms.service: storage
