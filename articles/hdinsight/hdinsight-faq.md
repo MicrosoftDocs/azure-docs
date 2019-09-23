@@ -2,7 +2,7 @@
 title: Azure HDInsight - Frequently asked questions
 description: Provides an overview of Azure HDInsight
 author: Ramakoni1
-ms.author: Ramakoni1
+ms.author: ramakoni
 ms.reviewer: v-miegge
 ms.service: hdinsight
 ms.custom: hdinsightactive
