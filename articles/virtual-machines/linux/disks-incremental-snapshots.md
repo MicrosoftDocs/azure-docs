@@ -1,6 +1,6 @@
 ---
 title: Incremental snapshots (preview) for managed disks | Microsoft Docs
-description: Learn about incremental snapshots (preview) for managed disks, including how to create them using PowerShell and ARM.
+description: Learn about incremental snapshots (preview) for managed disks, including how to create them using PowerShell and Azure Resource Manager.
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
