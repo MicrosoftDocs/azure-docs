@@ -12,7 +12,7 @@ ms.author: emalani
 
 # Mobile Application Development in Microsoft
 
-Building a mobile app development strategy to drive new business opportunities or to empower productive employees means many decisions. Decision makers, development teams, and the IT department needs to build a solid strategy to:
+Decision makers, development teams, and the IT department needs to build a solid mobile app developement strategy to:
 - target the types of apps that matches their business objective, such as B2E, Business to Business (B2B), or B2C.
 - decide whether to invest for and build apps for iOS, Android, or Windows with single-platform languages or to take a cross-platform approach.
 - deliver back-end services that can scale.

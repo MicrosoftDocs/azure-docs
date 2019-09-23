@@ -27,8 +27,7 @@ Designed by Google and the most popular OS in the world, apps built on Android c
 
 - **Programming Language** - Java, Kotlin 
 - **Toolkit** - Android Studio and Android Developer Tools 
-
-**SDK** - Android SDK
+- **SDK** - Android SDK
 
 ### 3. **Windows**
 - **Programming Language** - C#
