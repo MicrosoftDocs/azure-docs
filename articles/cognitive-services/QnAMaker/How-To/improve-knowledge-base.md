@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/11/2019
 ms.author: diberry
 ---
 
@@ -67,6 +67,9 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 1. Find the QnA Maker service then toggle **Active Learning**. 
 
     [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > The exact version on the preceding image is shown as an example only. Your version may be different. 
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 

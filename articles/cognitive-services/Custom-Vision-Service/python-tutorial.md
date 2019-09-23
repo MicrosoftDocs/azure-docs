@@ -21,6 +21,7 @@ This article provides information and sample code to help you get started using 
 
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
+- [!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Install the Custom Vision SDK
 

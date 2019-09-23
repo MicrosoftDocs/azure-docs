@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -31,6 +31,7 @@ This file system connector is supported for the following activities:
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, this file system connector supports:
 
@@ -97,12 +98,12 @@ The following properties are supported for file system linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text, Avro and binary format**, refer to [Parquet, delimited text, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, Avro and binary format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
 
-To copy data to and from **Parquet, delimited text, Avro or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for file system under `location` settings in format-based dataset:
+To copy data to and from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for file system under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -141,7 +142,7 @@ To copy data to and from **Parquet, delimited text, Avro or binary format**, ref
 
 ### Other format dataset
 
-To copy data to and from file system in **ORC/JSON format**, the following properties are supported:
+To copy data to and from file system in **ORC format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -195,12 +196,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### File system as source
 
-- To copy from **Parquet, delimited text, Avro and binary format**, refer to [Parquet, delimited text, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC/JSON format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
 
-#### <a name="format-based-source"></a> Parquet, delimited text, Avro and binary format source
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
 
-To copy data from **Parquet, delimited text, Avro or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for file system under `storeSettings` settings in format-based copy source:
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for file system under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -258,7 +259,7 @@ To copy data from **Parquet, delimited text, Avro or binary format**, refer to [
 
 #### Other format source
 
-To copy data from file system in **ORC/JSON format**, the following properties are supported in the copy activity **source** section:
+To copy data from file system in **ORC format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -300,12 +301,12 @@ To copy data from file system in **ORC/JSON format**, the following properties a
 
 ### File system as sink
 
-- To copy to **Parquet, delimited text, Avro or binary format**, refer to [Parquet, delimited text, Avro and binary format sink](#format-based-sink) section.
-- To copy to other formats like **ORC/JSON format**, refer to [Other format sink](#other-format-sink) section.
+- To copy to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format sink](#format-based-sink) section.
+- To copy to other formats like **ORC format**, refer to [Other format sink](#other-format-sink) section.
 
-#### <a name="format-based-sink"></a> Parquet, delimited text, Avro and binary format sink
+#### <a name="format-based-sink"></a> Parquet, delimited text, JSON, Avro and binary format sink
 
-To copy data in **Parquet, delimited text, Avro or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for file system under `storeSettings` settings in format-based copy sink:
+To copy data in **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for file system under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -353,7 +354,7 @@ To copy data in **Parquet, delimited text, Avro or binary format**, refer to [Pa
 
 #### Other format sink
 
-To copy data to file system in **ORC/JSON format**, the following properties are supported in the **sink** section:
+To copy data to file system in **ORC format**, the following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -416,6 +417,18 @@ This section describes the resulting behavior of the Copy operation for differen
 | false |preserveHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
 | false |flattenHierarchy | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;auto-generated name for File2<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
 | false |mergeFiles | Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File2<br/>&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File3<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File5 | The target folder Folder1 is created with the following structure<br/><br/>Folder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;File1 + File2 contents are merged into one file with auto-generated file name. auto-generated name for File1<br/><br/>Subfolder1 with File3, File4, and File5 are not picked up. |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

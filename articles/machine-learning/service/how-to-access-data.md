@@ -1,7 +1,7 @@
 ---
 title: Access data in Azure storage services
-titleSuffix: Azure Machine Learning service
-description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -230,7 +230,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Access data during scoring
 
-The Azure Machine Learning service provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
+Azure Machine Learning provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |

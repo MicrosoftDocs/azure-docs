@@ -11,11 +11,11 @@ ms.date: 08/21/2019
 ms.author: dapine
 ---
 
-## Key Phrase Extraction container docker examples
+### Key Phrase Extraction container docker examples
 
 The following docker examples are for the Key Phrase Extraction container.
 
-### Basic example 
+#### Basic example 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -25,7 +25,7 @@ Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} 
   ```
 
-### Logging example 
+#### Logging example 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \

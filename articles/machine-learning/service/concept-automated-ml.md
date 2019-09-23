@@ -1,7 +1,7 @@
 ---
 title: What is automated ML / automl
-titleSuffix: Azure Machine Learning service
-description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -34,7 +34,7 @@ Data scientists, analysts and developers across industries can use automated ML 
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
+Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
@@ -42,13 +42,13 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or [with the SDK](how-to-configure-auto-train.md).
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure portal](how-to-create-portal-experiments.md), [the workspace landing page (preview)](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
 
 1. **Submit the training run.**
 
   ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
+During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -96,7 +96,12 @@ Building forecasts is an integral part of any business, whether it’s revenue, 
 
 An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md).
+Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -119,9 +124,9 @@ Automated ML is also available in other Microsoft solutions such as:
 
 |Integrations|Description|
 |------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (Preview).|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (preview).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (Preview).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (preview).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Create new machine learning models over your data in SQL Server 2019 big data clusters.|
 
 ## Next steps
@@ -131,7 +136,7 @@ See examples and learn how to build models using automated machine learning:
 + Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure portal interface, [use these steps](how-to-create-portal-experiments.md).
+  + In Azure portal interface or  the workspace landing page (preview), [use these steps](how-to-create-portal-experiments.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).
