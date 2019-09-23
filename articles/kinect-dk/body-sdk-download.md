@@ -11,7 +11,7 @@ keywords: azure, kinect, sdk, download update, latest, available, install, body,
 
 # Download Azure Kinect Body Tracking SDK
 
-This document provides links to install each version of the Azure Kinect Body Tracking SDK. 
+This document provides links to install each version of the Azure Kinect Body Tracking SDK.
 
 ## Azure Kinect Body Tracking SDK contents
 
@@ -23,6 +23,7 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
+0.9.3 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100307) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.3)
 0.9.2 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100128) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.2)
 0.9.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100063) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.1)
 0.9.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=58402) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.0)
@@ -46,6 +47,13 @@ If the command succeeds, the SDK is ready for use.
 > When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.2". You will find the samples referenced in articles in this path.
 
 ## Change log
+
+### v0.9.3
+* [Feature] Publish a new DNN model dnn_model_2_0.onnx, which largely improves the robustness of the body tracking.
+* [Feature] Disable the temporal smoothing by default. The tracked joints will be more responsive.
+* [Feature] Improve the accuracy of the body index map.
+* [Bug Fix] Fix bug that the sensor orientation setting is not effective.
+* [Bug Fix] Change the body_index_map type from K4A_IMAGE_FORMAT_CUSTOM to K4A_IMAGE_FORMAT_CUSTOM8.
 
 ### v0.9.2
 * [Breaking Change] Update to depend on the latest Azure Kinect Sensor SDK 1.2.0.

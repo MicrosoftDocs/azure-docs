@@ -79,7 +79,7 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
 
 > [!Important]
-> Each Key Vault must have a unique name. The following example creates a Key Vault named *myKV*, but you must name yours something different and use that name throughout this quickstart.
+> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
 
 ```azurecli
 az group create --name "myResourceGroup" -l "EastUS"
