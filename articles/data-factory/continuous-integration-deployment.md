@@ -10,7 +10,7 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 08/14/2019
 ---
 
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
