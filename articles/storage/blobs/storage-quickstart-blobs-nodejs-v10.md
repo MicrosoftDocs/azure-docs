@@ -223,16 +223,12 @@ await showContainerNames(serviceURL, aborter);
 The *showContainerNames* function uses the *listContainersSegment* method to request batches of container names from the storage account.
 
 ```javascript
-async function showContainerNames(aborter, serviceURL)
-{
+async function showContainerNames(aborter, serviceURL) {
     let marker = undefined;
-
-    do
-    {
+    do {
         const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
         marker = listContainersResponse.nextMarker;
-        for(let container of listContainersResponse.containerItems)
-        {
+        for(let container of listContainersResponse.containerItems) {
             console.log(` - ${ container.name }`);
         }
     } while (marker);
@@ -298,8 +294,7 @@ console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 The *uploadStream* function calls *uploadStreamToBlockBlob* to upload the stream to the storage container.
 
 ```javascript
-async function uploadStream(aborter, containerURL, filePath)
-{
+async function uploadStream(aborter, containerURL, filePath) {
     filePath = path.resolve(filePath);
 
     const fileName = path.basename(filePath).replace('.md', '-stream.md');
@@ -337,16 +332,13 @@ await showBlobNames(aborter, containerURL);
 The function *showBlobNames* calls *listBlobFlatSegment* to request batches of blobs from the container.
 
 ```javascript
-async function showBlobNames(aborter, containerURL)
-{
+async function showBlobNames(aborter, containerURL) {
     let marker = undefined;
 
-    do
-    {
+    do {
         const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
         marker = listBlobsResponse.nextMarker;
-        for (const blob of listBlobsResponse.segment.blobItems)
-        {
+        for (const blob of listBlobsResponse.segment.blobItems) {
             console.log(` - ${ blob.name }`);
         }
     } while (marker);
