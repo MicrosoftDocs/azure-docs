@@ -45,4 +45,4 @@ The inputs for this command are:
 - **Name**: Name for the app, this should be globally unique.
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
-By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only resotre content, you use the `-RestoreContentOnly` flag with this commandlet.
+By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
