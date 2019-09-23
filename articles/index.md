@@ -6342,18 +6342,18 @@ featureFlags:
                         <a href="#windowsvirtualdesktop">Windows Virtual Desktop</a>
                         <ul id="windowsvirtualdesktop" class="cardsA">
                             <li>
-                                <a href="/azure/app-service-web">
+                                <a href="/azure/virtual-desktop">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/app-service-web.svg" alt="" />
+                                                        <img src="media/windows-virtual-desktop.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>App Service - Web Apps</h3>
-                                                    <p>Quickly create and deploy mission critical Web apps at scale</p>
+                                                    <h3>Windows Virtual Desktop</h3>
+                                                    <p>Deliver a virtual desktop experience to any device at cloud scale</p>
                                                 </div>
                                             </div>
                                         </div>
