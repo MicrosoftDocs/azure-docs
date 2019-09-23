@@ -97,7 +97,7 @@ The Project Acoustics Unreal plug-in requires additional behavior exposed from t
 
     ![Acoustics mode full in Unreal](media/acoustics-mode-full.png)
 
-1. Confirm that the Python plug-in for Unreal is enabled. This is necessary for the editor integration to function correctly.
+1. Confirm that the Python plug-in for Unreal is enabled so that editor integration functions correctly.
 
     ![The Python extensions in the Unreal editor enabled](media/ensure-python.png)
 
@@ -125,7 +125,7 @@ The Project Acoustics Unreal plug-in will look for the associated mixer plug-in 
 #### Actor-mixer hierarchy setup
 For performance reasons, Project Acoustics applies audio digital signal processing to all sources simultaneously. So, the plug-in must operate as a mixer plug-in. Wwise requires mixer plug-ins to be on the output bus, although the output bus usually carries the dry output signal. Project Acoustics requires that the dry signal is routed through aux buses, while the wet signal is carried on the `Project Acoustics Bus`. The following process supports gradual migration to this signal flow.
 
-Say you have an existing project with an actor-mixer hierarchy that contains *footsteps*, *weapons*, and others at the top level. Each has a corresponding output bus for its dry mix. Let's say you want to migrate footsteps to use acoustics. First, create a corresponding aux bus to carry the dry submix that's a child of the footsteps output bus. For instance, we used a "Dry" prefix in the following image to organize these, although the exact name isn't important. Any meters or effects that you had on the footsteps bus will still function as before.
+Say you have an existing project with an actor-mixer hierarchy that contains *footsteps*, *weapons*, and others at the top level. Each has a corresponding output bus for its dry mix. Let's say you want to migrate footsteps to use acoustics. First, create a corresponding aux bus to carry the dry submix that's a child of the footsteps output bus. For instance, we used a "Dry" prefix in the following image to organize the buses, although the exact name isn't important. Any meters or effects that you had on the footsteps bus will still function as before.
 
 ![Recommended Wwise dry mix setup](media/wwise-dry-mix-setup.png)
 
@@ -139,7 +139,7 @@ Project Acoustics only applies to sounds that have a 3D location in the world. F
 
 ![Recommended Wwise Actor positioning settings](media/wwise-positioning.png)
 
-You can't set the Output Bus to some other bus that mixes upstream into **Project Acoustics Bus**. Wwise imposes this requirement on mixer plug-ins.
+You can't set  **Output Bus** to some other bus that mixes upstream into *Project Acoustics Bus*. Wwise imposes this requirement on mixer plug-ins.
 
 If you want a child in the footsteps actor-mixer hierarchy to not use acoustics, you can use "override parent" on it to opt it out.
 
@@ -155,26 +155,26 @@ Project Acoustics includes an optional spatializer that supports both object-bas
 Unfortunately, other object-based spatializer plug-ins aren't currently supported. They're implemented as mixer plug-ins, and Wwise doesn't currently allow multiple mixer plug-ins to be assigned to a single actor-mixer.  
 
 ### Audio setup in Unreal
-1. First, you need to bake your game level to produce an acoustics asset, which will be placed in `Content\Acoustics`. Consult the [Unreal Bake Tutorial](unreal-baking.md). Some pre-baked levels are included in the sample package.
+1. First, you need to bake your game level to produce an acoustics asset, which will be placed in *Content\Acoustics*. Consult the [Unreal Bake Tutorial](unreal-baking.md). Some pre-baked levels are included in the sample package.
 
-1. Create an Acoustics Space actor in your scene. Only create one of these actors in a level, because it represents the acoustics for the whole level.
+1. Create an Acoustics space actor in your scene. Only create one of these actors in a level, because it represents the acoustics for the whole level.
 
     ![Creation of an Acoustics space actor in the Unreal editor](media/create-acoustics-space.png)
 
-1. Assign the baked acoustic data asset to the Acoustics Data slot on the Acoustics space actor. Your scene now has acoustics!
+1. Assign the baked acoustic data asset to the Acoustics data slot on the Acoustics space actor. Your scene now has acoustics!
 
     ![Acoustics asset assignment in the Unreal editor](media/acoustics-asset-assign.png)
 
 1. Add an empty actor. Configure it as follows.
 
-    ![The Unreal editor shows Acoustics Component usage in an empty actor](media/acoustics-component-usage.png)
+    ![The Unreal editor shows Acoustics component usage in an empty actor](media/acoustics-component-usage.png)
 
-   1. Add an Acoustics audio component to the actor. This component extends the Wwise audio component with functionality for Project Acoustics.
-   1. The **Play on Start** box is selected by default. This setting triggers an associated Wwise event at level startup.
-   1. Use the **Show Acoustics Parameters** checkbox to print on-screen debug information about the source.  
+   1. Add an Acoustics audio component to the actor. This component adds Project Acoustics functionality to the Wwise audio component.
+    a. The **Play on Start** box is selected by default. This setting triggers an associated Wwise event at level startup.
+    b. Use the **Show Acoustics Parameters** checkbox to print on-screen debug information about the source.  
     ![The Unreal editor Acoustics panel on sound source with debug values enabled](media/debug-values.png)
-   1. Assign a Wwise event per the usual Wwise workflow.
-   1. Make sure that **Use Spatial Audio** is turned off. If you use Project Acoustics for a particular audio component, you can't simultaneously use Wwise's Spatial Audio engine for acoustics.
+    a. Assign a Wwise event per the usual Wwise workflow.
+    b. Make sure that **Use Spatial Audio** is turned off. If you use Project Acoustics for a particular audio component, you can't simultaneously use Wwise's Spatial Audio engine for acoustics.
 
 You're all set. Move around the scene and explore the acoustic effects!
 
