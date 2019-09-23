@@ -11,7 +11,7 @@ manager: carmonm
 # Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample
 
 The following article details how the Azure Blueprints SWIFT CSP-CSCF v2020 blueprint sample maps to
-the SWIFT CSP-CSCF v2020 controls. For more information about the controls, see [SWIFT CSP-CSCF v2020](https://https://www.swift.com/myswift/customer-security-programme-csp).
+the SWIFT CSP-CSCF v2020 controls. For more information about the controls, see [SWIFT CSP-CSCF v2020](https://www.swift.com/myswift/customer-security-programme-csp).
 
 The following mappings are to the **SWIFT CSP-CSCF v2020** controls. Use the navigation on the
 right to jump directly to a specific control mapping. Many of the mapped controls are implemented
