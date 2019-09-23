@@ -62,6 +62,7 @@ The following table displays roles and allowed actions in Azure Sentinel. An X i
 | Azure Sentinel contributor | -- | X | X | X |
 | Azure Sentinel contributor + Logic App contributor | X | X | X | X |
 
+
 > [!NOTE]
 > - We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Azure Sentinel contributor role only to users who need to create rules or dashboards.
 > - We recommend that you set permissions for Azure Sentinel in the resource group scope, so the user can have access to all Azure Sentinel workspaces in the same resource group.
