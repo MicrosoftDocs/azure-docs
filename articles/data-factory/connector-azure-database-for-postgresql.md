@@ -26,7 +26,7 @@ This connector is specialized for [Azure Database for PostgreSQL service](../pos
 
 This Azure Database for PostgreSQL connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Azure Database for PostgreSQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for PostgreSQL. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.

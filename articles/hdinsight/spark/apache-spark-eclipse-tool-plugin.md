@@ -2,12 +2,12 @@
 title: 'Azure Toolkit for Eclipse: Create Scala applications for HDInsight Spark '
 description: Use HDInsight Tools in Azure Toolkit for Eclipse to develop Spark applications written in Scala and submit them to an HDInsight Spark cluster, directly from the Eclipse IDE.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.author: hrasheed
 ---
 
 # Use Azure Toolkit for Eclipse to create Apache Spark applications for an HDInsight cluster
@@ -45,11 +45,12 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 1. Start the Eclipse IDE and open Azure Explorer. On the **Window** menu, select **Show View**, and then select **Other**. In the dialog box that opens, expand **Azure**, select **Azure Explorer**, and then select **OK**.
 
-   ![Show View dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+   ![Apache Spark Eclispse show view](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer1.png)
+
 1. Right-click the **Azure** node, and then select **Sign in**.
 1. In the **Azure Sign In** dialog box, choose the authentication method, select **Sign in**, and enter your Azure credentials.
 
-   ![Azure Sign In dialog box](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
+   ![Apache Spark Eclispse Azure Sign](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer2.png)
 
 1. After you're signed in, the **Select Subscriptions** dialog box lists all the Azure subscriptions associated with the credentials. Click **Select** to close the dialog box.
 
@@ -178,7 +179,7 @@ You can perform various operations by using HDInsight Tools, including accessing
 
    * Hover on the job graph. It displays basic info about the running job. Select the job graph, and you can see the stages and info that every job generates.
 
-     ![Job stage details](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
+     ![Apache Spark job graph stage info](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
 
    * Select the **Log** tab to view frequently used logs, including **Driver Stderr**, **Driver Stdout**, and **Directory Info**.
 
@@ -233,7 +234,7 @@ To resolve this error, you need [download the executable](https://public-repo-1.
    * In the left pane, select **HDInsight**.
    * In the right pane, select **Spark on HDInsight Local Run Sample (Scala)**.
 
-   ![New Project dialog box](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
+   ![New project select a wizard dialog](./media/apache-spark-eclipse-tool-plugin/hdi-spark-app-local-run.png)
 
 1. To provide the project details, follow steps 3 through 6 from the earlier section [Setup a Spark Scala project for an HDInsight Spark cluster](#set-up-a-spark-scala-project-for-an-hdinsight-spark-cluster).
 
