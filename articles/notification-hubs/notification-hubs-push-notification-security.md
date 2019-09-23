@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.editor: jwargo
+ms.editor: jowargo
 ---
 
 # Notification Hubs security
