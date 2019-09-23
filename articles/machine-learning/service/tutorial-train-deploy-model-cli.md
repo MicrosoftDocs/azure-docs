@@ -62,7 +62,7 @@ The training script uses the diabetes dataset provided with scikit-learn to trai
 The `model-deployment` directory contains the following files, which are used to deploy the trained model as a web service:
 
 * `aciDeploymentConfig.yml`: A __deployment configuration__ file. This file defines the hosting environment needed for the model.
-* `inferenceConfig.yml`: A __inference configuration__ file. This file defines the software environment used by the service to score data with the model.
+* `inferenceConfig.yml`: An inference configuration__ file. This file defines the software environment used by the service to score data with the model.
 * `score.py`: A python script that accepts incoming data, scores it using the model, and then returns a response.
 * `scoring-env.yml`: The conda dependencies needed to run the model and `score.py` script.
 
@@ -123,7 +123,7 @@ For more information on working with resource groups, see [az group](https://doc
 
 ## Create a workspace
 
-To create a new workspace use the following command. Replace `<workspace-name>` with the name you want to use for this workspace. Replace `<resource-group-name>` with the name of the resource group:
+To create a new workspace, use the following command. Replace `<workspace-name>` with the name you want to use for this workspace. Replace `<resource-group-name>` with the name of the resource group:
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -194,7 +194,7 @@ The output of this command is similar to the following JSON:
 }
 ```
 
-This command creates a new compute target named `cpu`, with a maximum of 4 nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
+This command creates a new compute target named `cpu`, with a maximum of four nodes. The VM size selected provides a VM with a GPU resource. For information on the VM size, see [VM types and sizes].
 
 > [!IMPORTANT]
 > The name of the compute target (`cpu` in this case), is important; it is referenced by the `.azureml/sklearn.runconfig` file used in the next section.
@@ -243,7 +243,7 @@ To register the model directly from the stored version in your experiment, use t
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/ridge_0.95.pkl" -t registeredmodel.json
 ```
 
-This command registers the `outputs/ridge_0.95.pkl` file created by the training run as a new model registration named `mymodel`. The `--assets-path` references a path in an experiment. In this case, the experiment and run information is loaded from the `runoutput.json` file created by the training command. The `-t registeredmodel.json` creates a JSON file that references the new registered model created by this command, and is used by other CLI commands that work with registered models.
+This command registers the `outputs/ridge_0.95.pkl` file created by the training run as a new model registration named `mymodel`. The `--assets-path` references a path in an experiment. In this case, the experiment and run information are loaded from the `runoutput.json` file created by the training command. The `-t registeredmodel.json` creates a JSON file that references the new registered model created by this command, and is used by other CLI commands that work with registered models.
 
 The output of this command is similar to the following JSON:
 
@@ -265,7 +265,7 @@ The output of this command is similar to the following JSON:
 
 ### Model versioning
 
-Note the version number returned for the model. This is incremented each time you register a new model with this name. For example, you can download the model and register it from a local file by using the following commands:
+Note the version number returned for the model. The version is incremented each time you register a new model with this name. For example, you can download the model and register it from a local file by using the following commands:
 
 ```azurecli-interactive
 az ml model download -i "mymodel:1" -t .
@@ -276,18 +276,18 @@ The first command downloads the registered model to the current directory. The f
 
 ## Deploy the model
 
-To deploy a model, change directories to the `model-deployment` directory and then use the following command.:
+To deploy a model, change directories to the `model-deployment` directory and then use the following command:
 
 ```azurecli-interactive
 cd ~/mlops/model-deployment
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
-You may receive the message "Failed to create Docker client". If so, this is not a problem. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
+You may receive the message "Failed to create Docker client". You can ignore this message. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
-The `inferenceConfig.yml` file provides information on how to perform inference,such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#prepare-to-deploy).
+The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#prepare-to-deploy).
 
 The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
