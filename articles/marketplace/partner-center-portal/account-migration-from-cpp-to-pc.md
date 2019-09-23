@@ -15,10 +15,10 @@ If you have an existing Cloud Partner Portal (CPP) account, your account setting
 
 ## Account migration process
 
-If you are a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You may belong to one of the following two cases:
+If you're a user with the Owner role in CPP for a given account, a yellow banner is shown on your Publisher Profile page. You may belong to one of the following two cases:
 
-- Your account has already been migrated, and you are ready to manage your Account Settings in Partner Center.
-- You need to take further actions to complete your account migration to Partner Center.
+- Your account has already been migrated, and you're ready to manage your Account Settings in Partner Center.
+- Your account has not been migrated to Partner Center and you need to take further action.
 
 ### Your account has been migrated to Partner Center
 
@@ -26,7 +26,7 @@ For all accounts that have completed migration from the CPP to Partner Center, a
 
 ### You have not yet migrated your account to Partner Center
 
-Click on the banner to initiate your account migration process. You are expected to enter the following items:
+Click on the banner to start your account migration process. You're expected to enter the following items:
 
 1. Work email address: <br> <br> In most cases, sign in with the email address that you use to sign into CPP. In certain cases, a different email address must be used:
 
@@ -55,13 +55,13 @@ For specific information on what needs to be done by **October 15, 2019** for yo
 > [!NOTE]
 > This does not apply to Dynamics 365 Business Central offers.  
 
-1. If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated. If you see a profile screen with your MPN ID, you're ready to proceed. If not, you must start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
-2. Go to the [Commercial Marketplace overview page in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). If you see "Commercial Marketplace" in the left navigation pane, you are enrolled and should proceed to the next step. If not, [enroll in the commercial marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) now.
-3. Confirm your offers are in AppSource by [searching for your offers](https://appsource.microsoft.com/). If your offers are already in AppSource, proceed to the next step. For any offer not in AppSource, create a [new Dynamics 365 Customer Engagement offer](create-new-customer-engagement-offer.md) or a [new Dynamics 365 Operations offer](create-new-operations-offer.md).
+1. If your MPN membership account was originally created in Partner Membership Center (PMC), sign in to [Partner Center](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) to confirm that your account has been migrated. If you see a profile screen with your MPN ID, you're ready to continue. If not, you need to start your account migration by following the prompts in the [Partner Membership Center](https://partners.microsoft.com/partnerprogram/Welcome.aspx). If you need help, visit [support](https://partner.microsoft.com/support?issueid=100-0077).
+2. Go to the [Commercial Marketplace overview page in Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). If you see "Commercial Marketplace" in the left navigation pane, you're enrolled and should continue to the next step. If not, [enroll in the commercial marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) now.
+3. Confirm your offers are in AppSource by [searching for your offers](https://appsource.microsoft.com/). If your offers are already in AppSource, continue to the next step. For any offer not in AppSource, create a [new Dynamics 365 Customer Engagement offer](create-new-customer-engagement-offer.md) or a [new Dynamics 365 Operations offer](create-new-operations-offer.md).
 4. On Partner Center's [Agreements page](https://partner.microsoft.com/dashboard/account/agreements), make sure you’ve reviewed and accepted the **Business Applications ISV Addendum**.
 5. In Partner Center's [Account settings](https://partner.microsoft.com/dashboard/account/v3/accountsettings/billingprofile), make sure your billing information is complete.
 6. Submit each new and existing offer for certification and publication, even if your offers were previously certified.
-    * Complete the information screens, including providing your app for certification, as well as marketing information. Select **Submit** (top right corner of the screen) by **October 15, 2019**. These steps must be completed to avoid impacting availability of the offer.
+    * Complete the information screens, including providing your app for certification, as well as marketing information. Select **Submit** (top-right corner of the screen) by **October 15, 2019**. These steps must be completed to avoid impacting availability of the offer.
     * If eligible, you may request to participate in the premium tier during this process.
     * Certification or recertification requires that your app supports the latest version of our Business Applications Platform.
     * Once your app has been approved, you'll receive an email to return to the offer and select “go live” to enable the offer to go live on Microsoft AppSource.
