@@ -57,10 +57,11 @@ npm start
 The output from the app will be similar to the following example:
 
 ```bash
+Container "demo" is created
 Containers:
  - container-one
  - container-two
-Container "demo" is created
+ - demo
 Blob "quickstart.txt" is uploaded
 Local file "./readme.md" is uploaded
 Blobs in "demo" container:
@@ -73,7 +74,7 @@ Container "demo" is deleted
 Done
 ```
 
-If you're using a new storage account for this quickstart, then you may not see container names listed under the label "*Containers*".
+If you're using a new storage account for this quickstart, then you may only see the *demo* container listed under the label "*Containers:*".
 
 ## Understanding the code
 
@@ -196,6 +197,17 @@ https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 
 As with the container, the block blob doesn't exist yet. The *blockBlobURL* variable is used later to create the blob by uploading content.
 
+### Create a container
+
+To create a container, the *ContainerURL*'s *create* method is used.
+
+```javascript
+await containerURL.create(aborter);
+console.log(`Container: "${containerName}" is created`);
+```
+
+As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container.
+
 ### Using the Aborter class
 
 Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
@@ -237,17 +249,6 @@ async function showContainerNames(aborter, serviceURL) {
 ```
 
 When the response is returned, then the *containerItems* are iterated to log the name to the console. 
-
-### Create a container
-
-To create a container, the *ContainerURL*'s *create* method is used.
-
-```javascript
-await containerURL.create(aborter);
-console.log(`Container: "${containerName}" is created`);
-```
-
-As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container.
 
 ### Upload text
 
