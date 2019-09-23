@@ -1,6 +1,6 @@
 ---
-title: About user interface customization in Azure Active Directory B2C | Microsoft Docs
-description: Learn about how to customize the user interface for your applications that use Azure Active Directory B2C.
+title: Customize the user interface in user flows in Azure Active Directory B2C
+description: Learn how to customize the user interface for your applications that use Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -8,24 +8,42 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
-# About user interface customization in Azure Active Directory B2C
+# Customize the user flow user interface in Azure Active Directory B2C
 
-The ability for you to brand and customize the user interface (UI) that Azure Active Directory B2C (Azure AD B2C) serves to your applications is important for providing a seamless experience to your customer. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the UI of your applications.
+Branding and customizing the user interface that Azure Active Directory B2C (Azure AD B2C) shows to your customers helps provide a seamless user experience in your applications. These experiences include sign-up, sign-in, profile editing, and password resetting. This article provides information to help you customize the user interface (UI) of your user flows.
 
-Depending on your needs when it comes to these experiences, you customize the UI of your application in different ways. For example:
+## Customization in different scenarios
 
-- If you're using [user flows](active-directory-b2c-reference-policies.md) to provide sign-up or sign-in, password reset, or profile-editing experiences in your application, you use the [Azure portal to customize the UI](tutorial-customize-ui.md).
-- If you’re using a v2 user flow, you can use a [page layout template](#page-layout-templates) to change the look of your user flow pages without further customization. For example, you can apply an Ocean Blue or Slate Gray theme to all pages in your user flow.
-- If you're providing sign-in only, its accompanying password reset page, and verification emails, you use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
-- If customers try to edit their profile before they sign in, they are redirected to a page that you customize using the same steps that are used for customizing the Azure AD sign-in page.
-- If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, you use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
-- If you need to provide dynamic content based on a customer’s decision, you use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
-- You can enable JavaScript client-side code in your Azure AD B2C [user flows](user-flow-javascript-overview.md) or [custom policies](page-layout.md).
+There are several ways to customize the UI of your application, each of which are appropriate for different scenarios.
+
+### User flows
+
+If you use user flows, you can change the look of your user flow pages by using built-in [page layout templates](#page-layout-templates), or by using your own HTML and CSS.
+
+You use the [Azure portal](tutorial-customize-ui.md) to configure the UI customization for user flows.
+
+### Custom policies
+
+If you're using [custom policies](active-directory-b2c-overview-custom.md) to provide sign-up or sign-in, password reset, or profile-editing in your application, use [policy files to customize the UI](active-directory-b2c-ui-customization-custom.md).
+
+If you need to provide dynamic content based on a customer's decision, use [custom policies that can change page content](active-directory-b2c-ui-customization-custom-dynamic.md) depending on a parameter that's sent in a query string. For example, the background image on the Azure AD B2C sign-up or sign-in page changes, based on a parameter that you pass from your web or mobile application.
+
+### JavaScript
+
+You can enable JavaScript client-side code in both [user flows](user-flow-javascript-overview.md) and [custom policies](page-layout.md).
+
+### Sign-in only UI customization
+
+If you're providing sign-in only, along with its accompanying password reset page and verification emails, use the same customization steps that are used for an [Azure AD sign-in page](../active-directory/fundamentals/customize-branding.md).
+
+If customers try to edit their profile before signing in, they're redirected to a page that you customize by using the same steps that are used for customizing the Azure AD sign-in page.
+
+## How UI customization works
 
 Azure AD B2C runs code in your customer's browser and uses a modern approach called [Cross-Origin Resource Sharing (CORS)](https://www.w3.org/TR/cors/). At run-time, content is loaded from a URL that you specify in a user flow or policy. You specify different URLs for different pages. After content is loaded from your URL, it's merged with an HTML fragment inserted from Azure AD B2C, and then displayed to your customer.
 
@@ -34,15 +52,15 @@ When using your own HTML and CSS files to customize the UI, review the following
 - Azure AD B2C merges HTML content into your pages. Don't copy and try to change the default content that Azure AD B2C provides. It's best to build your HTML content from scratch and use the default content as reference.
 - JavaScript can now be included in your custom content.
 - Supported browser versions are:
-    - Internet Explorer 11, 10 and Microsoft Edge
-    - Limited support for Internet Explorer 9 and 8
-    - Google Chrome 42.0 and above
-    - Mozilla Firefox 38.0 and above
+  - Internet Explorer 11, 10 and Microsoft Edge
+  - Limited support for Internet Explorer 9 and 8
+  - Google Chrome 42.0 and above
+  - Mozilla Firefox 38.0 and above
 - Make sure that you don't include form tags in your HTML because it interferes with the POST operations generated by the injected HTML from Azure AD B2C.
 
 ## Page layout templates
 
-For v2 user flows, you can choose a pre-designed template that gives your default pages a better look and serves as a good basis for your own customization.
+User flows provide three built-in templates you can choose from that give your user experience pages a professional look. The can also and serve as starting point for your own customization.
 
 In the left menu, under **Customize**, select **Page layouts**. Then select **Template (Preview)**.
 
@@ -112,7 +130,7 @@ The following table lists the HTML fragments that Azure AD B2C merges into the `
 | ------------- | ------------------- |
 | Identity provider selection | Contains a list of buttons for identity providers that the customer can choose from during sign-up or sign-in. These buttons include social identity providers such as Facebook, Google, or local accounts (based on email address or user name). |
 | Local account sign-up | Contains a form for local account sign-up based on an email address or a user name. The form can contain different input controls such as text input box, password entry box, radio button, single-select drop-down boxes, and multi-select check boxes. |
-| Social account sign-up | May appear when signing up using an existing account from a social identity provider such as Facebook or Google. It’s used when additional information must be collected from the customer using a sign-up form. |
+| Social account sign-up | May appear when signing up using an existing account from a social identity provider such as Facebook or Google. It's used when additional information must be collected from the customer using a sign-up form. |
 | Unified sign-up or sign-in | Handles both sign-up and sign-in of customers who can use social identity providers such as Facebook, Google, or local accounts. |
 | Multi-factor authentication | Customers can verify their phone numbers (using text or voice) during sign-up or sign-in. |
 | Error | Provides error information to the customer. |
