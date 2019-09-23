@@ -18,7 +18,7 @@ To get the collection of deleted apps you can use `Get-AzDeletedWebApp`.
 For details on a specific deleted app you can use:
 
 ```powershell
-Get-AzDeletedWebApp -Name <your_delted_app>
+Get-AzDeletedWebApp -Name <your_deleted_app>
 ```
 
 The detailed information includes:
