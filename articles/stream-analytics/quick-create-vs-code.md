@@ -130,7 +130,7 @@ Before defining the Stream Analytics job, you should prepare the data, which is 
    HAVING Temperature > 27
    ```
 ## Test with sample data
-before running the query in the cloud, you can test your query with local sample data to verify the query logic.
+Before running the query in the cloud, you can test your query with local sample data to verify the query logic.
 
 Follow the instructions in [Test with sample data](vscode-local-run.md) for more details. 
 
@@ -150,7 +150,7 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
 
    ![Select an ASA script in Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
-4. Enter the input file name as **IotHub.json**.
+4. Enter the input file name as **IotHub**.
 
 5. Edit **IoTHub.json** with the following values. Keep default values for fields not mentioned below. You can use the CodeLens to help you enter a string, select from a dropdown list, or change the text directly in the file.
 
@@ -158,8 +158,11 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
    |-------|---------------|-----------|
    |Name|Input|Enter a name to identify the job’s input.|
    |IotHubNamespace|MyASAIoTHub|Choose or enter the name of your IoT Hub. IoT Hub names are automatically detected if they are created in the same subscription.|
-   |EndPoint|Messaging| |
    |SharedAccessPolicyName|iothubowner| |
+
+   ![Configure input in Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
 
 ## Define an output
 
@@ -171,9 +174,9 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
 
 3. Choose the ASA query script that will use this input.
 
-4. Enter the output file name as **BlobStorage.json**.
+4. Enter the output file name as **BlobStorage**.
 
-5. Edit **BlobStorage.json** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you enter a string or select from a dropdown list.
+5. Edit **BlobStorage** with the following values. Keep default values for fields not mentioned below. Use the CodeLens to help you select from a dropdown list or enter a string. 
 
    |Setting|Suggested value|Description|
    |-------|---------------|-----------|
@@ -182,7 +185,7 @@ Follow the instructions in [Test with sample data](vscode-local-run.md) for more
    |Container|container1|Select the existing container that you created in your storage account.|
    |Path Pattern|output|Enter the name of a file path to be created within the container.|
 
-
+ ![Configure output in Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## Compile the script
 
@@ -216,7 +219,10 @@ There are two ways to trigger script compilation:
 
 5. Select **Submit to Azure**. The logs can be found in the output window. 
 
-6. When your job is created, you can see it in the Stream Analytics Explorer.
+6. When your job is created, you can see it in the **Stream Analytics Explorer**.
+
+![List job in Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
+
 
 ## Run the IoT simulator
 
