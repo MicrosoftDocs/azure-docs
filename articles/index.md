@@ -6339,8 +6339,8 @@ featureFlags:
                         </ul>
                     </li>
                     <li>
-                        <a href="#web">Windows Virtual Desktop</a>
-                        <ul id="web" class="cardsA">
+                        <a href="#windowsvirtualdesktop">Windows Virtual Desktop</a>
+                        <ul id="windowsvirtualdesktop" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-web">
                                     <div class="cardSize">
