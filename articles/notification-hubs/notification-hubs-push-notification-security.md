@@ -3,17 +3,18 @@ title: Notification Hubs Security
 description: This topic explains security for Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
+author: sethmanheim
+manager: femila
 
-ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
+ms.assetid: 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/20/2019
-ms.author: jowargo
+ms.date: 09/23/2019
+ms.author: sethm
+ms.editor: jwargo
 ---
 
 # Notification Hubs security
