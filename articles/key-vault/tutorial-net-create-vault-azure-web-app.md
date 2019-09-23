@@ -147,7 +147,7 @@ You can also watch this video:
         public AboutModel()
         {
             AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-            KeyVaultClient keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+            keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
         }
         
         public string Message { get; set; }
