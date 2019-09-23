@@ -11,7 +11,7 @@ ms.subservice: ""
 ---
 # Stream Azure monitoring data to an event hub for consumption by an external tool
 
-This article walks through setting up different tiers of data from your Azure environment to be sent to a single Event Hubs namespace or event hub, where it can be collected by an external tool.
+This article walks through setting up different tiers of data from your Azure environment to be sent to a single Event Hubs namespace or event hub, where it can be collected by an external tool. This is frequently used to integrate Azure logs into a Security Information and Event Management (SIEM) system by SIEM providers. 
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
