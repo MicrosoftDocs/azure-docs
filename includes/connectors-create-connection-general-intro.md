@@ -1,19 +1,13 @@
 ---
- title: include file
- description: include file
- services: logic-apps
- author: ecfan
- ms.service: logic-apps
- ms.topic: include
- ms.date: 05/14/2018
- ms.author: estfan
- ms.custom: include file
+title: include file
+description: include file
+services: logic-apps
+ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+ms.topic: include
+ms.date: 09/18/2019
+ms.custom: include file
 ---
 
-Before your logic app can access any service, you must create 
-a *connection* between your logic app and that service. 
-If you didn't previously create this connection, 
-you're prompted for connection information when you 
-add a trigger or action for that service to your logic app. 
-The Logic Apps Designer provides an easy way for you to 
-create this connection directly from your logic app.
+When you use a trigger or action that accesses a service for the first time, the Logic Apps Designer prompts you to create a *connection* to that service. You can then provide the necessary connection information directly from your logic app inside the designer.
