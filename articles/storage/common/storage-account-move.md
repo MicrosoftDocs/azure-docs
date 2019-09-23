@@ -29,6 +29,7 @@ In this tutorial, you will:
 ## Prerequisites
 
 - Ensure that the services and features that your account uses are supported in the target region.
+
 - For preview features, ensure that your subscription is whitelisted for the target region.
 
 ## Prepare
@@ -226,7 +227,7 @@ Here's some ways to move your data over.
 
 :heavy_check_mark: **Azure Storage Explorer**
 
-  It's easy-to-use, and suitable for small data sets. Drag containers and file shares, and then paste them into the target account.
+  It's easy-to-use, and suitable for small data sets. You can drag containers and file shares, and then paste them into the target account.
 
   See [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
 
@@ -241,9 +242,9 @@ Here's some ways to move your data over.
   Use this tool only if you need functionality that isn't supported in the current release of AzCopy. For example, in the current release of AzCopy, you can't copy blobs between accounts that have a hierarchical namespace. Also AzCopy doesn't preserve file access control lists or file timestamps (For example: create and modified time stamps). 
 
   See these links:
-  - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage);
-  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage);
-  - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage);
+  - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
+  - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
 
 ---
 
