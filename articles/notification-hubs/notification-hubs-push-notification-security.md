@@ -5,6 +5,7 @@ services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
 manager: femila
+editor: jwargo
 
 ms.assetid: 
 ms.service: notification-hubs
@@ -14,7 +15,8 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.editor: jowargo
+ms.reviewer: jowargo
+ms.lastreviewed: 09/23/2019
 ---
 
 # Notification Hubs security
