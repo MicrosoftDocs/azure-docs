@@ -26045,6 +26045,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/connect-fusion.md",
+      "redirect_url": "/azure/sentinel/fusion",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security-center/security-center-ata-integration.md",
       "redirect_url": "/azure/security-center/security-center-partner-integration",
       "redirect_document_id": false
