@@ -39,7 +39,7 @@ Before you can work with an Azure file share, you have to create an Azure storag
 Next, you create a file share.
 
 1. When the Azure storage account deployment is complete, select **Go to resource**.
-1. Select **File shares** from the storage account pane.
+1. Select **Files** from the storage account pane.
 
     ![Select Files](./media/storage-files-quick-create-use-windows/click-files.png)
 
