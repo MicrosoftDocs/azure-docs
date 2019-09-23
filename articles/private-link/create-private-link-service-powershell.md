@@ -129,6 +129,7 @@ $vnetPE = New-AzVirtualNetwork `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
 ```
+
 ### Create a private endpoint
 Create a private endpoint for consuming private link service created above in your virtual network:
  
@@ -138,13 +139,12 @@ $plsConnection= New-AzPrivateLinkServiceConnection `
 -Name plsConnection `
 -PrivateLinkServiceId  $privateLinkService.Id  
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peName -Location $location -Subnet $vnetPE.subnets[0] -PrivateLinkServiceConnection $plsConnection -ByManualRequest 
-
  ```
+ 
 ### Get private endpoint
 Get the IP address of the private endpoint with `Get-AzPrivateEndpoint` as follows:
 
 ```azurepowershell
-
 # Get Private Endpoint and its IP Address 
 $pe =  Get-AzPrivateEndpoint `
 -Name $peName `
