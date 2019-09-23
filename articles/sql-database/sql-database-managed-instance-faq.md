@@ -30,8 +30,7 @@ For available service tiers and their characteristics, see [technical difference
 
 ## Where can I find known issues and bugs?
 
-For bugs and known issues, see [behavioral changes](sql-database-managed-instance-transact-sql-information.md#Changes) and [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
-
+For bugs and known issues see [known issues](sql-database-managed-instance-transact-sql-information.md#Issues).
 
 ## Can a managed instance have the same name as on-premises SQL Server?
 
@@ -119,9 +118,9 @@ To mitigate any networking risks, customers are recommended to apply a set of se
 
 Managed instance case studies:
 
-- [Komatsu](http://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](http://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](http://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
+- [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
+- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
   
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Database managed instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

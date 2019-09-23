@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in Azure HDInsight '
+title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in HDInsight'
 description: Tutorial - Connect Apache Spark in Azure HDInsight to Azure Event Hubs and process the streaming data.  
 ms.service: hdinsight
 author: hrasheed-msft
@@ -132,7 +132,7 @@ Create a Jupyter notebook, and name it **SendTweetsToEventHub**.
 
     ```
     %%configure
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0,org.twitter4j:twitter4j-core:4.0.6"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
 2. Edit the code below by replacing `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>`, and `<TOKEN SECRET>` with the appropriate values. Run the edited code to send tweets to your event hub:
@@ -214,7 +214,7 @@ Create another Jupyter notebook, and name it **ReadTweetsFromEventHub**.
 
     ```
     %%configure -f
-    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.2.0"}}
+    {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
 2. Edit the code below by replacing `<Event hub name>`, and `<Event hub namespace connection string>` with the appropriate values. Run the edited code to read tweets from your event hub:

@@ -44,7 +44,7 @@ To send data from Application Insights to certain regions, you'll need to overri
 </ApplicationInsights>
 ```
 
-### .NET Core
+### ASP.NET Core
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
@@ -61,15 +61,66 @@ The values for Live Metrics and the Profile Query Endpoint can only be set via c
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
-using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //Place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QuickPulse_Endpoint_Address");
 
-   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+   services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
 
-   services.AddSingleton<ITelemetryChannel>(new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+   services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
 
-    //place in ConfigureServices method. If present, place this prior to   services.AddApplicationInsightsTelemetry("instrumentation key");
+    //Place in the ConfigureServices method. Place this before services.AddApplicationInsightsTelemetry("instrumentation key"); if it's present
+```
+
+### Azure Functions v2.x
+
+Install the following packages in your function project:
+
+- Microsoft.ApplicationInsights version 2.10.0
+- Microsoft.ApplicationInsights.PerfCounterCollector version 2.10.0
+- Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel version 2.10.0
+
+Then, add (or modify) the startup code for your function application:
+
+```csharp
+[assembly: WebJobsStartup(typeof(Example.Startup))]
+namespace Example
+{
+  class Startup : FunctionsStartup
+  {
+      public override void Configure(IWebJobsBuilder builder)
+      {
+          var quickPulseFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryModule) && 
+                                               sd.ImplementationType == typeof(QuickPulseTelemetryModule));
+          if (quickPulseFactory != null)
+          {
+              builder.Services.Remove(quickPulseFactory);
+          }
+
+          var appIdFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(IApplicationIdProvider));
+          if (appIdFactory != null)
+          {
+              builder.Services.Remove(appIdFactory);
+          }
+
+          var channelFactory = builder.Services.FirstOrDefault(sd => sd.ServiceType == typeof(ITelemetryChannel));
+          if (channelFactory != null)
+          {
+              builder.Services.Remove(channelFactory);
+          }
+
+          builder.Services.AddSingleton<ITelemetryModule, QuickPulseTelemetryModule>(_ =>
+              new QuickPulseTelemetryModule
+              {
+                  QuickPulseServiceEndpoint = "QuickPulse_Endpoint_Address"
+              });
+
+          builder.Services.AddSingleton<IApplicationIdProvider, ApplicationInsightsApplicationIdProvider>(_ => new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "Profile_Query_Endpoint_address" });
+
+          builder.Services.AddSingleton<ITelemetryChannel>(_ => new ServerTelemetryChannel() { EndpointAddress = "TelemetryChannel_Endpoint_Address" });
+      }
+  }
+}
 ```
 
 ### Java

@@ -79,8 +79,6 @@ Azure Backup currently supports configuring scheduled once-daily backups of Azur
 ### How many On-Demand backups can I take per file share? <br/>
 You can have up to 200 Snapshots for a file share at any point in time. The limit includes snapshots taken by Azure Backup as defined by your policy. If your backups start failing after reaching the limit, delete On-Demand restore points for successful future backups.
 
-### After enabling Virtual Networks on my Storage Account, the Backup of file shares in the account started failing. Why?
-Backup for Azure file shares doesn't support Storage Accounts that have Virtual Networks enabled. Disable Virtual Networks in Storage Accounts to enable successful backups.
 
 ## Restore
 

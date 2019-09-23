@@ -4,7 +4,7 @@ description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli

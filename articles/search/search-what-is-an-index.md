@@ -2,7 +2,7 @@
 title: Create an index definition and concepts - Azure Search
 description: Introduction to index terms and concepts in Azure Search, including component parts and physical structure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search

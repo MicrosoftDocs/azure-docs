@@ -165,12 +165,12 @@ objects:
     name: prom
     namespace: ${PROMETHEUS_PROJECT}
 ```
-To apply template to all the projects that you want allow service discovery, run the following commands:
+To apply the template to all projects from which you want to allow service discovery, run the following commands:
 ```
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project1
 oc process -f prometheus-sdrole.yml | oc apply -f - -n app-project2
+oc process -f prometheus-sdrole.yml | oc apply -f - -n prometheus-project
 ```
-To have Prometheus to gather metrics from itself, apply the permissions in prometheus-project.
 
 > [!NOTE]
 > To verify that Role and RoleBinding were created correctly, run the `oc get role` and `oc get rolebinding` commands.

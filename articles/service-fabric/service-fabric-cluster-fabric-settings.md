@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: atsenthi
 
 ---
@@ -232,6 +232,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UserMaxStandByReplicaCount |Int, default is 1 |Dynamic|The default max number of StandBy replicas that the system keeps for user services. |
 |UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 \* 30 |Dynamic|Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement replicas (which would require a copy of the state). |
 |UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 \* 24 \* 7 |Dynamic|Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForInBuildReplica safety check timeout. This configuration defines the timeout for the WaitForInBuildReplica safety check for node deactivations and upgrades. This safety check fails if any of the below are true: - A primary is being created and the ft target replica set size > 1 - If the current replica is in build and is persisted - If this is the current primary and a new replica is being built This safety check will be skipped if the timeout expires even if one of the previous conditions is still true. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForReconfiguration safety check timeout. This configuration defines the timeout of the WaitForReconfiguration safety check for node deactivations and upgrades. This safety check fails if the replica being checked is part of a partition that is under reconfiguration. The safety check will be skipped after this timeout expires even if the partition is still under reconfiguration.|
 
 ## FaultAnalysisService
 
@@ -305,7 +307,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, default is 500 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, default is 100 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
 
 ## HealthManager/ClusterHealthPolicy
 
@@ -643,6 +645,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
 |AADLoginEndpoint|string, default is ""|Static|AAD Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, default is FALSE|Dynamic|Flag indicating whether to accept expired cluster certificates declared by thumbprint Applies only to cluster certificates; so as to keep the cluster alive. |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It is a comma-separated name list. |
 |AADTokenEndpointFormat|string, default is ""|Static|AAD Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |

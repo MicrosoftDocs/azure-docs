@@ -1,22 +1,24 @@
 ---
-title: Deploy Azure Blockchain Workbench
-description: How to deploy Azure Blockchain Workbench
+title: Deploy Azure Blockchain Workbench Preview
+description: How to deploy Azure Blockchain Workbench Preview
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/06/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
 #customer intent: As a developer, I want to deploy Azure Blockchain Workbench so that I can create a blockchain apps.
 ---
-# Deploy Azure Blockchain Workbench
+# Deploy Azure Blockchain Workbench Preview
 
-Azure Blockchain Workbench is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
+Azure Blockchain Workbench Preview is deployed using a solution template in the Azure Marketplace. The template simplifies the deployment of components needed to create blockchain applications. Once deployed, Blockchain Workbench provides access to client apps to create and manage users and blockchain applications.
 
 For more information about the components of Blockchain Workbench, see [Azure Blockchain Workbench architecture](architecture.md).
+
+[!INCLUDE [Preview note](./includes/preview.md)]
 
 ## Prepare for deployment
 
@@ -31,7 +33,7 @@ Blockchain Workbench allows you to deploy a blockchain ledger along with a set o
 * Azure Storage account (Standard LRS)
 * Virtual machine scale set with capacity of 1
 * Virtual Network resource group (with Load Balancer, Network Security Group, Public IP Address, Virtual Network)
-* Optional: Azure Blockchain Service (Basic B0 default)
+* Azure Blockchain Service. If you are using a previous Blockchain Workbench deployment, consider redeploying Azure Blockchain Workbench to use Azure Blockchain Service.
 
 The following is an example deployment created in **myblockchain** resource group.
 

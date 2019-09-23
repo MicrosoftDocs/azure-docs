@@ -33,7 +33,7 @@ To sign up for a 30-day free trial:
 
    ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
 
-1. Under **Speech Services**, select the **Get API Key** button.
+1. Under **Speech Services**, select **Get API Key**.
 
    ![API key](media/index/try-speech-api-free-trial2.png)
 
@@ -43,7 +43,7 @@ To sign up for a 30-day free trial:
 
 1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account.
 
-    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
+    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, select **Sign in with Microsoft** and then, when asked to sign in, select **Create one.** Follow the steps to create and verify your new Microsoft account.
 
 After you sign in to Try Cognitive Services, your free trial begins. The displayed webpage lists all the Azure Cognitive Services services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech Services**. You can use either key in your applications.
 
@@ -54,9 +54,9 @@ After you sign in to Try Cognitive Services, your free trial begins. The display
 
 New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech Services or to begin application development.
 
-To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), click **Start Free,** and create a new Azure account using your Microsoft account.
+To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start Free,** and create a new Azure account using your Microsoft account.
 
-You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
+You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, select **Sign in with Microsoft** and then, when asked to sign in, select **Create one.** Follow the steps to create and verify your new Microsoft account.
 
 After creating your Azure account, follow the steps in the next section to start a subscription to the Speech Services.
 
@@ -85,7 +85,7 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
    * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
    * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
    * Choose the [region](regions.md) where the resource will be used.
-   * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
+   * Choose either a free or paid pricing tier. Select **View full pricing details** for complete information about pricing and usage quotas for each tier.
    * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
    * Select **Create.**
@@ -96,7 +96,7 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
 
      ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
 
-1. Under **Quickstart**, click the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
+1. Under **Quickstart**, select the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decomissioned automatically.

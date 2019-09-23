@@ -1,7 +1,7 @@
 ---
 title: Run batch predictions on large data with pipelines
-titleSuffix: Azure Machine Learning service
-description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 07/12/2019
 ---
 # Run batch predictions on large data sets with Azure Machine Learning pipelines
 
-In this article, you learn how to make predictions on large quantities of data asynchronously using the ML pipelines with Azure Machine Learning service.
+In this article, you learn how to make predictions on large quantities of data asynchronously using the ML pipelines with Azure Machine Learning.
 
 Batch prediction (or batch scoring) provides cost-effective inference, with unparalleled throughput for asynchronous applications. Batch prediction pipelines can scale to perform inference on terabytes of production data. Batch prediction is optimized for high throughput, fire-and-forget predictions for a large collection of data.
 
@@ -24,7 +24,7 @@ In the following steps, you create a [machine learning pipeline](concept-ml-pipe
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
+- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 - Configure your development environment to install the Azure Machine Learning SDK. For more information, see [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md).
 
@@ -110,7 +110,7 @@ output_dir = PipelineData(name="scores",
 
 ### Set up compute target
 
-In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. For example, you can create an `Azure Machine Learning compute`.
+In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. For example, you can create an Azure Machine Learning compute with the [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) class.
 
 ```python
 from azureml.core.compute import AmlCompute

@@ -6,7 +6,6 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.subservice: cognitive-search
-ms.devlang: NA
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
@@ -128,7 +127,7 @@ The data or documents you want to enrich must exist in an Azure data source supp
 
 * [Azure Blob storage](search-howto-indexing-azure-blob-storage.md)
 
-[Azure Table storage](search-howto-indexing-azure-tables.md) can be used for outbound data in a knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
+* [Azure Table storage](search-howto-indexing-azure-tables.md)
 
 ### 2 - Azure Search service
 
