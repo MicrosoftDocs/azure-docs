@@ -42,13 +42,13 @@ The Azure AD Access Panel benefits businesses in the following ways:
 
 **Provides intuitive user experience**: The Access Panel provides you with a single platform for all of your Azure single sign-on (SSO)-connected applications. You have a unified portal to find existing settings and new capabilities, like group management and self-service password reset, as they're added. The intuitive experience allows users to return to work faster and be more productive, while reducing their frustration.
 
-**Increases productivity**: All user applications in the Access Panel have SSO enabled. Enabling SSO across enterprise applications and Office 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. The Access Panel uses self-service and dynamic membership and improves the overall security of your identity system by ensuring that the right people manage access to the applications. The Access Panel serves as a coherent landing page for you to quickly find resources and continue work tasks.
+**Increases productivity**: All user applications in the Access Panel have SSO enabled. Enabling SSO across enterprise applications and Office 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. The Access Panel uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. The Access Panel serves as a coherent landing page for you to quickly find resources and continue work tasks.
 
 **Manages cost**: Enabling the Access Panel with Azure AD can help with the divestment of on-premise infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
 
 **Increases flexibility and security**: The Access Panel gives you access to the security and flexibility that a cloud platform provides. Administrators can easily change settings to applications and resources and can accommodate new security requirements without affecting users.
 
-**Enables robust auditing and usage tracking**: Auditing and usage tracking for all end-user capabilities let you know when users are using their resources and ensures that you can assess security.
+**Enables robust auditing and usage tracking**: Auditing and usage tracking for all user capabilities let you know when users are using their resources and ensures that you can assess security.
 
 ### Licensing considerations
 
@@ -136,7 +136,7 @@ To use administrator consent, you must be a global administrator of the organiza
 
 * Registered in your organization, or
 
-* Registered in another Azure AD organization and previously consented by at least one end user.
+* Registered in another Azure AD organization and previously consented by at least one user.
 
 For more information, see [Configure the way end users consent to an application in Azure Active Directory](configure-user-consent.md).
 
@@ -168,10 +168,10 @@ Azure AD supports three different ways to enable [single sign-on in applications
 
 * **Password-based single sign-on** 
     * Enables secure application password storage and replay by using a web browser extension or mobile app. 
-    * Leverages the existing sign-in process provided by the application but enables an administrator to manage the passwords. User isn't required to know the password.
+    * Takes advantage of the existing sign-in process provided by the application but enables an administrator to manage the passwords. User isn't required to know the password.
 
 * **Existing single sign-on** 
-    * Enables Azure AD to leverage any existing single sign-on that's been configured for the application.
+    * Enables Azure AD to take advantage of any existing single sign-on that's been configured for the application.
     * Enables these applications to be linked to the Office 365 or Azure AD Access Panel portals. 
     * Enables additional reporting in Azure AD when the applications are launched there. 
     * Includes using Azure Application Proxy and the linked single sign-on mode.
@@ -186,9 +186,9 @@ For more information on how to deploy and configure your SaaS applications, see 
 
 #### Plan to deploy the My Apps browser extension
 
-When end users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing the Access Panel browser extension](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
+When users sign in to password-based SSO applications, they need to install and use the My Apps secure sign-in extension. The extension executes a script that transmits the password into the application’s sign-in form. Users are prompted to install the extension when they first launch the password-based SSO application. More information about the extension can found in this documentation on [installing the Access Panel browser extension](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav).
 
-If you must integrate password-based SSO applications,, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
+If you must integrate password-based SSO applications, you should define a mechanism to deploy the extension at scale with [supported browsers](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options include:
 
 * [Group Policy for Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
@@ -206,7 +206,7 @@ Here’s what the user will see when launching a password-based SSO application 
 
 #### Plan for mobile access
 
-A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the end user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser)
 
 ## Plan your My Apps Deployment
 
@@ -246,7 +246,7 @@ Approval workflows are available for explicit approval to access applications. U
 
 You can enable users to create and manage their own security groups or Office 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists.
 
-To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) for details on enabling these scenarios.
+To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management) for details on enabling these scenarios.
 
 ## Plan reporting and auditing
 
@@ -275,7 +275,7 @@ If during testing or deployment you want to add the groups but not yet allow the
 
 ### Deploy Microsoft Office 365 applications to My Apps
 
-For Office 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications associated with the license in their My Apps page and in the Office 365 app launcher.
+For Office 365 applications, users receive a copy of Office based on licenses assigned to them. A prerequisite for access to Office applications is for users to be assigned the correct licenses tied to the Office applications. When you assign a user a license, they'll automatically see the applications that are associated with the license in their My Apps page and in the Office 365 app launcher.
 
 If you want to hide a set of Office applications from users, there's an option to hide apps from the My Apps portal, while still allowing access from the Office 365 portal. Find these settings in the User settings portion of the application. Learn more: [Hide an application from user’s experience in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-hide-third-party-app).
 
