@@ -120,6 +120,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure HPC Cache
+    tocHref: /azure/hpc-cache/
+    topicHref: /azure/hpc-cache/
   - name: Azure Lighthouse
     tocHref: /azure/lighthouse/
     topicHref: /azure/lighthouse/
