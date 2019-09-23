@@ -18,7 +18,7 @@ These service tags are created and managed by the HDInsight service. You can't c
 
 The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall.
 
-This tag contains the IP addresses of health and management services for all of the public regions and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
+This tag contains the IP addresses of health and management services for all of the regions where HDInsight is available, and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
 ## HDInsight service tag option two
 
