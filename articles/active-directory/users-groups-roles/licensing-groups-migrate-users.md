@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/18/2019
+ms.date: 09/23/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: "seohack1;it-pro"
@@ -30,11 +30,11 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 1. You have existing automation (for example, PowerShell) managing license assignment and removal for users. Leave it running as is.
 
-2. Create a new licensing group (or decide which existing groups to use) and make sure that all required users are added as members.
+1. Create a new licensing group (or decide which existing groups to use) and make sure that all required users are added as members.
 
-3. Assign the required licenses to those groups; your goal should be to reflect the same licensing state your existing automation (for example, PowerShell) is applying to those users.
+1. Assign the required licenses to those groups; your goal should be to reflect the same licensing state your existing automation (for example, PowerShell) is applying to those users.
 
-4. Verify that licenses have been applied to all users in those groups. This application can be done by checking the processing state on each group and by checking Audit Logs.
+1. Verify that licenses have been applied to all users in those groups. This application can be done by checking the processing state on each group and by checking Audit Logs.
 
    - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
 
@@ -42,9 +42,9 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
    - When the same product license is assigned to the user both directly and through a group, only one license is consumed by the user. Hence no additional licenses are required to perform migration.
 
-5. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
+1. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
 
-6. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
+1. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
 
    You could leave the original direct assignments on users, but when the users leave their licensed groups they will still retain the original license, which is possibly not what you want.
 
@@ -56,25 +56,23 @@ Here is what the migration process could look like:
 
 1. Using the Azure portal, assign the EMS license to the **All users** group in Azure AD. Assign the E3 license to the **Finance department** group that contains all the required users.
 
-2. For each group, confirm that license assignment has completed for all users. Go to the blade for each group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
+1. For each group, confirm that license assignment has completed for all users. Go to the blade for each group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
 
    - Look for “Latest license changes have been applied to all users" to confirm processing has completed.
 
    - Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license SKUs that prevent them from inheriting group licenses?
 
-3. Spot check some users to verify that they have both the direct and group licenses applied. Go to the blade for a user, select **Licenses**, and examine the state of licenses.
+1. Spot check some users to verify that they have both the direct and group licenses applied. Go to the blade for a user, select **Licenses**, and examine the state of licenses.
 
    - This is the expected user state during migration:
 
       ![the expected user state during migration](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-   This confirms that the user has both direct and inherited licenses. We see that both **EMS** and **E3** are assigned.
+     This confirms that the user has both direct and inherited licenses. We see that both **EMS** and **E3** are assigned.
 
-   - Select each license to show details about the enabled services. This can be used to check if the direct and group licenses enable exactly the same service plans for the user.
+   - Select each license to show details about the enabled services. This can be used to check if the direct and group licenses enable exactly the same services for the user.
 
-      ![check service plans for the user](./media/licensing-groups-migrate-users/check-service-plans.png)
-
-4. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
+1. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
 
    ![confirm that direct licenses are removed](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
@@ -82,9 +80,9 @@ Here is what the migration process could look like:
 
 To learn more about other scenarios for license management through groups, read
 
-* [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
+- [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+- [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
+- [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
+- [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
+- [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
+- [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/19/2019
+ms.date: 09/23/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
@@ -25,16 +25,16 @@ Use the following information and examples to gain a more advanced understanding
 
 ## Usage location
 
-Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify in **User** &gt; **Profile** &gt; **Settings**.
+Some Microsoft services are not available in all locations. Before a license can be assigned to a user, the administrator has to specify the **Usage location** property on the user. In [the Azure portal](https://portal.azure.com), you can specify usage location in **User** &gt; **Profile** &gt; **Settings**.
 
-For group license assignment, any users without a usage location specified will inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user objects before adding users to groups with licenses.
+For group license assignment, any users without a usage location specified inherit the location of the directory. If you have users in multiple locations, make sure to reflect that correctly in your user resources before adding users to groups with licenses.
 
 > [!NOTE]
 > Group license assignment will never modify an existing usage location value on a user. We recommend that you always set usage location as part of your user creation flow in Azure AD (e.g. via AAD Connect configuration) - that will ensure the result of license assignment is always correct, and users do not receive services in locations that are not allowed.
 
 ## Use group-based licensing with dynamic groups
 
-You can use group-based licensing with any security group, which means it can be combined with Azure AD dynamic groups. Dynamic groups run rules against user object attributes to automatically add and remove users from groups.
+You can use group-based licensing with any security group, which means it can be combined with Azure AD dynamic groups. Dynamic groups run rules against user resource attributes to automatically add and remove users from groups.
 
 For example, you can create a dynamic group for some set of products you want to assign to users. Each group is populated by a rule adding users by their attributes, and each group is assigned the licenses that you want them to receive. You can assign the attribute on-premises and sync it with Azure AD, or you can manage the attribute directly in the cloud.
 
@@ -85,28 +85,21 @@ It is possible, however, to assign the same product license directly to the user
 
 Directly assigned licenses can be removed, and don’t affect inherited licenses. Consider the user who inherits an Office 365 Enterprise E3 license from a group.
 
-1. Initially, the user inherits the license only from the *E3 basic services* group, which enables four service plans, as shown:
+Initially, the user inherits the license only from the *E3 basic services* group, which enables four service plans.
 
-   ![Screenshot of E3 group enabled services](./media/licensing-group-advanced/e3-group-enabled-services.png)
+1. Select **Assign** to directly assign an E3 license to the user. In this case, you are going to disable all service plans except Yammer Enterprise.
 
-2. You can select **Assign** to directly assign an E3 license to the user. In this case, you are going to disable all service plans except Yammer Enterprise:
+    As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment.
 
-   ![Screenshot of how to assign a license directly to a user](./media/licensing-group-advanced/assign-license-to-user.png)
+1. When you use direct assignment, the following operations are allowed:
 
-3. As a result, the user still uses only one license of the E3 product. But the direct assignment enables the Yammer Enterprise service for that user only. You can see which services are enabled by the group membership versus the direct assignment:
-
-   ![Screenshot of inherited versus direct assignment](./media/licensing-group-advanced/direct-vs-inherited-assignment.png)
-
-4. When you use direct assignment, the following operations are allowed:
-
-   - Yammer Enterprise can be turned off on the user object directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
+   - Yammer Enterprise can be turned off on the user resource directly. The **On/Off** toggle in the illustration was enabled for this service, as opposed to the other service toggles. Because the service is enabled directly on the user, it can be modified.
    - Additional services can be enabled as well, as part of the directly assigned license.
    - The **Remove** button can be used to remove the direct license from the user. You can see that the user now only has the inherited group license and only the original services remain enabled:
 
-     ![Screenshot showing how to remove direct assignment](./media/licensing-group-advanced/remove-direct-license.png)
-
 ## Managing new services added to products
-When Microsoft adds a new service to a product, it will be enabled by default in all groups to which you have assigned the product license. Users in your tenant who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
+
+When Microsoft adds a new service to a product license plan, it is enabled by default in all groups to which you have assigned the product license. Users in your tenant who are subscribed to notifications about product changes will receive emails ahead of time notifying them about the upcoming service additions.
 
 As an administrator, you can review all groups affected by the change and take action, such as disabling the new service in each group. For example, if you created groups targeting only specific services for deployment, you can revisit those groups and make sure that any newly added services are disabled.
 
