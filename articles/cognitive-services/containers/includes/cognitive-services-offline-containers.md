@@ -13,15 +13,15 @@ ms.author: dapine
 
 Currently, most of the Cognitive Services container offerings are available as an offline container but not all.
 
-| Container Service | Available offline? |
-|-------------------|--------------------|
-| [Anomaly Detector][ad-containers] | ✔️ |
-| [Computer Vision][cv-containers] | ✔️ |
-| [Face][fa-containers] | ❌ |
-| [Form Recognizer][fr-containers] | ✔️ |
-| [Language Understanding (LUIS)][lu-containers] | ✔️ |
-| [Speech Service API][sp-containers] | ✔️ |
-| [Text Analytics][ta-containers] | ✔️ |
+| Service | Container(s) | Available offline? |
+|---------|-----|-------------------|
+| [Anomaly Detector][ad-containers] | Anomaly Detector | ✔️ |
+| [Computer Vision][cv-containers] | Read, Recognize Text | ✔️ |
+| [Face][fa-containers] | Face | ❌ |
+| [Form Recognizer][fr-containers] | Form Recognizer | ✔️ |
+| [Language Understanding (LUIS)][lu-containers] | LUIS | ✔️ |
+| [Speech Service API][sp-containers] | Speech-to-text and Text-to-speech | ✔️ |
+| [Text Analytics][ta-containers] | Key Phrase, Language Detection, and Sentiment Analysis | ✔️ |
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
