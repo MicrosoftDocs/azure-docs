@@ -47,7 +47,7 @@ When a script runs, it injects a recovery plan context to the runbook. The conte
 | VmMap |An array of all VMs in the group. |
 | VMMap key |A unique key (GUID) for each VM. |
 | SubscriptionId |The Azure subscription ID in which the VM was created. |
-| ResourceGroupName: Name of the resource group in which the VM is locatedVM.
+| ResourceGroupName | Name of the resource group in which the VM is located.
 | CloudServiceName |The Azure cloud service name under which the VM was created. |
 | RoleName |The name of the Azure VM. |
 | RecoveryPointId|The timestamp for the VM recovery. |
@@ -108,7 +108,7 @@ Aman Sharma's blog over at [Harvesting Clouds](http://harvestingclouds.com) has 
 
 1. In the vault, select **Recovery Plans (Site Recovery)**
 2. To create a recovery plan, click **+Recovery Plan**. [Learn more](/site-recovery-create-recovery-plans.md). If you already have a recovery plan, then select to open it.
-3. In the recovery plan page, click **Customize**
+3. In the recovery plan page, click **Customize**.
 
     ![Click the Customize button](media/site-recovery-runbook-automation-new/custom-rp.png)
 
@@ -182,7 +182,7 @@ In this example, a script takes the input of a Network Security Group (NSG) and 
 
 For each recovery plan, create independent variables so that you can reuse the script. Add a prefix by using the recovery plan name. 
 
-For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee)..
+For a complete, end-to-end script for this scenario, review [this script](https://gallery.technet.microsoft.com/Add-Public-IP-and-NSG-to-a6bb8fee).
 
 
 ### Use a complex variable to store more information
@@ -196,7 +196,7 @@ In some scenarios you might not be able to create separate variables for each re
 
 In the following example, we create a [complex variable](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) in the Azure Automation account.
 
-- We do this by specifying multiple values, using Azure PowerShell.
+We do this by specifying multiple values, using Azure PowerShell.
 
 1. In PowerShell, sign in to your Azure subscription:
 
