@@ -131,20 +131,20 @@ Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to
 
 ### Can I see EventCounters in Live Metrics?
 
-No. Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analytics to see the telemetry.
+Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analytics to see the telemetry.
 
 ### Which platforms can I see the default list of .NET Core 3.0 counters?
 
-EventCounter do not require any special permissions, and is supported in all platforms .NET Core 3.0 is supported. This includes:
+EventCounter don't require any special permissions, and is supported in all platforms .NET Core 3.0 is supported. This includes:
 * **Operating system**: Windows, Linux, or Mac.
 * **Hosting method**: In process or out of process.
 * **Deployment method**: Framework dependent or self-contained.
 * **Web server**: IIS (Internet Information Server) or Kestrel.
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
 
-### I have enabled Application Insights from Azure Web App Portal. But I cannot see EventCounters.?
+### I have enabled Application Insights from Azure Web App Portal. But I can't see EventCounters.?
 
- [Application Insights extension](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for Asp.Net Core does not yet support this feature. This documetn will be updated when this feature is supported.
+ [Application Insights extension](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for ASP.NET Core doesn't yet support this feature. This document will be updated when this feature is supported.
 
 ## <a name="next"></a>Next steps
 
