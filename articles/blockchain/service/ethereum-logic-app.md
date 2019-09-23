@@ -112,9 +112,9 @@ For example, the following steps generate a REST-based microservice logic app ba
     The logic app configuration and code files are generated in the **generatedLogicApp** directory.
 
 1. View the **generatedLogicApp/HelloBlockchain** directory. There is a logic app JSON file for each smart contract function, event, and property.
-1. Open the **generatedLogicApp/HelloBlockchain/Service/function.SendRequest.logicapp.json** file and copy the contents.
+1. Open the **generatedLogicApp/HelloBlockchain/Service/property.RequestMessage.logicapp.json** file and copy the contents.
 
-    ![JSON for SendRequest](./media/ethereum-logic-app/sendrequest.png)
+    ![JSON for RequestMessage property](./media/ethereum-logic-app/requestmessage.png)
 
 1. In your logic app, select **Logic app code view**. Replace the existing JSON with the generated logic app JSON.
 
@@ -138,7 +138,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     The cURL command returns a response from the logic app. In this case, the output from the **RequestMessage** smart contract function.
 
-    [screenshot]
+    ![RequestMessage property output](./media/ethereum-logic-app/curl.png)
 
 ## Create an API connection
 
