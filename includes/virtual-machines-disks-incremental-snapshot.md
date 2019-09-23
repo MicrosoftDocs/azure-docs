@@ -27,15 +27,6 @@ Incremental snapshots also offer a unique capability: They enable you to perform
 - Up to seven incremental snapshots per disk can be created every five minutes.
 - A total of 200 incremental snapshots can be created for a single disk.
 
-## CLI
-Get the SAS, then get the resource ID of the disk, then use the resource ID to create a incremental snapshot.
-
-```azurecli-interactive
-mySource = az disk show -g ramanlab -n ramandisk12 --query [id] -o tsv
-
-az snapshot create -g ramanlab -n isnapshot786 -l westcentralus --source mySource --incremental
-```
-
 ## PowerShell
 
 You can use Azure PowerShell to create an incremental snapshot. You can either use the cloud shell or install the latest version of PowerShell locally. You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
@@ -79,7 +70,7 @@ $incrementalSnapshots
 
 ## Resource Manager template
 
-Create an incremental snapshot for a managed disk by setting the apiVersion as **2019-03-01** and setting the incremental property to true as shown below. 
+You can also use Azure resource manager templates to create an incremental snapshot. You'll need to make sure the apiVersion is set to **2019-03-01** and that the incremental property is also set to true. The following snippit is an example of how to create an incremental snapshot with resource manager templates:
 
 ```json
 {
@@ -116,7 +107,3 @@ Create an incremental snapshot for a managed disk by setting the apiVersion as *
 ## Next steps
 
 If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please fill out our [survey](https://aka.ms/mdisnapshotpublicpreview).
-
-Now that you've created an incremental snapshot, you can use it to get the differences between the current and last snapshot.
-
-See our sample for details.
