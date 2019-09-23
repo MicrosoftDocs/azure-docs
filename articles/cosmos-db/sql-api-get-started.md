@@ -32,7 +32,7 @@ This tutorial covers:
 > * Creating a database and a container
 > * Adding items to the container
 > * Querying the container
-> * CRUD operations on the item
+> * Performing create, read, update, and delete (CRUD) operations on the item
 > * Deleting the database
 
 Don't have time? Don't worry! The complete solution is available on [GitHub](https://github.com/Azure-Samples/cosmos-dotnet-getting-started). Jump to the [Get the complete tutorial solution section](#GetSolution) for quick instructions.
@@ -61,7 +61,7 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 
     ![Configure your project](./media/sql-api-get-started/configure-cosmos-getting-started-2019.png)
 
-1. In the **Solution Explorer**, right-click your new console application, which is under your Visual Studio solution, and select **Manage NuGet Packages**
+1. In the **Solution Explorer**, right-click your new console application, which is under your Visual Studio solution, and select **Manage NuGet Packages**.
 1. In the **NuGet Package Manager**, select **Browse** and search for *Microsoft.Azure.Cosmos*. Choose **Microsoft.Azure.Cosmos** and select **Install**.
 
    ![Install NuGet for Azure Cosmos DB Client SDK](./media/sql-api-get-started/cosmos-getting-started-manage-nuget-2019.png)
@@ -119,7 +119,7 @@ Great! Now that we finished the setup, let's start writing some code. For the co
 
 1. In *Program.cs*, replace `<your endpoint URL>` with the value of **URI**. Replace `<your primary key>` with the value of **PRIMARY KEY**.
 
-1. Below the **Main** method, add a new asynchronous task called **GetStartedDemoAsync**, which will instantiate our new `CosmosClient`.
+1. Below the **Main** method, add a new asynchronous task called **GetStartedDemoAsync**, which instantiates our new `CosmosClient`.
 
     ```csharp
     public static async Task Main(string[] args)
@@ -139,7 +139,7 @@ Great! Now that we finished the setup, let's start writing some code. For the co
 
     We use **GetStartedDemoAsync** as the entry point that calls methods that operate on Azure Cosmos DB resources.
 
-1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
+1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method catches exceptions and writes them to the console.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
 
@@ -159,7 +159,7 @@ A database is the logical container of items partitioned across containers. Eith
 
     `CreateDatabaseAsync` creates a new database with ID `FamilyDatabase` if it doesn't already exist, that has the ID specified from the `databaseId` field.
 
-1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateDatabaseAsync** method you just added.
+1. Copy and paste the code below where you instantiate the CosmosClient to call the **CreateDatabaseAsync** method you just added.
 
     ```csharp
     public async Task GetStartedDemoAsync()
@@ -432,7 +432,7 @@ Congratulations! You've successfully deleted an Azure Cosmos database.
 
 Select F5 in Visual Studio to build and run the application in debug mode.
 
-You should see the output of your entire app in a console window. The output will show the results of the queries we added and should match the example text below.
+You should see the output of your entire app in a console window. The output shows the results of the queries we added. It should match the example text below.
 
 ```cmd
 Beginning operations...
