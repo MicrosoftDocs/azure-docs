@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: jimgries
-author: jimgries
+author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
 ---
