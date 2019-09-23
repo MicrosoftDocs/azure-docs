@@ -6,7 +6,7 @@ author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: alinast
 #Customer intent: As an Azure IoT developer, I want to walk through a sample application to learn how to analyze events from an Azure Digital Twins instance. 
 ---
@@ -129,7 +129,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. In the left pane of the [Azure portal](https://portal.azure.com), select **Create a resource**. 
 
-1. Search for and select a new **Time Series Insights** resource. Select **Create**.
+1. Search for and select a **Time Series Insights** General Availability (GA) resource. Select **Create**.
 
 1. Enter a **Name** for your Time Series Insights instance, and then select your **Subscription**. Select the **Resource group** that you used for your Digital Twins instance, and your **Location**. Select **Next: Event Source** button or the **Event Source** tab.
 
