@@ -15,8 +15,7 @@ ms.date: 09/12/2019
 
 In this tutorial, you use the machine learning extension for the Azure CLI to train, register, and deploy a model.
 
-> [!NOTE]
-> The scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with the Azure Machine Learning.
+The Python training scripts in this tutorial use [scikit-learn](https://scikit-learn.org/) to train a basic model. The focus of this tutorial is not on the scripts or the model, but the process of using the CLI to work with the Azure Machine Learning.
 
 Learn how to take the following actions:
 
@@ -31,9 +30,11 @@ Learn how to take the following actions:
 
 ## Prerequisites
 
-* An Azure subscription.
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* The Azure CLI.
+* To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+    If you use the [Azure Cloud Shell](https://azure.microsoft.com//features/cloud-shell/), the CLI is accessed through the browser and lives in the cloud.
 
 ## Download the example project
 
@@ -67,12 +68,9 @@ The `model-deployment` directory contains the following files, which are used to
 
 ## Connect to your Azure subscription
 
-> [!IMPORTANT]
-> If you are using the Azure Cloud Shell, you do not need to authenticate. The cloud shell is automatically authenticated using your currently selected subscription. For more information, see [Overview of Azure Cloud Shell](/azure/cloud-shell/overview).
-
 There are several ways that you can authenticate to your Azure subscription from the CLI. The most basic is to interactively authenticate using a browser. To authenticate interactively, open a command line or terminal and use the following command:
 
-```azurecli
+```azurecli-interactive
 az login
 ```
 
@@ -86,6 +84,12 @@ To install the machine learning extension, use the following command:
 
 ```azurecli-interactive
 az extension add -n azure-cli-ml
+```
+
+If you get a message that the extension is already installed, use the following command to update to the latest version:
+
+```azurecli-interactivee
+az extension update -n azure-cli-ml
 ```
 
 ## Create a resource group
@@ -284,11 +288,11 @@ The first command downloads the registered model to the current directory. The f
 To deploy a model, change directories to the `model-deployment` directory and then use the following command.:
 
 ```azurecli-interactive
+cd ~/mlops/model-deployment
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
-> [!IMPORTANT]
-> You may receive the message "Failed to create Docker client". If so, this is not a problem. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
+You may receive the message "Failed to create Docker client". If so, this is not a problem. The CLI can deploy a web service to a local Docker container and checks for Docker. In this case, we are not using a local deployment.
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
@@ -296,8 +300,7 @@ The `inferenceConfig.yml` file provides information on how to perform inference,
 
 The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
-> [!IMPORTANT]
-> It will take several minutes before the deployment process completes.
+It will take several minutes before the deployment process completes.
 
 > [!TIP]
 > In this example, Azure Container Instances is used. Deployments to ACI automatically create the needed ACI resource. If you were to instead deploy to Azure Kubernetes Service, you must create an AKS cluster ahead of time and specify it as part of the `az ml model deploy` command. For an example of deploying to AKS, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
@@ -332,7 +335,7 @@ This command returns the same JSON document, including the `scoringUri`.
 While you can create a client application to call the endpoint, the machine learning CLI provides a utility that can act as a test client. Use the following command to send test data to the service:
 
 ```azurecli-interactive
-az ml service run -n myservicee -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
+az ml service run -n myservice -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
 ```
 
 The response from the command is similar to `[4684.920839774082]`.
@@ -343,6 +346,28 @@ For information on creating a client application in several programming language
 
 > [!IMPORTANT]
 > The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
+
+### Delete deployed service
+
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the deployed service to reduce costs, use the following command:
+
+```azurecli-interactive
+az ml service delete -n myservice
+```
+
+This command returns a JSON document that contains the name of the deleted service. It may take several minutes before the service is deleted.
+
+### Delete the training compute
+
+If you plan on continuing to use the Azure Machine Learning workspace, but want to get rid of the `cpu` compute target created for training, use the following command:
+
+```azurecli-interactive
+az ml computetarget delete -n cpu
+```
+
+This command returns a JSON document that contains the ID of the deleted compute target. It may take several minutes before the compute target has been deleted.
+
+### Delete everything
 
 If you don't plan to use the resources you created, delete them so you don't incur additional charges.
 
