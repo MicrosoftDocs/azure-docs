@@ -83,16 +83,53 @@ landingContent:
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
   # Card
-  - title: Reference
+  - title: Reference - Metrics, Autoscale, Log Settings, Alerts
     linkLists: 
       - linkListType: reference
         links:
-          - text: CLI Reference
-            url: 
-          - text: PowerShell Reference
-            url: 
-          - text: REST API
-            url: 
+          - text: CLI Reference 
+            url:  /cli/azure/monitor?view=azure-cli-latest
+          - text: PowerShell
+            url: /powershell/module/az.operationalinsights
+          - text: REST API - Application Insights
+            url: /rest/api/
+
+          - text: Log Analytics - PowerShell
+            url: /powershell/module/az.operationalinsights
+          - text: REST API - Log Settings, Metrics, Alerts, Autoscale 
+            url: /rest/api/monitor
+          - text: PowerShell - Log Analytics
+            url: /powershell/module/az.operationalinsights
+          - text: REST API - Log Analytics
+            url: /rest/api/loganalytics
+
+  # Card
+  - title: Reference - Log Analytics
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: CLI Reference 
+            url:  /cli/azure/ext/log-analytics/monitor?view=azure-cli-latest      
+          - text: PowerShell
+            url: /powershell/module/az.operationalinsights
+          - text: REST API - Log Analytics
+            url: /rest/api/loganalytics
+
+# Card
+  - title: Reference - Application Insights
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: CLI Reference 
+            url:  /cli/azure/ext/application-insights/monitor?view=azure-cli-latest      
+          - text: PowerShell (older)
+            url: /powershell/module/azurerm.applicationinsights/?view=azurermps-6.13.0
+          - text: REST API  (which?)
+            url: https://dev.applicationinsights.io
+          - text: REST API  (which?)
+            url: /rest/api/application-insights/
+
+
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
