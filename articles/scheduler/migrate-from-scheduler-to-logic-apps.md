@@ -242,28 +242,10 @@ To learn more about exception handling, see
 <a name="retire-date"></a>
 
 **Q**: When is Azure Scheduler retiring? <br>
-**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. Here is more information about this process:
-
-* *September 30, 2019*
-
-  * Free SKU Scheduler job collection is disabled. Although existing jobs will stop running, you can still retrieve data for migration.
-
-  * New job collections are disabled in the Azure portal for all SKUs. Existing Standard, P10, and P20 resources continue to run. You can also still manage existing job collections.
-
-* *October 31, 2019*
-
-  * Scheduler is removed from the Azure portal.
-
-  * Existing Standard, P10, and P20 resources continue to run and are accessible by using the API and SDKs.
-
-  * For jobs that you don't want to continue running after Scheduler is removed from the portal, please [disable or delete your job collections](https://docs.microsoft.com/azure/scheduler/scheduler-get-started-portal#monitor-and-manage-jobs) before October 31, 2019.
-
-* *December 31, 2019*
-
-  * Scheduler is fully retired. *All jobs* stop running, and *all data* is deleted from the system.
+**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. For important steps to take before this date and a detailed timeline, see [Extending retirement date for Scheduler to December 31, 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). For general updates, see [Azure updates - Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
 **Q**: What happens to my job collections and jobs after the service retires? <br>
-**A**: All Scheduler job collections and jobs will stop running and be deleted from the system.
+**A**: All Scheduler job collections and jobs stop running and are deleted from the system.
 
 **Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
