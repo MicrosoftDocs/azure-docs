@@ -38,7 +38,7 @@ After you connect your data sources, choose from a gallery of expertly created d
 -  To enable Azure Sentinel, you need contributor permissions to the subscription in which the Azure Sentinel workspace resides. 
 - To use Azure Sentinel, you need either contributor or reader permissions on the resource group that the workspace belongs to.
 - Additional permissions may be needed to connect specific data sources.
-- Azure Sentinel is a paid service. For pricing information see 
+- Azure Sentinel is a paid service. For pricing information see [About Azure Sentinel](https://go.microsoft.com/fwlink/?linkid=2104058).
  
 ## Enable Azure Sentinel <a name="enable"></a>
 

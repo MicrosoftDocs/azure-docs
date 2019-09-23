@@ -17,7 +17,7 @@ ms.date: 09/23/2019
 ms.author: rkarlin
 
 ---
-# Tutorial: Detect threats out-of-the-box - Preview
+# Tutorial: Detect threats out-of-the-box
 
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ This following template types are available:
 
 ## Use out-of-the-box detections
 
-1. In order to use a built-in template, click on **Create rule** to create a new active rule based on that template.  
+1. In order to use a built-in template, click on **Create rule** to create a new active rule based on that template. Each entry has a list of required data sources that are automatically checked and this can result in **Create rule** being disabled.
   
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/use-built-in-template.png)
  
@@ -61,7 +61,5 @@ For more information on the fields in the wizard, see [Tutorial: Create custom a
 ## Next steps
 In this tutorial, you learned how to get started detecting threats using Azure Sentinel. 
 
-To learn how to automate your responses to threats, [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).
-> [!div class="nextstepaction"]
-> [Respond to threats](tutorial-respond-threats-playbook.md) to automate your responses to threats.
+To learn how to automate your responses to threats, [Set up automated threat responses in Azure Sentinel](tutorial-respond-threats-playbook.md).
 
