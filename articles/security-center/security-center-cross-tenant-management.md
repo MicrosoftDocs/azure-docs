@@ -3,10 +3,8 @@ title: Cross-tenant management in Azure Security Center | Microsoft Docs
 description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
-
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 
