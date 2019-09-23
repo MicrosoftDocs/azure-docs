@@ -476,6 +476,8 @@
       href: expand-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
+    - name: Create an incremental snapshot
+      href: disks-incremental-snapshots.md
     - name: Back up unmanaged disks
       href: incremental-snapshots.md
     - name: Migration and conversion
