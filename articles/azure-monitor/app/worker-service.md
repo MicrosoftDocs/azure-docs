@@ -307,31 +307,7 @@ Dependency collection is enabled by default. [This](asp-net-dependencies.md#auto
 
 ### EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, CPU etc.
-
-By default, the SDK collects the following counters (available only in .NET Core 3.0 or above), and these counters can be queried either in Metrics Explorer or by using an Analytics query targeting the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
-
-|Category | Counter|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core 3.0 apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on customizing the list.
 
 ### Manually tracking additional telemetry
 
@@ -555,7 +531,7 @@ Use this sample if you are using a Console Application written in either .NET Co
 Use this sample if you are in Asp.Net Core 2.1/2.2, and creating background tasks as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2)
 
 [.NET Core 3.0 Worker Service](https://github.com/microsoft/ApplicationInsights-Home/tree/master/Samples/WorkerServiceSDK/WorkerServiceSampleWithApplicationInsights)
-Use this sample if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
+Use this sample     if you have a .NET Core 3.0 Worker Service application as per official guidance [here](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-3.0&tabs=visual-studio#worker-service-template)
 
 ## Open-source SDK
 

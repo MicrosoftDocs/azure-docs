@@ -65,7 +65,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 
     ```xml
         <ItemGroup>
-          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.7.0" />
+          <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.8.0" />
         </ItemGroup>
     ```
 
@@ -142,35 +142,7 @@ Support for [performance counters](https://azure.microsoft.com/documentation/art
 
 ### EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, ASP.NET Core counters etc.
-
-SDK versions 2.8.0-beta3 and higher supports collection of EventCounters. By default, the SDK collects the following counters, and these counters can be queried either in Metrics Explorer or using Analytics query under the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
-
-|Category | Counter|
-|---------------|-------|
-|System.Runtime | cpu-usage |
-|System.Runtime | working-set |
-|System.Runtime | gc-heap-size |
-|System.Runtime | gen-0-gc-count |
-|System.Runtime | gen-1-gc-count |
-|System.Runtime | gen-2-gc-count |
-|System.Runtime | time-in-gc |
-|System.Runtime | gen-0-size |
-|System.Runtime | gen-1-size |
-|System.Runtime | gen-2-size |
-|System.Runtime | loh-size |
-|System.Runtime | alloc-rate |
-|System.Runtime | assembly-count |
-|System.Runtime | exception-count |
-|System.Runtime | threadpool-thread-count |
-|System.Runtime | monitor-lock-contention-count |
-|System.Runtime | threadpool-queue-length |
-|System.Runtime | threadpool-completed-items-count |
-|System.Runtime | active-timer-count |
-|Microsoft.AspNetCore.Hosting | requests-per-second |
-|Microsoft.AspNetCore.Hosting | total-requests |
-|Microsoft.AspNetCore.Hosting | current-requests |
-|Microsoft.AspNetCore.Hosting | failed-requests |
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core 3.0 apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on customizing the list.
 
 ### ILogger logs
 
