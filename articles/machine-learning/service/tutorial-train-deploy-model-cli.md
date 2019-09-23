@@ -231,15 +231,11 @@ The experiment completed successfully. Finalizing run...
 Cleaning up all outstanding Run operations, waiting 300.0 seconds
 ```
 
-This text is logged from the training script (`train-sklearn.py`) and displays two of the performance metrics for this model. In this case, we want the model with the highest alpha value.
-
-> [!IMPORTANT]
-> The performance metrics are specific to the model you are training. Other models will have different performance metrics.
+This text is logged from the training script (`train-sklearn.py`) and displays two of the performance metrics for this model. In this case, we want the model with the highest alpha value. The performance metrics are specific to the model you are training. Other models will have different performance metrics.
 
 If you inspect the `train-sklearn.py`, you'll notice that it also uses the alpha value when it stores the trained model(s) to file. In this case, it trains several models. The one with the highest alpha should be the best one. Looking at the output above, and the code, the model with an alpha of 0.95 was saved as `./outputs/ridge_0.95.pkl`
 
-> [!IMPORTANT]
-> The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
+The model was saved to the `./outputs` directory on the compute target where it was trained. In this case, the Azure Machine Learning Compute instance in the Azure cloud. The training process automatically uploads the contents of the `./outputs` directory from the compute target where training occurs to your Azure Machine Learning workspace. It's stored as part of the experiment (`myexperiment` in this example).
 
 ## Register the model
 
@@ -279,9 +275,6 @@ az ml model register -n mymodel -p "ridge_0.95.pkl"
 ```
 
 The first command downloads the registered model to the current directory. The file name is `ridge_0.95.pkl`, which is the file referenced when you registered the model. The second command registers the local model (`-p "ridge_0.95.pkl"`) with the same name as the previous registration (`mymodel`). This time, the JSON data returned lists the version as 2.
-
-> [!TIP]
-> An important concept is that a model registration is not limited to one model. You can specify a directory instead of a file, and the contents of the directory are stored in the model registration.
 
 ## Deploy the model
 
@@ -330,7 +323,9 @@ az ml service show -n myservice
 
 This command returns the same JSON document, including the `scoringUri`.
 
-## Send data to the service
+The REST endpoint can be used to send data to the service. For information on creating a client application that sends data to the service, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
+
+### Send data to the service
 
 While you can create a client application to call the endpoint, the machine learning CLI provides a utility that can act as a test client. Use the following command to send test data to the service:
 
@@ -339,8 +334,6 @@ az ml service run -n myservice -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
 ```
 
 The response from the command is similar to `[4684.920839774082]`.
-
-For information on creating a client application in several programming languages, see [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md)
 
 ## Clean up resources
 
