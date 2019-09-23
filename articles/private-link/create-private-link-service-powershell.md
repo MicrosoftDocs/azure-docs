@@ -155,7 +155,7 @@ $pe =  Get-AzPrivateEndpoint `
 $pe.NetworkInterfaces[0].IpConfigurations[0].PrivateIpAddress 
 
 ```
-  
+
 ### Approve the private endpoint connection
 Approve the private end point connection to the private link service with 'Approve-AzPrivateEndpointConnection`.
 
@@ -166,7 +166,9 @@ $pls = Get-AzPrivateLinkService `
 -ResourceGroupName $rgName 
 
 Approve-AzPrivateEndpointConnection -ResourceId $pls.PrivateEndpointConnections[0].Id -Description "Approved" 
- ``` 
+
+``` 
+
 ## Next steps
 - Learn more about [Azure private link](private-link-overview.md)
  
