@@ -27,7 +27,7 @@ Azure Machine Learning provides several ways to train your models. Use the follo
 
     + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability. Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline. You can create templates and publish a pipeline as a parameterized REST API, which can then be used to start or schedule runs.
 
-    In addition to the Python SDK, you can also start training runs (including estimators, automated machine learning, and pipelines) from the Azure CLI by using the [machine learning CLI extension](reference-azure-machine-learning-cli.md).
++ **CLI**: The machine learning CLI is provides commands for common tasks with Azure Machine Learning. For training models, it provides commands that submit training jobs (including Python training scripts).
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
@@ -94,6 +94,13 @@ Machine learning pipelines optimize your workflow with the following key feature
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md).
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+
+## CLI
+
+The machine learning CLI is an extension for the Azure CLI. It provides cross-platform CLI commands for working with Azure Machine Learning. Typically, you use the CLI to automate tasks, such as training a machine learning model.
+
+* [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md)
+* [MLOps on Azure](https://github.com/microsoft/MLOps)
 
 ## Next steps
 
