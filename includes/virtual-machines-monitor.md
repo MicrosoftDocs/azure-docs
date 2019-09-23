@@ -6,7 +6,7 @@ ms.date: 09/19/2019
 ms.author: cynthn
 ---
 
-With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs. More advanced monitoring using [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) 
+With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric and log data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs from the guest operating system. In-depth monitoring using [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) delivers advanced features to monitor the application components, the guest operating system, or other supporting services running on the VM supporting that critical business function as part of the unified capabilities offered in Azure Monitor.
 
 ## Diagnostics and metrics 
 
@@ -26,7 +26,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 ## Alerts
 
-You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/azure-monitor/platform/alerts-classic-portal.md), using [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), or the [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
+You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), using [Azure Resource Manager templates](../articles/azure-monitor/platform/alerts-metric-create-templates.md), or the [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
 ## Azure Service Health
 
@@ -58,6 +58,9 @@ Some of the things you can do with diagnostics logs include:
 - Analyze them with [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## Advanced monitoring
+
+[Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) 
+
 
 - [Azure Monitor](../articles/azure-monitor/overview.md) is a service that monitors your cloud and on-premises environments to maintain their availability and performance. It delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on. You can install an extension on a [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) or a [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) that installs the Log Analytics agent to collect log data and store in a Log Analytics workspace.
 
