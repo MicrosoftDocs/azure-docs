@@ -74,7 +74,7 @@ The following are the property descriptions:
 | **Name** | **Allowed Values** | ** --- ** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 | name | string | --- | unique name for extension |
-| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode | --- | Identifies OS Service Fabric is bootstrapping to |
+| type | "ServiceFabricLinuxNode" or "ServiceFabricWindowsNode" | --- | Identifies OS Service Fabric is bootstrapping to |
 | autoUpgradeMinorVersion | true or false | --- | Enable Auto Upgrade of SF Runtime Minor Versions |
 | publisher | Microsoft.Azure.ServiceFabric | --- | name of the Service Fabric extention publisher |
 | clusterEndpont | string | --- | URI:PORT to Management endpoint |
