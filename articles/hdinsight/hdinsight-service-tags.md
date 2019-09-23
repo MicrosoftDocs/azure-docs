@@ -10,29 +10,25 @@ ms.date: 09/12/2019
 ---
 # HDInsight service tags
 
-HDInsight service tags for Azure firewall are groups of IP addresses for health and management services, which help minimize complexity for security rule creation. Service tags provides an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your Azure firewall.
+HDInsight service tags for Azure firewall are groups of IP addresses for health and management services, which help minimize complexity for security rule creation. [Service tags](../firewall/service-tags.md) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your Azure firewall.
 
-These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes encompassed by the service tag, and automatically updates the service tag as addresses change.
+These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
 
-Some of the HDInsight service tags are region specific, and some of them apply to all Azure regions. 
-
-The following sections list the HDInsight service tags for each region.
-
-## HDInsight service tag option 1
+## HDInsight service tag option one
 
 The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall.
 
 This tag contains the IP addresses of health and management services for all of the public regions and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
-## HDInsight service tag option 2
+## HDInsight service tag option two
 
-If you have stricter security requirements and need more restrictive whitelisting for your firewall, then you can add only the service tags applicable for your region.
+If option one won't work because you need more restrictive whitelisting for your firewall, then you can add only the service tags applicable for your region. This may be one or more service tags, and differs based on the region where your cluster is created.
 
-To find out which service tags to add for your region, please consult the following sections.
+To find out which service tags to add for your region, please consult the following sections of the document.
 
 ### Whitelist only a regional service tag
 
-If your cluster is located in one of the regions listed in this table, then you will only need to add the corresponding regional service tag next to it.
+If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you will only need to add a single regional service tag to your firewall.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -60,12 +56,11 @@ If your cluster is located in one of the regions listed in this table, then you 
 
 ### Whitelist regional and global service tags
 
+If you prefer service tag option two but the region where your cluster is created was not listed above, then you need to whitelist one regional service tag and one or more global service tags. The remaining regions are divided into groups based on which global service tags they use.
 
 #### Group 1
 
-If your HDInsight cluster is created in one of the following Azure regions, then you need to whitelist one regional service tags and two global service tags.
-
-All of the regions in the table below, will need to whitelist the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to their regional one:
+If your cluster is in one of the regions in the table below, whitelist the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -84,16 +79,17 @@ All of the regions in the table below, will need to whitelist the service tags `
 
 #### Group 2
 
-The regions of **China North** and **China East** will need to whitelist both of the service tags `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
+Clusters in the regions of **China North** and **China East**, need to whitelist the service tags `HDInsight.ChinaNorth` and `HDInsight.ChinaEast`.
 
 #### Group 3
 
-The regions of **US Gov Iowa** and **US Gov Virginia**, need to whitelist the service tags `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
+Clusters in the regions of **US Gov Iowa** and **US Gov Virginia**, need to whitelist the service tags `HDInsight.USGovIowa` and `HDInsight.USGovVirginia`.
 
 #### Group 4
 
-The regions of **Germany Central** and ***Germany Northeast** need to whitelist the service tags `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
+Clusters in the regions of **Germany Central** and ***Germany Northeast**, need to whitelist the service tags `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
 
 ## Next steps
 
+* [Azure Firewall service tags](../firewall/service-tags.md)
 * [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)
