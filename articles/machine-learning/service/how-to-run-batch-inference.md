@@ -19,7 +19,7 @@ In this article, you will learn how to get inferences on large quantities of dat
 
 When you have large dataset to get inference on, you can leverage the parallel processing power of cloud by using Azure Machine Learning Batch Inference capability. Batch Inference provides parallelism out of the box, and can scale to perform fire-and-forget inference on terabytes of production data.
 
-In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model ([Inception-V3](https://arxiv.org/abs/1512.00567)), and use this model to do batch inference on images available in your Azure Blob storage account. These images used for scoring are unlabeled images from the [ImageNet](http://image-net.org/) dataset.
+In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained digit identification model on [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) dataset using the [Azure ML training with deep learning sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb), and use this model to do batch inference on MNIST test images available in your Azure Blob storage account. These test images have been converted to PNG. A sample of PNG-converted images were taken from [this repository](https://github.com/myleott/mnist_png).
 
 ## Prerequisites
 
@@ -42,31 +42,26 @@ In the following steps, you create a [machine learning pipeline](concept-ml-pipe
 
 The following steps set up the resources you need to run a batch inference pipeline:
 
-- Create a dataset that points to a blob container containing images to score.
-- Set up an output directory to store your outputs.
+- Create a datastore that points to a blob container containing images to score.
+- Set up data references as inputs and outputs for Batch Inference pipeline steps.
 - Set up compute cluster where the batch inference step will run.
 
-### Create a dataset to access the datastores
+### Create a datastore points to a blob container with sample images
 
-Get the ImageNet evaluation set from the public blob container `sampledata` on an account named `pipelinedata`. Create a datastore with the name `images_datastore`, which points to this container. In the call to `register_azure_blob_container` below, setting the `overwrite` flag to `True` overwrites any datastore that was created previously with that name. Then create input dataset and label dataset from batchscore_blob. For more information about Azure Machine Learning datasets (preview), see [create and access datasets (preview)](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets).
+Get the MNIST evaluation set from the public blob container `sampledata` on an account named `pipelinedata`. Create a datastore with the name `mnist_datastore`, which points to this container. In the call to `register_azure_blob_container` below, setting the `overwrite` flag to `True` overwrites any datastore that was created previously with that name. 
 
 This step can be changed to point to your blob container by providing your own `datastore_name`, `container_name`, and `account_name`.
 
 ```python
-from azureml.core.dataset import Dataset
-
 account_name = "pipelinedata"
-datastore_name="images_datastore"
+datastore_name="mnist_datastore"
 container_name="sampledata"
 
-batchscore_blob = Datastore.register_azure_blob_container(ws, 
+mnist_blob = Datastore.register_azure_blob_container(ws, 
                       datastore_name=datastore_name, 
                       container_name= container_name, 
-                      account_name=account_name, 
+                      account_name=account_name,
                       overwrite=True)
-
-input_images_dataset = Dataset.File.from_files((batchscore_blob, 'batchscoring/images/ILSVRC*.JPEG')).as_named_input('input_images')
-label_dataset = Dataset.File.from_files((batchscore_blob, 'batchscoring/labels/labels.txt')).as_named_input('labels')
 ```
 
 Next, specify the workspace default datastore as the output datastore, which you use for inference output.
@@ -78,14 +73,30 @@ options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-fi
 def_data_store = ws.get_default_datastore()
 ```
 
-### Configure output directory
+### Configure data references
 
-`PipelineData` objects are used for transferring intermediate data between pipeline steps. Use following code to create a PipelineData object for the batch inference output data.
+`DataReference` objects are used as data sources in pipeline. The DataReference object points to data that lives in, or is accessible from a data store.
+`PipelineData` objects are used for transferring intermediate data between pipeline steps. 
+`Dataset` is a resource for exploring, transforming and managing data in Azure Machine Learning. There are two types of Dataset, TabularDataset and FileDataset. In this example, we will use FileDataset. For more information about Azure Machine Learning datasets (preview), see [create and access datasets (preview)](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets).
+
+Use following code to create DataReferences objects corresponding to the directory containing the input images, the directory where the pre-trained model is stored, the directory containing the labels, and create a PipelineData object for the batch inference output data.
 
 ```python
-output_dir = PipelineData(name="scores", 
+from azureml.core.dataset import Dataset
+from azureml.data.datapath import DataPath
+
+mnist_ds_name = 'mnist_sample_data'
+
+path_on_datastore = mnist_blob.path('mnist/*.png')
+input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False).register(ws, mnist_ds_name, create_new_version=True)
+
+label_dir = DataReference(datastore=mnist_blob, 
+                          data_reference_name="input_labels",
+                          path_on_datastore="batchscoring/labels",
+                          mode="download")
+output_dir = PipelineData(name="inferences", 
                           datastore=def_data_store, 
-                          output_path_on_compute="batchscoring/results")
+                          output_path_on_compute="mnist/results")
 ```
 
 ### Set up compute target
@@ -114,9 +125,6 @@ except ComputeTargetException:
     # can poll for a minimum number of nodes and for a specific timeout. 
     # if no min node count is provided it will use the scale settings for the cluster
     gpu_cluster.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
-    
-    # For a more detailed view of current Azure Machine Learning Compute  status, use get_status()
-    print(gpu_cluster.get_status().serialize())
 ```
 
 ## Prepare the model
@@ -125,7 +133,7 @@ Before you can use the pre-trained model, you'll need to download the model and 
 
 ### Download the pre-trained model
 
-Download the pre-trained image classification model (InceptionV3) from <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>, and then extract it to the `models` directory.
+Download the pre-trained digit identification model from <https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz>, and then extract it to the `models` directory.
 
 ```python
 # create directory for model
@@ -137,24 +145,25 @@ if not os.path.isdir(model_dir):
 import tarfile
 import urllib.request
 
-url="http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
+url="https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz"
 response = urllib.request.urlretrieve(url, "model.tar.gz")
 tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
+print(os.getcwd())
 ```
 
 ### Register the model
 
-Here's how to register the model:
+Here's how to register the model with your workspace:
 
 ```python
 from azureml.core.model import Model
 
 # register downloaded model 
-model = Model.register(model_path = "models/inception_v3.ckpt",
-                       model_name = "inception", # this is the name the model is registered as
-                       tags = {'pretrained': "inception"},
-                       description = "Imagenet trained tensorflow inception",
+model = Model.register(model_path = "models/",
+                       model_name = "mnist", # this is the name the model is registered as
+                       tags = {'pretrained': "mnist"},
+                       description = "Mnist trained tensorflow model",
                        workspace = ws)
 # remove the downloaded dir after registration if you wish
 shutil.rmtree("models")
@@ -163,7 +172,7 @@ shutil.rmtree("models")
 ## Write your scoring script
 
 >[!Warning]
->The following code is only a sample used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/batch-parallel-imagenet-with-dataset.ipynb). You’ll need to create your own scoring script for your scenario.
+>The following code is only a sample used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb). You’ll need to create your own scoring script for your scenario.
 
 The scoring script should contain two functions:
 - `init()`: this function should be used for any costly or common preparation for subsequent inference, e.g. load the model into a global object.
@@ -174,8 +183,8 @@ The scoring script should contain two functions:
 
 ```python
 # Snippets from a sample scoring script
-# Refer to the accompanying batch-parallel-imagenet-with-dataset Notebook
-# https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/batch-parallel-imagenet-with-dataset.ipynb
+# Refer to the accompanying file-dataset-image-inference-mnist Notebook
+# https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/file-dataset-image-inference-mnist.ipynb
 # for the implementation script
 
 scripts_folder = "Code"
@@ -183,134 +192,48 @@ scripts_folder = "Code"
 if not os.path.isdir(scripts_folder):
     os.mkdir(scripts_folder)
 
-%%writefile $scripts_folder/batch_scoring.py
+%%writefile $scripts_folder/digit_identification.py
 
 # Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license.
 
 import os
-import argparse
-import datetime
-import time
-import tensorflow as tf
-from math import ceil
 import numpy as np
-import shutil
-from tensorflow.contrib.slim.python.slim.nets import inception_v3
-from azureml.core.model import Model
+import tensorflow as tf
+from PIL import Image
+from azureml.core import Model
 
-slim = tf.contrib.slim
-
-parser = argparse.ArgumentParser(description="Start a tensorflow model serving")
-parser.add_argument('--model_name', dest="model_name", required=True)
-parser.add_argument('--proc_unit', dest="proc_unit", type=int, required=True)
-
-args, unknown_args = parser.parse_known_args()
-
-image_size = 299
-num_channel = 3
-
-
-def get_class_label_dict(label_file):
-    label = []
-    proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
-    for l in proto_as_ascii_lines:
-        label.append(l.rstrip())
-    return label
-
-
-class DataIterator:
-    def __init__(self, file_paths):
-        self.file_paths = file_paths
-        self.labels = [1 for file_name in self.file_paths]
-
-    @property
-    def size(self):
-        return len(self.labels)
-
-    def input_pipeline(self, proc_unit):
-        images_tensor = tf.convert_to_tensor(self.file_paths, dtype=tf.string)
-        labels_tensor = tf.convert_to_tensor(self.labels, dtype=tf.int64)
-        input_queue = tf.train.slice_input_producer([images_tensor, labels_tensor], shuffle=False)
-        labels = input_queue[1]
-        images_content = tf.read_file(input_queue[0])
-
-        image_reader = tf.image.decode_jpeg(images_content, channels=num_channel, name="jpeg_reader")
-        float_caster = tf.cast(image_reader, tf.float32)
-        new_size = tf.constant([image_size, image_size], dtype=tf.int32)
-        images = tf.image.resize_images(float_caster, new_size)
-        images = tf.divide(tf.subtract(images, [0]), [255])
-
-        image_batch, label_batch = tf.train.batch([images, labels], batch_size=proc_unit, capacity=5 * proc_unit)
-        return image_batch
 
 def init():
-    global model_path
-    global label_dict
-    global classes_num
-    global probabilities
-    global input_images
     global g_tf_sess
 
+    # pull down model from workspace
+    model_path = Model.get_model_path("mnist")
     
-    print(f'start init, {args.model_name} {args.proc_unit}')
-    model_path = Model.get_model_path(args.model_name)
+    # contruct graph to execute
+    tf.reset_default_graph()
+    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
+    g_tf_sess = tf.Session(config=tf.ConfigProto(device_count={'GPU': 0}))
+    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
 
-    label_file_name = Run.get_context().input_datasets["labels"].as_mount()
-    label_dict = get_class_label_dict(label_file_name)
-    classes_num = len(label_dict)
-    
-    with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
-        input_images = tf.placeholder(tf.float32, [args.proc_unit, image_size, image_size, num_channel])
-        logits, _ = inception_v3.inception_v3(input_images,
-                                              num_classes=classes_num,
-                                              is_training=False)
-        probabilities = tf.argmax(logits, 1)
-
-    g_tf_sess = tf.Session()
-    g_tf_sess.run(tf.global_variables_initializer())
-    g_tf_sess.run(tf.local_variables_initializer())
-    
-    saver = tf.train.Saver()
-    saver.restore(g_tf_sess, model_path)
 
 def run(mini_batch):
-    try:
-        print(f'run method start: {__file__}, run({mini_batch})')
-        test_feeder = DataIterator(file_paths=mini_batch)
-        total_size = len(test_feeder.labels)
-        count = 0
-        labelslist = []
+    print(f'run method start: {__file__}, run({mini_batch})')
+    resultList = []
+    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
+    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
 
-        tf.reset_default_graph()
-        with tf.Session(config=tf.ConfigProto(device_count={'GPU': 0})) as sess:
-        
-            test_images = test_feeder.input_pipeline(batch_size=args.proc_unit)
-            tf_coord = tf.train.Coordinator()
-            threads = tf.train.start_queue_runners(sess=sess, coord=tf_coord)
-            
-            i = 0
-            while count < total_size and not tf_coord.should_stop():
-                print(f'start input data count:{count} total_size:{total_size}')
-                start_time = time.time()
-                test_images_batch = sess.run(test_images)
-                file_names_batch = test_feeder.file_paths[i * args.proc_unit:
-                                                            min(test_feeder.size, (i + 1) * args.proc_unit)]
-                start_time = time.time()
-                results = g_tf_sess.run(probabilities, feed_dict={input_images: test_images_batch})
-                new_add = min(args.proc_unit, total_size - count)
-                count += new_add
-                i += 1
-                for j in range(new_add):
-                    labelslist.append(os.path.basename(file_names_batch[j]) + ": " + label_dict[results[j]] + "\n")
-            tf_coord.request_stop()
-            tf_coord.join(threads)
+    for image in mini_batch:
+        # prepare each image
+        data = Image.open(image)
+        np_im = np.array(data).reshape((1, 784))
+        # perform inference
+        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
+        # find best probability, and add to result list
+        best_result = np.argmax(inference_result)
+        resultList.append("{}: {}".format(os.path.basename(image), best_result))
 
-        return labelslist
-    
-    except Exception as e:
-        print(f'{__file__}:{e}')
-        return []
+    return resultList
 ```
 
 ## Build and run the batch inference pipeline
@@ -323,12 +246,14 @@ Specify the conda dependencies for your script. You'll need this object later, w
 
 ```python
 from azureml.pipeline.core.graph import PipelineParameter
-proc_unit_param = PipelineParameter(name="param_proc_unit", default_value=20)
+batch_size_param = PipelineParameter(name="param_batch_size", default_value=20)
 
 from azureml.core import Environment
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-predict_conda_deps = CondaDependencies.create(pip_packages=["tensorflow-gpu==1.13.1", "azureml-defaults", "azure.storage.blob"])
+predict_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow", "azureml-core", "azure.storage.blob", "pandas"])
+predict_conda_deps.add_pip_package("azureml-dataprep>=1.1.15")
+predict_conda_deps.add_pip_package("azureml-dataprep-native>=13.0.3")
 
 predict_env = Environment(name="predict_environment")
 predict_env.python.conda_dependencies = predict_conda_deps
@@ -336,17 +261,14 @@ predict_env.docker.enabled = True
 predict_env.docker.gpu_support = True
 predict_env.docker.base_image = DEFAULT_GPU_IMAGE
 predict_env.spark.precache_packages = False
-
-predict_env.python.conda_dependencies.add_pip_package("tensorflow-gpu==1.13.1")
-predict_env.python.conda_dependencies.add_pip_package("azureml-defaults")
 ```
 
 ### Specify the parameter for your pipeline
 
 Create the configuration to wrap the scoring script by using `ParallelRunConfig` object containing all the following parameters:
 - `entry_script`: scoring script with local file path. If source_directly is present, use relative path, otherwise use any path accessible on machine.
-- `mini_batch_size`: size of the partition/mini-batch passed to a single run() call. For FileDataset, it's number of files with minimum value of 1. For TabularDatset, it's in bytes with minimum value of 4MB.
-- `error_threshold`: percentage of record failures can be ignored and processing should continue.
+- `mini_batch_size`: size of the partition/mini-batch passed to a single run() call. For FileDataset, it's number of files with minimum value of 1. For TabularDatset, it's in bytes with format xMB, and its minimum value is 1MB.
+- `error_threshold`: number of record/file failures can be ignored and processing should continue.
 - `output_action`: one of the following values:
     - `summary_only`: scoring script will store the output and batch inference will use the output only for error threshold calculation.
     - `file`: for each input file, there will be a corresponding file with the same name in output folder.
@@ -359,7 +281,8 @@ Create the configuration to wrap the scoring script by using `ParallelRunConfig`
 ```python
 parallel_run_config = ParallelRunConfig(
     source_directory=scripts_folder,
-    entry_script="batch_scoring.py",
+    entry_script="digit_identification.py",
+    input_format="file",
     mini_batch_size=80,
     error_threshold=10,
     output_action="append_row",
@@ -382,15 +305,12 @@ Create the pipeline step by using the script, environment configuration, and par
 
 ```python
 parallelrun_step = ParallelRunStep(
-    name="batch-scoring",
+    name="batch-mnist",
     models=[model],
     parallel_run_config=parallel_run_config,
-    inputs=[input_images_dataset],
-    refs = [label_dataset],
+    inputs=[input_mnist_ds.as_named_input(mnist_ds_name)],
     output=output_dir,
-    arguments=["--model_name", "inception",
-               "--proc_unit", proc_unit_param,
-               "--logging_level", "DEBUG"],
+    arguments=[ "--cleanup_leaked_queues", "true" ], # temporary fix, will be defaulted after private preview.
     allow_reuse=True
 )
 ```
@@ -401,7 +321,7 @@ At this point you can run the pipeline and examine the output it produced.
 
 ```python
 pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(pipeline)
+pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 ```
 
 ## Monitor the batch inference job
