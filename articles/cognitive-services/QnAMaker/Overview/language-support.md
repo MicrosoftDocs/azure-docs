@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 10/28/2019
+ms.date: 09/23/2019
 ms.author: diberry
 ---
 # Language support for QnA Maker
