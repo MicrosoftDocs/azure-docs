@@ -12,7 +12,7 @@ ms.reviewer: hux
 ms.subservice: blobs
 ---
 
-# Store business-critical data in Azure Blob storage
+# Store business-critical data in Azure Blob storage immutably 
 
 Immutable storage for Azure Blob storage enables users to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blob Objects can be created and read, but not modified or deleted, for the duration of the retention interval. Immutable storage is enabled for General Purpose v2 and Blob Storage accounts in all Azure regions.
 
