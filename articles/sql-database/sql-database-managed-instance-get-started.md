@@ -27,51 +27,49 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a managed instance
 
-The following steps show you how to create a managed instance.
+The following steps show you how to create a managed instance:
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If Azure SQL is not in the list, select **All services**, then type *Azure SQL* in the search box.
-2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about Azure SQL Database managed instance by selecting **Show details** on the **Managed instances** tile.
-3. Select **Create**:
+1. Select **Azure SQL** on the left menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, and then enter **Azure SQL** in the search box.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about an Azure SQL Database managed instance by selecting **Show details** on the **Managed instances** tile.
+3. Select **Create**.
 
    ![Create a managed instance](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
-4. Fill out the **Create SQL Database Managed Instance** provisioning form by filling out information required at the Basic tab. Use Networking, and Advanced settings to configure additional settings.
+4. Fill out the **Create SQL Database Managed Instance** provisioning form on the **Basic** tab. Use **Networking** > **Advanced settings** to configure additional settings.
 
 ### Basic tab
 
-Fill out mandatory information required on the **Basic** tab using the table below. This is a minimum set of information to provision a managed instance.
+Fill out information required on the **Basics** tab by using the following table. This is a minimum set of information to provision a managed instance.
 
-   ![Managed instance create basic tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
+!["Basics" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
 
-   | Setting| Suggested value | Description |
-   | ------ | --------------- | ----------- |
-   | **Subscription** | Your subscription. | A subscription that gives you permission to create new resources. |
-   | **Resource group** | A new or existing resource group.|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   | **Managed instance name** | Any valid name.|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   | **Region** |The region in which you want to create the managed instance.|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
+| Setting| Suggested value | Description |
+| ------ | --------------- | ----------- |
+| **Subscription** | Your subscription. | A subscription that gives you permission to create new resources. |
+| **Resource group** | A new or existing resource group.|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+| **Managed instance name** | Any valid name.|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+| **Region** |The region in which you want to create the managed instance.|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
 | **Managed instance admin login** | Any valid username. | For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" because that's a reserved server-level role.|
-   | **Password** | Any valid password.| The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+| **Password** | Any valid password.| The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
-- Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tier options.
-- Use the sliders or text boxes to specify the amount of storage and the number of virtual cores.
-- When you're finished, select **Apply** to save your selection. 
+Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tier options. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
 
-  ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
+![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
 
-You can click on **Review + create** to review selected options before creating managed instance, or you can custom configure networking by clicking on **Next : Networking**.
+To review selected options before you create a managed instance, you can select **Review + create**. Or, configure networking options by selecting **Next : Networking**.
 
 ### Networking tab
 
-Fill out optional information at Networking tab using the table below. In case this information is omitted, default settings will be applied.
+Fill out optional information on the **Networking** tab by using the following table. If this information is omitted, the portal will apply default settings.
 
-   ![Managed instance create networking tab](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
+!["Networking" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
 
-   | Setting| Suggested value | Description |
-   | ------ | --------------- | ----------- |
-   | **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for a managed instance, see [Configure a virtual network for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
-   | **Connection type** | Choose between a Proxy and a Redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](sql-database-connectivity-architecture.md#connection-policy).|
-   | **Public endpoint**  | Select this option to enable public endpoint | For managed instance to be accessible through the public data endpoint, **Enable** public endpoint needs to be selected. | 
-   | **Allow access from** (in case Public endpoint is set to enabled) | Select one of the options: <ul> <li>**Azure services**</li> <li>**Internet**</li> <li>**No access**</li></ul>   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>Azure services - recommended when connecting from Power BI or other multi-tenant service. </li> <li> Internet - use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> No access - this option creates a deny security rule. You’ll need to modify this rule to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
+| Setting| Suggested value | Description |
+| ------ | --------------- | ----------- |
+| **Virtual network** | Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for a managed instance, see [Configure a virtual network for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
+| **Connection type** | Choose between a proxy and a redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](sql-database-connectivity-architecture.md#connection-policy).|
+| **Public endpoint**  | Select this option. | For a managed instance to be accessible through the public data endpoint, you need to select this option. | 
+| **Allow access from** (in case Public endpoint is set to enabled) | Select one of the options.   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>**Azure services**: Recommended when connecting from Power BI or other multi-tenant service. </li> <li> **Internet**: Use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> **No access**: This option creates a deny security rule. You’ll need to modify this rule to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
 
 You can select **Review + create** to review selected options before creating managed instance, or you can custom configure additional settings by clicking on **Next : Additional settings**.
 
