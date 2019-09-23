@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -18,7 +18,7 @@ This article explains the common tasks that an administrator accomplishes in the
 
 Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](billing-ea-portal-get-started.md#create-another-enterprise-admin). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-## Update user state from Pending to Active
+## Update user state from pending to active
 
 When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. When they activate their account, the account status is updated from _pending_ to _active_. New users might get prompted enter their first and last name to create a Commerce Account. If so, they must add the required information to proceed and then the account is activated.
 

@@ -1,26 +1,26 @@
 ---
-title: Mount an Azure HPC Cache 
+title: Mount an Azure HPC Cache (preview)
 description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/12/2019
 ms.author: v-erkell
 ---
 
-# Mount the Azure HPC Cache
+# Mount the Azure HPC Cache (preview)
 
 After the cache is created, NFS clients can access it with a simple mount command.
 
 Use the mount addresses listed on the cache overview page and the virtual namespace path that you set when you created the storage target. 
 
-![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/mount-addresses.png)
+![screenshot of Azure HPC Cache instance's Overview page, with a highlight box around the mount addresses list on the lower right](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
 > The cache mount addresses correspond to network interfaces inside the cache's subnet. These NICs appear in the resource group with names ending in `-cluster-nic-` and a number. Do not alter or delete these interfaces, or the cache will become unavailable.
 
-The virtual namespace paths are shown in the **Storage targets** page. 
-![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/storage-target-path.png)
+The virtual namespace paths are shown in the **Storage targets** page. Click the target name to see details, including the aggregated namespace path (or paths) associated with it. 
+![screenshot of the cache's Storage target panel, with a highlight box around an entry in the Path column of the table](media/hpc-cache-view-namespace-paths.png)
 
 ## Mount command syntax
 
@@ -49,7 +49,7 @@ For a robust client mount, pass these settings and arguments in your mount comma
 
 | Recommended mount command settings | |
 --- | --- 
-``hard`` | Soft mounts to the vFXT cluster are associated with application failures and possible data loss. 
+``hard`` | Soft mounts to Azure HPC Cache are associated with application failures and possible data loss. 
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)

@@ -41,9 +41,14 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 ## Reload data from App Configuration
 
-Open *Program.cs* and update the file to specify refresh configuration in the `AddAzureAppConfiguration` method and trigger manual refresh using the `Refresh` method.
+Open *Program.cs* and update the file to add a reference to the `System.Threading.Tasks` namespace, to specify refresh configuration in the `AddAzureAppConfiguration` method, and to trigger manual refresh using the `Refresh` method.
 
 ```csharp
+using System;
+using System.Threading.Tasks;
+
+namespace TestConsole
+{
 class Program
 {
     private static IConfiguration _configuration = null;
@@ -80,6 +85,7 @@ class Program
         await _refresher.Refresh();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
+}
 }
 ```
 

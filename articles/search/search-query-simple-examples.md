@@ -1,28 +1,30 @@
 ---
-title: Query examples using the "simple" search syntax - Azure Search
-description: Simple query examples for full text search, filter search, geo search, faceted search, and other query strings used to query an Azure Search index.
+title: Create a simple query - Azure Search
+description: Learn by example by running queries based on the simple syntax for full text search, filter search, geo search, faceted search against an Azure Search index.
 author: HeidiSteen
 manager: nitinme
 tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Query examples using the "simple" search syntax in Azure Search
+# Create a simple query in Azure Search
 
-[Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an Azure Search index. The simple query analyzer is fast and handles common scenarios in Azure Search, including full text search, filtered and faceted search, and geo-search. In this article, step through examples demonstrating query operations available when using the simple syntax.
+In Azure Search, the [simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) invokes the default query parser for executing full text search queries against an index. This parser is fast and handles common scenarios, including full text search, filtered and faceted search, and geo-search. 
 
-The alternative query syntax is [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Lucene syntax query examples](search-query-lucene-examples.md).
+In this article, we use examples to illustrate the simple syntax.
+
+An alternative query syntax is [Full Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), supporting more complex query structures, such as fuzzy and wildcard search, which can take additional time to process. For more information and examples demonstrating full syntax, see [Use the full Lucene syntax](search-query-lucene-examples.md).
 
 ## Formulate requests in Postman
 
 The following examples leverage a NYC Jobs search index consisting of jobs available based on a dataset provided by the [City of New York OpenData](https://nycopendata.socrata.com/) initiative. This data should not be considered current or complete. The index is on a sandbox service provided by Microsoft, which means you do not need an Azure subscription or Azure Search to try these queries.
 
-What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Explore with REST clients](search-get-started-postman.md).
+What you do need is Postman or an equivalent tool for issuing HTTP request on GET. For more information, see [Quickstart: Explore Azure Search REST API using Postman](search-get-started-postman.md).
 
 ### Set the request header
 

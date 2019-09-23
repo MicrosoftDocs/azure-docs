@@ -22,6 +22,7 @@
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
   - name: Concepts
+    expanded: true
     items: 
     - name: Cloud apps and single sign-on
       items:
@@ -240,6 +241,8 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Provisioning logs
+          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Sync an attribute for mapping - gallery app
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Taking hours - gallery app

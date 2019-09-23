@@ -1,7 +1,7 @@
 ---
 title: What's new in the release?
-titleSuffix: Azure Machine Learning service
-description: Learn about the latest updates to Azure Machine Learning service and the machine learning and data prep Python SDKs.
+titleSuffix: Azure Machine Learning
+description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,11 +12,60 @@ ms.date: 08/19/2019
 ms.custom: seodec18
 ---
 
-# Azure Machine Learning service release notes
+# Azure Machine Learning release notes
 
-In this article, learn about the Azure Machine Learning service releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page. 
+In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) reference page. 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2019-09-16
+
+### Azure Machine Learning SDK for Python v1.0.62
+
++ **New features**
+  + Introduced the timeseries trait on TabularDataset. This trait enables easy timestamp filtering on data a TabularDataset, such as taking all data between a range of time or the most recent data. To learn about this the timeseries trait on TabularDataset, please visit https://aka.ms/azureml-data for documentation or https://aka.ms/azureml-tsd-notebook for an example notebook. 
+  + Enabled training with TabularDataset and FileDataset. Please visit https://aka.ms/dataset-tutorial for an example notebook. 
+  
+  + **azureml-train-core**
+  	+ Added Nccl and Gloo support in PyTorch estimator
+  
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Deprecated the AutoML setting 'lag_length' and the LaggingTransformer.
+    + Fixed correct validation of input data if they are specified in a Dataflow format
+    + Modified the fit_pipeline.py to generate the graph json and upload to artifacts. 
+    + Rendered the graph under userrun using Cytoscape.
+  + **azureml-core**
+    + Revisited the exception handling in ADB code and make changes to as per new error handling
+    + Added automatic MSI authentication for Notebook VMs.
+    + Fixes bug where corrupt or empty models could be uploaded because of failed retries.
+    + Fixed the bug where `DataReference` name changes when the `DataReference` mode changes (e.g. when calling `as_upload`, `as_download`, or `as_mount`).
+    + Make `mount_point` and `target_path` optional for `FileDataset.mount` and `FileDataset.download`.
+    + Exception that timestamp column cannot be found will be throw out if the time serials related API is called without fine timestamp column assigned or the assigned timestamp columns are dropped.
+    + Time serials columns should be assigned with column whose type is Date, otherwise exception is expected
+    + Time serials columns assigning API 'with_timestamp_columns' can take None value fine/coarse timestamp column name, which will clear previously assigned timestamp columns.
+    + Exception will be thrown out when either coarse grain or fine grained timestamp column is dropped with indication for user that dropping can be done after either excluding timestamp column in dropping list or call with_time_stamp with None value to release timestamp columns
+    + Exception will be thrown out when either coarse grain or fine grained timestamp column is not included in keep columns list with indication for user that keeping can be done after either including timestamp column in keep column list or call with_time_stamp with None value to release timestamp columns.
+    + Added logging for the size of a registered model.
+  + **azureml-explain-model**
+    + Fixed warning printed to console when "packaging" python package is not installed: "Using older than supported version of lightgbm, please upgrade to version greater than 2.2.1"
+    + Fixed download model explanation with sharding for global explanations with many features
+    + Fixed mimic explainer missing initialization examples on output explanation
+    + Fixed immutable error on set properties when uploading with explanation client using two different types of models
+    + Added a get_raw param to scoring explainer .explain() so one scoring explainer can return both engineered and raw values.
+  + **azureml-train-automl**
+    + Introduced public APIs from AutoML for supporting explanations from automl explain SDK - Newer way of supporting AutoML explanations by decoupling AutoML featurization and explain SDK - Integrated raw explanation support from azureml explain SDK for AutoML models.
+    + Removing azureml-defaults from remote training environments.
+    + Changed default cache store location from FileCacheStore based one to AzureFileCacheStore one for AutoML on AzureDatabricks code path.
+    + Fixed correct validation of input data if they are specified in a Dataflow format
+  + **azureml-train-core**
+    + Reverted source_directory_data_store deprecation.
+    + Added ability to override azureml installed package versions. 
+    + Added dockerfile support in `environment_definition` parameter in estimators.
+    + Simplified distributed training parameters in estimators.
+    	 ```py 
+	    from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+	    ```
 
 ## 2019-09-09
 
@@ -552,7 +601,7 @@ In Azure portal, you can now:
 + Live chart and metric updating in run reports and run details pages
 + Updated file viewer for logs, outputs, and snapshots in Run details pages.
 + New and improved report creation experience in the Experiments tab. 
-+ Added ability to download the config.json file from the Overview page of the Azure Machine Learning service workspace.
++ Added ability to download the config.json file from the Overview page of the Azure Machine Learning workspace.
 + Support Machine Learning service workspace creation from Azure Databricks workspace 
 
 ## 2019-04-26
@@ -571,7 +620,7 @@ Use a Notebook VM as a secure, enterprise-ready hosting environment for Jupyter
 + [Quickly spin up a preconfigured notebook VM](tutorial-1st-experiment-sdk-setup.md) that has the latest version of Azure Machine Learning SDK and related packages.
 + Access is secured through proven technologies, such as HTTPS, Azure Active Directory authentication and authorization.
 + Reliable cloud storage of notebooks and code in your Azure Machine Learning Workspace blob storage account. You can safely delete your notebook VM without losing your work.
-+ Preinstalled sample notebooks to explore and experiment with Azure Machine Learning service features.
++ Preinstalled sample notebooks to explore and experiment with Azure Machine Learning features.
 + Full customization capabilities of Azure VMs, any VM type, any packages, any drivers. 
 
 ## 2019-04-26
@@ -871,7 +920,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
 ## 2018-12-04: General Availability
 
-Azure Machine Learning service is now generally available.
+Azure Machine Learning is now generally available.
 
 ### Azure Machine Learning Compute
 With this release, we are announcing a new managed compute experience through the [Azure Machine Learning Compute](how-to-set-up-training-targets.md#amlcompute). This compute target replaces Azure Batch AI compute for Azure Machine Learning. 
@@ -983,7 +1032,7 @@ Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/da
 ## 2018-11-05
 
 ### Azure portal 
-The Azure portal for the Azure Machine Learning service has the following updates:
+The Azure portal for Azure Machine Learning has the following updates:
   * A new **Pipelines** tab for published pipelines.
   * Added support for attaching an existing HDInsight cluster as a compute target.
 
@@ -1096,4 +1145,4 @@ A new, refreshed release of Azure Machine Learning: Read more about this release
 
 ## Next steps
 
-Read the overview for [Azure Machine Learning service](../service/overview-what-is-azure-ml.md).
+Read the overview for [Azure Machine Learning](../service/overview-what-is-azure-ml.md).

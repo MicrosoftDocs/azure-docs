@@ -215,7 +215,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
 | Azure Global | `https://servicebus.azure.net`  | Available |
-| Azure Government |  | Not Available |
+| Azure Government |  | Available |
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
