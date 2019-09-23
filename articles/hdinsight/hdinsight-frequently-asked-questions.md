@@ -2,8 +2,8 @@
 title: Azure HDInsight frequently asked questions
 description: Frequently asked questions about HDInsight
 keywords: frequently asked questions, faq
-author: v-thepet
-ms.author: v-thepet
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
