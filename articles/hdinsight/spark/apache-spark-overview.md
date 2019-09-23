@@ -23,7 +23,7 @@ Apache Spark is a parallel processing framework that supports in-memory processi
 
 Spark provides primitives for in-memory cluster computing. A Spark job can load and cache data into memory and query it repeatedly. In-memory computing is much faster than disk-based applications, such as Hadoop, which shares data through Hadoop distributed file system (HDFS). Spark also integrates into the Scala programming language to let you manipulate distributed data sets like local collections. There's no need to structure everything as map and reduce operations.
 
-![Traditional MapReduce vs. Spark](./media/apache-spark-overview/mapreduce-vs-spark.png)
+![Traditional MapReduce vs. Spark](./media/apache-spark-overview/map-reduce-vs-spark1.png)
 
 Spark clusters in HDInsight offer a fully managed Spark service. Benefits of creating a Spark cluster in HDInsight are listed here.
 
@@ -55,7 +55,7 @@ Spark clusters in HDInsight also provide an [ODBC driver](https://go.microsoft.c
 
 ## Spark cluster architecture
 
-![The architecture of HDInsight Spark](./media/apache-spark-overview/spark-architecture.png)
+![The architecture of HDInsight Spark](./media/apache-spark-overview/hdi-spark-architecture.png)
 
 It is easy to understand the components of Spark by understanding how Spark runs on HDInsight clusters.
 

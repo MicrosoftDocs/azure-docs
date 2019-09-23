@@ -120,6 +120,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure HPC Cache
+    tocHref: /azure/hpc-cache/
+    topicHref: /azure/hpc-cache/
   - name: Azure Lighthouse
     tocHref: /azure/lighthouse/
     topicHref: /azure/lighthouse/
@@ -621,6 +624,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private Link
+    tocHref: /azure/private-link/
+    topicHref: /azure/private-link/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/

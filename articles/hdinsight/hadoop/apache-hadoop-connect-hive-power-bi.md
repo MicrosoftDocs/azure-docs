@@ -46,7 +46,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 
 2. From the top menu, navigate to **Home** > **Get Data** > **More...**.
 
-    ![HDInsight Power BI open data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Excel Power BI open data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
 3. From the **Get Data** dialog, select **Other** from the left, select **ODBC** from the right, and then select **Connect** on the bottom.
 
