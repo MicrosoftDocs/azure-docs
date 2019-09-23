@@ -42,8 +42,6 @@ use a tool such as the [Postman desktop app](https://www.getpostman.com/apps).
 
 You can run multiple one-time jobs by creating just a single logic app. 
 
-### Create your logic app
-
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app in Logic App Designer. 
 
@@ -130,9 +128,9 @@ a POST request with the settings similar to this sample,
 and then select **Send** to make the request.
 
 | Request method | URL | Body | Headers |
-|----------------|-----|------|---------| 
-| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>In the **raw** box, enter the payload you want to send in the request. <p>**Note**: This setting automatically configures the **Headers** values. | **Key**: Content-Type <br>**Value**: application/json
- |||| 
+|----------------|-----|------|---------|
+| **POST** | <*endpoint-URL*> | **raw** <p>**JSON(application/json)** <p>In the **raw** box, enter the payload that you want to send in the request. <p>**Note**: This setting automatically configures the **Headers** values. | **Key**: Content-Type <br>**Value**: application/json |
+|||||
 
 ![Send request to manually trigger your logic app](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
@@ -156,7 +154,7 @@ app run instance. To cancel a one-time job, you can use
 in the Logic Apps REST API. When you send a call to the trigger, 
 provide the [workflow run ID](#workflow-run-id).
 
-## Schedule recurring jobs with a logic app
+## Schedule recurring jobs
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app in Logic App Designer. 
