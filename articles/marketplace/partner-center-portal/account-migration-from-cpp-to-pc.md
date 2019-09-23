@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 09/23/2019
 ---
 
 # Account migration from Cloud Partner Portal to Partner Center
@@ -46,7 +46,7 @@ If you're not a member of the Microsoft Partner Network, you can [join here](htt
 
 To learn more about the Microsoft Partner Network, see [Join the Microsoft Partner Network](https://partner.microsoft.com/en-US/membership) on the partner website. To learn more about ISV benefits in the Microsoft Partner Network, see the [ISV Resource Hub](https://partner.microsoft.com/isv-resource-hub).  
 
-## Move Dynamics 365 offers to Partner Center
+## Move Dynamics 365 and PowerApps offers to Partner Center
 
 To streamline account and offer management for Dynamics 365 Customer Engagement, PowerApps, and Dynamics 365 Operations, offers have been moved to [Partner Center](https://partner.microsoft.com/). The move ensures the same content is available to both public and seller catalogs.
 
