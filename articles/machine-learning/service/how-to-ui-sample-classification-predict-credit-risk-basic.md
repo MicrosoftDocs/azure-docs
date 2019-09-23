@@ -24,7 +24,7 @@ Here's the final experiment graph for this sample:
 
 ## Prerequisites
 
-    [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
 4. Select the **Open** button for the Sample 3 experiment:
 
@@ -33,7 +33,7 @@ Here's the final experiment graph for this sample:
 ## Related sample
 
 [Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced experiment that solves the same problem as this experiment. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.
+provides an advanced experiment that solves the same problem as this experiment. It shows how to perform *cost sensitive* classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification pipelines.s
 
 ## Data
 
