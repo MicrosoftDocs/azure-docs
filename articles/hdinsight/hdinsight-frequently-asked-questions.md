@@ -45,7 +45,7 @@ To request a quota increase, follow these steps:
 
 1. Go to the [Azure portal](https://portal.azure.com), and select **Help + support**.
    
-1. Select **New support request**
+1. Select **New support request**.
    
 1. On the **Basics** tab of the **New support request** page, provide the following information:
    
