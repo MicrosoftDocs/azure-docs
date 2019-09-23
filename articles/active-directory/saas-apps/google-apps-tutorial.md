@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -133,9 +133,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com` |
 	| `https://google.com/a/<yourdomain.com>` |
 
-    > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the **domain specific issuer** option in the G Suite configuration section, the Identifier value will be `google.com`. If you switch on **domain specific issuer** option in the G Suite configuration section, it will be `google.com/a/<yourdomainname.com>`. For more information contact [G Suite Client support team](https://www.google.com/contact/).
-
 1. On the **Basic SAML Configuration** section, if you want to configure for the **Google Cloud Platform** perform the following steps:
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://console.cloud.google.com`
@@ -150,7 +147,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| `https://google.com/a/<yourdomain.com>` |
     
     > [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you switch off the **domain specific issuer** option in the G Suite configuration section, the Identifier value will be `google.com`. If you switch on **domain specific issuer** option in the G Suite configuration section, it will be `google.com/a/<yourdomainname.com>`. For more information contact [G Suite Client support team](https://www.google.com/contact/).
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier. G Suite doesn't provide Entity ID/Identifier value on Single Sign On configuration so when you uncheck the **domain specific issuer** option the Identifier value will be `google.com`. If you check the **domain specific issuer** option it will be `google.com/a/<yourdomainname.com>`. To check/uncheck the **domain specific issuer** option you need to go to the **Configure G Suite SSO** section which is explained later in the tutorial. For more information contact [G Suite Client support team](https://www.google.com/contact/).
 
 1. Your G Suite application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows an example for this. The default value of **Unique User Identifier** is **user.userprincipalname** but G Suite expects this to be mapped with the user's email address. For that you can use **user.mail** attribute from the list or use the appropriate attribute value based on your organization configuration.
 
@@ -244,7 +241,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     e. In G Suite, for the **Verification certificate**, upload the certificate that you have downloaded from Azure portal.
 
-	f. Select **Use a domain specific issuer**. If you select the **Use a domain specific issuer** option, you need to enter domain specific **Identifier** like `https://google.com/a/<yourdomain.com>` or if you do not select the **Use a domain specific issuer** option, then enter `google.com` as **Identifier** value in the **Basic SAML Configuration** section in the Azure AD.
+	f. Check/Uncheck the **Use a domain specific issuer** option as per the note mentioned in the above **Basic SAML Configuration** section in the Azure AD.
 
     g. Click **Save Changes**.
 
