@@ -8,7 +8,7 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Create a hub and spoke hybrid network topology with Terraform in Azure
@@ -113,7 +113,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.22"
     }
@@ -133,7 +133,7 @@ Create the Terraform configuration file for common variables that are used acros
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     variable "location" {
       description = "Location of the network"
       default     = "centralus"

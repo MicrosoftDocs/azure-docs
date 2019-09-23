@@ -5331,6 +5331,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
+      "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
@@ -13927,7 +13932,7 @@
     },
     {
       "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     },
     {
@@ -26192,11 +26197,6 @@
     {
       "source_path": "articles/security-center/security-center-custom-alert.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
-      "redirect_document_id": false
-    },  
-    {
-      "source_path": "articles/security-center/security-center-threat-intel.md",
-      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
       "redirect_document_id": false
     },  
     {
@@ -41879,6 +41879,16 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
       "redirect_url": "/azure/sql-database/sql-database-instance-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false
     }
   ]
