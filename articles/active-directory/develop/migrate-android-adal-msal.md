@@ -86,7 +86,7 @@ Organization administrators can consent to permissions your application requires
 
 ### Authenticate and request authorization for all permissions on first use
 
-If you are currently using ADAL and don't need to use incremental consent, the simplest way to start using MSAL is to make an `acquireToken` request using the new `AcquireTokenParameter` object and setting the resource ID value.
+If you're currently using ADAL and don't need to use incremental consent, the simplest way to start using MSAL is to make an `acquireToken` request using the new `AcquireTokenParameter` object and setting the resource ID value.
 
 > [!CAUTION]
 > It's not possible to set both scopes and a resource id. Attempting to set both will result in an `IllegalArgumentException`.
@@ -126,7 +126,7 @@ In ADAL, every organization that you request access tokens from requires a separ
 MSAL does not have a flag to enable or disable authority validation. Authority validation is a feature in ADAL, and in the early releases of MSAL, that prevents your code from requesting tokens from a potentially malicious authority. MSAL now retrieves a list of authorities known to Microsoft and merges that list with the authorities that you've specified in your configuration.
 
 > [!TIP]
-> If your are an Azure Business to Consumer (B2C) user, this means you no longer have to disable authority validation. Instead, include each of the your supported Azure AD B2C policies as authorities in your MSAL configuration.
+> If you're an Azure Business to Consumer (B2C) user, this means you no longer have to disable authority validation. Instead, include each of the your supported Azure AD B2C policies as authorities in your MSAL configuration.
 
 If you attempt to use an authority that isn't known to Microsoft, and isn't included in your configuration, you will get an `UnknownAuthorityException`.
 
@@ -228,24 +228,24 @@ For the following ADAL exceptions, use the corresponding MSAL exception:
 ### ADAL Logging to MSAL Logging
 
 ```java
-//Legacy Interface
+// Legacy Interface
 public void Log(
                     String tag,
                     String message,
                     String additionalMessage,
                     com.microsoft.aad.adal.Logger.LogLevel level,
-                    ADALError errorCode) {
-            }
-
-//Need Legacy Log levels
+                    ADALError errorCode)
+{
+}
 ```
 
 ```java
-//New interface
+// New interface
 public void Log()
 
-//New Log Levels:
-public enum LogLevel {
+// New Log Levels:
+public enum LogLevel
+{
         /**
          * Error level logging.
          */
@@ -262,5 +262,5 @@ public enum LogLevel {
          * Verbose level logging.
          */
         VERBOSE
-    }
+}
 ```

@@ -51,7 +51,7 @@ When using the in-app `WebView`, the user signs in directly to the app. The toke
 
 Additionally, the `WebView` affords apps more sign in look and feel customization. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
 
-## Default browser plus Chrome custom tabs
+## Default browser plus custom tabs
 
 By default, MSAL uses the browser and a [custom tabs](https://developer.chrome.com/multidevice/android/customtabs) strategy. You can explicitly indicate this strategy to prevent changes in future releases to `DEFAULT` by using the following JSON configuration in the custom configuration file:
 
