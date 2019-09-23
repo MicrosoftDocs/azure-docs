@@ -73,9 +73,7 @@ A user can be a member of multiple groups with licenses. Here are some things to
 
   As a result, the user has 7 of the 12 services in the product enabled, while using only one license for this product.
 
-- Selecting the *E3* license shows more details, including information about which groups caused what services to be enabled for the user.
-
-  ![Screenshot of enabled services by group](./media/licensing-group-advanced/view-enabled-service-by-group.png)
+- Selecting the *E3* license shows more details, including information about which services are enabled for the user by by the group license assignment.
 
 ## Direct licenses coexist with group licenses
 
@@ -152,7 +150,7 @@ You can use [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md#au
    >[!TIP]
    > You can also type the name of the group in the *Target* filter to scope the results.
 
-3. Click an item in the list view to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed.
+3. Select an item in the list to see the details of what has changed. Under *Modified Properties* both old and new values for the license assignment are listed.
 
 Here is an example of recent group license changes, with details:
 
