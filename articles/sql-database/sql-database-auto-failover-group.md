@@ -168,9 +168,6 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with managed instances
 
-> [!IMPORTANT]
-> Auto-failover groups for Managed Instance is in public preview.
-
 The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. 
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
@@ -360,7 +357,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
-### REST API: Manage failover groups with Managed Instances (preview)
+### REST API: Manage failover groups with Managed Instances
 
 | API | Description |
 | --- | --- |
