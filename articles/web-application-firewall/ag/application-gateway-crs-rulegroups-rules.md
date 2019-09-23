@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Web Application Firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule by rule basis. This article contains the current rules and rulesets offered.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered.
 
 ## Core rule sets
 
@@ -246,7 +246,7 @@ The following rule groups and rules are available when using Application Gateway
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Blacklist Keywords|
+|941180|Node-Validator Block-list Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated Javascript|
@@ -281,7 +281,7 @@ The following rule groups and rules are available when using Application Gateway
 |942190|Detects MSSQL code execution and information gathering attempts|
 |942200|Detects MySQL comment-/space-obfuscated injections and backtick termination|
 |942210|Detects chained SQL injection attempts 1/2|
-|942220|Looking for intiger overflow attacks, these are taken from skipfish, except 3.0.00738585072|
+|942220|Looking for integer overflow attacks, these are taken from skipfish, except 3.0.00738585072|
 |942230|Detects conditional SQL injection attempts|
 |942240|Detects MySQL charset switch and MSSQL DoS attempts|
 |942250|Detects MATCH AGAINST, MERGE and EXECUTE IMMEDIATE injections|
