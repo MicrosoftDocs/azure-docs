@@ -31,18 +31,6 @@ A Log Analytics workspace provides:
 
 This article provides a detailed overview of the design and migration considerations, access control overview, and an understanding of the design implementations we recommend for your IT organization.
 
-## Ingestion limit
-
-Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion rate threshold is set to **500 MB/min** per workspace. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
- 
-To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results grater than zero.
-
-``` Kusto
-Operation
-|where OperationCategory == "Ingestion"
-|where Detail startswith "The rate of data crossed the threshold"
-``` 
-
 
 
 ## Important considerations for an access control strategy
@@ -138,6 +126,19 @@ The *Access control mode* is a setting on each workspace that defines how permis
     > If a user has only resource permissions to the workspace, they are only able to access the workspace using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
 To learn how to change the access control mode in the portal, with PowerShell, or using a Resource Manager template, see [Configure access control mode](manage-access.md#configure-access-control-mode).
+
+## Ingestion volume rate limit
+
+Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion rate threshold is set to **500 MB/min** per workspace. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
+ 
+To be notified on such an event in your workspace, create a [log alert rule](alerts-log.md) using the following query with alert logic base on number of results grater than zero.
+
+``` Kusto
+Operation
+|where OperationCategory == "Ingestion"
+|where Detail startswith "The rate of data crossed the threshold"
+``` 
+
 
 ## Recommendations
 
