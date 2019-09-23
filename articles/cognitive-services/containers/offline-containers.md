@@ -1,7 +1,7 @@
 ---
-title: Cognitive Services offline containers (limited preview)
+title: Cognitive Services offline containers
 titleSuffix: Azure Cognitive Services
-description: Frequently asked questions and answers.
+description: Learn about Azure Cognitive Services offline container availability and eligibility.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 09/23/2019
 ms.author: dapine
 ---
 
-# Azure Cognitive Services offline containers (limited preview)
+# Azure Cognitive Services offline containers
 
 We're thrilled to announce Azure Cognitive Services offline containers, available now in limited preview to customers with an *Enterprise Agreement*. Offline containers enable customers can run APIs in a fully disconnected environment. You can use the same rich APIs that are available in Azure, with finite control of deployment and hosting. Cognitive Services containers offer many [features and benefits](../cognitive-services-container-support.md#features-and-benefits), such as:
 
