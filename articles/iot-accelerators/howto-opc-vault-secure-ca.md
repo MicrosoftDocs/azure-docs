@@ -224,7 +224,7 @@ The CA key generation ceremony must be performed against a documented script tha
 - Definition of roles and participant responsibilities.
 - Approval for conduct of the CA key generation ceremony.
 - Cryptographic hardware and activation materials required for the ceremony.
-- Hardware preparation (including asset/configuration information update and sign off).
+- Hardware preparation (including asset/configuration information update and sign-off).
 - Operating system installation.
 - Specific steps performed during the CA key generation ceremony, such as: 
   - CA application installation and configuration.
