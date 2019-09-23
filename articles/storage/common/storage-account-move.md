@@ -15,7 +15,7 @@ ms.reviewer: dineshm
 
 To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice.
 
-In this tutorial, you will:
+In this article, you'll learn how to:
 
 > [!div class="checklist"]
 > 
