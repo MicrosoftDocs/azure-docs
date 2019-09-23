@@ -14,30 +14,26 @@ ms.date: 09/20/2018
 # Migrate Azure Scheduler jobs to Azure Logic Apps
 
 > [!IMPORTANT]
-> Azure Logic Apps is replacing Azure Scheduler, 
-> which is being retired. To schedule jobs, 
-> follow this article for moving to Azure Logic Apps instead.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) is replacing Azure Scheduler, 
+> which is [being retired](#retire-date). To continue working with the jobs that you set 
+> up in Scheduler, please move to Azure Logic Apps as soon as possible by following this article.
 
-This article shows how you can schedule one-time 
-and recurring jobs by creating automated workflows 
-with Azure Logic Apps, rather than with Azure Scheduler. 
-When you create scheduled jobs with Logic Apps, you get these benefits:
+This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
-* You don't have to worry about the concept of a *job collection* 
-because each logic app is a separate Azure resource.
+* Build your job by using a visual designer and connectors for hundreds of services, including Azure Blob Storage, Azure Service Bus, Office 365 Outlook, and SAP.
 
-* You can run multiple one-time jobs by using a single logic app.
+* Manage each scheduled workflow as a first-class Azure resource. You don't have to worry about the concept of a *job collection* because each logic app is an individual Azure resource.
 
-* The Azure Logic Apps service supports time zone and daylight savings time (DST).
+* Run multiple one-time jobs by using a single logic app.
 
-To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 
-or try creating your first logic app in this quickstart: 
-[Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Set schedules that support time zones and automatically adjust to daylight savings time (DST).
+
+To learn more, see [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md) or try creating your first logic app in this quickstart: [Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * To trigger your logic app by sending HTTP requests, 
 use a tool such as the [Postman desktop app](https://www.getpostman.com/apps).
@@ -160,9 +156,7 @@ app run instance. To cancel a one-time job, you can use
 in the Logic Apps REST API. When you send a call to the trigger, 
 provide the [workflow run ID](#workflow-run-id).
 
-## Schedule recurring jobs
-
-### Create your logic app
+## Schedule recurring jobs with a logic app
 
 1. In the [Azure portal](https://portal.azure.com), 
 create a blank logic app in Logic App Designer. 
@@ -249,13 +243,29 @@ To learn more about exception handling, see
 
 ## FAQ
 
-<a name="retire-date"></a> 
+<a name="retire-date"></a>
 
 **Q**: When is Azure Scheduler retiring? <br>
-**A**: Azure Scheduler is scheduled to retire on September 30, 2019.
+**A**: Azure Scheduler is scheduled to fully retire on December 31, 2019. Here is more information about this process:
 
-**Q**: What happens to my Scheduler job collections and jobs after the service retires? <br>
-**A**: All Scheduler job collections and jobs will be deleted from the system.
+* *September 30, 2019*
+
+  * Free SKU Scheduler job collection is disabled. Although existing jobs will stop running, you can still retrieve data for migration.
+
+  * New job collections are disabled in the Azure portal for all SKUs. Existing Standard, P10, and P20 resources continue to run. You can also still manage existing job collections.
+
+* *October 31, 2019*
+
+  * Scheduler is removed from the Azure portal.
+
+  * Existing Standard, P10, and P20 resources continue to run and are accessible by using the API and SDKs.
+
+  * For jobs that you don't want to continue running after Scheduler is removed from the portal, please [disable or delete your job collections](https://docs.microsoft.com/azure/scheduler/scheduler-get-started-portal#monitor-and-manage-jobs) before October 31, 2019.
+
+* *December 31, 2019*: Scheduler is fully retired. *All jobs* stop running, and *all data* is deleted from the system.
+
+**Q**: What happens to my job collections and jobs after the service retires? <br>
+**A**: All Scheduler job collections and jobs will stop running and be deleted from the system.
 
 **Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs. 
