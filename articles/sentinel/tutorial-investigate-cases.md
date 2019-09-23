@@ -60,7 +60,7 @@ You'll only be able to investigate the incident if you used the entity mapping f
 
 1. Select **Investigate** to view the investigation map.
 
-## Use the investigation graph to deep dive (preview)
+## Use the investigation graph to deep dive
 
 The investigation graph enables analysts to ask the right questions for each investigation. The investigation graph helps you understand the scope, and identify the root cause, of a potential security threat by correlating relevant data with any involved entity. You can dive deeper and investigate any entity presented in the graph by selecting it and choosing between different expansion options.  
   
