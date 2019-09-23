@@ -31,7 +31,7 @@ From this device template, an operator can create and connect real fan devices. 
 > [!NOTE]
 > Only builders and administrators can create, edit, and delete device templates. Any user can create devices on the **Devices** page from existing device templates.
 
-[IoT Plug and Play](https://aka.ms/iot-pnp-docs) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
+[IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
 
 As a builder, you have several options for creating device templates:
 

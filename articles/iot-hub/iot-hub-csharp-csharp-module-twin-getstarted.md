@@ -26,7 +26,7 @@ At the end of this tutorial, you have two .NET console apps:
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-To complete this tutorial, you need the following prerequisites:
+## Prerequisites
 
 * Visual Studio.
 

@@ -1,5 +1,5 @@
 ---
-title: Collect data about Azure Virtual Machines | Microsoft Docs
+title: Collect data from an Azure virtual machine with Azure Monitor | Microsoft Docs
 description: Learn how to enable the Log Analytics agent VM Extension and enable collection of data from your Azure VMs with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
@@ -16,9 +16,9 @@ ms.author: magoedte
 ms.custom: mvc
 ---
 
-# Collect data about Azure virtual machines
+# Collect data from an Azure virtual machine with Azure Monitor
 
-[Azure Monitor](../overview.md) can collect data directly from your Azure virtual machines and other resources in your environment into a Log Analytics workspace for detailed analysis and correlation. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs using the [Log Analytics agent](../platform/log-analytics-agent.md) with a few easy steps.  
+[Azure Monitor](../overview.md) can collect data directly from your Azure virtual machines into a Log Analytics workspace for detailed analysis and correlation. Installing the Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) and [Linux](../../virtual-machines/extensions/oms-linux.md) allows Azure Monitor to collect data from your Azure VMs. This quickstart shows you how to configure and collect data from your Azure Linux or Windows VMs using the VM extension with a few easy steps.  
  
 This quickstart assumes you have an existing Azure virtual machine. If not you can [create a Windows VM](../../virtual-machines/windows/quick-create-portal.md) or [create a Linux VM](../../virtual-machines/linux/quick-create-cli.md) following our VM quickstarts.
 

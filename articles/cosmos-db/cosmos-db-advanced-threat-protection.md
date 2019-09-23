@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides encryption of data at rest and h
 author: monhaber
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 08/21/2019
 ms.author: rimman
 ms.author: sngun
 ms.author: v-mohabe
@@ -53,6 +53,32 @@ Use the following PowerShell cmdlets:
 * [Enable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099607&clcid=0x409)
 * [Get Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099608&clcid=0x409)
 * [Disable Advanced Threat Protection](https://go.microsoft.com/fwlink/?linkid=2099709&clcid=0x409)
+
+### Using Azure Resource Manager templates
+
+Use an Azure Resource Manager template to set up Cosmos DB with Advanced Threat Protection enabled.
+For more information, see
+[Create a CosmosDB Account with Advanced Threat Protection](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/).
+
+### Using Azure Policy
+
+Use an Azure Policy to enable Advanced Threat Protection for Cosmos DB.
+
+1. Launch the Azure **Policy - Definitions** page, and search for the **Deploy Advanced Threat Protection for Cosmos DB** policy.
+
+    ![Search Policy](./media/cosmos-db-advanced-threat-protection/cosmos-db.png) 
+
+1. Click on the **Deploy Advanced Threat Protection for CosmosDB** policy, and then click **Assign**.
+
+    ![Select Subscription Or Group](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png)
+
+
+1. From the **Scope** field, click the three dots, select an Azure subscription or resource group, and then click **Select**.
+
+    ![Policy Definitions Page](./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png)
+
+
+1. Enter the other parameters, and click **Assign**.
 
 ## Manage ATP security alerts
 

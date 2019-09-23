@@ -1,9 +1,9 @@
-- name: Azure Storage Documentation
-  href: /azure/storage/
+- name: Azure Queue storage documentation
+  href: /azure/storage/queues/
 - name: Overview
   expanded: true
   items:
-  - name: What are Azure Queues?
+  - name: What are Azure queues?
     href: storage-queues-introduction.md
 - name: Quickstarts
   items:
@@ -46,8 +46,8 @@
         href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Advanced threat protection
       href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Azure common security attributes
-      href: ../common/storage-security-attributes.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Built-in security controls
+      href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Data redundancy
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
@@ -160,8 +160,12 @@
     items:
     - name: Initiate account failover
       href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Use the Azure Storage emulator
-    href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Use a storage emulator
+    items:
+    - name: Use the Azurite open-source emulator
+      href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Use the Azure Storage emulator
+      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Develop with queues
     items:
     - name: .NET

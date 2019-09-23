@@ -85,6 +85,8 @@ Known issues and limitations associated with online migrations from PostgreSQL t
 
     **Workaround**: Temporarily set a primary key for the table for migration to continue. You can remove the primary key after data migration is complete.
 
+- **Limitation**: JSONB datatype not supported for migration.
+
 ## LOB limitations
 
 Large Object (LOB) columns are columns that can grow large. For PostgreSQL, examples of LOB data types include XML, JSON, IMAGE, TEXT, etc.

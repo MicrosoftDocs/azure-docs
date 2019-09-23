@@ -8,7 +8,6 @@ editor: ''
 
 ms.service: app-service
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: mahender

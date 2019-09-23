@@ -12,7 +12,6 @@ ms.assetid:
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu

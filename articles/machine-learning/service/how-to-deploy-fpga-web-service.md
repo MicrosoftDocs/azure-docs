@@ -1,7 +1,7 @@
 ---
 title: What are FPGA - how to deploy 
-titleSuffix: Azure Machine Learning service
-description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inference. 
+titleSuffix: Azure Machine Learning
+description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning for ultra-low latency inference. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
 
-This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning service to an Azure FPGA. 
+This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA. 
 
 FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance.
 
@@ -24,7 +24,7 @@ FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfig
 
 The following diagram and table show how FPGAs compare to other processors.
 
-![Diagram of Azure Machine Learning service FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+![Diagram of Azure Machine Learning FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
 |Processor||Description|
 |---|:-------:|------|
@@ -85,7 +85,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 
 ### Prerequisites
 
-- An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+- An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 - FPGA quota. Use the Azure CLI to check whether you have quota:
 
@@ -108,7 +108,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
 
     If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
+- An Azure Machine Learning workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 
@@ -129,7 +129,7 @@ Follow the instructions to:
 * Consume the deployed model
 * Delete deployed services
 
-Use the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
+Use the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
 ### Load Azure ML workspace
 
@@ -315,7 +315,7 @@ for i in Image.list(workspace=ws):
 
 ### Deploy to the cloud
 
-To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, or the Azure portal.
+To deploy your model as a high-scale production web service, use Azure Kubernetes Service (AKS). You can create a new one using the Azure Machine Learning SDK, CLI, the [Azure portal](https://portal.azure.com) or [workspace landing page (preview)](https://ml.azure.com).
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

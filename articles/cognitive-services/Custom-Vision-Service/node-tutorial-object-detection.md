@@ -21,21 +21,21 @@ This article provides information and sample code to help you get started using 
 
 - [Node.js 8](https://www.nodejs.org/en/download/) or later installed.
 - [npm](https://www.npmjs.com/) installed.
+- [!INCLUDE [create-resources](includes/create-resources.md)]
+
+[!INCLUDE [get-keys](includes/get-keys.md)]
+
+[!INCLUDE [node-get-images](includes/node-get-images.md)]
+
 
 ## Install the Custom Vision SDK
 
-To install the Custom Vision service SDKs for Node.js, run the following commands:
+To install the Custom Vision service SDKs for Node.js in your project, run the following commands:
 
 ```shell
 npm install @azure/cognitiveservices-customvision-training
 npm install @azure/cognitiveservices-customvision-prediction
 ```
-
-You can download the images with the [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples).
-
-[!INCLUDE [get-keys](includes/get-keys.md)]
-
-[!INCLUDE [node-get-images](includes/node-get-images.md)]
 
 ## Add the code
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 08/26/2019
 ms.author: helohr
 ---
 # Create an FSLogix profile container for a host pool using Azure NetApp Files
@@ -190,11 +190,11 @@ This section is based on [Create a profile container for a host pool using a fil
 4. Run the following cmdlets to assign a user to a Remote Desktop group:
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## Make sure users can access the Azure NetApp File share
@@ -214,7 +214,7 @@ This section is based on [Create a profile container for a host pool using a fil
 6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
 (in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
 
-   Within this folder, there should be a profile VHD like the one in the following example.
+   Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
 
    ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
 

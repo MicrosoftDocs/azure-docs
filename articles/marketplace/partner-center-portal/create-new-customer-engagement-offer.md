@@ -6,7 +6,7 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 08/26/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
@@ -348,7 +348,7 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-This page lets you provide additional required information about your offer.
+This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
 ### Key usage scenario
 

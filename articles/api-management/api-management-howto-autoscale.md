@@ -21,6 +21,9 @@ Azure API Management service instance can scale automatically based on a set of 
 
 The article walks through the process of configuring autoscale and suggests optimal configuration of autoscale rules.
 
+> [!NOTE]
+> API Management service in the **Consumption** tier scales automatically based on the traffic - without any additional configuration needed.
+
 ## Prerequisites
 
 To follow the steps from this article, you must:
@@ -30,7 +33,7 @@ To follow the steps from this article, you must:
 + Understand the concept of [Capacity of an Azure API Management instance](api-management-capacity.md).
 + Understand [manual scaling process of an Azure API Management instance](upgrade-and-scale.md), including cost consequences.
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+[!INCLUDE [premium-standard.md](../../includes/api-management-availability-premium-standard.md)]
 
 ## Azure API Management autoscale limitations
 

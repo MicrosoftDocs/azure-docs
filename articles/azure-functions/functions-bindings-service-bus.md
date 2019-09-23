@@ -9,7 +9,6 @@ keywords: azure functions, functions, event processing, dynamic compute, serverl
 
 ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
@@ -30,6 +29,9 @@ The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus
 ## Packages - Functions 2.x
 
 The Service Bus bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet package, version 3.x. Source code for the package is in the [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/) GitHub repository.
+
+> [!NOTE]
+> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -713,14 +715,19 @@ In C# and C# script, you can use the following parameter types for the output bi
 * `out T paramName` - `T` can be any JSON-serializable type. If the parameter value is null when the function exits, Functions creates the message with a null object.
 * `out string` - If the parameter value is null when the function exits, Functions does not create a message.
 * `out byte[]` - If the parameter value is null when the function exits, Functions does not create a message.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message.
+* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
+* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x)
 * `ICollector<T>` or `IAsyncCollector<T>` - For creating multiple messages. A message is created when you call the `Add` method.
 
-In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
+When working with C# functions:
 
-These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) instead of `BrokeredMessage`.
+* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
 
-In JavaScript, access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a Javascript object (deserialized into JSON) to `context.binding.<name>`.
+* To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+
+In JavaScript, access the queue or topic by using `context.bindings.<name from function.json>`. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
+
+To send a message to a session-enabled queue in non-C# languages, use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
 
 ## Exceptions and return codes
 

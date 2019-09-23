@@ -74,7 +74,17 @@
   - name: Azure Serverless Community Library
     href: https://www.serverlesslibrary.net/
   - name: Azure Samples
-    href: /samples/browse/?products=azure-functions
+    items:
+    - name: C#
+      href: /samples/browse/?products=azure-functions&languages=csharp
+    - name: JavaScript
+      href: /samples/browse/?products=azure-functions&languages=javascript
+    - name: Java
+      href: /samples/browse/?products=azure-functions&languages=java
+    - name: Python
+      href: /samples/browse/?products=azure-functions&languages=python
+    - name: TypeScript
+      href: /samples/browse/?products=azure-functions&languages=typescript   
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
@@ -88,6 +98,10 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
+  - name: Events and messaging
+    items:
+    - name: Designing for identical input
+      href: functions-idempotent.md
   - name: Triggers and bindings
     items:
     - name: About triggers and bindings
@@ -124,6 +138,8 @@
       href: functions-reference-node.md#typescript
   - name: Diagnostics
     href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Consumption plan costs
+    href: functions-consumption-costs.md  
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
@@ -178,6 +194,8 @@
       href: functions-deployment-slots.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
+    - name: Build and deploy using GitHub Actions
+      href: functions-how-to-github-actions.md
     - name: Zip deployment
       href: deployment-zip-push.md
     - name: Run from package
@@ -202,6 +220,7 @@
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+    displayName: App Insights, Application Insights, logs, logging
   - name: Secure
     items:
     - name: Buy SSL cert
@@ -240,6 +259,8 @@
       href: ../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json 
     - name: Customize HTTP function endpoint
       href: functions-create-serverless-api.md
+    - name: Manage on-premises resources
+      href: functions-hybrid-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot storage
@@ -254,7 +275,7 @@
       href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
   - name: App settings reference
     href: functions-app-settings.md
-  - name: Bindings
+  - name: Triggers and bindings
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
@@ -262,8 +283,10 @@
       items: 
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
+        displayName: Azure Cosmos DB
       - name: Functions 2.x
         href: functions-bindings-cosmosdb-v2.md
+        displayName: Azure Cosmos DB
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs
