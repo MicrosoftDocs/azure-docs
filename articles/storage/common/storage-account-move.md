@@ -15,7 +15,16 @@ ms.reviewer: dineshm
 
 To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice.
 
-This article shows you how to do this by using Azure portal and PowerShell. 
+In this tutorial, you will:
+
+> [!div class="checklist"]
+> 
+> * Export a template.
+> * Modify the template by adding the target region and storage account name.
+> * Deploy the template to create the new storage account.
+> * Configure the new storage account.
+> * Move data to the new storage account.
+> * Delete the resources in the source region.
 
 ## Prerequisites
 
@@ -213,9 +222,28 @@ The following table lists these features along with guidance for adding them to 
 
 ### Move data to the new storage account
 
-AzCopy v10 is a command-line tool that presents easy-to-use commands that are optimized for performance.
+Here's some ways to move your data over.
 
-Follow the guidance in this section of the AzCopy v10 documentation: [Copy blobs between storage accounts](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#copy-blobs-between-storage-accounts).
+:heavy_check_mark: **Azure Storage Explorer**
+
+  It's easy-to-use, and suitable for small data sets. Drag containers and file shares, and then paste them into the target account.
+
+  See [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/);
+
+:heavy_check_mark: **AzCopy**
+
+  This is the preferred approach. It's optimized for performance.  One way that it's faster, is that data is copied directly between storage servers, so AzCopy doesn't use the network bandwidth of your computer. Use AzCopy at the command line or as part of a custom script.
+
+  See [Get started with AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+
+:heavy_check_mark: **Azure Data Factory** 
+
+  Use this tool only if you need functionality that isn't supported in the current release of AzCopy. For example, in the current release of AzCopy, you can't copy blobs between accounts that have a hierarchical namespace. Also AzCopy doesn't preserve file access control lists or file timestamps (For example: create and modified time stamps). 
+
+  See these links:
+  - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage);
+  - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage);
+  - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage);
 
 ---
 
