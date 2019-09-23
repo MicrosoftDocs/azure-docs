@@ -3,10 +3,8 @@ title: Apply disk encryption in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendation **Apply disk encryption**.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Apply disk encryption in Azure Security Center
