@@ -15,7 +15,7 @@ Azure Web Application Firewall (WAF) on Azure Application Gateway provides centr
 
 WAF on Application Gateway is based on [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 or 2.2.9 from the Open Web Application Security Project (OWASP). The WAF automatically updates to include protection against new vulnerabilities, with no additional configuration needed.
 
-![Application Gateway WAF diagram](../media/ag-overview/WAF1.png)
+![Application Gateway WAF diagram](../media/ag-overview/waf1.png)
 
 Application Gateway operates as an application delivery controller (ADC). It offers Secure Sockets Layer (SSL) termination, cookie-based session affinity, round-robin load distribution, content-based routing, ability to host multiple websites, and security enhancements.
 
