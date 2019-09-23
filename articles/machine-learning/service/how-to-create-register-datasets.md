@@ -102,7 +102,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 | |PassengerId|Survived|Pclass|Name|Sex|Age|SibSp|Parch|Ticket|Fare|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|0|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|1|1|Cumings, Ms. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
+1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 Use the [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) method on `TabularDatasetFactory` class to read from Azure SQL Database.
@@ -169,7 +169,7 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 To complete the creation process, register your datasets with a workspace.
 
-Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets to your workspace so they can be shared with others and reused across various experiments.
+Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
