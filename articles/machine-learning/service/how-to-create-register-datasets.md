@@ -43,7 +43,7 @@ To create and work with datasets, you need:
 
 Datasets are categorized into two types based on how users consume them in training. 
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or spark DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
 
 * [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) references single or multiple files in your datastores or public urls. This provides you with the ability to download or mount the files to your compute. The files can be of any format, which enables a wider range of machine learning scenarios including deep learning.
 
@@ -106,6 +106,16 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
+Use the [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) method on `TabularDatasetFactory` class to read from Azure SQL Database.
+
+```Python
+
+from azureml.core import Dataset, Datastore
+
+# create tabular dataset from a SQL database in datastore
+sql_datastore = Datastore.get(workspace, 'mssql')
+sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
+```
 Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](http://aka.ms/azureml-tsd-notebook). 
 
 ```Python
@@ -193,7 +203,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 
-## Access your data during training
+## Access datasets in your script
 
 Registered datasets are accessible locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered Dataset across experiments, use the following code to get your workspace and registered dataset by name. The [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) method on the `Dataset` class by default returns the latest version of the dataset registered with the workspace.
 
@@ -216,5 +226,6 @@ df = titanic_ds.to_pandas_dataframe()
 
 ## Next steps
 
+* Learn [how to train with datasets](how-to-train-with-datasets.md)
 * Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more examples of training with datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
