@@ -41,7 +41,7 @@ nodes) and JournalNodes (zookeeper node), NameNodes (head nodes) uptime, as well
 metrics specific to certain cluster types, like YARN ResourceManager uptime for
 Spark and Hadoop clusters.
 
-![Ambari dashboard](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
+![Apache Ambari use dashboard display](media/hdinsight-cluster-availability/apache-ambari-dashboard.png)
 
 ### Hosts – view individual node status
 
@@ -51,13 +51,13 @@ each node. The green check to the left of each node name indicates all
 components are up on the node. If a component is down on a node, you will see a
 red alert triangle instead of the green check.
 
-![Ambari hosts view](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
+![HDInsight Apache Ambari hosts view](media/hdinsight-cluster-availability/apache-ambari-hosts1.png)
 
 You can then click on the **name** of a node to view more detailed host metrics
 for that particular node. This view shows the status/availability of each
 individual component.
 
-![Ambari hosts single node view](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
+![Apache Ambari hosts single node view](media/hdinsight-cluster-availability/apache-ambari-hosts-node.png)
 
 ### Ambari alerts
 
@@ -66,7 +66,7 @@ certain events. When alerts are triggered, they are shown in the upper-left
 corner of Ambari in a red badge containing the number of alerts. Clicking this
 badge shows a list of current alerts.
 
-![Ambari alerts count](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
+![Apache Ambari current alerts count](media/hdinsight-cluster-availability/apache-ambari-alerts.png)
 
 To view a list of alert definitions and their statuses, click the **Alerts**
 tab, as shown below.
@@ -93,7 +93,7 @@ of the alert as well as the specific criteria that will trigger a ‘warning’ 
 configuration, click the **Edit** button in the upper-right corner of the
 Configuration box.
 
-![Ambari alert configuration](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
+![Apache Ambari alert configuration](media/hdinsight-cluster-availability/ambari-alert-configuration.png)
 
 Here, you can edit the description and, more importantly, the check interval
 and thresholds for warning or critical alerts.
@@ -182,7 +182,7 @@ in 5 hours (i.e. is presumed to be unavailable).
 From the **Logs** blade, run the **Unavailable computers** sample query by
 clicking **Run** on that query, as shown below.
 
-![Log Analytics workspace logs blade 'unavailable computers' sample query](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
+![Log Analytics workspace logs blade 'unavailable computers' sample](media/hdinsight-cluster-availability/portal-unavailable-computers.png)
 
 If all nodes are available, this query should return 0 results for now. Click
 **New alert rule** to begin configuring your alert for this query.
@@ -197,7 +197,7 @@ triggered.
 Click the **condition title**, as shown below, to finish configuring the signal
 logic.
 
-![Alert rule condition](media/hdinsight-cluster-availability/portal-condition-title.png)
+![Portal alert create rule condition](media/hdinsight-cluster-availability/portal-condition-title.png)
 
 This will open the **Configure signal logic** blade.
 
@@ -223,7 +223,7 @@ Click **Done** when you are finished configuring the signal logic.
 If you do not already have an existing action group, click **Create New** under
 the **Action Groups** section.
 
-![Alert rule new action group](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
+![Alert rule create new action group](media/hdinsight-cluster-availability/portal-create-new-action-group.png)
 
 This will open the **Add action group** blade. Choose an **Action group name**,
 **Short name**, **Subscription**, and **Resource group.** Under the **Actions**
@@ -240,14 +240,14 @@ recipient, **check** the **Email** box, and type an email address to which you
 want the alert sent. Click **OK** in the **Email/SMS/Push/Voice** blade, then in
 the **Add action group** blade to finish configuring your action group.
 
-![Alert rule add action group](media/hdinsight-cluster-availability/portal-add-action-group.png)
+![Alert rule create add action group](media/hdinsight-cluster-availability/portal-add-action-group.png)
 
 After these blades close, you should see your action group listed under the
 **Action Groups** section. Finally, complete the **Alert Details** section by
 typing an **Alert Rule Name** and **Description** and choosing a **Severity**.
 Click **Create Alert Rule** to finish.
 
-![Create alert rule finish](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
+![Portal create alert rule finish](media/hdinsight-cluster-availability/portal-create-alert-rule-finish.png)
 
 > [!TIP]
 > The ability to specify **Severity** is a powerful tool that can be used
@@ -258,7 +258,7 @@ Critical (Sev 0) in the unlikely event that both head nodes go down.
 When the condition for this alert is met, the alert will fire and you will
 receive an email with the alert details like this:
 
-![Azure Monitor alert email](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
+![Azure Monitor alert email example](media/hdinsight-cluster-availability/portal-oms-alert-email.png)
 
 You can also view all alerts that have fired, grouped by severity, by going to
 the **Alerts** blade in your **Log Analytics Workspace**.

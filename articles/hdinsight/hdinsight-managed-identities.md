@@ -2,12 +2,14 @@
 title: Managed identities in Azure HDInsight
 description: Provides an overview of the implementation of managed identities in Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.author: hrasheed
 ---
+
 # Managed identities in Azure HDInsight
 
 A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD or maintain credentials such as certificates.

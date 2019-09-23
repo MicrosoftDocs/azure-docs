@@ -1,7 +1,7 @@
 ---
 title: How to deploy models to Notebook VMs
-titleSuffix: Azure Machine Learning service
-description: 'Learn how to deploy your Azure Machine Learning service models as a web service using Notebook VMs.'
+titleSuffix: Azure Machine Learning
+description: 'Learn how to deploy your Azure Machine Learning models as a web service using Notebook VMs.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,17 +14,17 @@ ms.date: 08/08/2019
 
 # Deploy a model to Notebook VMs
 
-Learn how to use the Azure Machine Learning service to deploy a model as a web service on your Notebook VM. Use Notebook VMs if one of the following conditions is true:
+Learn how to use Azure Machine Learning to deploy a model as a web service on your Notebook VM. Use Notebook VMs if one of the following conditions is true:
 
 - You need to quickly deploy and validate your model.
 - You are testing a model that is under development.
 
 > [!TIP]
-> Deploying a model from a Jupyter Notebook on a notebook VM, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the notebook VM. For more information on deployments, see [Deploy models with Azure Machine Learning service](how-to-deploy-and-where.md).
+> Deploying a model from a Jupyter Notebook on a notebook VM, to a web service on the same VM is a _local deployment_. In this case, the 'local' computer is the notebook VM. For more information on deployments, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## Prerequisites
 
-- An Azure Machine Learning service workspace with a notebook VM running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+- An Azure Machine Learning workspace with a notebook VM running. For more information, see [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 ## Deploy to the notebook VMs
 
