@@ -25,7 +25,7 @@ Threat hunting typically requires reviewing mountains of log data looking for ev
 
 Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** blade. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Azure Monitor. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in Azure Monitor. This enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
 Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
@@ -42,16 +42,16 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
     > [!div class="mx-imgBorder"]
     > ![view query results from Azure Sentinel hunting](./media/bookmarks/new-processes-observed-example.png)
     
-    This action opens the query results in the **Logs** blade.
+    This action opens the query results in the **Logs** pane.
 
 4. From the log query results list, expand the row that contains the information you find interesting.
 
-5. Select the ellipsis (...) at the end of the row, and then select **Add hunting bookmark**:
+5. Select the ellipsis (...) on the left, and then select **Add hunting bookmark**:
     
     > [!div class="mx-imgBorder"]
     > ![Add hunting bookmark to query](./media/bookmarks/add-hunting-bookmark.png)
 
-6. On the right, in the **Add hunting bookmark** blade, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
+6. On the right, in the **Add hunting bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
 7. In the **Query Information** section, use the drop down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result. For example:
     
@@ -64,7 +64,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
  
 > [!NOTE]
-> The log query results support bookmarks whenever this blade is opened from Azure Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident. You can't create bookmarks when the **Logs** blade is opened from other locations, such as directly from Azure Monitor.
+> The log query results support bookmarks whenever this pane is opened from Azure Sentinel. For example, you select **General** > **Logs** from the navigation bar, select event links in the investigations graph, or select an alert ID from the full details of an incident (currently in preview). You can't create bookmarks when the **Logs** pane is opened from other locations, such as directly from Azure Monitor.
 
 ## View and update bookmarks 
 
@@ -74,7 +74,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 3. To help you find a specific bookmark, use the search box or filter options.
 
-4. Select individual bookmarks and view the bookmark details in the right-hand details blade.
+4. Select individual bookmarks and view the bookmark details in the right-hand details pane.
 
 5. Make your changes as needed, which are automatically saved.
 
@@ -102,7 +102,7 @@ For instructions to use the investigation graph, see [Use the investigation grap
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to add to an incident.
 
-2. Select **Incident actions (Preview)**:
+2. Select **Incident actions (Preview)** from the command bar:
     
     > [!div class="mx-imgBorder"]
     > ![Add bookmarks to incident](./media/bookmarks/incident-actions.png)
@@ -116,13 +116,13 @@ To view the bookmark within the incident: Navigate to **Sentinel** > **Threat ma
 
 ## View bookmarked data in logs
 
-To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details blade: 
+To view bookmarked queries, results, or their history, select the bookmark from the **Hunting** > **Bookmarks** tab, and use the links provided in the details pane: 
 
-- **View source query** to view the source query in the **Logs** blade.
+- **View source query** to view the source query in the **Logs** pane.
 
 - **View bookmark logs** to see all bookmark metadata, which includes who made the update, the updated values, and the time the update occurred.
 
-You can also view the raw bookmark data for all bookmarks by selecting **Bookmark Logs** from the **Hunting** blade:
+You can also view the raw bookmark data for all bookmarks by selecting **Bookmark Logs** from the command bar on the **Hunting** > **Bookmarks** tab:
 
 > [!div class="mx-imgBorder"]
 > ![Bookmark Logs](./media/bookmarks/bookmark-logs.png)
@@ -130,7 +130,7 @@ You can also view the raw bookmark data for all bookmarks by selecting **Bookmar
 This view shows all your bookmarks with associated metadata. You can use [Keyword Query Language](https://docs.microsoft.com/sharepoint/dev/general-development/keyword-query-language-kql-syntax-reference) (KQL) queries to filter down to the latest version of the specific bookmark you are looking for.
 
 > [!NOTE]
-> There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab. Because of this delay, we recommend you create your bookmarks first, then analyze them after the data is ingested.
+> There can be a significant delay (measured in minutes) between the time you create a bookmark and when it is displayed in the **Bookmarks** tab.
 
 ## Delete a bookmark
  
