@@ -39,10 +39,10 @@ Once you have identified the deleted app, you can restore it using `Restore-AzDe
 Restore-AzDeletedWebApp -ResourceGroupName <my_rg> -Name <my_app> -TargetAppServicePlanName <my_asp>
 ```
 
-The inputs for this command are:
+The inputs for command are:
 
 - **Resource Group**: Target resource group where the app will be restored
-- **Name**: Name for the app, this should be globally unique.
+- **Name**: Name for the app, should be globally unique.
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
 By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
