@@ -246,7 +246,7 @@ The following rule groups and rules are available when using Application Gateway
 |941150|XSS Filter - Category 5 = Disallowed HTML Attributes|
 |941160|NoScript XSS InjectionChecker: HTML Injection|
 |941170|NoScript XSS InjectionChecker: Attribute Injection|
-|941180|Node-Validator Block-list Keywords|
+|941180|Node-Validator Blacklist Keywords|
 |941190|XSS using style sheets|
 |941200|XSS using VML frames|
 |941210|XSS using obfuscated Javascript|
