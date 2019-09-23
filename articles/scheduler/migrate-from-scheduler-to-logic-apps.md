@@ -8,7 +8,7 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 09/23/2019
 ---
 
 # Migrate Azure Scheduler jobs to Azure Logic Apps
@@ -20,7 +20,7 @@ ms.date: 09/20/2018
 
 This article shows how you can schedule one-time and recurring jobs by creating automated workflows with Azure Logic Apps, rather than with Azure Scheduler. When you create scheduled jobs with Logic Apps, you get these benefits:
 
-* Build your job by using a visual designer and connectors for hundreds of services, including Azure Blob Storage, Azure Service Bus, Office 365 Outlook, and SAP.
+* Build your job by using a visual designer and [ready-to-use connectors](../connectors/apis-list.md) from hundreds of services, such as Azure Blob Storage, Azure Service Bus, Office 365 Outlook, and SAP.
 
 * Manage each scheduled workflow as a first-class Azure resource. You don't have to worry about the concept of a *job collection* because each logic app is an individual Azure resource.
 
@@ -68,14 +68,14 @@ for you to select later in your workflow.
    If you don't have a schema, but you have a sample payload in JSON format, 
    you can generate a schema from that payload.
 
-   1. In the Request trigger, choose **Use sample payload to generate schema**.
+   1. In the Request trigger, select **Use sample payload to generate schema**.
 
    1. Under **Enter or paste a sample JSON payload**, provide your sample payload, 
-   and then choose **Done**, for example:
+   and then select **Done**, for example:
 
       ![Sample payload](./media/migrate-from-scheduler-to-logic-apps/sample-payload.png)
 
-1. Under the trigger, choose **Next step**. 
+1. Under the trigger, select **Next step**. 
 
 1. In the search box, enter "delay until" as your filter. 
 Under the actions list, select this action: **Delay until**
@@ -127,7 +127,7 @@ which you might have described earlier by specifying a schema.
 
 For example, using the Postman app, you can create 
 a POST request with the settings similar to this sample, 
-and then choose **Send** to make the request.
+and then select **Send** to make the request.
 
 | Request method | URL | Body | Headers |
 |----------------|-----|------|---------| 
@@ -143,7 +143,7 @@ app appears under the **raw** box on the **Body** tab.
 
 > [!IMPORTANT]
 >
-> If you want to cancel the job later, choose the **Headers** tab. 
+> If you want to cancel the job later, select the **Headers** tab. 
 > Find and copy the **x-ms-workflow-run-id** header value in the response. 
 >
 > ![Response](./media/migrate-from-scheduler-to-logic-apps/postman-response.png)
@@ -174,11 +174,9 @@ From the triggers list, select this trigger:
    ![Advanced schedule](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
    For more information about advanced scheduling options, see 
-   [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+   [Create and run recurring tasks and workflows with Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
-1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). 
-Under the trigger, choose **Next step**. 
-Find and select the actions you want.
+1. Add other actions you want by selecting from [hundreds of ready-to-use](../connectors/apis-list.md). Under the trigger, select **Next step**. Find and select the actions you want.
 
    For example, you can include an HTTP 
    action that sends a request to a URL, 
@@ -202,11 +200,11 @@ logic app when intermittent failures happen, you can set the
 [retry policy](../logic-apps/logic-apps-exception-handling.md#retry-policies) 
 in each action's settings, for example:
 
-1. Open the action's (**...**) menu, and select **Settings**.
+1. Open the action's ellipses (**...**) menu, and select **Settings**.
 
    ![Open action settings](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
-1. Select the retry policy you want. For more information about each policy, 
+1. Select the retry policy that you want. For more information about each policy, 
 see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies).
 
    ![Select retry policy](./media/migrate-from-scheduler-to-logic-apps/retry-policy.png)
@@ -217,9 +215,9 @@ In Azure Scheduler, if the default action fails to run,
 you can run an alterative action that addresses the error condition. 
 In Azure Logic Apps, you can also perform the same task.
 
-1. In Logic App Designer, above the action you want to handle, 
+1. In Logic App Designer, above the action that you want to handle, 
 move your pointer over the arrow between steps, 
-and select and **Add a parallel branch**. 
+and select **Add a parallel branch**. 
 
    ![Add parallel branch](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -227,7 +225,7 @@ and select and **Add a parallel branch**.
 
    ![Add parallel action](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. On the alternative action, open the (**...**) menu, and select **Configure run after**.
+1. On the alternative action, open the ellipses (**...**) menu, and select **Configure run after**.
 
    ![Configure run after](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -236,7 +234,7 @@ and select and **Add a parallel branch**.
 
    ![Set up "run after" properties](./media/migrate-from-scheduler-to-logic-apps/select-run-after-properties.png)
 
-1. When you're finished, choose **Done**.
+1. When you're finished, select **Done**.
 
 To learn more about exception handling, see 
 [Handle errors and exceptions - RunAfter property](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
@@ -282,21 +280,19 @@ If your Azure subscription has a paid support plan, you can
 create a technical support request in the Azure portal. 
 Otherwise, you can select a different support option.
 
-1. On the [Azure portal](https://portal.azure.com) main menu, 
-select **Help + support**.
+1. On the [Azure portal](https://portal.azure.com) main menu, select **Help + support**.
 
-1. Under **Support**, select **New support request**. 
-Provide these details for your request:
+1. From the **Support** menu, select **New support request**. Provide this information about for your request:
 
-   | Setting | Value |
+   | Property | Value |
    |---------|-------|
-   | **Issue type** | **Technical** | 
-   | **Subscription** | <*your-Azure-subscription*> | 
-   | **Service** | Under **Monitoring & Management**, select **Scheduler**. | 
+   | **Issue type** | **Technical** |
+   | **Subscription** | <*your-Azure-subscription*> |
+   | **Service** | Under **Monitoring & Management**, select **Scheduler**. If you can't find **Scheduler**, select **All services** first. |
    ||| 
 
 1. Select the support option you want. If you have a paid support plan, 
-choose **Next**.
+select **Next**.
 
 **Community**
 
