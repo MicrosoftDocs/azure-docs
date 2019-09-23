@@ -13,34 +13,30 @@ ms.author: dapine
 
 # Azure Cognitive Services offline containers (limited preview)
 
-We're thrilled to announce Azure Cognitive Services offline containers, available now in limited preview to customers with an *Enterprise Agreement*. Offline containers enable customers can run APIs in a fully disconnected environment. You can use the same rich APIs that are available in Azure, with the flexibility of where to deploy, and host the services that come with [Docker containers](https://www.docker.com/resources/what-container). Cognitive Services containers offer many [features and benefits](../cognitive-services-container-support.md#features-and-benefits), such as control of your data, choice of deployment and running artificial intelligence (AI) models next to your applications and system logic for low-latency execution.
+We're thrilled to announce Azure Cognitive Services offline containers, available now in limited preview to customers with an *Enterprise Agreement*. Offline containers enable customers can run APIs in a fully disconnected environment. You can use the same rich APIs that are available in Azure, with finite control of deployment and hosting. Cognitive Services containers offer many [features and benefits](../cognitive-services-container-support.md#features-and-benefits), such as:
+
+* Control of your data.
+* Low-latency execution of artificial intelligence (AI) models near application logic.
+* Disconnected scenarios on the edge.
 
 > [!IMPORTANT]
 > Offline containers are in limited preview, and eligibility criteria is in place to help guide customers. [Sign up here][sign-up] to learn more.
 
 ## Use Cases
 
-There are many use cases for offline containers, here are some of the more common use cases we've experienced.
-
-### Retail intelligence
-
-
-
-Support retail scenarios helping to build a frictionless checkout experience, develop product recommendation, target advertisement etc., enabling retailers to run AI on-premises close to their data. Containers enable possibilities of running these operations by deploying them on-premises for higher-level decision making and in real time.
-
-### IT automation
-
-
-
-Use containers as a recommendation engine in handling tickets and assign to the right team on time. Detect sentiment entitles within customer tickets and prioritize which scenarios need to get addressed first, Automate the resolution of tickets by troubleshooting and determining resolution without manual intervention.
+There are many use cases for offline Cognitive Services containers, here are some of the more common use cases we've experienced.
 
 ### Transport services
 
 Various transport services, such as luxury cruise lines *do not always* have connectivity to the cloud. Cognitive Services containers offer a huge opportunity to track sentiment of passengers, identify lost items, and even help with answering questions for customers. All these operations can run locally in real time, without being connected to the cloud.
 
-## Solution architecture
+### Retail intelligence
 
-[ IMAGE ]
+Offline containers support several retail scenarios, including helping to build a frictionless checkout experience, developing product recommendation, and target advertising. Retailers can execute AI on-premises close to their data. Containers enable the possibility of running these operations by deploying them on-premises, for higher-level decision making in real time.
+
+### IT automation
+
+Offline containers can be used as recommendation engines for handling tickets and assigning them to the correct team. They could be used to detect sentiment within customer tickets and prioritize which scenarios need to get addressed first. Likewise, you could automate the resolution of tickets by troubleshooting and determining resolution without manual intervention.
 
 ## Offline container eligibility
 
@@ -79,7 +75,7 @@ Azure Cognitive Services containers are just like any other Docker container, an
 
 **Q: How should I run the Cognitive Services containers on IoT devices?**
 
-**A:** Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+**A:** Whether you don’t have a reliable internet connection, or you simply want to save on bandwidth cost. Perhaps, you have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) give you consistency with the cloud.
 
 **Q: What compliance certifications do containers have?**
 
