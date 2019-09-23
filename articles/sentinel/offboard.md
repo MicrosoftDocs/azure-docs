@@ -23,9 +23,9 @@ If you no longer want to use the Azure Sentinel, this article explains how to re
 
 ## How to delete Azure Sentinel
 
-In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the solution. In the Azure portal, you need to delete the SecurityInsights solution.
+In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the **SecurityInsights** solution.
 
-1.  Go to **Workspace settings** and then **Solutions**.
+1.  Go to **Azure Sentinel**, followed by **Configuration**, followed by **Workspace settings**, and then **Solutions**.
 
 2.  Select `SecurityInsights` and click on it.
 
@@ -34,7 +34,7 @@ In the background, when you install Azure Sentinel, the **SecurityInsights** sol
 3.  At the top of the page select **Delete**.
 
     > [!IMPORTANT]
-    > If you delete the workspace, the removal process is also triggered.
+    > If you delete the workspace, the the workspace and Azure Sentinel are removed from your tenant in Azure Monitor.
 
     ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 
@@ -45,19 +45,17 @@ When you delete the solution, Azure Sentinel takes up to 48 hours to complete th
 After the disconnection is identified, the offboarding process begins.
 
 **The configuration of these connectors is deleted:**
--   Office activity
+-   Office 365
 
--   AWS cloud trail
+-   AWS
 
 -   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
--   Threat Intelligence indicator
-
--   CloudTrail
+-   Threat Intelligence
 
 -   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
 
--   Windows security events (If you have Azure Security Center, these logs will continue to be collected.)
+-   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
 
 Within the first 48 hours, the data and alert rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 

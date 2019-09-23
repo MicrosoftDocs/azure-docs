@@ -33,7 +33,7 @@ If you’re a managed security service provider (MSSP) and you’re using [Azure
 1. Open Azure Sentinel. You will see all the workspaces in the selected subscriptions, and you’ll be able to work with them seamlessly, like any workspace in your own tenant.
 
 > [!NOTE]
-> You will not be able to connect connectors in Azure Sentinel from within a managed workspace. To connect a connector, you must directly sign into the tenant on which you want to connect a connector and authenticate there with the required permissions.
+> You will not be able to deploy connectors in Azure Sentinel from within a managed workspace. To deploy a connector, you must directly sign into the tenant on which you want to deploy a connector and authenticate there with the required permissions.
 
 
 
