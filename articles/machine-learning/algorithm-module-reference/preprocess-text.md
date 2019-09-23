@@ -42,7 +42,7 @@ The **Preprocess Text** module currently only supports English.
 
 1. **Lemmatization**: Select this option if you want words to be represented in their canonical form. This option is useful for reducing the number of unique occurrences of otherwise similar text tokens.
 
-    The lemmatization process is highly language-dependent..
+    The lemmatization process is highly language-dependent.
 
 1. **Detect sentences**: Select this option if you want the module to insert a sentence boundary mark when performing analysis.
 
