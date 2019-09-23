@@ -74,7 +74,7 @@
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
   - name: ML pipelines
-    href: concept-ml-pipelines.md
+    href: concept-why-ml-pipelines.md
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
