@@ -15,19 +15,10 @@ Currently, most of the Cognitive Services container offerings are available as a
 
 | Service | Container(s) | Available offline? |
 |---------|-----|-------------------|
-| [Anomaly Detector][ad-containers] | Anomaly Detector | ✔️ |
-| [Computer Vision][cv-containers] | Read, Recognize Text | ✔️ |
-| [Face][fa-containers] | Face | ❌ |
-| [Form Recognizer][fr-containers] | Form Recognizer | ✔️ |
-| [Language Understanding (LUIS)][lu-containers] | LUIS | ✔️ |
-| [Speech Service API][sp-containers] | Speech-to-text and Text-to-speech | ✔️ |
-| [Text Analytics][ta-containers] | Key Phrase, Language Detection, and Sentiment Analysis | ✔️ |
-
-[ad-containers]: ../../anomaly-Detector/anomaly-detector-container-howto.md
-[cv-containers]: ../../computer-vision/computer-vision-how-to-install-containers.md
-[fa-containers]: ../../face/face-how-to-install-containers.md
-[fr-containers]: ../../form-recognizer/form-recognizer-container-howto.md
-[lu-containers]: ../../luis/luis-container-howto.md
-[sp-containers]: ../../speech-service/speech-container-howto.md
-[ta-containers]: ../../text-analytics/how-tos/text-analytics-how-to-install-containers.md
-<!-- [tt-containers]: ../../translator/how-to-install-containers.md -->
+| [Anomaly Detector](../../anomaly-Detector/anomaly-detector-container-howto.md) | Anomaly Detector | ✔️ |
+| [Computer Vision](../../computer-vision/computer-vision-how-to-install-containers.md) | Read, Recognize Text | ✔️ |
+| [Face](../../face/face-how-to-install-containers.md) | Face | ❌ |
+| [Form Recognizer](../../form-recognizer/form-recognizer-container-howto.md) | Form Recognizer | ✔️ |
+| [Language Understanding (LUIS)](../../luis/luis-container-howto.md) | LUIS | ✔️ |
+| [Speech Service API](../../speech-service/speech-container-howto.md) | Speech-to-text and Text-to-speech | ✔️ |
+| [Text Analytics](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md) | Key Phrase, Language Detection, and Sentiment Analysis | ✔️ |
