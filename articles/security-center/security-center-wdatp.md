@@ -3,16 +3,15 @@ title: Windows Defender Advanced Threat Protection with Azure Security Center
 description: This document introduces the integration between Azure Security Center and Windows Defender Advanced Threat Protection.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/21/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 # Windows Defender Advanced Threat Protection with Azure Security Center
 

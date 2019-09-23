@@ -19,6 +19,7 @@ Get started with the Computer Vision client library for Java. Follow these steps
 Use the Computer Vision client library for Java to:
 
 * Analyze an image for tags, text description, faces, adult content, and more.
+* Recognize printed and handwritten text with the Batch Read API.
 
 [Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable) | [Artifact (Maven)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
@@ -110,6 +111,7 @@ These code snippets show you how to do the following tasks with the Computer Vis
 
 * [Authenticate the client](#authenticate-the-client)
 * [Analyze an image](#analyze-an-image)
+* [Read printed and handwritten text](#read-printed-and-handwritten-text)
 
 ## Authenticate the client
 
@@ -206,6 +208,29 @@ The following code parses data about detected landmarks in the image.
 The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+## Read printed and handwritten text
+
+Computer Vision can read visible text in an image and convert it to a character stream.
+
+> [!NOTE]
+> You can also read text in a remote image using its URL. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/ComputerVision/ComputerVisionQuickstart.java) for scenarios involving remote images.
+
+### Call the Recognize API
+
+First, use the following code to call the **recognizePrintedTextInStream** method for the given image. When you add this code to your project, you need to replace the value of `localTextImagePath` with the path to your local image. 
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_imagetype)]
+
+### Print Recognize results
+
+The following block of code processes the returned text and parses it to print out the first word in each line. You can use this code to quickly understand the structure of an **OcrResult** instance.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_print)]
+
+Finally, close out the try/catch block and the method definition.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/ComputerVisionQuickstart.java?name=snippet_read_catch)]
 
 ## Run the application
 
