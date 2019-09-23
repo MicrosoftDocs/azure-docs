@@ -685,6 +685,7 @@
     - name: Storage
       items:
       - name: Azure Monitor for Storage
+        displayname: storage, monitor, insights, storage accounts, azure storage
         href: insights/storage-insights-overview.md
     - name: Databases
       items:
