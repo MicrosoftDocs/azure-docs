@@ -47,6 +47,7 @@ npm install
 ```
 
 ## Run the sample
+
 Now that the dependencies are installed, you can run the sample by issuing the following command:
 
 ```bash
@@ -74,6 +75,7 @@ Done
 If you're using a new storage account for this quickstart, then you may not see container names listed under the label "*Containers*".
 
 ## Understanding the code
+
 The sample begins by importing a number of classes and functions from the Azure Blob storage namespace. Each of the imported items is discussed in context as they're used in the sample.
 
 ```javascript
@@ -119,11 +121,14 @@ const STORAGE_ACCOUNT_NAME = process.env.AZURE_STORAGE_ACCOUNT_NAME;
 const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 ```
 The next set of constants helps to reveal the intent of file size calculations during upload operations.
+
 ```javascript
 const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
+
 Requests made by the API can be set to time-out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-preview) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
+
 ```javascript
 const ONE_MINUTE = 60 * 1000;
 ```
@@ -200,13 +205,16 @@ Aborters give you control over requests by allowing you to:
 - use the *Aborter.none* static member to stop your requests from timing out all together
 
 ### Show container names
+
 Accounts can store a vast number of containers. The following code demonstrates how to list containers in a segmented fashion, which allows you to cycle through a large number of containers. The *showContainerNames* function is passed instances of *ServiceURL* and *Aborter*.
 
 ```javascript
 console.log("Containers:");
 await showContainerNames(serviceURL, aborter);
 ```
+
 The *showContainerNames* function uses the *listContainersSegment* method to request batches of container names from the storage account.
+
 ```javascript
 async function showContainerNames(aborter, serviceURL) {
 
@@ -222,6 +230,7 @@ async function showContainerNames(aborter, serviceURL) {
     } while (marker);
 }
 ```
+
 When the response is returned, then the *containerItems* are iterated to log the name to the console. 
 
 ### Create a container
@@ -232,22 +241,31 @@ To create a container, the *ContainerURL*'s *create* method is used.
 await containerURL.create(aborter);
 console.log(`Container: "${containerName}" is created`);
 ```
+
 As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container.
 
 ### Upload text
+
 To upload text to the blob, use the *upload* method.
+
 ```javascript
 await blockBlobURL.upload(aborter, content, content.length);
 console.log(`Blob "${blobName}" is uploaded`);
 ```
+
 Here the text and its length are passed into the method.
+
 ### Upload a local file
+
 To upload a local file to the container, you need a container URL and the path to the file.
+
 ```javascript
 await uploadLocalFile(aborter, containerURL, localFilePath);
 console.log(`Local file "${localFilePath}" is uploaded`);
 ```
+
 The *uploadLocalFile* function calls the *uploadFileToBlockBlob* function, which takes the file path and an instance of the destination of the block blob as arguments.
+
 ```javascript
 async function uploadLocalFile(aborter, containerURL, filePath) {
 
@@ -259,16 +277,21 @@ async function uploadLocalFile(aborter, containerURL, filePath) {
     return await uploadFileToBlockBlob(aborter, filePath, blockBlobURL);
 }
 ```
+
 ### Upload a stream
+
 Uploading streams is also supported. This sample opens a local file as a stream to pass to the upload method.
+
 ```javascript
 await uploadStream(containerURL, localFilePath, aborter);
 console.log(`Local file "${localFilePath}" is uploaded as a stream`);
 ```
-The *uploadStream* function calls *uploadStreamToBlockBlob* to upload the stream to the storage container.
-```javascript
-async function uploadStream(aborter, containerURL, filePath) {
 
+The *uploadStream* function calls *uploadStreamToBlockBlob* to upload the stream to the storage container.
+
+```javascript
+async function uploadStream(aborter, containerURL, filePath)
+{
     filePath = path.resolve(filePath);
 
     const fileName = path.basename(filePath).replace('.md', '-stream.md');
@@ -291,51 +314,70 @@ async function uploadStream(aborter, containerURL, filePath) {
                     uploadOptions.maxBuffers);
 }
 ```
+
 During an upload, *uploadStreamToBlockBlob* allocates buffers to cache data from the stream in case a retry is necessary. The *maxBuffers* value designates at most how many buffers are used as each buffer creates a separate upload request. Ideally, more buffers equate to higher speeds, but at the cost of higher memory usage. The upload speed plateaus when the number of buffers is high enough that the bottleneck transitions to the network or disk instead of the client.
 
 ### Show blob names
-Just as accounts can contain many containers, each container can potentially contain a vast amount of blobs. Access to each blob in a container are available via an instance of the *ContainerURL* class. 
+
+Just as accounts can contain many containers, each container can potentially contain a vast amount of blobs. Access to each blob in a container are available via an instance of the *ContainerURL* class.
+
 ```javascript
 console.log(`Blobs in "${containerName}" container:`);
 await showBlobNames(aborter, containerURL);
 ```
 The function *showBlobNames* calls *listBlobFlatSegment* to request batches of blobs from the container.
+
 ```javascript
-async function showBlobNames(aborter, containerURL) {
+async function showBlobNames(aborter, containerURL)
+{
+    let marker = undefined;
 
-    let response;
-    let marker;
+    do
+    {
+        const listBlobsResponse = await containerURL.listBlobFlatSegment(Aborter.none, marker);
+        marker = listBlobsResponse.nextMarker;
 
-    do {
-        response = await containerURL.listBlobFlatSegment(aborter);
-        marker = response.marker;
-        for(let blob of response.segment.blobItems) {
+        for (const blob of listBlobsResponse.segment.blobItems)
+        {
             console.log(` - ${ blob.name }`);
         }
+
     } while (marker);
 }
 ```
+
 ### Download a blob
+
 Once a blob is created, you can download the contents by using the *download* method.
+
 ```javascript
 const downloadResponse = await blockBlobURL.download(aborter, 0);
 const downloadedContent = downloadResponse.readableStreamBody.read(content.length).toString();
 console.log(`Downloaded blob content: "${downloadedContent}"`);
 ```
+
 The response is returned as a stream. In this example, the stream is converted to a string to log to the console.
+
 ### Delete a blob
+
 The *delete* method from a *BlockBlobURL* instance deletes a blob from the container.
+
 ```javascript
 await blockBlobURL.delete(aborter)
 console.log(`Block blob "${blobName}" is deleted`);
 ```
+
 ### Delete a container
+
 The *delete* method from a *ContainerURL* instance deletes a container from the storage account.
+
 ```javascript
 await containerURL.delete(aborter);
 console.log(`Container "${containerName}" is deleted`);
 ```
+
 ## Clean up resources
+
 All data written to the storage account is automatically deleted at the end of the code sample. 
 
 ## Next steps
