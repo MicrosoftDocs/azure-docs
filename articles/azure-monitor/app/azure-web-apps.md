@@ -321,6 +321,9 @@ Below is our step-by-step troubleshooting guide for extension/agent based monito
 > [!NOTE]
 > Java and Node.js applications are only supported on Azure App Services via manual SDK based instrumentation and therefore the steps below do not apply to these scenarios.
 
+> [!NOTE]
+> ASP.NET Core 3.0 applications are not supported. Please follow [Manual instrumentation](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via code for ASP.NET Core 3.0 apps.
+
 1. Check that the application is monitored via `ApplicationInsightsAgent`.
     * Check that `ApplicationInsightsAgent_EXTENSION_VERSION` app setting is set to a value of "~2".
 2. Ensure that the application meets the requirements to be monitored.

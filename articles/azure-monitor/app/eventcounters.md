@@ -15,7 +15,7 @@ ms.author: cithomas
 ---
 # EventCounters introduction
 
-`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS Platforms - Windows, Linux and MacOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
+`EventCounter` is .NET/.NET Core mechanism to publish and consume counters or statistics. [This](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md) document gives an overview of `EventCounters` and examples on how to publish and consume them. EventCounters are supported in all OS Platforms - Windows, Linux, and MacOS. It can be thought of as a cross-platform equivalent for the [PerformanceCounters](https://docs.microsoft.com/dotnet/api/system.diagnostics.performancecounter) that is only supported in Windows systems.
 
 While users can publish any custom `EventCounters` to meet their needs, the .NET Core 3.0 runtime publishes a set of these counters by default. The document will walk through the steps required to collect and view `EventCounters` (system defined or user defined) in Azure Application Insights.
 
@@ -25,7 +25,7 @@ Application Insights supports collecting `EventCounters` with its `EventCounterC
 
 ## Default counters collected
 
-For apps running in .NET Core 3.0, the following set of counters are collected automatically by the SDK. The name of the counters will be of the form "Category|Counter".
+For apps running in .NET Core 3.0, the following counters are collected automatically by the SDK. The name of the counters will be of the form "Category|Counter".
 
 |Category | Counter|
 |---------------|-------|
@@ -129,9 +129,22 @@ Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to
 
 ## Frequently asked questions
 
-### Can I see EventCounters in Live Metrics ?
+### Can I see EventCounters in Live Metrics?
 
 No. Live Metrics do not show EventCounters as of today. Use Metric Explorer or Analytics to see the telemetry.
+
+### Which platforms can I see the default list of .NET Core 3.0 counters?
+
+EventCounter do not require any special permissions, and is supported in all platforms .NET Core 3.0 is supported. This includes:
+* **Operating system**: Windows, Linux, or Mac.
+* **Hosting method**: In process or out of process.
+* **Deployment method**: Framework dependent or self-contained.
+* **Web server**: IIS (Internet Information Server) or Kestrel.
+* **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
+
+### I have enabled Application Insights from Azure Web App Portal. But I cannot see EventCounters.?
+
+ [Application Insights extension](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps) for Asp.Net Core does not yet support this feature. This documetn will be updated when this feature is supported.
 
 ## <a name="next"></a>Next steps
 

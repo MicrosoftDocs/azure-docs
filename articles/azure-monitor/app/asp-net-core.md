@@ -28,6 +28,7 @@ The [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Micro
 * **Deployment method**: Framework dependent or self-contained.
 * **Web server**: IIS (Internet Information Server) or Kestrel.
 * **Hosting platform**: The Web Apps feature of Azure App Service, Azure VM, Docker, Azure Kubernetes Service (AKS), and so on.
+* **.NET Core Runtime version**: 1.XX, 2.XX or 3.XX
 * **IDE**: Visual Studio, VS Code, or command line.
 
 > [!NOTE]
@@ -356,9 +357,14 @@ Note that the above does not prevent any auto collection modules from collecting
 
 ## Frequently asked questions
 
+### Does Application Insights support ASP.NET Core 3.0?
+
+Yes. Update to [Application Insights SDK for ASP.NET Core](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.8.0 or higher. Older versions of the SDK do not support ASP.NET Core 3.0.
+Also, if you are using Visual Studio based instructions from [here](#enable-application-insights-server-side-telemetry-visual-studio), please update to the latest version of Visual Studio 2019 (16.3.0) to onboard. Previous versions of Visual Studio do not support automatic onboarding.
+
 ### How can I track telemetry that's not automatically collected?
 
-Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry. 
+Get an instance of `TelemetryClient` by using constructor injection, and call the required `TrackXXX()` method on it. We don't recommend creating new `TelemetryClient` instances in an ASP.NET Core application. A singleton instance of `TelemetryClient` is already registered in the `DependencyInjection` container, which shares `TelemetryConfiguration` with rest of the telemetry. Creating a new `TelemetryClient` instance is recommended only if it needs a configuration that's separate from the rest of the telemetry.
 
 The following example shows how to track additional telemetry from a controller.
 
@@ -389,7 +395,7 @@ For more information about custom data reporting in Application Insights, see [A
 
 Yes, enabling Application Insights with this method is valid. This technique is used in Visual Studio onboarding and in the Web Apps extensions. However, we recommend using `services.AddApplicationInsightsTelemetry()` because it provides overloads to control some configuration. Both methods do the same thing internally, so if you don't need to apply custom configuration, you can call either method.
 
-`IWebHostBuilder` is replaced with `IHostBuilder` in ASP.NET Core 3.0, and to avoid confusion, Application Insights version 2.8.0-beta3 onwards is marking the UseApplicationInsights() method as obsolete, and will be removed in the next major version.
+`IWebHostBuilder` is replaced with `IHostBuilder` in ASP.NET Core 3.0, and to avoid confusion, Application Insights version 2.8.0 onwards is marking the UseApplicationInsights() method as obsolete, and will be removed in the next major version.
 
 ### I'm deploying my ASP.NET Core application to Web Apps. Should I still enable the Application Insights extension from Web Apps?
 
