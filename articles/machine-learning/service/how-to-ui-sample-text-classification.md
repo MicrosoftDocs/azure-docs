@@ -38,7 +38,7 @@ The fundamental steps of a training machine learning model with text data are:
 
 Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
-[![Graph of the experiment](./media/how-to-ui-sample-text-classification/nlp_modules_overall.png)](./media/how-to-ui-sample-text-classification/nlp_modules_overall.png#lightbox)
+[![Graph of the experiment](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## Data
 

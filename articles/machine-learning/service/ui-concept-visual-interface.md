@@ -91,7 +91,7 @@ Compute targets are attached to your Machine Learning [workspace](concept-worksp
 
 ## Publish
 
-Once you have a pipeline ready, you can publish it as a REST endpoint. A [PublishedPipeline](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) can be submitted without the Python code which constructed it.
+Once you have a pipeline ready, you can publish it as a REST endpoint. A [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) can be submitted without the Python code which constructed it.
 
 In addition, a PublishedPipeline can be used to resubmit a Pipeline with different PipelineParameter values and inputs.
 
