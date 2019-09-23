@@ -24,7 +24,7 @@ To review the types of HDInsight clusters available, and the provisioning method
 
 To learn more about deleting a cluster when it is no longer in use, see [Delete an HDInsight cluster using your browser, PowerShell, or the Azure CLI](https://docs.microsoft.com/azure/hdinsight/hdinsight-delete-cluster). We recommend that there be at least 30 to 60 minutes between the create and delete operation on a single cluster. Otherwise, the operation may fail and return the following error message:
 
-``Conflict (HTTP Status Code: 409) error when attempting to delete a cluster immediately after creation of a cluster. If you encounter this error, please wait until the newly created cluster is in operational state before attempting to delete it.``
+``Conflict (HTTP Status Code: 409) error when attempting to delete a cluster immediately after creation of a cluster. If you encounter this error, wait until the newly created cluster is in operational state before attempting to delete it.``
 
 ### How do I select the correct number of cores or nodes for my workload?
 
@@ -72,7 +72,7 @@ For more information, see [Resource types in Azure HDInsight clusters](https://d
 
 Yes, you can install additional components or customize cluster configuration by using any of the following methods:
 
-* Using scripts during or after creation. Such scripts are invoked through a [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux). This is a configuration option that can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. 
+* Using scripts during or after creation. Such scripts are invoked through a [script action](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux). This configuration option can be used from the Azure portal, HDInsight Windows PowerShell cmdlets, or the HDInsight .NET SDK. 
 * Using sudo or other methods after the cluster is provisioned.
 * Using the [HDInsight application platform](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) to install ecosystem applications.
 
@@ -85,7 +85,7 @@ For a list of supported components see [What are the Apache Hadoop components an
 
 Support for individual components can also vary by cluster type. For example, Spark is not supported on a Kafka cluster, and vice-versa.
 
-For applications or services outside the cluster creation process, please contact the respective vendor or service provider for support. You can also use community sites for support for these actions. Many community sites are available. Examples include [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/questions/tagged/hdinsight). Apache projects also have project sites on the [Apache website](https://apache.org/). One example is [Hadoop](https://hadoop.apache.org/).
+For applications or services outside the cluster creation process, contact the respective vendor or service provider for support. You can also use community sites for support for these actions. Many community sites are available. Examples include [MSDN forum for HDInsight](https://social.msdn.microsoft.com/Forums/home?forum=hdinsight) and [Stack Overflow](https://stackoverflow.com/questions/tagged/hdinsight). Apache projects also have project sites on the [Apache website](https://apache.org/). One example is [Hadoop](https://hadoop.apache.org/).
 
  For more questions that are related to Azure support, review the [Azure Support FAQ](https://azure.microsoft.com/en-us/support/faq/).
 
@@ -93,7 +93,7 @@ For applications or services outside the cluster creation process, please contac
 
 If you upgrade built-in components or applications that are pre-installed on your cluster, the resulting configuration will not be supported by Microsoft. These system configurations have not been tested by Microsoft. Try to use a different version of the HDInsight cluster that may already have the upgraded version of the component pre-installed.
 
-For example, upgrading Hive as an individual component is not supported. HDInsight is a managed service, and many services are integrated with Ambari server and tested. Upgrading a Hive on its own causes the indexed binaries of other components to change. This will cause component integration issues on your cluster.
+For example, upgrading Hive as an individual component is not supported. HDInsight is a managed service, and many services are integrated with Ambari server and tested. Upgrading a Hive on its own causes the indexed binaries of other components to change, and will cause component integration issues on your cluster.
 
 ### Can Spark and Kafka run on the same HDInsight cluster?
 
@@ -136,9 +136,9 @@ Yes, you can migrate a Hive metastore from an ESP to a non-ESP cluster.
 
 ### How can I estimate the size of a Hive metastore database?
 
-A Hive metastore is used to store the metadata for data sources that are used by the Hive server. Therefore, the size requirements are affected by the number of data sources you may have to use for the Hive and by how complex the data sources are. Therefore, the size cannot be estimated upfront. As outlined in [Hive metastore best practices](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#hive-metastore-best-practices), you can start at an S2 tier. This provides 50 DTU and 250 GB of storage. If you encounter a bottleneck, you can scale up the database.
+A Hive metastore is used to store the metadata for data sources that are used by the Hive server. Therefore, the size requirements are affected by the number of data sources you may have to use for the Hive and by how complex the data sources are. Therefore, the size cannot be estimated upfront. As outlined in [Hive metastore best practices](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-external-metadata-stores#hive-metastore-best-practices), starting at an S2 tier provides 50 DTU and 250 GB of storage. If you encounter a bottleneck, you can scale up the database.
 
-### Do you support any other database other than Azure SQL Database as an external metastore ?
+### Do you support any other database other than Azure SQL Database as an external metastore?
 
 No, Microsoft supports only Azure SQL Database as an external custom metastore.
 
@@ -162,8 +162,8 @@ For more information, see the following documents:
 
 Yes, you can deploy an additional virtual machine within the same subnet as an HDInsight cluster. The following configurations are possible:
 
-* Edge Node: You can add annother edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node). 
-* Standalone node:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic).
+* Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-use-edge-node). 
+* Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Controlling network traffic](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#networktraffic).
 
 ### Can I add an existing HDInsight cluster to another virtual network?
 
@@ -189,7 +189,7 @@ o ktutil: q
 
 ### Can I use an existing Azure Active Directory tenant to create an HDInsight cluster that has the ESP?
 
-Enabling Azure Active Directory Domain Services (AAD-DS) is a prerequisite before you can create an HDInsight cluster that has ESP. Open source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
+Enabling Azure Active Directory Domain Services (AAD-DS) is a prerequisite before you can create an HDInsight cluster that has ESP. Open-source Hadoop relies on Kerberos for Authentication (as opposed to OAuth).
 
 To join virtual machines to a domain, a domain controller is required. AAD-DS is the managed domain controller. It is considered an extension of AAD that provides all the Kerberos requirements to build a secure Hadoop cluster in a managed way. HDInsight as a managed service integrates with AAD-DS to provide the end-to-end security.
 
@@ -232,7 +232,7 @@ No. Currently, you cannot add an Azure Data Lake Storage Gen2 to an existing HDI
 
 ### How can I find the currently linked Service Principal for a Data Lake storage account?
 
-You can verify these settings by reviewing Data Lake Storage Gen1 access under your cluster properties in the portal. For more information see [Verify Cluster Setup](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#verify-cluster-set-up).
+You can verify these settings by reviewing Data Lake Storage Gen1 access under your cluster properties in the portal. For more information, see [Verify Cluster Setup](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#verify-cluster-set-up).
  
 How can I calculate the usage of storage accounts and blob containers for my HDInsight clusters?
 You can use one of the following procedures:
@@ -248,7 +248,7 @@ To audit blob storage accounts, you have to configuring monitoring for the blob 
 
 ### How can I transfer files between a blob container and an HDInsight head node?
 
-You can transfer files between a blob container and an HDInsight head node by running a shell script that resembles the following on your head node:
+You can transfer files between a blob container and an HDInsight head node by running a shell script on your head node, similar to the following example:
 
 ```
 for i in cat filenames.txt
@@ -263,7 +263,7 @@ done
  
 ### Are there any Ranger plugins for storage?
 
-Currently, no Ranger plugins exist for blob storage, Azure Data Lake Storage (ADLS) Gen1, or Azure Data Lake Storage Gen2. For ESP clusters, you should use ADLS as a best practice. This is because you can, at least, set fine-grain permissions manually at the file system level by using HDFS tools. Also, ESP clusters will do some of the file system access control by using AAD at the cluster level when you use ADLS. 
+Currently, no Ranger plugins exist for blob storage, Azure Data Lake Storage (ADLS) Gen1, or Azure Data Lake Storage Gen2. For ESP clusters, use ADLS as a best practice, and set fine-grain permissions manually at the file system level using HDFS tools. Also, ESP clusters will do some of the file system access control by using AAD at the cluster level when you use ADLS. 
 
 You should be able to use the Azure Storage Explorer to assign data access policies to security groups where your users are located by using the procedures that are documented in the following articles:
 
@@ -276,7 +276,7 @@ No, you cannot increase the disk size of any worker node. The only way to increa
 
 Microsoft does not recommend that you use HDFS to store any of your data in HDInsight because the data gets deleted when you delete the cluster. Instead, we recommend that you store your data in Azure. Scaling up the cluster can also add more capacity to your HDInsight cluster.
 
-## Edge Nodes
+## Edge nodes
 
 ### Can I add an edge node after the cluster has been created?
 
@@ -298,9 +298,9 @@ Persisted scripts are used to customize new worker nodes that are added to the c
 
 You can use the following REST endpoints to pull the necessary information where the response will be in JSON format. Basic authentication headers can be used to make these requests.
 
-* Tez Query View – https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/
+* "Tez Query" view – https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/HIVE_QUERY_ID/
 
-* Tez Dag View - https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/
+* "Tez Dag" view - https://`<cluster name>`.azurehdinsight.net/ws/v1/timeline/TEZ_DAG_ID/
 
 ### How do I retrieve the configuration details from HDI cluster by using an Azure Active Directory user?
 
@@ -329,7 +329,7 @@ If the command is called from outside the VNet or a non-peered VNet, the command
 
 ### How much does it cost to deploy an HDInsight cluster?
 
-For more information about pricing and FAQ that are related to billing, see the [Azure HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/) page.
+For more information about pricing and FAQ related to billing, see the [Azure HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/) page.
 
 ### How do I cancel my subscription?
 
@@ -337,7 +337,7 @@ For information about how to cancel your subscription, see [Cancel your Azure su
 
 ### For pay-as-you-go subscriptions, what happens after I cancel my subscription?
 
-For information about your subscription after its cancelled, see
+For information about your subscription after it's canceled, see
 [What happens after I cancel my subscription?](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription#what-happens-after-i-cancel-my-subscription)
 
 ## Hive
@@ -350,7 +350,7 @@ Although only 1.2 appears in the Ambari UI, HDInsight 3.6 contains both Hive 1.2
 
 ### What does HDInsight offer in terms of real-time stream processing capabilities?
 
-For information about the integration capabilities of stream processing in Azure HDinsight, see [Choosing a stream processing technology in Azure](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing).
+For information about the integration capabilities of stream processing in Azure HDInsight, see [Choosing a stream processing technology in Azure](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/stream-processing).
 
 ### Is there a way to dynamically terminate the head node of the cluster when the cluster is idle for a specific period?
 
