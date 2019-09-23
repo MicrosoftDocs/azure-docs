@@ -70,7 +70,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 ####  Storage guidance
 
-We recommend Azure Blob Container. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage because of faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
+We recommend Azure Blob Container. Both standard and premium storage are available for blobs. Although more expensive, we suggest premium storage due to faster throughput speeds that may improve the speed of your training runs, particularly if you train against a large data set. See the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service) for storage account cost information.
 
 <a name="get"></a>
 
@@ -171,7 +171,7 @@ datastore.path('./bar').as_download()
 
 The following code examples are specific to the [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class for accessing data during training. 
 
-`script_params` is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
+`script_params` is a dictionary containing parameters to the entry_script. Use it to pass in a datastore and describe how data is made available on the compute target. Learn more from our end-to-end [tutorial](tutorial-train-models-with-aml.md).
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -238,7 +238,7 @@ The Azure Machine Learning service provides several ways to use your models for 
 | [Web service](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) as a web service. |
 | [IoT Edge module](how-to-deploy-and-where.md) | &nbsp; | Deploy model(s) to IoT Edge devices. |
 
-For situations where the SDK doesn't provide access to datastores, you can create custom code using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
+For situations where the SDK doesn't provide access to datastores, you may be able to create custom code using the relevant Azure SDK to access the data. For example, the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) is a client library that you can use to access data stored in blobs or files.
 
 
 ## Next steps
