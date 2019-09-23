@@ -92,7 +92,7 @@ Subscribe to or implement appropriate security monitoring. For example, subscrib
 > [!IMPORTANT]
 > By default, the OPC Vault service is deployed with [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/devops) as a monitoring solution. Adding a security solution like [Azure Security Center](https://azure.microsoft.com/services/security-center/) is highly recommended.
 
-### Assess the security of open source software components
+### Assess the security of open-source software components
 
 All open-source components used within a product or service must be free of moderate or greater security vulnerabilities.
 
