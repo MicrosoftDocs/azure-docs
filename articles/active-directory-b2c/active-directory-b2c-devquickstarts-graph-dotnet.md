@@ -42,7 +42,7 @@ Once you have an Azure AD B2C tenant, you need to register your management appli
 To use the Azure AD Graph API with your B2C tenant, you need to register an application by using the Azure Active Directory **App registrations** workflow.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-1. Select **Azure Active Directory** (*not* Azure AD B2C) from the left menu. Or, select **All services**, then search for and select **Azure Active Directory**.
+1. Select **Azure Active Directory** (*not* Azure AD B2C) in the left menu. Or, select **All services** and then search for and select **Azure Active Directory**.
 1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
 1. Select **New application registration**
 1. Enter a name for the application. For example, *Management App*.
@@ -63,24 +63,24 @@ To use the Azure AD Graph API with your B2C tenant, you need to register an appl
 
 1. Under **API ACCESS**, select **Keys**.
 1. Enter a description for the key in the **Key description** box. For example, *Management Key*.
-1. Select a validity **Duration**, then select **Save**.
+1. Select a validity **Duration** and then select **Save**.
 1. Record the key's **VALUE**. You use this value for configuration in a later step.
 
 You now have an application that has permission to *create*, *read*, and *update* users in your Azure AD B2C tenant. Continue to the next section to add user *delete* and *password update* permissions.
 
-## Add delete user and update password permissions
+## Add user delete and password update permissions
 
 The *Read and write directory data* permission that you granted earlier does **NOT** include the ability to delete users or update their passwords.
 
-If you want to give your application the ability to delete users or update passwords, you need to grant it the *User Account Administrator* role.
+If you want to give your application the ability to delete users or update passwords, you need to grant it the *User administrator* role.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-1. Select **Azure AD B2C** from the left menu. Or, select **All services** and then search for and select **Azure AD B2C**.
+1. Select **Azure AD B2C** in the left menu. Or, select **All services** and then search for and select **Azure AD B2C**.
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role.
 1. Select **Add assignment**.
 1. In the **Select** text box, enter the name of the application you registered earlier, for example, *Management App*. Select your application when it appears in the search results.
-1. Select **Add**.
+1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
 Your Azure AD B2C application now has the additional permissions required to delete users or update their passwords in your B2C tenant.
 
