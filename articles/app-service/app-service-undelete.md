@@ -9,11 +9,11 @@ ms.topic: article
 
 # Restore deleted App Service app Using PowerShell
 
-If you happened to accidentally delete your app in Azure App Service you can restore it using the commands from the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
+If you happened to accidentally delete your app in Azure App Service, you can restore it using the commands from the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0).
 
 ## List Deleted Web Apps
 
-To get the collection of deleted apps you can use `Get-AzDeletedWebApp`.
+To get the collection of deleted apps, you can use `Get-AzDeletedWebApp`.
 
 For details on a specific deleted app you can use:
 
