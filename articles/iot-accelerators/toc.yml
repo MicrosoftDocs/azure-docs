@@ -254,11 +254,7 @@
       href: https://github.com/Azure/azure-iot-predictive-maintenance
 
 - name: Reference Architecture
-  items:
-  - name: Overview
-    href: iot-accelerators-architecture-overview.md
-  - name: Download
-    href: https://aka.ms/iotrefarchitecture
+  href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/
   - name: Partner implementations
     items:
     - name: Intel Connected Logistics Platform
