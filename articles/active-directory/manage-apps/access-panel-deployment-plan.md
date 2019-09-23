@@ -44,7 +44,7 @@ The Azure AD Access Panel benefits businesses in the following ways:
 
 **Increases productivity**: All user applications in the Access Panel have SSO enabled. Enabling SSO across enterprise applications and Office 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. The Access Panel uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. The Access Panel serves as a coherent landing page for you to quickly find resources and continue work tasks.
 
-**Manages cost**: Enabling the Access Panel with Azure AD can help with the divestment of on-premise infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
+**Manages cost**: Enabling the Access Panel with Azure AD can help with the divestment of on-premises infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
 
 **Increases flexibility and security**: The Access Panel gives you access to the security and flexibility that a cloud platform provides. Administrators can easily change settings to applications and resources and can accommodate new security requirements without affecting users.
 
