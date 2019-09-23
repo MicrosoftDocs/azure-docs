@@ -22,7 +22,12 @@ This article describes how to register your SQL Server virtual machine (VM) in A
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. If you choose to self-install SQL Server on an Azure virtual machine instead of choosing an image from Azure Marketplace, or if you provision an Azure VM from a custom VHD with SQL Server, you should register your SQL Server VM with the resource provider for:
 
-- **Compliance**: According to the Microsoft Product Terms, customers must tell Microsoft when they're using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). To do so, they must register with the SQL VM resource provider. 
+- **Simplify license management**: According to the Microsoft Product Terms, customers must tell Microsoft when they're using the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Registering with the SQL VM resource provider simplifies SQL Server license management, and allows you to quickly identify SQL Server VMs using the Azure Hybrid Benefit in the [portal](virtual-machines-sql-manage-portal.md) or Az CLI: 
+
+   ```azurecli-interactive
+   $vms = az sql vm list | ConvertFrom-Json
+   $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
+   ```
 
 - **Feature benefits**: Registering your SQL Server VM with the resource provider unlocks [automated patching](virtual-machines-windows-sql-automated-patching.md), [automated backup](virtual-machines-windows-sql-automated-backup-v2.md), and monitoring and manageability capabilities. It also unlocks [licensing](virtual-machines-windows-sql-ahb.md) and [edition](virtual-machines-windows-sql-change-edition.md) flexibility. Previously, these features were available only to SQL Server VM images from Azure Marketplace.
 
@@ -167,13 +172,13 @@ An error indicates that the SQL Server VM has not been registered with the resou
 
 ## Change management modes
 
-There are three manageability modes for the SQL Server IaaS extension: 
+There are three free manageability modes for the SQL Server IaaS extension: 
 
-- **Full** mode delivers all functionality, but requires a restart of the SQL Server and system administrator permissions. This is the option that's installed by default. Use it for managing a SQL Server VM with a single instance. 
+- **Full** mode delivers all functionality, but requires a restart of the SQL Server and system administrator permissions. This is the option that's installed by default. Use it for managing a SQL Server VM with a single instance. Full mode installs two windows services that have a minimal impact to memory and CPU - these can be monitored through task manager. There is no cost associated with using the full manageability mode. 
 
-- **Lightweight** does not require the restart of SQL Server, but it supports only changing the license type and edition of SQL Server. Use this option for SQL Server VMs with multiple instances, or for participating in a failover cluster instance (FCI). 
+- **Lightweight** does not require the restart of SQL Server, but it supports only changing the license type and edition of SQL Server. Use this option for SQL Server VMs with multiple instances, or for participating in a failover cluster instance (FCI). There is no impact to memory or CPU when using the lightweight mode. There is no cost associated with using the lightweight manageability mode. 
 
-- **NoAgent** is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. 
+- **NoAgent** is dedicated to SQL Server 2008 and SQL Server 2008 R2 installed on Windows Server 2008. There is no impact to memory or CPU when using the NoAgent mode. There is no cost associated with using the NoAgent manageability mode. 
 
 You can view the current mode of your SQL Server IaaS agent by using PowerShell: 
 
