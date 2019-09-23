@@ -26,7 +26,7 @@ This Azure Data Explorer connector is supported for the following activities:
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md) table.
+You can copy data from any supported source data store to Azure Data Explorer. You can also copy data from Azure Data Explorer to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores#supported-data-stores-and-formats](copy-activity-overview.md) table.
 
 >[!NOTE]
 >Copying data to or from Azure Data Explorer through an on-premises data store by using self-hosted integration runtime is supported in version 3.14 and later.
@@ -56,10 +56,10 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - Application key
     - Tenant ID
 
-2. Grant the service principal the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) for detailed information about roles and permissions and about managing permissions. In general, you need to
+2. Grant the service principal the correct permissions in Azure Data Explorer. See [Manage Azure Data Explorer database permissions](../data-explorer/manage-database-permissions.md) for detailed information about roles and permissions and about managing permissions. In general, you must:
 
-    - **As source**, grant at least **Database viewer** role to your database
-    - **As sink**, grant at least **Database ingestor** role to your database
+    - **As source**, grant at least the **Database viewer** role to your database
+    - **As sink**, grant at least the **Database ingestor** role to your database
 
 >[!NOTE]
 >When you use the ADF UI to author, your login user account is used to list Azure Data Explorer clusters, databases, and tables. Manually enter the name if you don’t have permission for these operations.
@@ -71,9 +71,9 @@ The following properties are supported for the Azure Data Explorer linked servic
 | type | The **type** property must be set to **AzureDataExplorer**. | Yes |
 | endpoint | Endpoint URL of the Azure Data Explorer cluster, with the format as `https://<clusterName>.<regionName>.kusto.windows.net`. | Yes |
 | database | Name of database. | Yes |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is generally known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering with the mouse in the upper-right corner of the Azure portal. | Yes |
+| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. This is generally known as "Authority ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Retrieve it by hovering the mouse pointer in the upper-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. This is generally known as "AAD application client ID" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Yes |
-| servicePrincipalKey | Specify the application's key. This is generally known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalKey | Specify the application's key. This is generally known as "AAD application key" in [Kusto connection string](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Mark this field as a **SecureString** to store it securely in Data Factory, or [reference secure data stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 
 **Linked Service Properties Example:**
 
@@ -98,7 +98,7 @@ The following properties are supported for the Azure Data Explorer linked servic
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties that are supported by the Azure Data Explorer dataset.
+For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). This section provides a list of properties that are supported by the Azure Data Explorer dataset.
 
 To copy data to Azure Data Explorer, set the type property of the dataset to **AzureDataExplorerTable**.
 
@@ -130,7 +130,7 @@ The following properties are supported:
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see the [Pipelines](concepts-pipelines-activities.md) article. This section provides a list of properties supported by Azure Data Explorer source and sink.
+For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties supported by Azure Data Explorer source and sink.
 
 ### Azure Data Explorer as source
 
@@ -186,7 +186,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to: **AzureDataExplorerSink**. | Yes |
-| ingestionMappingName | Name of a pre-created **[mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table. To map the columns from source to Azure Data Explorer (which applies to **[all supported source stores/formats](copy-activity-overview.md#supported-data-stores-and-formats)** including CSV/JSON/Avro formats), you can use the copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
+| ingestionMappingName | Name of a pre-created **[mapping](/azure/kusto/management/mappings#csv-mapping)** on a Kusto table. To map the columns from source to Azure Data Explorer (which applies to **[all supported source stores and formats](copy-activity-overview.md#supported-data-stores-and-formats)** including CSV/JSON/Avro formats), you can use the copy activity [column mapping](copy-activity-schema-and-type-mapping.md) (implicitly by name or explicitly as configured) and/or Azure Data Explorer mappings. | No |
 
 **Example:**
 
@@ -228,4 +228,4 @@ For more information about the properties, see [Lookup activity](control-flow-lo
 
 * For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 
-* Learn more about [Copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
+* Learn more about how to [copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).
