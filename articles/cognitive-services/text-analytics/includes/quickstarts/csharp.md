@@ -57,18 +57,11 @@ Build succeeded.
 
 From the project directory, open the *program.cs* file in your preferred editor or IDE. Add the following `using` directives:
 
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using Microsoft.Rest;
-```
+[!code-csharp[Import directives](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=imports)]
 
 In the application's `Program` class, create variables for your resource's Azure endpoint and subscription key. In a static constructor, obtain these values from the environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT`. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
+
+[!code-csharp[initial variables](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=initial-vars)]
 
 ```csharp
 private const string key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
@@ -94,25 +87,7 @@ In the application's `Main` method, create credentials to access the Text Analyt
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-```csharp
-static void Main(string[] args)
-{
-    var credentials = new ApiKeyServiceClientCredentials(subscriptionKey);
-    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
-    {
-        Endpoint = endpoint
-    };
-
-    Console.OutputEncoding = System.Text.Encoding.UTF8;
-    SentimentAnalysisExample(client);
-    // languageDetectionExample(client);
-    // entityRecognitionExample(client);
-    // KeyPhraseExtractionExample(client);
-    
-    Console.Write("Press any key to exit.");
-    Console.ReadKey();
-}
-```
+[!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=main)]
 
 ### Install the client library
 
@@ -141,27 +116,7 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 
 Create a new `ApiKeyServiceClientCredentials` class to store the credentials and add them to the client's requests. Within it, create an override for `ProcessHttpRequestAsync()` that adds your key to the `Ocp-Apim-Subscription-Key` header.
 
-```csharp
-class ApiKeyServiceClientCredentials : ServiceClientCredentials
-{
-    private readonly string apiKey;
-
-    public ApiKeyServiceClientCredentials(string apiKey)
-    {
-        this.apiKey = apiKey;
-    }
-
-    public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-    {
-        if (request == null)
-        {
-            throw new ArgumentNullException("request");
-        }
-        request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
-        return base.ProcessHttpRequestAsync(request, cancellationToken);
-    }
-}
-```
+[!code-csharp[Client class](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=client-class)]
 
 In the `main()` method, instantiate the client with your key and endpoint.
 
@@ -179,12 +134,7 @@ Create a new function called `SentimentAnalysisExample()` that takes the client 
 
 A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
 
-```csharp
-static void SentimentAnalysisExample(TextAnalyticsClient client){
-    var result = client.Sentiment("I had the best day of my life.", "en");
-    Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
-}
-```
+[!code-csharp[Sentiment analysis example](~/cognitive-services-dotnet-sdk-samples/samples/TextAnalytics/synchronous/Program.cs?name=sentiment)]
 
 ### Output
 
@@ -199,15 +149,8 @@ Create a new function called `languageDetectionExample()` that takes the client 
 > [!Tip]
 > In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""` .
 
-```csharp
-static void languageDetectionExample(TextAnalyticsClient client){
-    var result = client.DetectLanguage("This is a document written in English.");
-    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
-}
-```
-<!--
 [!code-csharp[Language Detection example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
--->
+
 
 ### Output
 
@@ -219,22 +162,8 @@ Language: English
 
 Create a new function called `RecognizeEntitiesExample()` that takes the client that you created earlier, and call its [Entities()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.entities?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_Entities_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. Iterate through the results. The returned [EntitiesResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.models.entitiesresult?view=azure-dotnet) object will contain the list of detected entities in `Entities` if successful, and an `errorMessage` if not. For each detected entity, print its Type, Sub-Type, Wikipedia name (if they exist) as well as the locations in the original text.
 
-```csharp
-static void entityRecognitionExample(TextAnalyticsClient client){
+[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=entity-recognition)]
 
-    var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
-    Console.WriteLine("Entities:");
-    foreach (var entity in result.Entities){
-        Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
-        foreach (var match in entity.Matches){
-            Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
-        }
-    }
-}
-```
-<!--
-[!code-csharp[Entity Recognition example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=language-detection)]
--->
 
 ### Output
 
@@ -260,20 +189,8 @@ Entities:
 
 Create a new function called `KeyPhraseExtractionExample()` that takes the client that you created earlier and call its [KeyPhrases()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclientextensions.keyphrases?view=azure-dotnet#Microsoft_Azure_CognitiveServices_Language_TextAnalytics_TextAnalyticsClientExtensions_KeyPhrases_Microsoft_Azure_CognitiveServices_Language_TextAnalytics_ITextAnalyticsClient_System_String_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_) function. The result will contain the list of detected key phrases in `KeyPhrases` if successful, and an `errorMessage` if not. Print any detected key phrases.
 
-```csharp
-static void KeyPhraseExtractionExample(TextAnalyticsClient client)
-{
-    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+[!code-csharp[Key phrase extraction example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=key-phrase-extraction)]
 
-    // Printing key phrases
-    Console.WriteLine("Key phrases:");
-
-    foreach (string keyphrase in result.KeyPhrases)
-    {
-        Console.WriteLine($"\t{keyphrase}");
-    }
-}
-```
 
 ### Output
 

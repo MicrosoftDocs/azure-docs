@@ -24,11 +24,6 @@ Use the Text Analytics client library to perform:
 * Entity recognition
 * Key phrase extraction
 
-<!--
-> [!TIP]
-> Want to use the Text Analytics REST API instead? Use these links to find sample code for sending REST requests in: [Java](https://github.com/aahill/cognitive-services-REST-api-samples/tree/master/java/Language/TextAnalytics), [Python](https://github.com/aahill/cognitive-services-REST-api-samples/tree/master/python/Language), [Ruby](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Node.js](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs), [Go](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Language/SentimentV3.cs)
--->
-
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](../includes/quickstarts/csharp.md)]
