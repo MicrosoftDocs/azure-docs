@@ -254,8 +254,10 @@
       href: https://github.com/Azure/azure-iot-predictive-maintenance
 
 - name: Reference Architecture
-  href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/
-    - name: Partner implementations
+  items:
+  - name: Overview
+    href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/
+  - name: Partner implementations
     items:
     - name: Intel Connected Logistics Platform
       href: https://www.azureiotsolutions.com/Accelerators#description/intel-connected-logistics-platform
