@@ -225,6 +225,7 @@ The *showContainerNames* function uses the *listContainersSegment* method to req
 ```javascript
 async function showContainerNames(aborter, serviceURL) {
     let marker = undefined;
+
     do {
         const listContainersResponse = await serviceURL.listContainersSegment(aborter, marker);
         marker = listContainersResponse.nextMarker;
