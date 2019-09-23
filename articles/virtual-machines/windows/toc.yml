@@ -48,7 +48,7 @@
   items:
   - name: PowerShell index
     href: powershell-samples.md
-  - name: Powershell
+  - name: PowerShell
     items:
     - name: Create
       items:
