@@ -1,5 +1,5 @@
 ---
-title: Add storage to an Azure HPC Cache 
+title: Add storage to an Azure HPC Cache (preview)
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
 ms.service: hpc-cache
@@ -8,7 +8,7 @@ ms.date: 09/06/2019
 ms.author: v-erkell
 ---
 
-# Add storage
+# Add storage targets
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache instance. You can add NFS storage, like an on-premises hardware system, or store data in Azure Blob.
 
@@ -107,8 +107,8 @@ For each export, fill in these values:
 
 When finished, click **OK** to add the storage target.
 
-### Choose a usage model 
-<!-- link in GUI to this heading -->
+### Choose a usage model
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
 
