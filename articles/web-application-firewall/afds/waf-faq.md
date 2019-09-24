@@ -63,7 +63,7 @@ Globally distributed at Azure network edges, Azure Front Door can absorb and geo
 
 ## Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
 
-A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching. 
+A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameter matching. 
 
 Requests from the same client often arrive at the same Front Door server. In that case, you'll see additional requests above the threshold get blocked immediately. 
 
