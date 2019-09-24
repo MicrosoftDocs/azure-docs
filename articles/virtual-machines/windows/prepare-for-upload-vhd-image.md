@@ -4,7 +4,7 @@ description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: glimoli
-manager: jeconnoc
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 7802489d-33ec-4302-82a4-91463d03887a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
@@ -27,10 +27,24 @@ In a generation 1 VM, you can convert a VHDX file system to VHD. You can also co
 For information about the support policy for Azure VMs, see [Microsoft server software support for Azure VMs](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
 > [!NOTE]
-> The instructions in this article apply to the 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
+> The instructions in this article apply to:
+>1. The 64-bit version of Windows Server 2008 R2 and later Windows Server operating systems. For information about running a 32-bit operating system in Azure, see [Support for 32-bit operating systems in Azure VMs](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines).
+>2. If any Disaster Recovery tool will be used to migrate the workload, like Azure Site Recovery or Azure Migrate, this process is still required to be done and followed on the Guest OS to prepare the image prior the migration.
 
-## Convert the virtual disk to a fixed size and to VHD 
-If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section. Back up the VM before you convert the virtual disk. Make sure the Windows VHD works correctly on the local server. Then resolve any errors within the VM itself before you try to convert or upload it to Azure.
+## Convert the virtual disk to a fixed size and to VHD
+
+If you need to convert your virtual disk to the required format for Azure, use one of the methods in this section:
+
+1. Back up the VM before you run the virtual disk conversion process.
+
+1. Make sure that the Windows VHD works correctly on the local server. Resolve any errors within the VM itself before you try to convert or upload it to Azure.
+
+1. Regarding the size of the VHD:
+
+   1. All VHDs on Azure must have a virtual size aligned to 1MB. When converting from a raw disk to VHD you must ensure that the raw disk size is a multiple of 1 MB before conversion. Fractions of a megabyte will cause errors when creating images from the uploaded VHD.
+
+   2. The maximum size allowed for the OS VHD is 2TB.
+
 
 After you convert the disk, create a VM that uses the disk. Start and sign in to the VM to finish preparing it for uploading.
 
@@ -136,7 +150,7 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Make sure the following settings are configured correctly for remote access:
 
 >[!NOTE] 
->You might receive an error message when you run `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name &lt;object name&gt; -value &lt;value&gt;`. You can safely ignore this message. It means only that the domain isn't pushing that configuration through a Group Policy Object.
+>You might receive an error message when you run `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`. You can safely ignore this message. It means only that the domain isn't pushing that configuration through a Group Policy Object.
 
 1. Remote Desktop Protocol (RDP) is enabled:
    
@@ -255,23 +269,19 @@ Make sure the VM is healthy, secure, and RDP accessible:
     > Use an elevated PowerShell window to run these commands.
    
    ```powershell
-    cmd
-
-    bcdedit /set {bootmgr} integrityservices enable
-    bcdedit /set {default} device partition=C:
-    bcdedit /set {default} integrityservices enable
-    bcdedit /set {default} recoveryenabled Off
-    bcdedit /set {default} osdevice partition=C:
-    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+    bcdedit /set "{bootmgr}" integrityservices enable
+    bcdedit /set "{default}" device partition=C:
+    bcdedit /set "{default}" integrityservices enable
+    bcdedit /set "{default}" recoveryenabled Off
+    bcdedit /set "{default}" osdevice partition=C:
+    bcdedit /set "{default}" bootstatuspolicy IgnoreAllFailures
 
     #Enable Serial Console Feature
-    bcdedit /set {bootmgr} displaybootmenu yes
-    bcdedit /set {bootmgr} timeout 5
-    bcdedit /set {bootmgr} bootems yes
-    bcdedit /ems {current} ON
+    bcdedit /set "{bootmgr}" displaybootmenu yes
+    bcdedit /set "{bootmgr}" timeout 5
+    bcdedit /set "{bootmgr}" bootems yes
+    bcdedit /ems "{current}" ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
-
-    exit
    ```
 3. The dump log can be helpful in troubleshooting Windows crash issues. Enable the dump log collection:
 

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,7 @@ Configuring the custom banned password list requires an Azure Active Directory P
 1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory**, **Authentication methods**, then **Password protection**.
 1. Set the option **Enforce custom list**, to **Yes**.
 1. Add strings to the **Custom banned password list**, one string per line
-   * The custom banned password list can contain up to 1000 words.
+   * The custom banned password list can contain up to 1000 terms.
    * The custom banned password list is case-insensitive.
    * The custom banned password list considers common character substitution.
       * Example: "o" and "0" or "a" and "\@"
@@ -36,6 +36,9 @@ Configuring the custom banned password list requires an Azure Active Directory P
 > [!NOTE]
 > It may take several hours for updates to the custom banned password list to be applied.
 
+> [!NOTE]
+> The custom banned password list is limited to having a maximum of 1000 terms. It is not designed for blocking extremely large lists of passwords. In order to fully leverage the benefits of the custom banned password list, Microsoft recommends that you first review and understand the intended design and usage of the custom banned password list (see [Custom banned password list](concept-password-ban-bad.md#custom-banned-password-list)), and also the password evaluation algorithm (see [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated)).
+
 ![Modify the custom banned password list under Authentication Methods in the Azure portal](./media/howto-password-ban-bad/authentication-methods-password-protection.png)
 
 ## How it works
@@ -44,9 +47,10 @@ Each time a user or administrator resets or changes an Azure AD password, it flo
 
 ## What do users see
 
-When a user attempts to reset a password to something that would be banned, they see the following error message:
+When a user attempts to reset a password to something that would be banned, they see one of the following error messages:
 
-Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
+* Unfortunately, your password contains a word, phrase, or pattern that makes your password easily guessable. Please try again with a different password.
+* Unfortunately, you can't use that password because it contains words or characters that have been blocked by your administrator. Please try again with a different password.
 
 ## Next steps
 

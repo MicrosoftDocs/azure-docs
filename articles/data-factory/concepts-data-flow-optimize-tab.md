@@ -40,7 +40,7 @@ Dynamic Range will use Spark dynamic ranges based on the columns or expressions 
 
 ### Fixed Range
 
-You must build an expression that provides a fixed range for values within your partitioned data columns. You should have a good understanding of your data before using this option in order to avoid partition skew. The value that enter for the expression will be used as part of a partition function. You can set the number of physical partitions.
+You must build an expression that provides a fixed range for values within your partitioned data columns. You should have a good understanding of your data before using this option in order to avoid partition skew. The values you enter for the expression will be used as part of a partition function. You can set the number of physical partitions.
 
 ### Key
 

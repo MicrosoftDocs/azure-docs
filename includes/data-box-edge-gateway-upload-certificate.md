@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 04/23/2019
+ms.date: 06/26/2019
 ms.author: alkohli
 ---
 
@@ -13,11 +13,11 @@ A proper SSL certificate ensures that you're sending encrypted information to th
 
    - `CertificateFilePath` - Path to the share that contains the certificate file in *.pfx* format.
    - `CertificatePassword` - A password used to protect the certificate.
-   - `Credentials` - Username and password to access the share that contains the certificate.
+   - `Credentials` - Username to access the share that contains the certificate. Provide the password to the network share when prompted.
 
      The following example shows the usage of this cmdlet:
 
      ```
-     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username/Password"
+     Set-HcsCertificate -Scope LocalWebUI -CertificateFilePath "\\myfileshare\certificates\mycert.pfx" -CertificatePassword "mypassword" -Credential "Username"
      ```
 

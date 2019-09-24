@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Frequently asked questions for Azure web application firewall
@@ -47,12 +48,6 @@ Deploying a WAF policy globally usually takes about 5 minutes and often complete
 
 When integrated with Front Door Service, WAF is a global resource. Same configuration applies across all Front Door locations.
  
-## How do I limit access to my back-end to be from Front Door only?
-
-You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. In addition, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
-
-
-
 
 ## Which Azure WAF options should I choose?
 
@@ -66,6 +61,9 @@ Currently, ModSec CRS 2.2.9 and CRS 3.0 rules are only supported with WAF at App
 ## Is DDoS protection integrated with Front Door? 
 
 Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. 
+
+We recommend locking down your backends in production environment to reduce DDoS attack surface. See [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## Next steps
 

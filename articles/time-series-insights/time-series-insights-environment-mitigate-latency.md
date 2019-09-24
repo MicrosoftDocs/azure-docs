@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 05/07/2019
+ms.date: 08/27/2019
 ms.custom: seodec18
 ---
 
@@ -37,29 +37,41 @@ You are most likely to experience latency and throttling when you:
 
 Alerts can help you to help diagnose and mitigate latency issues caused by your environment.
 
-1. In the Azure portal, select **Metrics**.
+1. In the Azure portal, select **Alerts**.
 
-   [![Metrics](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
+   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
-1. Select **Add metric alert**.  
+1. The **Create rule** panel will then be displayed. Select **Add** under **CONDITION**.
 
-   [![Add metric alert](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
+   [![Add alert](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
-From there, you can configure alerts using the following metrics:
+1. Next, configure the exact conditions for the signal logic.
 
-|Metric  |Description  |
-|---------|---------|
-|**Ingress Received Bytes**     | Count of raw bytes read from event sources. Raw count usually includes the property name and value.  |  
-|**Ingress Received Invalid Messages**     | Count of invalid messages read from all Azure Event Hubs or Azure IoT Hub event sources.      |
-|**Ingress Received Messages**   | Count of messages read from all Event Hubs or IoT Hubs event sources.        |
-|**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
-|**Ingress Stored Events**     |   Count of flattened events stored and available for query.      |
-|**Ingress Received Message Time Lag**    |  Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
-|**Ingress Received Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
+   [![Configure signal logic](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
-![Latency](media/environment-mitigate-latency/latency.png)
+   From there, you can configure alerts using some of the following conditions:
 
-* If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind your TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
+   |Metric  |Description  |
+   |---------|---------|
+   |**Ingress Received Bytes**     | Count of raw bytes read from event sources. Raw count usually includes the property name and value.  |  
+   |**Ingress Received Invalid Messages**     | Count of invalid messages read from all Azure Event Hubs or Azure IoT Hub event sources.      |
+   |**Ingress Received Messages**   | Count of messages read from all Event Hubs or IoT Hubs event sources.        |
+   |**Ingress Stored Bytes**     | Total size of events stored and available for query. Size is computed only on the property value.        |
+   |**Ingress Stored Events**     |   Count of flattened events stored and available for query.      |
+   |**Ingress Received Message Time Lag**    |  Difference in seconds between the time that the message is enqueued in the event source and the time it is processed in Ingress.      |
+   |**Ingress Received Message Count Lag**    |  Difference between the sequence number of last enqueued message in the event source partition and sequence number of message being processed in Ingress.      |
+
+   Select **Done**.
+
+1. After configuring the desired signal logic, review the chosen alert rule visually.
+
+   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+
+## Throttling and ingress management
+
+* If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind your TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
+
+  *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
   For example, if you have a single unit S1 environment and see that there is a 5,000,000 message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 

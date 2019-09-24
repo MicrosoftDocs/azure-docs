@@ -1,19 +1,9 @@
 ---
 title: Attach a data disk to a Windows VM in Azure by using PowerShell | Microsoft Docs
 description: How to attach a new or existing data disk to a Windows VM using PowerShell with the Resource Manager deployment model.
-services: virtual-machines-windows
-documentationcenter: ''
 author: roygara
-manager: twooley
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
@@ -124,4 +114,4 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## Next steps
 
-Create a [snapshot](snapshot-copy-managed-disk.md).
+You can also deploy managed disks using templates. For more information, see [Using Managed Disks in Azure Resource Manager Templates](using-managed-disks-template-deployments.md) or the [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-multiple-data-disk) for deploying multiple data disks.

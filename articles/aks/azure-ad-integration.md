@@ -2,12 +2,12 @@
 title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: How to create Azure Active Directory-enabled Azure Kubernetes Service (AKS) clusters
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service
@@ -82,7 +82,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     e. Select **Add permissions** to save the updates.
 
-    f. Under **Grant consent**, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
+    f. Under **Grant consent**, select **Grant admin consent**. This button won't be available the current account being used is not listed as a tenant admin.
 
     When permissions are successfully granted, the following notification is displayed in the portal:
 
@@ -170,6 +170,9 @@ az aks create \
 An AKS cluster takes a few minutes to create.
 
 ## Create an RBAC binding
+
+> [!NOTE]
+> The cluster role binding name is case sensitive.
 
 Before you use an Azure Active Directory account with an AKS cluster, you must create role-binding or cluster role-binding. Roles define the permissions to grant, and bindings apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
 

@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: batch
- author: dlepow
+ author: laurenhughes
  ms.service: batch
  ms.topic: include
  ms.date: 05/04/2018
- ms.author: danlep
+ ms.author: lahugh
  ms.custom: include file
 ---
 

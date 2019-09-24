@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
-ms.author: vidarmsft
+ms.author: alkohli
 
 ---
 # Automated Disaster Recovery solution using Azure Site Recovery for file shares hosted on StorSimple
@@ -167,16 +167,16 @@ You can create a recovery plan in ASR to automate the failover process of the fi
 1. In the automation account, click **Variables** &gt; **Add a variable** and add the following variables. You can choose to encrypt these assets. These variables are recovery plan specific. If your recovery plan, which you will create in the next step, name is TestPlan, then your variables should be TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, and so on.
 
    - **BaseUrl**: The Resource Manager url for the Azure cloud. Get using **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
-   - *RecoveryPlanName***-ResourceGroupName**: The Resource Manager group that has the StorSimple resource.
-   - *RecoveryPlanName***-ManagerName**: The StorSimple resource that has the StorSimple device.
-   - *RecoveryPlanName***-DeviceName**: The StorSimple Device that has to be failed over.
-   - *RecoveryPlanName***-DeviceIpAddress**: The IP address of the device (this can be found in the **Devices** tab under StorSimple Device Manager section &gt; **Settings** &gt; **Network** &gt; **DNS Settings** group).
-   - *RecoveryPlanName***-VolumeContainers**: A comma-separated string of volume containers present on the device that need to be failed over; for example: volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName**: The StorSimple Cloud Appliance on which the containers are to be failed over.
-   - *RecoveryPlanName***-TargetDeviceIpAddress**: The IP address of the target device (this can be found in the **Virtual Machine** section &gt; **Settings** group &gt; **Networking** tab).
-   - *RecoveryPlanName***-StorageAccountName**: The storage account name in which the script (which has to run on the failed over VM) will be stored. This can be any storage account that has some space to store the script temporarily.
-   - *RecoveryPlanName***-StorageAccountKey**: The access key for the above storage account.
-   - *RecoveryPlanName***-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
+   - _RecoveryPlanName_**-ResourceGroupName**: The Resource Manager group that has the StorSimple resource.
+   - _RecoveryPlanName_**-ManagerName**: The StorSimple resource that has the StorSimple device.
+   - _RecoveryPlanName_**-DeviceName**: The StorSimple Device that has to be failed over.
+   - _RecoveryPlanName_**-DeviceIpAddress**: The IP address of the device (this can be found in the **Devices** tab under StorSimple Device Manager section &gt; **Settings** &gt; **Network** &gt; **DNS Settings** group).
+   - _RecoveryPlanName_**-VolumeContainers**: A comma-separated string of volume containers present on the device that need to be failed over; for example: volcon1, volcon2, volcon3.
+   - _RecoveryPlanName_**-TargetDeviceName**: The StorSimple Cloud Appliance on which the containers are to be failed over.
+   - _RecoveryPlanName_**-TargetDeviceIpAddress**: The IP address of the target device (this can be found in the **Virtual Machine** section &gt; **Settings** group &gt; **Networking** tab).
+   - _RecoveryPlanName_**-StorageAccountName**: The storage account name in which the script (which has to run on the failed over VM) will be stored. This can be any storage account that has some space to store the script temporarily.
+   - _RecoveryPlanName_**-StorageAccountKey**: The access key for the above storage account.
+   - _RecoveryPlanName_**-VMGUIDS**: Upon protecting a VM, Azure Site Recovery assigns every VM a unique ID that gives the details of the failed over VM. To obtain the VMGUID, select the **Recovery Services** tab and click **Protected Item** &gt; **Protection Groups** &gt; **Machines** &gt; **Properties**. If you have multiple VMs, then add the GUIDs as a comma-separated string.
 
      For example, if the name of the recovery plan is fileServerpredayRP, then your **Variables**, **Connections** and **Certificates** tab should appear as follows after you add all the assets.
 

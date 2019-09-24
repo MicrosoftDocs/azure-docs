@@ -1,13 +1,13 @@
 ---
 title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
 description: Guideline about how to debug UDFs in Azure Digital Twins.
-author: stefanmsft
-manager: deshner
+author: kingdomofends
+manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/05/2019
-ms.author: stefanmsft
+ms.date: 08/12/2019
+ms.author: v-adgera
 ms.custom: seodec18
 ---
 
@@ -40,7 +40,7 @@ To trace sensor telemetry, verify that diagnostic settings are enabled for your 
 
 To match a sensor telemetry message to its respective logs, you can specify a Correlation ID on the event data being sent. To do so, set the `x-ms-client-request-id` property to a GUID.
 
-After sending telemetry, open log analytics to query for logs using the set Correlation ID:
+After sending telemetry, open Azure Monitor log analytics to query for logs using the set Correlation ID:
 
 ```Kusto
 AzureDiagnostics

@@ -3,8 +3,8 @@ title: Learn how to onboard Update Management, Change Tracking, and Inventory so
 description: Learn how to onboard an Azure Virtual machine with Update Management, Change Tracking, and Inventory solutions that are part of Azure Automation
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
@@ -39,7 +39,9 @@ The list of virtual machines is filtered to show only the virtual machines that 
 
 ### <a name="resource-group-limit"></a> Onboarding limitations
 
-The number of resource groups you can use for onboarding is limited by the [Resource Manager deployment limits](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments,  are limited to 5 resource groups per deployment. To ensure the integrity of onboarding, 2 of those resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with 3 resource groups to select for deployment.
+The number of resource groups you can use for onboarding is limited by the [Resource Manager deployment limits](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to 5 resource groups per deployment. To ensure the integrity of onboarding, 2 of those resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with 3 resource groups to select for deployment. This limit only applies to simultaneous onboarding, not the number of resource groups that can be managed by an Automation solution.
+
+You can also use a runbook for onboarding, for more information, see [Onboard update and change tracking solutions to Azure Automation](automation-onboard-solutions.md).
 
 Use the filter controls to select virtual machines from different subscriptions, locations, and resource groups.
 

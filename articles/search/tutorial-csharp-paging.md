@@ -1,5 +1,5 @@
 ---
-title: C# Tutorial on search results pagination - Azure Search
+title: C# tutorial on search results pagination - Azure Search
 description: This tutorial builds on the "Create your first app - Azure Search" project, with the choice of two types of paging. The first uses a range of page number buttons, as well as first, next, previous, and last page buttons. The second paging system uses infinite scrolling, triggered by moving a vertical scroll bar to its lower limit.
 services: search
 ms.service: search
@@ -9,7 +9,7 @@ author: PeterTurcan
 ms.date: 05/01/2019
 ---
 
-# C# Tutorial: Search results pagination - Azure Search
+# C# tutorial: Search results pagination - Azure Search
 
 Learn how to implement two different paging systems, the first based on page numbers and the second on infinite scrolling. Both systems of paging are widely used, and selecting the right one depends on the user experience you would like with the results. This tutorial builds the paging systems into the project created in the [C# Tutorial: Create your first app - Azure Search](tutorial-csharp-create-first-app.md) tutorial.
 
@@ -42,7 +42,7 @@ Have the basic search page solution open.
 
 2. First add some global variables. In MVC, global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. **MaxPageRange** determines the number of visible page numbers on the view. **PageRangeDelta** determines how many pages left or right the page range should be shifted, when the left-most or right-most page number is selected. Typically this latter number is around half of **MaxPageRange**. Add the following code into the namespace.
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -68,14 +68,14 @@ Have the basic search page solution open.
             }
         }
     }
-```
+    ```
 
->[!Tip]
->If you are running this project on a device with a smaller screen, such as a laptop, then consider changing **ResultsPerPage** to 2.
+    >[!Tip]
+    >If you are running this project on a device with a smaller screen, such as a laptop, then consider changing **ResultsPerPage** to 2.
 
 3. Add paging properties to the **SearchData** class, say, after the **searchText** property.
 
-```cs
+    ```cs
         // The current page being displayed.
         public int currentPage { get; set; }
 
@@ -90,15 +90,15 @@ Have the basic search page solution open.
 
         // Used when page numbers, or next or prev buttons, have been selected.
         public string paging { get; set; }
-```
+    ```
 
 ### Add a table of paging options to the view
 
 1. Open the index.cshtml file, and add the following code right before the closing &lt;/body&gt; tag. This new code presents a table of paging options: first, previous, 1, 2, 3, 4, 5, next, last.
 
-```cs
-@if (Model != null && Model.pageCount > 1)
-{
+    ```cs
+    @if (Model != null && Model.pageCount > 1)
+    {
     // If there is more than one page of results, show the paging buttons.
     <table>
         <tr>
@@ -172,16 +172,16 @@ Have the basic search page solution open.
             </td>
         </tr>
     </table>
-}
-```
+    }
+    ```
 
-We use an HTML table to align things neatly. However all the action comes from the @Html.ActionLink statements, each calling the controller with a **new** model created with different entries to the **paging** property we added earlier.
+    We use an HTML table to align things neatly. However all the action comes from the @Html.ActionLink statements, each calling the controller with a **new** model created with different entries to the **paging** property we added earlier.
 
-The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
+    The first and last page options do not send strings such as "first" and "last", but instead send the correct page numbers.
 
 2. Add some paging classes to the list of HTML styles in the hotels.css file. The **pageSelected** class is there to identify the page the user is currently viewing (by turning the number bold) in the list of page numbers.
 
-```cs
+    ```html
         .pageButton {
             border: none;
             color: darkblue;
@@ -202,13 +202,13 @@ The first and last page options do not send strings such as "first" and "last", 
             font-weight: bold;
             width: 50px;
         }
-```
+    ```
 
 ### Add a Page action to the controller
 
 1. Open the HomeController.cs file, and add the **Page** action. This action responds to any of the page options selected.
 
-```cs
+    ```cs
         public async Task<ActionResult> Page(SearchData model)
         {
             try
@@ -250,16 +250,16 @@ The first and last page options do not send strings such as "first" and "last", 
             }
             return View("Index", model);
         }
-```
+    ```
 
-The **RunQueryAsync** method will now show a syntax error, because of the third parameter, which we will come to in a bit.
+    The **RunQueryAsync** method will now show a syntax error, because of the third parameter, which we will come to in a bit.
 
-> [!Note]
-> The **TempData** calls store a value (an **object**) in temporary storage, though this storage persists for _only_ one call. If we store something in temporary data, it will be available for the next call to a controller action, but will most definitely be gone by the call after that! Because of this short lifespan, we store the search text and paging properties back in temporary storage each and every call to **Page**.
+    > [!Note]
+    > The **TempData** calls store a value (an **object**) in temporary storage, though this storage persists for _only_ one call. If we store something in temporary data, it will be available for the next call to a controller action, but will most definitely be gone by the call after that! Because of this short lifespan, we store the search text and paging properties back in temporary storage each and every call to **Page**.
 
 2. The **Index(model)** action needs updated to store the temporary variables, and to add the left-most page parameter to the **RunQueryAsync** call.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -285,11 +285,11 @@ The **RunQueryAsync** method will now show a syntax error, because of the third 
             }
             return View(model);
         }
-```
+    ```
 
 3. The **RunQueryAsync** method needs updated significantly. We use the **Skip**, **Top**, and **IncludeTotalResultCount** fields of the **SearchParameters** class to request only one page worth of results, starting at the **Skip** setting. We also need to calculate the paging variables for our view. Replace the entire method with the following code.
 
-```cs
+    ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
         {
             InitSearch();
@@ -335,7 +335,7 @@ The **RunQueryAsync** method will now show a syntax error, because of the third 
             if (page >= leftMostPage + GlobalVariables.MaxPageRange - 1)
             {
                 // Trigger a switch to a higher page range.
-                leftMostPage = Math.Min(leftMostPage + GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
+                leftMostPage = Math.Min(page - GlobalVariables.PageRangeDelta, model.pageCount - GlobalVariables.MaxPageRange);
             }
             model.leftMostPage = leftMostPage;
 
@@ -344,19 +344,19 @@ The **RunQueryAsync** method will now show a syntax error, because of the third 
 
             return View("Index", model);
         }
-```
+    ```
 
 4. Finally, we need to make a small change to the view. The variable **resultsList.Results.Count** will now contain the number of results returned in one page (3 in our example), not the total number. Because we set the **IncludeTotalResultCount** to true, the variable **resultsList.Count** now contains the total number of results. So locate where the number of results is displayed in the view, and change it to the following code.
 
-```cs
+    ```cs
             // Show the result count.
             <p class="sampleText">
                 @Html.DisplayFor(m => m.resultList.Count) Results
             </p>
-```
+    ```
 
-> [!Note]
-> There is a performance hit, though not usually much of one, by setting **IncludeTotalResultCount** to true, as this total needs to be calculated by Azure Search. With complex data sets there is a warning that the value returned is an _approximation_. For our hotel data, it will be accurate.
+    > [!Note]
+    > There is a performance hit, though not usually much of one, by setting **IncludeTotalResultCount** to true, as this total needs to be calculated by Azure Search. With complex data sets there is a warning that the value returned is an _approximation_. For our hotel data, it will be accurate.
 
 ### Compile and run the app
 
@@ -392,16 +392,16 @@ To implement infinite scrolling, let's start with the project before any of the 
 
 1. First, add a **paging** property to the **SearchData** class (in the SearchData.cs model file).
 
-```cs
+    ```cs
         // Record if the next page is requested.
         public string paging { get; set; }
-```
+    ```
 
-This variable is a string, which holds "next" if the next page of results should be sent, or be null for the first page of a search.
+    This variable is a string, which holds "next" if the next page of results should be sent, or be null for the first page of a search.
 
 2. In the same file, and within the namespace, add a global variable class with one property. In MVC, global variables are declared in their own static class. **ResultsPerPage** sets the number of results per page. 
 
-```cs
+    ```cs
     public static class GlobalVariables
     {
         public static int ResultsPerPage
@@ -412,15 +412,15 @@ This variable is a string, which holds "next" if the next page of results should
             }
         }
     }
-```
+    ```
 
 ### Add a vertical scroll bar to the view
 
 1. Locate the section of the index.cshtml file that displays the results (it starts with the **@if (Model != null)**).
 
-1. Replace the section with the code below. The new **&lt;div&gt;** section is around the area that should be scrollable, and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()", like so.
+2. Replace the section with the code below. The new **&lt;div&gt;** section is around the area that should be scrollable, and adds both an **overflow-y** attribute and a call to an **onscroll** function called "scrolled()", like so.
 
-```cs
+    ```cs
         @if (Model != null)
         {
             // Show the result count.
@@ -435,15 +435,15 @@ This variable is a string, which holds "next" if the next page of results should
                 {
                     // Display the hotel name and description.
                     @Html.TextAreaFor(m => Model.resultList.Results[i].Document.HotelName, new { @class = "box1" })
-                    @Html.TextArea("desc", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
+                    @Html.TextArea($"desc{i}", Model.resultList.Results[i].Document.Description, new { @class = "box2" })
                 }
             </div>
         }
-```
+    ```
 
 3. Directly underneath the loop, after the &lt;/div&gt; tag, add the **scrolled** function.
 
-```cs
+    ```javascript
         <script>
                 function scrolled() {
                     if (myDiv.offsetHeight + myDiv.scrollTop >= myDiv.scrollHeight) {
@@ -459,9 +459,9 @@ This variable is a string, which holds "next" if the next page of results should
                     }
                 }
         </script>
-```
+    ```
 
-The **if** statement in the script above tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical HTML styles as the original page. If no results are returned, nothing is appended and things stay as they are.
+    The **if** statement in the script above tests to see if the user has scrolled to the bottom of the vertical scroll bar. If they have, a call to the **Home** controller is made to an action called **Next**. No other information is needed by the controller, it will return the next page of data. This data is then formatted using identical HTML styles as the original page. If no results are returned, nothing is appended and things stay as they are.
 
 ### Handle the Next action
 
@@ -471,7 +471,7 @@ There are only three actions that need to be sent to the controller: the first r
 
 2. Replace the **Index(model)** action with the following code. It now handles the **paging** field when it is null, or set to "next", and handles the call to Azure Search.
 
-```cs
+    ```cs
         public async Task<ActionResult> Index(SearchData model)
         {
             try
@@ -529,13 +529,13 @@ There are only three actions that need to be sent to the controller: the first r
             }
             return View("Index", model);
         }
-```
+    ```
 
-Similar to the numbered paging method, we use the **Skip** and **Top** search settings to request just the data we need is returned.
+    Similar to the numbered paging method, we use the **Skip** and **Top** search settings to request just the data we need is returned.
 
 3. Add the **Next** action to the home controller. Note how it returns a list, each hotel adding two elements to the list: a hotel name and a hotel description. This format is set to match the **scrolled** function's use of the returned data in the view.
 
-```cs
+    ```cs
         public async Task<ActionResult> Next(SearchData model)
         {
             // Set the next page setting, and call the Index(model) action.
@@ -555,13 +555,13 @@ Similar to the numbered paging method, we use the **Skip** and **Top** search se
             // Rather than return a view, return the list of data.
             return new JsonResult(nextHotels);
         }
-```
+    ```
 
 4. If you are getting a syntax error on **List&lt;string&gt;**, then add the following **using** directive to the head of the controller file.
 
-```cs
-using System.Collections.Generic;
-```
+    ```cs
+    using System.Collections.Generic;
+    ```
 
 ### Compile and run your project
 
@@ -571,8 +571,8 @@ Now select **Start Without Debugging** (or press the F5 key).
 
     ![Infinite scrolling through "pool" results](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
-> [!Tip]
-> To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels _and_ a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears, a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;**.
+    > [!Tip]
+    > To ensure that a scroll bar appears on the first page, the first page of results must slightly exceed the height of the area they are being displayed in. In our example **.box1** has a height of 30 pixels, **.box2** has a height of 100 pixels _and_ a bottom margin of 24 pixels. So each entry uses 154 pixels. Three entries will take up 3 x 154 = 462 pixels. To ensure that a vertical scroll bar appears, a height to the display area must be set that is smaller than 462 pixels, even 461 works. This issue only occurs on the first page, after that a scroll bar is sure to appear. The line to update is: **&lt;div id="myDiv" style="width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;**.
 
 2. Scroll down all the way to the bottom of the results. Notice how all information is now on the one view page. You can scroll all the way back to the top without triggering any server calls.
 

@@ -30,7 +30,7 @@ Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/ne
 $securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
 
-New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest  -Size Standard_D2S_V3
+New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
 ```
 
 It will take a few minutes for your VM to be deployed. 

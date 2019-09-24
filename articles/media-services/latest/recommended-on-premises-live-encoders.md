@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/08/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -103,7 +103,7 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 10. Combine the URL from step 8 with the host name in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event. 
-13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches at all quality levels. Or, watch and validate via the preview URL during the live session.
+13. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the archived asset to ensure that playback has no visible glitches at all quality levels. Or, watch and validate via the preview URL during the live session.
 14. Record the asset ID, the published streaming URL for the live archive, and the settings and version used from your live encoder.
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
@@ -122,18 +122,18 @@ As an Azure Media Services on-premises encoder partner, Media Services promotes 
 10. Combine the URL from step 8 with the host name in step 9 to get the full URL.
 11. Run your live encoder for approximately 10 minutes.
 12. Stop the Live Event.
-13. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the archived asset to ensure that playback has no visible glitches for all quality levels. Or, watch and validate via the preview URL during the live session.
+13. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the archived asset to ensure that playback has no visible glitches for all quality levels. Or, watch and validate via the preview URL during the live session.
 14. Record the asset ID, the published streaming URL for the live archive, and the settings and version used from your live encoder.
 15. Reset the Live Event state after creating each sample.
 16. Repeat steps 5 through 15 for all configurations supported by your encoder (with and without ad signaling, captions, or different encoding speeds).
 
 ### Longevity verification
 
-Follow the same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html) to watch the live streaming from time to time (or an archived asset) to ensure that playback has no visible glitches.
+Follow the same steps as in [Pass-through Live Event verification](#pass-through-live-event-verification) except for step 11. <br/>Instead of 10 minutes, run your live encoder for one week or longer. Use a player such as [Azure Media Player](https://aka.ms/azuremediaplayer) to watch the live streaming from time to time (or an archived asset) to ensure that playback has no visible glitches.
 
 ### Email your recorded settings
 
-Finally, email your recorded settings and live archive parameters to Azure Media Services at amslived@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
+Finally, email your recorded settings and live archive parameters to Azure Media Services at amshelp@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
 
 ## Next steps
 

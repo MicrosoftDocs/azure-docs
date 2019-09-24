@@ -20,6 +20,7 @@ ms.collection: M365-identity-device-management
 This article explains how to configure Azure Active Directory (Azure AD) Application Proxy connectors to work with outbound proxy servers. It is intended for customers with network environments that have existing proxies.
 
 We start by looking at these main deployment scenarios:
+
 * Configure connectors to bypass your on-premises outbound proxies.
 * Configure connectors to use an outbound proxy to access Azure AD Application Proxy.
 
@@ -49,6 +50,7 @@ To disable outbound proxy usage for the connector, edit the C:\Program Files\Mic
   </appSettings>
 </configuration>
 ```
+
 To ensure that the Connector Updater service also bypasses the proxy, make a similar change to the ApplicationProxyConnectorUpdaterService.exe.config file. This file is located at C:\Program Files\Microsoft AAD App Proxy Connector Updater.
 
 Be sure to make copies of the original files, in case you need to revert to the default .config files.
@@ -63,8 +65,8 @@ You can configure the connector traffic to go through the outbound proxy, as sho
 
 As a result of having only outbound traffic, there's no need to configure inbound access through your firewalls.
 
->[!NOTE]
->Application Proxy does not support authentication to other proxies. The connector/updater network service accounts should be able to connect to the proxy without being challenged for authentication.
+> [!NOTE]
+> Application Proxy does not support authentication to other proxies. The connector/updater network service accounts should be able to connect to the proxy without being challenged for authentication.
 
 ### Step 1: Configure the connector and related services to go through the outbound proxy
 
@@ -94,12 +96,14 @@ Next, configure the Connector Updater service to use the proxy by making a simil
 ### Step 2: Configure the proxy to allow traffic from the connector and related services to flow through
 
 There are four aspects to consider at the outbound proxy:
+
 * Proxy outbound rules
 * Proxy authentication
 * Proxy ports
 * SSL inspection
 
 #### Proxy outbound rules
+
 Allow access to the following URLs:
 
 | URL | How it's used |
@@ -109,7 +113,6 @@ Allow access to the following URLs:
 | login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
 
 If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
-
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
@@ -124,13 +127,15 @@ Proxy authentication is not currently supported. Our current recommendation is t
 
 The connector makes outbound SSL-based connections by using the CONNECT method. This method essentially sets up a tunnel through the outbound proxy. Configure the proxy server to allow tunneling to ports 443 and 80.
 
->[!NOTE]
->When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
+> [!NOTE]
+> When Service Bus runs over HTTPS, it uses port 443. However, by default, Service Bus attempts direct TCP connections and falls back to HTTPS only if direct connectivity fails.
 
 #### SSL inspection
-Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection. 
+
+Do not use SSL inspection for the connector traffic, because it causes problems for the connector traffic. The connector uses a certificate to authenticate to the Application Proxy service, and that certificate can be lost during SSL inspection.
 
 ## Troubleshoot connector proxy problems and service connectivity issues
+
 Now you should see all traffic flowing through the proxy. If you have problems, the following troubleshooting information should help.
 
 The best way to identify and troubleshoot connector connectivity issues is to take a network capture while starting the connector service. Here are some quick tips on capturing and filtering network traces.
@@ -147,21 +152,18 @@ For initial troubleshooting, perform the following steps:
 
    ![Azure AD Application Proxy Connector service in services.msc](./media/application-proxy-configure-connectors-with-proxy-servers/services-local.png)
 
-2. Run Message Analyzer as an administrator.
-3. Select **Start local trace**.
+1. Run Message Analyzer as an administrator.
+1. Select **Start local trace**.
+1. Start the Azure AD Application Proxy Connector service.
+1. Stop the network capture.
 
-   ![Start network capture](./media/application-proxy-configure-connectors-with-proxy-servers/start-local-trace.png)
-
-3. Start the Azure AD Application Proxy Connector service.
-4. Stop the network capture.
-
-   ![Stop network capture](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![Screenshot shows the Stop network capture button](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### Check if the connector traffic bypasses outbound proxies
 
-If you configured your Application Proxy connector to bypass the proxy servers and connect directly to the Application Proxy service, you want to look in the network capture for failed TCP connection attempts. 
+If you configured your Application Proxy connector to bypass the proxy servers and connect directly to the Application Proxy service, you want to look in the network capture for failed TCP connection attempts.
 
-Use the Message Analyzer filter to identify these attempts. Enter `property.TCPSynRetransmit` in the filter box and select **Apply**. 
+Use the Message Analyzer filter to identify these attempts. Enter `property.TCPSynRetransmit` in the filter box and select **Apply**.
 
 A SYN packet is the first packet sent to establish a TCP connection. If this packet doesn’t return a response, the SYN is reattempted. You can use the preceding filter to see any retransmitted SYNs. Then, you can check whether these SYNs correspond to any connector-related traffic.
 
@@ -169,9 +171,9 @@ If you expect the connector to make direct connections to the Azure services, Sy
 
 ### Check if the connector traffic uses outbound proxies
 
-If you configured your Application Proxy connector traffic to go through the proxy servers, you want to look for failed https connections to your proxy. 
+If you configured your Application Proxy connector traffic to go through the proxy servers, you want to look for failed https connections to your proxy.
 
-To filter the network capture for these connection attempts, enter `(https.Request or https.Response) and tcp.port==8080` in the Message Analyzer filter, replacing 8080 with your proxy service port. Select **Apply** to see the filter results. 
+To filter the network capture for these connection attempts, enter `(https.Request or https.Response) and tcp.port==8080` in the Message Analyzer filter, replacing 8080 with your proxy service port. Select **Apply** to see the filter results.
 
 The preceding filter shows just the HTTPs requests and responses to/from the proxy port. You're looking for the CONNECT requests that show communication with the proxy server. Upon success, you get an HTTP OK (200) response.
 
@@ -179,6 +181,5 @@ If you see other response codes, such as 407 or 502, that means that the proxy i
 
 ## Next steps
 
-- [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
-
-- If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.
+* [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md)
+* If you have problems with connector connectivity issues, ask your question in the [Azure Active Directory forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD&forum=WindowsAzureAD) or create a ticket with our support team.

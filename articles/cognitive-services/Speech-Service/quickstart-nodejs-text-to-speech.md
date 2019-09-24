@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech, Node.js - Speech Services"
+title: "Quickstart: Convert text-to-speech, Node.js - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to convert text-to-speech using Node.js and the Text-to-Speech REST API. The sample text included in this guide is structured as Speech Synthesis Markup Language (SSML). This allows you to choose the voice and language of the speech response.
 services: cognitive-services
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 01/11/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Quickstart: Convert text-to-speech using Node.js

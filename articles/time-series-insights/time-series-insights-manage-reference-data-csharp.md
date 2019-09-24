@@ -10,7 +10,7 @@ ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -242,4 +242,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

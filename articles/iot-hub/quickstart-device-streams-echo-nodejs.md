@@ -1,15 +1,14 @@
 ﻿---
 title: Communicate to a device app in Node.js via IoT Hub device streams (preview) | Microsoft Docs
 description: In this quickstart, you will run a Node.js service-side applications that communicates with an IoT device via a device stream.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # Quickstart: Communicate to a device application in Node.js via IoT Hub device streams (preview)
@@ -50,7 +49,7 @@ You can download Node.js for multiple platforms from [Nodejs.org](https://nodejs
 
 You can verify the current version of Node.js on your development machine using the following command:
 
-```
+```cmd/sh
 node --version
 ```
 
@@ -116,7 +115,7 @@ Assuming the device-side application is running, follow the steps below to run t
 
 * Provide your service credentials and device ID as environment variables.
  
-   ```
+   ```cmd/sh
    # In Linux
    export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
    export STREAMING_TARGET_DEVICE="MyDevice"
@@ -130,7 +129,7 @@ Assuming the device-side application is running, follow the steps below to run t
 
 * Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
 
-   ```
+   ```cmd/sh
    cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
     
    # Install the preview service SDK, and other dependencies

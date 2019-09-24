@@ -1,16 +1,16 @@
 ---
 title: Translator Text API V3.0 Reference
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Text API V3.0.
 services: cognitive-services
-author: rajdeep-in
+author: swmachan
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: v-pawal
+ms.author: swmachan
 ---
 
 # Translator Text API v3.0
@@ -27,20 +27,20 @@ Version 3 of the Translator Text API provides a modern JSON-based Web API. It im
 
 ## Base URLs
 
-Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 6 [Azure regions](https://azure.microsoft.com/global-infrastructure/regions):
+Microsoft Translator is served out of multiple datacenter locations. Currently they are located in 10 [Azure geographies](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Americas:** West US 2 and West Central US 
-* **Asia Pacific:** Southeast Asia and Korea South
+* **Americas:** East US, South Central US, West Central US, and West US 2 
+* **Asia Pacific:** Korea South, Japan East, Southeast Asia, and Australia East
 * **Europe:** North Europe and West Europe
 
-Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the region.
+Requests to the Microsoft Translator Text API are in most cases handled by the datacenter that is closest to where the request originated. In case of a datacenter failure, the request may be routed outside of the Azure geography.
 
-To force the request to be handled by a specific datacenter, change the Global endpoint in the API request to the desired regional endpoint:
+To force the request to be handled by a specific Azure geography, change the Global endpoint in the API request to the desired regional endpoint:
 
-|Description|Region|Base URL|
+|Description|Azure Geography|Base URL|
 |:--|:--|:--|
-|Azure|Global|	api.cognitive.microsofttranslator.com|
-|Azure|North America|	api-nam.cognitive.microsofttranslator.com|
+|Azure|Global (non-regional)|	api.cognitive.microsofttranslator.com|
+|Azure|United States|	api-nam.cognitive.microsofttranslator.com|
 |Azure|Europe|	api-eur.cognitive.microsofttranslator.com|
 |Azure|Asia Pacific|	api-apc.cognitive.microsofttranslator.com|
 
@@ -95,7 +95,7 @@ When you use a multi-service secret key, you must include two authentication hea
 
 Region is required for the multi-service Text API subscription. The region you select is the only region that you can use for text translation when using the multi-service subscription key, and must be the same region you selected when you signed up for your multi-service subscription through the Azure portal.
 
-Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, and `westus2`.
+Available regions are `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, and `southafricanorth`.
 
 If you pass the secret key in the query string with the parameter `Subscription-Key`, then you must specify the region with query parameter `Subscription-Region`.
 
@@ -150,6 +150,7 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 400075| The language pair and category combination is not valid.|
 | 400077| The maximum request size has been exceeded. View [request limits](../request-limits.md).|
 | 400079| The custom system requested for translation between from and to language does not exist.|
+| 400080| Transliteration is not supported for the language or script.|
 | 401000| The request is not authorized because credentials are missing or invalid.|
 | 401015| "The credentials provided are for the Speech API. This request requires credentials for the Text API. Please use a subscription to Translator Text API."|
 | 403000| The operation is not allowed.|

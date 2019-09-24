@@ -1,20 +1,20 @@
 ---
 title: "Sending search requests to the Bing Video Search API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about sending search queries to the Bing Video Search API.
 services: cognitive-services
 author: aahi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
-ms.topic: quickstart
-ms.date: 01/31/2019
+ms.topic: conceptual
+ms.date: 06/27/2019
 ms.author: aahill
 ---
 
 # Sending search requests to the Bing Video Search API
 
-This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns.
+This article describes the parameters and attributes of requests sent to the Bing Video Search API, as well as the JSON response object it returns. 
 
 [!INCLUDE [cognitive-services-bing-video-search-signup-requirements](../../../../includes/cognitive-services-bing-video-search-signup-requirements.md)]
 
@@ -68,7 +68,9 @@ Host: api.cognitive.microsoft.com
 
 The following shows the response to the previous request. The example also shows the Bing-specific response headers.
 
-```
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
+
+```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
 X-MSEdge-ClientID: 1C3352B306E669780D58D607B96869
 BingAPIs-Market: en-US

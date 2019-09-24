@@ -3,9 +3,10 @@ title: Azure Container Instances resource availability
 description: Availability of compute and memory resources for the Azure Container Instances service in different Azure regions.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 05/14/2019
 ms.author: danlep
 ---

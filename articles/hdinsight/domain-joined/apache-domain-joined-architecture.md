@@ -1,13 +1,13 @@
 ---
 title: Azure HDInsight architecture with Enterprise Security Package
-description: Learn how to plan HDInsight security with Enterprise Security Package.
+description: Learn how to plan Azure HDInsight security with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/24/2019
 ---
 
 # Use Enterprise Security Package in HDInsight
@@ -32,7 +32,7 @@ The following things are created automatically:
 
 To summarize, you need to set up an environment with:
 
-- An Active Directory domain (managed by Azure AD DS).
+- An Active Directory domain (managed by Azure AD DS). **The domain name must be 39 characters or less to work with Azure HDInsight.**
 - Secure LDAP (LDAPS) enabled in Azure AD DS.
 - Proper networking connectivity from the HDInsight virtual network to the Azure AD DS virtual network, if you choose separate virtual networks for them. A VM inside the HDInsight virtual network should have a line of sight to Azure AD DS through virtual network peering. If HDInsight and Azure AD DS are deployed in the same virtual network, the connectivity is automatically provided, and no further action is needed.
 
@@ -61,10 +61,14 @@ If federation is being used and password hashes are synced correctly, but you ar
 1. Install the preview [Azure AD PowerShell module](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2).
 
    ```powershell
-   Install-Module AzureADPreview
+   Install-Module AzureAD
    ```
 
-2. Enter `Connect-AzureAD` by using global administrator (tenant administrator) credentials.
+2. Connect using global administrator (tenant administrator) credentials.
+   
+   ```powershell
+   Connect-AzureAD
+   ```
 
 3. Check if the Microsoft Azure PowerShell service principal has already been created.
 

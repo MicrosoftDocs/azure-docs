@@ -4,14 +4,14 @@ description: Azure DevOps Projects makes it easy to get started on Azure. It hel
 author: shizn
 manager: 
 ms.author: xshi
-ms.date: 01/22/2019
+ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ---
 
-# Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects (Preview)
+# Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects
 
 Configure continuous integration (CI) and continuous delivery (CD) for your IoT Edge application with DevOps Projects. DevOps Projects simplifies the initial configuration of a build and release pipeline in Azure Pipelines.
 
@@ -33,7 +33,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new A
 
    ![Select language to create a new application](./media/how-to-devops-project/select-language.png)
 
-2. Select **Simple IoT (Preview)** as your application framework, and then select **Next**.
+2. Select **Simple IoT** as your application framework, and then select **Next**.
 
    ![Select Simple IoT framework](media/how-to-devops-project/select-iot.png)
 

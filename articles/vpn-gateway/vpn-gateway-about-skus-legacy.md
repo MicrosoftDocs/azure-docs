@@ -2,19 +2,13 @@
 title: Legacy Azure virtual network VPN gateway SKUs | Microsoft Docs
 description: How to work with the old virtual network gateway SKUs; Basic, Standard, and HighPerformance.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
 
-ms.assetid: 
+
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/10/2019
+ms.date: 08/15/2019
 ms.author: cherylmc
 
 ---
@@ -38,15 +32,9 @@ You can view legacy gateway pricing in the **Virtual Network Gateways** section,
 
 ## <a name="resize"></a>Resize a gateway
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 You can resize your gateway to a gateway SKU within the same SKU family. For example, if you have a Standard SKU, you can resize to a HighPerformance SKU. However, you can't resize your VPN gateway between the old SKUs and the new SKU families. For example, you can't go from a Standard SKU to a VpnGw2 SKU, or a Basic SKU to VpnGw1.
 
-To resize a gateway for the classic deployment model, use the following command:
-
-```powershell
-Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
-```
+### Resource Manager
 
 To resize a gateway for the Resource Manager deployment model using PowerShell, use the following command:
 
@@ -54,7 +42,16 @@ To resize a gateway for the Resource Manager deployment model using PowerShell, 
 $gw = Get-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg
 Resize-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -GatewaySku HighPerformance
 ```
+
 You can also resize a gateway in the Azure portal.
+
+### <a name="classicresize"></a>Classic
+
+To resize a gateway for the classic deployment model, you must use the Service Management PowerShell cmdlets. Use the following command:
+
+```powershell
+Resize-AzureVirtualNetworkGateway -GatewayId <Gateway ID> -GatewaySKU HighPerformance
+```
 
 ## <a name="change"></a>Change to the new gateway SKUs
 

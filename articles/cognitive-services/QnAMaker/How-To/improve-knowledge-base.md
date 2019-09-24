@@ -7,8 +7,8 @@ manager: nitinme
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 06/06/2019
+ms.topic: conceptual
+ms.date: 09/11/2019
 ms.author: diberry
 ---
 
@@ -51,7 +51,7 @@ It is important that QnA Maker gets explicit feedback about which of the answers
 
 ## Upgrade your runtime version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature. 
 
 ## Turn on active learning to see suggestions
 
@@ -67,6 +67,9 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 1. Find the QnA Maker service then toggle **Active Learning**. 
 
     [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > The exact version on the preceding image is shown as an example only. Your version may be different. 
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
@@ -190,7 +193,7 @@ The JSON body has several settings:
 |--|--|--|--|
 |`feedbackRecords`|array|List of feedback.|
 |`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
-|`userQuestion`|string|Exact text of the question. Required.|
+|`userQuestion`|string|Exact text of the user's query. Required.|
 |`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 An example JSON body looks like:
@@ -208,6 +211,36 @@ An example JSON body looks like:
 ```
 
 A successful response returns a status of 204 and no JSON response body. 
+
+### Batch many feedback records into a single call
+
+In the client-side application, such as a bot, you can store the data, then send many records in a single JSON body in the `feedbackRecords` array. 
+
+An example JSON body looks like:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "How do I ...",
+            "qnaId": 1
+        },
+        {
+            "userId": "2",
+            "userQuestion": "Where is ...",
+            "qnaId": 40
+        },
+        {
+            "userId": "3",
+            "userQuestion": "When do I ...",
+            "qnaId": 33
+        }
+    ]
+}
+```
+
+
 
 <a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
 

@@ -3,10 +3,8 @@ title: Azure Security Center Quickstart - Onboard your Azure subscription to Sec
 description: This quickstart shows you how to upgrade to Security Center's Standard pricing tier for additional security.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -15,7 +13,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 # Quickstart: Onboard your Azure subscription to Security Center Standard
@@ -73,7 +71,7 @@ To enable automatic provisioning of the Microsoft Monitoring Agent:
 2. On the row of the subscription, select **Edit settings>**.
 3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
 4. Select **Save**.
-****
+---
   ![Enable automatic provisioning][6]
 
 With this new insight into your Azure VMs, Security Center can provide additional Recommendations related to system update status, OS security configurations, endpoint protection, as well as generate additional Security alerts.

@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
 ---
 # The Wingtip Tickets SaaS application

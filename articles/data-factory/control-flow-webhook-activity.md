@@ -3,19 +3,16 @@ title: Webhook activity in Azure Data Factory | Microsoft Docs
 description: The Webhook activity does not continue execution of the pipeline until it validates the attached dataset with certain criteria the user specifies.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.author: shlo
-
 ---
+
 # Webhook activity in Azure Data Factory
 You can use a web hook activity to control the execution of pipelines through your custom code. Using the webhook activity, customers can call an endpoint and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
 

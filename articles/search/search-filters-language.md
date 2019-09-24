@@ -2,7 +2,7 @@
 title: Language filters for multi-lingual content in a search index - Azure Search
 description: Filter criteria to support multi language search, scoping query execution to language-specific fields.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.workload: search

@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
@@ -38,7 +38,7 @@ This document describes how you can create and configure a self-hosted IR.
 
 	```
 
-## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
+## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template 
 You can automate self-hosted IR setup on an Azure virtual machine by using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This template provides an easy way to have a fully functioning self-hosted IR inside an Azure virtual network with high-availability and scalability features (as long as you set the node count to 2 or higher).
 
 ## Command flow and data flow
@@ -68,18 +68,22 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 
 ## Prerequisites
 
-- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. Installation of the self-hosted integration runtime on a domain controller is not supported.
+- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 and Windows Server 2019. Installation of the self-hosted integration runtime on a domain controller is not supported.
 - .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 - The recommended configuration for the self-hosted integration runtime machine is at least 2 GHz, four cores, 8 GB of RAM, and an 80-GB disk.
 - If the host machine hibernates, the self-hosted integration runtime does not respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installation prompts a message.
 - You must be an administrator on the machine to install and configure the self-hosted integration runtime successfully.
 - Copy activity runs happen on a specific frequency. Resource usage (CPU, memory) on the machine follows the same pattern with peak and idle times. Resource utilization also depends heavily on the amount of data being moved. When multiple copy jobs are in progress, you see resource usage go up during peak times.
+- Tasks may fail if extracting data in Parquet, ORC, or Avro formats. The file creation runs on the self-hosted integration machine and requires the following pre-requisites to work as expected (see [Parquet format in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
+    - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) package (x64)
+    - Java Runtime (JRE) version 8 from a JRE provider such as [Adopt OpenJDK](https://adoptopenjdk.net/), ensuring that the `JAVA_HOME` environment variable is set.
 
 ## Installation best practices
 You can install the self-hosted integration runtime by downloading an MSI setup package from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). See [Move data between on-premises and cloud article](tutorial-hybrid-copy-powershell.md) for step-by-step instructions.
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
+- For automating self-hosted IR setup operations, please refer [below section](#automation-support-for-self-hosted-ir-function).  
 
 ## Install and register self-hosted IR from the Download Center
 
@@ -103,6 +107,45 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 	b. Optionally, select **Show authentication key** to see the key text.
 
 	c. Select **Register**.
+
+## Automation support for self-hosted IR function
+
+
+> [!NOTE]
+> If you are planning to setup the self-hosted IR on an Azure Virtual Machine and want to automate the setup using Azure Resource Manager templates, please refer [section](#setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template).
+
+You can use command line for setting up or managing an existing self-hosted IR. This can be used especially for automating installation, registration of self-hosted IR nodes. 
+
+**Dmgcmd.exe** is included in the self-hosted installation, typically located: C:\Program Files\Microsoft Integration Runtime\3.0\Shared\ folder. This supports various parameters and can be invoked via command prompt using batch scripts for automation. 
+
+*Usage:* 
+
+```powershell
+dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<thumbprint>"] -EnableRemoteAccessInContainer "<port>" ["<thumbprint>"] -DisableRemoteAccess -Key "<AuthenticationKey>" -GenerateBackupFile "<filePath>" "<password>" -ImportBackupFile "<filePath>" "<password>" -Restart -Start -Stop -StartUpgradeService -StopUpgradeService -TurnOnAutoUpdate -TurnOffAutoUpdate -SwitchServiceAccount "<domain\user>" ["password"] -Loglevel <logLevel> ] 
+```
+
+ *Details (parameters / property):* 
+
+| Property                                                    | Description                                                  | Required |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
+| RegisterNewNode "`<AuthenticationKey>`"                     | Register Integration Runtime (Self-hosted) node with the specified Authentication Key | No       |
+| EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node for setting up a High Availability Cluster and/or enabling setting of credentials directly against the self-hosted IR (without going through ADF service) using **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in same network. | No       |
+| EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Enable remote access to current node when the node is running in Container | No       |
+| DisableRemoteAccess                                         | Disable remote access to current node. Remote access is needed for multi-node setup. The New-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled as long as it is executed on the same machine as the self-hosted IR node. | No       |
+| Key "`<AuthenticationKey>`"                                 | Overwrite/ update the previous Authentication Key. Please be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Generate backup file for current node, the backup file includes the node key and data store credentials | No       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Restore the node from a backup file                          | No       |
+| Restart                                                     | Restart the Integration Runtime (Self-hosted) Host Service   | No       |
+| Start                                                       | Start the Integration Runtime (Self-hosted) Host Service     | No       |
+| Stop                                                        | Stop Integration Runtime (Self-hosted) update service        | No       |
+| StartUpgradeService                                         | Start Integration Runtime (Self-hosted) update service       | No       |
+| StopUpgradeService                                          | Stop Integration Runtime (Self-hosted) update service        | No       |
+| TurnOnAutoUpdate                                            | Turn on Integration Runtime (Self-hosted) auto update        | No       |
+| TurnOffAutoUpdate                                           | Turn off Integration Runtime (Self-hosted) auto update       | No       |
+| SwitchServiceAccount "<domain\user>" ["password"]           | Set DIAHostService to run as a new account. Use empty password ("") for system account or virtual account | No       |
+| Loglevel `<logLevel>`                                       | Set ETW log level (Off, Error, Verbose or All). Generally used by Microsoft support while debugging. | No       |
+
+   
 
 
 ## High availability and scalability
@@ -337,7 +380,7 @@ If you're using a third-party firewall, you can manually open port 8060 (or the 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-``` 
+```
 
 If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 

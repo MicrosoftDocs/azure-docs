@@ -30,6 +30,9 @@ Before you start developing, review [Developing with Media Services v3 APIs](med
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
 
+> [!IMPORTANT]
+> Review [naming conventions](media-services-apis-overview.md#naming-conventions).
+
 ## Download Postman files
 
 Clone a GitHub repository that contains the  Postman collection and environment files.

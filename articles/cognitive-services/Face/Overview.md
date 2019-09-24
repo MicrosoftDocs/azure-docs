@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As the developer of an app that deals with images of humans, I want to learn what the Face API does so I can determine if I should use its features.
 ---
@@ -56,11 +56,11 @@ The Group API divides a set of unknown faces into several groups based on simila
 
 The Identify API is used to identify a detected face against a database of people. This feature might be useful for automatic image tagging in photo management software. You create the database in advance, and you can edit it over time.
 
-The following image shows an example of a database named "myfriends." Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
+The following image shows an example of a database named `"myfriends"`. Each group can contain up to 1 million different person objects. Each person object can have up to 248 faces registered.
 
 ![A grid with three columns for different people, each with three rows of face images](./Images/person.group.clare.jpg)
 
-After a database is created and trained, you can perform identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
+After you create and train a database, you can perform identification against the group with a new detected face. If the face is identified as a person in the group, the person object is returned.
 
 For more information about person identification, see the [Face recognition](concepts/face-recognition.md) concepts guide or the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) reference documentation.
 

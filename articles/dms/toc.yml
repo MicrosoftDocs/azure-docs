@@ -52,6 +52,7 @@
     href: how-to-migrate-ssis-packages-managed-instance.md
 
 - name: Resources
+  expanded: true
   items:
   - name: Database migration scenario status
     href: resource-scenario-status.md
@@ -59,8 +60,10 @@
     href: pre-reqs.md
   - name: Network topologies for Azure SQL DB Managed Instance migrations
     href: resource-network-topologies.md
-  - name: Known issues
+  - name: Troubleshooting and known issues
     items:
+    - name: Troubleshoot source database connectivity issues
+      href: known-issues-troubleshooting-dms-source-connectivity.md
     - name: Troubleshoot common issues and errors
       href: known-issues-troubleshooting-dms.md
     - name: Known Issues - Online migration to Azure SQL DB

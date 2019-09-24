@@ -8,6 +8,9 @@
 - name: Quickstarts
   expanded: true
   items:
+  - name: Run your first query - Azure portal
+    displayName: portal, resource, graph, explorer
+    href: first-query-portal.md
   - name: Run your first query - Azure CLI
     displayName: extension, docker
     href: first-query-azurecli.md
@@ -33,11 +36,17 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+  - name: Guidance for throttled requests
+    displayName: pagination, batching, throttling, parallel
+    href: ./concepts/guidance-for-throttled-requests.md
 - name: How-to guides
   items:
   - name: Get resource changes
     displayName: resource, change, history, snapshot, details
     href: ./how-to/get-resource-changes.md
+- name: Troubleshoot
+  displayName: errors, violation
+  href: ./troubleshoot/general.md
 - name: Reference
   items:
   - name: Azure CLI

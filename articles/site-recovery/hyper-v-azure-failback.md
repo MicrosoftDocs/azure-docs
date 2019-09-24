@@ -6,7 +6,7 @@ author: rajani-janaki-ram
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 09/12/2019
 ms.author: rajanaki
 
 ---
@@ -16,9 +16,11 @@ ms.author: rajanaki
 This article describes how to fail back Hyper-V virtual machines protected by Site Recovery.
 
 ## Prerequisites
-1. Ensure that you have read the details about the [different types of failback](concepts-types-of-failback.md) and corresponding caveats.
-1. Ensure that the primary site VMM server or Hyper-V host server is connected to Azure.
-2. You should have performed **Commit** on the virtual machine.
+
+- Ensure that you have read the details about the [different types of failback](concepts-types-of-failback.md) and corresponding caveats.
+- Ensure that the primary site VMM server or Hyper-V host server is connected to Azure.
+- You should have performed **Commit** on the virtual machine.
+- Make sure you're using a storage account for replication and not managed disks. Failback of Hyper-V VMs replicated using managing disks isn't supported.
 
 ## Perform failback
 After failover from the primary to secondary location, replicated virtual machines aren't protected by Site Recovery, and the secondary location is now acting as the active location. To fail back VMs in a recovery plan, run a planned failover from the secondary site to the primary, as follows. 

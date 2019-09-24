@@ -3,7 +3,7 @@ title: What happened to my WebJob project (Visual Studio Azure Storage connected
 description: Describes what happened in an Azure WebJob project after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 36ae7ff7-c22c-47eb-b220-049d61618c74
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
