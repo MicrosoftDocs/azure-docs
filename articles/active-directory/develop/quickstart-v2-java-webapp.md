@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/11/2019
+ms.date: 09/18/2019
 ms.author: sagonzal
 ms.custom: aaddev 
 ---
@@ -32,8 +32,8 @@ When you've completed the guide, your application will accept sign-ins of person
 
 ## Prerequisites
 
-To run this sample you will need: 
-- Java Development Kit (JDK) 8 or greater and Maven.
+To run this sample you will need:
+- [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater, and [Maven](https://maven.apache.org/).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart app

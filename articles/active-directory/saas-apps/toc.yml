@@ -173,6 +173,8 @@
         href: bime-tutorial.md
       - name: Birst Agile Business Analytics
         href: birst-tutorial.md
+      - name: BIS
+        href: bis-tutorial.md
       - name: BitaBIZ
         href: bitabiz-tutorial.md
       - name: Blackboard Learn
@@ -219,6 +221,8 @@
       items:
       - name: CA PPM
         href: cappm-tutorial.md
+      - name: CakeHR
+        href: cakehr-tutorial.md
       - name: Canvas Lms
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
@@ -567,6 +571,8 @@
         href: hornbill-tutorial.md
       - name: Hosted Graphite
         href: hostedgraphite-tutorial.md
+      - name: Hosted Heritage Online SSO
+        href: hosted-heritage-online-sso-tutorial.md
       - name: HPE SaaS
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
@@ -591,6 +597,8 @@
         href: icertisicm-tutorial.md
       - name: ICIMS
         href: icims-tutorial.md
+      - name: IDC
+        href: idc-tutorial.md
       - name: IdeaScale
         href: ideascale-tutorial.md
       - name: iDiD Manager
@@ -1211,6 +1219,8 @@
         href: softeon-tutorial.md
       - name: Soloinsight-CloudGate SSO
         href: soloinsight-cloudgate-sso-tutorial.md
+      - name: Sonarqube
+        href: sonarqube-tutorial.md
       - name: Soonr Workplace
         href: soonr-tutorial.md
       - name: SpaceIQ
@@ -1375,6 +1385,8 @@
         href: weekdone-tutorial.md
       - name: Whatfix
         href: whatfix-tutorial.md
+      - name: Whitesource
+        href: whitesource-tutorial.md
       - name: Wikispaces
         href: wikispaces-tutorial.md
       - name: Wingspan eTMF
@@ -1476,6 +1488,8 @@
         href: atlassian-cloud-provisioning-tutorial.md
       - name: BitaBIZ
         href: bitabiz-provisioning-tutorial.md
+      - name: Blink
+        href: blink-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1570,6 +1584,8 @@
         href: salesforce-sandbox-provisioning-tutorial.md
       - name: Samanage
         href: samanage-provisioning-tutorial.md
+      - name: SAP Cloud Platform Identity Authentication
+        href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
       - name: Slack

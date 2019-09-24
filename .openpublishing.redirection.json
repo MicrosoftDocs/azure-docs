@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/php-download-sdk.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
       "redirect_url": "/azure/azure-government/documentation-government-welcome",
       "redirect_document_id": false
@@ -113,6 +118,11 @@
     {
       "source_path": "articles/active-directory/saas-apps/realtimeboard-tutorial.md",
       "redirect_url": "/articles/active-directory/saas-apps/miro-tutorial",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/saas-apps/redbrickhealth-tutorial.md",
+      "redirect_url": "/articles/active-directory/saas-apps/redbrick-health-tutorial",
       "redirect_document_id": true
     },
     {
@@ -1534,6 +1544,26 @@
       "source_path": "articles/cosmos-db/powershell-samples.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples-sql",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-and-configure-cassandra-database.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-graph-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-mongodb-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/powershell/create-table-database-account-powershell.md",
+      "redirect_url": "/azure/cosmos-db/powershell-samples-table",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/scripts/powershell/sql/ps-account-delete.md",
@@ -5300,6 +5330,11 @@
       "redirect_url": "/azure/azure-functions/functions-create-vnet",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
+      "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
@@ -10781,6 +10816,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/dns/scripts/traffic-manager-cli-create-dns-zone-record.md",
+      "redirect_url": "/azure/dns/scripts/dns-cli-create-dns-zone-record",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dns/private-dns-portal.md",
+      "redirect_url": "/azure/dns/private-dns-getstarted-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-lake-analytics/data-lake-analytics-get-started-net-sdk.md",
       "redirect_url": "/azure/data-lake-analytics/data-lake-analytics-get-started-cli2",
       "redirect_document_id": false
@@ -13887,7 +13932,7 @@
     },
     {
       "source_path": "articles/mysql/reference-sync-data-store-procedures.md",
-      "redirect_url": "/azure/mysql/reference-data-in-stored-procedures",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
     },
     {
@@ -25995,8 +26040,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sentinel/tutorial-detect-threats.md",
+      "redirect_url": "/azure/sentinel/tutorial-detect-threats-built-in",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sentinel/user-analytics.md",
       "redirect_url": "/azure/sentinel/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sentinel/connect-fusion.md",
+      "redirect_url": "/azure/sentinel/fusion",
       "redirect_document_id": false
     },
     {
@@ -26152,11 +26207,6 @@
     {
       "source_path": "articles/security-center/security-center-custom-alert.md",
       "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#custom-alert-rules-preview",
-      "redirect_document_id": false
-    },  
-    {
-      "source_path": "articles/security-center/security-center-threat-intel.md",
-      "redirect_url": "/azure/security-center/security-center-features-retirement-july2019#menu_securityeventsmap",
       "redirect_document_id": false
     },  
     {
@@ -36830,7 +36880,12 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/archive-diagnostic-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/archive-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
       "redirect_document_id": true
     },
     {
@@ -36846,6 +36901,11 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-template.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-template",
       "redirect_document_id": true
     },
     {
@@ -36915,7 +36975,17 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-overview",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/monitoring-and-diagnostics/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
       "redirect_document_id": true
     },
     {
@@ -36930,12 +37000,22 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-log-store.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-workspace",
       "redirect_document_id": true
     },
     {
@@ -41329,6 +41409,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
       "redirect_url": "/azure/active-directory-domain-services/manage-domain",
       "redirect_document_id": true
@@ -41839,6 +41924,16 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
       "redirect_url": "/azure/sql-database/sql-database-instance-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mysql/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
+      "redirect_url": "/azure/mariadb/reference-stored-procedures",
       "redirect_document_id": false
     }
   ]
