@@ -28,7 +28,11 @@ A valid and active Microsoft Azure account. This account is required to set up t
 ### Azure Portal
 -	Purchase Peering Service at Azure portal.
 
+![background](./media/peering-service-onboarding/peering-service-onboarding.png)
+
 ![background](media\peering-service-onboarding\peering-service-onboarding.png)
+
 ## Onboarding Experience to Azure Portal
 
-![background](media\peering-service-onboarding\peering-service-onboardingexp.png)
+![background](./media/peering-service-onboarding/peering-service-onboardingexp.png)
+

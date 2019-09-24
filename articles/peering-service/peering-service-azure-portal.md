@@ -15,8 +15,8 @@ ms.author: ypitsch
 
 ## Create Peering Service – Azure Portal
 
-![background](media\peering-service-about\peering-service-what.png)
-![UI Basic](media\peering-service-azure portal\peering-service-UI-Basic.md)
+![create service](./media/peering-service-portal/peering-service-UI-Basic.png)
+
 1.	Choose the subscription to which the peering service must be registered by choosing the option from the Subscription drop-down list.
 2.	Select the resource group to which the subscription is registered from the Resource group drop-down list. 
 
