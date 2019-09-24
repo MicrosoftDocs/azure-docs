@@ -17,12 +17,12 @@
       href: quickstarts/get-started-unity-android.md
     - name: iOS
       href: quickstarts/get-started-unity-ios.md
-  - name: Create iOS app
-    href: quickstarts/get-started-ios.md
-  - name: Create Android app
-    href: quickstarts/get-started-android.md
   - name: Create HoloLens app
     href: quickstarts/get-started-hololens.md
+  - name: Create Android app
+    href: quickstarts/get-started-android.md
+  - name: Create iOS app
+    href: quickstarts/get-started-ios.md
   - name: Create Xamarin app
     items:
     - name: Android
