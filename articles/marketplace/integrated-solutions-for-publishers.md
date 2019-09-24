@@ -1,6 +1,6 @@
 ---
-title: Integrated Solutions | Azure
-description: Integrated Solutions in Azure Marketplace and AppSource
+title: Integrated solutions | Azure
+description: Integrated solutions in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
 
 author: qianw211
@@ -18,7 +18,7 @@ Integrated solutions aim to address a specific customer need or scenario. Provid
 
 For an overview of the Integrated Solutions program, watch [this video](https://aka.ms/AA5qos4).
 
-## Key benefits to Integrated Solutions in the marketplace
+## Benefits to Integrated solutions in the marketplace
 
 * Customers can find packaged solutions that solve end-to-end business challenges through the marketplace. They get accelerated time to value because the technology is integrated up front. Customers avoid having to engage separately with multiple apps deployed in a fragmented way.
 * Providers package their IP along with other solutions and services that enhance the value of their expert-prepared technology.
