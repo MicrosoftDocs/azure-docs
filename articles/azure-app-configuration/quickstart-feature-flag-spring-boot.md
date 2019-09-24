@@ -3,7 +3,7 @@ title: Quickstart for adding feature flags to Spring Boot | Microsoft Docs
 description: A quickstart for adding feature flags to Spring Boot apps and managing them in Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: mametcal
+author: mrm9084
 manager: zhenlwa
 editor: ''
 
@@ -21,7 +21,7 @@ ms.author: mametcal
 
 # Quickstart: Add feature flags to an Spring Boot app
 
-In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states. 
+In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
 
 The Spring Boot Feature Management libraries extend the framework with comprehensive feature flag support. These libraries do **not** have a dependency on any Azure libries. They seamlessly integrate with App Configuration through its Spring Boot configuration provider.
 
@@ -49,10 +49,10 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
 2. Specify the following options:
 
-   * Generate a **Maven** project with **Java**.
-   * Specify a **Spring Boot** version that's equal to or greater than 2.0.
-   * Specify the **Group** and **Artifact** names for your application.
-   * Add the **Web** dependency.
+   - Generate a **Maven** project with **Java**.
+   - Specify a **Spring Boot** version that's equal to or greater than 2.0.
+   - Specify the **Group** and **Artifact** names for your application.
+   - Add the **Web** dependency.
 
 3. After you specify the previous options, select **Generate Project**. When prompted, download the project to a path on your local computer.
 
@@ -136,11 +136,11 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        
+
     </head>
     <body>
         <header>
@@ -168,19 +168,20 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
         <div class="container body-content">
             <h1 class="mt-5">Welcome</h1>
             <p>Learn more about <a href="https://github.com/microsoft/spring-cloud-azure/blob/master/spring-cloud-azure-feature-management/README.md">Feature Management with Spring Cloud Azure</a></p>
-            
+
         </div>
         <footer class="footer">
             <div class="container">
             <span class="text-muted">&copy; 2019 - Projects</span>
         </div>
-            
+
         </footer>
     </body>
     </html>
-    ```
-6. Create a new folder named css under static and inside of it a new css file named *main.css*. Add the following lines:
 
+    ```
+
+6. Create a new folder named css under static and inside of it a new css file named *main.css*. Add the following lines:
 
     ```css
     html {
@@ -212,7 +213,6 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     font-size: 80%;
     }
     ```
-
 
 ## Build and run the app locally
 

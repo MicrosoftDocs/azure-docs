@@ -3,7 +3,7 @@ title: Tutorial for using feature flags in a Spring Boot app | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in Spring Boot apps.
 services: azure-app-configuration
 documentationcenter: ''
-author: mametcal
+author: mrm9084
 manager: zhenlwa
 editor: ''
 
@@ -39,7 +39,7 @@ The Spring Boot feature manager `FeatureManager` gets feature flags from the fra
 
 ```java
 private FeatureManager featureManager;
-    
+
 public HelloController(FeatureManager featureManager) {
     this.featureManager = featureManager;
 }
@@ -48,6 +48,7 @@ public HelloController(FeatureManager featureManager) {
 We recommend that you keep feature flags outside the application and manage them separately. Doing so allows you to modify flag states at any time and have those changes take effect in the application right away. App Configuration provides a centralized place for organizing and controlling all your feature flags through a dedicated portal UI. App Configuration also delivers the flags to your application directly through its Spring Boot client libraries.
 
 The easiest way to connect your Spring Boot application to App Configuration is through the configuration provider:
+
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
@@ -134,7 +135,7 @@ You can set up MVC filters so that they're activated based on the state of a fea
 ```java
 @Component
 public class FeatureFlagFilter implements Filter {
-    
+
     @Autowired
     private FeatureManager featureManager;
 
@@ -146,7 +147,7 @@ public class FeatureFlagFilter implements Filter {
             return;
         }
         ...
-        chain.doFilter(request, response); 
+        chain.doFilter(request, response);
     }
 }
 ```
