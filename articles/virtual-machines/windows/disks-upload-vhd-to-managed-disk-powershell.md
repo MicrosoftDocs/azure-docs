@@ -1,7 +1,6 @@
 ---
 title: Upload a vhd to Azure using Azure PowerShell
 description: Learn how to upload a vhd to an Azure managed disk, using Azure PowerShell.    
-services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
