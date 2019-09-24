@@ -30,7 +30,7 @@ A Field Programmable Gate Array (FPGA) is included on every Data Box Edge device
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Deep Neural Network (DNN) models include ResNet 50, ResNet 152, DenseNet-121, SSD-VGG, and VGG-16.| 
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models include ResNet 50, ResNet 152, DenseNet-121, SSD-VGG, and VGG-16.| 
 
 
 ## Power supply unit specifications
