@@ -17,7 +17,7 @@ ms.author: mbullwin
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
 
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it is sent to the Application Insights service.
+You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
 
 * [Sampling](../../azure-monitor/app/sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
 * Filtering with Telemetry Processors [for ASP.NET or ASP.NET Core](#filtering) or [Java](../../azure-monitor/app/java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
@@ -34,7 +34,7 @@ Before you start:
 
 This technique gives you more direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
 
-To filter telemetry, you write a telemetry processor and register it with the `TelemetryConfiguration`. All telemetry goes through your processor, and you can choose to drop it from the stream, or add properties. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, as well as telemetry you have written yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
+To filter telemetry, you write a telemetry processor and register it with the `TelemetryConfiguration`. All telemetry goes through your processor, and you can choose to drop it from the stream or give it to the next processor in the chain. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, and telemetry you have tracked yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
 
 > [!WARNING]
 > Filtering the telemetry sent from the SDK using processors can skew the statistics that you see in the portal, and make it difficult to follow related items.
@@ -45,7 +45,7 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
 ### Create a telemetry processor (C#)
 
-1. To create a filter, implement ITelemetryProcessor. This is another extensibility point like telemetry module, telemetry initializer, and telemetry channel.
+1. To create a filter, implement `ITelemetryProcessor`. `ITelemetryProcessor` is another extensibility point like telemetry module, telemetry initializer, and telemetry channel.
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
 
@@ -85,7 +85,7 @@ public class SuccessfulDependencyFilter : ITelemetryProcessor
 2. Add your processor
 
 **ASP.NET apps**
-Insert this in ApplicationInsights.config:
+Insert this snippet in ApplicationInsights.config:
 
 ```xml
 <TelemetryProcessors>
@@ -96,13 +96,10 @@ Insert this in ApplicationInsights.config:
 </TelemetryProcessors>
 ```
 
-(This is the same section where you initialize a sampling filter.)
-
 You can pass string values from the .config file by providing public named properties in your class.
 
 > [!WARNING]
 > Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
->
 >
 
 **Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
@@ -124,7 +121,7 @@ TelemetryClients created after this point will use your processors.
 > [!NOTE]
 > Adding processor using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) pr [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This is done in `ConfigureServices` method of your `Startup.cs` class.
+For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) pr [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This method is called in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -207,9 +204,9 @@ public void Process(ITelemetry item)
 
 Use telemetry initializers to enrich telemetry with additional information and/or to override telemetry properties set by the standard telemetry modules.
 
-For example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
+For example, the Application Insights for Web package collect telemetry about HTTP requests. By default, it flags as failed any request with a response code >= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.
 
-If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichment done by initializers are visible to processors.
+If you provide a telemetry initializer, it is called whenever any of the Track*() methods are called. This includes `Track()` methods called by the standard telemetry modules. By convention, these modules do not set any property that has already been set by an initializer. Telemetry initializers are called before calling telemetry processors. So any enrichments done by initializers are visible to processors.
 
 **Define your initializer**
 
