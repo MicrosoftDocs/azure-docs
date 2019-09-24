@@ -23,7 +23,7 @@ Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a netwo
 
 By selecting MAPS, an end-user is selecting a Service Provider [SP] which is well connected to Microsoft through high capacity connections. These high capacity connections are optimized for high throughput, better latency at an edge location that is closer to the user. Moreover, this high capacity connections are engineered for High Availability (HA).
  
-![optimal internet](media\peering-service-about\peering-service-optimal-internet-connectivity-final.png)
+![optimal internet](.media/peering-service-about/peering-service-optimal-internet-connectivity-final.png)
 
 Customers can on-board MAPS into Azure portal, optionally. By registering into the Azure portal, customers can get Internet telemetry, BGP route monitoring and alerts against leaks and hijacks.
 
