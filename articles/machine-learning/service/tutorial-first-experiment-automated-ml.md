@@ -114,8 +114,8 @@ You complete the following experiment set-up and run steps in the workspace land
    
     Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
     ------|---------|---
-    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted*
-    Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time&nbsp;(minutes): 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
+    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
+    Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
     Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
     Validation type | Choose a cross-validation type.|K-fold cross-validation
     Number of validations | Number of tests. | 2 cross-validations 
