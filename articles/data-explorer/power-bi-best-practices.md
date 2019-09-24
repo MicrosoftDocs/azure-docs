@@ -6,35 +6,36 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 
-# Customer intent: As a data analyst, I want to choose the connection options to Power BI and visualize my data for additional insights.
+# Customer intent: As a data analyst, I want to visualize my data for additional insights using Power BI.
 ---
 
 # Best practices for working with Power BI
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. [Power BI](https://docs.microsoft.com/power-bi/) is a business analytics solution that lets you visualize your data and share the results across your organization. Azure Data Explorer provides three options for connecting to data in Power BI: use the [built-in connector](power-bi-connector.md), [import a query from Azure Data Explorer into Power BI](power-bi-imported-query.md), or use a [SQL query](power-bi-sql-query.md). 
 
-When working with terabytes of fresh raw data, follow these guidelines to keep Power BI dashboards and reports updated:
+When working with terabytes of fresh raw data, follow these guidelines to keep Power BI dashboards and reports snappy and updated:
 
-* **Travel light** - Bring to Power BI only the data that you need for your reports. For deep interactive analysis, use the [Azure Data Explorer Web UI](web-query-data.md) which is optimized for ad-hoc exploration with the Kusto Query Language.
+* **Travel light** - Bring only the data that you need for your reports to Power BI. For deep interactive analysis, use the [Azure Data Explorer Web UI](web-query-data.md) which is optimized for ad-hoc exploration with the Kusto Query Language.
 
 * **Composite model** - Use composite model (\\expl) to combine aggregated data for top level dashboards with filtered operational raw data. You can clearly define when to use raw data and when to use an aggregated view.
-and use **Import** mode for interaction of smaller data sets side-by-side with **DirectQuery** mode for large, frequently updated data sets. 
+
+* **Import** mode versus **DirectQuery** mode - Use **Import** mode for interaction of smaller data sets. Use **DirectQuery** mode for large, frequently updated data sets. 
 For example, create dimension tables using **Import** mode since they are small and don't change often. Set the refresh interval according to the expected rate of data updates.
-On the other hand, create fact tables, using **DirectQuery** mode since these tables are big and contain raw data. Use these tables to present filtered data using Power BI drillthrough (\\expl).
+On the other hand, create fact tables using **DirectQuery** mode since these tables are big and contain raw data. Use these tables to present filtered data using Power BI drillthrough (\\expl?).
 
 * **Parallelism** – Azure Data explorer is a linearly scalable data platform, therefore, you can improve the performance of dashboard rendering by increasing the parallelism of the end-to-end flow as follows:
 
-   * Increase the number of concurrent queries in Power BI desktop properties pane as documented [here](\\link).
+   * Increase the number of concurrent queries in Power BI desktop properties pane as documented [here]().
 
     img
 
-   * Use weak consistency to improve parallelism. Note that this may have an impact on the freshness of the data.
+   * Use weak consistency to improve parallelism (\\expl?). Note that this may have an impact on the freshness of the data.
 
-* **Effective slicers** – you can use **Sync Slicers** (\\link) to prevent reports from loading data before you are ready. After you structure the data set, place all visuals and mark all the slicers, you select the sync slicer to load only the data needed.
+* **Effective slicers** – you can use **sync slicers** (\\link) to prevent reports from loading data before you are ready. After you structure the data set, place all visuals, and mark all the slicers, you can select the sync slicer to load only the data needed.
 
-* **Use filters** - send as many filters as possible, since this will focus Azure Data Explorer search on the relevant data shards.
+* **Use filters** - Use as many filters as possible to focus the Azure Data Explorer search on the relevant data shards.
 
 * **Efficient visuals** – Select the most performant visuals for your data.
 
@@ -42,7 +43,7 @@ On the other hand, create fact tables, using **DirectQuery** mode since these ta
 
 ### Complex queries in Power BI
 
-Complex queries more easily expressed in Kusto (CSL) than in Power Query, should be implemented as [Kusto functions](/azure/kusto/query/functions/), and invoked in Power BI. This method is required when using **DirectQuery** with `let` statements in your Kusto query. Since Power BI joins two queries, and `let` statements can't be used with the `join` operator, this may result in syntax errors. Therefore, save each portion of the join as a Kusto function and allow Power BI to join these two functions together.
+Complex queries more easily expressed in Kusto than in Power Query, should be implemented as [Kusto functions](/azure/kusto/query/functions), and invoked in Power BI. This method is required when using **DirectQuery** with `let` statements in your Kusto query. Since Power BI joins two queries, and `let` statements can't be used with the `join` operator, this may result in syntax errors. Therefore, save each portion of the join as a Kusto function and allow Power BI to join these two functions together.
 
 ### How to simulate `Timestamp < ago(1d)`
 
@@ -152,32 +153,10 @@ If running a query in Power BI results in the following error:
 the query is probably longer than 2000 characters. Power BI uses \\Power Query\\ to query Kusto by issuing a HTTP GET request which encodes the query as part of the URI being retrieved. This means
 that Kusto queries issued by Power BI are limited to the maximum length of
 a request URI (2000 characters, minus some small offset). The workaround is
-to define a [stored function](../management/functions.md) in Kusto,
+to define a [stored function](/azure/kusto/query/schema-entities/stored-functions) in Kusto,
 and have Power BI use that function in the query.
-<br>(Why isn't HTTP POST used instead? Turns out Power Query currently
+\\(Why isn't HTTP POST used instead? Power Query currently
 only supports anonymous HTTP POST requests.)
 
-\\Remove
-## Limitations and known issues
-
-There are a number of limitations and known issues one must consider when
-using Power BI to query Kusto:
-
-1. **Do not use Power BI to issue control commands to Kusto**
-   Power BI includes a data refresh scheduler, capable of periodically issuing
-   queries against a data source (such as Kusto) with no user present. This mechanism
-   should not be used to schedule control commands to Kusto, as Power BI assumes
-   all queries are read-only (and therefore idempotent) and does not guarantee
-   exactly-once queries.
-
-2. **Power BI can only send short \\(&lt;2000) queries to Kusto.**
-   If running a query in Power BI results in an error of: _"DataSource.Error: Web.Contents failed to get contents from..."_, most likely the reason is that the query is longer than 2000 characters. Power BI uses Power Query to query Kusto, and does so by issuing a HTTP GET
-   request which encodes the query as part of the URI being retrieved. This means
-   that Kusto queries issued by Power BI are limited to the maximum length of
-   a request URI (2000 characters, minus some small offset). The workaround is
-   to define a [stored function](../management/functions.md) in Kusto,
-   and have Power BI use that function in the query.
-   <br>(Why isn't HTTP POST used instead? Turns out Power Query currently
-   only supports anonymous HTTP POST requests.)
 
 
