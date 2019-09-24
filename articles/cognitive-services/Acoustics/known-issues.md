@@ -18,11 +18,11 @@ This article describes issues that you might experience when you use Designer Pr
 
 ## Acoustic parameters are lost when you rename a scene
 
-If you rename a scene, all the acoustic parameters that belong to that scene don't automatically transfer to the new scene. But they still exist in the old asset file. Look for the *[SceneName]_AcousticParameters.asset* file in the *Editor* directory next to your scene file. Rename the file to reflect the new scene name.
+If you rename a scene, all the acoustic parameters that belong to that scene don't automatically transfer to the new scene. But they do still exist in the old asset file. Look for the *[SceneName]_AcousticParameters.asset* file in the *Editor* directory next to your scene file. Rename the file to reflect the new scene name.
 
 ## Deploy-to-Android bug from some Unity versions
 
-Some versions of Unity have a [bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player) in deploying audio plug-ins to Android. Make sure that you aren't using a version that's affected by this bug.
+Some versions of Unity have a [bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player) in how they deploy audio plug-ins to Android. Make sure that you aren't using a version that's affected by this bug.
 
 ## "Could not find metadata file System.Security.dll" error
 
@@ -32,10 +32,10 @@ Make sure that the **Scripting Runtime Version** in player settings is *.NET 4.x
 
 Check that:
 - You used the correct credentials for your Azure account.
-- Your account supports the type of node that was requested in the bake.
-- Your system clock is correct.
+- Your account supports the type of node that you requested in the bake.
+- Your system clock is set correctly.
 
-## Bake tab stays in "deleting" state after you cancel a bake
+## The Bake tab stays in "deleting" state after you cancel a bake
 Project Acoustics cleans up all Azure resources for a job after successful completion or cancellation. This process can take up to 5 minutes.
 
 ## Next steps
