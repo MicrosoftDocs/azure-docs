@@ -21,7 +21,7 @@
     items: 
     - name: Add storage targets
       href: hpc-cache-add-storage.md
-    - name: Move data to cache storage
+    - name: Move data to storage targets (if needed)
       items:
       - name: Preload new Blob storage
         href: hpc-cache-ingest.md
