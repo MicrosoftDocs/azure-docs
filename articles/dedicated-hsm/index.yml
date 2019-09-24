@@ -26,7 +26,6 @@ landingContent:
         links:
           - text: What is Dedicated HSM?
             url: overview.md
-    linkLists:
       - linkListType: concept
         links:
           - text: High availability
