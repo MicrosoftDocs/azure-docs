@@ -85,7 +85,7 @@
     href: load-balancer-standard-public-zonal-cli.md
   - name: Configure outbound rules
     items:
-    - name: Configure outbound rules - Cli
+    - name: Configure outbound rules - CLI
       href: configure-load-balancer-outbound-cli.md
     - name: Configure outbound rules - PowerShell
       href: configure-load-balancer-outbound-powershell.md
