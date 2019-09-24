@@ -535,20 +535,34 @@
       items:
       - name: .NET
         items:
-        - name: Blobs, Queues, and Files
-          href: https://github.com/Azure/azure-storage-net
-        - name: Data Movement
+        - name: Azure Storage client library
+          items: 
+          - name: Version 12.x (preview)
+            href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage
+          - name: Version 11.x and earlier
+            href: https://github.com/Azure/azure-storage-net
+        - name: Data Movement library
           href: /dotnet/api/microsoft.azure.storage.datamovement
-        - name: Storage Resource Provider
+        - name: Storage Resource Provider library
           href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
       - name: Java
         items:
-        - name: Blobs, Queues, Tables, and Files (v7)
-          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
-        - name: Blob SDK (v10)
-          href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
+        - name: Azure Storage client library version 12.x (preview)
+          href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage
+        - name: Azure Storage client library version 8.x and earlier
+          href: https://github.com/Azure/azure-storage-java
       - name: Node.js
-        href: https://docs.microsoft.com/javascript/api/overview/azure/storage
+        items:
+        - name: Azure Storage client library version 12.x (preview)
+          href: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage
+        - name: Azure Storage client library version 10.x     
+          href: https://github.com/Azure/azure-storage-node
+      - name: Python
+        items: 
+        - name: Azure Storage client library version 12.x (preview)
+          href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
+        - name: Azure Storage client library version 2.1     
+          href: https://github.com/Azure/azure-storage-python
       - name: Ruby
         href: https://azure.github.io/azure-storage-ruby
       - name: PHP
