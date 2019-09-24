@@ -18,7 +18,7 @@ Integrated solutions aim to address a specific customer need or scenario. Provid
 
 For an overview of the Integrated Solutions program, watch [this video](https://aka.ms/AA5qos4).
 
-## Benefits to Integrated solutions in the marketplace
+## Benefits to integrated solutions in the marketplace
 
 * Customers can find packaged solutions that solve end-to-end business challenges through the marketplace. They get accelerated time to value because the technology is integrated up front. Customers avoid having to engage separately with multiple apps deployed in a fragmented way.
 * Providers package their IP along with other solutions and services that enhance the value of their expert-prepared technology.
