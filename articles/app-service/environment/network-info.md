@@ -10,7 +10,6 @@ ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
@@ -120,7 +119,7 @@ In addition to the ASE functional dependencies, there are a few extra items rela
 
 When you use an ILB ASE, the SCM site isn't accessible from outside the VNet. Some capabilities will not work from the app portal because they require access to the SCM site of an app. You can connect to the SCM site directly instead of using the portal. 
 
-If your ILB ASE is the domain name *contoso.appserviceenvironnment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
+If your ILB ASE is the domain name *contoso.appserviceenvironment.net* and your app name is *testapp*, the app is reached at *testapp.contoso.appserviceenvironment.net*. The SCM site that goes with it is reached at *testapp.scm.contoso.appserviceenvironment.net*.
 
 ## ASE IP addresses ##
 

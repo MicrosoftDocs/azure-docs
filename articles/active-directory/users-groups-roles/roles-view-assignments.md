@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 09/04/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -18,9 +18,14 @@ ms.collection: M365-identity-device-management
 ---
 # View custom role assignments in Azure Active Directory
 
-This article describes how to view custom roles you have assigned in Azure Active Directory (Azure AD). In Azure Active Directory (Azure AD), roles can be assigned at directory level or with a scope of a single application. Role assignments at the directory scope are added to the list of single application role assignments, but role assignments at the single application scope aren't added to the list of directory level assignments.
+This article describes how to view custom roles you have assigned in Azure Active Directory (Azure AD). In Azure Active Directory (Azure AD), roles can be assigned at an organization-wide scope or with a single-application scope.
 
-## View the assignments of a role with directory scope using the Azure AD portal
+- Role assignments at the organization-wide scope are added to and can be seen in the list of single application role assignments.
+- Role assignments at the single application scope aren't added to and can't be seen in the list of organization-wide scoped assignments.
+
+## View role assignments in the Azure portal
+
+This procedure describes viewing assignments of a role with organization-wide scope.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
@@ -28,9 +33,9 @@ This article describes how to view custom roles you have assigned in Azure Activ
 
     ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
 
-## View the assignments of a role with directory scope using Azure AD PowerShell
+## View role assignments using Azure AD PowerShell
 
-You can automate how you assign Azure AD admin roles to users using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](roles-assign-powershell.md).
 
 ### Prepare PowerShell
 
@@ -67,7 +72,9 @@ $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 ```
 
-## View the assignments of a role with directory scope using Microsoft Graph API
+## View role assignments using Microsoft Graph API
+
+This section describes viewing assignments of a role with organization-wide scope.  To view single-application scope assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](roles-assign-graph.md).
 
 HTTP request to get a role assignment for a given role definition.
 
@@ -89,18 +96,20 @@ HTTP/1.1 200 OK
 }
 ```
 
-## View the assignments of a role with single-application scope using the Azure AD portal (preview)
+## View assignments of single-application scope
+
+This section describes viewing assignments of a role with single-application scope. This feature is currently in public preview.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select Azure Active Directory, select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
+1. Select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
     ![Create or edit app registrations from the App registrations page](./media/roles-create-custom/appreg-all-apps.png)
 
-1. Select **Roles and administrators**, and then select a role to view its properties.
+1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
 
     ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
 
-1. Select **Assignments** to view the assignments for the role.
+1. Select **Assignments** to view the assignments for the role. Opening the assignments view from within the app registration shows you the assignments that are scoped to this Azure AD resource.
 
     ![View app registration role assignments from the properties of an app registration](./media/roles-view-assignments/appreg-assignments-2.png)
 

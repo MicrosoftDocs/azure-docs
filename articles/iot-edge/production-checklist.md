@@ -72,7 +72,7 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 
 * **Helpful**
     * Be consistent with upstream protocol
-    * Store system module statues in the host filesystem
+    * Set up host storage for system modules
     * Reduce memory space used by the IoT Edge hub
     * Do not use debug versions of module images
 
@@ -84,11 +84,11 @@ You only have to configure the UpstreamProtocol environment variable for the IoT
 
 An example of this process is provided in [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy-support.md).
 
-### Store system module states in the host filesystem
+### Set up host storage for system modules
 
 The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud. For better reliability and performance, configure the system modules to use storage on the host filesystem.
 
-For more information, see [Store system module states in the host filesystem](offline-capabilities.md#store-system-module-states-in-the-host-filesystem).
+For more information, see [Host storage for system modules](offline-capabilities.md#host-storage-for-system-modules).
 
 ### Reduce memory space used by IoT Edge hub
 
@@ -204,13 +204,15 @@ By default the Moby container engine does not set container log size limits. Ove
 
 You can limit the size of all container logfiles in the container engine log options. The following example sets the log driver to `json-file` (recommended) with limits on size and number of files:
 
-    {
-        "log-driver": "json-file",
-        "log-opts": {
-            "max-size": "10m",
-            "max-file": "3"
-        }
+```JSON
+{
+    "log-driver": "json-file",
+    "log-opts": {
+        "max-size": "10m",
+        "max-file": "3"
     }
+}
+```
 
 Add (or append) this information to a file named `daemon.json` and place it the right location for your device platform.
 
@@ -225,18 +227,19 @@ The container engine must be restarted for the changes to take effect.
 
 You can do so in the **createOptions** of each module. For example:
 
-    "createOptions": {
-        "HostConfig": {
-            "LogConfig": {
-                "Type": "json-file",
-                "Config": {
-                    "max-size": "10m",
-                    "max-file": "3"
-                }
+```yml
+"createOptions": {
+    "HostConfig": {
+        "LogConfig": {
+            "Type": "json-file",
+            "Config": {
+                "max-size": "10m",
+                "max-file": "3"
             }
         }
     }
-
+}
+```
 
 **Additional options on Linux systems**
 

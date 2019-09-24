@@ -8,16 +8,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
-ms.custom: mvc, seo-java-august2019
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how IoT Hub sends telemetry from a device to an IoT hub and how to read that telemetry data from the hub using a back-end application. 
 ---
 
-# Quickstart: Send telemetry from a device to an IoT hub and read it with a back-end application (Java)
+# Quickstart: Send telemetry to an Azure IoT hub and read it with a Java application
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
-IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
+The quickstart shows how to send telemetry to an Azure IoT hub and read it with a Java application. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. In this quickstart, you send telemetry from a simulated device application, through IoT Hub, to a back-end application for processing.
 
 The quickstart uses two pre-written Java applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
@@ -27,9 +27,9 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-The two sample applications you run in this quickstart are written using Java. You need Java SE 8 or later on your development machine.
+The two sample applications you run in this quickstart are written using Java. You need Java SE 8 on your development machine.
 
-You can download Java for multiple platforms from [Oracle](https://aka.ms/azure-jdks).
+You can download Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 You can verify the current version of Java on your development machine using the following command:
 

@@ -8,13 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/16/2019
 ms.author: diberry
 ---
 
 # Data sources for QnA Maker content
 
 QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files    . Content can also be added to the knowledge base from structured QnA content files. 
+
+## Data types
 
 The table below summarizes the types of content and file formats that are supported by QnA Maker.
 
@@ -27,11 +29,21 @@ The table below summarizes the types of content and file formats that are suppor
 
 ## Data source locations
 
-Most data source locations need to provide public URLs or files, which do not require authentication. 
+Data source locations are **public URLs or files**, which do not require authentication. 
 
-[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated files. Sharepoint resources must be files, not web pages. 
+If you need authentication for your data source, consider the following methods to get that data into QnA Maker:
 
-If you have an authenticated file or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base. 
+* [Download file manually](#download-file-from-authenticated-data-source-location) and import into QnA Maker
+* Import file for authenticated [Sharepoint location](#import-file-from-authenticated-sharepoint) 
+
+### Download file from authenticated data source location
+
+If you have an authenticated file (not on an authenticated Sharepoint location) or URL, an alternative option is to download the file from the authenticated site to your local computer, then add the file from your local computer to the knowledge base.
+
+### Import file from authenticated Sharepoint 
+
+[Sharepoint data source locations](../How-to/add-sharepoint-datasources.md) are allowed to provide authenticated **files**. Sharepoint resources must be files, not web pages. If the URL ends with a web extension, such as **.ASPX**, it will not import into QnA Maker from Sharepoint.
+
 
 ## FAQ URLs
 
@@ -128,9 +140,21 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 Any additional columns in the source file are ignored.
 
+### Example of structured Excel file
+
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
  ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### Example of alternate questions for single answer in Excel file
+
+Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
+
+ ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
+After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
+
+ ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## Structured data format through import
 
@@ -173,6 +197,15 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 |Nested lists|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>You can nest ordered and unordered lists together. The tab, `\t`, indicates the indentation level of the child element.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format for nested unordered list](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format for nested ordered list](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
+
+If you want to add content using update/replace knowledgebase APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
+
+| Preserve HTML  | Representation in the API request  | Representation in KB |
+|-----------|---------|-------------------------|
+| Yes | \&lt;br\&gt; | &lt;br&gt; |
+| Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+Additionally, CR LF(\r\n) are converted to \n in the KB. LF(\n) is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
 
 ## Editing your knowledge base locally
 

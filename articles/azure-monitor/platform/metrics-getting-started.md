@@ -46,6 +46,9 @@ By default, the chart shows the most recent 24 hours of metrics data. Use the **
 
 ![Change time range panel](./media/metrics-getting-started/time-picker.png)
 
+> [!NOTE]
+> Use the **time brush** to investigate an interesting area of the chart (spike or a dip). Put the mouse pointer at the beginning of the area, click and hold the left mouse button, drag to the other side of area and then release the button. The chart will zoom in on that time range. 
+
 ## Apply dimension filters and splitting
 
 [Filtering](metrics-charts.md#apply-filters-to-charts) and [splitting](metrics-charts.md#apply-splitting-to-a-chart) are powerful diagnostic tools for the metrics that have dimensions. These features show how various metric segments ("dimension values") impact the overall value of the metric, and allow you to identify possible outliers.

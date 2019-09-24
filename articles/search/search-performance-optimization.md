@@ -2,7 +2,7 @@
 title: Deployment strategies and best practices for optimizing performance - Azure Search
 description: Learn techniques and best practices for tuning Azure Search performance and configuring optimum scale.
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api

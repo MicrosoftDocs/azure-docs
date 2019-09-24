@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry 
 ---
 # Authoring cycle for your LUIS app
@@ -32,12 +32,12 @@ You instruct LUIS to ignore utterances that are not relevant to your app's domai
 ## Train and publish the app
 Once you have 15 to 30 different utterances in each intent, with the required entities labeled, you need to [train](luis-how-to-train.md) then [publish](luis-how-to-publish-app.md). From the publish success notification, use the link to get your endpoints. Make sure you create and publish your app so that it is available in the [endpoint regions](luis-reference-regions.md) you need. 
 
-## HTTPS endpoint testing
-You can test your LUIS app from the HTTPS endpoint. Testing from the endpoint allows LUIS to choose any utterances with low-confidence for [review](luis-how-to-review-endpoint-utterances.md).  
+## HTTPS prediction endpoint testing
+You can test your LUIS app from the HTTPS prediction endpoint. Testing from the prediction endpoint allows LUIS to choose any utterances with low-confidence for [review](luis-how-to-review-endpoint-utterances.md).  
 
 ## Recycle
 
-When you are done with a cycle of authoring, you can begin again. Start with [reviewing endpoint utterances](luis-how-to-review-endpoint-utterances.md) LUIS marked with low-confidence. Check these utterances for both intent and entity. Once you review utterances, the review list should be empty.  
+When you are done with a cycle of authoring, you can begin again. Start with [reviewing prediction endpoint utterances](luis-how-to-review-endpoint-utterances.md) LUIS marked with low-confidence. Check these utterances for both intent and entity. Once you review utterances, the review list should be empty.  
 
 Consider [cloning](luis-concept-version.md#clone-a-version) the current version into a new version, then begin your authoring changes in the new version. 
 
@@ -47,4 +47,4 @@ Consider [cloning](luis-concept-version.md#clone-a-version) the current version 
 
 ## Next steps
 
-Learn concepts about [collaboration](luis-concept-collaborator.md).
+Learn concepts about [collaboration](luis-concept-keys.md).

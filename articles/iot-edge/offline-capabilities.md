@@ -105,7 +105,7 @@ One way to create this trust relationship is described in detail in the followin
 
 ## Specify DNS servers 
 
-To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. See two options to [set the DNS server in the troubleshooting article](troubleshoot.md#resolution-7).
+To improve robustness, it is highly recommended you specify the DNS server addresses used in your environment. To set your DNS server for IoT Edge, see the resolution for [Edge Agent module continually reports 'empty config file' and no modules start on device](troubleshoot.md#edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device) in the troubleshooting article.
 
 ## Optional offline settings
 
@@ -131,11 +131,11 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 }
 ```
 
-### Store system module states in the host filesystem
+### Host storage for system modules
 
-Messages are stored by default in the IoT Edge hub's container filesystem. You can also dedicate local storage on the IoT Edge device. Using the host filesystem for storage is recommended for improved reliability, especially for devices that operate offline. 
+Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device.
 
-To set up local storage, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
+To set up storage on the host system, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
 
 You can configure environment variables and the create options for the IoT Edge hub module in the Azure portal in the **Configure advanced Edge Runtime settings** section. 
 
@@ -169,7 +169,7 @@ Or, you can configure the local storage directly in the deployment manifest. For
             "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
             "createOptions": {
                 "HostConfig": {
-                    "Binds":["<HostStoragePath>:<ModuleStoragePath"],
+                    "Binds":["<HostStoragePath>:<ModuleStoragePath>"],
                     "PortBindings":{"5671/tcp":[{"HostPort":"5671"}],"8883/tcp":[{"HostPort":"8883"}],"443/tcp":[{"HostPort":"443"}]}}}
         },
         "type": "docker",

@@ -125,7 +125,7 @@ namespace blob_quickstart
 
 ### Copy your credentials from the Azure portal
 
-The sample application needs to authenticate access to your storage account. To authenticate, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
+When the sample application makes a request to Azure Storage, it must be authorized. To authorize a request, add your storage account credentials to the application as a connection string. View your storage account credentials by following these steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.

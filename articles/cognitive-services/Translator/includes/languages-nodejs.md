@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-nodejs.md)]
 
-This quickstart requires:
-
-* [Node 8.12.x or later](https://nodejs.org/en/)
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -26,6 +24,14 @@ const uuidv4 = require('uuid/v4');
 
 These modules are required to construct the HTTP request, and create a unique identifier for the `'X-ClientTraceId'` header.
 
+## Set the endpoint
+
+This sample will try to read your Translator Text endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
+
+```javascript
+lorum ipsum
+```
+
 ## Configure the request
 
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
@@ -36,7 +42,7 @@ The `request()` method, made available through the request module, allows us to 
 ```javascript
 let options = {
     method: 'GET',
-    baseUrl: 'https://api.cognitive.microsofttranslator.com/',
+    baseUrl: endpoint,
     url: 'languages',
     qs: {
       'api-version': '3.0',

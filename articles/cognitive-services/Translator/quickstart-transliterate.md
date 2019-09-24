@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Convert text script - Translator Text"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
+description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using the Translator Text API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 08/12/2019
+ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
 ---
@@ -18,6 +18,8 @@ zone_pivot_groups: programming-languages-set-one
 In this quickstart, you'll learn how to transliterate (convert) text from one script to another using the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+
+[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

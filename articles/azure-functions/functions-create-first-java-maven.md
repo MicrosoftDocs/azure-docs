@@ -7,18 +7,17 @@ author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter, seo-java-july2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
-# Create your first function with Java and Maven
+# Quickstart: Use Java to create and publish a function to Azure Functions
 
-This article guides you through using the Maven command-line tool to build and publish a Java function to Azure Functions. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
+This article instructs you how to build and publish a Java function to Azure functions with the Maven command-line tool. When you're done, your function code runs on the [Consumption Plan](functions-scale.md#consumption-plan) in Azure and can be triggered using an HTTP request.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -198,13 +197,13 @@ Hello AzureFunctions!
 Edit the `src/main.../Function.java` source file in the generated project to alter the text returned by your Function app. Change this line:
 
 ```java
-return request.createResponse(200, "Hello, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hello, " + name).build();
 ```
 
 To the following:
 
 ```java
-return request.createResponse(200, "Hi, " + name);
+return request.createResponseBuilder(HttpStatus.OK).body("Hi, " + name).build();
 ```
 
 Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:

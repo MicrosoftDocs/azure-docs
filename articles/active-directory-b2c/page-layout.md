@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can enable JavaScript client-side code in your Azure Active Directory (Azure AD) B2C policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
+You can enable JavaScript client-side code in your Azure Active Directory B2C (Azure AD B2C) policies whether you’re using user flows or custom policies. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a page layout, and use [b2clogin.com](b2clogin.md) in your requests.
 
 A page layout is an association of elements that Azure AD B2C provides and the content that you provide.
 

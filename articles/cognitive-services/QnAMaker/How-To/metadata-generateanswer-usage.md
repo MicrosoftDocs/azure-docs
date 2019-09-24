@@ -124,6 +124,9 @@ using Microsoft.Bot.Builder.AI.QnA;
 var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
 var qnaOptions = new QnAMakerOptions();
 
+metadata.Name = Constants.MetadataName.Intent;
+metadata.Value = topIntent;
+qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
 qnaOptions.Top = Constants.DefaultTop;
 qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
@@ -223,6 +226,18 @@ You can search through the published kb, using `isTest=false`, or in the test kb
   "RankerType":"QuestionOnly"
 }
 ```
+
+## Common HTTP errors
+
+|Code|Explanation|
+|:--|--|
+|2xx|Success|
+|400|Request's parameters are incorrect meaning the required parameters are missing, malformed, or too large|
+|400|Request's body is incorrect meaning the JSON is missing, malformed, or too large|
+|401|Invalid key|
+|403|Forbidden - you do not have correct permissions|
+|404|KB doesn't exist|
+|410|This API is deprecated and is no longer available|
 
 ## Next steps
 

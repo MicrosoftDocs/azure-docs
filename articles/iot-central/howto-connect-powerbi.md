@@ -11,6 +11,8 @@ ms.topic: conceptual
 
 # Visualize and analyze your Azure IoT Central data in a Power BI dashboard
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 *This topic applies to administrators.*
 
 ![Power BI solution pipeline](media/howto-connect-powerbi/iot-continuous-data-export.png)

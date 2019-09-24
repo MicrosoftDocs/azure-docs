@@ -48,7 +48,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
 | **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
-|**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
+|**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 4 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
 
 \* Elastic pools not supported in the Hyperscale service tier
@@ -125,7 +125,7 @@ Not at this time, however you can scale your compute and number of replicas down
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -355,6 +355,12 @@ We create 2 replicas for Hyperscale databases by default. If you want to adjust 
 ### How do I connect to these secondary compute nodes
 
 You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
+
+### How do I validate if I have successfully connected to secondary compute node using SSMS / other client tools?
+
+You can execute the following T-SQL query using SSMS / other client tools:
+`SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+The result is `READ_ONLY` if you your connection is pointing to the read-only secondary node or `READ_WRITE` if your connection is pointing to the primary node.
 
 ### Can I create a dedicated endpoint for the read-scale replica
 
