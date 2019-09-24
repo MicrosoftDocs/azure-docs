@@ -54,7 +54,7 @@ sections:
     - image: 
         src: /azure/data-factory/media/index/logo_rest.svg
       text: REST
-      href: /azure/data-factory/quickstart-create-data-factory-rest-api 
+      href: /azure/data-factory/quickstart-create-data-factory-rest-api/https://docs.microsoft.com/en-us/rest/api/datafactory/
     - image: 
         src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
       text: Resource Manager template

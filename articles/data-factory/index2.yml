@@ -1,0 +1,202 @@
+### YamlMime:Hub
+title: Azure Data Factory Documentation
+summary: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
+brand: azure
+
+metadata:
+  title: Azure Data Factory Documentation
+  description: Learn how to use Data Factory, a cloud data integration service, to compose data storage, movement, and processing services into automated data pipelines. Tutorials and other documentation show you how to set up and manage data pipelines, and how to move and transform data for analysis.
+  services: data-factory
+  ms.service: data-factory
+  ms.topic: hub-page
+  ms.collection: collection
+  author: markingmyname
+  ms.author: maghan
+  ms.date: 09/30/2019
+  monikerRange: ""
+
+highlightedContent:
+#itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+   items:
+   - title: What is Azure Data Factory?
+     itemType: overview
+     url: /data-factory/introduction
+   - title: Compare version 1 vs. version 2
+     itemType: overview
+     url: /data-factory/compare-versions
+   - title: Data Factory version 1
+     itemType: overview
+     url: /data-factory/v1/data-factory-introduction
+
+conceptualContent:
+  # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  title: Get started 
+  items:
+    - title: Learn how to use Azure Data Factory
+      links:
+        - text: Azure Data Factory UI
+          url: /azure/data-factory/quickstart-create-data-factory-portal
+          itemType: tutorial
+        - text: Copy Data tool
+          url: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
+          itemType: tutorial
+        - text: Azure PowerShell
+          url: /azure/data-factory/quickstart-create-data-factory-powershell
+          itemType: tutorial
+        - text: .NET
+          url: /azure/data-factory/quickstart-create-data-factory-dot-net
+          itemType: tutorial
+        - text: Python
+          itemType: tutorial
+          url: /azure/data-factory/quickstart-create-data-factory-python
+        - text: Test your code
+          itemType: tutorial
+          url: /azure/data-factory/
+        - text: Access data locally or in the cloud
+          itemType: tutorial
+          url: /azure/data-factory/
+    - title: Follow a tutorial
+      links:
+        - text: C#
+          url: /visualstudio/get-started/csharp
+          itemType: get-started
+        - text: F#
+          url: /visualstudio/ide/quickstart-fsharp
+          itemType: get-started
+        - text: Visual Basic
+          url: /visualstudio/get-started/visual-basic/
+          itemType: get-started
+        - text: C++
+          url: /cpp/get-started/tutorial-console-cpp
+          itemType: get-started
+        - text: Python 
+          url: /visualstudio/python
+          itemType: get-started
+        - text: JavaScript
+          url: /visualstudio/javascript
+          itemType: get-started
+    - title: Create an app 
+      links:
+        - text: Windows desktop app
+          itemType: tutorial
+          url: /visualstudio/ide/walkthrough-create-a-simple-application-with-visual-csharp-or-visual-basic
+        - text: Universal Windows app 
+          itemType: tutorial
+          url: /visualstudio/get-started/csharp/tutorial-uwp
+        - text: Mobile app
+          itemType: overview
+          url: /visualstudio/cross-platform/cross-platform-mobile-development-in-visual-studio
+        - text: Unity game
+          itemType: tutorial 
+          url: /visualstudio/cross-platform/getting-started-with-visual-studio-tools-for-unity
+        - text: Web app with ASP.NET Core
+          itemType: quickstart
+          url: /aspnet/core/tutorials/razor-pages/razor-pages-start
+
+tools: 
+  title: Languages
+  items: 
+    - title: Azure PowerShell
+      imageSrc: /azure/data-factory/media/index/logo_powershell.svg
+      url: https://docs.microsoft.com/powershell/module/az.datafactory/
+    - title: .NET
+      imageSrc: /azure/data-factory/media/index/logo_net.svg
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory/
+    - title: Python
+      imageSrc: /azure/data-factory/media/index/logo_python.svg
+      url: https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python
+    - title: REST
+      imageSrc: /azure/data-factory/media/index/logo_rest.svg
+      url: https://docs.microsoft.com/rest/api/datafactory/
+    - title: Resource Manager template
+      imageSrc: /azure/data-factory/media/index/logo_azure_resource_manager.svg
+      url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions
+
+additionalContent:
+   sections:
+   - title: Tasks
+     items:
+      - title: Develop
+        summary: Write and manage your code using the code editor.
+        url: ide/index-writing-code.md
+      - title: Build
+        summary: Compile and build your source code.
+        url: ide/compiling-and-building-in-visual-studio.md
+      - title: Debug
+        summary: Investigate and fix bugs in your code.
+        url: debugger/index.md
+      - title: Test 
+        summary: Run tests on your projects.
+        url: test/improve-code-quality.md
+      - title: Deploy
+        summary: Share your apps and code by using Web Deploy, InstallShield, NuGet, Continuous Integration, and more. 
+        url: deployment/index.yml
+      - title: Version Control
+        summary: Share code using version control technologies such as Git and TFVC.
+        url: version-control/index.md
+      - title: DevOps
+        summary: Continuously build and release your apps in the cloud, and implement Agile practices with Azure DevOps Services.
+        url: /azure/devops
+      - title: Measure performance
+        summary: Identify bottlenecks and optimize code performance by using diagnostic tools.
+        url: profiling/index.yml
+      - title: Extend
+        summary: Add your own functionality to the Visual Studio IDE to improve your development experience.
+        url: extensibility/index.md
+      - title: Data
+        summary: Create data apps that connect to any database or service, and anywhere—local or cloud.
+        url: data-tools/accessing-data-in-visual-studio.md
+      - title: Collaborate
+        summary: Share, edit, and debug code in a collaborative, real-time environment.
+        url: /visualstudio/liveshare/
+      - title: Develop with containers
+        summary: Use containers to isolate modular components and improve scalability.
+        url: containers/index.yml
+   - title: Workloads
+     items:
+        - title: Web and Cloud
+          links:
+            - text: Web development
+              url: /aspnet/
+            - text: Azure development and management
+              url: /visualstudio/azure
+            - text: Python
+              url: /visualstudio/python
+            - text: Node.js
+              url: /visualstudio/javascript
+            - text: Data storage and processing
+              url: data-tools/index.md
+            - text: Data science
+              url: python/data-science-and-analytical-applications-workload.md
+            - text: Office/Sharepoint development
+              url: https://developer.microsoft.com/office/docs
+        - title: Windows
+          links:
+            - text: .NET Desktop development
+              url: /dotnet/framework/develop-client-apps
+            - text: Universal Windows platform development
+              url: cross-platform/develop-apps-for-the-universal-windows-platform-uwp.md
+            - text: Windows development with C++
+              url: /cpp/windows/desktop-applications-visual-cpp
+        - title: Mobile and gaming
+          links:
+            - text: Mobile development with .NET (Xamarin)
+              url: /xamarin/
+            - text: Game development with Unity
+              url: cross-platform/visual-studio-tools-for-unity.md
+            - text: Mobile development with JavaScript
+              url: /visualstudio/cross-platform/tools-for-cordova/?view=toolsforcordova-2017
+              note: (Visual Studio 2017 and 2015 only)
+            - text: Mobile development with C++
+              url: /visualstudio/cross-platform/
+            - text: Game development with C++
+              url: /windows/uwp/gaming/e2e
+        - title: Other toolsets
+          links:
+            - text: Visual Studio extension development
+              url: extensibility/index.md
+            - text: Linux development with C++
+              url: /cpp/linux/
+            - text: .NET Core cross-platform development
+              url: /dotnet/core/
+   footer: "[Blogs](https://devblogs.microsoft.com/visualstudio/) - [Twitter](https://twitter.com/VisualStudio) - [Stack Overflow](https://stackoverflow.com/questions/tagged/visual-studio) - [Issue Reporting](ide/talk-to-us.md) - [Developer Community](https://developercommunity.visualstudio.com/spaces/8/index.html)"
