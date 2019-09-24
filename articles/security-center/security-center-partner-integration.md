@@ -128,7 +128,7 @@ Please refer to the following article [stream activity log to Event Hubs](../azu
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-Refer to the following link to see the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Refer to the following link to see the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
 ### Example for Querying data 
 
