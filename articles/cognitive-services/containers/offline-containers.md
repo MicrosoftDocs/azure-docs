@@ -26,7 +26,7 @@ We're thrilled to announce Azure Cognitive Services offline containers, availabl
 
 ## Use cases
 
-There are many use cases for offline Cognitive Services containers, here are some of the more common use cases we've experienced.
+There are many use cases for offline Cognitive Services containers, here are some of the more common use cases we've experienced. As general guidance, any scenario that requires being temporarily or indefinitely disconnected from the cloud could benefit from offline containers. The only question you need to ask yourself is, "do I want to build intelligence into my apps?".
 
 ### Transport services
 
@@ -34,7 +34,7 @@ Various transport services, such as luxury cruise lines *do not always* have con
 
 ### Retail intelligence
 
-Offline containers support several retail scenarios, including helping to build a frictionless checkout experience, developing product recommendation, and target advertising. Retailers can execute AI on-premises close to their data. Containers enable the possibility of running these operations by deploying them on-premises, for higher-level decision making in real time.
+Offline containers support several retail scenarios, including helping to build a fluid checkout experience, developing product recommendation, and target advertising. Retailers can execute AI on-premises close to their data. Containers enable the possibility of running these operations by deploying them on-premises, for higher-level decision making in real time.
 
 ### IT automation
 
@@ -45,7 +45,7 @@ Offline containers can be used as recommendation engines for handling tickets an
 > [!NOTE]
 > During preview, offline containers are limited to customers with an [Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise) from Microsoft.
 
-An approval process and decision will be made after validating business use cases for fully disconnected environments. Customers who do not have an Enterprise Agreement but are still interested in offline containers should refer to the [FAQs](container-faq.md) to learn more.
+An approval process and decision will be made after validating business use cases for fully disconnected environments. Customers without an Enterprise Agreement, but who are still interested in offline containers should refer to the [FAQs](container-faq.md) to learn more.
 
 ## Frequently asked questions (FAQs)
 
@@ -53,11 +53,11 @@ An approval process and decision will be made after validating business use case
 
 **Q:  What customer should do to get EA with Microsoft?**
 
-**A:** Reach out to your Microsoft account management team to understand the process for acquiring an Enterprise Agreement with Microsoft. 
+**A:** Contact your Microsoft account management team to understand the process for acquiring an Enterprise Agreement with Microsoft. 
 
 **Q: How long does it take to approve an application?**
 
-**A:** Given the demand from different customer segments, we are trying to expedite approval process, however we cannot promise a timeline. Once a decision is made, the Microsoft team will reach out to you and your account management team for the next steps. We appreciate your understanding and patience.
+**A:** Given the demand from different customer segments, we are trying to expedite approval process, however we cannot promise a timeline. Once a decision is made, the Microsoft team will contact you and your account management team for the next steps. We appreciate your understanding and patience.
 
 **Q: What is the pricing of offline containers?**
 
