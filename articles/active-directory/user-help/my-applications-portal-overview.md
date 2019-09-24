@@ -30,7 +30,7 @@ For detailed information and instructions about what's available from the **My A
 
 |Article |Description |
 |------|------------|
-| [Access and use apps on the My Apps (preview) portal](my-applications-portal-end-user-access.md) | Instructions about how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device. |
+| [Access and use apps on the My Apps (preview) portal](my-applications-portal-access.md) | Instructions about how to access and use the **My Apps** web portal to view and start your organization’s cloud-based apps, based on device. |
 | [Access and use workspaces](my-applications-portal-workspaces.md) | Instructions about how to organize your cloud-based apps into your organization's categories. |
 
 ## Related articles

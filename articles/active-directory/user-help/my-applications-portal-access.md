@@ -1,6 +1,6 @@
 ---
-title: Access and use apps on the My Apps (preview) portal - Azure Active Directory| Microsoft Docs
-description: Learn how to access the My Apps (preview) portal.
+title: Access and start apps from the My Apps (preview) portal - Azure Active Directory| Microsoft Docs
+description: Learn how to access and start your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -15,9 +15,9 @@ ms.custom: user-help
 ms.collection: M365-identity-device-management
 ---
 
-# Access and use apps on the My Apps (preview) portal
+# Access and start apps from the My Apps (preview) portal
 
-You can use your work or school account with the web-based **My Apps** portal, to view, organize, and start many of your organization’s cloud-based apps. If you don’t have access to the **My Apps** portal, contact your organization's Helpdesk for permission.
+You can use your work or school account with the web-based **My Apps** (preview) portal, to view, organize, and start many of your organization’s cloud-based apps. If you don’t have access to the **My Apps** portal, contact your organization's Helpdesk for permission.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -36,7 +36,7 @@ You can get to the **My Apps** portal from any of the following web browsers:
 
 - Internet Explorer, version 11 (limited support)
 
-## Access the My Apps (preview) portal by device type
+## Access the My Apps portal by device type
 
 You can access and use the **My Apps** portal on your work or school computer, from an Intune-managed browser, or from an iOS or Android mobile device.
 
@@ -84,7 +84,7 @@ View and use the **My Apps** portal on an Android device.
 
 ## Start a cloud-based app
 
-You can start any of the available cloud-based apps from the **My Apps** portal. You will only see apps you can use.
+You can start any of the available cloud-based apps from the **My Apps** portal. You'll only see apps you have permission to use.
 
 - From the **Apps** page, select the app you want to start using.
 
@@ -92,7 +92,11 @@ You can start any of the available cloud-based apps from the **My Apps** portal.
 
 ## Next steps
 
-After you get to the **My Apps** portal, you can organize your apps into the various categories created and provided by your organization. For more information, see []().
+After you get to the **My Apps** portal, you can:
+
+- Organize your apps into the various categories created and provided by your organization. For more information, see []().
+
+- Request that new apps are added to the My Apps (preview) portal. For more information, see [](). 
 
 >[!Note]
 >If you don't see any workspaces or categories av
