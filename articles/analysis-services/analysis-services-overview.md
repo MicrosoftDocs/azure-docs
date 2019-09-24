@@ -49,7 +49,7 @@ The tier is recommended for production solutions with smaller tabular models, li
 |Plan  |QPUs  |Memory (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
-|B2    |    80     |    20     |
+|B2    |    80     |    16     |
 
 ### Standard tier
 
