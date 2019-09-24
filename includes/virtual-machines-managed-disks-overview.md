@@ -40,7 +40,7 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 ## Encryption
 
-Managed disks offer two different kinds of encryption. The first is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption, which you can enable on the OS and data disks for your VMs.
+Managed disks offer two different kinds of encryption. The first is Storage Service Encryption (SSE), which is performed by the storage service. The second one is Azure Disk Encryption (ADE), which you can enable on the OS and data disks for your VMs.
 
 ### Storage Service Encryption (SSE)
 
