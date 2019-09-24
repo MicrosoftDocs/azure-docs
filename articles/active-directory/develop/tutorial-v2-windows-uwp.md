@@ -101,6 +101,8 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
 
     ```csharp
     using Microsoft.Identity.Client;
+    using System.Diagnostics;
+    using System.Threading.Tasks;
     ```
 
 1. Replace your `MainPage` class with the following code:
@@ -195,6 +197,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
            });
           }
         }
+    }
     ```
 
 ### More information
@@ -264,8 +267,7 @@ To sign out the user, add the following method to *MainPage.xaml.cs*:
    /// </summary>
    private async void SignOutButton_Click(object sender, RoutedEventArgs e)
    {
-       IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync
-                                                             .ConfigureAwait(false);
+       IEnumerable<IAccount> accounts = await PublicClientApp.GetAccountsAsync().ConfigureAwait(false);
        IAccount firstAccount = accounts.FirstOrDefault();
 
        try
@@ -315,6 +317,24 @@ Add the following method to *MainPage.xaml.cs* to display basic information abou
 ### More information
 
 ID tokens acquired by using **OpenID Connect** also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token. This information includes the user's display name and ID. It also includes the expiration date of the token and the string that represents the access token itself. If you select the **Call Microsoft Graph API** button several times, you'll see that the same token was reused for later requests. You can also see the expiration date extended when MSAL decides it's time to renew the token.
+
+## Display message
+
+Add the following method to *MainPage.xaml.cs* to display a message, which is used in a `try-catch` block earlier in the class:
+
+   ```csharp
+   /// <summary>
+   /// Displays a message in the ResultText. Can be called from any thread.
+   /// </summary>
+   private async Task DisplayMessageAsync(string message)
+   {
+        await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+            () =>
+            {
+                ResultText.Text = message;
+            });
+        }
+   ```
 
 ## Register your application
 
