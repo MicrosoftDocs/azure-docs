@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides the AI. This quickstart includes steps for adding these resources in-line, when specifying the pipeline. It's not necessary to set up accounts in advance.
 
-Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md) except for Azure Table Storage, which is not supported for AI indexing. This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
+Azure services are required to provide the inputs to the indexing pipeline. You can use any data source supported by [Azure Search indexers](search-indexer-overview.md). This quickstart uses [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) as a container for source data files. 
 
 ### Set up Azure Blob service and load sample data
 

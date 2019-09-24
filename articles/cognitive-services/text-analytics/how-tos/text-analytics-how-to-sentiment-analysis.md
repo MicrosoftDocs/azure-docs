@@ -75,7 +75,7 @@ For more information on request definition, see [Call the Text Analytics API](te
 
 + Create a POST request. To review the API documentation for this request, see the [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9).
 
-+ Set the HTTP endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
++ Set the HTTP endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/sentiment` in the URL. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`.
 
 + Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
@@ -134,8 +134,8 @@ The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.mic
 > [!NOTE]
 > * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 > * At this time, Sentiment Analysis v3:
->    * Currently supports only the English language.
->    * Is available in the following regions: `Central US`, `Central Canada`, and `East Asia`.
+>    * Currently supports English, Simplified Chinese, and Japanese languages.
+>    * Is available in the following regions: `Central US`, `Central Canada`, and `East Asia`. 
 
 |Feature |Description  |
 |---------|---------|

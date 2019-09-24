@@ -1,14 +1,15 @@
 ---
-title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
+title: Extended Spark History Server to debug Spark applications - Azure HDInsight
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
 ms.service: hdinsight
-author: jejiang
-ms.author: jejiang
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/04/2019
 ---
+
 # Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
 This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
@@ -294,7 +295,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 **To use the bash file from Azure portal**
 
-1. Launch [Azure Portal](https://ms.portal.azure.com), and select your cluster.
+1. Launch [Azure portal](https://ms.portal.azure.com), and select your cluster.
 2. Click **Script actions**, then **Submit new**. Complete the **Submit script action** form, then click **Create** button.
     
     + **Script type**: select **Custom**.

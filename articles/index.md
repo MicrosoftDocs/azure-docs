@@ -6344,7 +6344,7 @@ featureFlags:
                                                     Azure for Node.js Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Get started</a>
+                                                    <a href="/azure/javascript/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API reference</a>

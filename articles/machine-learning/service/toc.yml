@@ -1,5 +1,5 @@
 - name: Azure Machine Learning service Documentation
-  href: index.yml
+  href: ../index.yml
 - name: Overview
   expanded: true
   items:
@@ -74,9 +74,6 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
-  - name: Deep learning
-    displayName: deep learning vs machine learning, deep learning, vs, versus
-    href: concept-deep-learning-vs-machine-learning.md
   - name: Workspace
     href: concept-workspace.md
   - name: Compute target
@@ -112,13 +109,18 @@
       href: how-to-secure-web-service.md
     - name: Regenerate storage access keys
       href: how-to-change-storage-access-key.md
+  - name: Deep learning
+    displayName: deep learning vs machine learning, deep learning, vs, versus
+    href: concept-deep-learning-vs-machine-learning.md
 - name: How-to guides
   items:
-  - name: Manage workspaces
+  - name: Create & manage workspaces
     items:
-    - name: Use portal for workspaces
+    - name: Use Azure portal
       href: how-to-manage-workspace.md
-    - name: Use a Resource Manager template
+    - name: Use Azure CLI
+      href: how-to-manage-workspace-cli.md
+    - name: Use Resource Manager template
       displayName: arm
       href: how-to-create-workspace-template.md
   - name: Set up development environment 

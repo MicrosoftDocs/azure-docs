@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot a slow or failing job on a HDInsight cluster - Azure HDInsight
-description: Diagnose and troubleshoot a slow or failing HDInsight cluster.
+description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh

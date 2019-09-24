@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/05/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
@@ -78,7 +78,7 @@ Once you understand how your app behaves without these, add each of these featur
 
 There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results after the model is tested with utterances. 
 
-A best practice is to test via the [endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance) so that you get the added benefit of [active learning](luis-concept-review-endpoint-utterances.md). The [interactive testing pane](luis-interactive-test.md) is also a valid test methodology. 
+A best practice is to test via the [endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) so that you get the added benefit of [active learning](luis-concept-review-endpoint-utterances.md). The [interactive testing pane](luis-interactive-test.md) is also a valid test methodology. 
  
 
 ### Phrase lists

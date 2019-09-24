@@ -1,6 +1,6 @@
 ---
 title: Use external metadata stores - Azure HDInsight 
-description: Use external metadata stores with HDInsight clusters.
+description: Use external metadata stores with Azure HDInsight clusters, and best practices.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed

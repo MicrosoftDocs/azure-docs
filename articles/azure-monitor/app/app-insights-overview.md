@@ -134,12 +134,6 @@ Get started at development time with:
 * Blog:
   * [Application Insights blog](https://azure.microsoft.com/blog/tag/application-insights)
 
-## Videos
-
-- External video: [configuring Application Insights with an ASP.NET application](https://www.youtube.com/watch?v=blnGAVgMAfA).
-- External video: [configuring Application Insights with ASP.NET Core and Visual Studio](https://www.youtube.com/watch?v=NoS9UhcR4gA&t).
-- External video: [configuring Application Insights with ASP.NET Core and Visual Studio Code](https://youtu.be/ygGt84GDync).
-
 <!--Link references-->
 
 [android]: ../../azure-monitor/learn/mobile-center-quickstart.md

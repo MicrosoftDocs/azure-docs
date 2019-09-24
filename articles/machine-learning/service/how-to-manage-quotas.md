@@ -74,7 +74,7 @@ Available resources:
 ### Azure Machine Learning Pipelines
 For Azure Machine Learning Pipelines, there is a quota limit on the number of steps in a pipeline and on the number of schedule-based runs of published pipelines per region in a subscription.
 - Maximum number of steps allowed in a pipeline is 30,000
-- Maximum number of schedule-based runs of published pipelines per subscription per month is 100,000
+- Maximum number of the sum of schedule-based runs and blob pulls for blog-triggered schedules of published pipelines per subscription per month is 100,000
 
 > [!NOTE]
 > If you want to increase this limit, contact [Microsoft Support](https://azure.microsoft.com/support/options/).
