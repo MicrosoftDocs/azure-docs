@@ -17,7 +17,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 The Team Data Science Process (TDSP) is a framework developed by Microsoft that provides a structured methodology to efficiently build predictive analytics solutions and intelligent applications. This article outlines the key personnel roles and associated tasks for a data science team standardizing on this process.
 
-This introductory article links to tutorials on how to set up the TDSP environment for an entire data science group, data science teams, and TDSP projects. The tutorials provide detailed guidance for using Azure DevOps projects, Azure Repos repositories, and Azure Boards agile planning tools to control access, host and share code, and manage team tasks.
+This introductory article links to tutorials on how to set up the TDSP environment for an entire data science group, data science teams, and TDSP projects. The tutorials provide detailed guidance for using Azure DevOps Projects, Azure Repos repositories, and Azure Boards agile planning tools to control access, host and share code, and manage team tasks.
 
 The tutorials use Azure DevOps because that is how to implement TDSP at Microsoft. Azure DevOps facilitates collaboration by integrating role-based security, work item management and tracking, and code hosting, sharing, and source control. The tutorials also use an Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) as the analytics desktop, which has several popular data science tools pre-configured and integrated with Microsoft software and Azure services. 
 
