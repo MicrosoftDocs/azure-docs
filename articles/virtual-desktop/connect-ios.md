@@ -45,7 +45,7 @@ To subscribe to a feed:
 
 After this, the Connection Center should display the remote resources.
 
-Once subscribed to a feed, the feed's contents will update automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
+Once subscribed to a feed, the feed's content will update automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
 ## Client documentation
 
