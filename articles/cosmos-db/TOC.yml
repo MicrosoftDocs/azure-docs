@@ -411,7 +411,7 @@
           href: mongodb-mongochef.md
         - name: Connect using Compass
           href: mongodb-compass.md
-        - name: Connect using Robomongo
+        - name: Connect using Robo 3T
           href: mongodb-robomongo.md
         - name: Connect using Mongoose
           href: mongodb-mongoose.md
