@@ -199,7 +199,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
 1. In the expression editor, enter this expression that specifies the array property value that you want, and select **OK**.
 
-   `item()?['<property-name>']`
+   `item()?['<array-property-name>']`
 
    For example:
 
@@ -208,7 +208,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
    ![Expression to dereference property](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
-1. Repeat the previous steps for each property that you want. When you're done, your action looks like this example:
+1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
    ![Finished expressions](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
@@ -224,12 +224,12 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 1. On the designer toolbar, select **Code view**.
 
-1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of values that you want from the array:
+1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
 
    ```json
    {
       "header": "",
-      "value": "@item()?['<property-name>']"
+      "value": "@item()?['<array-property-name>']"
    }
    ```
 
@@ -352,7 +352,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
 1. In the expression editor, enter this expression that specifies the array property value that you want, and select **OK**.
 
-   `item()?['<property-name>']`
+   `item()?['<array-property-name>']`
 
    For example:
 
@@ -361,7 +361,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
    ![Expression to dereference property](./media/logic-apps-perform-data-operations/html-table-expression.png)
 
-1. Repeat the previous steps for each property that you want. When you're done, your action looks like this example:
+1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
 
    ![Finished expressions](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
@@ -369,7 +369,7 @@ In the action, keep the **Header** column empty. On each row in the **Value** co
 
    The **Create HTML table** action now appears like this example:
 
-   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 #### Work in code view
 
@@ -377,12 +377,12 @@ In the action's JSON definition, within the `columns` array, set the `header` pr
 
 1. On the designer toolbar, select **Code view**.
 
-1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of values that you want from the array:
+1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
 
    ```json
    {
       "header": "",
-      "value": "@item()?['<property-name>']"
+      "value": "@item()?['<array-property-name>']"
    }
    ```
 
