@@ -51,7 +51,7 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
    ![The "New data factory" pane](media/data-factory-load-data/my-new-data-factory.png)  
 
-   | **Setting**  | **Value to enter**  |
+   | Setting  | Value to enter  |
    |---|---|
    | **Name** | In the box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For rules about naming Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
    | **Subscription** | In the drop-down list, select the Azure subscription in which to create the data factory. |
