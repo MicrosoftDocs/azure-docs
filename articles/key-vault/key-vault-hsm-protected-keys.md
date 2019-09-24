@@ -271,7 +271,7 @@ This program creates a **Security World** file at %NFAST_KMDATA%\local\world, wh
 > 
 > Security world created with new-world.exe that ships with nCipher software version 12.50 is not compatible with this BYOK procedure. There are two options available:
 > 1) Downgrade nCipher software version to 12.40.2 to create a new security world.
-> 2) Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version new-world.exe that is compatible with this BYOK procedure.
+> 2) Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
 
 Then do the following:
 
