@@ -39,10 +39,10 @@ conceptualContent:
         - url: ./service/create-member.md
           itemType: quickstart
           text: Deploy an Azure Blockchain Service blockchain member
-        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
         - url: ./service/send-transaction.md
           itemType: tutorial
           text: Follow a tutorial and write a smart contract
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
           itemType: video
           text: Watch how to deploy and configure your network
         - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
@@ -70,7 +70,6 @@ conceptualContent:
         - url: ./templates/hyperledger-fabric-consortium-blockchain.md
           itemType: how-to-guide
           text: Deploy a Hyperledger Fabric consortium network on Azure.
-
 additionalContent:
   sections:
     - title: Development tools and samples
@@ -85,4 +84,3 @@ additionalContent:
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain
-
