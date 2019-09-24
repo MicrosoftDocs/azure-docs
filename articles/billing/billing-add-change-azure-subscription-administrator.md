@@ -35,7 +35,7 @@ To make a user an administrator of an Azure subscription, an existing administra
 
 If you're not sure who the account administrator is for a subscription, use the following steps to find out.
 
-1. Visit the [Subscriptions page in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Open the [Subscriptions page in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select the subscription you want to check, and then look under **Settings**.
 1. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.
 
