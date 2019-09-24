@@ -54,8 +54,7 @@ If you do not want to run the base server in Azure, you can run the server on a 
 |:--- | --- |:--- |
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 and latest SPs |64 bit |Standard, Datacenter, Essentials  |
-| Windows Server 2012 R2 and latest SPs |64 bit |Standard, Datacenter, Foundation |
-| Windows Storage Server 2012 R2 and latest SPs |64 bit |Standard, Workgroup |
+
 
 You can deduplicate the DPM storage using Windows Server Deduplication. Learn more about how [DPM and deduplication](https://technet.microsoft.com/library/dn891438.aspx) work together when deployed in Hyper-V VMs.
 
