@@ -75,7 +75,7 @@ You can load data from many types of [data stores](/azure/data-factory/copy-acti
 
 You can load your data in either of the following ways:
 
-* In Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* In the Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * In the Azure Data Factory Copy Data tool, as shown in [Use the Copy Data tool to copy data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### Copy data from Amazon S3 (source)
