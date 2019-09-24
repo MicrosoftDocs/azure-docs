@@ -8,7 +8,7 @@ ms.date: 10/23/2019
 author: sivethe
 ms.author: sivethe
 ---
-# Azure Cosmos DB’s API for MongoDB 3.2: supported features and syntax
+# Azure Cosmos DB's API for MongoDB 3.2: supported features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -19,7 +19,7 @@ By using the Azure Cosmos DB's API for MongoDB, you can enjoy the benefits of th
 
 ## Protocol Support
 
-The Azure Cosmos DB's API for MongoDB is compatible with MongoDB server version **3.6** by default for new accounts. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
+All new accounts for Azure Cosmos DB's API for MongoDB are compatible with MongoDB server version **3.6**. This article covers MongoDB version 3.2. The supported operators and any limitations or exceptions are listed below. Any client driver that understands these protocols should be able to connect to Azure Cosmos DB's API for MongoDB.
 
 ## Query language support
 
@@ -30,6 +30,7 @@ Azure Cosmos DB's API for MongoDB provides comprehensive support for MongoDB que
 Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ### Query and write operation commands
+
 - delete
 - find
 - findAndModify
@@ -39,11 +40,13 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 - update
 
 ### Authentication commands
+
 - logout
 - authenticate
 - getnonce
 
 ### Administration commands
+
 - dropDatabase
 - listCollections
 - drop
@@ -56,6 +59,7 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 - reIndex
 
 ### Diagnostics commands
+
 - buildInfo
 - collStats
 - dbStats
@@ -67,14 +71,16 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 ## Aggregation pipeline</a>
 
-Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](https://aka.ms/mongodb-aggregation) for instructions on how to onboard to the public preview.
+Cosmos DB supports aggregation pipeline for MongoDB 3.2 in public preview. See the [Azure blog](https://aka.ms/mongodb-aggregation) for instructions on how to onboard to the public preview.
 
 ### Aggregation commands
+
 - aggregate
 - count
 - distinct
 
 ### Aggregation stages
+
 - $project
 - $match
 - $limit
@@ -91,11 +97,13 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 ### Aggregation expressions
 
 #### Boolean expressions
+
 - $and
 - $or
 - $not
 
 #### Set expressions
+
 - $setEquals
 - $setIntersection
 - $setUnion
@@ -105,6 +113,7 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $allElementsTrue
 
 #### Comparison expressions
+
 - $cmp
 - $eq
 - $gt
@@ -114,6 +123,7 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $ne
 
 #### Arithmetic expressions
+
 - $abs
 - $add
 - $ceil
@@ -131,6 +141,7 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $trunc
 
 #### String expressions
+
 - $concat
 - $indexOfBytes
 - $indexOfCP
@@ -145,6 +156,7 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $toUpper
 
 #### Array expressions
+
 - $arrayElemAt
 - $concatArrays
 - $filter
@@ -157,6 +169,7 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $in
 
 #### Date expressions
+
 - $dayOfYear
 - $dayOfMonth
 - $dayOfWeek
@@ -171,10 +184,12 @@ Cosmos DB supports aggregation pipeline in public preview. See the [Azure blog](
 - $isoWeek
 
 #### Conditional expressions
+
 - $cond
 - $ifNull
 
 ## Aggregation accumulators
+
 - $sum
 - $avg
 - $first
@@ -209,15 +224,15 @@ Following operators are supported with corresponding examples of their use. Cons
 
 Operator | Example |
 --- | --- |
-$eq	| `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt	| `{ "Elevation": { $gt: 4000 } }` |  | -
+$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
+$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
 $gte | `{ "Elevation": { $gte: 4392 } }` |  | -
 $lt | `{ "Elevation": { $lt: 5000 } }` |  | -
 $lte | `{ "Elevation": { $lte: 5000 } }` | | -
 $ne | `{ "Elevation": { $ne: 1 } }` |  | -
 $in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
 $nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or	| `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
+$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
 $and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
 $not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
 $nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
@@ -229,15 +244,16 @@ $regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
 ### Notes
 
 In $regex queries, Left-anchored expressions allow index search. However, using 'i' modifier (case-insensitivity) and 'm' modifier (multiline) causes the collection scan in all expressions.
-When there's a need to include '$' or '|', it is best to create two (or more) regex queries. 
+When there's a need to include '$' or '|', it is best to create two (or more) regex queries.
 For example, given the following original query: ```find({x:{$regex: /^abc$/})```, it has to be modified as follows:
 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries. 
+The first part will use the index to restrict the search to those documents beginning with ^abc and the second part will match the exact entries.
 The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^abc|^def/})``` matches the documents in which field 'x' has values that begin with "abc" or "def". To utilize the index, it's recommended to break the query into two different queries joined by the $or operator: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
 
 ### Update operators
 
 #### Field update operators
+
 - $inc
 - $mul
 - $rename
@@ -249,6 +265,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 - $currentDate
 
 #### Array update operators
+
 - $addToSet
 - $pop
 - $pullAll
@@ -261,6 +278,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 - $position
 
 #### Bitwise update operator
+
 - $bit
 
 ### Geospatial operators
@@ -280,16 +298,17 @@ $box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 4
 $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Yes |
 
 ## Sort Operations
+
 When using the `findOneAndUpdate` operation, sort operations on a single field are supported but sort operations on multiple fields are not supported.
 
 ## Additional operators
 
-Operator | Example | Notes 
+Operator | Example | Notes
 --- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` | 
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` | 
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` | 
+$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$size | ```{ "Location.coordinates": { $size: 2 } }``` |
+$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | Not supported. Use $regex instead.
 
 ## Unsupported operators
@@ -302,13 +321,13 @@ Following methods are supported:
 
 #### Cursor methods
 
-Method | Example | Notes 
+Method | Example | Notes
 --- | --- | --- |
 cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Documents without sort key do not get returned
 
 ## Unique indexes
 
-Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn’t have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default "_id" key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique’ constraint.
+Cosmos DB indexes every field in documents that are written to the database by default. Unique indexes ensure that a specific field doesn't have duplicate values across all documents in a collection, similar to the way uniqueness is preserved on the default `_id` key. You can create custom indexes in Cosmos DB by using the createIndex command, including the 'unique' constraint.
 
 Unique indexes are available for all Cosmos accounts using Azure Cosmos DB's API for MongoDB.
 
