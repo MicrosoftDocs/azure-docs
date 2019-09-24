@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
