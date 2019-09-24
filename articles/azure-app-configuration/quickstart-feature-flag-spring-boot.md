@@ -86,10 +86,12 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 1. Open `bootstrap.properties` which is under the resources directory of your app, and add the following lines to the file. Add the app configuration information.
 
     ```properties
-    spring.cloud.azure.appconfiguration.stores[0].connection-string=[your-connection-string]
+    spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-2. Open the main application Java file, and add `@EnableConfigurationProperties` to enable this feature.
+2. In the App Configuration portal for your config store go to Access keys. Select the Read-only keys tab. In this tab copy the value of one of the Connection Strings and add it as a new Environment Variable with Variable name of `APP_CONFIGURATION_CONNECTION_STRING`.
+
+3. Open the main application Java file, and add `@EnableConfigurationProperties` to enable this feature.
 
     ```java
     @SpringBootApplication
@@ -101,7 +103,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     }
     ```
 
-3. Create a new Java file named *HelloController.java* in the package directory of your app. Add the following lines:
+4. Create a new Java file named *HelloController.java* in the package directory of your app. Add the following lines:
 
     ```java
     @Controller
@@ -122,7 +124,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     }
     ```
 
-4. Create a new html file named *welcome.html* in the templates directory of your app. Add the following lines:
+5. Create a new html file named *welcome.html* in the templates directory of your app. Add the following lines:
 
     ```html
     <!DOCTYPE html>
@@ -177,7 +179,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     </body>
     </html>
     ```
-4. Create a new folder named css under static and inside of it a new css file named *main.css*. Add the following lines:
+6. Create a new folder named css under static and inside of it a new css file named *main.css*. Add the following lines:
 
 
     ```css
@@ -225,15 +227,13 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
     ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-before.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
-
-1. Select **Feature Manager**, and change the state of the **Beta** key to **On**:
+3. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**:
 
     | Key | State |
     |---|---|
     | Beta | On |
 
-1. Refresh the browser page to see the new configuration settings.
+4. Refresh the browser page to see the new configuration settings.
 
     ![Quickstart app launch local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 

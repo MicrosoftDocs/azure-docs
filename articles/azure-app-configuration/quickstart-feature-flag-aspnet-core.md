@@ -246,25 +246,23 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
     dotnet build
     ```
 
-1. After the build successfully completes, run the following command to run the web app locally:
+2. After the build successfully completes, run the following command to run the web app locally:
 
     ```
     dotnet run
     ```
 
-1. Open a browser window, and go to `https://localhost:5001`, which is the default URL for the web app hosted locally.
+3. Open a browser window, and go to `https://localhost:5001`, which is the default URL for the web app hosted locally.
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com). Select **All resources**, and select the App Configuration store instance that you created in the quickstart.
-
-1. Select **Feature Manager**, and change the state of the **Beta** key to **On**:
+4. In the App Configuration portal select **Feature Manager**, and change the state of the **Beta** key to **On**:
 
     | Key | State |
     |---|---|
     | Beta | On |
 
-1. Refresh the browser page to see the new configuration settings.
+5. Refresh the browser page to see the new configuration settings.
 
     ![Quickstart app launch local](./media/quickstarts/aspnet-core-feature-flag-local-after.png)
 

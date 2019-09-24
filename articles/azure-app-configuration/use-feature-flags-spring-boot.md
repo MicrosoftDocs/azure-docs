@@ -129,13 +129,11 @@ When an MVC controller or action is blocked because the controlling feature flag
 
 ## MVC filters
 
-You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
+You can set up MVC filters so that they're activated based on the state of a feature flag. The following code adds an MVC filter named `FeatureFlagFilter`. This filter is triggered within the MVC pipeline only if `FeatureA` is enabled.
 
 ```java
 @Component
-public class FeatureFilter implements Filter {
-    
-    private static Logger logger = LoggerFactory.getLogger(FeatureFilter.class);
+public class FeatureFlagFilter implements Filter {
     
     @Autowired
     private FeatureManager featureManager;
