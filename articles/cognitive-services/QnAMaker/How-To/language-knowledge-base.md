@@ -23,7 +23,7 @@ QnA Maker allows you to select the language for your QnA service, while creating
 
 Creating knowledge bases in different languages in one resource negatively affects the relevance of the results QnA Maker provides in response to user queries.
 
-Review a list of [supported languages](../overview/language-support.md#languages-supported) and how languages impact [matching and relevance](../overview/language-support.md#query-matching-and-relevance). 
+Review a list of [supported languages](../overview/language-support.md#languages-supported) and how languages impact [matching and relevance](#query-matching-and-relevance). 
 
 ## Select language when creating first knowledge base
 

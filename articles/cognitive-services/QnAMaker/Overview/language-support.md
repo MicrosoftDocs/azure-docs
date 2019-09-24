@@ -17,7 +17,7 @@ Language for the service is selected when you create the first knowledge base in
 
 The language determines QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md) of all knowledge bases in that resource, as well as the relevance of the results QnA Maker provides in response to user queries.
 
-Learn more about the [impact of language selection](../overview/language-knowledge-base.md).
+Learn more about the [impact of language selection](../how-to/language-knowledge-base.md).
 
 ## Languages supported
 
@@ -82,4 +82,4 @@ The following list contains the languages supported for a QnA Maker resource.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Language selection](../overview/language-knowledge-base.md)
+> [Language selection](../how-to/language-knowledge-base.md)
