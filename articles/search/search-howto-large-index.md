@@ -21,7 +21,7 @@ The following sections explore three techniques for indexing large amounts of da
 
 ## Option 1: Pass multiple documents
 
-One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you are using the [REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) or [IndexBatch](https://docs.microsoft.com/otnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
+One of the simplest mechanisms for indexing a larger data set is to submit multiple documents or records in a single request. As long as the entire payload is under 16 MB, a request can handle up to 1000 documents in a bulk upload operation. These limits apply whether you are using the [REST API](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) or [IndexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch) in the .NET SDK. For either API, you would package 1000 documents in the body of each request.
 
 Batch indexing is implemented for individual requests using REST or .NET, or through indexers. A few indexers operate under different limits. Specifically, Azure Blob indexing sets batch size at 10 documents in recognition of the larger average document size. For indexers based on the [Create Indexer REST API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer ), you can set the `BatchSize` argument to customize this setting to better match the characteristics of your data. 
 
