@@ -251,18 +251,18 @@
         href: knowledge-store-connect-power-bi.md
   - name: Query documents
     items:
-    - name: Create a basic query
+    - name: Query types and composition
       href: search-query-overview.md
-    - name: Search Explorer (portal)
+    - name: Create a simple query
+      href: search-query-simple-examples.md
+    - name: Use full Lucene syntax
+      href: search-query-lucene-examples.md
+    - name: Use Search Explorer (portal)
       href: search-explorer.md
     - name: Simple query syntax
       href: query-simple-syntax.md
     - name: Full Lucene query syntax
       href: query-lucene-syntax.md
-    - name: Examples (simple syntax)
-      href: search-query-simple-examples.md
-    - name: Examples (full Lucene)
-      href: search-query-lucene-examples.md
     - name: moreLikeThis (preview)
       href: search-more-like-this.md
   - name: Apply filters
