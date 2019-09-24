@@ -32,7 +32,7 @@ This article documents the security controls built into API Management.
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | |
 | Control and management plane logging and audit| Yes | [Azure Monitor activity logs](../azure-monitor/platform/activity-logs-overview.md) |
-| Data plane logging and audit| Yes | [Azure Monitor diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) and (optionally) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
+| Data plane logging and audit| Yes | [Azure Monitor diagnostic logs](../azure-monitor/platform/resource-logs-overview.md) and (optionally) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
 
 ## Identity
 
