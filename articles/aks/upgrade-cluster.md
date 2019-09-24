@@ -54,7 +54,10 @@ The following example upgrades a cluster to version *1.13.10*:
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
+It takes a few minutes to upgrade the cluster, depending on how many nodes you have. 
+
+> [!NOTE]
+> There is a timeout of 3 hours for a cluster upgrade to complete, if an upgrade cannot complete within this time the upgrade operation is failed. To recover, you may retry the upgrade operation after the timeout has been hit.
 
 To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 
