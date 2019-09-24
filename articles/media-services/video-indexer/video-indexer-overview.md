@@ -9,15 +9,17 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 09/23/2019
 ms.author: juliako
 ---
 
 # What is Video Indexer?
 
-Azure Media Services Video Indexer is an AI solution built on Azure Cognitive Services. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, new user experiences on large archives of videos (with low entry barriers). 
+Video Indexer (VI) is the Azure Media Services AI solution and part of the Microsoft Cognitive Services brand. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, new user experiences on large archives of videos (with low entry barriers). 
 
 To start extracting insights with Video Indexer, you need to create an account and upload videos. When you upload your videos to Video Indexer, it analyses both visuals and audio by running different AI models. As Video Indexer analyzes your video, the insights that are extracted by the models.
+
+The following diagram is an illustration and not a technical explanation of how Video Indexer works in the backend.
 
 ![Flow diagram](./media/video-indexer-overview/model-chart.png)
 
