@@ -155,9 +155,6 @@ conceptualContent:
         - url: ./containers/docker-compose-recipe.md
           itemType: get-started
           text: Use Docker Compose to deploy multiple containers
-        - url: ./containers/offline-containers.md
-          itemType: whats-new
-          text: Offline containers (Preview)
         - url: ./containers/container-faq.md
           itemType: reference
           text: Cognitive Services containers FAQ
