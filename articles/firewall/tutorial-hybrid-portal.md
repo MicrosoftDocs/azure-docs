@@ -5,10 +5,11 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/17/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
+
 # Tutorial: Deploy and configure Azure Firewall in a hybrid network using the Azure portal
 
 When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
@@ -52,9 +53,9 @@ There are three key requirements for this scenario to work correctly:
 See the [Create Routes](#create-the-routes) section in this tutorial to see how these routes are created.
 
 >[!NOTE]
->Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.
+>Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override this with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity.
 >
->However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll allow your subscription and ensure the required firewall Internet connectivity is maintained.
+>Azure Firewall doesn't currently support forced tunneling. If your configuration requires forced tunneling to an on-premises network and you can determine the target IP prefixes for your Internet destinations, you can configure these ranges with the on-premises network as the next hop via a user defined route on the AzureFirewallSubnet. Or, you can use BGP to define these routes.
 
 >[!NOTE]
 >Traffic between directly peered VNets is routed directly even if a UDR points to Azure Firewall as the default gateway. To send subnet to subnet traffic to the firewall in this scenario, a UDR must contain the target subnet network prefix explicitly on both subnets.
@@ -75,6 +76,9 @@ First, create the resource group to contain the resources for this tutorial:
 
 Now, create the VNet:
 
+> [!NOTE]
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
 4. For **Name**, type **VNet-hub**.
@@ -83,10 +87,8 @@ Now, create the VNet:
 7. For **Resource group**, select **FW-Hybrid-Test**.
 8. For **Location**, select **East US**.
 9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.5.0.0/24**.
-    > [!NOTE]
-    > The minimum size of the AzureFirewallSubnet subnet is /26.
-1. Accept the other default settings, and then select **Create**.
+10. For **Address range**, type **10.5.0.0/26**. 
+11. Accept the other default settings, and then select **Create**.
 
 ## Create the spoke virtual network
 
@@ -95,7 +97,7 @@ Now, create the VNet:
 4. For **Name**, type **VNet-Spoke**.
 5. For **Address space**, type **10.6.0.0/16**.
 6. For **Subscription**, select your subscription.
-7. For **Resource group**, select **Test-FW-RG**.
+7. For **Resource group**, select **FW-Hybrid-Test**.
 8. For **Location**, select the same location that you used previously.
 9. Under **Subnet**, for **Name** type **SN-Workload**.
 10. For **Address range**, type **10.6.0.0/24**.
@@ -366,7 +368,7 @@ Create a virtual machine in the spoke virtual network, running IIS, with no publ
     - **User name**: *azureuser*.
     - **Password**: *Azure123456!*
 4. Select **Next:Disks**.
-5. Accept the defaults and select **Next:Networking**.
+5. Accept the defaults and select **Next: Networking**.
 6. Select **VNet-Spoke** for the virtual network and the subnet is **SN-Workload**.
 7. For **Public IP**, select **None**.
 8. For **Public inbound ports**, select **Allow selected ports**, and then select **HTTP (80)**, and **RDP (3389)**

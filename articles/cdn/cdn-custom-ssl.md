@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/17/2019
+ms.date: 08/28/2019
 ms.author: magattus
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
@@ -127,7 +127,7 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
     ![Access policy settings](./media/cdn-custom-ssl/cdn-access-policy-settings.png)
 
-3. Select **Get Secret permissions** and then get and list **Certificate permissions** to allow CDN to perform these permissions to get and list the certificates. 
+3. Select **Certificate permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the certificates.
 
 4. Select **OK**. 
 
@@ -309,6 +309,9 @@ The following table shows the operation progress that occurs when you disable HT
 
     Your existing domains will be gradually migrated to single certificate in the upcoming months if Microsoft analyzes that only SNI client requests are made to your application. If Microsoft detects there some non-SNI client requests made to your application, your domains will stay in the SAN certificate with IP-based TLS/SSL. In any case, there will be no interruption to your service or support to your client requests regardless of whether those requests are SNI or non-SNI.
 
+7. *How do cert renewals work with Bring Your Own Certificate?*
+
+    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propogate your new updated cert. 
 
 ## Next steps
 

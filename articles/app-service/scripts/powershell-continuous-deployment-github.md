@@ -19,13 +19,12 @@ ms.custom: mvc
 
 # Create a web app with continuous deployment from GitHub
 
-This sample script creates a web app in App Service with its related resources, and then sets up continuous deployment from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](powershell-deploy-github.md).
+This sample script creates a web app in App Service with its related resources, and then sets up [continuous deployment](../deploy-continuous-deployment.md) from a GitHub repository. For GitHub deployment without continuous deployment, see [Create a web app and deploy code from GitHub](powershell-deploy-github.md).
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview), and then run `Connect-AzAccount` to create a connection with Azure. Also, ensure that:
 
-- A connection with Azure has been created using the `az login` command.
-- The application code is in a public or private GitHub repository that you own.
-- You have [created an access token in your GitHub account](https://help.github.com/articles/creating-an-access-token-for-command-line-use/).
+- The application code is in a public or private GitHub repository that you own. To get automatic builds, structure your repository according to the [Prepare your repository](../deploy-continuous-deployment.md#prepare-your-repository) table.
+- You have [created a personal access token in your GitHub account](https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line).
 
 ## Sample script
 

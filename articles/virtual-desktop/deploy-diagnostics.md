@@ -150,7 +150,7 @@ In order to be able to view the health of VMs, you'll need to enable the Log Ana
 
 To deploy the Azure Resource Management template for the diagnostics tool:
 
-1.  Go to the GitHub Azure RDS-Templates page.
+1.  Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Deploy the template to Azure and follow the instructions in the template. Make sure you have the following information available:
 
     -   Client-Id

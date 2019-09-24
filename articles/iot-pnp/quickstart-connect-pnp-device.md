@@ -34,6 +34,9 @@ Download and install the Azure IoT explorer tool from the [latest release](https
 
 You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE]
+> During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
+
 Add the Microsoft Azure IoT Extension for Azure CLI:
 
 ```azurecli-interactive

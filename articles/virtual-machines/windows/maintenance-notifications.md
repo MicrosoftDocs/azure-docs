@@ -11,7 +11,7 @@ ms.assetid:
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
