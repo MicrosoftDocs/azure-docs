@@ -64,21 +64,21 @@ The following table lists rough benchmarks that your network needs to meet for a
 
 To connect to your remote session, we recommend you have at least 1.5 Mbps of available bandwidth. This bandwidth will also provide you a reasonable experience with apps associated with the Login VSI Task Worker workload, such as Microsoft Office. 
 
-For apps that fall under the Login VSI Office Worker workload, we recommend that you have at least 3.0 Mbps of available bandwidth for your remote session. These apps include the following:
+For apps that fall under the Login VSI Office Worker workload, we recommend that you have at least 3.0 Mbps of available bandwidth for your remote session. The Login VSI Office Worker workload includes the following apps:
 
 - Photo Viewer
 - Illustrator 
 - Other illustration/publishing software
 - Voice chat
 
-For apps that fall under the Login VSI Knowledge Worker workload, we recommend you have at least 5.0 Mbps of available bandwidth for your remote session. These apps include the following:
+For apps that fall under the Login VSI Knowledge Worker workload, we recommend you have at least 5.0 Mbps of available bandwidth for your remote session. The Login VSI Knowledge Worker workload includes the following apps:
 
 - Freemind
 - Java
 - CAD/CAM software
 - Video conferencing with 640 × 480 px video resolution  
 
-For scenarios that fall under the Login VSI Power Worker workload, we recommend you have at least 15.0 Mbps of available bandwidth for your remote session. These apps include the following:
+For scenarios that fall under the Login VSI Power Worker workload, we recommend you have at least 15.0 Mbps of available bandwidth for your remote session. The Login VSI Power Worker workload includes the following apps:
 
 - Simulated application install
 - Video conferencing with around 1280 × 720 px video resolution  
