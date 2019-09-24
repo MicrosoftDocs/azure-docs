@@ -20,7 +20,7 @@ Applications and services that use lightweight directory access protocol (LDAP) 
 
 This article helps you understand and resolve common alerts with secure LDAP access in Azure AD DS.
 
-## AADDS101: Secure LDAP network security group configuration
+## AADDS101: Secure LDAP network configuration
 
 ### Alert message
 
