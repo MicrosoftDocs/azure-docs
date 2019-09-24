@@ -431,6 +431,8 @@
           href: app/asp-net-trace-logs.md        
         - name: Performance counters
           href: app/performance-counters.md
+        - name: EventCounters
+          href: app/eventcounters.md
         - name: Dependencies
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
