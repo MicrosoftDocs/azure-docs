@@ -46,8 +46,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added ability to retrieve SAS URL to model in storage through the model object. Ex: model.get_sas_url()
     +  Introduce `run.get_details()['datasets']` to get datasets associated with the submitted run
     +  Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files.
-  + **azureml-dataprep**
-    + GetData message from dataprep engine now returns TotalRowsCount as part of the response
   + **azureml-explain-model**
     + Improved documentation for Explanation outputs in the classification scenario. Related work items: #508670
     + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations. Related work items: #508004
