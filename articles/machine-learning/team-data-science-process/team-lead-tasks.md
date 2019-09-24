@@ -50,7 +50,7 @@ This tutorial assumes that the following resources and permissions have been set
 
 - The Azure DevOps **organization** for your data unit
 - **GroupProjectTemplate** and **GroupUtilities** repositories, populated with the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories
-- Permissions on your organization account to create repositories for your team
+- Permissions on your organization account for you to create repositories for your team
 
 If you want to clone repositories and modify content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you need the following:
 
@@ -216,6 +216,8 @@ If you want to work with repositories locally and push your changes up to the sh
    
 1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
    
+   ![Clone repo](./media/team-lead-tasks/clone.png)
+   
 1. On your local machine, create the following directories:
    
    - For Windows: **C:\GitRepos\MyTeam**
@@ -227,9 +229,13 @@ If you want to work with repositories locally and push your changes up to the sh
    
    For example, either of the following commands clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
    
+   **HTTPS connection:**
+   
    ```bash
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
    ```
+   
+   **SSH connection:
    
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
@@ -239,21 +245,21 @@ If you want to work with repositories locally and push your changes up to the sh
 
 After making whatever changes you want in the local clone of your repository, you can push the changes to the shared team repositories. 
 
-1. Run the following Git Bash commands from your local **GitRepos\MyTeam\TeamTemplate** or **GitRepos\MyTeam\TeamUtilities** directory.
-   
-   ```bash
-   git add .
-   git commit -m "push from local"
-   git push
+Run the following Git Bash commands from your local **GitRepos\MyTeam\TeamTemplate** or **GitRepos\MyTeam\TeamUtilities** directory.
+
+```bash
+git add .
+git commit -m "push from local"
+git push
 ```
-   
-   > [!NOTE]
-   > If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
-   > 
-   > `git config --global user.name <your name>`
-   > `git config --global user.email <your email address>`
-   > 
-   > If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when you build Power BI dashboards to track your Git activities in multiple repositories.
+
+> [!NOTE]
+> If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
+> 
+> *git config --global user.name \<your name>*
+> *git config --global user.email \<your email address>*
+> 
+> If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when you build Power BI dashboards to track your Git activities in multiple repositories.
 
 ## Create team data and analytics resources
 
