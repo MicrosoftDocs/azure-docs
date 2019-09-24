@@ -1908,6 +1908,15 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>Windows Virtual Desktop</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/virtual-desktop/">
+                                                <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                <p>Windows Virtual Desktop</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
