@@ -121,7 +121,7 @@ TelemetryClients created after this point will use your processors.
 > [!NOTE]
 > Adding processor using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
 
-For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) pr [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This method is called in `ConfigureServices` method of your `Startup.cs` class.
+For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) or [WorkerService](worker-service.md#adding-telemetry-processors), adding a new `TelemetryProcessor` is done by using `AddApplicationInsightsTelemetryProcessor` extension method on `IServiceCollection`, as shown below. This method is called in `ConfigureServices` method of your `Startup.cs` class.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -277,7 +277,7 @@ protected void Application_Start()
 **ASP.NET Core/ Worker Service apps: Load your initializer**
 
 > [!NOTE]
-> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
+> Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications or if you are using Microsoft.ApplicationInsights.WorkerService SDK.
 
 For apps written using [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) or [WorkerService](worker-service.md#adding-telemetryinitializers), adding a new `TelemetryInitializer` is done by adding it to the Dependency Injection container, as shown below. This is done in `Startup.ConfigureServices` method.
 
