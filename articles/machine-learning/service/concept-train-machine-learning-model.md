@@ -15,19 +15,25 @@ ms.date: 09/18/2019
 
 Azure Machine Learning provides several ways to train your models. Use the following list to determine which training method is right for you:
 
-+ **Visual interface**: The Azure Machine Learning __visual interface__ provides a way to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
++ **Python**: With the Azure Machine Learning SDK, you define a __run configuration__ that provides the information needed to configure the training environment used to train your model. While you can manually create a run configuration (using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py)), and use it to train your model, there are several other training methods that you should consider:
 
-+ **Python**: The Azure Machine Learning SDK provides several methods to train models:
+    + **Automated machine learning**: Automated machine learning allows you to train models without extensive data science or programming knowledge. For those with a data science and programming background, it provides a way to save time and resources by automating algorithm selection and hyperparameter tuning. You don't have to worry about defining a run configuration when using automated machine learning.
 
-    + **Run**: A run submits a single instance of a training script as a training job. A run is a generic way to train a model with Azure Machine Learning. Define the training environment and then submit the training script.
+    + **Estimator**: Estimator classes make it easy to train models based on popular machine learning frameworks. There are estimator classes for **Scikit-learn**, **PyTorch**, **TensorFlow**, and **Chainer**. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators.
 
-    + **Estimator**: Estimator classes build on the basic run process, and make it easy to train models based on popular machine learning frameworks. There are estimator classes for Scikit-learn, PyTorch, TensorFlow, and Chainer. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class.
+    + **Machine learning pipeline**: Pipelines are not a different training method, but a way of defining a workflow using modular, reusable steps, that can include training as part of the workflow. Machine learning pipelines support using automated machine learning, estimators, and run configuration to train models.
 
-    + **Automated machine learning**: Automate the time consuming, iterative tasks of model development. Azure Machine Learning uses the parameters you provide to iteratively train models until one meets your criteria.
+        Since pipelines are not focused specifically on training, the reasons for using a pipeline are more varied than the other training methods. Generally, you might use a pipeline when:
 
-    + **Machine learning pipeline**: Optimizes your workflow with speed, portability, and reusability. Machine learning pipelines can use runs, estimators, and automated ML as steps in a pipeline. You can create templates and publish a pipeline as a parameterized REST API, which can then be used to start or schedule runs.
+        * You need to schedule unattended processes such as long running training jobs or data preparation.
+        * Use multiple pipelines that are coordinated across heterogeneous compute resources and storage locations.
+        * Use the pipeline as a reusable template for specific scenarios, such as training or batch scoring.
+        * Track and version data sources, inputs, and outputs for your workflow.
+        * Your workflow is implemented by different teams that work on specific steps independently. Steps can then be joined together in a pipeline to implement the workflow
 
-+ **CLI**: The machine learning CLI is provides commands for common tasks with Azure Machine Learning. For training models, it provides commands that submit training jobs (including Python training scripts).
++ **Visual interface**: The Azure Machine Learning __visual interface__ provides an easy entry-point into machine learning for building proof of concepts, or for users with little coding experience. It allows you to train models using a drag and drop web-based UI. You can use Python code as part of the design, or train models without writing any code.
+
++ **CLI**: The machine learning CLI is provides commands for common tasks with Azure Machine Learning. For training models, it provides commands that submit training jobs. It can submit jobs using run configurations or pipelines.
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
@@ -41,9 +47,9 @@ The visual interface (preview) enables you to train models using a drag and drop
 + [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
 + [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
 
-## Run
+## Python SDK
 
-A run uses a __run configuration__ to define the environment needed to run your training script. Azure Machine Learning uses the run configuration to configure the environment on the compute target when you submit your script for a training run.
+A generic training job with Azure Machine Learning can be defined using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). This is then used, along with your training script(s) to train a model on a compute target.
 
 You may start with a run configuration for your local computer, and then switch to one for a cloud-based compute target as needed. When changing the compute target, you only change the run configuration you use. A run also logs information about the training job, such as the inputs, outputs, and logs.
 
@@ -52,18 +58,18 @@ You may start with a run configuration for your local computer, and then switch 
 * [Examples: Jupyter Notebook examples of training models](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
 * [How to: Set up and use compute targets for model training](how-to-set-up-training-targets.md)
 
-## Estimator
+### Estimator
 
-Estimators make it easy to train models using popular ML frameworks.
+Estimators make it easy to train models using popular ML frameworks. If you're using **Scikit-learn**, **PyTorch**, **TensorFlow**, or **Chainer**, you should consider using an estimator for training. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators.
 
 * [What are estimators?](concept-azure-machine-learning-architecture#estimators)
 * [Tutorial: Train image classification models with MNIST data and scikit-learn using Azure Machine Learning](tutorial-train-models-with-aml.md)
 * [Examples: Jupyter Notebook examples of using estimators](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning)
 * [How to: Create estimators in training](how-to-train-ml-models.md)
 
-## Automated Machine Learning
+### Automated Machine Learning
 
-Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined.
+Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined. You don't have to worry about defining a run configuration when using estimators.
 
 > [!TIP]
 > In addtion to the Python SDK, you can also use Automated ML through the [workspace landing page (preview)](https://ml.azure.com).
@@ -76,21 +82,9 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
 * [How to: Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)](how-to-create-portal-experiments.md)
 
-## Machine learning pipeline
+### Machine learning pipeline
 
-Machine learning pipelines optimize your workflow with the following key features:
-
-| Feature | Description |
-| ----- | ----- |
-| Unattended runs | Schedule steps to run in parallel or in sequence in a reliable and unattended manner. Perfect for long running tasks such as data preparation or long running training jobs. |
-| Heterogenous compute | Use multiple ML pipelines that are reliably coordinated across heterogeneous and scalable compute resources and storage locations. |
-| Reusability | Create ML pipeline templates for specific scenarios, such as training or batch scoring. Publish the pipelines as a REST endpoint and trigger via REST calls. |
-| Tracking and versioning | ML pipelines can explicitly name and version your data sources, inputs, and outputs. |
-| Modularity | Implement your workflow as a series of steps that can be maintained separately for increased productivity. |
-| Collaboration | ML pipelines allow data scientists to collaborate across all areas of the machine learning design process, while being able to concurrently work on pipeline steps. |
-
-> [!TIP]
-> Machine learning pipelines can use run configurations, estimators, and automated ML as steps in a pipeline.
+Machine learning pipelines can use the previously mentioned training methods (run configuration, estimators, and automated machcine learning). Pipelines are more about creating a workflow, so they encompass more than just the training of models.
 
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md).
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
