@@ -37,16 +37,6 @@ Azure Machine Learning provides several ways to train your models. Use the follo
 
 Each of these training methods can use different types of compute resources for training. Collectively, these resources are referred to as [__compute targets__](concept-azure-machine-learning-architecture.md#compute-targets). A compute target can be a local machine or a cloud resource, such as an Azure Machine Learning Compute, Azure HDInsight, or a remote virtual machine.
 
-## Visual interface
-
-The visual interface (preview) enables you to train models using a drag and drop interface in your web browser.
-
-+ [What is the visual interface?](ui-concept-visual-interface.md)
-+ [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
-+ [Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
-
 ## Python SDK
 
 A generic training job with Azure Machine Learning can be defined using the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). The run configuration is then used, along with your training script(s) to train a model on a compute target.
@@ -89,6 +79,16 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 * [What are ML pipelines in Azure Machine Learning?](concept-ml-pipelines.md).
 * [Tutorial: Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
 * [Examples: Jupyter Notebook examples for machine learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+
+## Visual interface
+
+The visual interface (preview) enables you to train models using a drag and drop interface in your web browser.
+
++ [What is the visual interface?](ui-concept-visual-interface.md)
++ [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
++ [Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
++ [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
++ [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
 
 ## CLI
 
