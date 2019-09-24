@@ -11,23 +11,23 @@ ms.date: 9/17/2019
 # Scale a Hyperscale (Citus) server group
 
 Azure Database for PostgreSQL - Hyperscale (Citus) provides self-service
-scaling to deal with increased load. The Azure portal makes it easy to either
-add new worker nodes or increase existing nodes’ memory, disk, and CPU
-capacity.
+scaling to deal with increased load. The Azure portal makes it easy to add new
+worker nodes.
 
-To increase the number of worker nodes, go to the **Configure** tab in your
-Hyperscale (Citus) server group. Drag the slider for **Worker node count** to
-change the value.
+To do so, go to the **Configure** tab in your Hyperscale (Citus) server group.
+Drag the slider for **Worker node count** to change the value.
 
 ![Resource sliders](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
+Click the "Save" button to make the changed value take effect.
+
 > [!NOTE]
-> Once increased, the number of worker nodes cannot be decreased using the
-> slider. Decreasing the worker count currently requires opening a support
-> ticket.
+> Once increased and saved, the number of worker nodes cannot be decreased
+> using the slider.
 >
-> Also, the per worker vCores and Storage cannot yet be adjusted with this user
-> interface. Doing so also requires opening a support ticket.
+> Also, vCores and Storage cannot yet be adjusted on the coordinator or workers
+> with this user interface. Open a support ticket if scaling compute on the
+> coordinator or worker nodes is needed.
 
 To take advantage of newly added nodes you must rebalance distributed table
 [shards](concepts-hyperscale-distributed-data.md#shards), which means moving
@@ -42,15 +42,6 @@ The `rebalance_table_shards` function rebalances all tables in the
 [colocation](concepts-hyperscale-colocation.md) group of the table named in its
 argument. Thus you do not have to call the function for every distributed
 table, just call it on a representative table from each colocation group.
-
-## Scale the coordinator node
-
-Applications send their queries to the coordinator node, which relays them to
-the relevant workers and accumulates the results. Scaling the coordinator can
-improve performance for queries that require large or CPU-intensive
-aggregations. To do so, click **View configuration** and adjust the sliders:
-
-![Resource sliders](./media/howto-hyperscale-scaling/02-sliders-coordinator.png)
 
 ## Next steps
 
