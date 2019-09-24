@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2019
+ms.date: 09/24/2019
 ms.author: cabailey
 
 ---
@@ -52,19 +52,22 @@ However, if logging information from Azure Information Protection is going to a 
 
 ## Connect to Azure Information Protection
 
+> [!IMPORTANT]
+> The Azure Information Protection data connector in Azure Sentinel is currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 Use the following instructions if you haven't configured a Log Analytics workspace for Azure Information Protection, or you need to change the workspace that stores the Azure Information Protection logging information.
 
-1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
+1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection (Preview)**.
 
-2. On the **Azure Information Protection** blade, select **Open connector page**.
+2. Select **Open connector page**.
 
-3. On the next blade, in the **Configuration** section, select **Azure Information Protection** to go to **Azure Information Protection analytics**.
+3. On the **Configure analytics (Preview)** blade, select the workspace that you're currently using for Azure Sentinel. If you select a different workspace, the reporting data from Azure Information Protection won't be available to Azure Sentinel.
 
-4. From the list of available workspaces, select the workspace that you're currently using for Azure Sentinel. If you select a different workspace, the reporting data from Azure Information Protection won't be available to Azure Sentinel.
+4. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
 
-5. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
-
-6. The reporting data from Azure Information Protection is stored in the **InformationProtectionLogs_CL** table within the selected workspace. 
+5. The reporting data from Azure Information Protection is stored in the **InformationProtectionLogs_CL** table within the selected workspace. 
     
     To use the relevant schema in Azure Monitor for this reporting data, search for **InformationProtectionEvents**. For information about these event functions, see the [Friendly schema reference for event functions](https://docs.microsoft.com/azure/information-protection/reports-aip#friendly-schema-reference-for-event-functions) section from the Azure Information Protection documentation.
 
