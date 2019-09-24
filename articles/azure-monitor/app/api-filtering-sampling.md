@@ -17,8 +17,7 @@ ms.author: mbullwin
 ---
 # Filtering and preprocessing telemetry in the Application Insights SDK
 
-
-You can write and configure plug-ins for the Application Insights SDK to customize how telemetry is captured and processed before it is sent to the Application Insights service.
+You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it is sent to the Application Insights service.
 
 * [Sampling](../../azure-monitor/app/sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
 * Filtering with Telemetry Processors [for ASP.NET or ASP.NET Core](#filtering) or [Java](../../azure-monitor/app/java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
@@ -384,12 +383,12 @@ The following sample initializer sets cloud role name to every tracked telemetry
 
 ```csharp
 public void Initialize(ITelemetry telemetry)
-	{
-		if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
-		{
-			telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
-		}
-	}
+{
+    if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+    {
+        telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+    }
+}
 ```
 
 ## ITelemetryProcessor and ITelemetryInitializer
@@ -400,6 +399,7 @@ What's the difference between telemetry processors and telemetry initializers?
 * TelemetryInitializers always run before TelemetryProcessors.
 * TelemetryInitializers may be called more than once. By convention, they do not set any property that has already been set.
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
+* Use TelemetryInitializers to enrich telemetry, and use TelemetryProcessor to filter out telemetry.
 
 ## Troubleshooting ApplicationInsights.config
 
