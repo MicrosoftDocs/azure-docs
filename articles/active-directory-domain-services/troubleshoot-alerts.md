@@ -16,7 +16,9 @@ ms.author: iainfou
 ---
 # Known issues: Common alerts and resolutions in Azure Active Directory Domain Services
 
-This article provides troubleshooting information and resolutions for common alerts in an Azure AD DS managed domain.
+As a central part of identity and authentication for applications, Azure Active Directory Domain Services (Azure AD DS) sometimes has problems. If you run into issues, there are some common alerts and associated troubleshooting steps to help you get things running again. At any time, you can also [open an Azure support request][azure-support] for additional troubleshooting assistance.
+
+This article provides troubleshooting information for common alerts in Azure AD DS.
 
 ## AADDS100: Missing directory
 
@@ -98,7 +100,7 @@ Azure AD DS requires an active subscription, and can't be moved to a different s
 
 ### Resolution
 
-Azure AD DS requires an active subscription. If the Azure subscription that the Azure AD DS managed domain was associated with isn't active, you must renew it to reactive the subscription.
+Azure AD DS requires an active subscription. If the Azure subscription that the Azure AD DS managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
 1. [Renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Once the subscription is renewed, an Azure AD DS notification lets you re-enable the managed domain.
@@ -123,7 +125,7 @@ Azure AD DS requires an active subscription, and can't be moved to a different s
 
 ### Resolution
 
-Azure AD DS creates specific resources to function properly, such as public IP addresses, NICs, and a load balancer. If any of these resources are deleted, the managed domain is in an unsupported state and prevents the domain from being managed. For more information on these resources, see [Network resources used by Azure AD DS](network-considerations.md#network-resources-used-by-azuread-ds).
+Azure AD DS creates specific resources to function properly, such as public IP addresses, NICs, and a load balancer. If any of these resources are deleted, the managed domain is in an unsupported state and prevents the domain from being managed. For more information on these resources, see [Network resources used by Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 This alert is generated when one of these required resources is deleted. If the resource was deleted less than 4 hours ago, there is a chance that the Azure platform can automatically recreate the deleted resource. The following steps outline how to check the health status and timestamp for resource deletion:
 
@@ -144,7 +146,7 @@ This alert is generated when one of these required resources is deleted. If the 
 
 The virtual network subnet for Azure AD DS needs sufficient IP addresses for the automatically created resources. This IP address space includes the need to create replacement resources if there's a maintenance event. To minimize the risk of running out of available IP addresses, don't deploy additional resources, such as your own VMs, into the same virtual network subnet as Azure AD DS.
 
-This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it in your new directory. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 ## AADDS111: Service principal unauthorized
 
@@ -172,7 +174,7 @@ The virtual network subnet for Azure AD DS needs sufficient IP addresses for the
 To resolve this alert, delete your existing Azure AD DS managed domain and re-create it in a virtual network with a large enough IP address range. This process is disruptive as the Azure AD DS managed domain is unavailable and any custom resources you've created like OUs or service accounts are lost.
 
 1. [Delete the Azure AD DS managed domain](delete-aadds.md) from your directory.
-1. To update the virtual network IP address range, search for and select *Virtual network* in the Azure portal. Select the virtual network for Azure AD DS that incorrectly has a public IP address range set.
+1. To update the virtual network IP address range, search for and select *Virtual network* in the Azure portal. Select the virtual network for Azure AD DS that the small IP address range.
 1. Under **Settings**, select *Address Space*.
 1. Update the address range by choosing the existing address range and editing it, or adding an additional address range. Make sure the new IP address range is large enough for the Azure AD DS subnet range. When ready, **Save** the changes.
 1. Select **Subnets** in the left-hand navigation.
@@ -190,7 +192,7 @@ The Azure AD DS managed domain's health automatically updates itself within two 
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it in your new directory. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 ## AADDS114: Subnet invalid
 
@@ -200,7 +202,7 @@ This error is unrecoverable. To resolve the alert, [delete your existing Azure A
 
 ### Resolution
 
-This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it in your new directory. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
+This error is unrecoverable. To resolve the alert, [delete your existing Azure AD DS managed domain](delete-aadds.md) and recreate it. If you have trouble deleting the Azure AD DS managed domain, [open an Azure support request][azure-support] for additional troubleshooting assistance.
 
 ## AADDS115: Resources are locked
 
@@ -240,7 +242,7 @@ To check for applied policies on the Azure AD DS components and update them, com
 
 ### Resolution
 
-[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. Problems with the network configuration can block the synchronization from Azure AD. If you are able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed.
+[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. Problems with the network configuration can block the synchronization from Azure AD. If you're able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed.
 
 The following common reasons cause synchronization to stop in an Azure AD DS managed domains:
 
@@ -255,7 +257,7 @@ The following common reasons cause synchronization to stop in an Azure AD DS man
 
 ### Resolution
 
-[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. Problems with the network configuration can block the Azure platform from successfully taking backups. If you are able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed.
+[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. Problems with the network configuration can block the Azure platform from successfully taking backups. If you're able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed.
 
 ## AADDS503: Suspension due to disabled subscription
 
@@ -268,7 +270,7 @@ The following common reasons cause synchronization to stop in an Azure AD DS man
 > [!WARNING]
 > If an Azure AD DS managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
 
-Azure AD DS requires an active subscription. If the Azure subscription that the Azure AD DS managed domain was associated with isn't active, you must renew it to reactive the subscription.
+Azure AD DS requires an active subscription. If the Azure subscription that the Azure AD DS managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
 1. [Renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Once the subscription is renewed, an Azure AD DS notification lets you re-enable the managed domain.
@@ -286,7 +288,7 @@ When the managed domain is enabled again, the Azure AD DS managed domain's healt
 > [!WARNING]
 > If an Azure AD DS managed domain is suspended for an extended period of time, there's a danger of it being deleted. Resolve the reason for suspension as quickly as possible. For more information, see [Understand the suspended states for Azure AD DS](suspension.md).
 
-[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. If you are able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed. When ready, [open an Azure support request][azure-support] to re-enable the Azure AD DS managed domain.
+[Check the Azure AD DS health](check-health.md) for any alerts that indicate problems in the configuration of the managed domain. If you're able to resolve any alerts that indicate a configuration issue, wait two hours and check back to see if the synchronization has completed. When ready, [open an Azure support request][azure-support] to re-enable the Azure AD DS managed domain.
 
 ## Next steps
 
