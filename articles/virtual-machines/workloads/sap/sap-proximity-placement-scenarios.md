@@ -36,7 +36,7 @@ An Azure proximity placement group is a logical construct. When one is defined, 
 - All subsequent VMs deployed that reference the proximity placement group, to place all subsequently deployed Azure VMs in the same datacenter as the first virtual machine.
 
 > [!NOTE]
-> If there is no host hardware deployed that could run a specific VM type in the datacenter where the first VM was placed, the deployment of the requested VM type won’t succeed. You’ll get a failure message. This situation can occur with VMs that aren’t mainstream, like VMs with GPUs or HPC VM types, which should  be used with, for example, an M-Series VM that has been deployed as the first VM type.
+> If there is no host hardware deployed that could run a specific VM type in the datacenter where the first VM was placed, the deployment of the requested VM type won’t succeed. You’ll get a failure message.
 
 A single [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) can have multiple proximity placement groups assigned to it. But a proximity placement group can be assigned to only one Azure resource group.
 
