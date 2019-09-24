@@ -35,7 +35,7 @@ To subscribe to a feed:
 1. In the Connection Center, tap **+**, and then tap **Add Workspace**.
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
    - If you use a URL, use the one your admin gave you, normally https://rdweb.wvd.microsoft.com.
-   - To use email, enter your email address. This tells the client to search for an RD Web Access server associated with your email address if your admin configured the server that way.
+   - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
 3. Tap **Next**.
 4. Provide your credentials when prompted.
    - For **User name**, give the user name with permission to access resources.
