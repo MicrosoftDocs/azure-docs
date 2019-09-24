@@ -7,7 +7,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
+ms.date: 09/23/2019
 ---
 
 # Use external metadata stores in Azure HDInsight
@@ -71,6 +71,10 @@ Here are some general HDInsight Hive metastore best practices:
 Apache Oozie is a workflow coordination system that manages Hadoop jobs.  Oozie supports Hadoop jobs for Apache MapReduce, Pig, Hive, and others.  Oozie uses a metastore to store details about current and completed workflows. To increase performance when using Oozie, you can use Azure SQL Database as a custom metastore. The metastore can also provide access to Oozie job data after you delete your cluster.
 
 For instructions on creating an Oozie metastore with Azure SQL Database, see [Use Apache Oozie for workflows](hdinsight-use-oozie-linux-mac.md).
+
+## Custom Ambari DB
+
+
 
 ## Next steps
 
