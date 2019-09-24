@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/24/2019
 ms.author: ellacroi
 ---
 
@@ -239,6 +239,14 @@ Contact the publisher provider for all technical product support. Publisher cont
 Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption-based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are canceled and will not be billed past the current billing period. If a subscription is canceled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
 
 Customers must directly contact the publisher for any technical issues relating to their Marketplace service or purchase. Publisher contact information and/or a link to the support website can be found on their solution details page on Azure Marketplace.
+
+**How are license additions handled when increased mid-term?**
+
+Licenses added to an existing subscription are pro-rated for the remainder of the subscription duration.
+
+**How are license removals handled when mid-term?**
+
+Licenses that are cancelled will be subject to the refund policy found in this FAQ.  All licenses that are cancelled are immediately removed from your account and will no longer be available for use.
 
 ## FAQ for publishers
 
