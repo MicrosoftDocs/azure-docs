@@ -181,9 +181,9 @@ In the following example, the rate limit is keyed by the caller IP address.
 
 ### Elements
 
-| Name      | Description   | Required |
-| --------- | ------------- | -------- |
-| set-limit | Root element. | Yes      |
+| Name              | Description   | Required |
+| ----------------- | ------------- | -------- |
+| rate-limit-by-key | Root element. | Yes      |
 
 ### Attributes
 
