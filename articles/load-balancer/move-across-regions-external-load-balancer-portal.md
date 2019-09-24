@@ -22,7 +22,7 @@ Azure external load balancers can't be moved from one region to another. You can
 - Azure external load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
 
 - To export an external load balancer configuration and deploy a template to create an external load balancer in another region, you'll need the Network Contributor role or higher.
-   
+
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups,  public IPs, and virtual networks.
 
 - Verify that your Azure subscription allows you to create external load balancers in the target region that's used. Contact support to enable the required quota.
@@ -38,7 +38,7 @@ The following steps show how to prepare the external load balancer for the move 
 
 ### Export the public IP template and deploy from the portal
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source public IP and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
@@ -60,7 +60,7 @@ The following steps show how to prepare the external load balancer for the move 
 
     Click **Save** in the editor.
 
-9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
 10. To edit the target region where the public IP will be moved, change the **location** property under **resources**:
 
@@ -85,11 +85,11 @@ The following steps show how to prepare the external load balancer for the move 
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-    
+
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
@@ -130,17 +130,17 @@ The following steps show how to prepare the external load balancer for the move 
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Click **Save** in the online editor.
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target public IP will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name isn't the same as the source resource group of the existing source public IP. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name isn't the same as the source resource group of the existing source public IP.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the public IP to be deployed.
 
@@ -153,7 +153,7 @@ The following steps show how to prepare the external load balancer for the move 
 
 ### Export the external load balancer template and deploy from the Azure portal
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source external load balancer and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
@@ -175,8 +175,8 @@ The following steps show how to prepare the external load balancer for the move 
     ```
 
 6.  To edit value of the target public IP that was moved above, you must first obtain the resource ID and then copy and paste it into the **parameters.json** file. To obtain the ID:
-    
-    1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups** in another browser tab or window.
+
+    1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups** in another browser tab or window.
     2. Locate the target resource group that contains the moved public IP from the steps above, and click on it.
     3. Select > **Settings** > **Properties**.
     4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard.  Alternatively, you can click on the **copy to clipboard** button to the right of the **Resource ID** path.
@@ -196,7 +196,7 @@ The following steps show how to prepare the external load balancer for the move 
 
 		```
     6. Click **Save** in the online editor.
-   
+
 
 7.  If you have configured outbound NAT and outbound rules for the load balancer, a third entry will be present in this file for the external ID for the outbound public IP.  Repeat the steps above in the **target region** to obtain the ID for the outbound public IP and paste that entry into the **parameters.json** file:
 
@@ -206,15 +206,15 @@ The following steps show how to prepare the external load balancer for the move 
             "parameters": {
                 "loadBalancers_myLoadbalancer_ext_name": {
                 "value": "<target-external-lb-name>",
-                
+
             },
                 "publicIPAddresses_myPubIP_in_externalid": {
                 "value": "<target-publicIP-resource-ID>",
-                
+
             },
                 "publicIPAddresses_myPubIP_out_externalid": {
                 "defaultValue": "<target-publicIP-outbound-resource-ID>",
-                
+
             }
         },
     ```
@@ -238,7 +238,7 @@ The following steps show how to prepare the external load balancer for the move 
 10. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
 
 11. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
-    
+
     * **Sku** - You can change the sku of the external load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
 
         ```json
@@ -384,10 +384,10 @@ The following steps show how to prepare the external load balancer for the move 
          For more information on outbound rules, see [Load Balancer outbound rules](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)
 
 12. Click **Save** in the online editor.
-    
+
 13. Click **BASICS** > **Subscription** to choose the subscription where the target external load balancer will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target external load balancer or choose the existing resource group that was created above for the public IP.  Ensure the name isn't the same as the source resource group of the existing source external load balancer. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target external load balancer or choose the existing resource group that was created above for the public IP.  Ensure the name isn't the same as the source resource group of the existing source external load balancer.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the external load balancer to be deployed.
 
@@ -397,7 +397,7 @@ The following steps show how to prepare the external load balancer for the move 
 
 19. Click the **Purchase** button to deploy the target public IP.
 
-## Discard 
+## Discard
 
 If you wish to discard the target public IP and external load balancer, delete the resource group that contains the target public IP and external load balancer.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
