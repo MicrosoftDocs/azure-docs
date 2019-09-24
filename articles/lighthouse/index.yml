@@ -1,61 +1,103 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Lighthouse Documentation
+### YamlMime:Landing
+
+title: Azure Lighthouse documentation
+summary: Azure Lighthouse lets service providers manage Azure resources across all their customers with higher automation, scalability, and enhanced governance.
+
 metadata:
   title: Azure Lighthouse Documentation
   description: Learn how to manage customer resources at scale
-  author: JnHs
-  manager: carmonm
   ms.service: lighthouse
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07/11/2019
+  ms.collection: collection
+  author: JnHs
   ms.author: jenhayes
-abstract:
-  description: Azure Lighthouse offers service providers a single control plane to view and manage Azure across all their customers with higher automation, scale and enhanced governance. 
-sections:
-- title: Concepts
-  items:
-  - type: paragraph
-    text: Learn about key aspects of Azure Lighthouse.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="concepts/azure-delegated-resource-management">Azure delegated resource management</a>
-    - html: <a href="concepts/cross-tenant-management-experience">Cross-tenant management experiences</a>
-    - html: <a href="concepts/managed-services-offers">Managed Services offers in Azure Marketplace</a>
-    - html: <a href="concepts/recommended-security-practices.md">Recommended security practices</a>
-    - html: <a href="concepts/cloud-solution-provider.md">Cloud Solution Provider program considerations</a>
-- title: How-to guides
-  items:
-  - type: paragraph
-    text: Learn how to onboard customers for Azure delegated resource management and how to manage their resources.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="how-to/onboard-customer">Onboard a customer to Azure delegated resource management</a>
-    - html: <a href="how-to/publish-managed-services-offers">Publish Managed Services offers to Azure Marketplace</a>
-    - html: <a href="how-to/view-manage-customers">View and manage customers and delegated resources</a>
-    - html: <a href="how-to/view-manage-service-providers">View and manage service providers</a>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Review the samples and templates available to help you use Azure Lighthouse.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="samples/index">Samples index</a>
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Command-Line
-      html: <p><a href="https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest">Azure CLI</a></p><p><a href="https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ManagedServices">Azure SDK for .NET</a></p><p><a href="https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/">Azure SDK for .NET (NuGet)</a></p><p><a href="https://docs.microsoft.com/python/api/azure-mgmt-managedservices">Azure SDK for Python</a></p><p><a href="https://pypi.org/project/azure-mgmt-managedservices/">Azure SDK for Python (PyPi)</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/managedservices/">API Reference</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01">2019-06-01 (OpenAPI)</a></p>
+  ms.date: 09/19/2019
+  
+landingContent:
+  - title: About Azure Lighthouse
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Lighthouse?
+            url: ./overview.md
+      - linkListType: concept
+        links:
+          - text: Azure delegated resource management
+            url: ./concepts/azure-delegated-resource-management.md
+          - text: Cross-tenant management experiences
+            url: ./concepts/cross-tenant-management-experience.md
+
+  - title: Get started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Onboard a customer to Azure delegated resource management
+            url: ./how-to/onboard-customer.md
+      - linkListType: concept
+        links:
+          - text: Recommended security practices
+            url: ./concepts/recommended-security-practices.md
+          - text: Cloud Solution Provider program considerations
+            url: ./concepts/cloud-solution-provider.md
+
+  - title: Marketplace offers
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Managed Services offers in Azure Marketplace
+            url: ./concepts/managed-services-offers.md
+      - linkListType: how-to-guide
+        links:
+          - text: Publish Managed Services offers
+            url: ./how-to/publish-managed-services-offers.md
+
+  - title: Samples and templates
+    linkLists:
+      - linkListType: deploy
+        links:
+          - text: Azure Lighthouse samples repository (GitHub)
+            url: https://github.com/Azure/Azure-Lighthouse-samples/
+          - text: Index of Azure Lighthouse samples
+            url: ./samples/index.md
+
+  - title: Reference - Downloads
+    linkLists:
+      - linkListType: download
+        links:
+          - text: OpenAPI - 2019-06-01
+            url: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/stable/2019-06-01
+          - text: SDK for .NET - NuGet
+            url: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+          - text: SDK for Python - PyPi
+            url: https://pypi.org/project/azure-mgmt-managedservices/
+
+  - title: Reference - SDKs
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure PowerShell
+            url: /powershell/module/az.managedservices/
+          - text: Azure CLI
+            url: /cli/azure/managedservices
+          - text: REST
+            url: /rest/api/managedservices/
+          - text: .NET
+            url: /dotnet/api/Microsoft.Azure.Management.ManagedServices
+          - text: Python
+            url: /python/api/azure-mgmt-managedservices
+  
+  - title: Azure portal experiences
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: View and manage customers
+            url: ./how-to/view-manage-customers.md
+          - text: View and manage service providers
+            url: ./how-to/view-manage-service-providers.md
+
+  - title: Get involved
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Request product features
+            url: https://feedback.azure.com/forums/922753

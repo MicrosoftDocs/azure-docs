@@ -3,18 +3,16 @@ title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
+ms.date: 03/20/2019
+ms.author: memildin
 
 ---
 # Integrate security solutions in Azure Security Center

@@ -22,7 +22,7 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 - To export a virtual network and deploy a template to create a virtual network in another region, you'll need the Network Contributor role or higher.
 
 - Virtual network peerings won't be recreated and will fail if they're still present in the template.  You'll have to remove any virtual network peers before exporting the template and then re-establish the peers after the move of the virtual network.
-    
+
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
 - Verify that your Azure subscription allows you to create virtual networks in the target region that's used. Contact support to enable the required quota.
@@ -35,13 +35,13 @@ The following steps show how to prepare the virtual network for the move using a
 
 ### Export the template and deploy from the portal
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source virtual network and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 6. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -57,7 +57,7 @@ The following steps show how to prepare the virtual network for the move using a
 
 8.  Click **Save** in the editor.
 
-9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
 10. To edit the target region where the VNET will be moved, change the **location** property under **resources** in the online editor:
 
@@ -78,11 +78,11 @@ The following steps show how to prepare the virtual network for the move using a
                         },
 
     ```
- 
+
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
- 
+
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
-    
+
     * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
 
         ```json
@@ -174,7 +174,7 @@ The following steps show how to prepare the virtual network for the move using a
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target VNET will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the VNET to be deployed.
 
@@ -184,7 +184,7 @@ The following steps show how to prepare the virtual network for the move using a
 
 19. Click the **Purchase** button to deploy the target virtual network.
 
-## Discard 
+## Discard
 
 If you wish to discard the target virtual network, delete the resource group that contains the target virtual network.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 
