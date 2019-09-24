@@ -6,7 +6,7 @@ author: vhorne
 ms.service: web-application-firewall
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: victorh
 ---
 
@@ -16,7 +16,7 @@ This article answers common questions about Azure web application firewall (WAF)
 
 ## What is Azure WAF?
 
-Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
+Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting, and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
 
 An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door services.
 
@@ -26,7 +26,7 @@ Azure Front Door is a highly scalable, globally distributed application and cont
 
 ## Does Azure WAF support HTTPS?
 
-Front Door Service offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it is decrypted.
+Front Door Service offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it's decrypted.
 
 ## Does Azure WAF support IPv6?
 
@@ -46,7 +46,7 @@ When integrated with Front Door Service, WAF is a global resource. Same configur
  
 ## How do I limit access to my back-end to be from Front Door only?
 
-You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. In addition, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
+You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. Additionally, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
 
 ## Which Azure WAF options should I choose?
 
@@ -55,11 +55,19 @@ There are two options when applying WAF policies in Azure. WAF with Azure Front 
 
 ## Do you support same WAF features in all integrated platforms?
 
-Currently, ModSec CRS 2.2.9 and CRS 3.0 rules are only supported with WAF on Application Gateway. Rate-limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
+Currently, ModSec CRS 2.2.9, CRS 3.0, and CRS 3.1 rules are only supported with WAF on Application Gateway. Rate-limiting, geo-filtering, and Azure managed Default Rule Set rules are supported only with WAF on Azure Front Door.
 
 ## Is DDoS protection integrated with Front Door? 
 
-Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. 
+Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack.
+
+## Why do additional requests above the threshold configured for my rate limit rule get passed to my backend server?
+
+A rate limit rule can limit abnormally high traffic from any client IP address. You may configure a threshold on the number of web requests allowed from a client IP address during a one-minute or five-minute duration. For granular rate control, rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching. 
+
+Requests from the same client often arrive at the same Front Door server. In that case, you'll see additional requests above the threshold get blocked immediately. 
+
+However, it's possible that requests from the same client may arrive at a different Front Door server that has not refreshed the rate limit counter yet. For example, the client may open a new connection for each request and the threshold is low. In this case, the first request to the new Front Door server would pass rate limit check. A rate limit threshold is usually set high to defend against denial of service attacks from any client IP address. For a very low threshold, you may see additional requests above the threshold get through.
 
 ## Next steps
 
