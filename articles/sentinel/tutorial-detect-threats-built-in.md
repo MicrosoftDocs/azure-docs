@@ -39,7 +39,7 @@ To view all the out-of-the-box detections, go to **Analytics** and then **Rule 
 
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-This following template types are available:
+The following template types are available:
 
 - **Microsoft security** - Microsoft security templates automatically create Azure Sentinel incidents from the alerts generated in other Microsoft security solutions, in real time. You can use Microsoft security rules as a template to create new rules with similar logic. For more information about security rules, see [Automatically create incidents from Microsoft security alerts](create-incidents-from-alerts.md).
 - **Fusion** - Based on Fusion technology, advanced multistage attack detection in Azure Sentinel uses scalable machine learning algorithms that can correlate many low-fidelity alerts and events across multiple products into high-fidelity and actionable incidents. Fusion is enabled by default. Because the logic is hidden, you cannot use this as a template to create more than one rule.
