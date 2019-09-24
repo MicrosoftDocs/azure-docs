@@ -90,7 +90,7 @@ $bepoolin = New-AzLoadBalancerBackendAddressPoolConfig -Name bepoolinbound
 ``` 
 
 ### Create outbound backend pool
-Create an additional backend address pool to define outbound connectivity for a pool of VMs with [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0) named *bepooloutbound*.Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.  :
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0) named *bepooloutbound*. Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.  :
 
 ```azurepowershell-interactive
 $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
@@ -121,7 +121,7 @@ An outbound rule defines the frontend public IP, represented by the frontend *my
 ```azurepowershell-interactive
  $outboundRule = New-AzLoadBalancerOutBoundRuleConfig -Name outboundrule -FrontendIPConfiguration $frontendIPout -BackendAddressPool $bepoolout -Protocol All -IdleTimeoutInMinutes 15 -AllocatedOutboundPort 10000
 ```
-If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
+If you don't want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend using separate pools for flexibility and readability of the resulting configuration.
 
 ### Create load balancer
 
@@ -131,7 +131,7 @@ Create a load balancer with the inbound IP address using [New-AzLoadBalancer](ht
 New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutbound -Location eastus -FrontendIpConfiguration $frontendIPin,$frontendIPout -BackendAddressPool $bepoolin,$bepoolout -Probe $probe -LoadBalancingRule $inboundrule -OutboundRule $outboundrule 
 ```
 
-At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+At this point, you can continue with adding your VMs to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## Clean up resources
 
