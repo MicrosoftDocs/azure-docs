@@ -14,7 +14,7 @@ ms.author: noelc
 ROBOTS: NOINDEX
 ---
 
-# Project Acoustics Unity Integration
+# Project Acoustics Unity integration
 This article describes how to integrate the Project Acoustics Unity plug-in into your Unity project.
 
 Software requirements:
@@ -22,7 +22,7 @@ Software requirements:
 * [Project Acoustics Unity package](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## Import the plug-in
-1. Import the acoustics UnityPackage to your project. 
+1. Import the acoustics UnityPackage into your project. 
  In Unity, go to **Assets > Import Package > Custom Package**.
 
     ![The Unity Import Package menu](media/import-package.png)  
@@ -49,9 +49,9 @@ Project Acoustics includes audio runtime DSP that integrates into the Unity audi
 
 ![The Unity Spatializer settings panel with Project Acoustics spatializer selected](media/choose-spatializer.png)
 
-Next, open the Audio Mixer (**Window > Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
+Next, open the Audio Mixer (**Window > Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't have one, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
 
-![The Unity Audio Mixer hosting Project Acoustics mixer](media/audio-mixer.png)
+![The Unity Audio Mixer hosting the Project Acoustics mixer](media/audio-mixer.png)
 
 ## Enable acoustics on sound sources
 Create an audio source: Select the **Spatialize** checkbox at the bottom of the AudioSource's inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
