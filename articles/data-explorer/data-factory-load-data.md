@@ -16,7 +16,7 @@ ms.date: 04/15/2019
 
 Azure Data Explorer is a fast, fully managed, data-analytics service. It offers real-time analysis on large volumes of data that stream from many sources, such as applications, websites, and IoT devices. With Azure Data Explorer, you can iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. It helps you explore new questions and get answers in minutes. 
 
-Azure Data Factory is a fully managed, cloud-based, data-integration service. You can use it to populate your Azure Data Explorer database with data from your existing system. And it can help you save time when you're building analytics solutions.
+Azure Data Factory is a fully managed, cloud-based, data-integration service. You can use it to populate your Azure Data Explorer database with data from your existing system. It can help you save time when you're building analytics solutions.
 
 When you load data into Azure Data Explorer, Data Factory provides the following benefits:
 
@@ -47,22 +47,21 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
    ![Create a data factory in the Azure portal](media/data-factory-load-data/create-adf.png)
 
-1. In the **New data factory** pane, do the following:
+1. In the **New data factory** pane, provide values for the fields in the following table:
 
-    ![New data factory pane](media/data-factory-load-data/my-new-data-factory.png)
+   ![The "New data factory" pane](media/data-factory-load-data/my-new-data-factory.png)  
 
-    a. In the **Name** box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For naming rules for Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).
-
-    b. In the **Subscription** drop-down list, select your Azure subscription in which to create the data factory.
-    
-    c. Under **Resource Group**, select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**.
-
-    d. In the **Version** drop-down list, select **V2**.
-    
-    e. In the **Location** drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can be in other locations or regions.
+   | **Setting**  | **Value to enter**  |
+   |---|---|
+   | **Name** | In the box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For rules about naming Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
+   | **Subscription** | In the drop-down list, select the Azure subscription in which to create the data factory. |
+   | **Resource Group** | Select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**. |
+   | **Version** | In the drop-down list, select **V2**. |	
+   | **Location** | In the drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can exist in other locations or regions. |
 
 1. Select **Create**.
-1. To monitor the creation process, select **Notifications** on the toolbar. After the creation is complete, select the new data factory.
+
+1. To monitor the creation process, select **Notifications** on the toolbar. After you've created the data factory, select it.
    
    The **Data Factory** pane opens.
 
