@@ -3,6 +3,7 @@ title: Azure CLI Samples for Azure Cosmos DB Gremlin API
 description: Azure CLI Samples for Azure Cosmos DB Gremlin API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown

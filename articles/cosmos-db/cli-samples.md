@@ -3,6 +3,7 @@ title: Azure CLI Samples for Azure Cosmos DB SQL (Core) API
 description: Azure CLI Samples for Azure Cosmos DB SQL (Core) API 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ms.author: mjbrown

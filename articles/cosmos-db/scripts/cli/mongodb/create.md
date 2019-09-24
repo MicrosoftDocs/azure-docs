@@ -4,6 +4,7 @@ description: Create a database and collection for MongoDB API for Azure Cosmos D
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: sample
 ms.date: 9/25/2019
 ---

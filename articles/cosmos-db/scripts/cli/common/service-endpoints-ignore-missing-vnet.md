@@ -4,6 +4,7 @@ description: Connect an existing Azure Cosmos Account with Virtual Network Servi
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ---
