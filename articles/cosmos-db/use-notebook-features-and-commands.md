@@ -1,5 +1,5 @@
 ---
-title: Enable notebooks in the Azure Cosmos DB account
+title: Use built-in notebook commands and features
 description: Azure Cosmos DB's built-in notebooks enable you to analyze and visualize your data from within the Portal. This article describes how to use built-in commands and features to do common operations. 
 author: deborahc
 ms.service: cosmos-db
