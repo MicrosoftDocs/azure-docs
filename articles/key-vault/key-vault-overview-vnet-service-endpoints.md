@@ -4,7 +4,7 @@ description: Overview of virtual network service endpoints for Key Vault
 services: key-vault
 author: amitbapat
 ms.author: ambapat
-manager: barbkess
+manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
@@ -54,7 +54,7 @@ For more information, see [Configure Azure Key Vault firewalls and virtual netwo
 
 Here's a list of trusted services that are allowed to access a key vault if the **Allow trusted services** option is enabled.
 
-|Trusted service|Usage scenarios|
+|Trusted service|Supported usage scenarios|
 | --- | --- |
 |Azure Virtual Machines deployment service|[Deploy certificates to VMs from customer-managed Key Vault](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
 |Azure Resource Manager template deployment service|[Pass secure values during deployment](../azure-resource-manager/resource-manager-keyvault-parameter.md).|

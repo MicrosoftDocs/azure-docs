@@ -4,7 +4,7 @@ description: Learn how to troubleshoot point-to-site connection problems.
 services: vpn-gateway
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 
@@ -43,8 +43,7 @@ To resolve this problem, follow these steps:
     | Certificate | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Current User\Personal\Certificates |
-    | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
-    | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
+    | AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
 3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
@@ -80,7 +79,7 @@ To prepare Windows 10 or Server 2016 for IKEv2:
    | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
+2. Set the registry key value. Create or set `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD key in the registry to 1.
 
 ## VPN client error: The message received was unexpected or badly formatted
 
@@ -377,7 +376,7 @@ This is caused by an incorrect gateway type is configured.
 
 The Azure VPN gateway type must be VPN and the VPN type must be **RouteBased**.
 
-## VPN package installer doesn’t complete
+## VPN package installer doesn't complete
 
 ### Cause
 

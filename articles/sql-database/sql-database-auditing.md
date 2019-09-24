@@ -90,6 +90,9 @@ The following section describes the configuration of auditing using the Azure po
 
 6. To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. The old logs will be deleted. Then click **OK**.
 
+   > [!IMPORTANT]
+   > The default value for retention period is 0 (unlimited retention). You can change this value by moving the **Retention (Days)** slider in **Storage settings** when configuring the storage account for auditing.
+
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
@@ -196,8 +199,6 @@ With geo-replicated databases, when you enable auditing on the primary database 
 
     >[!IMPORTANT]
     >With database-level auditing, the storage settings for the secondary database will be identical to those of the primary database, causing cross-regional traffic. We recommend that you enable only server-level auditing, and leave the database-level auditing disabled for all databases.
-    > [!WARNING]
-    > Using event hub or Azure Monitor logs as targets for audit logs at the server level is currently not supported for secondary geo-replicated databases.
 
 ### <a id="subheading-6">Storage key regeneration</a>
 

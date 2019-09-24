@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 09/06/2019
 ms.author: diberry
 ---
 
@@ -96,7 +96,7 @@ In order to develop the web app bot code, download the code and use on your loca
 
     [![Download web app bot source code for basic bot](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**.
+1. When the pop-up dialog asks **Include app settings in the downloaded zip file?**, select **Yes**. This provides the LUIS settings. 
 
 1. When the source code is zipped, a message will provide a link to download the code. Select the link. 
 
@@ -129,6 +129,13 @@ In order to develop the web app bot code, download the code and use on your loca
 
     ````javascript
     class MainDialog extends ComponentDialog {
+
+        constructor(luisRecognizer, bookingDialog) {
+            ...
+            this.luisRecognizer = luisRecognizer;
+            ...
+        }
+
 
         ...
 
@@ -180,40 +187,6 @@ In order to develop the web app bot code, download the code and use on your loca
 
     }
     ````
-
-
-## Install dependencies and start the bot code in Visual Studio
-
-1. In VSCode, from the integrated terminal, install dependencies with the command `npm install`.
-1. Also from the integrated terminal, start the bot with the command `npm start`. This begins a web app for your bot with an HTTP endpoint. The console provides the URL and port number to access the running website. You need the port number in the next section of this tutorial.
-
-    ```console
-    > core-bot@1.0.0 start C:\Users\diberry\repos\bots\2019-bot-nodejs-basic
-    > node ./index.js
-    
-    
-    restify listening to http://[::]:3978
-    
-    Get Bot Framework Emulator: https://aka.ms/botframework-emulator
-    ```
-
-## Create an environment file and add LUIS values
-
-The bot emulator needs access to your LUIS resource in order to provide detailed LUIS results.
-
-1. In the root of the project, create a file named `.env` and add the following environment variables:
-
-    ```console
-    LuisAppId= 
-    LuisAPIKey=
-    LuisAPIHostName=
-    ```
-
-1. From the Azure portal, for your bot resource, open the App Service's Configuration Settings for the application.
-1. Open **Advanced edit**, to see the value for each setting.
-
-    ![Open **Advanced edit**, to see the value for each setting.](./media/bfv4-nodejs/environment-settings-for-luis-app.png)
-
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
 ## Use the bot emulator to test the bot
@@ -222,6 +195,7 @@ Ask bot a question for the Book Flight intent.
 
 1. Begin the Bot Emulator and select **Open Bot**.
 1. In the **Open a bot** pop-up dialog, enter your bot URL, such as `http://localhost:3978/api/messages`. The `/api/messages` route is the web address for the bot.
+1. Enter the **Microsoft App ID** and **Microsoft App password**, found in the **.env** file in the root of the bot code you downloaded.
 
 1. In the bot emulator, enter `Book a flight from Seattle to Berlin tomorrow` and get the same response for the basic bot as you received in the **Test in Web Chat**.
 

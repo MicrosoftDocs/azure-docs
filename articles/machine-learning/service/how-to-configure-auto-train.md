@@ -1,6 +1,6 @@
 ---
 title: Create automated ML experiments
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Automated machine learning picks an algorithm for you and generates a model ready for deployment. Learn the options that you can use to configure automated machine learning experiments.
 author: nacharya1
 ms.author: nilesha
@@ -29,7 +29,7 @@ Configuration options available in automated machine learning:
 * Explore model metrics
 * Register and deploy model
 
-If you prefer a no code experience, you can also [Create your automated machine learning experiments in the Azure portal](how-to-create-portal-experiments.md).
+If you prefer a no code experience, you can also [Create your automated machine learning experiments in Azure portal](how-to-create-portal-experiments.md).
 
 ## Select your experiment type
 
@@ -197,7 +197,7 @@ Some examples include:
         n_cross_validations=5)
     ```
 
-The three different `task` parameter values determine the list of algorithms to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available algorithms to include or exclude. The list of supported models can be found on [SupportedAlgorithms Class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
+The three different `task` parameter values determine the list of models to apply.  Use the `whitelist` or `blacklist` parameters to further modify iterations with the available models to include or exclude. The list of supported models can be found on [SupportedModels Class](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py).
 
 ### Primary Metric
 The primary metric; as shown in the examples above determines the metric to be used during model training for optimization. The primary metric you can select is determined by the task type you choose. Below is a list of available metrics.
@@ -551,13 +551,13 @@ There are two ways to generate feature importance.
     print(per_class_summary)
     ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. Display the URL using the run object:
+Display the URL to view feature importance using the run object:
 
 ```
 automl_run.get_portal_url()
 ```
 
-You can visualize the feature importance chart in your workspace in the Azure portal. The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
+You can visualize the feature importance chart in your workspace in the Azure portal or from your [workspace landing page (preview)](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
 
 ```Python
 from azureml.widgets import RunDetails
