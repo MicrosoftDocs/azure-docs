@@ -14,7 +14,7 @@ ms.author: helohr
 > Applies to: iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 >[!NOTE]
-> The ability to access Windows Virtual Desktop resources from the iOS client is currently available in preview. 
+> The iOS client is currently still in preview.
 
 You can access Windows Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 
