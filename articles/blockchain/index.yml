@@ -13,7 +13,7 @@ metadata:
 
   author: PatAltimore
   ms.author: patricka
-  ms.date: 09/05/2019 
+  ms.date: 09/24/2019 
 
 productDirectory:
   items:
@@ -23,45 +23,45 @@ productDirectory:
         - url: ./service/overview.md
           text: What is Azure Blockchain Service?
         - url: https://docs.microsoft.com/azure/blockchain/service
-          text: See more >
+          text: Documentation >
     - title: Azure Blockchain Workbench Preview
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
           text: What is Azure Blockchain Workbench?
         - url: https://docs.microsoft.com/azure/blockchain/workbench
-          text: See more >
+          text: Documentation >
 conceptualContent:
   title: Get started
   items:
     - title: Azure Blockchain Service
       links:
-        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
-          itemType: video
-          text: Watch how to deploy and configure your network
         - url: ./service/create-member.md
           itemType: quickstart
           text: Deploy an Azure Blockchain Service blockchain member
-        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
-          itemType: video
-          text: Watch how to write a smart contract with VS Code
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-I-Deploy-and-configure-your-network
         - url: ./service/send-transaction.md
           itemType: tutorial
           text: Follow a tutorial and write a smart contract
+          itemType: video
+          text: Watch how to deploy and configure your network
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
+          itemType: video
+          text: Watch how to write a smart contract with VS Code
     - title: Azure Blockchain Workbench
       links:
         - url: ./workbench/deploy.md
           itemType: how-to-guide
           text: Deploy an Azure Blockchain Workbench
-        - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
-          itemType: video
-          text: Watch how to build your first application
         - url: ./workbench/create-app.md
           itemType: tutorial
           text: Follow a tutorial and build a Blockchain Workbench application
         - url: ./workbench/integration-patterns.md
           itemType: concept
           text: Learn how to integrate solutions with Blockchain Workbench
+        - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
+          itemType: video
+          text: Watch how to build your first application
     - title: Solution templates
       links:
         - url: ./templates/ethereum-poa-deployment.md
