@@ -36,10 +36,11 @@ Use the classic (bulk) ingestion instead of streaming ingestion when the amount 
  
 1. In the [Web UI](https://dataexplorer.azure.com/), define [streaming ingestion policy](/azure/kusto/concepts/streamingingestionpolicy) on table(s) or database(s) that will receive streaming data. 
 
-    > [!TIP]
-    > If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
+    > [!NOTE]
+    > * If the policy is defined at the database level, all tables in the database are enabled for streaming ingestion.
+    > * The applied policy can reference only newly ingested data and not other tables in the database.
 
-## Supported streaming ingestion types
+## Use streaming ingestion to ingest data to your cluster
 
 There are two supported streaming ingestion types:
 
@@ -67,7 +68,7 @@ There are two supported streaming ingestion types:
 
 ## Limitations
 
-* Streaming ingestion performance and capacity scales with increased VM and cluster sizes. For a single D11 node, the recommended load is up to 20 requests per second. For a single D14 node, the recommended load is up to 150 requests per second.
+* Streaming ingestion performance and capacity scales with increased VM and cluster sizes. For a single D14 node, the recommended load is up to 150 requests per second.
 * Currently, support is only for 8 and 16 core SKUs (D13, D14, L8, and L16).
 * The data size limitation per ingestion request is 4 MB.
 * Schema updates, such as creation and modification of tables and ingestion mappings, may take up to 5 minutes for the streaming ingestion service.

@@ -1,7 +1,7 @@
 ---
 title: Access data in Azure storage services
-titleSuffix: Azure Machine Learning service
-description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Learn how to use datastores to access Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -145,7 +145,8 @@ The `target_path` parameter is the location of the local directory to download t
 <a name="train"></a>
 ## Access your data during training
 
-To access data during training, you can either download or mount your data from your Azure storage services to the compute target via datastores.
+> [!IMPORTANT]
+> Using [Azure Machine Learning datasets (preview)](how-to-create-register-datasets.md) is the new recommended way to access your data in training. Datasets provide functions that load tabular data into pandas or spark DataFrame, and the ability to download or mount files of any format from Azure Blob, Azure File, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Learn more about [how to train with datasets](how-to-train-with-datasets.md).
 
 The following table lists the methods that tell the compute target how to use the datastores during runs. 
 
@@ -230,7 +231,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 ## Access data during scoring
 
-The Azure Machine Learning service provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
+Azure Machine Learning provides several ways to use your models for scoring. Some of these methods do not provide access to datastores. Use the following table to understand which methods allow you to access datastores during scoring:
 
 | Method | Datastore access | Description |
 | ----- | :-----: | ----- |

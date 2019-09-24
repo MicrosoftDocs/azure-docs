@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using Node.js to call the Text Analytics API'
+title: 'Quickstart: Use Node.js to call the Text Analytics REST API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
@@ -11,6 +11,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: aahi
+ms.custom: seo-javascript-september2019
 ---
 # Quickstart: Using Node.js to call the Text Analytics Cognitive Service  
 <a name="HOLTop"></a>

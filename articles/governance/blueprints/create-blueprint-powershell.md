@@ -25,6 +25,11 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+## Prerequisites
+
+If it isn't already installed, follow the instructions in [Add the Az.Blueprint module](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)
+to install and validate the **Az.Blueprint** module from the PowerShell Gallery.
+
 ## Create a blueprint
 
 The first step in defining a standard pattern for compliance is to compose a blueprint from the

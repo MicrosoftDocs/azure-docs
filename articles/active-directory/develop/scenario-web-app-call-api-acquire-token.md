@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write a Web app that calls web APIs using the Microsoft identity platform for developers.
@@ -21,14 +21,14 @@ ms.collection: M365-identity-device-management
 
 # Web app that calls web APIs - acquire a token for the app
 
-Now you have built you client application object, you'll use it to acquire a token that you'll then use to call a web APIs. In ASP.NET or ASP.NET Core, calling a web API is then done in controller. It's about:
+Now that you have built you client application object, you'll use it to acquire a token to call a web API. In ASP.NET or ASP.NET Core, calling a web API is then done in the controller. It's about:
 
-- Getting a token for the web API using the token cache. For this, you call `AcquireTokenSilent`
-- Calling the protected API with the access token
+- Getting a token for the web API using the token cache. To get this token, you call `AcquireTokenSilent`.
+- Calling the protected API with the access token.
 
 ## ASP.NET Core
 
-The controller methods are protected by an `[Authorize]` attribute that forces users from being authenticated to use the Web App. Here is the code that calls Microsoft Graph
+The controller methods are protected by an `[Authorize]` attribute that forces users being authenticated to use the Web App. Here is the code that calls Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -66,23 +66,23 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-If you want to understand in details the total of the code required for this scenario, see the phase 2 [2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial
+To understand more thoroughly the code required for this scenario, see the phase 2 ([2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph)) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial.
 
-There are numerous additional complexities such as:
+There are many additional complexities, such as:
 
-- implementing a token cache for the Web App (the tutorial present several implementations)
-- Removing the account from the cache when the user signs-out
+- Implementing a token cache for the Web App (the tutorial presents several implementations)
+- Removing the account from the cache when the user signs out
 - Calling several APIs, including having incremental consent
 
 ## ASP.NET
 
 Things are similar in ASP.NET:
 
-- A controller action protected by an [Authorize] attribute, will extract the tenant ID and user ID of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`)
-- from there it builds an MSAL.NET `IConfidentialClientApplication`
-- IT call the `AcquireTokenSilent` method of the confidential client application 
+- A controller action protected by an [Authorize] attribute extracts the tenant ID and user ID of the `ClaimsPrincipal` member of the controller. (ASP.NET uses `HttpContext.User`.)
+- From there, it builds an MSAL.NET `IConfidentialClientApplication`.
+- Finally, it calls the `AcquireTokenSilent` method of the confidential client application.
 
-the code is similar to the code shown for ASP.NET Core
+The code is similar to the code shown for ASP.NET Core.
 
 ## Next steps
 
