@@ -16,27 +16,27 @@ ms.date: 04/15/2019
 
 Azure Data Explorer is a fast, fully managed, data-analytics service. It offers real-time analysis on large volumes of data that stream from many sources, such as applications, websites, and IoT devices. With Azure Data Explorer, you can iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. It helps you explore new questions and get answers in minutes. 
 
-Azure Data Factory is a fully managed, cloud-based, data-integration service. You can use it to populate your Azure Data Explorer database with data from your existing system. And it can help you save time when you're building analytics solutions.
+Azure Data Factory is a fully managed, cloud-based, data-integration service. You can use it to populate your Azure Data Explorer database with data from your existing system. It can help you save time when you're building analytics solutions.
 
 When you load data into Azure Data Explorer, Data Factory provides the following benefits:
 
 * **Easy setup**: Get an intuitive, five-step wizard with no scripting required.
 * **Rich data store support**: Get built-in support for a rich set of on-premises and cloud-based data stores. For a detailed list, see the table of [Supported data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
-* **Secure and compliant**: Data is transferred over HTTPS or ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
-* **High performance**: Get a data-loading speed of up to 1 gigabyte per second (GBps) into Azure Data Explorer. For more information, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
+* **Secure and compliant**: Data is transferred over HTTPS or Azure ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
+* **High performance**: The data-loading speed is up to 1 gigabyte per second (GBps) into Azure Data Explorer. For more information, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
 
 In this article, you use the Data Factory Copy Data tool to load data from Amazon Simple Storage Service (S3) into Azure Data Explorer. You can follow a similar process to copy data from other data stores, such as:
-* [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage)
+* [Azure Blob storage](/azure/data-factory/connector-azure-blob-storage)
 * [Azure SQL Database](/azure/data-factory/connector-azure-sql-database)
 * [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse)
 * [Google BigQuery](/azure/data-factory/connector-google-bigquery)
 * [Oracle](/azure/data-factory/connector-oracle)
-* [File system](/azure/data-factory/connector-file-system).
+* [File system](/azure/data-factory/connector-file-system)
 
 ## Prerequisites
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
-* [An Azure Data Explorer cluster and database].(create-cluster-database-portal.md)
+* [An Azure Data Explorer cluster and database](create-cluster-database-portal.md).
 * A source of data.
 
 ## Create a data factory
@@ -47,22 +47,21 @@ In this article, you use the Data Factory Copy Data tool to load data from Amazo
 
    ![Create a data factory in the Azure portal](media/data-factory-load-data/create-adf.png)
 
-1. In the **New data factory** pane, do the following
+1. In the **New data factory** pane, provide values for the fields in the following table:
 
-    ![New data factory pane](media/data-factory-load-data/my-new-data-factory.png)
+   ![The "New data factory" pane](media/data-factory-load-data/my-new-data-factory.png)  
 
-    a. In the **Name** box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For naming rules for Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).
-
-    b. In the **Subscription** drop-down list, select your Azure subscription in which to create the data factory.
-    
-    c. Under **Resource Group**, select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**.
-
-    d. In the **Version** drop-down list, select **V2**.
-    
-    e. In the **Location** drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can be in other locations or regions.
+   | Setting  | Value to enter  |
+   |---|---|
+   | **Name** | In the box, enter a globally unique name for your data factory. If you receive an error, *Data factory name \"LoadADXDemo\" is not available*, enter a different name for the data factory. For rules about naming Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
+   | **Subscription** | In the drop-down list, select the Azure subscription in which to create the data factory. |
+   | **Resource Group** | Select **Create new**, and then enter the name of a new resource group. If you already have a resource group, select **Use existing**. |
+   | **Version** | In the drop-down list, select **V2**. |	
+   | **Location** | In the drop-down list, select the location for the data factory. Only supported locations are displayed in the list. The data stores that are used by the data factory can exist in other locations or regions. |
 
 1. Select **Create**.
-1. To monitor the creation process, select **Notifications** on the toolbar. After the creation is complete, select the new data factory.
+
+1. To monitor the creation process, select **Notifications** on the toolbar. After you've created the data factory, select it.
    
    The **Data Factory** pane opens.
 
@@ -76,7 +75,7 @@ You can load data from many types of [data stores](/azure/data-factory/copy-acti
 
 You can load your data in either of the following ways:
 
-* In Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
+* In the Azure Data Factory user interface, in the left pane, select the **Author** icon, as shown in the "Create a data factory" section of [Create a data factory by using the Azure Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory).
 * In the Azure Data Factory Copy Data tool, as shown in [Use the Copy Data tool to copy data](/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ### Copy data from Amazon S3 (source)
@@ -93,7 +92,7 @@ You can load your data in either of the following ways:
 
     ![The Copy Data "Source data store" pane](media/data-factory-load-data/source-create-connection.png)
 
-1. Select **Amazon S3**, and then select **Continue**
+1. Select **Amazon S3**, and then select **Continue**.
 
     ![The New Linked Service pane](media/data-factory-load-data/amazons3-select-new-linked-service.png)
 
@@ -135,6 +134,8 @@ You can load your data in either of the following ways:
 ### Copy data into Azure Data Explorer (destination)
 
 The new Azure Data Explorer linked service is created to copy the data into the Azure Data Explorer destination table (sink) that's specified in this section.
+
+#### Create the Azure Data Explorer linked service
 
 To create the Azure Data Explorer linked service, do the following;
 
@@ -233,7 +234,5 @@ After you've created the linked service connection, the **Destination data store
 ## Next steps
 
 * Learn about the [Azure Data Explorer connector](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
-
 * Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal).
-
 * Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
