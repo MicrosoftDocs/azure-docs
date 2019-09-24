@@ -4,7 +4,7 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/12/2019
+ms.date: 09/25/2019
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -83,7 +83,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
-The following rule groups and rules are available when using Application Gateway with web application firewall.
+The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
 # [OWASP 3.1](#tab/owasp31)
 
@@ -508,6 +508,7 @@ The following rule groups and rules are available when using Application Gateway
 |942270|Looking for basic sql injection. Common attack string for mysql oracle and others.|
 |942290|Finds basic MongoDB SQL injection attempts|
 |942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/2|
 |942340|Detects basic SQL authentication bypass attempts 3/3|
