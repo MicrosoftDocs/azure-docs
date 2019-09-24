@@ -69,7 +69,7 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Windows Defender ATP
+  - name: Server protection with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Advanced data security for SQL on Azure VMs (Public Preview)
     href: security-center-iaas-advanced-data.md
