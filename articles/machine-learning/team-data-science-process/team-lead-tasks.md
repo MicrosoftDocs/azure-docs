@@ -235,7 +235,7 @@ If you want to work with repositories locally and push your changes up to the sh
    git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
    ```
    
-   **SSH connection:
+   **SSH connection:**
    
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
@@ -256,10 +256,10 @@ git push
 > [!NOTE]
 > If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 > 
-> *git config --global user.name \<your name>*
-> *git config --global user.email \<your email address>*
+> `git config --global user.name <your name>`
+> `git config --global user.email \<your email address>`
 > 
-> If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when you build Power BI dashboards to track your Git activities in multiple repositories.
+> If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when building Power BI dashboards to track your Git activities in multiple repositories.
 
 ## Create team data and analytics resources
 
