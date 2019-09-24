@@ -40,7 +40,7 @@ Cache capacity is measured in input/output operations per second (IOPS). Choose 
 
 Choose one of the available throughput values and cache storage sizes. The IOPS capacity is calculated and shown below the value selectors.
 
-Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The value you choose sets the maximum throughput for the entire cache, and not all of it is available for client requests. For example, if a client requests a file that isn't already stored in the cache, or if the file it is marked as stale, your cache uses some of its throughput to fetch it from backend storage.
+Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The value you choose sets the maximum throughput for the entire cache, and not all of it is available for client requests. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from backend storage.
 
 Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. The cache contents are continuously assessed and files are moved to long-term storage when they are less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files with additional space for metadata and other overhead.
 
