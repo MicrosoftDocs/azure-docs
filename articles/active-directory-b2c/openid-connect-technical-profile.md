@@ -94,7 +94,7 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect Uri
 
-When you configure the redirect URI of your identity provider, enter `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{tenant}` with your tenant's name (for example, contosob2c.onmicrosoft.com) or the tenant's ID. The redirect URI needs to be in all lowercase.
+When you configure the redirect URI of your identity provider, enter `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Make sure to replace `{your-tenant-name}` with your tenant's name. The redirect URI needs to be in all lowercase.
 
 Examples:
 
