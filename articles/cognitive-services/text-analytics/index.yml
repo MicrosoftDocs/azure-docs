@@ -46,9 +46,9 @@ landingContent:
         - text: Using Node.js
           url: quickstarts/nodejs-sdk.md#sentiment-analysis   
         - text: Using Go   
-          url: quickstarts/go.md#sentiment-analysis    
+          url: quickstarts/go-sdk.md#sentiment-analysis    
         - text: Using Ruby   
-          url: quickstarts/ruby.md#sentiment-analysis  
+          url: quickstarts/ruby-sdk.md#sentiment-analysis  
     - linkListType: tutorial
       links:
         - text: Integrate Power BI to analyze customer sentiment
