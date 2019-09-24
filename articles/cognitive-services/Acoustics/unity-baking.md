@@ -74,7 +74,7 @@ If you have something selected in your scene or hierarchy window, it looks like 
 
 ![The Acoustics Objects tab with selections](media/objects-tab-selection-detail.png)
 
-If some objects are marked and some aren't, the appropriate checkbox show a "mixed" value, like the following picture.
+If some objects are marked and some aren't, the appropriate checkboxes show a "mixed" value, like the following picture.
 
 ![The Acoustics Objects tab with a mixed selection of icons highlighted](media/mixed-object-selection-detail.png)
 
@@ -108,7 +108,7 @@ After you assign the materials, switch to the **Probes** tab. Select **Calculate
 ### What the "Calculate" button calculates
 The **Calculate** button uses your selected acoustic scene geometry to prepare your scene for simulation:
 
-- It takes the geometry from the scene meshes and calculates a *voxel volume*. The voxel volume is a volume of your entire scene that's comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
+- It takes the geometry from the scene meshes and calculates a *voxel volume*. The voxel volume is a volume of your entire scene comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
 - It uses the navigation meshes to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size. It aims to ensure that narrow corridors and small spaces always have some coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
 
 Depending on the size of your scene and the speed of your machine, these calculations can take several minutes.
@@ -142,7 +142,7 @@ The scene name is used to connect the scene to files that store the probe point 
 6. After the probes are calculated, the controls that we just described are disabled. Select the **Clear** button to erase the calculations and enable the controls so you can recalculate with new settings.
 7. Select **Calculate** to voxelize the scene and calculate the probe point locations. Calculation is done locally on your machine. It must be done before doing a bake.
 
-In this version of Project Acoustics, probes can't be placed manually. You have to use the automated process on the **Probes** tab.
+In this version of Project Acoustics, probes can't be placed manually. Use the automated process on the **Probes** tab.
 
 For more information about coarse versus fine resolution, see [Bake resolution](bake-resolution.md) .
 
@@ -155,13 +155,13 @@ You can bake your scene on a compute cluster in the cloud by using the Azure Bat
 1. The **Bake** button displays this tab.
 2. A brief description of what you can do on this page.
 3. Enter your Azure credentials in these fields, after your Azure account is created. For more information, see [Create an Azure Batch account](create-azure-account.md).
-4. The Docker image tag field for the acoustics toolset.
+4. The Docker image tag field for the Acoustics toolset.
 5. Launch the Azure portal to manage your subscriptions, monitor usage and view billing information, and so on.
 6. Specify the Azure batch compute node type to use for calculation. The node type must be supported by your Azure data center location. If you're not sure, leave as *Standard_F8s_v2*.
 7. The number of nodes to use for the calculation. This number affects the bake time. It's limited by your Azure Batch core allocation. The default allocation only allows for two 8-core nodes or one 16-core node, but it can be expanded. For more information about core allocation constraints, see [Create an Azure Batch account](create-azure-account.md).
 8. Select this checkbox to configure your compute pool to use [low-priority nodes](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Low-priority compute nodes have much lower cost. But they may not always be available or may be preempted at any time.
-9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that need to be run in the cloud. You can't specify more nodes than there are probes.
-10. An estimate of the time that your job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows about how long until you get back the results.
+9. The probe count for your scene as calculated on the **Probes** tab. The number of probes determines the number of simulations that have to be run in the cloud. You can't specify more nodes than there are probes.
+10. An estimate of the time that your job will take to run in the cloud. It doesn't include node startup time. After the job starts running, this field shows an estimate of how long until you get back the results.
 11. The total amount of computing time needed to run the simulations. This value is the total amount of node compute time that will be used in Azure. For more information, see [Estimate Azure bake cost](#Estimating-bake-cost) later in this article.
 12. This message tells you where the results of the bake will be saved when the job is finished.
 13. *(Advanced use only:)* This button forces Unity to forget about a bake that you submitted. For example, if you downloaded the results by using another machine, select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *Note that this is not the same as canceling the job. The job, if running, will continue to run in the cloud.*
@@ -179,17 +179,17 @@ For security, the Azure credentials are stored on your local machine and associa
 
 ## To find the status of a running job on the Azure portal
 
-1. Find the bake job ID on the bake tab.
+1. Find the bake job ID on the **Bake** tab.
 
-    ![Unity bake job ID](media/unity-job-id.png)  
+    ![The Unity bake job ID highlighted on the Bake tab](media/unity-job-id.png)  
 
 2. Open the [Azure portal](https://portal.azure.com), navigate to the Batch account that was used for the bake, and select **Jobs**.
 
-    ![The Jobs link](media/azure-batch-jobs.png)  
+    ![The Jobs link in the Azure portal](media/azure-batch-jobs.png)  
 
-3. Search for the job ID in the list of jobs
+3. Search for the job ID in the list of jobs.
 
-   ![Bake job status](media/azure-bake-job-status.png)  
+   ![Bake job status highlighted in the Azure portal](media/azure-bake-job-status.png)  
 
 4. Select the job ID to see the status of the related tasks and the overall job status.
 
@@ -198,14 +198,14 @@ For security, the Azure credentials are stored on your local machine and associa
 
 ### <a name="Estimating-bake-cost"></a> Estimate Azure bake cost
 
-To estimate what a bake will cost, take the **Estimated Compute Cost** value, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** you selected. Note that the result won't include the node time that's needed to get the nodes up and running. 
+To estimate what a bake will cost, start with the **Estimated Compute Cost** value, which is a duration. Multiply that value by the hourly cost in your local currency for the **VM Node Type** that you select. Note that the result won't include the node time that's needed to get the nodes up and running.
 
 For example, say you select **Standard_F8s_v2** for your node type, which has a cost of $0.40/hr. If the **Estimated Compute Cost** is 3 hours and 57 minutes, the estimated cost to run the job will be $0.40 * ~4 hours = ~$1.60. The actual cost will likely be a bit higher because of the extra time to get the nodes started.
 
 Find hourly nodes cost at [Azure Batch pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux). (Select *Compute optimized* or *High performance compute* as the category.)
 
 ## <a name="Local-bake"></a> Bake your scene on your PC
-You can bake your scene on your own PC. This method can be useful for experimenting with acoustics for small scenes before you create an Azure Batch account. But note that acoustics simulation can take a long time depending on the size of the scene.
+You can also bake your scene on your own PC. This method can be useful for experimenting with acoustics for small scenes before you create an Azure Batch account. But note that local acoustics simulation can take a long time depending on the size of the scene.
 
 ### Minimum hardware requirements
 * An x86-64 processor with at least 8 cores and 32 GB of RAM
@@ -224,23 +224,23 @@ Install and configure Docker on the PC that will process the simulation:
 ![Docker shared drive options](media/docker-shared-drives.png)
 
 ### Run the local bake
-1. Select the **Prepare Local Bake** button on the **Bake** tab, and select a folder location to save the input files and execution scripts to. You can then run the bake on any machine as long as it meets the minimum hardware requirements and you install  Docker by copying the folder to that machine.
-1. To launch the simulation, run the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script will fetch the Project Acoustics Docker image with the toolset necessary for simulation processing and start the simulation.
-2. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, share this file to assist with diagnosis.
+1. Select the **Prepare Local Bake** button on the **Bake** tab. Then, select a folder location to save the input files and execution scripts to. You can then run the bake on any machine as long as it meets the minimum hardware requirements, and you install Docker by copying the folder to that machine.
+2. To launch the simulation, run the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script fetches the Project Acoustics Docker image with the toolset necessary for simulation processing and starts the simulation.
+3. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, share this file to assist with diagnosis.
 
 ## <a name="Data-Files"></a> Data files added by the bake process
 
 The following four data files are created during the bake process. One contains the simulation results and ships with your title. The others store Unity Editor-related data.
 
 Simulation result:
-* *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: This is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location and name of this file on the **Probes** tab.
+* *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: This file is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location of this file on the **Probes** tab.
 
    *Be careful not to delete the simulation result file. It's not recoverable except by rebaking the scene.*
 
 Editor data files:
-* *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: This file stores the data that you enter in fields in the Acoustics UI. Your can't change the name and location of this file.
-* *Assets/AcousticsData/Editor/Acoustics_[SceneName].Fox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate**  button on the **Probes** tab. You can change the location and name of this file on the **Probes** tab.
-* *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: This file stores simulation parameters that are computed when you select **Calculate**. You can change the location and name of this file on the **Probes** tab.
+* *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: This file stores the data that you enter in fields in the Acoustics UI. You can't change the name and location of this file.
+* *Assets/AcousticsData/Editor/Acoustics_[SceneName].Fox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate**  button on the **Probes** tab. You can change the name and location of this file on the **Probes** tab.
+* *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: This file stores simulation parameters that are computed when you select **Calculate**. You can change the name and location of this file on the **Probes** tab.
 
 ## Set up the acoustics lookup table
 Drag the **Project Acoustics** prefab from the project panel into your scene:
@@ -252,5 +252,5 @@ Select the **ProjectAcoustics** game object, and go to its inspector panel. Spec
 [The Acoustics Manager prefab in Unity](media/acoustics-manager.png)
 
 ## Next steps
-* Explore the [design controls for Unity](unity-workflow.md)
+* Explore the [Unity design controls](unity-workflow.md)
 * Explore [Project Acoustics design concepts](design-process.md)
