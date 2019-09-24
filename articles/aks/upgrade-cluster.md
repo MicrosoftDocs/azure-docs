@@ -43,6 +43,10 @@ Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
+If no upgrade is available, you will get:
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
 
 ## Upgrade an AKS cluster
 

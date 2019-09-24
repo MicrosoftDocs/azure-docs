@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/15/2019
+ms.date: 09/12/2019
 ms.author: mbullwin
 ---
 # Application Insights for web pages
@@ -137,14 +137,14 @@ Most configuration fields are named such that they can be defaulted to false. Al
 
 By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
-Currently, we offer a separate [React plugin](#react-extensions) which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js).
+Currently, we offer a separate [React plugin](#react-extensions) which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
 
 ## React extensions
 
 | Extensions |
 |---------------|
-| [React](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-js)|
-| [React Native](https://github.com/microsoft/ApplicationInsights-JS/tree/master/vNext/extensions/applicationinsights-react-native)|
+| [React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)|
+| [React Native](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-native/README.md)|
 
 ## Explore browser/client-side data
 

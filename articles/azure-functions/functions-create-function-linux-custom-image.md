@@ -138,9 +138,8 @@ With the custom image running in a local Docker container, verify the function a
 
 ![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-You can optionally test your function again, this time in the local container using the following URL:
-
-`http://localhost:8080/api/myhttptrigger?name=<yourname>`
+> [!NOTE]
+> At this point, when you try to call your specific HTTP function, you get an HTTP 401 error response. This is because your function runs in the local container as it would in Azure, which means that the function key is required. Because the container hasn't yet been published to a function app, there is no function key available. You'll see later that when you use Core Tools to publish your container, the function keys are shown to you. If you want to test your function running in the local container, you can change the [authorization key](functions-bindings-http-webhook.md#authorization-keys) to `anonymous`. 
 
 After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
@@ -154,7 +153,7 @@ Before you can push an image, you must sign in to Docker Hub using the [docker l
 docker login --username <docker-id>
 ```
 
-A "login succeeded" message confirms that you are logged in. After you have signed in, you push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
+A "login succeeded" message confirms that you're logged in. After you have signed in, you push the image to Docker Hub by using the [docker push](https://docs.docker.com/engine/reference/commandline/push/) command.
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
@@ -204,7 +203,7 @@ The _deployment-container-image-name_ parameter indicates the image hosted on Do
 
 ## Configure the function app
 
-The function needs the connection string to connect to the default storage account. When you are publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or something similar.
+The function needs the connection string to connect to the default storage account. When you're publishing your custom image to a private container account, you should instead set these application settings as environment variables in the Dockerfile using the [ENV instruction](https://docs.docker.com/engine/reference/builder/#env), or something similar.
 
 In this case, `<storage_name>` is the name of the storage account you created. Get the connection string with the [az storage account show-connection-string](/cli/azure/storage/account) command. Add these application settings in the function app with the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command.
 

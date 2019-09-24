@@ -1,5 +1,5 @@
 ---
-title: Batch test - LUIS
+title: "Tutorial: Batch test - LUIS"
 titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 08/20/2019
+ms.topic: tutorial
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 

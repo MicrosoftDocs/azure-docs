@@ -14,7 +14,7 @@ ms.subservice: B2C
 ---
 # Manage threats to resources and data in Azure Active Directory B2C
 
-Azure Active Directory (Azure AD) B2C has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources.
+Azure Active Directory B2C (Azure AD B2C) has built-in features that can help you protect against threats to your resources and data. These threats include denial-of-service attacks and password attacks. Denial-of-service attacks might make resources unavailable to intended users. Password attacks lead to unauthorized access to resources.
 
 ## Denial-of-service attacks
 

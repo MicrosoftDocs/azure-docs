@@ -22,7 +22,7 @@ The Microsoft Windows Data Science Virtual Machine (DSVM) is a Windows Server 20
 
 The following tools are included in a DSVM:
 
-* Python SDK for the [Azure Machine Learning service](../service/index.yml).
+* Python SDK for the [Azure Machine Learning service](../index.yml).
 * [Microsoft Machine Learning Server](https://docs.microsoft.com/machine-learning-server/index) Developer edition.
 * Anaconda Python distribution.
 * Jupyter Notebook with R, Python, and PySpark kernels.
@@ -226,7 +226,7 @@ You can use the [Microsoft Web Platform Installer](https://www.microsoft.com/web
 ## Next steps
 
 * Explore the tools on the DSVM by opening the **Start** menu.
-* Learn about the Azure Machine Learning service by reading [What is Azure Machine Learning service?](../service/overview-what-is-azure-ml.md) and trying out [quickstarts and tutorials](../service/index.yml).
+* Learn about the Azure Machine Learning service by reading [What is Azure Machine Learning service?](../service/overview-what-is-azure-ml.md) and trying out [tutorials](../index.yml).
 * In File Explorer, browse to C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts for samples that use the RevoScaleR library in R that supports data analytics at enterprise scale. 
 * Read the article [Ten things you can do on the Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).

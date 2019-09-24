@@ -190,11 +190,11 @@ This section is based on [Create a profile container for a host pool using a fil
 4. Run the following cmdlets to assign a user to a Remote Desktop group:
 
    ```powershell
-   $tenant = "<your-wvd-tenant>"
-   $pool1 = "<wvd-pool>"
-   $appgroup = "Desktop Application Group"
-   $user1 = "<user-principal>"
-   Add-RdsAppGroupUser $tenant $pool1 $appgroup $user1
+   $wvdTenant = "<your-wvd-tenant>"
+   $hostPool = "<wvd-pool>"
+   $appGroup = "Desktop Application Group"
+   $user = "<user-principal>"
+   Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
 ## Make sure users can access the Azure NetApp File share

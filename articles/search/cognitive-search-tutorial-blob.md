@@ -18,10 +18,10 @@ If you have unstructured text or image content, the [cognitive search](cognitive
 
 > [!div class="checklist"]
 > * Start with whole documents (unstructured text) such as PDF, MD, DOCX, and PPTX in Azure Blob storage.
-> * Create a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
+> * Define a pipeline that extracts text, detects language, recognizes entities, and detects key phrases.
 > * Define an index to store the output (raw content, plus pipeline-generated name-value pairs).
-> * Execute the pipeline to create and load the index.
-> * Explore content using full text search and a rich query syntax.
+> * Execute the pipeline to start transformations and analysis, and to create and load the index.
+> * Explore results using full text search and a rich query syntax.
 
 You'll need several services to complete this walkthrough, plus the [Postman desktop app](https://www.getpostman.com/) or another Web testing tool to make REST API calls. 
 

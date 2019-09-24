@@ -16,7 +16,7 @@ Open the VLANs/Subnets tab on the Network page to create and manage VLANs/subnet
 
 ## Create a VLAN/subnet
 
-1. [Access the CloudSimple portal](monitor-activity.md) and select **Network** on the side menu.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network** on the side menu.
 2. Select **VLANs/subnets**.
 3. Click **Create VLAN/Subnet**.
 

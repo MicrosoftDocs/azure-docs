@@ -6,7 +6,7 @@ services: key-vault
 ms.service: key-vault
 author: msmbaldwin
 ms.author: mbaldwin
-manager: barbkess
+manager: rkarlin
 ms.date: 03/01/2019
 # Customer intent: As a developer, I want to use Azure Key Vault for secure management of my storage credentials and shared access signature tokens.
 ---
@@ -63,7 +63,7 @@ There are four basic steps to use Key Vault to manage storage account keys:
 
 1. Get an existing storage account.
 1. Fetch an existing key vault.
-1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 180 days.
+1. Add a Key Vault managed storage account to the vault. Set `key1` as the active key with a regeneration period of 90 days.
 1. Use `key1` to set a storage context for the specified storage account.
 
 > [!NOTE]
@@ -154,7 +154,7 @@ There are three ways to authenticate to Key Vault:
 - Use a service principal and certificate. 
 - Use a service principal and password. This approach isn't recommended.
 
-For more information, see [Azure Key Vault: Basic concepts](key-vault-whatis.md#basic-concepts).
+For more information, see [Azure Key Vault: Basic concepts](basic-concepts.md).
 
 The following example demonstrates how to fetch shared access signature tokens. You fetch the tokens after you create a shared access signature definition. 
 
