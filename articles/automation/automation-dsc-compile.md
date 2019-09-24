@@ -294,7 +294,7 @@ ensuring that the configuration being applied to the node comes from an authoriz
 > [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
 
-For more information about how to sign node configurations, see [Improvements in WMF 5.1 - How to sign configuration and module](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations).
+For more information about how to sign node configurations, see [Improvements in WMF 5.1 - How to sign configuration and module](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations).
 
 ### Compiling a configuration in Windows PowerShell
 
