@@ -156,7 +156,7 @@
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
       - name: table constraints 
-        href: table-constraints.md
+        href: sql-data-warehouse-table-constraints.md
       - name: Indexes
         href: sql-data-warehouse-tables-index.md
       - name: Identity
