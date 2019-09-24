@@ -1,5 +1,5 @@
 ---
-title: Create an end to end ETL pipelines to derive sales insights
+title: Create an end to end extract, transform, load (ETL) pipeline to derive sales insights
 description: Learn how to use create ETL pipelines with Azure HDInsight to derive insights from sales data using Spark on-demand clusters and Power BI.
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,odbc 
 author: hrasheed-msft
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 08/05/2019
+ms.date: 09/23/2019
 ms.author: hrasheed
 ---
 # Introduction
 
-In this tutorial you will build an end to end data pipeline which performs Extract Transform and Load operations. The pipeline will use Apache Spark and Apache Hive clusters running on Azure HDInsight for querying and manipulating the data, Data Lake Storage Gen2 for storing your data and Power BI for visualization.
+In this tutorial you will build an end-to-end data pipeline, which performs extract, transform, and load operations. The pipeline will use Apache Spark and Apache Hive clusters running on Azure HDInsight for querying and manipulating the data. Other technologies used include Data Lake Storage Gen2 for data storage, and Power BI for visualization.
 
- This data pipeline combines the data from all of the different stores, removes any unwanted data, appends new data, and loads this back to your storage to visualize business insights. Read more about ETL pipelines [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md).
+This data pipeline combines the data from all of the different stores, removes any unwanted data, appends new data, and loads this back to your storage to visualize business insights. Read more about ETL pipelines [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md).
 
 ![ETL architecture](./media/hdinsight-sales-insights-etl/architecture.png)
 
@@ -26,12 +26,12 @@ Download [Power BI Desktop](https://www.microsoft.com/en-us/download/details.asp
 
 ## Create resources
 
-1. Login to the [Azure portal](https://portal.azure.com)
+1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Open the Cloud Shell from the top menu bar. Select your subscription for creating a file share if you are prompted by Azure Cloud Shell.
 
     ![Open Azure cloud shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
-1. Select "Bash" from the "Select environment" drop down menu.
-1. Log into your Azure account and set the subscription. 
+1. Select "Bash" from the "Select environment" drop-down menu.
+1. Log in to your Azure account and set the subscription. 
 1. Set up the resource group for the project.
     1. Pick a unique resource group name.
     1. Run the code snippet below in the Azure Cloud Shell to set variables that will be used in later steps
@@ -71,7 +71,7 @@ Download [Power BI Desktop](https://www.microsoft.com/en-us/download/details.asp
     5. An Apache Hive Interactive Query cluster - this cluster will allow querying the sales data visualizing it with Power BI
     6. An Azure virtual network supported by network security group (NSG) rules - this virtual network allows the clusters to communicate and also secures their communications. 
 
-    The `resources.sh` script contains the command `az group deployment create` which uses a resource manager template (`resourcestemplate.json`) to create the specified resources with the desired configuration.
+    The `resources.sh` script contains the command  , which uses a Resource Manager template (`resourcestemplate.json`) to create the specified resources with the desired configuration.
     
     ```azurecli-interactive 
     az group deployment create --name ResourcesDeployment \
@@ -80,14 +80,14 @@ Download [Power BI Desktop](https://www.microsoft.com/en-us/download/details.asp
         --parameters "@resourceparameters.json"
     ```
 
-1. The default password used for ssh access to the clusters is `Thisisapassword1`. If you'd like to change the password navigate to `resourcesparameters.json` file and change the password for the `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword`, `llapsshPassword` parameters.
+1. The default password used for ssh access to the clusters is `Thisisapassword1`. If you'd like to change the password navigate to `resourcesparameters.json` file and change the password for the `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword`, and `llapsshPassword` parameters.
 
     > [!Note]
     > Cluster creation can take around 20 minutes.
 
 ## Verify deployment and collect resource information
 
-1. If you'd like to check on the status of your deployment, navigate to the resource group on the Azure portal. Click **Deployments** under **Settings**. Click the name of your deployment `ResourcesDeployment`. Here you can see the resources that have successfully deployed and those that are still being worked on.
+1. If you'd like to check on the status of your deployment, navigate to the resource group on the Azure portal. Click **Deployments** under **Settings**. Click the name of your deployment `ResourcesDeployment`. Here you can see the resources that have successfully deployed and those that are still in progress.
 1. Once the deployment has completed, go the Azure portal > **Resource groups** > <RESOURCE_GROUP_NAME>
 1. Locate the new Azure storage account that was created for storing the sales files. The name of the storage account begins with `blob` and then contains a random string. 
     1. Make a note of the storage account name for later use.
@@ -127,15 +127,15 @@ This Azure Data Factory will have two pipelines:
 1. The first pipeline will copy the data from the Azure Blob Storage to the Data Lake Storage Gen 2 Storage Account to mimic data ingestion. 
 2. The second pipeline will transform the data in the Spark cluster. The script transforms the data by removing unwanted columns as well as appending a new column that calculates the revenue generated by a single transaction.
 
-To setup your Azure Data Factory pipelines, complete the following steps:
+To set up your Azure Data Factory pipelines, complete the following steps:
 
 1. In `sparktransform.py`, fill in the Data Lake Storage Gen2 storage account name within the angle brackets.
-    1. From the root of the `hdinsight-sales-insights-etl` folder open a text editor to edit the script by typing `nano scripts/sparktransform.py`
+    1. From the root of the `hdinsight-sales-insights-etl` folder, open a text editor to edit the script by typing `nano scripts/sparktransform.py`
     1. Find the instances of `<ADLS GEN2 STORAGE NAME>` on lines 21 and 24 and replace them with the actual Data Lake Gen2 storage account name such as `adlsgen2abcd4aenar53q`
 1. In `adfparameters.json` fill out the values of the account keys of both the blob and Data Lake Storage Gen2 storage accounts. 
     1. Insert the Data Lake Storage Gen2 account key in line 6 of the template as the value for the property **AzureDataLakeStorage1_accountKey**.
     1. Insert the Azure Blob Storage account key in line 15 of the template as the value for the property **AzureBlobStorage1_accountKey**.
-1. In `adf.sh` fill in your subscription id, resource group name, and Data Lake Storage Gen2 Storage Account Name in the angle brackets on line 93. Save the file and exit out of the editor.
+1. In `adf.sh` fill in your subscription ID, resource group name, and Data Lake Storage Gen2 Storage Account Name in the angle brackets on line 93. Save the file and exit out of the editor.
 1. Add execute permissions on the file using `chmod +x adf.sh`
 1. Execute the script with `./adf.sh` This creates a service principal with  Storage Blob Data Contributor permissions on the Data Lake Storage Gen2 storage account. It then obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 FileSystem REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 
@@ -153,7 +153,7 @@ az group deployment create --name ADFDeployment \
 
 ## Trigger the Pipelines
 
-To trigger the pipelines you can either:
+To trigger the pipelines, you can either:
 
 1.  Run the following commands to trigger the ADF pipelines in PowerShell mode. This pipeline moves the data from blob storage to Data Lake Storage Gen2 Storage.
 
@@ -169,7 +169,7 @@ To trigger the pipelines you can either:
 
 1. You can also open the Data Factory, select Author & Monitor, and trigger the copy pipeline, then the spark pipeline from the portal. See [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) for information on triggering pipelines through the portal. 
 
-To verify that the pipelines have executed you can do either of the following:
+To verify that the pipelines have executed, you can do either of the following steps:
 
 1. Navigate to the monitor section on ADF through the portal. 
 2. Go to your Data Lake Storage Gen 2 storage account storage explorer, go to the `files` FileSystem, and navigate to the `transformed` folder and check its contents to see if the pipeline succeeded.
@@ -184,7 +184,7 @@ For other ways to transform data using HDInsight check out this article on using
     scp scripts/query.hql sshuser@<clustername>-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-2. SSH into the LLAP cluster using the following command and then enter your password. If you have not altered the `resourcesparameters.json` file this should be `Thisisapassword1`.
+2. SSH into the LLAP cluster using the following command and then enter your password. If you haven't altered the `resourcesparameters.json` file, the password is `Thisisapassword1`.
 
     ```
     ssh sshuser@<clustername>-ssh.azurehdinsight.net
@@ -196,7 +196,7 @@ For other ways to transform data using HDInsight check out this article on using
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
     ```
 
-This script will create a table on the Interactive Query cluster that you can access from Power BI. 
+This script will create a managed table on the Interactive Query cluster that you can access from Power BI. 
 
 ## Create a Power BI dashboard from sales data
 
@@ -212,7 +212,7 @@ Once the data is loaded, you can experiment with the dashboard you would like to
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete all resources with the following steps so that you are not charged for them. 
+If you're not going to continue to use this application, delete all resources with the following steps so that you aren't charged for them.
 
 ```azurecli-interactive 
 az group delete -n $resourceGroup
@@ -220,6 +220,5 @@ az group delete -n $resourceGroup
 
 ## Next steps
 
-Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
 > [Extract, transform, and load (ETL) at scale](./hadoop/apache-hadoop-etl-at-scale.md)
