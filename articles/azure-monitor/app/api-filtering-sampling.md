@@ -278,7 +278,7 @@ protected void Application_Start()
 
 [See more of this sample.](https://github.com/Microsoft/ApplicationInsights-Home/tree/master/Samples/AzureEmailService/MvcWebRole)
 
-**ASP.NET Core apps: Load your initializer**
+**ASP.NET Core/ Worker Service apps: Load your initializer**
 
 > [!NOTE]
 > Adding initializer using `ApplicationInsights.config` or using `TelemetryConfiguration.Active` is not valid for ASP.NET Core applications. 
@@ -360,6 +360,37 @@ Insert a telemetry initializer immediately after the initialization code that yo
 For a summary of the non-custom properties available on the telemetryItem, see [Application Insights Export Data Model](../../azure-monitor/app/export-data-model.md).
 
 You can add as many initializers as you like, and they are called in the order they are added.
+
+### Example enrichers
+
+#### Add custom property
+
+The following sample initializer adds a custom property to every tracked telemetry.
+
+```csharp
+public void Initialize(ITelemetry item)
+{
+  var itemProperties = item as ISupportProperties;
+  if(itemProperties != null && !itemProperties.ContainsKey("customProp"))
+    {
+        itemProperties.Properties["customProp"] = "customValue";
+    }
+}
+```
+
+#### Add cloud role name
+
+The following sample initializer sets cloud role name to every tracked telemetry.
+
+```csharp
+public void Initialize(ITelemetry telemetry)
+	{
+		if(string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+		{
+			telemetry.Context.Cloud.RoleName = "MyCloudRoleName";
+		}
+	}
+```
 
 ## ITelemetryProcessor and ITelemetryInitializer
 
