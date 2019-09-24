@@ -21,7 +21,7 @@ ms.author: kirankk
 
 Welcome to the Azure Cosmos DB SQL API get started tutorial. After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources.
 
-This tutorial uses [Version 3.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK. You can work with [.NET Framework](https://dotnet.microsoft.com/download) or [.NET Core](https://dotnet.microsoft.com/download).
+This tutorial uses version 3.0 or later of the [Azure Cosmos DB .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Cosmos). You can work with [.NET Framework or .NET Core](https://dotnet.microsoft.com/download).
 
 This tutorial covers:
 
@@ -49,7 +49,7 @@ Now let's get started!
 
 ## Step 1: Create an Azure Cosmos DB account
 
-Let's create an Azure Cosmos DB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). To use the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then skip ahead to [Setup your Visual Studio project](#SetupVS).
+Let's create an Azure Cosmos DB account. If you already have an account you want to use, skip this section. To use the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then skip ahead to [Step 2: Set up your Visual Studio project](#SetupVS).
 
 [!INCLUDE [create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -329,7 +329,7 @@ Congratulations! You've successfully created two Azure Cosmos items.
 
 Azure Cosmos DB supports rich queries against JSON documents stored in each container. For more information, see [Getting started with SQL queries](sql-api-sql-query.md). The following sample code shows how to run a query against the items we inserted in the previous step.
 
-1. Copy and paste the `QueryItemsAsync`** method after your `AddItemsToContainerAsync` method.
+1. Copy and paste the `QueryItemsAsync` method after your `AddItemsToContainerAsync` method.
 
     [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync&highlight=10-11,17-18)]
 
@@ -471,7 +471,7 @@ To build the `GetStarted` solution, you need the following prerequisites:
 * An [Azure Cosmos DB account][cosmos-db-create-account].
 * The [GetStarted](https://github.com/Azure-Samples/cosmos-dotnet-getting-started) solution available on GitHub.
 
-To restore the references to the Azure Cosmos DB .NET SDK in Visual Studio, right-click the solution in **Solution Explorer**, and then select **Restore NuGet Packages**. Next, in the *App.config* file, update the `EndPointUri` and `PrimaryKey` values as described in [Connect to an Azure Cosmos DB account](#Connect).
+To restore the references to the Azure Cosmos DB .NET SDK in Visual Studio, right-click the solution in **Solution Explorer**, and then select **Restore NuGet Packages**. Next, in the *App.config* file, update the `EndPointUri` and `PrimaryKey` values as described in [Step 3: Connect to an Azure Cosmos DB account](#Connect).
 
 That's it, build it, and you're on your way!
 

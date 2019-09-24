@@ -35,11 +35,11 @@ This tutorial covers:
 > * Performing create, read, update, and delete (CRUD) operations on the data
 
 > [!TIP]
-> This tutorial assumes that you have prior experience using ASP.NET Core MVC and Azure App Service. If you are new to ASP.NET Core or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub], add the required NuGet packages and run it. Once you build the project, you can review this article to gain insight on the code in the context of the project.
+> This tutorial assumes that you have prior experience using ASP.NET Core MVC and Azure App Service. If you are new to ASP.NET Core or the [prerequisite tools](#prerequisites), we recommend you to download the complete sample project from [GitHub][GitHub], add the required NuGet packages, and run it. Once you build the project, you can review this article to gain insight on the code in the context of the project.
 
 ## <a name="prerequisites"></a>Prerequisites
 
-Before following the instructions in this article, ensure that you have the following resources:
+Before following the instructions in this article, make sure that you have the following resources:
 
 * An active Azure account. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -51,7 +51,7 @@ All the screenshots in this article are from Microsoft Visual Studio Community 2
 
 ## <a name="create-an-azure-cosmos-account"></a>Step 1: Create an Azure Cosmos account
 
-Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB emulator, skip this section. Start at [Create a new ASP.NET MVC application](#create-a-new-mvc-application).
+Let's start by creating an Azure Cosmos account. If you already have an Azure Cosmos DB SQL API account or if you're using the Azure Cosmos DB emulator, skip to [Step 2: Create a new ASP.NET MVC application](#create-a-new-mvc-application).
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -200,7 +200,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
 
-1. Repeat the previous two steps, but this time, name the class *ICosmosDBService*, and use the following code:
+1. Repeat the previous two steps, but this time, use the name *ICosmosDBService*, and use the following code:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
 
@@ -210,7 +210,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
     ```
 
-    The code in the previous step receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's *Startup.cs* file. The code in this step initializes the client based on the configuration as a Singleton instance to be injected through [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
+    The code in the previous step receives a `CosmosClient` as part of the constructor. Following ASP.NET Core pipeline, we need to go to the project's *Startup.cs* file. The code in this step initializes the client based on the configuration as a singleton instance to be injected through [Dependency injection in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
 
 1. Within the same file, add the following method **InitializeCosmosClientInstanceAsync**, which reads the configuration and initializes the client.
 
@@ -227,7 +227,7 @@ First, we'll add a class that contains the logic to connect to and use Azure Cos
       }
    ```
 
-If you run the application, ASP.NET Core's pipeline instantiates **CosmosDbService** and maintain a single instance as Singleton. When **ItemController** processes client-side requests, it receives this single instance and can use it for CRUD operations.
+If you run the application, ASP.NET Core's pipeline instantiates **CosmosDbService** and maintain a single instance as singleton. When **ItemController** processes client-side requests, it receives this single instance and can use it for CRUD operations.
 
 If you build and run this project now, you should now see something that looks like this:
 
@@ -237,23 +237,23 @@ If you build and run this project now, you should now see something that looks l
 
 To test the application on your local computer, use the following steps:
 
-1. Press F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
+1. Select F5 in Visual Studio to build the application in debug mode. It should build the application and launch a browser with the empty grid page we saw before:
 
    ![Screenshot of the todo list web application created by this tutorial](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
 
 1. Select the **Create New** link and add values to the **Name** and **Description** fields. Leave the **Completed** check box unselected. If you select it, the app adds the new item in a completed state. The item no longer appears on the initial list.
 
-1. Select **Create**. The app sends you back to the **Index** view and your item appears in the list. You can add a few more items to your **To-Do** list.
+1. Select **Create**. The app sends you back to the **Index** view, and your item appears in the list. You can add a few more items to your **To-Do** list.
 
     ![Screenshot of the Index view](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
   
-1. Select **Edit** next to an **Item** on the list. The app opens the **Edit** view where you can update any property of your object, including the **Completed** flag. If you select **Completed** flag and select **Save**, the app displays the **Item** as completed in the list.
+1. Select **Edit** next to an **Item** on the list. The app opens the **Edit** view where you can update any property of your object, including the **Completed** flag. If you select **Completed** and select **Save**, the app displays the **Item** as completed in the list.
 
    ![Screenshot of the Index view with the Completed box checked](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 
-1. You can verify the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
+1. Verify the state of the data in the Azure Cosmos DB service using [Cosmos Explorer](https://cosmos.azure.com) or the Azure Cosmos DB Emulator's Data Explorer.
 
-1. Once you've tested the app, press Ctrl+F5 to stop debugging the app. You're ready to deploy!
+1. Once you've tested the app, select Ctrl+F5 to stop debugging the app. You're ready to deploy!
 
 ## <a name="deploy-the-application-to-azure"></a>Step 7: Deploy the application
 
