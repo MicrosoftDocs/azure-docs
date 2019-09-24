@@ -24,7 +24,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 - **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings screen to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect additional disk, CPU, and memory data.
 
-    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) to store the data and set up alerts to let you know when performance isn't quite right.
+    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure [Azure Monitor Logs](../articles/azure-monitor/platform/data-platform-logs.md) to store the data and set up alerts to let you know when performance isn't quite right.
 
 ## Alerts
 
