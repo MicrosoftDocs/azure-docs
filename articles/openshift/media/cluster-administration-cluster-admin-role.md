@@ -1,6 +1,6 @@
 ---
 title: Azure Red Hat OpenShift cluster administrator role | Microsoft Docs
-description:  Azure Red Hat OpenShift cluster administrator role asigment and usage
+description:  Azure Red Hat OpenShift cluster administrator role assignment and usage
 services: container-service
 author: mjudeikis
 ms.author: b-majude
@@ -21,7 +21,7 @@ When your account has the osa-customer-admins authorization role bound to it, ca
 
 You can perform actions associated with a set of verbs (e.g., create) to operate on a set of resource names (e.g., templates). To view the details of these roles and their sets of verbs and resources, run the following:
 
-$ oc describe clusterrole/osa-customer-admin
+`$ oc describe clusterrole/osa-customer-admin`
 
 The verb names do not necessarily all map directly to oc commands, but rather equate more generally to the types of CLI operations you can perform. For example, having the list verb means that you can display a list of all objects of a given resource name (e.g., using oc get), while get means that you can display the details of a specific object if you know its name (e.g., using oc describe).
 

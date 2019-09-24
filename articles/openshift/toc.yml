@@ -21,8 +21,8 @@
     items:
     - name: 1 - Azure Red Hat OpenShift cluster administrator role
       href: cluster-administration-cluster-admin-role.md
-    - name: 2 - Manage resources in Azure Red Hat OpenShift
-      href: cluster-administration-manage-projects.md
+    - name: 2 - Managing Security Context Constraints
+      href: cluster-administration-security-context-constraints.md
 
 - name: How-to guides
   expanded: true
