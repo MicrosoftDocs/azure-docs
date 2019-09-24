@@ -32,7 +32,36 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
-  + [Insert fixes and improvements below. Link github issues resolved with this release]
+  + **azureml-automl-core**
+    + Introduce FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
+      + Override Column Purpose for Featurization with given column and feature type
+      + Override transformer parameters
+    +  Added deprecation message for explain_model() and retrieve_model_explanations()
+    + Adding Prophet as a trainable pipeline (preview only)
+    + Added support for automatic detection of target lags, rolling window size and maximal horizon. If one of target_lags, target_rolling_window_size or max_horizon is set to 'auto', the heuristics will be applied to estimate the value of corresponding parameter based on training data.
+    + Fixed forecasting in the case when data set contains one grain column, this grain is of a numeric type and there is a gap between train and test set
+    + Fixed the error message about the duplicated index in the remote run in forecasting tasks
+    + Added a guardrail to check whether a dataset is imbalanced or not. If it is, a guardrail message would be written to the console.
+  + **azureml-core**
+    + Added ability to retrieve SAS URL to model in storage through the model object. Ex: model.get_sas_url()
+    +  Introduce `run.get_details()['datasets']` to get datasets associated with the submitted run
+    +  Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files.
+  + **azureml-dataprep**
+    + GetData message from dataprep engine now returns TotalRowsCount as part of the response
+  + **azureml-explain-model**
+    + Improved documentation for Explanation outputs in the classification scenario. Related work items: #508670
+    + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations. Related work items: #508004
+    + Added explainer property to MimicWrapper to enable getting the underlying MimicExplainer. Related work items: #511019
+  + **azureml-pipeline-core**
+    + Notebook to describe Module, ModuleVersion and ModuleStep
+    + Fixed the append of metadata parameters in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
+  + **azureml-pipeline-steps**
+    + Introducing RScriptStep to support r script run via AML pipeline
+  + **azureml-train-automl**
+    +  Added deprecation message for explain_model() and retrieve_model_explanations()
+    + Adding Prophet as a trainable pipeline (preview only)
+    + Added the ONNX conversion support for the ADB compute target
+
   
 ## 2019-09-16
 
