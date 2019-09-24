@@ -27,18 +27,26 @@ The following table lists the minimum requirements for a smooth user experience.
 |Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5 Mbps      |
 |Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAm, illustration/publishing|15 Mbps     |
 
-Keep in mind that your app workload's framerate output combined with your display resolution will put more stress on your network, raising the bandwidth requirement as a result. For example, a light workload with a high resolution display requires more available bandwidth than a light workload with regular or low resolution. Other scenarios, such as using voice or video conferencing, real-time communication, and streaming 4K video, can also change your bandwidth requirements. Make sure to load test these scenarios in your deployment using simulation tools. Vary the load size, run stress tests, and test common user scenarios in remote sessions to better understand your network's requirements. 
+Keep in mind that your app workload's framerate output combined with your display resolution will put more stress on your network, raising the bandwidth requirement as a result. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
+
+Other scenarios that can change your bandwidth requirements:
+
+- Using voice or video conferencing
+- Real-time communication
+- Streaming 4K video
+
+Make sure to load test these scenarios in your deployment using simulation tools. Vary the load size, run stress tests, and test common user scenarios in remote sessions to better understand your network's requirements. 
 
 ## Display resolutions
 
-Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a framerate of 30 fps. Keep in mind that for scenarios outputting a frame rate under 30 frames per second, like reading static text, less available bandwidth may be necessary than recommended below. 
+Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a framerate of 30 fps. Keep in mind that scenarios involving a frame rate under 30 fps, such as reading static text, require less available bandwidth. 
 
-|Typical display resolutions at 30 fps|Recommended bandwidth|
-|-------------------------------------|---------------------|
-|~ 1024 × 768 px​                      |1.5 Mbps             |
-|~ 1280 × 720 px                      |3.0 Mbps             |
-|~ 1920 × 1080 px                     |5.0 Mbps             |
-|~ 3840 × 2160 px (4K)                |15 Mbps              |
+|Typical display resolutions at 30 fps    |Recommended bandwidth|
+|-----------------------------------------|---------------------|
+|About 1024 × 768 px​                      |1.5 Mbps             |
+|About 1280 × 720 px                      |3.0 Mbps             |
+|About 1920 × 1080 px                     |5.0 Mbps             |
+|About 3840 × 2160 px (4K)                |15 Mbps              |
 
 ## Cut
 
