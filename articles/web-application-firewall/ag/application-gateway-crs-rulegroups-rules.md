@@ -83,7 +83,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 |**[crs_42_tight_security](#crs42)**|Protect against path-traversal attacks|
 |**[crs_45_trojans](#crs45)**|Protect against backdoor trojans|
 
-The following rule groups and rules are available when using Application Gateway with web application firewall.
+The following rule groups and rules are available when using Web Application Firewall on Application Gateway.
 
 # [OWASP 3.1](#tab/owasp31)
 
