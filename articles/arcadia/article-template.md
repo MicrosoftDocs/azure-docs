@@ -11,7 +11,7 @@ ms.author: jrasnick #Required; update with your microsoft alias of author; optio
 ms.reviewer: jrasnick
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
 
 <!---overview articles are for new customers and explain the service from a technical point of view.
 They are not intended to define benefits or value prop; that would be in marketing content.
@@ -34,6 +34,8 @@ You can go into more detail later in the article. Many services add artwork or v
 
 <!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
 If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
+
+
 --->
 
 ## <article body>
