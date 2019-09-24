@@ -614,7 +614,7 @@
     - name: Troubleshoot
       items:
       - name: Troubleshoot Apache HBase performance issues
-        href: ./troubleshoot-hbase-performance-issues.md
+        href: ./hbase/troubleshoot-hbase-performance-issues.md
       - name: hbase hbck returns inconsistencies
         href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
       - name: Storage exception after connection reset
