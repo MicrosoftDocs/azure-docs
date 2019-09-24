@@ -8,22 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 09/23/2019
+ms.date: 09/25/2019
 ms.author: diberry
 #Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can run each cell, view the output, then finally see the overall prediction success of Personalizer over a duration of many requests.
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook
 
-This tutorial simulates a Personalizer loop _system in an Azure Notebook, which suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is also available and stored in a coffee dataset.
+This tutorial runs a Personalizer loop in an Azure Notebook. The loop suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is stored in a coffee dataset.
 
-A summary of the user information is:
+## Users and coffee
+
+The notebook selects a random user, time of day, and type of weather from the dataset. A summary of the user information is:
 
 |Customers|Times of Day|Types of weather|
 |--|--|--|
 |Alice<br>Bob<br>Cathy<br>Dave|Morning<br>afternoon<br>evening|Sunny<br>rainy<br>snowy| 
 
-To help Personalizer make the correct coffee selection for each person, the _system_ also knows details about the coffee.
+To help Personalizer learn, over time, the correct coffee selection for each person, the _system_ also knows details about the coffee.
 
 |Types of temperature|Places of origin|Types of roast|Organic|
 |--|--|--|--|
@@ -35,12 +37,12 @@ The code for this tutorial is available in the [Personalizer Samples GitHub repo
 
 ## How the simulation works
 
- At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by the reward score of 1). After the model update frequency period, the system improves to an accuracy rate of between 70%-80% for the next set of suggestions.  
+At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by the reward score of 1). After some requests, the system improves to an accuracy rate of between 70%-80% for the next set of suggestions.  
+You may wander how long does it take for a Personalizer loop to reach that 70%-80% success rate. That depends on several factors:
 
-|#|Groups of rank and reward calls|
-|--|--|
-|First 2,000 requests|20%-30% success |
-|Second 2,000 requests|70%-80% success |
+* the quantity and quality of the information sent to Personalizer
+* how often the loop retrains
+* the learning policy
 
 ## Rank and reward calls
 
@@ -60,7 +62,7 @@ The system receives the rank of the coffee choices, then compares that predictio
 
 * An [Azure Notebook](https://notebooks.azure.com/) account. 
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project. 
-* A [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the update model frequency set to 5 minutes. 
+
 
 File descriptions:
 
@@ -68,6 +70,17 @@ File descriptions:
 * [User dataset](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/users.json) is stored in a JSON object.
 * [Coffee dataset](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/coffee.json) is stored in a JSON object. 
 * [Example Request JSON](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/samples/azurenotebook/example-rankrequest.json) is the expected format for a POST request to the Rank API.
+
+## Configure Personalizer resource
+
+In the Azure portal, configure your [Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) with the **update model frequency** set to 15 seconds and a **reward wait time** of 15 seconds. These settings are found on the **[Settings](how-to-settings.md#configure-service-settings-in-the-azure-portal)** page. 
+
+|Setting|Value|
+|--|--|
+|update model frequency|15 seconds|
+|reward wait time|15 seconds|
+
+These values have a very short duration in order to show changes in this tutorial. These values shouldn't be used in a production scenario without validating they achieve your goal with your Personalzier loop. 
 
 ## Set up the Azure Notebook
 
@@ -104,6 +117,8 @@ resource_key = "123456789"
 ### Get the last model update date and time
 
 When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. The cell has no output. The function does output the last model training date when called.
+
+The function uses a GET REST API to [get model properties](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties). 
 
 ```python
 # model's last modified date
@@ -147,6 +162,7 @@ The cell has output from the call to `get_last_updated` function, which is the d
 # build URLs
 personalization_rank_url = personalization_base_url + "/personalizer/v1.0/rank"
 personalization_reward_url = personalization_base_url + "/personalizer/v1.0/events/" #add "{eventId}/reward"
+personalization_model_properties_url = personalization_base_url + "/personalizer/v1.0/model/properties"
 headers = {'Ocp-Apim-Subscription-Key' : resource_key, 'Content-Type': 'application/json'}
 
 # context
@@ -177,10 +193,6 @@ with open(requestpath) as handle:
 get_last_updated(modelLastModified)
 ```
 
-
-
-
-
 ### Generate a unique event ID
 
 This function generates a unique ID for each rank call. The ID is used again with the reward call. The cell has no output. The function does output the unique ID when called.
@@ -191,8 +203,6 @@ def add_event_id(rankjsonobj):
     rankjsonobj["eventId"] = eventid
     return eventid
 ```
-
-
 
 ### Get random user, weather, and time of day
 
@@ -270,9 +280,6 @@ The example of a single coffee's features is:
 def add_action_features(rankjsonobj):
     rankjsonobj["actions"] = actionfeaturesobj
 ```
-
-
-
 
 ### Compare Rank API's prediction with known user preference
 
@@ -420,6 +427,10 @@ while(i <= num_requests):
     i = i + 1
 ```
 
+The function uses:
+
+* Rank: a POST REST API to [get rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank). 
+* Reward: a POST REST API to [report reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward).
 
 ### Chart results to see improvement with Personalizer
 
@@ -432,13 +443,12 @@ plt.ylabel("Correct recommendations per batch")
 plt.show()
 ```
 
-The chart should look like the image below. 
 
-![Chart of results from Azure Notebook](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
-
-This chart shows a low performance period (between 20-30% prediction reward of 1) then after a few thousand requests, a significant performance increase (to around 80% prediction reward of 1) that continues for the duration of the test.
+This chart shows the success of the current learning policy for the duration of the test.
 
 The 80% success indicates a near perfect prediction, which isn't realistic for all Personalizer loops. The other 20% of the time, the loop is exploring by sending back results to the Rank call that are not determined by the currently trained model. 
+
+In order to find a better learning policy, based on your data to the Rank API, run an [offline evaluation](how-to-offline-evaluation.md) in the portal for your Personalizer loop.
 
 ## Clean up resources
 
