@@ -111,7 +111,7 @@ Fill out optional information on the **Additional settings** tab by using the fo
 > 2. Select **Deployments**.
 > 3. Select the managed instance deployment operation in progress.
 
-## Review resources and retrieve your fully qualified server name
+## Review resources and retrieve your fully qualified host address
 
 After the deployment is successful:
 
