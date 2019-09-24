@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 08/20/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -227,7 +227,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     ![SSO configuration](./media/workday-tutorial/WorkdaySSOConfiguratio.png "SSO configuration")
 
-    a.  In the **Service Provider ID** textbox, type **https://www.workday.com**.
+    a.  In the **Service Provider ID** textbox, type **http://www.workday.com**.
 
     b. Select **Do Not Deflate SP-initiated Authentication Request**.
 

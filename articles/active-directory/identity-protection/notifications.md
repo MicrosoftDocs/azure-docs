@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection notifications
 
-Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk events:
+Azure AD Identity Protection sends two types of automated notification emails to help you manage user risk and risk detections:
 
 - Users at risk detected email
 - Weekly digest email
@@ -28,7 +28,7 @@ This article provides you with an overview of both notification emails.
 
 In response to a detected account at risk, Azure AD Identity Protection generates an email alert with **Users at risk detected** as subject. The email includes a link to the **[Users flagged for risk](../reports-monitoring/concept-user-at-risk.md)** report. As a best practice, you should immediately investigate the users at risk.
 
-The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second users at risk detected alert if John then moves to high risk or has additional risk events.
+The configuration for this alert allows you to specify at what user risk level you want the alert to be generated. The email will be generated when the user's risk level reaches what you have specified; however, you will not receive new users at risk detected email alerts for this user after they move to this user risk level. For example, if you set the policy to alert on medium user risk and your user John moves to medium risk, you will receive the users at risk detected email for John. However, you will not receive a second users at risk detected alert if John then moves to high risk or has additional risk detections.
 
 ![Users at risk detected email](./media/notifications/01.png)
 
@@ -45,7 +45,7 @@ To open the related dialog, click **Alerts** in the **Settings** section of the 
 
 ## Weekly digest email
 
-The weekly digest email contains a summary of new risk events.  
+The weekly digest email contains a summary of new risk detections.  
 It includes:
 
 - Users at risk

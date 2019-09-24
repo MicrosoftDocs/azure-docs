@@ -2,7 +2,7 @@
 title: PowerShell scripts using Az.Search module - Azure Search
 description: Create and configure an Azure Search service with PowerShell. You can scale a service up or down, manage admin and query api-keys, and query system information.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 
 services: search
 ms.service: search

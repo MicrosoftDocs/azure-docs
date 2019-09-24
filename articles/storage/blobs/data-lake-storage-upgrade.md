@@ -234,7 +234,7 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 * If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
 
-* In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen2, however, the highest level you can set ACLs is at the root folder in a file system, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
+* In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen2, however, the highest level you can set ACLs is at the root folder in a container, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
 
 * File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
 
@@ -249,7 +249,7 @@ The main task here is to translate URI's that have a prefix of `adl://` into URI
 The URI scheme for Data Lake Storage Gen1 is mentioned [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) in detail, but broadly speaking, it is
 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>.*
 
-The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
 
 You'll need to go through your existing applications and ensure that you've changed the URIs appropriately to point to Data Lake Storage Gen2 ones. Also, you'll need to add the appropriate credentials. Finally, how you retire the original applications and replace with the new application will have to be aligned closely to your overall upgrade strategy.
 

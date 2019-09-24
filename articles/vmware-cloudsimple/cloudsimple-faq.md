@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Frequently asked questions about VMware Solution by CloudSimple
 
-## CloudSimple Service
+## CloudSimple service
 
 **What is Azure VMware Solution by CloudSimple?**
 

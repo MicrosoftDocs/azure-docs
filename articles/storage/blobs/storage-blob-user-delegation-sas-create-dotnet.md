@@ -40,7 +40,7 @@ To authenticate with Azure AD credentials via the Azure Identity client library,
 
 To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. The role must include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
-Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas).
+Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 
@@ -272,4 +272,4 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 ## See also
 
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
-- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas)

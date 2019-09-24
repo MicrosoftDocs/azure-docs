@@ -345,10 +345,10 @@ This articles lists the audit activities that can be logged in your audit logs.
 
 |Audit Category|Activity|
 |---|---|
-|Administrative Unit Management|Download a single risk event type|
+|Administrative Unit Management|Download a single risk detection type|
 |Administrative Unit Management|Download admins and status of weekly digest opt-in|
-|Administrative Unit Management|Download all risk event types|
-|Administrative Unit Management|Download free user risk events|
+|Administrative Unit Management|Download all risk detection types|
+|Administrative Unit Management|Download free user risk detections|
 |Administrative Unit Management|Download users flagged for risk|
 |Application Management|Batch invites processed|
 |Application Management|Batch invites uploaded|
@@ -405,6 +405,14 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Directory Management|Get idps for a specific admin flow|
 |Directory Management|Get list of all admin flows|
 |Directory Management|Get list of tags for all admin flows for all users|
+|Group Management|Bulk Download group members - started|
+|Group Management|Bulk Download group members - finished|
+|Group Management|Bulk import group members - started|
+|Group Management|Bulk import group members - finished|
+|Group Management|Bulk remove group members - started|
+|Group Management|Bulk remove group members - finished|
+|Group Management|Bulk download groups - started|
+|Group Management|Bulk download groups - finished|
 |Group Management|Get list of tenants for a user|
 |Group Management|Get local accounts' self-asserted claims|
 |Group Management|Get localized resource json|
@@ -451,28 +459,42 @@ This articles lists the audit activities that can be logged in your audit logs.
 |Role Management|Delete device configuration|
 |Role Management|Device no longer compliant|
 |Role Management|Device no longer managed|
-|User Management|Remove registered owner from device|
-|User Management|Remove registered users from device|
-|User Management|Update device|
-|User Management|Update device configuration|
-|User Management|Add eligible member to role|
-|User Management|Add member to role|
-|User Management|Add role assignment to role definition|
-|User Management|Add role from template|
-|User Management|Add scoped member to role|
-|User Management|Remove eligible member from role|
-|User Management|Remove member from role|
-|User Management|Remove role assignment from role definition|
-|User Management|Remove scoped member from role|
-|User Management|Update role|
 |User Management|AccessReview_Review|
 |User Management|AccessReview_Update|
 |User Management|ActivationAborted|
 |User Management|ActivationApproved|
 |User Management|ActivationCanceled|
 |User Management|ActivationRequested|
+|User Management|Add eligible member to role|
+|User Management|Add member to role|
+|User Management|Add role assignment to role definition|
+|User Management|Add role from template|
+|User Management|Add scoped member to role|
 |User Management|Added|
 |User Management|Assign|
+|User Management|Bulk create users - started|
+|User Management|Bulk create users - finished|
+|User Management|Bulk delete users - started|
+|User Management|Bulk delete users - finished|
+|User Management|Bulk download users - started|
+|User Management|Bulk download users - finished|
+|User Management|Bulk restore deleted users - started|
+|User Management|Bulk restore deleted users - finished|
+|User Management|Bulk invite users - started|
+|User Management|Bulk invite users - finished|
+|User Management|Remove registered owner from device|
+|User Management|Remove registered users from device|
+|User Management|Remove eligible member from role|
+|User Management|Remove member from role|
+|User Management|Remove role assignment from role definition|
+|User Management|Remove scoped member from role|
+|User Management|Update device|
+|User Management|Update device configuration|
+|User Management|Update role|
+
+
+
+
 
 
 ## Identity protection

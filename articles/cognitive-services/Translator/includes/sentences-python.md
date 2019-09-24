@@ -5,12 +5,10 @@ ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
 ---
-## Prerequisites
 
-This quickstart requires:
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-* Python 2.7.x or 3.x
-* An Azure subscription key for Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -18,10 +16,7 @@ Create a new Python project using your favorite IDE or editor. Then copy this co
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -29,27 +24,25 @@ import json
 
 The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
 
-## Set the subscription key, base url, and path
+## Set the subscription key, endpoint, and path
 
-This sample will try to read your Translator Text subscription key from the environment variable `TRANSLATOR_TEXT_KEY`. If you're not familiar with environment variables, you can set `subscriptionKey` as a string and comment out the conditional statement.
+This sample will try to read your Translator Text subscription key and endpoint from the environment variables: `TRANSLATOR_TEXT_KEY` and `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `subscription_key` and `endpoint` as a strings and comment out the conditional statements.
 
 Copy this code into your project:
 
 ```python
-# Checks to see if the Translator Text subscription key is available
-# as an environment variable. If you are setting your subscription key as a
-# string, then comment these lines out.
-if 'TRANSLATOR_TEXT_KEY' in os.environ:
-    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
-else:
-    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
-    exit()
-# If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+key_var_name = 'TRANSLATOR_TEXT_SUBSCRIPTION_KEY'
+if not key_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
+subscription_key = os.environ[key_var_name]
+
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
 ```
 
-The Translator Text global endpoint is set as the `base_url`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `endpoint`. `path` sets the `breaksentence` route and identifies that we want to hit version 3 of the API.
 
 The `params` in this sample are used to set the language of the provided text. `params` aren't required for the `breaksentence` route. If left out of the request, the API will try to detect the language of the provided text, and provide this information along with a confidence score in the response.
 
@@ -57,10 +50,9 @@ The `params` in this sample are used to set the language of the provided text. `
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/breaksentence?api-version=3.0'
 params = '&language=en'
-constructed_url = base_url + path + params
+constructed_url = endpoint + path + params
 ```
 
 ## Add headers
@@ -72,7 +64,7 @@ Copy this code snippet into your project:
 
 ```python
 headers = {
-    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Ocp-Apim-Subscription-Key': subscription_key,
     'Content-type': 'application/json',
     'X-ClientTraceId': str(uuid.uuid4())
 }

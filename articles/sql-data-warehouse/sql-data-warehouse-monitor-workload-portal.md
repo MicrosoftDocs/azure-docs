@@ -31,7 +31,7 @@ Navigate to the browse blade for Log Analytics workspaces and create a workspace
 
 ![Add Analytics workspace](media/sql-data-warehouse-monitor/add_analytics_workspace_2.png)
 
-For more details on workspaces, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#create-a-workspace).
+For more details on workspaces, visit the following [documentation](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace).
 
 ## Turn on Diagnostic logs 
 

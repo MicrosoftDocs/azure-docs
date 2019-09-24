@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/11/2019
 ms.author: diberry
 ---
 
@@ -51,7 +51,7 @@ It is important that QnA Maker gets explicit feedback about which of the answers
 
 ## Upgrade your runtime version to use active learning
 
-Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
+Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) to use this feature. 
 
 ## Turn on active learning to see suggestions
 
@@ -67,6 +67,9 @@ Active learning is off by default. Turn it on to see suggested questions. After 
 1. Find the QnA Maker service then toggle **Active Learning**. 
 
     [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+
+    > [!Note]
+    > The exact version on the preceding image is shown as an example only. Your version may be different. 
 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 

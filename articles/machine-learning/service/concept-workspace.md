@@ -1,7 +1,7 @@
 ---
 title: 'What is a workspace'
-titleSuffix: Azure Machine Learning service
-description: The workspace is the top-level resource for Azure Machine Learning service. It keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model
+titleSuffix: Azure Machine Learning
+description: The workspace is the top-level resource for Azure Machine Learning. It keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-# As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning service.
+# As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
 
-# What is an Azure Machine Learning service workspace?
+# What is an Azure Machine Learning workspace?
 
-The workspace is the top-level resource for Azure Machine Learning service, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
+The workspace is the top-level resource for Azure Machine Learning, providing a centralized place to work with all the artifacts you create when you use Azure Machine Learning.  The workspace keeps a history of all training runs, including logs, metrics, output, and a snapshot of your scripts. You use this information to determine which training run produces the best model.  
 
 Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
 
@@ -33,7 +33,7 @@ The diagram shows the following components of a workspace:
 + When you create the workspace, [associated resources](#resources) are also created for you.
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal.
+    + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal or your workspace landing page (preview).
     + The [visual interface (preview)](ui-concept-visual-interface.md).
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
@@ -46,6 +46,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + The [Azure portal](https://portal.azure.com)
+    + Your [workspace landing page (preview)](https://ml.azure.com)
     + The [visual interface (preview)](ui-concept-visual-interface.md)
 + In Python using Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
@@ -99,9 +100,9 @@ When you create a new workspace, it automatically creates several Azure resource
 
 ## Next steps
 
-To get started with Azure Machine Learning service, see:
+To get started with Azure Machine Learning, see:
 
-+ [Azure Machine Learning service overview](overview-what-is-azure-ml.md)
++ [Azure Machine Learning overview](overview-what-is-azure-ml.md)
 + [Create a workspace](how-to-manage-workspace.md)
 + [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Train a model](tutorial-train-models-with-aml.md)

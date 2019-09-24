@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 ---
 # Audit activity reports in the Azure Active Directory portal 
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing.
+With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing..
 
 The reporting architecture consists of the following components:
 

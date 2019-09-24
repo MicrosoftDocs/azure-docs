@@ -77,8 +77,8 @@
       href: overview-authentication-authorization.md
     - name: OS and runtime patching
       href: overview-patch-os-runtime.md
-    - name: Security attributes
-      href: app-service-security-attributes.md
+    - name: Built-in security controls
+      href: app-service-security-controls.md
     - name: Security overview
       href: overview-security.md
   - name: Networking features
@@ -170,7 +170,7 @@
   - name: Scale app
     items:
     - name: Scale up server capacity
-      href: web-sites-scale.md
+      href: manage-scale-up.md
     - name: Configure PremiumV2 tier
       href: app-service-configure-premium-tier.md
     - name: Scale out to multiple instances
