@@ -30,7 +30,7 @@ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
 
-<a href="#compare"></a>
+<a name="compare"></a>
 ### Which Azure pipeline technology should I use?
 
 The Azure cloud provides several other pipelines, each with a different purpose. The following table lists the different pipelines and what they are used for:
