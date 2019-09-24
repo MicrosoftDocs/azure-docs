@@ -14,11 +14,11 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Tasks for the team lead on a Team Data Science Process team
 
-[Team Data Science Process](overview.md) (TDSP) is an agile, iterative data science methodology to efficiently deliver predictive analytics solutions and intelligent applications. The process is a distillation of the best practices and structures from Microsoft and the industry, needed for successful implementation of data science initiatives to help companies fully realize the benefits of their analytics programs. For an outline of the personnel roles and associated tasks for a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article describes the tasks that a *team lead* completes for their data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). The TDSP is designed to help improve collaboration and team learning. 
 
-This topic outlines the tasks that a *team lead* completes for their data science team. The team lead's objective is to establish a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. 
+The TDSP is an agile, iterative data science methodology to efficiently deliver predictive analytics solutions and intelligent applications. The process is a distillation of the best practices and structures from Microsoft and the industry, needed for successful implementation of data science initiatives to help companies fully realize the benefits of their analytics programs. For an outline of the personnel roles and associated tasks for a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-A team lead manages a team consisting of many data scientists in the data science unit of an enterprise. Depending on the data science unit's size and structure, the [group manager](group-manager-tasks.md) and the team lead might be the same person, or they could delegate their tasks to surrogates. But the tasks themselves do not change. 
+A team lead manages a team consisting of several data scientists in the data science unit of an enterprise. Depending on the data science unit's size and structure, the [group manager](group-manager-tasks.md) and the team lead might be the same person, or they could delegate their tasks to surrogates. But the tasks themselves do not change. 
 
 The following diagram shows the workflow for the tasks the team lead completes to set up a team environment:
 
@@ -50,23 +50,23 @@ This tutorial assumes that the following resources and permissions have been set
 
 - The Azure DevOps **organization** for your data unit
 - **GroupProjectTemplate** and **GroupUtilities** repositories, populated with the contents of the Microsoft TDSP team's **ProjectTemplate** and **Utilities** repositories
-- Permissions on your organization account for you to create repositories for your team
+- Permissions on your organization account for you to create projects and repositories for your team
 
-If you want to clone repositories and modify content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you need the following:
+To be able to clone repositories and modify their content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you need the following:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
 - If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](/azure/machine-learning/data-science-virtual-machine/).
-- If you're using a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it. 
-- If you're using a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
+- For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it. 
+- For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
 
 ## Create a team project and repositories
 
 In this section, you create the following resources in your group's Azure DevOps organization:
 
 - The **MyTeam** project in Azure DevOps
-- A **TeamTemplate** repository
-- A **TeamUtilities** repository
+- The **TeamTemplate** repository
+- The **TeamUtilities** repository
 
 The names specified for the repositories and directories in this tutorial assume that you want to establish a separate project for your own team within your larger data science organization. However, the entire group can choose to work under a single project created by the group manager or organization administrator. Then, all the data science teams create repositories under this single project. This scenario might be valid for:
 - A small data science group that doesn't have multiple data science teams. 
@@ -90,7 +90,7 @@ To create a separate project for your team:
    
    ![Create project](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-The **MyTeam** project **Summary** page opens, with page URL *https:\//\<servername>/\<organization-name>/MyTeam*.
+The team project **Summary** page opens, with page URL *https:\//\<server name>/\<organization name>/\<team name>*.
 
 ### Rename the MyTeam default repository to TeamUtilities
 
@@ -113,7 +113,7 @@ The **MyTeam** project **Summary** page opens, with page URL *https:\//\<servern
    
    ![Select New repository](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
    
-   You can also create a new repository by selecting **Repos** from the left navigation of the **MyTeam** project **Summary** page. Select a repository at the top of the page, and then select **New repository** from the dropdown.
+   Or, select **Repos** from the left navigation of the **MyTeam** project **Summary** page, select a repository at the top of the page, and then select **New repository** from the dropdown.
    
 1. In the **Create a new repository** dialog, make sure **Git** is selected under **Type**. Enter *TeamTemplate* under **Repository name**, and then select **Create**.
    
@@ -127,13 +127,15 @@ The **MyTeam** project **Summary** page opens, with page URL *https:\//\<servern
 
 To populate your team repositories with the contents of the group common repositories set up by your group manager:
 
-1. From your **MyTeam** project home page, select **Repos** in the left navigation. If you get a message that the **MyTeam** template is not found, select the link in **Otherwise, navigate to your default TeamTemplate repository.** The default **TeamTemplate** repository opens. 
+1. From your **MyTeam** project home page, select **Repos** in the left navigation. If you get a message that the **MyTeam** template is not found, select the link in **Otherwise, navigate to your default TeamTemplate repository.** 
+   
+   The default **TeamTemplate** repository opens. 
    
 1. On the **TeamTemplate is empty** page, select **Import**. 
    
    ![Select Import](./media/team-lead-tasks/import-repo.png)
    
-1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your group common template repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/_git/\<group template repository name>*. For example: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your group common template repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/_git/\<repository name>*. For example: *https:\//dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Select **Import**. The contents of your group template repository are imported into your team template repository. 
    
@@ -147,37 +149,17 @@ Each of your two team repositories now contains the files from the corresponding
 
 ### Customize the contents of the group repositories
 
-If you want to customize the contents of your team repositories to meet your team's specific needs, you can do that online. You can modify files, change the directory structure, or add files and folders.
+If you want to customize the contents of your team repositories to meet your team's specific needs, you can do that now. You can modify files, change the directory structure, or add files and folders.
 
-1. On the **MyTeam** project **Summary** page, select **Repos**. 
-   
-1. At the top of the page, select the repository you want to customize.
+To modify, upload, or create files or folders directly in Azure DevOps, follow the instructions in the **Customize the contents of the group repositories** section of [Group Manager tasks for a data science team](group-manager-tasks.md). 
 
-1. In the repo directory structure, navigate to the folder or file you want to change. 
-   
-   - To create new folders or files, select the arrow next to **New**. 
-     
-     ![Create New file](./media/team-lead-tasks/new-file.png)
-     
-   - To upload files, select **Upload file(s)**. 
-     
-     ![Upload files](./media/team-lead-tasks/upload-files.png)
-     
-   - To edit existing files, navigate to the file and then select **Edit**. 
-     
-     ![Edit a file](./media/team-lead-tasks/edit-file.png)
-     
-1. After adding or editing files, select **Commit**.
-   
-   ![Commit changes](./media/team-lead-tasks/commit.png)
+To work with the team repositories or other team assets on your local machine or DSVM, follow the instructions at [Work on your local machine or DSVM](#work-on-your-local-machine-or-dsvm).
 
-If you want to work with the team repositories or other team assets on your local machine or DSVM, follow the instructions at [Work on your local machine or DSVM](#work-on-your-local-machine-or-dsvm).
-
-## Add group members and configure permissions
+## Add team members and configure permissions
 
 To add members to the team:
 
-1. From the **MyTeam** project home page, select **Project settings** from the left navigation. 
+1. In Azure DevOps, from the **MyTeam** project home page, select **Project settings** from the left navigation. 
    
 1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **MyTeam Team**. 
    
@@ -196,38 +178,38 @@ To configure permissions for team members:
 
 1. From the **Project Settings** left navigation, select **Permissions**. 
    
-1. On the **Permissions** page, select the permission level you want to add members to. 
+1. On the **Permissions** page, select the group you want to add members to. 
    
-1. On the page for that permission level, select **Members**, and then select **Add**. 
+1. On the page for that group, select **Members**, and then select **Add**. 
    
-1. In the **Invite members** popup, search for and select members to grant that permission level, and then select **Save**. 
+1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
    
    ![Grant permissions to members](./media/team-lead-tasks/grant-permissions.png)
 
 ## Work on your local machine or DSVM
 
+To work with repositories locally, you first copy or *clone* the repositories to your local machine, and then commit and push your changes up to the shared team repositories, 
+
 ### Clone repositories
 
-If you want to work with repositories locally and push your changes up to the shared team repositories, first copy or *clone* the repositories to your local machine. 
-   
 1. On the **MyTeam** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
    
 1. On the repo page, select **Clone** at upper right.
    
-1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
+1. In the **Clone repository** dialog, under **Command line**, select **HTTPS** for an HTTP connection or **SSH** for an SSH connection, and copy the clone URL to your clipboard.
    
-   ![Clone repo](./media/team-lead-tasks/clone.png)
+   ![Copy clone URL](./media/team-lead-tasks/clone.png)
    
 1. On your local machine, create the following directories:
    
    - For Windows: **C:\GitRepos\MyTeam**
-   - For Linux, **GitRepos\MyTeam** on your home directory 
+   - For Linux, **$home/GitRepos/MyTeam** 
    
 1. Change to the directory you created.
    
-1. In Git Bash, run the command `git clone <clone URL>.`
+1. In Git Bash, run the command `git clone <clone URL>`, where \<clone URL> is the URL you copied from the **Clone** dialog.
    
-   For example, either of the following commands clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
+   For example, use one of the following commands to clone the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
    
    **HTTPS connection:**
    
@@ -243,7 +225,7 @@ If you want to work with repositories locally and push your changes up to the sh
 
 ### Commit and push changes
 
-After making whatever changes you want in the local clone of your repository, you can push the changes to the shared team repositories. 
+After making whatever changes you want in the local clone of your repository, commit and push the changes to the shared team repositories. 
 
 Run the following Git Bash commands from your local **GitRepos\MyTeam\TeamTemplate** or **GitRepos\MyTeam\TeamUtilities** directory.
 
@@ -293,7 +275,7 @@ For information about sharing other resources with your team, such as Azure HDIn
    
 1. Select the storage account to use, or create a new one under your selected subscription. You can use lowercase characters, numbers, and hyphens for the Azure file storage name.
    
-1. To facilitate mounting and sharing this storage, press Enter or select **Y** to save the Azure file storage information into a text file in your current directory. You can check in this text file to your **TeamTemplate** repository, ideally under **Docs\DataDictionaries**, so all projects in your team can access it. You also need the file information to mount your Azure file storage to your Azure DSVM in the next section. 
+1. To facilitate mounting and sharing the storage, press Enter or enter *Y* to save the Azure file storage information into a text file in your current directory. You can check in this text file to your **TeamTemplate** repository, ideally under **Docs\DataDictionaries**, so all projects in your team can access it. You also need the file information to mount your Azure file storage to your Azure DSVM in the next section. 
    
 ### Mount Azure file storage on your local machine or DSVM
 
@@ -313,9 +295,9 @@ For information about sharing other resources with your team, such as Azure HDIn
      bash AttachFileShare.sh
      ```
    
-1. Press Enter or enter *y* to continue, if you saved an Azure file storage information file in the previous step. Enter the complete path and name of the file you created. 
+1. Press Enter or enter *Y* to continue, if you saved an Azure file storage information file in the previous step. Enter the complete path and name of the file you created. 
    
-   If you don't have an Azure file storage information file, enter *n*, and follow the instructions on the following screen to enter your subscription, Azure storage account, and Azure file storage information.
+   If you don't have an Azure file storage information file, enter *n*, and follow the instructions to enter your subscription, Azure storage account, and Azure file storage information.
    
 1. Enter the name of a local or TDSP drive to mount the file share on. The screen displays a list of existing drive names. Provide a drive name that doesn't already exist.
    
@@ -327,4 +309,4 @@ Here are links to detailed descriptions of the other roles and tasks defined by 
 
 - [Group Manager tasks for a data science team](group-manager-tasks.md)
 - [Project Lead tasks for a data science team](project-lead-tasks.md)
-- [Project Individual Contributors for a data science team](project-ic-tasks.md)
+- [Project Individual Contributor tasks for a data science team](project-ic-tasks.md)
