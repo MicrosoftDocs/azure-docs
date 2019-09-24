@@ -53,10 +53,9 @@ In the left menu, under **Customize**, select **Page layouts**. Then select **Te
 
 Select a template from the list. Examples of each of the available templates' sign-in pages appear below.
 
-| | | |
-|-|-|-|
+| Ocean Blue | Slate Gray | Classic |
+|:-:|:-:|:-:|
 |![Example of the Ocean Blue template rendered on sign up sign in page](media/customize-ui-overview/template-ocean-blue.png)|![Example of the Slate Gray template rendered on sign up sign in page](media/customize-ui-overview/template-slate-gray.png)|![Example of the Classic template rendered on sign up sign in page](media/customize-ui-overview/template-classic.png)|
-|||
 
 When you choose a template, the selected layout is applied to all pages in your user flow, and the URI for each page is visible in the **Custom page URI** field.
 
