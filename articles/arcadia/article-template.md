@@ -49,6 +49,8 @@ Don't catalog every feature, and some may only need to be mentioned as available
 <!---Suggested:
 An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
 Create a new H2 for each task you list.
+
+
 --->
 
 ## Next steps
