@@ -197,17 +197,6 @@ https://<ACCOUNT_NAME>.blob.core.windows.net/demo/quickstart.txt
 
 As with the container, the block blob doesn't exist yet. The *blockBlobURL* variable is used later to create the blob by uploading content.
 
-### Create a container
-
-To create a container, the *ContainerURL*'s *create* method is used.
-
-```javascript
-await containerURL.create(aborter);
-console.log(`Container: "${containerName}" is created`);
-```
-
-As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container.
-
 ### Using the Aborter class
 
 Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
@@ -222,6 +211,17 @@ Aborters give you control over requests by allowing you to:
 - designate how long an individual request has to execute in the batch
 - allow you to cancel requests
 - use the *Aborter.none* static member to stop your requests from timing out all together
+
+### Create a container
+
+To create a container, the *ContainerURL*'s *create* method is used.
+
+```javascript
+await containerURL.create(aborter);
+console.log(`Container: "${containerName}" is created`);
+```
+
+As the name of the container is defined when calling *ContainerURL.fromServiceURL(serviceURL, containerName)*, calling the *create* method is all that's required to create the container.
 
 ### Show container names
 

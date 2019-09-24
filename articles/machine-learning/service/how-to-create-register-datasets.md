@@ -5,7 +5,7 @@ description: Learn how to create Datasets from various sources and register Data
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual	
+ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
@@ -18,9 +18,9 @@ ms.date: 08/22/2019
 
 In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
-With Azure Machine Learning datasets, you can: 
+With Azure Machine Learning datasets, you can:
 
-* **Keep a single copy of data in your storage** referenced by datasets. 
+* **Keep a single copy of data in your storage** referenced by datasets.
 
 * **Easily access data during model training** without worrying about connection strings or data paths.
 
@@ -41,7 +41,7 @@ To create and work with datasets, you need:
 
 ## Dataset Types
 
-Datasets are categorized into two types based on how users consume them in training. 
+Datasets are categorized into two types based on how users consume them in training.
 
 * [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) represents data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas or spark DataFrame. A `TabularDataset` object can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference).
 
@@ -49,7 +49,7 @@ Datasets are categorized into two types based on how users consume them in train
 
 To find out more about upcoming API changes, see [here](https://aka.ms/tabular-dataset).
 
-## Create datasets 
+## Create datasets
 
 By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
 
@@ -77,9 +77,9 @@ datastore = Datastore.get(workspace, datastore_name)
 
 ### Create TabularDatasets
 
-TabularDatasets can be created via the SDK or by using the workspace landing page (preview). A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time. 
+TabularDatasets can be created via the SDK or by using the workspace landing page (preview). A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time.
 
-#### Using the SDK 
+#### Using the SDK
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -116,7 +116,7 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](http://aka.ms/azureml-tsd-notebook). 
+Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
 # create a TabularDataset with timeseries trait
@@ -128,20 +128,20 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods 
+# filter with timeseries trait specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
-data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1)) 
-data_slice = dataset.time_recent(timedelta(weeks=1, days=1))                  
+data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
+data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Using the workspace landing page 
+#### Using the workspace landing page
 
 Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
 
-The following animation shows how to create a dataset in the workspace landing page. 
+The following animation shows how to create a dataset in the workspace landing page.
 
-First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation. 
+First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
 
 ![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
@@ -162,7 +162,7 @@ animal_ds = Dataset.File.from_files(path=datastore_paths)
 web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]          
+           ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
@@ -179,11 +179,11 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 >[!Note]
-> Datasets created via the workspace landing page are automatically registered to the workspace. 
+> Datasets created via the workspace landing page are automatically registered to the workspace.
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
+You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning:
 * When new data is available for retraining.
 * When you are applying different data preparation or feature engineering approaches.
 
@@ -192,7 +192,7 @@ You can register a new dataset under the same name by creating a new version. Da
 web_paths = [
             'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
             'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
-           ]          
+           ]
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
 # create a new version of titanic_ds

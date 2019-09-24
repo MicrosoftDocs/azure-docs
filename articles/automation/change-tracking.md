@@ -193,7 +193,7 @@ The following table shows the tracked item limits per machine for Change Trackin
 |---|---|---|
 |File|500||
 |Registry|250||
-|Windows software|250|Doesn't include software updates|
+|Windows software|250|Doesn't include software hotfixes|
 |Linux packages|1250||
 |Services|250||
 |Daemon|250||
