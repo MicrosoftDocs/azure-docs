@@ -148,6 +148,11 @@ Follow these general troubleshooting instructions for client connection error co
 
 **Fix:** Join all VMs that are part of a host pool to the domain controller.
 
+### Error: ConnectionFailedUserSIDInformationMismatch
+**Cause:** The SID from the user's Azure AD token does not match the SID being returned by the domain controller when attempting to enable the user for remote login. This is seen when attempting to logon to an Azure AD Domain Services environment with a user originally sourced from a Windows Server AD.
+
+**Fix:** This scenario is not supported at this time. Only users sourced from Azure Active Directory are supported for logging in to Windows Virtual Desktop VMs in an Azure AD Domain Services.
+
 ## User connects but nothing is displayed (no feed)
 
 A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
