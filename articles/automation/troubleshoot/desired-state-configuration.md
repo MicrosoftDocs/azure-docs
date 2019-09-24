@@ -148,7 +148,7 @@ You have upgraded your WMF version and have corrupted WMI.
 
 #### Resolution
 
-To fix the issue, follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) article.
+To fix the issue, follow the instructions in the [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) article.
 
 ### <a name="issue-using-credential"></a>Scenario: Unable to use a credential in a DSC configuration
 
