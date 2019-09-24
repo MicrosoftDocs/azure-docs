@@ -74,7 +74,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 ## Technical questions
 
-**Q: How should I run the Cognitive Services containers on IoT devices**
+**Q: How should I run the Cognitive Services containers on IoT devices?**
 
 Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 
@@ -162,7 +162,9 @@ Explore the following tags for potential questions and answers that align with y
 
 **Q: What regions are Cognitive Services containers available in?**
 
-**A:** Containers can be run anywhere in any region however they need a key and to call back to azure for metering. All supported regions for the Cloud Service are supported for the containers metering call.
+**A:** Containers can be run anywhere in any region however they need a key and to call back to Azure for metering. All supported regions for the Cloud Service are supported for the containers metering call.
+
+[!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
