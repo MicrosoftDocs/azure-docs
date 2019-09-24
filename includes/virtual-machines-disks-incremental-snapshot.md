@@ -118,7 +118,7 @@ az snapshot create -g <exampleResourceGroup> \
 --incremental
 ```
 
-You can also identify what snapshots are incremental snapshots in the CLI with by using the `--query` parameter on [az snapshot show](https://docs.microsoft.com/en-us/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show). You can use that parameter to directly query the **SourceResourceId** and **SourceUniqueId** properties of snapshots. SourceResourceId is the Azure Resource Manager resource id of the parent disk. **SourceUniqueId** is the value inherited from the **UniqueId** property of the disk. If you delete a disk and then create a disk with the same name, the value of the **UniqueId** property will change.
+You can also identify what snapshots are incremental snapshots in the CLI with by using the `--query` parameter on [az snapshot show](https://docs.microsoft.com/en-us/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show). You can use that parameter to directly query the **SourceResourceId** and **SourceUniqueId** properties of snapshots. SourceResourceId is the Azure Resource Manager resource ID of the parent disk. **SourceUniqueId** is the value inherited from the **UniqueId** property of the disk. If you delete a disk and then create a disk with the same name, the value of the **UniqueId** property will change.
 
 Examples of either queries would look like the following:
 
