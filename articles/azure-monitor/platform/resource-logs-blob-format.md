@@ -23,7 +23,7 @@ Azure Monitor offers a capability that enables you to send resource logs and act
 * On Thursday, November 1, 2018 at 12:00 midnight UTC, the blob format changed to be [JSON Lines](http://jsonlines.org/). This means each record will be delimited by a newline, with no outer records array and no commas between JSON records.
 * The blob format changed for all diagnostic settings across all subscriptions at once. The first PT1H.json file emitted for November 1 used this new format. The blob and container names remain the same.
 * Setting a diagnostic setting between prior to November 1 continued to emit data in the current format until November 1.
-* This change occured at once across all public cloud regions. The change will not occur in Azure China, Azure Germany, or Azure Government clouds yet.
+* This change occurred at once across all public cloud regions. The change will not occur in Microsoft Azure Operated by 21Vianet, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
   * [Azure resource logs](archive-diagnostic-logs.md) ([see list of resources here](diagnostic-logs-schema.md))
   * [Azure resource metrics being exported by diagnostic settings](diagnostic-settings.md)

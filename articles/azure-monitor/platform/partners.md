@@ -62,7 +62,7 @@ Circonus is a microservices monitoring and analytics platform built for on premi
 ![CloudHealth Logo](./media/partners/cloudhealth.png)
 
 
-Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The Cloudhealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
+Unite and automate your cloud with a platform built to save time and money. CloudHealth provides visibility, intuitive optimization, and rock-solid governance practices for cloud management. The CloudHealth platform enables enterprises and MSPs to maximize return on cloud investments. Make confident decisions around cost, usage, performance, and security.
 
 [Learn More.][cloudhealth-doc]
 

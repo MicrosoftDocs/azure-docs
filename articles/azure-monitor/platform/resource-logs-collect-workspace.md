@@ -40,21 +40,21 @@ Since multiple resource types send data to the same table, its schema is the sup
 
 Consider the following example where diagnostic settings are being collected in the same workspace for the following data types:
 
-    - Audit logs of service 1 (having a schema consisting of columns A, B, and C)  
-    - Error logs of service 1 (having a schema consisting of columns D, E, and F)  
-    - Audit logs of service 2 (having a schema consisting of columns G, H, and I)  
+- Audit logs of service 1 (having a schema consisting of columns A, B, and C)  
+- Error logs of service 1 (having a schema consisting of columns D, E, and F)  
+- Audit logs of service 2 (having a schema consisting of columns G, H, and I)  
 
 The AzureDiagnostics table will look as follows:  
 
-    | ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
-    | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-    | Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
-    | Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
-    | Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
-    | Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
-    | Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
-    | Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
-    | ... |
+| ResourceProvider    | Category     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
+| -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
+| Microsoft.Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
+| Microsoft.Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
+| Microsoft.Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft.Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
+| ... |
 
 ### Resource-Specific
 In this mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it makes it much easier to work with the data in log queries, provides better discoverability of schemas and their structure, improves performance across both ingestion latency and query times, and the ability to grant RBAC rights on a specific table. All Azure services will eventually migrate to the Resource-Specific mode. 
