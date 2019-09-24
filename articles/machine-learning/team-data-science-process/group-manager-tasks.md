@@ -7,7 +7,7 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/16/2019
+ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -155,6 +155,8 @@ To customize repository contents:
    
    ![Commit changes](./media/group-manager-tasks/commit.png)
 
+If you need to make changes using your local machine or DSVM and push the changes up to the group repositories, follow the instructions in the **Work on your local machine or DSVM** section of [Team Lead tasks for a data science team](team-lead-tasks.md).
+
 ## Add group members and configure permissions
 
 To add members to the group:
@@ -178,11 +180,11 @@ To configure permissions for members:
 
 1. From the **Project Settings** left navigation, select **Permissions**. 
    
-1. On the **Permissions** page, select the permission level you want to add members to. 
+1. On the **Permissions** page, select the group you want to add members to. 
    
-1. On the page for that permission level, select **Members**, and then select **Add**. 
+1. On the page for that group, select **Members**, and then select **Add**. 
    
-1. In the **Invite members** popup, search for and select members to grant that permission level, and then select **Save**. 
+1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
    
    ![Grant permissions to members](./media/group-manager-tasks/grant-permissions.png)
 
