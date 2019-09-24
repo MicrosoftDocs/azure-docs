@@ -182,9 +182,9 @@ session on the port specified, the probe is marked as unhealthy with this messag
     ```
 1.  If you don't find any issues with NSG or UDR, check your backend server for application-related issues that are preventing clients from establishing a TCP session on the ports configured. A few things to check:
 
-    1.  Open s command prompt (Win+R -\> cmd), enter `netstat`, and press Enter.
+    1.  Open a command prompt (Win+R -\> cmd), enter `netstat`, and press Enter.
 
-    1.  Check whether the server is listening on the port that is configured. For example:
+    1.  Check whether the server is listening on the port that's configured. For example:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
@@ -244,9 +244,7 @@ Learn more about Application Gateway probe matching
 #### Backend server certificate invalid CA
 
 **Message:** The server certificate used by the backend is not signed by
-a well-known Certificate Authority (CA). Whitelist the backend on the
-application gateway by uploading the root certificate of the server
-certificate used by the backend.
+a well-known Certificate Authority (CA). Whitelist the backend on the Application Gateway by uploading the root certificate of the server certificate used by the backend.
 
 **Cause:** End-to-End SSL with Application Gateway v2 requires the
 backend server's certificate to be verified in order to deem the server healthy.
@@ -330,7 +328,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
 
 **Message:** The Common Name (CN) of the backend certificate does not match the host header of the probe.
 
-**Cause:** Application Gateway checks whether the hostname specified in the backend HTTP settings matches that of the Common Name (CN) presented by the backend server’s SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s SNI is set as the FQDN in the backend pool address.
+**Cause:** Application Gateway checks whether the hostname specified in the backend HTTP settings matches that of the Common Name (CN) presented by the backend server’s SSL certificate. This is Standard_v2 and WAF_v2 SKU behavior. The Standard and WAF SKU’s Server Name Indication (SNI) is set as the FQDN in the backend pool address.
 
 In the v2 SKU, if there's a default probe (no custom probe has been configured and associated), SNI will be set from the hostname mentioned in the HTTP settings. Or, if “Pick hostname from backend address” is mentioned in the HTTP settings, where the backend address pool contains a valid FQDN, this setting will be complied with.
 
