@@ -29,7 +29,7 @@ There are two ways to create an account:
 
 - If you're new to Partner Center and don't have a Microsoft Network Account, create your account using [Create an account using the Partner Center enrollment page](#create-an-account-using-the-partner-center-enrollment-page).
 - If you're already enrolled in the Microsoft Partner Network, create an account directly from Partner Center using [Create an account using your Microsoft Partner Network enrollment](#create-an-account-using-your-microsoft-partner-network-enrollment).
-- If you're already enrolled in a Microsoft Partner Center or Microsoft Partner Network program, create an account using [Create an account using your Microsoft Partner Center enrollments](#create-an-account-using-your-microsoft-partner-center-enrollments).
+- If you're already enrolled in a Microsoft Partner Center or Microsoft Partner Network program, create an account using [Create an account using Microsoft Partner Center enrollments](#create-an-account-using-microsoft-partner-center-enrollments).
 
 ## Create an account using the Partner Center enrollment page
 
@@ -141,7 +141,7 @@ Once enrolled, you're taken to the Commercial Marketplace Overview page. **Comme
 
 If you're enrolled in the Microsoft Partner Network Account, use this section to create your account directly from Partner Center using these steps:
 
-- [Sign into Partner Center with existing credentials](sign-into-partner-center-with-existing-credentials)
+- [Sign into Partner Center with existing credentials](#sign-into-partner-center-with-existing-credentials)
 - Enter your publisher profile information
 
 >[!NOTE]
