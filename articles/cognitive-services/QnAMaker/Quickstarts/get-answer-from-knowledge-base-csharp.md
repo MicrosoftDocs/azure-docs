@@ -46,13 +46,13 @@ At the top of the Program.cs file, replace the single using statement with the f
 
 At the top of the `Program` class, inside the `Main`, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=9-41 "Add the required constants")]
 
 ## Add a POST request to send question and get answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the knowledge base and receives the response:
 
-[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
+[!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=43-76 "Add a POST request to send question to knowledge base")]
 
 The `Authorization` header's value includes the string `EndpointKey`. 
 
