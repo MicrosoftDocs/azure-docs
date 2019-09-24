@@ -42,13 +42,15 @@ To page through the available results, use the `count` and `offset` query parame
 | `count`   | Specifies the number of results to return in the response. Note that the default value of `count`, and the maximum number of results that you may request may vary by API. |
 | `offset`  | Specifies the number of results to skip. The `offset` is zero-based and should be less than (`totalEstimatedMatches` - `count`).                                           |
 
-As an example, if you want to display 15 results per page, you would set `count` to 15 and `offset` to 0 to get the first page of results. For each subsequent API call, you would increment `offset` by 15. The following example requests 15 webpages beginning at offset 45.  
+As an example, if you want to display 15 results per page, you would set `count` to 15 and `offset` to 0 to get the first page of results. For each subsequent API call, you would increment `offset` by 15. The following example requests 15 webpages beginning at offset 45.
 
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```
+
+
 
 If you use the default `count` value, you only need to specify the `offset` query parameter in your API calls.  
 

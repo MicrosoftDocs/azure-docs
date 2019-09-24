@@ -52,8 +52,9 @@
     href: gif-images.md
   - name: Get trending images
     href: trending-images.md
-  - name: Page through images
-    href: paging-images.md
+  - name: Page through search results
+    maintainContext: true
+    href: ../bing-web-search/paging-search-results.md
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md
