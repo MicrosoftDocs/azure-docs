@@ -18,7 +18,7 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please fill out our [survey](https://aka.ms/mdisnapshotpublicpreview) to get access.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
 
 ## Restrictions
 
@@ -108,4 +108,4 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please fill out our [survey](https://aka.ms/mdisnapshotpublicpreview).
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
