@@ -19,6 +19,8 @@
         href: ./hdinsight-administer-use-powershell.md
   - name: Samples
     items:
+    - name: Azure CLI samples
+      href: ./azure-cli-samples.md
     - name: .NET samples
       href: ./hdinsight-sdk-dotnet-samples.md
     - name: Java samples
