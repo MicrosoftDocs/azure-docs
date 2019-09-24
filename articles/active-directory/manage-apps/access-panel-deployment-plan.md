@@ -66,7 +66,7 @@ See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/
 
 ### Prerequisites for deploying the Azure AD Access Panel
 
-The following processes must be done before you begin this project.
+Complete the following prerequisites before you begin this project:
 
 * [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
@@ -81,7 +81,7 @@ The following table outlines the key use cases for an Access Panel deployment:
 | Access| Access Panel portal is accessible from corporate and personal devices within the corporate network. |
 |Access | Access Panel portal is accessible from corporate devices outside of the corporate network. |
 | Auditing| Usage data is downloaded into corporate systems at least every 29 days. |
-| Governance| Life cycle of the user assignments to Azure AD-connected applications and groups are defined and monitored. |
+| Governance| Life cycle of the user assignments to Azure AD-connected applications and groups is defined and monitored. |
 | Security| Access to resources is controlled via user and group assignments. Only authorized users can manage resource access. |
 | Performance| Access assignment propagation timelines are documented and monitored. |
 | User Experience| Users are aware of the Access Panel capabilities and how to use them.|
@@ -119,12 +119,12 @@ The following table lists several important Access Panel configurations and the 
 
 | Configuration| Typical values |
 | - | - |
-| Determine the pilot group(s)| Identify the Azure AD security group to be used and ensure all pilot members are a part of the group. |
-| Determine the group or groups to be enabled for production.| Identify the Azure AD security group(s) or AD groups synced to Azure AD to be used. Ensure all pilot members are a part of the group. |
+| Determine the pilot groups| Identify the Azure AD security group to be used and ensure all pilot members are a part of the group. |
+| Determine the group or groups to be enabled for production.| Identify the Azure AD security groups, or the Active Directory groups synced to Azure AD, to be used. Ensure all pilot members are a part of the group. |
 | Allow users to use SSO to certain types of applications| Federated SSO, OAuth, Password SSO, App Proxy |
 | Allow users to use self-service password reset | Yes |
 | Allow users to use Multi-Factor Authentication| Yes |
-| Allow users to use self-service group management for certain types of groups| Security groups, O365 groups |
+| Allow users to use self-service group management for certain types of groups| Security groups, Office 365 groups |
 | Allow users to use self-service app management| Yes |
 | Allow users to use access reviews| Yes |
 
@@ -132,11 +132,11 @@ The following table lists several important Access Panel configurations and the 
 
 Users or administrators must consent to any application’s terms of use and privacy policies. If possible, given your business rules, use administrator consent, which gives users a better experience.
 
-To use administrator consent, you must be a global administrator of the organization, and the applications must be:
+To use administrator consent, you must be a global administrator of the organization, and the applications must be either:
 
-* Registered in your organization, or
+* Registered in your organization
 
-* Registered in another Azure AD organization and previously consented by at least one user.
+* Registered in another Azure AD organization and previously consented by at least one user
 
 For more information, see [Configure the way end users consent to an application in Azure Active Directory](configure-user-consent.md).
 
@@ -206,7 +206,7 @@ Here’s what the user will see when launching a password-based SSO application 
 
 #### Plan for mobile access
 
-A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser)
+A browser protected with Intune policy (Microsoft Edge or Intune Managed Browser) is necessary for mobile users launching password-based SSO applications. A policy-protected browser enables the transfer of the password saved for the application. Microsoft Edge or the managed browser provides a set of web data protection features. You can also use Microsoft Edge for enterprise scenarios on iOS and Android devices. Microsoft Edge supports the same management scenarios as the Intune Managed Browser and improves the user experience. Learn more: [Manage web access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
 
 ## Plan your My Apps Deployment
 
@@ -224,7 +224,7 @@ Any Azure AD SSO-enabled application can be added to the My Apps launcher. Other
 
 #### Plan whether to use My Apps or an existing portal
 
-Your users may already have an application or portal other than My Apps. If so, decide whether to support both portals or only use one.
+Your users might already have an application or portal other than My Apps. If so, decide whether to support both portals or only use one.
 
 If an existing portal is already being used as a starting point for users, you can integrate My Apps functionality by using user access URLs. User access URLs function as direct links to the applications available in the My Apps portal. These URLs can be embedded within any existing website. When a user selects the link, it opens the application from the My Apps portal.
 
@@ -238,7 +238,7 @@ You can find the user access URL property in the **Properties** area of the appl
 Once a core set of applications is deployed to a user’s My Apps page, you should enable self-service app management features. Self-service app discovery enables users to:
 
 * Find new apps to add to their My Apps. 
-* Add optional apps that they may not know they need during setup.
+* Add optional apps that they might not know they need during setup.
 
 Approval workflows are available for explicit approval to access applications. Users who are approvers will receive notifications within the My Apps portal when there are pending request for access to the application.
 
@@ -250,7 +250,7 @@ To plan for self-service group membership, determine if you'll allow all users i
 
 ## Plan reporting and auditing
 
-Azure AD provides [reports that offer technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Work with your business and technical application owners to assume ownership of these reports and to consume them on a regular basis. The table below provides some examples of typical reporting scenarios.
+Azure AD provides [reports that offer technical and business insights](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). Work with your business and technical application owners to assume ownership of these reports and to consume them on a regular basis. The following table provides some examples of typical reporting scenarios.
 
 |   | Manage risk| Increase productivity| Governance and compliance |
 |  - |- | - | - |
@@ -263,7 +263,7 @@ Azure AD keeps most auditing data for 30 days. The data is available via Azure A
 
 Audit logs for application access are available for 30 days. If security auditing within your enterprise requires longer retention, the logs need to be exported into a Security Information Event and Management (SIEM) tool, such as Splunk or ArcSight.
 
-For auditing, reporting, and disaster recovery backups, document the required frequency of download, what the target system is, and who's responsible for managing each backup. You may not need separate auditing and reporting backups. Your disaster recovery backup should be a separate entity.
+For auditing, reporting, and disaster recovery backups, document the required frequency of download, what the target system is, and who's responsible for managing each backup. You might not need separate auditing and reporting backups. Your disaster recovery backup should be a separate entity.
 
 ## Deploy applications to users’ My Apps panel
 
@@ -287,7 +287,7 @@ Self-service application access allows users to self-discover and request access
 
 You can delegate approval of application access requests to business approvers. The business approver can set the app access passwords from the business approver’s My Apps page.
 
-Learn more: [How to use self-service application access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)
+Learn more: [How to use self-service application access](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to).
 
 ![A screenshot of configuring self-service application management](media/access-panel-deployment-plan/ap-dp-salesforce.png)
 
@@ -320,12 +320,12 @@ The following tests should be conducted with both corporate-owned devices and pe
 
 ### Rollback steps
 
-It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you may need to [roll back SSO](../manage-apps/plan-sso-deployment.md).
+It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md).
 
 
 ## Manage your implementation
 
-You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles may need to be applied temporarily and removed after the deployment is completed.
+You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
 
 | Personas| Roles| Azure AD role  |
 | - | -| -|
@@ -339,9 +339,9 @@ You can use [Privileged Identity Management](https://docs.microsoft.com/azure/ac
 
 ### Troubleshoot Access Panel issues
 
-Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You may want to create guides that break support into the tiers used by your organization.
+Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You might want to create guides that break support into the tiers used by your organization.
 
-See the below troubleshooting guides for reference:
+See these troubleshooting guides for reference:
 
 [Applications not appearing](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
 
@@ -355,4 +355,4 @@ See the below troubleshooting guides for reference:
 
 ## Next steps
 
-[Plan a deployment of Azure Active Directory Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
