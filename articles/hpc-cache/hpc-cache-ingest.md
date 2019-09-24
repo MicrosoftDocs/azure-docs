@@ -1,5 +1,5 @@
 ---
-title: Move data to an Azure HPC Cache cloud container 
+title: Move data to an Azure HPC Cache (Preview) cloud container 
 description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
@@ -8,7 +8,7 @@ ms.date: 09/18/2019
 ms.author: v-erkell
 ---
 
-# Move data to Azure Blob storage for Azure HPC Cache
+# Move data to Azure Blob storage for Azure HPC Cache (preview)
 
 If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy to copy your data through the Azure HPC Cache.
 
@@ -28,7 +28,7 @@ If you don't want to use the loading utility, or if you want to add content to a
 
 You can use the <!--[Avere CLFSLoad](https://aka.ms/avere-clfsload)--> Avere CLFSLoad utility to copy data to a new Blob storage container before you add it as a storage target. This utility runs on a single Linux system and writes data in the proprietary format needed for Azure HPC Cache. CLFSLoad is the most efficient way to populate a Blob storage container for use with the cache.
 
-The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact, or open a support ticket to request assistance.
+The Avere CLFSLoad utility is available by request from your Azure HPC Cache team. Ask your team contact for it, or open a [support ticket](hpc-cache-support-ticket.md) to request assistance.
 
 This option works with new, empty containers only. Create the container before using Avere CLFSLoad.
 
@@ -55,7 +55,7 @@ If you don't want to use the Avere CLFSLoad utility, or if you want to add a lar
 
 ![Diagram showing multi-client, multi-threaded data movement: At the top left, an icon for on-premises hardware storage has multiple arrows coming from it. The arrows point to four client machines. From each client machine three arrows point toward the Azure HPC Cache. From the Azure HPC Cache, multiple arrows point to Blob storage.](media/hpc-cache-parallel-ingest.png) 
 
-The ``cp`` or ``copy`` commands that you typically use to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cluster’s resources.
+The ``cp`` or ``copy`` commands that you typically use to transfer data from one storage system to another are single-threaded processes that copy only one file at a time. This means that the file server is ingesting only one file at a time - which is a waste of the cache's resources.
 
 This section explains strategies for creating a multi-client, multi-threaded file copying system to move data to Blob storage with Azure HPC Cache. It explains file transfer concepts and decision points that can be used for efficient data copying using multiple clients and simple copy commands.
 

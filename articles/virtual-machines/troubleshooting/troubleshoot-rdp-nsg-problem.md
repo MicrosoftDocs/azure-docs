@@ -40,9 +40,8 @@ To enable the RDP port in an NSG, follow these steps:
 4. In **Inbound port rules**, check whether the port for RDP is set correctly. The following is an example of the configuration: 
 
     **Priority**: 300 </br>
-    **Port**: 3389 </br>
     **Name**: Port_3389 </br>
-    **Port**: 3389 </br>
+    **Port(Destination)**: 3389 </br>
     **Protocol**: TCP </br>
     **Source**: Any </br>
     **Destinations**: Any </br>
