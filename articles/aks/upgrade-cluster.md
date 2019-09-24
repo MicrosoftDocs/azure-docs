@@ -57,7 +57,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have. 
 
 > [!NOTE]
-> There is a timeout of 3 hours for a cluster upgrade to complete, if an upgrade cannot complete within this time the upgrade operation is failed. To recover, you may retry the upgrade operation after the timeout has been hit.
+> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure,  retry the upgrade operation after the timeout has been hit.
 
 To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 
