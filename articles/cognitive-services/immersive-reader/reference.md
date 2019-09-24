@@ -21,11 +21,11 @@ The Immersive Reader SDK is a JavaScript library that allows you to integrate th
 
 The SDK exposes the functions:
 
-[`ImmersiveReader.launchAsync(token, subdomain, content, options)`.](#launchAsync)
+[`ImmersiveReader.launchAsync(token, subdomain, content, options)`.](#launchasync)
 
 [`ImmersiveReader.close()`.](#close)
 
-[`ImmersiveReader.renderButtons(options)`.](#renderButtons)
+[`ImmersiveReader.renderButtons(options)`.](#renderbuttons)
 
 ## launchAsync
 
@@ -78,7 +78,7 @@ renderButtons(options?: RenderButtonsOptions): void ;
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#RenderButtonsOptions) | Options for configuring certain behaviors of the renderButtons function. Optional. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Options for configuring certain behaviors of the renderButtons function. Optional. |
 
 ## Types
 
@@ -110,7 +110,7 @@ A single chunk of data which will be passed into the Content of the Immersive Re
 | MIME Type | Description |
 | --------- | ----------- |
 | text/plain | Plain text. |
-| text/html | HTML content. [Learn more](#HTML-Support)|
+| text/html | HTML content. [Learn more](#html-support)|
 | application/mathml+xml | Mathematical Markup Language (MathML). [Learn more](https://developer.mozilla.org/en-US/docs/Web/MathML).
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Microsoft Word .docx format document.
 
