@@ -101,8 +101,8 @@
           href: authenticate-application.md
       - name: Authenticate with a shared access signature
         href: authenticate-shared-access-signature.md
-    - name: Security Attributes
-      href: event-hubs-security-attributes.md
+    - name: Built-in security controls
+      href: event-hubs-security-controls.md
   - name: AMQP 1.0 protocol guide
     href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
     maintainContext: true

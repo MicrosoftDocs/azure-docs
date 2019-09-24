@@ -39,7 +39,7 @@ Some products that include SharePoint and OneDrive, such as Office 365, do not s
 
 3. In the confirmation email from Power BI, select **Yes, that's me**.
 
-4. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
+4. Sign in to the [Microsoft 365 admin center](https://portal.office.com/admintakeover) with the Power BI user account. You receive a message that instructs you to **Become the Admin** of the domain name that was already verified in the unmanaged tenant. select **Yes, I want to be the admin**.
   
    ![first screenshot for Become the Admin](./media/domains-admin-takeover/become-admin-first.png)
   
@@ -84,14 +84,11 @@ When you verify ownership of the domain name, Azure AD removes the domain name f
 ### Support for external admin takeover
 External admin takeover is supported by the following online services:
 
-- Power BI
 - Azure Rights Management
 - Exchange Online
 
 The supported service plans include:
 
-- Power BI Free
-- Power BI Pro
 - PowerApps Free
 - PowerFlow Free
 - RMS for individuals
@@ -109,10 +106,6 @@ For [RMS for individuals](/azure/information-protection/rms-for-individuals), wh
 The key and templates are not moved over when the unmanaged tenant is in a different region. For example, if the unmanaged tenant is in Europe and the organization that you own is in North America.
 
 Although RMS for individuals is designed to support Azure AD authentication to open protected content, it doesn't prevent users from also protecting content. If users did protect content with the RMS for individuals subscription, and the key and templates were not moved over, that content is not accessible after the domain takeover.
-
-#### More information about Power BI
-
-When you perform an external takeover, Power BI content that was created before the takeover is placed in a [Power BI Archived Workspace](/power-bi/service-admin-power-bi-archived-workspace). You must manually migrate any content that you want to use in the new tenant.
 
 ### Azure AD PowerShell cmdlets for the ForceTakeover option
 You can see these cmdlets used in [PowerShell example](#powershell-example).

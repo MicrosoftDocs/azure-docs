@@ -54,7 +54,7 @@
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
   - name: Develop Python functions with VS Code
-    href: tutorial-vs-code-serverless-python.md
+    href: /azure/python/tutorial-vs-code-serverless-python-01
   - name: OpenAPI definition for serverless APIs
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
@@ -98,6 +98,10 @@
     href: functions-premium-plan.md
   - name: Deployments
     href: functions-deployment-technologies.md
+  - name: Events and messaging
+    items:
+    - name: Designing for identical input
+      href: functions-idempotent.md
   - name: Triggers and bindings
     items:
     - name: About triggers and bindings
@@ -134,6 +138,8 @@
       href: functions-reference-node.md#typescript
   - name: Diagnostics
     href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Consumption plan costs
+    href: functions-consumption-costs.md  
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
@@ -188,6 +194,8 @@
       href: functions-deployment-slots.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
+    - name: Build and deploy using GitHub Actions
+      href: functions-how-to-github-actions.md
     - name: Zip deployment
       href: deployment-zip-push.md
     - name: Run from package
@@ -212,6 +220,7 @@
       href: disable-function.md
   - name: Monitor
     href: functions-monitoring.md
+    displayName: App Insights, Application Insights, logs, logging
   - name: Secure
     items:
     - name: Buy SSL cert
@@ -266,7 +275,7 @@
       href: https://docs.microsoft.com/python/api/azure-functions/azure.functions?view=azure-python 
   - name: App settings reference
     href: functions-app-settings.md
-  - name: Bindings
+  - name: Triggers and bindings
     items:
     - name: Blob storage
       href: functions-bindings-storage-blob.md
@@ -274,8 +283,10 @@
       items: 
       - name: Functions 1.x
         href: functions-bindings-cosmosdb.md
+        displayName: Azure Cosmos DB
       - name: Functions 2.x
         href: functions-bindings-cosmosdb-v2.md
+        displayName: Azure Cosmos DB
     - name: Event Grid
       href: functions-bindings-event-grid.md
     - name: Event Hubs
