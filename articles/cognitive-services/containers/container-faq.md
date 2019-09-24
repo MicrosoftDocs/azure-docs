@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/24/2019
 ms.author: dapine
 ---
 
@@ -15,7 +15,7 @@ ms.author: dapine
 
 ## General questions
 
-**Q: What is being announced?**
+**Q: What is available?**
 
 **A:** [Container support in Azure Cognitive Services](../cognitive-services-container-support.md) allows developers to use the same intelligent APIs that are available in Azure, but with the [benefits](../cognitive-services-container-support.md#features-and-benefits) of containerization. Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of:
 
@@ -78,6 +78,10 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 
+**Q: How do I provide product feedback and feature recommendations?**
+
+**A:** Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap. The user voice tool can be used for both product feedback and feature recommendations.
+
 **Q: Who do I contact for support?**
 
 **A:** Customer support channels are the same as the Cognitive Services cloud offering. All Cognitive Services containers include logging features that will help us and the community support customers. For additional support, see the following options.
@@ -89,10 +93,6 @@ Customers should refer to their [Azure support plan](https://azure.microsoft.com
 ### Azure knowledge center
 
 Customer are free to explore the [Azure knowledge center](https://azure.microsoft.com/en-us/resources/knowledge-center/) to answer questions and support issues.
-
-### User voice
-
-Customers are encouraged to [voice their concerns](https://cognitive.uservoice.com/) publicly, and up-vote others who have done the same where potential issues overlap.
 
 ### Stack Overflow
 
@@ -123,10 +123,13 @@ Explore the following tags for potential questions and answers that align with y
 
 **A:** There is no warranty for previews. Microsoft’s standard warranty for enterprise software will apply when containers are formally announced as general availability (GA).
  
-**Q 1: What happens to Cognitive Services containers when internet connectivity is lost?**<br>
-**Q 2: How long can the container operate without being connected to Azure?**
+**Q: What happens to Cognitive Services containers when internet connectivity is lost?**
 
-**A:** Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times.
+**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times. The only exception is [Cognitive Services offline containers](offline-containers.md).
+
+**Q: How long can the container operate without being connected to Azure?**
+
+**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times. The only exception is [Cognitive Services offline containers](offline-containers.md).
  
 **Q: What is current hardware required to run these containers?**
 
