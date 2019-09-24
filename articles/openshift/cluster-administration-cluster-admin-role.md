@@ -19,7 +19,7 @@ When your account has the osa-customer-admins authorization role bound to it, ca
 
     Note: osa-customer-admin clusterrole is not the same as cluster-admin clusterrole
 
-You can perform actions associated with a set of verbs (e.g., create) to operate on a set of resource names (e.g., templates). To view the details of these roles and their sets of verbs and resources, run the following:
+You can perform actions associated with a set of verbs (e.g., create) to operate on a set of resource names (e.g., templates). To view the details of these roles and their sets of verbs and resources, run the following command:
 
 `$ oc describe clusterrole/osa-customer-admin`
 
