@@ -664,7 +664,7 @@ If you don’t have Git configured, the linked templates are accessible via the 
 
 ## Hot-fix production branch
 
-If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you may need to deploy a hot-fix.
+This approach is as known as QFE, Quick Fixing Engineering. If you deploy a factory to production and realize there's a bug that needs to be fixed right away, but you can't deploy the current collaboration branch, you may need to deploy a hot-fix.
 
 1.	In Azure DevOps, go to the release that was deployed to production and find the last commit that was deployed.
 
@@ -700,8 +700,13 @@ If you're using Git integration with your data factory, and you have a CI/CD pip
 
 ## Unsupported features
 
--   You can't publish individual resources. Data factory entities depend on each other and tracking changing dependencies can be difficult and lead to unexpected behavior. For example, triggers depend on pipelines, pipelines depend on datasets and other pipelines, an so on. If it was possible to publish only a subset of the entire change-set, certain unforeseen errors could occur.
+-   You cannot selectively publish individual resources. Publish actions will reflect **all** changes made in the data factory
 
--   You can't publish from private branches.
+    - Data factory entities depend on each other. For instance triggers depend on pipelines, pipelines depend on datasets and other pipelines, etc.
+    - Selective publishing of a subset of resources _may_ lead to certain errors and unexpected behaviors.
+    - By design, ADF does not allow cherry-picking commits or selective publishing of resources. Publishes will include **all** changes made in the data factory
+    - On rare occasions where selective publishing is required, please consider the Hot-fix route (see [Hot-Fix Production Branch](#hot-fix-production-branch))
 
--   You can't host projects on Bitbucket.
+-   You cannot publish from private branches
+
+-   As of now, you cannot host projects on Bitbucket
