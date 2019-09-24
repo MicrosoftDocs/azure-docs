@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
+ms.date: 09/26/2019
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -55,10 +55,11 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. Select **Get started**.
 
-1.  Select **Automated ML** under the **Authoring** section, on the left side pane.
-You'll see the **Getting started** screen, since this is your first experiment with Automated Machine Learning.
+1. In the left pane, select **Automated ML** under the **Authoring** section.
 
-    ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
+   Since this is your first automated ML experiment, you'll see the Getting started screen.
+
+   ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
 1. Select **Create experiment**. 
 
@@ -76,6 +77,7 @@ You'll see the **Getting started** screen, since this is your first experiment w
    >For this tutorial, you'll use the default storage account and container created with your new compute. They automatically populate in the form.
     
 1. Select **Create** to get the compute target. 
+
    **This takes a couple minutes to complete.** 
 
 1. After creation, select your new compute target from the drop-down list and select **Next**.
@@ -89,18 +91,18 @@ You'll see the **Getting started** screen, since this is your first experiment w
     1. Give your dataset a unique name and provide an optional description. 
 
     1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
-
-    1. When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. Ensure the form is populated as follows.
+    
+       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
+       
+    1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
-        Field|Value
+        Field|Value for tutorial
         ---|---
         File format| Delimited
         Delimiter| Comma
         Encoding| UTF-8
         Column headers| All files have same headers
         Skip rows | None
-
-        Select **Next**.
     
     1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
 
@@ -113,16 +115,17 @@ You'll see the **Getting started** screen, since this is your first experiment w
 1. Expand **Advanced Settings** and populate the fields as follows.
 
    >[!NOTE]
-   > For this experiment, you don't set a metric score or max cores per iterations threshold. You also don't block algorithms from being tested.
+   > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
    
-    Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
-    ------|---------|---
-    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|**AUC_weighted** 
-    Exit criteria| When any of these criteria are met, the training job ends even if it didn't fully complete. |Training&nbsp;job&nbsp;time&nbsp;(minutes): **5**  <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;**10** 
-    Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-    Validation| Validation type and number of tests. | **K-fold** cross-validation<br><br>  cross-validations: **2** 
-    Concurrency| The number of max concurrent iterations.|**5**
-
+   Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
+   ------|---------|---
+   Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
+   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
+   Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
+   Validation type | Choose a cross-validation type.|K-fold cross-validation
+   Number of validations | Number of tests. | 2 cross-validations 
+   Concurrency| The number of max concurrent iterations.|5
+   
 1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
 
 >[!IMPORTANT]
