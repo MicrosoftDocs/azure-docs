@@ -36,8 +36,8 @@ In this section, you'll use an Azure Quickstart deployment template to create ne
 1. Select **Deploy to Azure**.
 1. Sign in to your Azure subscription.
 1. On the **Create an Azure VM with a new AD Forest** page:
-    1. From the **Subscription** dropdown, select the subscription where you want to deploy the resources.
-    1.  Next to **Resource group**, select **Create new**, and enter the name *OnPremADVRG*.
+    1. From the **Subscription** drop-down list, select the subscription where you want to deploy the resources.
+    1. Next to **Resource group**, select **Create new**, and enter the name *OnPremADVRG*.
     1. For the rest of the template fields, enter the following details:
 
         * **Location**: Central US
@@ -253,8 +253,8 @@ Use the following steps to configure your Azure AD DS virtual network (**HDIFabr
 1. Configure **HDIFabrikam-AADDSVNET** to use custom IP addresses 10.0.0.4 and 10.0.0.5.
 
     1. Under **Settings**, select **DNS Servers**. 
-    1. Select **Custom**
-    1. In the text box below, enter the first IP address (*10.0.0.4*).
+    1. Select **Custom**.
+    1. In the text box, enter the first IP address (*10.0.0.4*).
     1. Select **Save**.
     1. Repeat the steps to add the other IP address (*10.0.0.5*).
 
