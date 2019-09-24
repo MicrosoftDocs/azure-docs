@@ -29,7 +29,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-	  - text: High availability
+          - text: High availability
             url: high-availability.md
           - text: Physical security
             url: physical-security.md

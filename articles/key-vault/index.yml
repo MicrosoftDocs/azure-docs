@@ -27,7 +27,7 @@ landingContent:
           - text: What is Azure Key Vault?
             url: key-vault-overview.md
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Basic concepts
             url: basic-concepts.md
