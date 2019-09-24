@@ -165,7 +165,7 @@ session on the port specified, the probe is marked as unhealthy with this messag
 1.  If you can't connect on the port from your local machine as well,
     then:
 
-    a.  Check the NSG settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Check the network security group (NSG) settings of the backend server's network adapter and subnet and whether inbound connections to the configured port are allowed. If they aren't, create a new rule to allow the connections. To learn how to create NSG rules, [see the documentation page](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
 
     b.  Check whether the NSG settings of the Application Gateway subnet allow outbound public and private traffic, so that a connection can be made. Check the document page that's provided in step 3a to learn more about how to create NSG rules.
     ```azurepowershell
@@ -173,7 +173,7 @@ session on the port specified, the probe is marked as unhealthy with this messag
             Get-AzVirtualNetworkSubnetConfig -Name appGwSubnet -VirtualNetwork $vnet
     ```
 
-    c.  Check the UDR settings of Application Gateway and the backend server's subnet for any routing anomalies. Make sure the UDR isn't directing the traffic away from the backend subnet. For example, check for routes to network virtual appliances or default routes being advertised to the Application Gateway subnet via ExpressRoute and/or VPN.
+    c.  Check the user-defined routes (UDR) settings of Application Gateway and the backend server's subnet for any routing anomalies. Make sure the UDR isn't directing the traffic away from the backend subnet. For example, check for routes to network virtual appliances or default routes being advertised to the Application Gateway subnet via ExpressRoute and/or VPN.
 
     d.  To check the effective routes and rules for a network adapter, you can use the following PowerShell commands:
     ```azurepowershell
@@ -411,48 +411,43 @@ This behavior can occur for one or more of the following reasons:
 
 **Solution:**
 
-1.	Check if your NSG is blocking access to the ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from “Internet”
+1.	Check whether your NSG is blocking access to the ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from **Internet**:
 
     a.	On the Application Gateway **Overview** tab, select the Virtual Network/Subnet link.
 
-    b.	In the Subnets tab of your Virtual Network, select the subnet where Application Gateway has been deployed.
+    b.	On the **Subnets** tab of your Virtual Network, select the subnet where Application Gateway has been deployed.
 
-    c.	Check if there is any NSG configured.
+    c.	Check whether any NSG is configured.
 
-    d.	If there is one, search for that NSG resource in the search tab or under All resources.
+    d.	If an NSG is configured, search for that NSG resource on the Search tab or under **All resources**.
 
-    e.	In Inbound Rules section, add an inbound rule to allow Destination Port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with Source as Any or Internet.
+    e.	In the **Inbound Rules** section, add an inbound rule to allow Destination Port range 65503-65534 for v1 SKU or 65200-65535 v2 SKU with the **Source** set as **Any** or **Internet**.
 
-    f.	Select Save and verify if you can view the backend healthy successfully.
+    f.	Select **Save** and verify that you can view the backend as healthy. Alternatively, you can do that through [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
 
-    g.	Alternatively, you can do it through [PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
-
-1.	Check if your UDR is having a default route (0.0.0.0/0) with next hop not as Internet.
+1.	Check whether your UDR has a default route (0.0.0.0/0) with the next hop not set as **Internet**:
     
-    a.	Follow steps 1.a and 1.b to determine your subnet
+    a.	Follow steps 1a and 1b to determine your subnet.
 
-    b.	Check if there are any UDR configured. If there is one, search for the resource in the search bar or under All resources.
+    b.	Check whether there's any UDR configured. If there is, search for the resource on the search bar or under **All resources**.
 
-    c.	Check if there are any default routes (0.0.0.0/0) with next hop not as Internet. If it is either Virtual Appliance or Virtual Network Gateway, you need to make sure that your virtual appliance or the on-premises device will be able to properly route the packet back to internet destination without modifying the packet.
+    c.	Check whether there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either Virtual Appliance or Virtual Network Gateway, you must make sure that your virtual appliance or the on-premises device can properly route the packet back to the internet destination without modifying the packet.
 
-    d.	Otherwise, change the next hop to Internet, select Save, and verify the backend health.
+    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
-1.	Default route advertised by ExpressRoute/VPN connection to the VNet over BGP.
+1.	Default route advertised by the ExpressRoute/VPN connection to the VNet over BGP:
 
-    a.	If you have an ExpressRoute/VPN connection to the VNet over BGP and if you are advertising default route, you need to make sure that the packet is routed back to the internet destination without modifying it.
+    a.	If you have an ExpressRoute/VPN connection to the VNet over BGP, and if you are advertising a default route, you must make sure that the packet is routed back to the internet destination without modifying it. You can verify by using the **Connection Troubleshoot** option in the Application Gateway portal.
 
-    b.	You can verify by using “Connection Troubleshoot” option in Application Gateway portal.
+    b.	Choose the destination manually as any internet-routable IP address like 1.1.1.1. Set the destination port as anything, and verify the connectivity.
 
-    c.	Choose the destination manually as any internet routable IP address like "1.1.1.1" and destination port as anything and check the connectivity.
+    c.	If the next hop is Virtual Network Gateway, there might be a default route advertised over ExpressRoute or VPN.
 
-    d.	If the next hop is Virtual Network Gateway, then there might be a default route advertised over ExpressRoute or VPN.
+1.	If there's a custom DNS server configured on the VNet, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
-1.	If there is a custom DNS server configured in the VNet, verify if the server(s) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status, etc.
-
-1.	To verify that Application Gateway is healthy and running, go to Resource Health option in the portal and verify if it is “Healthy”. If you are seeing Unhealthy or Degraded state, [contact support](https://azure.microsoft.com/support/options/).
+1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that it's **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
 Next steps
 ----------
 
-To learn more about Application Gateway diagnostics and logging, see
-[here](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Learn more about [Application Gateway diagnostics and logging](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
