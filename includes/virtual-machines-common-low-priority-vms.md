@@ -5,17 +5,18 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/19/2019
+ ms.date: 09/23/2019
  ms.author: cynthn
  ms.custom: include file
 ---
 
+Using low-priority VMs allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-With low-priority VMs, you can to take advantage of unused Azure capacity, at a significant cost savings. You set the max price you are willing to pay, per hour, for the VM and the VM will be deallocated if the price goes above that point. 
+The amount of available capacity can vary based on size, region, time of day, and more. When deploying low-priority VMs, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A low-priority VM offers no high availability guarantees.
 
 At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
-The amount of available unused capacity can vary based on size, region, time of day, and more. When deploying low-priority VMs on scale sets, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A low-priority VM is deployed in a single fault domain and comes with no high availability guarantees.
+
 
 ## Eviction Policy
 
@@ -33,18 +34,32 @@ For the preview, VMs will be evicted based on capacity and the max price you set
 | After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM youself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for on-demand VMs. You will never be charged above the on-demand price.| 
 
+## Limitations
 
+The following VM sizes are not supported for low-priority VMs:
+ - B-series
+ - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
+ - The original A-series
+ - The original D-series 
+ 
+Low-priority VMs can be deployed to any region, except Microsoft Azure China and Department of Defense (DoD) in the Azure Government region.
 
 ## Pricing
 
 Pricing for low-priority VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/). 
 
 
-You can set a max price, in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. You can also set the max price to be `-1`, which means that the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
+With variable pricing, you have option to set a max price, in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
+
+> [!IMPORTANT]
+> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
 
 ## Use the Azure CLI
 
-The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Low' parameter and provide a max price or `-1` <<need param name>>.
+The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Low' parameter and provide a max price or `-1`.
+
+> [!IMPORTANT]
+> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
 
 ```azurecli
 az vm create \
@@ -53,7 +68,8 @@ az vm create \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --priority Low
+    --priority Low \
+	--max-price -1
 ```
 
 ## Use Azure PowerShell
@@ -73,6 +89,10 @@ Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Micros
 Create a low priority VM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority low` and set `-MaxPrice` to either:
 - `-1` so the VM is not evicted based on price.
 - a dollar amount, up to 5 digits. For example `-MaxPrice .98765` means that the VM will be deallocated once the price for a low priority VM goes about $.98765 per hour.
+
+> [!IMPORTANT]
+> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
+
 
 This example creates a low priority VM that will not be deallocated based on pricing (only when Azure needs the capacity back).
 
@@ -122,6 +142,11 @@ For template deployments, use`"apiVersion": "2019-03-01"`. Add the `priority`, `
                     "maxPrice": -1
                 }
 ```
+
+
+> [!IMPORTANT]
+> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
+
 
 Here is a sample template with the added properties for a low-priority VM. Replace the resource names with your own and `<password>` with a password for the local administrator account on the VM.
 
@@ -265,7 +290,7 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 
 **Q:** Once created, is a low-priority VM the same as regular on-demand VM?
 
-**A:** Yes.
+**A:** Yes, except there is no SLA for low-priority VMs.
 
 
 **Q:** What to do when you get evicted, but still need capacity?
@@ -275,7 +300,10 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 
 **Q:** How is quota managed for low-priority VMs?
 
-**A:** Low-priority VMs and regular VMs have separate quota pools. 
+**A:** Low-priority VMs and regular VMs will have separate quota pools. 
+
+> [!IMPORTANT]
+> For the early part of the public preview, regular VMs and low-priority VMs will share quota.
 
 
 **Q:** Can I request for additional quota for low-priority?
@@ -290,5 +318,5 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 
 **Q:** Where can I post questions?
 
-**A:** You can post and tag your question with `azurelowpri` at http://aka.ms/stackoverflow. 
+**A:** You can post and tag your question with `azurelowpri` at [http://aka.ms/stackoverflow](https://stackoverflow.microsoft.com/questions/tagged/azurelowpri). 
 
