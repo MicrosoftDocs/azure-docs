@@ -73,11 +73,18 @@ An approval process and decision will be made after validating business use case
 
 **Q: How should I run the Cognitive Services containers on-premises?**
 
-Azure Cognitive Services containers are just like any other Docker container, and are compatible to run on Linux. As such, all containers are flexible and can operate within orchestration engines such as Kubernetes, and DC/OS.
+**A:** Cognitive Services containers are just like any other Docker container, and are compatible to run on Linux. As such, all containers are flexible and can operate within orchestration engines such as Kubernetes, and DC/OS.
 
-**Q: How should I run the Cognitive Services containers on IoT devices?**
+**Q: Do Cognitive Services containers work with IoT devices?**
 
-**A:** Whether you don’t have a reliable internet connection, or you simply want to save on bandwidth cost. Perhaps, you have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) give you consistency with the cloud.
+**A:** Yes, Cognitive Services containers work with IoT devices. There are many reasons to consider IoT devices integrating with Cognitive Services containers:
+
+* If you don’t have a reliable internet connection
+* You want to save on bandwidth cost
+* You have low-latency requirements
+* You are dealing with sensitive data that needs to be analyzed on-site
+
+For more information see [Azure IoT Edge with Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/).
 
 **Q: What compliance certifications do containers have?**
 
