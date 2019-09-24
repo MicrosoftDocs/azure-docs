@@ -6,7 +6,7 @@ author: troy0820
 ms.author: b-trconn
 ms.author: jzim
 ms.service: container-service
-ms.topic: administration
+ms.topic: article
 ms.date: 23/09/2019
 #Customer intent: As a developer, I need to understand how to manage security context constraints.
 ---
@@ -16,7 +16,7 @@ Security context constraints allow administrators to control permissions for pod
 
 # Listing Security Context Constraints
 
-To get a current list of SCC's 
+To get a current list of SCCs 
 
 ```bash
 $ oc get scc
