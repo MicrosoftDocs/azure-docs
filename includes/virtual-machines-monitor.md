@@ -61,15 +61,12 @@ Some of the things you can do with diagnostics logs include:
 
 ## Advanced monitoring
 
-For complete observability that goes beyond collecting, alerting, and analyzing data from your VMs and includes 
+For visibility of the application or service that the Azure VM supports to understand if the workload running on the VM is impacting its availability and performance or is it an issue with the application itself, enable both [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/app/app-insights-overview.md).
 
-
-collecting basic performance and log data from the guest OS operating system and 
-
-[Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including the different processes and interconnected dependencies on other resources and external processes it discovers. It also includes several trend performance charts to help during investigation of problems and assess capacity of your VMs, and with the dependency map, you can view the  
-
-see application component dependencies (running processes) that interact between multiple VMs over the active network connections and ports identified. 
+Azure Monitor for VMs monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including the different processes and interconnected dependencies on other resources and external processes it discovers. It includes several trend performance charts to help during investigation of problems and assess capacity of your VMs, the dependency map shows monitored and unmonitored machines, failed and active network connections between processes and these machines, and shows trend charts with standard network connection metrics. Combined with Application Insights to capture response times, exceptions, and other telemetry from the application, you can correlate issues between infrastructure and application through analysis and smart alerts.  
 
 ## Next steps
+
 - Walk through the steps in [Monitor a Windows Virtual Machine with Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) or [Monitor a Linux Virtual Machine with the Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
+
 - Learn more about the best practices around [Monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).
