@@ -431,6 +431,8 @@
           href: app/asp-net-trace-logs.md        
         - name: Performance counters
           href: app/performance-counters.md
+        - name: EventCounters
+          href: app/eventcounters.md
         - name: Dependencies
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
@@ -518,7 +520,9 @@
         - name: Azure Diagnostics extension
           items:
           - name: Overview
-            href: platform/diagnostics-extension-overview.md  
+            href: platform/diagnostics-extension-overview.md
+          - name: Collect logs
+            href: platform/azure-storage-iis-table.md
           - name: Windows 
             items:   
             - name: Version history
@@ -644,22 +648,20 @@
         href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
-    - name: Azure resources
+    - name: Azure platform
       items:
-      - name: Diagnostic logs
+      - name: Platform logs overview
+        href: platform/platform-logs-overview.md 
+      - name: Resource logs
         items: 
         - name: Overview
-          href: platform/diagnostic-logs-overview.md 
-        - name: Collect in Logs
-          href: platform/diagnostic-logs-stream-log-store.md
-        - name: Collect from Azure Storage
-          href: platform/azure-storage-iis-table.md
+          href: platform/resource-logs-overview.md 
+        - name: Collect in Azure Monitor Logs
+          href: platform/resource-logs-collect-workspace.md
         - name: Archive to storage
-          href: platform/archive-diagnostic-logs.md
-        - name: Enable with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
-    - name: Azure Subscription
-      items:
+          href: platform/resource-logs-collect-storage.md
+        - name: Stream to Event Hubs
+          href: platform/resource-logs-stream-event-hubs.md
       - name: Activity log
         items:
         - name: Overview
@@ -674,6 +676,14 @@
           href: platform/activity-log-export.md
         - name: Schema
           href: platform/activity-log-schema.md
+      - name: Diagnostic settings
+        items: 
+        - name: Create diagnostic setting
+          href: platform/diagnostic-settings.md
+        - name: Create diagnostic setting with Resource Manager
+          href: platform/diagnostic-settings-template.md
+        - name: Change to blob storage format
+          href: platform/resource-logs-blob-format.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
@@ -748,7 +758,7 @@
       - name: Connect Configuration Manager
         href: platform/collect-sccm.md
     - name: Stream data to Event Hubs
-      href: platform/diagnostic-logs-stream-event-hubs.md
+      href: platform/resource-logs-stream-event-hubs.md
   - name: Analyze data
     items:
     - name: Metrics
