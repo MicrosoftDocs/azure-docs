@@ -29,7 +29,7 @@ Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualiz
 
 1. Navigate to the **Data Explorer** pane. You should now see your notebooks workspace.
 
-        ![New Azure Cosmos DB notebooks workspace](media/enable-notebooks/new-notebooks-workspace.png)
+    ![New Azure Cosmos DB notebooks workspace](media/enable-notebooks/new-notebooks-workspace.png)
 
 ## Enable notebooks in an existing Cosmos account
 You can also enable notebooks on existing accounts. This step needs to be done only once per account.
