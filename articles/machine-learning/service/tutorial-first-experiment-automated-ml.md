@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/09/2019
+ms.date: 09/26/2019
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -76,7 +76,9 @@ You complete the following experiment set-up and run steps in the workspace land
    >[!NOTE]
    >For this tutorial, you'll use the default storage account and container created with your new compute. They automatically populate in the form.
     
-1. Select **Create** to get the compute target. <br/> **This takes a couple minutes to complete.** 
+1. Select **Create** to get the compute target. 
+
+   **This takes a couple minutes to complete.** 
 
 1. After creation, select your new compute target from the drop-down list and select **Next**.
 
@@ -90,9 +92,9 @@ You complete the following experiment set-up and run steps in the workspace land
 
     1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
     
-       When the upload is complete, the **Settings and preview** form is intelligently populated based on the file type. 
+       When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
        
-    1. Verify that the form is populated as follows and select **Next**.
+    1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
         Field|Value for tutorial
         ---|---
@@ -111,18 +113,18 @@ You complete the following experiment set-up and run steps in the workspace land
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
 1. Expand **Advanced Settings** and populate the fields as follows.
-   
-    Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
-    ------|---------|---
-    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
-    Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
-    Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
-    Validation type | Choose a cross-validation type.|K-fold cross-validation
-    Number of validations | Number of tests. | 2 cross-validations 
-    Concurrency| The number of max concurrent iterations.|5
 
    >[!NOTE]
-   > For this experiment, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
+   > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
+   
+   Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
+   ------|---------|---
+   Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
+   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
+   Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
+   Validation type | Choose a cross-validation type.|K-fold cross-validation
+   Number of validations | Number of tests. | 2 cross-validations 
+   Concurrency| The number of max concurrent iterations.|5
    
 1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
 
