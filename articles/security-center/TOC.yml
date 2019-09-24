@@ -62,6 +62,8 @@
       href: security-center-alerts-cloud-smart.md 
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
+    - name: Security alerts map and threat intelligence
+      href: security-center-threat-intel.md
 
 - name: How-to guides
   items:
