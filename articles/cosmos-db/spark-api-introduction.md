@@ -132,12 +132,6 @@ The following image shows how Azure Cosmos DB’s Spark support is used in gamin
 
 ![Azure Cosmos DB’s Spark support in gaming analytics](./media/spark-api-introduction/gaming-analytics.png)
 
-## Built-in Jupyter notebooks support
-
-Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and Table. The Jupyter notebooks run within the Azure Cosmos accounts and they enhance the developer experience. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. You can also execute machine learning models, and analyze the data stored in your Azure Cosmos databases. By using the Jupyter notebook experience, you can analyze the stored data, build and train machine learning models, and perform inferencing on the data in the Azure portal as shown in the following image:
-
-![Jupyter notebooks support in Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
-
 ## Next steps
 
 * To learn about the benefits of Azure Cosmos DB, see the [overview](introduction.md) article.

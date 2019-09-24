@@ -104,7 +104,7 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 ![Cross query from the Azure Data Explorer proxy](media/adx-proxy/cross-query-adx-proxy.png)
 
-Using the [`join` operator](/azure/kusto/query/joinoperator), instead of union, may require a hint to run it on an Azure Data Explorer native cluster (and not on the proxy). 
+Using the [`join` operator](/azure/kusto/query/joinoperator), instead of union, may require a [`hint`](/azure/kusto/query/joinoperator#join-hints) to run it on an Azure Data Explorer native cluster (and not on the proxy). 
 
 ## Additional syntax examples
 

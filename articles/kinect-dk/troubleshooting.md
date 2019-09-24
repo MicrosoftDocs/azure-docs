@@ -56,6 +56,31 @@ For more information, see below clip from header file:
 */
 ```
 
+Logging for the Body Tracking SDK K4ABT.dll is similar except that users should modify a different set of environment variable names:
+
+```console
+/**
+* environment variables
+* K4ABT_ENABLE_LOG_TO_A_FILE =
+*    0    - completely disable logging to a file
+*    log\custom.log - log all messages to the path and file specified - must end in '.log' to
+*                     be considered a valid entry
+*    ** When enabled this takes precedence over the value of K4A_ENABLE_LOG_TO_STDOUT
+*
+* K4ABT_ENABLE_LOG_TO_STDOUT =
+*    0    - disable logging to stdout
+*    all else  - log all messages to stdout
+*
+* K4ABT_LOG_LEVEL =
+*    'c'  - log all messages of level 'critical' criticality
+*    'e'  - log all messages of level 'error' or higher criticality
+*    'w'  - log all messages of level 'warning' or higher criticality
+*    'i'  - log all messages of level 'info' or higher criticality
+*    't'  - log all messages of level 'trace' or higher criticality
+*    DEFAULT - log all message of level 'error' or higher criticality
+*/
+```
+
 ## Device doesn't enumerate in device manager
 
 - Check the status LED behind the device, if it's blinking amber you have USB connectivity issue and it doesn't get enough power. The power supply cable should be plugged into the

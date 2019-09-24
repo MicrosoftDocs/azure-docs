@@ -136,7 +136,10 @@ The [EventProcessorHost][] class also implements an Azure storage-based checkpoi
 
 ## Publisher revocation
 
-In addition to the advanced run-time features of [EventProcessorHost][], Event Hubs enables publisher revocation in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+In addition to the advanced run-time features of Event Processor Host, the Event Hubs service enables [publisher revocation](/rest/api/eventhub/revoke-publisher) in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+
+> [!NOTE]
+> Currently, only REST API supports this feature ([publisher revocation](/rest/api/eventhub/revoke-publisher)).
 
 For more information about publisher revocation and how to send to Event Hubs as a publisher, see the [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) sample.
 
