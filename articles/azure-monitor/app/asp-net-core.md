@@ -124,7 +124,7 @@ Run your application and make requests to it. Telemetry should now flow to Appli
 
 ### Live Metrics
 
-[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights monitoring is configured correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real-time. It can also show other telemetry like Requests, Dependencies, Traces etc.
+[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights monitoring is configured correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real-time. It can also show other telemetry like Requests, Dependencies, Traces, etc.
 
 ### ILogger logs
 
@@ -437,7 +437,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 
 ### Is this SDK supported for the new .NET Core 3.0 Worker Service template applications?
 
-This SDK requires `HttpContext`, and hence does not work in any non-HTTP applications, including the .NET Core 3.0 Worker Service applications. Refer to [this](worker-service.md) document for enabling application insights in such applications, using the newly release Microsoft.ApplicationInsights.WorkerService SDK.
+This SDK requires `HttpContext`, and hence does not work in any non-HTTP applications, including the .NET Core 3.0 Worker Service applications. Refer to [this](worker-service.md) document for enabling application insights in such applications, using the newly released Microsoft.ApplicationInsights.WorkerService SDK.
 
 ## Open-source SDK
 
