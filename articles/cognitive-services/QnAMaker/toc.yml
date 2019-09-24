@@ -151,7 +151,7 @@
       href: Quickstarts/go.md
 - name: Reference
   items:
-  - name: Language support
+  - name: Languages
     href: Overview/language-support.md  
   - name: Limits
     href: limits.md    
