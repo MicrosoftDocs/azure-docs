@@ -17,6 +17,8 @@
         href: ./hdinsight-administer-use-dotnet-sdk.md
       - name: Manage HDInsight clusters - Powershell
         href: ./hdinsight-administer-use-powershell.md
+      - name: Sales insights ETL pipeline
+        href: ./hdinsight-sales-insights-etl.md      
   - name: Samples
     items:
     - name: .NET samples
