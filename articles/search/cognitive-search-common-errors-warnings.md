@@ -26,11 +26,11 @@ Indexer was unable to read the document from the datasource. This can happen due
 | Reason | Example | Action |
 | --- | --- | --- |
 | inconsistent field types across different documents | Type of value has a mismatch with column type. Couldn't store `'John'` in authors column.  Expected type is JArray. | Ensure that the type of each field is the same across different documents. For example, if the first document `'startTime'` field is a DateTime, and in the second document it's a string, this error will be hit. |
-| errors from the datasource's underlying service | (from cosmosDB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
+| errors from the datasource's underlying service | (from Cosmos DB) `{"Errors":["Request rate is large"]}` | Check your storage instance to ensure it's healthy. You may need to adjust your scaling/partitioning. |
 | transient issues | A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
 
 ### Could not extract document content
-Indexer with a Blob datasource was unable to extract the content from the document (for example, a pdf file). This can happen due to:
+Indexer with a Blob datasource was unable to extract the content from the document (for example, a PDF file). This can happen due to:
 
 | Reason | Example | Action |
 | --- | --- | --- |
@@ -55,7 +55,7 @@ Warnings do not stop indexing, and are intended to inform of any events which *m
 ### Skill input was truncated
 Cognitive Skills have limits to the length of text that can be analyzed at once. If the text input of these skills are over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
 
-In the example languageDetectionSkill below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
+In the example LanguageDetectionSkill below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
 
 ```json
  {
