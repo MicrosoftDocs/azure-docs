@@ -109,7 +109,7 @@ The following table shows resources needed for communication.
 | *.blob.core.windows.net | 443 | Yes |
 | *.azure-automation.net | 443 | Yes |
 
-If you encounter onboarding issues with the agent, make sure to read the article [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/en-us/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
+If you encounter onboarding issues with the agent, make sure to read the article [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
 ## Troubleshooting endpoint protection not working properly
 
@@ -142,14 +142,14 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md) — Learn how to plan and understand the design considerations to adopt Azure Security Center.
 * [Security health monitoring in Azure Security Center](security-center-monitoring.md) — Learn how to monitor the health of your Azure resources
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) — Learn how to manage and respond to security alerts
-* [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-type)
+* [Understanding security alerts in Azure Security Center](security-center-alerts-type.md)
 * [Tutorial: Respond to security incidents](tutorial-security-incident.md)
 * [Alerts Validation in Azure Security Center](security-center-alert-validation.md)
 * [Email Notifications in Azure Security Center](security-center-provide-security-contact-details.md)
 * [Handling Security Incidents in Azure Security Center](security-center-incident.md)
 * [Alert confidence score](security-center-secure-score.md)
 * [Investigate Incidents and Alerts in Azure Security Center](security-center-investigation.md)
-* [Azure Security Center detection capabilities](https://docs.microsoft.com/en-us/azure/security-center/security-center-detection-capabilities)
+* [Azure Security Center detection capabilities](security-center-detection-capabilities.md)
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service
 * [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
