@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
-1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
+1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
 1. If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign it using a Microsoft account:
 

@@ -69,6 +69,8 @@
       items:
 #      - name: Promote your business with Microsoft
 #        href: ./gtm-promote-your-business.md
+      - name: Co-sell partner engagement
+        href: ./marketplace-co-sell.md
       - name: Preferred solutions
         href: ./preferred-solutions.md
       - name: Integrated solutions
@@ -499,6 +501,13 @@
         href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md       
     - name: Test Drive your offer
       href: ./partner-center-portal/test-drive.md
+    - name: Co-sell option
+      href: ./partner-center-portal/commercial-marketplace-co-sell.md 
+      items:
+      - name: Country and region codes
+        href: ./partner-center-portal/commercial-marketplace-co-sell-countries.md 
+      - name: State codes
+        href: ./partner-center-portal/commercial-marketplace-co-sell-states.md       
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers

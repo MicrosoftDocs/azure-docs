@@ -4,8 +4,10 @@
   items:
   - name: About Security Center
     href: security-center-intro.md
-  - name: Security Center supported platforms and features
+  - name: Supported platforms
     href: security-center-os-coverage.md
+  - name: Supported features
+    href: security-center-services.md
 
 - name: Quickstarts
   expanded: true
@@ -57,7 +59,9 @@
     - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
-      href: security-center-alerts-cloud-smart.md 
+      href: security-center-alerts-cloud-smart.md
+    - name: Security alerts map and threat intelligence
+      href: security-center-threat-intel.md       
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
 
@@ -67,7 +71,7 @@
     href: security-center-secure-score.md
   - name: Upgrade to advanced security
     href: security-center-onboarding.md
-  - name: Server protection with Windows Defender ATP
+  - name: Server protection with Microsoft Defender ATP
     href: security-center-wdatp.md
   - name: Advanced data security for SQL on Azure VMs (Public Preview)
     href: security-center-iaas-advanced-data.md
@@ -132,30 +136,18 @@
       href: security-center-install-endpoint-protection.md
     - name: Vulnerability assessment not installed
       href: security-center-vulnerability-assessment-recommendations.md
-    - name: Enable Network Security Groups
-      href: security-center-enable-network-security-groups.md
     - name: Threat reports
       href: security-center-threat-report.md
-    - name: Custom alerts
-      href: security-center-custom-alert.md
     - name: Alert confidence score
       href: security-center-confidence-score.md
-    - name: Security alerts map and threat intelligence
-      href: security-center-threat-intel.md
     - name: Investigation
       href: security-center-investigation.md
     - name: Manage investigation user data
       href: security-center-investigation-user-data.md
     - name: Logic Apps playbooks
       href: security-center-playbooks.md
-    - name: View events
-      href: security-center-events-dashboard.md
-    - name: Search
-      href: security-center-search.md    
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
-    - name: Customize security configurations
-      href: security-center-customize-os-security-config.md
 
 - name: Reference
   items:

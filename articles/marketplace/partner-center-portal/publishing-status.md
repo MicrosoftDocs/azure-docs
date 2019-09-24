@@ -1,9 +1,9 @@
 ---
 title: Check the publishing status of your Commercial Marketplace offer
 description: Check the status of the validation, certification, and preview steps required to publish an offer via the Commercial Marketplace in Microsoft Partner Center. 
-author: mattwojo 
+author: ChJenk 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 05/30/2019
@@ -93,6 +93,9 @@ This report contains descriptions of any policies that failed, along with review
 ## Preview creation
 
 During the **Preview creation** step, we create a version of your offer accessible to only the audience that you specified in the Preview section of your offer.
+
+>[!Note]
+> Do not use this step to give people outside your organization visibility into an offer. Use the **Private Offer** option instead. At this point, your offering has not been fully tested and validated, and is not ready for outside distribution.
 
 ## Publisher approval
 

@@ -3,9 +3,8 @@ title: Protect Azure data and storage services in Azure Security Center | Micros
 description: This document addresses recommendations in Azure Security Center that help you protect your data and Azure SQL service and stay in compliance with security policies.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: bcae6987-05d0-4208-bca8-6a6ce7c9a1e3
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 
 # Protect Azure data and storage services in Azure Security Center
@@ -73,7 +72,6 @@ From this page, you can:
 To learn more about recommendations that apply to other Azure resource types, see the following topics:
 
 * [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
 * [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 
 To learn more about Security Center, see the following topics:
