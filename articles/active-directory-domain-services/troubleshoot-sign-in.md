@@ -70,8 +70,11 @@ For more information and how to resolve account lockout issues, see [Troubleshoo
 
 ## Next steps
 
+If you still have problems joining your VM to the Azure AD DS managed domain, [find help and open a support ticket for Azure Active Directory][azure-ad-support].
+
 <!-- INTERNAL LINKS -->
 [troubleshoot-account-lockout]: troubleshoot-account-lockout.md
 [azure-ad-connect-phs]: active-directory-ds-getting-started-password-sync-synced-tenant.md
 [enable-user-accounts]:  tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds
-[phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization#password-hash-sync-process-for-azure-ad-domain-services.md
+[phs-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md

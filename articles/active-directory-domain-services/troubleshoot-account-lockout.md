@@ -84,8 +84,11 @@ AADDomainServicesAccountManagement
 
 ## Next steps
 
-For more information on fine-grained password policies to adjust account lockout thresholds, see [Configure password and account lockout policies][configure-fgpp]
+For more information on fine-grained password policies to adjust account lockout thresholds, see [Configure password and account lockout policies][configure-fgpp].
+
+If you still have problems joining your VM to the Azure AD DS managed domain, [find help and open a support ticket for Azure Active Directory][azure-ad-support].
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md
 [security-audit-events]: security-audit-events.md
+[azure-ad-support]: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md
