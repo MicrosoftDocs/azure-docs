@@ -15,10 +15,18 @@ ms.author: ypitsch
 ---
 
 # Peering Service - Location and Partners
-## Who are our Partners?
-![background](media\peering-service-location\peering-service-background1.png)
 
-## Required work items from Partners
+## Who are our Partners?
+
+| **Partners** | **Location**|
+|-----------|---------|
+| PCCW Global | |
+| interCloud  | |
+| BT          |  |
+| Tata COMMUNICATIONS | |
+| Colt |  |
+
+## Requirements from Partners
 The table listed below provide an insight to the set of requirements need to be fulfilled by the partners to establish the Peering Service connection.
 
 | **Requirements** | **Why**|
