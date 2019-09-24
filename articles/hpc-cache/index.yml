@@ -35,16 +35,14 @@ landingContent:
             url: hpc-cache-prereqs.md
           - text: Create the cache 
             url: hpc-cache-create.md
-          - text: Add storage
-            url: hpc-cache-add-storage.md
+          - text: Add storage  # where to put the ingest articles? collapsible heading??
+            url: hpc-cache-add-storage.md    
           - text: Mount clients
             url: hpc-cache-mount.md
       - linkListType: concept
         links:
-          - text: Configure an aggregated namespace
+          - text: Plan the aggregated namespace
             url: hpc-cache-namespace.md
-          - text: Populate new Blob storage
-            url: hpc-cache-ingest.md         # where to put the other articles? collapsible heading??
 
   # Card
   - title: Troubleshoot 
