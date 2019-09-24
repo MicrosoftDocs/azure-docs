@@ -63,7 +63,7 @@ Customers often wonder whether they should use AES encryption or a DRM system. T
 
 DRM systems like PlayReady, Widevine, and FairPlay all provide an additional level of encryption on the key used to decrypt the content compared to an AES-128 clear key. The content key is encrypted to a key protected by the DRM runtime in additional to any transport level encryption provided by TLS. Additionally, decryption is handled in a secure environment at the operating system level, where it's more difficult for a malicious user to attack. DRM is recommended for use cases where the viewer might not be a trusted party and you require the highest level of security.
 
-### How to show a video only to users who have a specific permission, whithout using Azure AD?
+### How to show a video only to users who have a specific permission, without using Azure AD?
 
 You don't have to use any specific token provider (such as Azure AD). You can create your own JWT provider (so-called STS, Secure Token Service), using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
 
