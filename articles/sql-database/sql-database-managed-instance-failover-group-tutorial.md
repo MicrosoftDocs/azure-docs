@@ -35,7 +35,12 @@ To complete this tutorial, make sure you have:
 
 
 ## 1 - Create resource group and primary managed instance
-In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal. 
+In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal or PowerShell. 
+
+
+# [Portal](#tab/azure-portal) 
+
+Create the resource group and your primary managed instance using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
@@ -53,310 +58,317 @@ In this step, you will create the resource group and the primary managed instanc
 1. Leave the rest of the settings at default values, and select **Review + create** to review your managed instance settings. 
 1. Select **Create** to create your primary managed instance. 
 
-```powershell-interactive
-# Connect-AzAccount
-# The SubscriptionId in which to create these objects
-$SubscriptionId = '<Subscription-ID>'
-# Create a random identifier to use as subscript for the different resource names
-$randomIdentifier = $(Get-Random)
-# Set the resource group name and location for your managed instance
-$resourceGroupName = "myResourceGroup-$randomIdentifier"
-$location = "eastus"
-$drLocation = "eastus2"
+# [PowerShell](#tab/azure-powershell)
 
-# Set the networking values for your primary managed instance
-$primaryVNet = "primaryVNet-$randomIdentifier"
-$primaryAddressPrefix = "10.0.0.0/16"
-$primaryDefaultSubnet = "primaryDefaultSubnet-$randomIdentifier"
-$primaryDefaultSubnetAddress = "10.0.0.0/24"
-$primaryMiSubnetName = "primaryMISubnet-$randomIdentifier"
-$primaryMiSubnetAddress = "10.0.0.0/24"
-$primaryMiGwSubnetAddress = "10.0.255.0/27"
-$primaryGWName = "primaryGateway-$randomIdentifier"
-$primaryGWPublicIPAddress = $primaryGWName + "-ip"
-$primaryGWIPConfig = $primaryGWName + "-ipc"
-$primaryGWAsn = 61000
-$primaryGWConnection = $primaryGWName + "-connection"
+Create your resource group and the primary managed instance using PowerShell. 
 
+   ```powershell-interactive
+   # Connect-AzAccount
+   # The SubscriptionId in which to create these objects
+   $SubscriptionId = '<Subscription-ID>'
+   # Create a random identifier to use as subscript for the different resource names
+   $randomIdentifier = $(Get-Random)
+   # Set the resource group name and location for your managed instance
+   $resourceGroupName = "myResourceGroup-$randomIdentifier"
+   $location = "eastus"
+   $drLocation = "eastus2"
+   
+   # Set the networking values for your primary managed instance
+   $primaryVNet = "primaryVNet-$randomIdentifier"
+   $primaryAddressPrefix = "10.0.0.0/16"
+   $primaryDefaultSubnet = "primaryDefaultSubnet-$randomIdentifier"
+   $primaryDefaultSubnetAddress = "10.0.0.0/24"
+   $primaryMiSubnetName = "primaryMISubnet-$randomIdentifier"
+   $primaryMiSubnetAddress = "10.0.0.0/24"
+   $primaryMiGwSubnetAddress = "10.0.255.0/27"
+   $primaryGWName = "primaryGateway-$randomIdentifier"
+   $primaryGWPublicIPAddress = $primaryGWName + "-ip"
+   $primaryGWIPConfig = $primaryGWName + "-ipc"
+   $primaryGWAsn = 61000
+   $primaryGWConnection = $primaryGWName + "-connection"
+   
+   
+   # Set the networking values for your secondary managed instance
+   $secondaryVNet = "secondaryVNet-$randomIdentifier"
+   $secondaryAddressPrefix = "10.128.0.0/16"
+   $secondaryDefaultSubnet = "secondaryDefaultSubnet-$randomIdentifier"
+   $secondaryDefaultSubnetAddress = "10.128.0.0/24"
+   $secondaryMiSubnetName = "secondaryMISubnet-$randomIdentifier"
+   $secondaryMiSubnetAddress = "10.128.0.0/24"
+   $secondaryMiGwSubnetAddress = "10.128.255.0/27"
+   $secondaryGWName = "secondaryGateway-$randomIdentifier"
+   $secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
+   $secondaryGWIPConfig = $secondaryGWName + "-ipc"
+   $secondaryGWAsn = 62000
+   $secondaryGWConnection = $secondaryGWName + "-connection"
+   
+   
+   
+   # Set the managed instance name for the new managed instances
+   $primaryInstance = "primary-mi-$randomIdentifier"
+   $secondaryInstance = "secondary-mi-$randomIdentifier"
+   
+   # Set the admin login and password for your managed instance
+   $secpasswd = "PWD27!"+(New-Guid).Guid | ConvertTo-SecureString -AsPlainText -Force
+   $mycreds = New-Object System.Management.Automation.PSCredential ("azureuser", $secpasswd)
+   
+   
+   # Set the managed instance service tier, compute level, and license mode
+   $edition = "General Purpose"
+   $vCores = 8
+   $maxStorage = 256
+   $computeGeneration = "Gen5"
+   $license = "LicenseIncluded" #"BasePrice" or LicenseIncluded if you have don't have SQL Server licence that can be used for AHB discount
+   
+   # Set failover group details
+   $vpnSharedKey = "mi1mi2psk"
+   $failoverGroupName = "failovergroup-$randomIdentifier"
+   
+   # Show randomized variables
+   Write-host "Resource group name is" $resourceGroupName
+   Write-host "Password is" $secpasswd
+   Write-host "Primary Virtual Network name is" $primaryVNet
+   Write-host "Primary default subnet name is" $primaryDefaultSubnet
+   Write-host "Primary managed instance subnet name is" $primaryMiSubnetName
+   Write-host "Secondary Virtual Network name is" $secondaryVNet
+   Write-host "Secondary default subnet name is" $secondaryDefaultSubnet
+   Write-host "Secondary managed instance subnet name is" $secondaryMiSubnetName
+   Write-host "Primary managed instance name is" $primaryInstance
+   Write-host "Secondary managed instance name is" $secondaryInstance
+   Write-host "Failover group name is" $failoverGroupName
+   
+   # Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
+   Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
+   
+   # Set subscription context
+   Set-AzContext -SubscriptionId $subscriptionId 
+   
+   # Create a resource group
+   Write-host "Creating resource group..."
+   $resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
+   $resourceGroup
+   
+   # Configure primary virtual network
+   Write-host "Creating primary virtual network..."
+   $primaryVirtualNetwork = New-AzVirtualNetwork `
+                         -ResourceGroupName $resourceGroupName `
+                         -Location $location `
+                         -Name $primaryVNet `
+                         -AddressPrefix $primaryAddressPrefix
+   
+                     Add-AzVirtualNetworkSubnetConfig `
+                         -Name $primaryMiSubnetName `
+                         -VirtualNetwork $primaryVirtualNetwork `
+                         -AddressPrefix $PrimaryMiSubnetAddress `
+                     | Set-AzVirtualNetwork
+   $primaryVirtualNetwork
+   
+   
+   # Configure primary MI subnet
+   Write-host "Configuring primary MI subnet..."
+   $primaryVirtualNetwork = Get-AzVirtualNetwork -Name $primaryVNet -ResourceGroupName $resourceGroupName
+   
+   
+   $primaryMiSubnetConfig = Get-AzVirtualNetworkSubnetConfig `
+                           -Name $primaryMiSubnetName `
+                           -VirtualNetwork $primaryVirtualNetwork
+   $primaryMiSubnetConfig
+   
+   # Configure network security group management service
+   Write-host "Configuring primary MI subnet..."
+   
+   $primaryMiSubnetConfigId = $primaryMiSubnetConfig.Id
+   
+   $primaryNSGMiManagementService = New-AzNetworkSecurityGroup `
+                         -Name 'primaryNSGMiManagementService' `
+                         -ResourceGroupName $resourceGroupName `
+                         -location $location
+   $primaryNSGMiManagementService
+   
+   # Configure route table management service
+   Write-host "Configuring primary MI route table management service..."
+   
+   $primaryRouteTableMiManagementService = New-AzRouteTable `
+                         -Name 'primaryRouteTableMiManagementService' `
+                         -ResourceGroupName $resourceGroupName `
+                         -location $location
+   $primaryRouteTableMiManagementService
+   
+   # Configure the primary network security group
+   Write-host "Configuring primary network security group..."
+   Set-AzVirtualNetworkSubnetConfig `
+                         -VirtualNetwork $primaryVirtualNetwork `
+                         -Name $primaryMiSubnetName `
+                         -AddressPrefix $PrimaryMiSubnetAddress `
+                         -NetworkSecurityGroup $primaryNSGMiManagementService `
+                         -RouteTable $primaryRouteTableMiManagementService | `
+                       Set-AzVirtualNetwork
+   
+   Get-AzNetworkSecurityGroup `
+                         -ResourceGroupName $resourceGroupName `
+                         -Name "primaryNSGMiManagementService" `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 100 `
+                         -Name "allow_management_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange 9000,9003,1438,1440,1452 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 200 `
+                         -Name "allow_misubnet_inbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix $PrimaryMiSubnetAddress `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 300 `
+                         -Name "allow_health_probe_inbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix AzureLoadBalancer `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1000 `
+                         -Name "allow_tds_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 1433 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1100 `
+                         -Name "allow_redirect_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 11000-11999 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1200 `
+                         -Name "allow_geodr_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 5022 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 4096 `
+                         -Name "deny_all_inbound" `
+                         -Access Deny `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 100 `
+                         -Name "allow_management_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange 80,443,12000 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 200 `
+                         -Name "allow_misubnet_outbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix $PrimaryMiSubnetAddress `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1100 `
+                         -Name "allow_redirect_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 11000-11999 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1200 `
+                         -Name "allow_geodr_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 5022 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 4096 `
+                         -Name "deny_all_outbound" `
+                         -Access Deny `
+                         -Protocol * `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Set-AzNetworkSecurityGroup
+   Write-host "Primary network security group configured successfully."
+   
+   
+   Get-AzRouteTable `
+                         -ResourceGroupName $resourceGroupName `
+                         -Name "primaryRouteTableMiManagementService" `
+                       | Add-AzRouteConfig `
+                         -Name "primaryToMIManagementService" `
+                         -AddressPrefix 0.0.0.0/0 `
+                         -NextHopType Internet `
+                       | Add-AzRouteConfig `
+                         -Name "ToLocalClusterNode" `
+                         -AddressPrefix $PrimaryMiSubnetAddress `
+                         -NextHopType VnetLocal `
+                       | Set-AzRouteTable
+   Write-host "Primary network route table configured successfully."
+   
+   
+   # Create primary managed instance
+   
+   Write-host "Creating primary managed instance..."
+   Write-host "This will take some time, see https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations or more information."
+   New-AzSqlInstance -Name $primaryInstance `
+                         -ResourceGroupName $resourceGroupName `
+                         -Location $location `
+                         -SubnetId $primaryMiSubnetConfigId `
+                         -AdministratorCredential $mycreds `
+                         -StorageSizeInGB $maxStorage `
+                         -VCore $vCores `
+                         -Edition $edition `
+                         -ComputeGeneration $computeGeneration `
+                         -LicenseType $license
+   Write-host "Primary managed instance created successfully."
+   ```
 
-# Set the networking values for your secondary managed instance
-$secondaryVNet = "secondaryVNet-$randomIdentifier"
-$secondaryAddressPrefix = "10.128.0.0/16"
-$secondaryDefaultSubnet = "secondaryDefaultSubnet-$randomIdentifier"
-$secondaryDefaultSubnetAddress = "10.128.0.0/24"
-$secondaryMiSubnetName = "secondaryMISubnet-$randomIdentifier"
-$secondaryMiSubnetAddress = "10.128.0.0/24"
-$secondaryMiGwSubnetAddress = "10.128.255.0/27"
-$secondaryGWName = "secondaryGateway-$randomIdentifier"
-$secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
-$secondaryGWIPConfig = $secondaryGWName + "-ipc"
-$secondaryGWAsn = 62000
-$secondaryGWConnection = $secondaryGWName + "-connection"
-
-
-
-# Set the managed instance name for the new managed instances
-$primaryInstance = "primary-mi-$randomIdentifier"
-$secondaryInstance = "secondary-mi-$randomIdentifier"
-
-# Set the admin login and password for your managed instance
-$secpasswd = "PWD27!"+(New-Guid).Guid | ConvertTo-SecureString -AsPlainText -Force
-$mycreds = New-Object System.Management.Automation.PSCredential ("azureuser", $secpasswd)
-
-
-# Set the managed instance service tier, compute level, and license mode
-$edition = "General Purpose"
-$vCores = 8
-$maxStorage = 256
-$computeGeneration = "Gen5"
-$license = "LicenseIncluded" #"BasePrice" or LicenseIncluded if you have don't have SQL Server licence that can be used for AHB discount
-
-# Set failover group details
-$vpnSharedKey = "mi1mi2psk"
-$failoverGroupName = "failovergroup-$randomIdentifier"
-
-# Show randomized variables
-Write-host "Resource group name is" $resourceGroupName
-Write-host "Password is" $secpasswd
-Write-host "Primary Virtual Network name is" $primaryVNet
-Write-host "Primary default subnet name is" $primaryDefaultSubnet
-Write-host "Primary managed instance subnet name is" $primaryMiSubnetName
-Write-host "Secondary Virtual Network name is" $secondaryVNet
-Write-host "Secondary default subnet name is" $secondaryDefaultSubnet
-Write-host "Secondary managed instance subnet name is" $secondaryMiSubnetName
-Write-host "Primary managed instance name is" $primaryInstance
-Write-host "Secondary managed instance name is" $secondaryInstance
-Write-host "Failover group name is" $failoverGroupName
-
-# Suppress networking breaking changes warning (https://aka.ms/azps-changewarnings
-Set-Item Env:\SuppressAzurePowerShellBreakingChangeWarnings "true"
-
-# Set subscription context
-Set-AzContext -SubscriptionId $subscriptionId 
-
-# Create a resource group
-Write-host "Creating resource group..."
-$resourceGroup = New-AzResourceGroup -Name $resourceGroupName -Location $location -Tag @{Owner="SQLDB-Samples"}
-$resourceGroup
-
-# Configure primary virtual network
-Write-host "Creating primary virtual network..."
-$primaryVirtualNetwork = New-AzVirtualNetwork `
-                      -ResourceGroupName $resourceGroupName `
-                      -Location $location `
-                      -Name $primaryVNet `
-                      -AddressPrefix $primaryAddressPrefix
-
-                  Add-AzVirtualNetworkSubnetConfig `
-                      -Name $primaryMiSubnetName `
-                      -VirtualNetwork $primaryVirtualNetwork `
-                      -AddressPrefix $PrimaryMiSubnetAddress `
-                  | Set-AzVirtualNetwork
-$primaryVirtualNetwork
-
-
-# Configure primary MI subnet
-Write-host "Configuring primary MI subnet..."
-$primaryVirtualNetwork = Get-AzVirtualNetwork -Name $primaryVNet -ResourceGroupName $resourceGroupName
-
-
-$primaryMiSubnetConfig = Get-AzVirtualNetworkSubnetConfig `
-                        -Name $primaryMiSubnetName `
-                        -VirtualNetwork $primaryVirtualNetwork
-$primaryMiSubnetConfig
-
-# Configure network security group management service
-Write-host "Configuring primary MI subnet..."
-
-$primaryMiSubnetConfigId = $primaryMiSubnetConfig.Id
-
-$primaryNSGMiManagementService = New-AzNetworkSecurityGroup `
-                      -Name 'primaryNSGMiManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $location
-$primaryNSGMiManagementService
-
-# Configure route table management service
-Write-host "Configuring primary MI route table management service..."
-
-$primaryRouteTableMiManagementService = New-AzRouteTable `
-                      -Name 'primaryRouteTableMiManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $location
-$primaryRouteTableMiManagementService
-
-# Configure the primary network security group
-Write-host "Configuring primary network security group..."
-Set-AzVirtualNetworkSubnetConfig `
-                      -VirtualNetwork $primaryVirtualNetwork `
-                      -Name $primaryMiSubnetName `
-                      -AddressPrefix $PrimaryMiSubnetAddress `
-                      -NetworkSecurityGroup $primaryNSGMiManagementService `
-                      -RouteTable $primaryRouteTableMiManagementService | `
-                    Set-AzVirtualNetwork
-
-Get-AzNetworkSecurityGroup `
-                      -ResourceGroupName $resourceGroupName `
-                      -Name "primaryNSGMiManagementService" `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 100 `
-                      -Name "allow_management_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange 9000,9003,1438,1440,1452 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 200 `
-                      -Name "allow_misubnet_inbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix $PrimaryMiSubnetAddress `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 300 `
-                      -Name "allow_health_probe_inbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix AzureLoadBalancer `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1000 `
-                      -Name "allow_tds_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 1433 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1100 `
-                      -Name "allow_redirect_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 11000-11999 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1200 `
-                      -Name "allow_geodr_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 5022 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 4096 `
-                      -Name "deny_all_inbound" `
-                      -Access Deny `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 100 `
-                      -Name "allow_management_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange 80,443,12000 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 200 `
-                      -Name "allow_misubnet_outbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix $PrimaryMiSubnetAddress `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1100 `
-                      -Name "allow_redirect_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 11000-11999 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1200 `
-                      -Name "allow_geodr_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 5022 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 4096 `
-                      -Name "deny_all_outbound" `
-                      -Access Deny `
-                      -Protocol * `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Set-AzNetworkSecurityGroup
-Write-host "Primary network security group configured successfully."
-
-
-Get-AzRouteTable `
-                      -ResourceGroupName $resourceGroupName `
-                      -Name "primaryRouteTableMiManagementService" `
-                    | Add-AzRouteConfig `
-                      -Name "primaryToMIManagementService" `
-                      -AddressPrefix 0.0.0.0/0 `
-                      -NextHopType Internet `
-                    | Add-AzRouteConfig `
-                      -Name "ToLocalClusterNode" `
-                      -AddressPrefix $PrimaryMiSubnetAddress `
-                      -NextHopType VnetLocal `
-                    | Set-AzRouteTable
-Write-host "Primary network route table configured successfully."
-
-
-# Create primary managed instance
-
-Write-host "Creating primary managed instance..."
-Write-host "This will take some time, see https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations for more information."
-New-AzSqlInstance -Name $primaryInstance `
-                      -ResourceGroupName $resourceGroupName `
-                      -Location $location `
-                      -SubnetId $primaryMiSubnetConfigId `
-                      -AdministratorCredential $mycreds `
-                      -StorageSizeInGB $maxStorage `
-                      -VCore $vCores `
-                      -Edition $edition `
-                      -ComputeGeneration $computeGeneration `
-                      -LicenseType $license
-Write-host "Primary managed instance created successfully."
-```
+---
 
 ## 2 - Create secondary virtual network
-In this step, you will create a virtual network for the secondary managed instance. This step is necessary because there is a requirement that the subnet of the primary and secondary managed instances have non-overlapping address ranges. This step is only necessary when using the Azure portal as it's combined in the Powershell script in the next step. 
+If you're using the Azure portal to create your managed instance, you will need to create the virtual network separately because there is a requirement that the subnet of the primary and secondary managed instance do not have overlapping ranges. If you're using PowerShell to configure your managed instance, skip ahead to step 3. 
 
+# [Portal](#tab/azure-portal) 
 To verify the subnet range of your primary virtual network, follow these steps:
 1. In the [Azure portal](https://portal.azure.com), navigate to your resource group and select the virtual network for your primary instance. 
 1. Select **Subnets** under **Settings** and note the **Address range**. The subnet address range of the virtual network for the secondary managed instance cannot overlap this. 
@@ -384,6 +396,11 @@ To create a virtual network, follow these steps:
 
     ![Secondary virtual network values](media/sql-database-managed-instance-failover-group-tutorial/secondary-virtual-network.png)
 
+# [PowerShell](#tab/azure-powershell)
+
+This step is only necessary if you're using the Azure portal to deploy your managed instance. Skip ahead to step 3 if you're using PowerShell. 
+
+---
 
 ## 3 - Create a secondary managed instance
 In this step, you will create a secondary managed instance in the Azure portal, which will also configure the networking between the two managed instances. 
@@ -392,7 +409,9 @@ Your second managed instance must:
 - Be empty. 
 - Have a different subnet and IP range than the primary managed instance. 
 
-To create your secondary managed instance, follow these steps: 
+# [Portal](#tab/azure-portal) 
+
+Create the secondary managed instance using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information about the different databases by selecting Show details on the Databases tile.
@@ -426,234 +445,240 @@ To create your secondary managed instance, follow these steps:
 1. Select **Review + create** to review the settings for your secondary managed instance. 
 1. Select **Create** to create your secondary managed instance. 
 
-```powershell-interactive
-# Configure secondary virtual network
-Write-host "Configuring secondary virtual network..."
+# [PowerShell](#tab/azure-powershell)
 
-$SecondaryVirtualNetwork = New-AzVirtualNetwork `
-                      -ResourceGroupName $resourceGroupName `
-                      -Location $drlocation `
-                      -Name $secondaryVNet `
-                      -AddressPrefix $secondaryAddressPrefix
+Create the secondary managed instance using PowerShell. 
 
-Add-AzVirtualNetworkSubnetConfig `
-                      -Name $secondaryMiSubnetName `
-                      -VirtualNetwork $SecondaryVirtualNetwork `
-                      -AddressPrefix $secondaryMiSubnetAddress `
-                    | Set-AzVirtualNetwork
-$SecondaryVirtualNetwork
+   ```powershell-interactive
+   # Configure secondary virtual network
+   Write-host "Configuring secondary virtual network..."
+   
+   $SecondaryVirtualNetwork = New-AzVirtualNetwork `
+                         -ResourceGroupName $resourceGroupName `
+                         -Location $drlocation `
+                         -Name $secondaryVNet `
+                         -AddressPrefix $secondaryAddressPrefix
+   
+   Add-AzVirtualNetworkSubnetConfig `
+                         -Name $secondaryMiSubnetName `
+                         -VirtualNetwork $SecondaryVirtualNetwork `
+                         -AddressPrefix $secondaryMiSubnetAddress `
+                       | Set-AzVirtualNetwork
+   $SecondaryVirtualNetwork
+   
+   # Configure secondary managed instance subnet
+   Write-host "Configuring secondary MI subnet..."
+   
+   $SecondaryVirtualNetwork = Get-AzVirtualNetwork -Name $secondaryVNet `
+                                   -ResourceGroupName $resourceGroupName
+   
+   $secondaryMiSubnetConfig = Get-AzVirtualNetworkSubnetConfig `
+                           -Name $secondaryMiSubnetName `
+                           -VirtualNetwork $SecondaryVirtualNetwork
+   $secondaryMiSubnetConfig
+   
+   # Configure secondary network security group management service
+   Write-host "Configuring secondary network security group management service..."
+   
+   $secondaryMiSubnetConfigId = $secondaryMiSubnetConfig.Id
+   
+   $secondaryNSGMiManagementService = New-AzNetworkSecurityGroup `
+                         -Name 'secondaryToMIManagementService' `
+                         -ResourceGroupName $resourceGroupName `
+                         -location $drlocation
+   $secondaryNSGMiManagementService
+   
+   # Configure secondary route table MI management service
+   Write-host "Configuring secondary route table MI management service..."
+   
+   $secondaryRouteTableMiManagementService = New-AzRouteTable `
+                         -Name 'secondaryRouteTableMiManagementService' `
+                         -ResourceGroupName $resourceGroupName `
+                         -location $drlocation
+   $secondaryRouteTableMiManagementService
+   
+   # Configure the secondary network security group
+   Write-host "Configuring secondary network security group..."
+   
+   Set-AzVirtualNetworkSubnetConfig `
+                         -VirtualNetwork $SecondaryVirtualNetwork `
+                         -Name $secondaryMiSubnetName `
+                         -AddressPrefix $secondaryMiSubnetAddress `
+                         -NetworkSecurityGroup $secondaryNSGMiManagementService `
+                         -RouteTable $secondaryRouteTableMiManagementService `
+                       | Set-AzVirtualNetwork
+   
+   Get-AzNetworkSecurityGroup `
+                         -ResourceGroupName $resourceGroupName `
+                         -Name "secondaryToMIManagementService" `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 100 `
+                         -Name "allow_management_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange 9000,9003,1438,1440,1452 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 200 `
+                         -Name "allow_misubnet_inbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix $secondaryMiSubnetAddress `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 300 `
+                         -Name "allow_health_probe_inbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix AzureLoadBalancer `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1000 `
+                         -Name "allow_tds_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 1433 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1100 `
+                         -Name "allow_redirect_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 11000-11999 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1200 `
+                         -Name "allow_geodr_inbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 5022 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 4096 `
+                         -Name "deny_all_inbound" `
+                         -Access Deny `
+                         -Protocol * `
+                         -Direction Inbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 100 `
+                         -Name "allow_management_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange 80,443,12000 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 200 `
+                         -Name "allow_misubnet_outbound" `
+                         -Access Allow `
+                         -Protocol * `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix $secondaryMiSubnetAddress `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1100 `
+                         -Name "allow_redirect_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 11000-11999 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 1200 `
+                         -Name "allow_geodr_outbound" `
+                         -Access Allow `
+                         -Protocol Tcp `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix VirtualNetwork `
+                         -DestinationPortRange 5022 `
+                         -DestinationAddressPrefix * `
+                       | Add-AzNetworkSecurityRuleConfig `
+                         -Priority 4096 `
+                         -Name "deny_all_outbound" `
+                         -Access Deny `
+                         -Protocol * `
+                         -Direction Outbound `
+                         -SourcePortRange * `
+                         -SourceAddressPrefix * `
+                         -DestinationPortRange * `
+                         -DestinationAddressPrefix * `
+                       | Set-AzNetworkSecurityGroup
+   
+   
+   Get-AzRouteTable `
+                         -ResourceGroupName $resourceGroupName `
+                         -Name "secondaryRouteTableMiManagementService" `
+                       | Add-AzRouteConfig `
+                         -Name "secondaryToMIManagementService" `
+                         -AddressPrefix 0.0.0.0/0 `
+                         -NextHopType Internet `
+                       | Add-AzRouteConfig `
+                         -Name "ToLocalClusterNode" `
+                         -AddressPrefix $secondaryMiSubnetAddress `
+                         -NextHopType VnetLocal `
+                       | Set-AzRouteTable
+   Write-host "Secondary network security group configured successfully."
+   
+   # Create secondary managed instance
+   
+   $primaryManagedInstanceId = Get-AzSqlInstance -Name $primaryInstance -ResourceGroupName $resourceGroupName | Select-Object Id
+   
+   
+   Write-host "Creating secondary managed instance..."
+   Write-host "This will take some time, see https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations or more information."
+   New-AzSqlInstance -Name $secondaryInstance `
+                     -ResourceGroupName $resourceGroupName `
+                     -Location $drLocation `
+                     -SubnetId $secondaryMiSubnetConfigId `
+                     -AdministratorCredential $mycreds `
+                     -StorageSizeInGB $maxStorage `
+                     -VCore $vCores `
+                     -Edition $edition `
+                     -ComputeGeneration $computeGeneration `
+                     -LicenseType $license `
+                     -DnsZonePartner $primaryManagedInstanceId.Id
+   Write-host "Secondary managed instance created successfully."
+   ```
 
-# Configure secondary managed instance subnet
-Write-host "Configuring secondary MI subnet..."
-
-$SecondaryVirtualNetwork = Get-AzVirtualNetwork -Name $secondaryVNet -ResourceGroupName $resourceGroupName
-
-$secondaryMiSubnetConfig = Get-AzVirtualNetworkSubnetConfig `
-                        -Name $secondaryMiSubnetName `
-                        -VirtualNetwork $SecondaryVirtualNetwork
-$secondaryMiSubnetConfig
-
-# Configure secondary network security group management service
-Write-host "Configuring secondary network security group management service..."
-
-$secondaryMiSubnetConfigId = $secondaryMiSubnetConfig.Id
-
-$secondaryNSGMiManagementService = New-AzNetworkSecurityGroup `
-                      -Name 'secondaryToMIManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $drlocation
-$secondaryNSGMiManagementService
-
-# Configure secondary route table MI management service
-Write-host "Configuring secondary route table MI management service..."
-
-$secondaryRouteTableMiManagementService = New-AzRouteTable `
-                      -Name 'secondaryRouteTableMiManagementService' `
-                      -ResourceGroupName $resourceGroupName `
-                      -location $drlocation
-$secondaryRouteTableMiManagementService
-
-# Configure the secondary network security group
-Write-host "Configuring secondary network security group..."
-
-Set-AzVirtualNetworkSubnetConfig `
-                      -VirtualNetwork $SecondaryVirtualNetwork `
-                      -Name $secondaryMiSubnetName `
-                      -AddressPrefix $secondaryMiSubnetAddress `
-                      -NetworkSecurityGroup $secondaryNSGMiManagementService `
-                      -RouteTable $secondaryRouteTableMiManagementService `
-                    | Set-AzVirtualNetwork
-
-Get-AzNetworkSecurityGroup `
-                      -ResourceGroupName $resourceGroupName `
-                      -Name "secondaryToMIManagementService" `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 100 `
-                      -Name "allow_management_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange 9000,9003,1438,1440,1452 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 200 `
-                      -Name "allow_misubnet_inbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix $secondaryMiSubnetAddress `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 300 `
-                      -Name "allow_health_probe_inbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix AzureLoadBalancer `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1000 `
-                      -Name "allow_tds_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 1433 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1100 `
-                      -Name "allow_redirect_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 11000-11999 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1200 `
-                      -Name "allow_geodr_inbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 5022 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 4096 `
-                      -Name "deny_all_inbound" `
-                      -Access Deny `
-                      -Protocol * `
-                      -Direction Inbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 100 `
-                      -Name "allow_management_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange 80,443,12000 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 200 `
-                      -Name "allow_misubnet_outbound" `
-                      -Access Allow `
-                      -Protocol * `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix $secondaryMiSubnetAddress `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1100 `
-                      -Name "allow_redirect_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 11000-11999 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 1200 `
-                      -Name "allow_geodr_outbound" `
-                      -Access Allow `
-                      -Protocol Tcp `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix VirtualNetwork `
-                      -DestinationPortRange 5022 `
-                      -DestinationAddressPrefix * `
-                    | Add-AzNetworkSecurityRuleConfig `
-                      -Priority 4096 `
-                      -Name "deny_all_outbound" `
-                      -Access Deny `
-                      -Protocol * `
-                      -Direction Outbound `
-                      -SourcePortRange * `
-                      -SourceAddressPrefix * `
-                      -DestinationPortRange * `
-                      -DestinationAddressPrefix * `
-                    | Set-AzNetworkSecurityGroup
-
-
-Get-AzRouteTable `
-                      -ResourceGroupName $resourceGroupName `
-                      -Name "secondaryRouteTableMiManagementService" `
-                    | Add-AzRouteConfig `
-                      -Name "secondaryToMIManagementService" `
-                      -AddressPrefix 0.0.0.0/0 `
-                      -NextHopType Internet `
-                    | Add-AzRouteConfig `
-                      -Name "ToLocalClusterNode" `
-                      -AddressPrefix $secondaryMiSubnetAddress `
-                      -NextHopType VnetLocal `
-                    | Set-AzRouteTable
-Write-host "Secondary network security group configured successfully."
-
-# Create secondary managed instance
-
-$primaryManagedInstanceId = Get-AzSqlInstance -Name $primaryInstance -ResourceGroupName $resourceGroupName | Select-Object Id
-
-
-Write-host "Creating secondary managed instance..."
-Write-host "This will take some time, see https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations for more information."
-New-AzSqlInstance -Name $secondaryInstance `
-                  -ResourceGroupName $resourceGroupName `
-                  -Location $drLocation `
-                  -SubnetId $secondaryMiSubnetConfigId `
-                  -AdministratorCredential $mycreds `
-                  -StorageSizeInGB $maxStorage `
-                  -VCore $vCores `
-                  -Edition $edition `
-                  -ComputeGeneration $computeGeneration `
-                  -LicenseType $license `
-                  -DnsZonePartner $primaryManagedInstanceId.Id
-Write-host "Secondary managed instance created successfully."
-```
-
+---
 
 ## 4 - Create primary gateway 
 For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal. 
 
-<!-- PowerShell, and Az CLI. 
+
 # [Portal](#tab/azure-portal)
 
 Create the gateway for the virtual network of your primary managed instance using the Azure portal. 
--->
+
 
 1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance. 
 1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
@@ -693,32 +718,37 @@ Create the gateway for the virtual network of your primary managed instance usin
 
 Create the gateway for the virtual network of your primary managed instance using PowerShell. 
 
-    ```powershell-interactive
-    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    $primaryVnetName = "vnet-sql-mi-primary"
-    $primaryGWName = "Primary-Gateway"
-    $primaryGWPublicIPAddress = $primaryGWName + "-ip"
-    $primaryGWIPConfig = $primaryGWName + "-ipc"
-    $primaryGWAsn = 61000
-    
-    
-    # Get the primary virtual network
-    $vnet1 = Get-AzVirtualNetwork -Name $primaryVnetName -ResourceGroupName $primaryResourceGroupName
-    $primaryLocation = $vnet1.Location
-    
-    # Create primary gateway
-    Write-host "Creating primary gateway..."
-    $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet1
-    $gwpip1= New-AzPublicIpAddress -Name $primaryGWPublicIPAddress -ResourceGroupName $primaryResourceGroupName `
-             -Location $primaryLocation -AllocationMethod Dynamic
-    $gwipconfig1 = New-AzVirtualNetworkGatewayIpConfig -Name $primaryGWIPConfig `
-             -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
-     
-    $gw1 = New-AzVirtualNetworkGateway -Name $primaryGWName -ResourceGroupName $primaryResourceGroupName `
-        -Location $primaryLocation -IpConfigurations $gwipconfig1 -GatewayType Vpn `
-        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
-    $gw1
-    ```
+   ```powershell-interactive
+   # Create primary gateway
+   Write-host "Adding GatewaySubnet to primary VNet..."
+   Get-AzVirtualNetwork `
+                     -Name $primaryVNet `
+                     -ResourceGroupName $resourceGroupName `
+                   | Add-AzVirtualNetworkSubnetConfig `
+                     -Name "GatewaySubnet" `
+                     -AddressPrefix $primaryMiGwSubnetAddress `
+                   | Set-AzVirtualNetwork
+   
+   $primaryVirtualNetwork  = Get-AzVirtualNetwork `
+                     -Name $primaryVNet `
+                     -ResourceGroupName $resourceGroupName
+   $primaryGatewaySubnet = Get-AzVirtualNetworkSubnetConfig `
+                     -Name "GatewaySubnet" `
+                     -VirtualNetwork $primaryVirtualNetwork
+   
+   Write-host "Creating primary gateway..."
+   Write-host "This will take some time."
+   $primaryGWPublicIP = New-AzPublicIpAddress -Name $primaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
+            -Location $location -AllocationMethod Dynamic
+   $primaryGatewayIPConfig = New-AzVirtualNetworkGatewayIpConfig -Name $primaryGWIPConfig `
+            -Subnet $primaryGatewaySubnet -PublicIpAddress $primaryGWPublicIP
+   
+   $primaryGateway = New-AzVirtualNetworkGateway -Name $primaryGWName -ResourceGroupName $resourceGroupName `
+       -Location $location -IpConfigurations $primaryGatewayIPConfig -GatewayType Vpn `
+       -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
+   $primaryGateway
+   ```
+
 ---
 
 
@@ -753,32 +783,39 @@ Using the Azure portal, repeat the steps in the previous section to create the v
 
 Create the gateway for the virtual network of the secondary managed instance using PowerShell. 
 
-    ```powershell-interactive
-    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    $secondaryVnetName = "vnet-sql-mi-secondary"
-    $secondaryGWName = "Secondary-Gateway"
-    $secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
-    $secondaryGWIPConfig = $secondaryGWName + "-ipc"
-    $secondaryGWAsn = 62000
-    
-    # Get the secondary virtual network
-    $vnet2 = Get-AzVirtualNetwork -Name $secondaryVnetName -ResourceGroupName $secondaryResourceGroupName
-    $secondaryLocation = $vnet2.Location
-     
-    # Create the secondary gateway
-    Write-host "Creating secondary gateway..."
-    $subnet2 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet2
-    $gwpip2= New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $secondaryResourceGroupName `
-             -Location $secondaryLocation -AllocationMethod Dynamic
-    $gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name $secondaryGWIPConfig `
-             -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
-     
-    $gw2 = New-AzVirtualNetworkGateway -Name $secondaryGWName -ResourceGroupName $secondaryResourceGroupName `
-        -Location $secondaryLocation -IpConfigurations $gwipconfig2 -GatewayType Vpn `
-        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $secondaryGWAsn
-    
-    $gw2
-    ```
+   ```powershell-interactive
+   # Create the secondary gateway
+   Write-host "Creating secondary gateway..."
+   
+   Write-host "Adding GatewaySubnet to secondary VNet..."
+   Get-AzVirtualNetwork `
+                     -Name $secondaryVNet `
+                     -ResourceGroupName $resourceGroupName `
+                   | Add-AzVirtualNetworkSubnetConfig `
+                     -Name "GatewaySubnet" `
+                     -AddressPrefix $secondaryMiGwSubnetAddress `
+                   | Set-AzVirtualNetwork
+   
+   $secondaryVirtualNetwork  = Get-AzVirtualNetwork `
+                     -Name $secondaryVNet `
+                     -ResourceGroupName $resourceGroupName
+   $secondaryGatewaySubnet = Get-AzVirtualNetworkSubnetConfig `
+                     -Name "GatewaySubnet" `
+                     -VirtualNetwork $secondaryVirtualNetwork
+   $drLocation = $secondaryVirtualNetwork.Location
+   
+   Write-host "Creating primary gateway..."
+   Write-host "This will take some time."
+   $secondaryGWPublicIP = New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $resourceGroupName `
+            -Location $drLocation -AllocationMethod Dynamic
+   $secondaryGatewayIPConfig = New-AzVirtualNetworkGatewayIpConfig -Name $secondaryGWIPConfig `
+            -Subnet $secondaryGatewaySubnet -PublicIpAddress $secondaryGWPublicIP
+   
+   $secondaryGateway = New-AzVirtualNetworkGateway -Name $secondaryGWName -ResourceGroupName $resourceGroupName `
+       -Location $drLocation -IpConfigurations $secondaryGatewayIPConfig -GatewayType Vpn `
+       -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $secondaryGWAsn
+   $secondaryGateway
+   ```
 ---
 
 
@@ -816,32 +853,22 @@ Connect the two gateways using the Azure portal.
 
 Connect the two gateways using PowerShell. 
 
-    ```powershell-interactive
-    $vpnSharedKey = "mi1mi2psk"
-     
-    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    $primaryGWConnection = "Primary-connection"
-    $primaryLocation = "West US"
-     
-    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    $secondaryGWConnection = "Secondary-connection"
-    $secondaryLocation = "East US"    
+   ```powershell-interactive
+   # Connect the primary to secondary gateway
+   Write-host "Connecting the primary gateway to secondary gateway..."
+   New-AzVirtualNetworkGatewayConnection -Name $primaryGWConnection -ResourceGroupName $resourceGroupName `
+       -VirtualNetworkGateway1 $primaryGateway -VirtualNetworkGateway2 $secondaryGateway -Location $location `
+       -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+   $primaryGWConnection
    
-    # Connect the primary to secondary gateway
-    Write-host "Connecting the primary gateway"
-    New-AzVirtualNetworkGatewayConnection -Name $primaryGWConnection -ResourceGroupName $primaryResourceGroupName `
-        -VirtualNetworkGateway1 $gw1 -VirtualNetworkGateway2 $gw2 -Location $primaryLocation `
-        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
-    $primaryGWConnection
-    
-    # Connect the secondary to primary gateway
-    Write-host "Connecting the secondary gateway"
-    
-    New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $secondaryResourceGroupName `
-        -VirtualNetworkGateway1 $gw2 -VirtualNetworkGateway2 $gw1 -Location $secondaryLocation `
-        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
-    $secondaryGWConnection 
-    ```
+   # Connect the secondary to primary gateway
+   Write-host "Connecting the secondary gateway to primary gateway..."
+   
+   New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $resourceGroupName `
+       -VirtualNetworkGateway1 $secondaryGateway -VirtualNetworkGateway2 $primaryGateway -Location $drLocation `
+       -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+   $secondaryGWConnection
+   ```
 ---
 
 
@@ -870,22 +897,14 @@ Create the failover group using the Azure portal.
 # [PowerShell](#tab/azure-powershell)
 Create the failover group using PowerShell. 
 
-    ```powershell-interactive
-    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    $failoverGroupName = "failovergrouptutorial"
-    # $primaryLocation = "East US"
-    # $secondaryLocation = "West US"
-    # $primaryManagedInstance = "sql-mi-primary"
-    # $secondaryManagedInstance = "sql-mi-secondary"
-    
-    # Create failover group
-    Write-host "Creating the failover group..."
-    $failoverGroup = New-AzSqlDatabaseInstanceFailoverGroup -Name $failoverGroupName `
-         -Location $primaryLocation -ResourceGroupName $primaryResourceGroupName -PrimaryManagedInstanceName $primaryManagedInstance `
-         -PartnerRegion $secondaryLocation -PartnerManagedInstanceName $secondaryManagedInstance `
-         -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
-    $failoverGroup
-    ```
+   ```powershell-interactive
+   Write-host "Creating the failover group..."
+   $failoverGroup = New-AzSqlDatabaseInstanceFailoverGroup -Name $failoverGroupName `
+        -Location $location -ResourceGroupName $resourceGroupName -PrimaryManagedInstanceName $primaryInstance `
+        -PartnerRegion $drLocation -PartnerManagedInstanceName $secondaryInstance `
+        -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
+   $failoverGroup
+   ```
 
 ---
 
@@ -915,43 +934,36 @@ Test failover using the Azure portal.
 # [PowerShell](#tab/azure-powershell)
 Test failover using PowerShell. 
 
-    ```powershell-interactive
-    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
-    # $failoverGroupName = "failovergrouptutorial"
-    # $primaryLocation = "East US"
-    # $secondaryLocation = "West US"
-    # $primaryManagedInstance = "sql-mi-primary"
-    # $secondaryManagedInstance = ""sql-mi-secondary"
+   ```powershell-interactive
     
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    
-    # Failover the primary managed instance to the secondary role
-    Write-host "Failing primary over to the secondary location"
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
-    Write-host "Successfully failed failover group to secondary location"
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
+       -Location $location -Name $failoverGroupName
+   
+   # Failover the primary managed instance to the secondary role
+   Write-host "Failing primary over to the secondary location"
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
+       -Location $drLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   Write-host "Successfully failed failover group to secondary location"
     ```
 
 Revert failover group back to the primary server:
 
-    ```powershell-interactive
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    
-    # Fail primary managed instance back to primary role
-    Write-host "Failing primary back to primary role"
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   ```powershell-interactive
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
+       -Location $drLocation -Name $failoverGroupName
+   
+   # Fail primary managed instance back to primary role
+   Write-host "Failing primary back to primary role"
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
+       -Location $location -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
    Write-host "Successfully failed failover group to primary location"
-    
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    ```
+   
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
+       -Location $location -Name $failoverGroupName
+   ```
 
 ---
 
@@ -968,6 +980,13 @@ Clean up resources by first deleting the managed instance, then the virtual clus
 
 
 ## Full script
+
+# [PowerShell](#tab/azure-powershell)
+[!code-powershell-interactive[main](../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
+
+# [Portal](#tab/azure-portal) 
+
+There are no scripts available for the Azure portal.
 
 ## Next steps
 
