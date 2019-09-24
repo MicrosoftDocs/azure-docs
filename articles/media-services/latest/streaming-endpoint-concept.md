@@ -33,7 +33,10 @@ The host name format of the streaming URL is: `{servicename}-{accountname}-{regi
 
 When using the default streaming endpoint, `servicename` is omitted so the URL is: `{accountname}-{regionname}.streaming.azure.net`. 
 
-The streaming endpoint name has a max value of 24 characters.
+### Limitations
+
+* The streaming endpoint name has a max value of 24 characters.
+* Azure Media Services v3 resource names are subject to Azure Resource Manager naming constraints. For more information, see [naming constraints](media-services-apis-overview.md#naming-conventions). 
 
 ## Types  
 
