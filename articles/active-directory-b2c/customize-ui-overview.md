@@ -102,7 +102,6 @@ Get started using your own HTML and CSS in your user experience pages by followi
     </html>
     ```
 
-- Host your content on an HTTPS endpoint (with CORS allowed). Both GET and OPTIONS request methods must be enabled when configuring CORS.
 - Use CSS to style the UI elements that Azure AD B2C inserts into your page. The following example shows a simple CSS file that also includes settings for the sign-up injected HTML elements:
 
     ```css
@@ -128,7 +127,10 @@ Get started using your own HTML and CSS in your user experience pages by followi
     }
     ```
 
+- Host your content on an HTTPS endpoint (with CORS allowed). Both GET and OPTIONS request methods must be enabled when configuring CORS.
 - Create or edit a user flow or custom policy to use the content that you created.
+
+### HTML fragments from Azure AD B2C
 
 The following table lists the HTML fragments that Azure AD B2C merges into the `<div id="api"></div>` element located in your content.
 
