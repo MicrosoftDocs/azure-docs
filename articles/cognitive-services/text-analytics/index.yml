@@ -37,20 +37,63 @@ landingContent:
 
 - title: Sentiment analysis   
   linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/csharp.md#sentiment-analysis      
+        - text: Using Python   
+          url: quickstarts/python-sdk.md#sentiment-analysis
+        - text: Using Node.js
+          url: quickstarts/nodejs-sdk.md#sentiment-analysis   
+        - text: Using Go   
+          url: quickstarts/go.md#sentiment-analysis    
+        - text: Using Ruby   
+          url: quickstarts/ruby.md#sentiment-analysis  
+    - linkListType: tutorial
+      links:
+        - text: Integrate Power BI to analyze customer sentiment
+          url: tutorials/tutorial-power-bi-key-phrases.md
+        - text: Use Flask to translate text, analyze sentiment, and synthesize speech
+          url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
     - linkListType: how-to-guide
       links:
         - text: Sentiment analysis
           url: how-tos/text-analytics-how-to-sentiment-analysis.md
+    
 
 - title: Language detection 
   linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/csharp.md#language-detection   
+        - text: Using Python   
+          url: quickstarts/python-sdk.md#language-detection
+        - text: Using Node.js
+          url: quickstarts/nodejs-sdk.md#language-detection
+        - text: Using Go   
+          url: quickstarts/go.md#language-detection
+        - text: Using Ruby   
+          url: quickstarts/ruby.md#language-detection
     - linkListType: how-to-guide
       links:
         - text: Language detection
           url: how-tos/text-analytics-how-to-language-detection.md
 
-- title: Keyword extraction   
+- title: Key phrase extraction   
   linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/csharp.md#key-phrase-extraction
+        - text: Using Python   
+          url: quickstarts/python-sdk.md#key-phrase-extraction
+        - text: Using Node.js
+          url: quickstarts/nodejs-sdk.md#key-phrase-extraction
+        - text: Using Go   
+          url: quickstarts/go.md#key-phrase-extraction
+        - text: Using Ruby   
+          url: quickstarts/ruby.md#key-phrase-extraction
     - linkListType: how-to-guide
       links:
         - text: Keyword extraction
@@ -58,31 +101,22 @@ landingContent:
 
 - title: Entity recognition
   linkLists:
+    - linkListType: quickstart
+      links:
+        - text: Using C#   
+          url: quickstarts/csharp.md#entity-recognition
+        - text: Using Python   
+          url: quickstarts/python-sdk.md#entity-recognition
+        - text: Using Node.js
+          url: quickstarts/nodejs-sdk.md#entity-recognition
+        - text: Using Go   
+          url: quickstarts/go.md#entity-recognition
+        - text: Using Ruby   
+          url: quickstarts/ruby.md#entity-recognition
     - linkListType: how-to-guide
       links:
         - text: Entity recognition
           url: how-tos/text-analytics-how-to-entity-linking.md
-
-- title: "Analyze text using the API"
-  linkLists:
-    - linkListType: quickstart
-      links:
-        - text: Using C#   
-          url: quickstarts/csharp.md       
-        - text: Using Python   
-          url: quickstarts/python-sdk.md
-        - text: Using Node.js
-          url: quickstarts/nodejs-sdk.md    
-        - text: Using Go   
-          url: quickstarts/go.md    
-        - text: Using Ruby   
-          url: quickstarts/ruby.md  
-    - linkListType: tutorial
-      links:
-        - text: Integrate Power BI to analyze customer sentiment
-          url: tutorials/tutorial-power-bi-key-phrases.md
-        - text: Use Flask to translate text, analyze sentiment, and synthesize speech
-          url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
 
 - title: Reference
   linkLists:
