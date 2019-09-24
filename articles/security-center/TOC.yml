@@ -59,11 +59,11 @@
     - name: Integration with Azure Security Products
       href: security-center-alerts-integration.md
     - name: Cloud Smart Alert correlation (incidents)
-      href: security-center-alerts-cloud-smart.md 
+      href: security-center-alerts-cloud-smart.md
+    - name: Security alerts map and threat intelligence
+      href: security-center-threat-intel.md       
     - name: Alert validation (EICAR test file)
       href: security-center-alert-validation.md
-    - name: Security alerts map and threat intelligence
-      href: security-center-threat-intel.md
 
 - name: How-to guides
   items:
