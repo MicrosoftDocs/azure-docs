@@ -24,11 +24,11 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 - **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings screen to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect additional disk, CPU, and memory data.
 
-    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure logs to store the data and set up alerts to let you know when performance isn't quite right.
+    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure [Azure Monitor Logs](../../azure-monitor/platform/data-platform-logs.md) to store the data and set up alerts to let you know when performance isn't quite right.
 
 ## Alerts
 
-You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), using [Azure Resource Manager templates](../articles/azure-monitor/platform/alerts-metric-create-templates.md), or the [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
+You can create [alerts](../articles/azure-monitor/platform/alerts-overview.md) based on specific performance metrics. Examples of the issues you can be alerted about include when average CPU usage exceeds a certain threshold, or available free disk space drops below a certain amount. Alerts can be configured in the [Azure portal](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), using [Azure Resource Manager templates](../articles/azure-monitor/platform/alerts-metric-create-templates.md), or [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
 ## Azure Service Health
 
@@ -60,6 +60,11 @@ Some of the things you can do with diagnostics logs include:
 - Analyze them with [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## Advanced monitoring
+
+For complete observability that goes beyond collecting, alerting, and analyzing data from your VMs and includes 
+
+
+collecting basic performance and log data from the guest OS operating system and 
 
 [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including the different processes and interconnected dependencies on other resources and external processes it discovers. It also includes several trend performance charts to help during investigation of problems and assess capacity of your VMs, and with the dependency map, you can view the  
 
