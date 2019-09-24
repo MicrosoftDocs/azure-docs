@@ -24,10 +24,10 @@ Software requirements:
 ## Open the Project Acoustics bake window
 Choose **Window > Acoustics** from the Unity menu.
 
-![Unity editor with the Acoustics window menu option highlighted](media/window-acoustics.png)
+![Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
 
 ## Create a navigation mesh
-Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use the Unity [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) or use another 3D modeling package to design your own mesh.
+Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use the Unity [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). Or you can use a different 3D modeling package to design your own mesh.
 
 ## Mark acoustic scene objects
 Project Acoustics relies on two types of scene objects for simulation:
@@ -36,60 +36,60 @@ Project Acoustics relies on two types of scene objects for simulation:
 
 Both object types are marked by using the **Objects** tab.
 
-Because marking objects simply adds the *AcousticsGeometry* or *AcousticsNavigation* components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. Only mesh renderers and terrains can be marked. All other object types will be ignored. The checkboxes will mark or unmark all affected objects.
+Because marking objects simply adds the *AcousticsGeometry* or *AcousticsNavigation* components to the object, you can also use the [standard Unity component workflow](https://docs.unity3d.com/Manual/UsingComponents.html) to mark or unmark objects. You can only mark mesh renderers and terrains. All other object types will be ignored. The checkboxes will mark or unmark all affected objects.
 
 ### Mark acoustic occlusion and reflection geometry
 Open the **Objects** tab of the **Acoustics** window. Mark any objects as *Acoustics Geometry* if they should occlude, reflect, or absorb sound. Acoustics geometry can include things like ground, walls, roofs, windows and window glass, rugs, and large furniture. You can use any arbitrary level of complexity for these objects. Because the scene is voxelized before simulation, highly detailed meshes, such as trees that have many leaves, aren't more costly to bake than simplified objects.
 
 Don't include things that shouldn't affect the acoustics, such as invisible collision meshes.
 
-An object's transform during probe calculation (via the **Probes** tab, see below) is fixed in the bake results. If any marked objects in the scene are moved, the probe calculation and baking will have to be redone.
+An object's transform during probe calculation (through the **Probes** tab, see below) is fixed in the bake results. If any marked objects in the scene are moved, probe calculation and baking have to be redone.
 
 ### Mark the navigation mesh
-Navigation meshes that were created through Unity's workflow will be picked up by the acoustics system. To use your own meshes, mark them from the **Objects** tab.
+Navigation meshes that were created through the Unity workflow will be picked up by the Acoustics system. To use your own meshes, mark them from the **Objects** tab.
 
 ### For reference: The Objects tab parts
 The parts of the tab page are:
 
-1. The tab selection buttons (**Objects** tab selected). Use these buttons to walk through the various steps of an acoustics bake, from left to right.
+1. The tab selection buttons (**Objects** tab selected). Use these buttons to move through the various steps of an acoustics bake, from left to right.
 1. A brief description of what you can do by using this tab.
-1. Available filters for the hierarchy window. Use these options to filter the hierarchy window to objects of the specified type so that you can more easily mark them. If you haven't yet marked anything for acoustics, selecting the last two options will show you nothing. However, they can be useful to find objects after they're marked.
+1. Available filters for the hierarchy window. Use these options to filter the hierarchy window to objects of the specified type so that you can easily mark them. If you haven't yet marked anything for acoustics, selecting the last two options will show you nothing. However, these options help you find objects after they're marked.
 2. When no objects are selected, this section shows the status of all objects in the scene.
-    * Total: The total number of active, non-hidden objects in the scene.
+    * Total: The total number of active, non-hidden objects.
     * Ignored: The number of objects that aren't mesh renderers or terrains.
-    * Mesh: The number of mesh renderer objects in the scene.
-    * Terrain: The number of terrain objects in the scene.
-    * Geometry: The number of mesh or terrain objects in the scene that are marked as *Acoustics Geometry*.
-    * Navigation: The number of mesh or terrain objects in the scene that marked as *Acoustics Navigation*. This number doesn't include the Unity NavMesh.
-3. This area shows the total number of "mark-able" objects in the scene, which are only mesh renderers and terrains. Use the checkboxes to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
-4. When nothing is selected, this note reminds you to select objects for marking if needed. You can also select one or both checkboxes to mark all the objects in the scene.
-5. When objects are selected (previous bullet), this section shows the status of only the selected objects.
+    * Mesh: The number of mesh renderer objects.
+    * Terrain: The number of terrain objects.
+    * Geometry: The number of mesh or terrain objects that are marked as *Acoustics Geometry*.
+    * Navigation: The number of mesh or terrain objects marked as *Acoustics Navigation*. This number doesn't include the Unity NavMesh.
+3. The total number of "mark-able" objects in the scene, which are only mesh renderers and terrains. Use the checkboxes to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
+4. When nothing is selected, this note reminds you to select objects for marking, if needed. You can also select one or both checkboxes to mark all the objects in the scene.
+5. When objects are selected (previous item), this section shows the status of only the selected objects.
 6. This area shows the total number of "markable" selected objects. Selecting or clearing the checkboxes marks or unmarks only the selected objects.
 
-If you have nothing selected in your scene, the **Objects** tab will look like the following picture:
+If you have nothing selected in your scene, the **Objects** tab looks like the following picture.
 
-![Acoustics Objects tab with no selection](media/objects-tab-no-selection-detail.png)
+![TheAcoustics Objects tab with nothing selected](media/objects-tab-no-selection-detail.png)
 
-If you have something selected in your scene or hierarchy window, it will look like the following picture:
+If you have something selected in your scene or hierarchy window, it looks like the following picture.
 
-![Acoustics Objects tab with selection shown](media/objects-tab-selection-detail.png)
+![The Acoustics Objects tab with selections](media/objects-tab-selection-detail.png)
 
-If some objects are marked and some aren't, the appropriate checkbox will show a "mixed" value, like the following picture:
+If some objects are marked and some aren't, the appropriate checkbox show a "mixed" value, like the following picture.
 
-![Acoustics Objects tab with a mixed selection of icons highlighted](media/mixed-object-selection-detail.png)
+![The Acoustics Objects tab with a mixed selection of icons highlighted](media/mixed-object-selection-detail.png)
 
-Select the checkbox to mark all the items. Select it again to unmark all the objects.
+Click the checkbox to mark all the items. Click it again to unmark all the objects.
 
 Objects can be marked for both geometry and navigation.
 
 ## Select acoustic materials
-After your objects are marked, click the **Materials** button, and then assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system: For two objects to have separate acoustic materials, they must have separate visual materials.
+After your objects are marked, click the **Materials** button, and then assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system. For two objects to have separate acoustic materials, they must have separate visual materials.
 
-The acoustic materials control the amount of sound energy that's reflected back from each surface. The default acoustic material has absorption similar to concrete. Project Acoustics suggests materials based on the visual material name. You assign the acoustic material *Custom* to a material to activate an absorption-coefficient slider.
+The acoustic material selection determines the amount of sound energy that's reflected back from each surface. The default acoustic material has absorption similar to concrete. Project Acoustics suggests materials based on the visual material name. You can also assign the acoustic material *Custom* to a material to activate an adjustable absorption-coefficient slider.
 
 The reverberation time of a given material in a room is inversely related to its absorption coefficient. Most materials have absorption values in a range of 0.01 to 0.20. Materials that have absorption coefficients outside this range are very absorbent.
 
-![A graph shows the negative correlation of reverberation time and absorption coefficient.](media/reverb-time-graph.png)
+![A graph shows the negative correlation of the reverberation time and the absorption coefficient.](media/reverb-time-graph.png)
 
 ### For reference: Parts of the Materials tab
 ![The Acoustics Materials tab in Unity](media/materials-tab-detail.png)
@@ -98,9 +98,9 @@ The reverberation time of a given material in a room is inversely related to its
 3. When this checkbox is selected, only materials that are used by objects marked as *Acoustics Geometry* are listed. Otherwise, all materials that are used in the scene are listed.
 4. Use these options to change the order of the options on a menu in the **Acoustics** column (#6). Sort acoustic materials by **Name** or by **Absorptivity**, from low to high.
 5. An alphabetically sorted list of materials that are used in the scene. If the **Show Marked Only** checkbox is selected (#3), only materials used by objects marked as *Acoustics Geometry* are shown. Select a material here to select all objects in the scene that use that material.
-6. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By:** options above (#4).
+6. The acoustic material that the scene material has been assigned to. Select any item to change the acoustic material assigned to that scene material. To change the sorting order of these menus, use the **Sort Acoustics By** options above (#4).
 7. The acoustic absorption coefficient of the material selected in the column to the left (#6). A value of 0 means perfectly reflective (no absorption), while 1 means perfectly absorptive (no reflection). The absorption coefficient can't be changed unless the selected material is *Custom.*
-8. For a material marked as *Custom* (in #7), the slider is no longer disabled. You can move the slider or type a value to assign the absorption coefficient.
+8. For a material marked as *Custom* (in #7), the slider is activated. You can move the slider or type a value to assign the absorption coefficient.
 
 ## Calculate and review listener probe locations
 After you assign the materials, switch to the **Probes** tab. Select **Calculate** to place listener probe points for simulation.
@@ -108,23 +108,23 @@ After you assign the materials, switch to the **Probes** tab. Select **Calculate
 ### What the "Calculate" button calculates
 The **Calculate** button uses your selected acoustic scene geometry to prepare your scene for simulation:
 
-- It takes the geometry from the scene meshes and calculates a *voxel volume*. The voxel volume is volume of your entire scene that's comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
+- It takes the geometry from the scene meshes and calculates a *voxel volume*. The voxel volume is a volume of your entire scene that's comprised of small cubic "voxels." Voxel size is determined by the simulation frequency, which is controlled by the **Simulation Resolution** setting. Each voxel is marked as "open air" or containing scene geometry. If a voxel contains geometry, the voxel is tagged with the absorption coefficient of the material that's assigned to that geometry.
 - It uses the navigation meshes to place listener probe points. The algorithm balances the competing concerns of spatial coverage and simulation time and file size. It aims to ensure that narrow corridors and small spaces always have some coverage. Typical probe point counts range from 100 for small scenes to a few thousand for large scenes.
 
 Depending on the size of your scene and the speed of your machine, these calculations can take several minutes.
 
 ### Review voxel and probe placement
-Preview both the voxel data and the probe point locations to make sure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry is usually easily visible in the preview. Enable or disable Voxel and probe placement by using the Gizmos menu.
+Preview both the voxel data and probe point locations to make sure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry is usually easily visible in the preview. Enable or disable voxel and probe placement by using the **Gizmos** menu.
 
 ![Gizmos menu in Unity](media/gizmos-menu.png)
 
 Voxels that contain acoustic geometry are shown as green cubes. Explore your scene, and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
-If you compare the voxels created with coarse resolution versus fine resolution, you'll see that the coarse voxels are twice as large.
+If you compare voxels created with coarse resolution versus fine resolution, you'll see that the coarse voxels are twice as large.
 
 ![Coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
 
-Simulation results are interpolated between listener probe point locations at runtime. Check that there are probe points near any places that the player is expected to travel to in the scene.
+Simulation results are interpolated between listener probe point locations at runtime. Check that there are probe points near any places where the player is expected go in the scene.
 
 ![Probes preview in Unity editor](media/probes-preview.png)
 
@@ -136,10 +136,10 @@ The scene name is used to connect the scene to files that store the probe point 
 
 1. The **Probes** button brings up this tab.
 2. A brief description of what you can do on this tab.
-3. Use these options to set coarse or fine simulation resolution. Coarse is faster, but there are certain tradeoffs. For details, see [Bake resolution](bake-resolution.md).
-4. Use this field to specify where to put acoustics data files. Click the "**...**" button to access a folder picker. The default location is *Assets/AcousticsData*. An *Editor* subfolder is also created at this location. For more information, see [Data files added by the bake process](#Data-Files), later in this article.
+3. Use these options to set coarse or fine simulation resolution. Coarse is faster, but there are  tradeoffs. For details, see [Bake resolution](bake-resolution.md).
+4. Specify where to put acoustics data files. Click the "**...**" button to access a folder picker. The default location is *Assets/AcousticsData*. An *Editor* subfolder is also created at this location. For more information, see [Data files added by the bake process](#Data-Files), later in this article.
 5. The prefix that's specified here is used to name the  data files for this scene. The default is "Acoustics_*[Scene Name]*".
-6. After the probes are calculated, the controls that we just described are disabled. Select the **Clear** button to erase the calculations and enable the controls so that you can recalculate with new settings.
+6. After the probes are calculated, the controls that we just described are disabled. Select the **Clear** button to erase the calculations and enable the controls so you can recalculate with new settings.
 7. Select **Calculate** to voxelize the scene and calculate the probe point locations. Calculation is done locally on your machine. It must be done before doing a bake.
 
 In this version of Project Acoustics, probes can't be placed manually. You have to use the automated process on the **Probes** tab.
