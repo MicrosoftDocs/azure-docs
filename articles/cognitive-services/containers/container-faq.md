@@ -54,10 +54,6 @@ Cognitive Services container configurations of resources are controlled by custo
 
 Unfortunately, the Cognitive Services containers are *not* natively supported in the sovereign clouds. The containers can be run in these clouds, but they will be pulled from the public cloud and need to send usage data to the public endpoint.
 
-**Q: Are Cognitive Services containers available for offline usage?**
-
-**A:** See [Azure Cognitive Services offline containers](offline-containers.md) for details regarding the various disconnected scenarios available.
-
 ### Versioning
 
 **Q: How are containers updated to the latest version?**
@@ -125,11 +121,11 @@ Explore the following tags for potential questions and answers that align with y
  
 **Q: What happens to Cognitive Services containers when internet connectivity is lost?**
 
-**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times. The only exception is [Cognitive Services offline containers](offline-containers.md).
+**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times.
 
 **Q: How long can the container operate without being connected to Azure?**
 
-**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times. The only exception is [Cognitive Services offline containers](offline-containers.md).
+**A:** Cognitive Services containers are *not licensed* to run without being connected to Azure for metering. Customers need to enable the containers to communicate with the metering service at all times.
  
 **Q: What is current hardware required to run these containers?**
 
