@@ -20,6 +20,8 @@ To find the Azure HPC Cache preview service, click the **All services** button a
 
 ![Screenshot of the support request - Basics tab, partly filled out as described](media/hpc-cache-support-request.png)
 
+<!-- update screenshot after preview to update product name -->
+
 Fill out the rest of the fields with your information and preferences, then submit the ticket when you are ready.
 
 After you submit the request, you will receive a confirmation email with a ticket number. A support staff member will contact you about the request.
