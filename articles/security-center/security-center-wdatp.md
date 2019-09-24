@@ -15,7 +15,7 @@ ms.author: memildin
 ---
 # Microsoft Defender Advanced Threat Protection with Azure Security Center
 
-Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Microsoft Defender Advanced Threat Protection](https://www.microsoft.com/en-us/microsoft-365/windows/microsoft-defender-atp) (ATP).
+Azure Security Center is extending its Cloud Workload Protection Platforms offering by integrating with [Microsoft Defender Advanced Threat Protection](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) (ATP).
 This change brings comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Azure Security Center.
 
 ## Microsoft Defender ATP features in Security Center
@@ -79,11 +79,11 @@ Here you can see the integrations currently enabled.
 
 ## Access to the Microsoft Defender ATP portal
 
-Follow the instructions in [Assign user access to the portal](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+Follow the instructions in [Assign user access to the portal](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 ## Set the firewall configuration
 
-If you have a proxy or firewall that is blocking anonymous traffic, as a Microsoft Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Microsoft Defender ATP service URLs in the proxy server](https://docs.microsoft.com/en-us/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
+If you have a proxy or firewall that is blocking anonymous traffic, as a Microsoft Defender ATP sensor is connecting from the system context, make sure that anonymous traffic is permitted. Follow the instructions in [Enable access to Microsoft Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
 ## Test the feature
 
