@@ -703,7 +703,7 @@ If you're using Git integration with your data factory, and you have a CI/CD pip
 - By design, ADF does _not_ allow cherry-picking commits or selective publishing of resources. Publishes will include **all** changes made in the data factory
 
     - Data factory entities depend on each other, for instance, triggers depend on pipelines, pipelines depend on datasets and other pipelines, etc. Selective publishing of a subset of resources _may_ lead to unexpected behaviors and errors
-    - On rare occasions where selective publishing is required, you consider consider a hot-fix. For more information, see [Hot-Fix Production Branch](#hot-fix-production-branch)
+    - On rare occasions where selective publishing is required, you may consider a hot-fix. For more information, see [Hot-Fix Production Branch](#hot-fix-production-branch)
 
 -   You cannot publish from private branches
 
