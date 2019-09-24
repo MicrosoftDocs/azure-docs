@@ -179,17 +179,17 @@ session on the port specified, the probe is marked as unhealthy with this messag
     ```
 1.  If you don't find any issues with NSG or UDR, check your backend server for application-related issues that are preventing clients from establishing a TCP session on the ports configured. A few things to check:
 
-    1.  Open a command prompt (Win+R -\> cmd), enter `netstat`, and press Enter.
+    a.  Open a command prompt (Win+R -\> cmd), enter `netstat`, and press Enter.
 
-    1.  Check whether the server is listening on the port that's configured. For example:
+    b.  Check whether the server is listening on the port that's configured. For example:
     ```
             Proto Local Address Foreign Address State PID
             TCP 0.0.0.0:80 0.0.0.0:0 LISTENING 4
     ```
-    1.  If it's not listening on the configured port, check your web server settings. For example:
+    c.  If it's not listening on the configured port, check your web server settings. For example:
         site bindings in IIS, server block in NGINX and virtual host in Apache.
 
-    1.  Check your OS firewall settings to make sure that incoming traffic to the port is allowed.
+    d.  Check your OS firewall settings to make sure that incoming traffic to the port is allowed.
 
 #### HTTP status code mismatch
 
@@ -357,11 +357,11 @@ For Windows:
 For Linux using OpenSSL:
 
 1.  Run this command in OpenSSL:
-```
-openssl x509 -in certificate.crt -text -noout
-```
+    ```
+    openssl x509 -in certificate.crt -text -noout
+    ```
 
-1.  From the properties displayed, find the CN of the certificate and enter the same in the hostname field of the http settings. If that's not the desired hostname for your website, you must get a certificate for that domain or enter the correct hostname in the custom probe or HTTP setting configuration.
+2.  From the properties displayed, find the CN of the certificate and enter the same in the hostname field of the http settings. If that's not the desired hostname for your website, you must get a certificate for that domain or enter the correct hostname in the custom probe or HTTP setting configuration.
 
 #### Backend certificate is invalid
 
