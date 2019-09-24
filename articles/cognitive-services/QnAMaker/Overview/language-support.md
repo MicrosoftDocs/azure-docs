@@ -17,29 +17,7 @@ Language for the service is selected when you create the first knowledge base in
 
 The language determines QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md) of all knowledge bases in that resource, as well as the relevance of the results QnA Maker provides in response to user queries.
 
-## Query matching and relevance
-QnA Maker depends on [Azure Search language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for providing results. 
-
-While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages. 
-
-|Languages with additional ranker|
-|--|
-|Chinese|
-|Czech|
-|Dutch|
-|English|
-|French|
-|German|
-|Hungarian|
-|Italian|
-|Japanese|
-|Korean|
-|Polish|
-|Portuguese|
-|Spanish|
-|Swedish|
-
-This additional ranking is an internal working of the QnA Maker's ranker.
+Learn more about the [impact of language selection](../overview/language-knowledge-base.md).
 
 ## Languages supported
 
@@ -100,3 +78,8 @@ The following list contains the languages supported for a QnA Maker resource.
 |Ukrainian|
 |Urdu|
 |Vietnamese|
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Language selection](../overview/language-knowledge-base.md)

@@ -31,6 +31,30 @@ Language selection is part of the steps to create the first knowledge base in a 
 
 ![QnA Maker portal screenshot of selecting language for first knowledge base](../media/language-support/select-language-when-creating-knowledge-base.png)
 
+## Query matching and relevance
+QnA Maker depends on [Azure Search language analyzers](https://docs.microsoft.com/rest/api/searchservice/language-support) for providing results. 
+
+While the Azure Search capabilities are on par for supported languages, QnA Maker has an additional ranker that sits above the Azure search results. In this ranker model, we use some special semantic and word-based features in the following languages. 
+
+|Languages with additional ranker|
+|--|
+|Chinese|
+|Czech|
+|Dutch|
+|English|
+|French|
+|German|
+|Hungarian|
+|Italian|
+|Japanese|
+|Korean|
+|Polish|
+|Portuguese|
+|Spanish|
+|Swedish|
+
+This additional ranking is an internal working of the QnA Maker's ranker.
+
 ## Verify language
 
 You can verify the language of your QnA Maker resource from the service settings page in the QnA Maker.
