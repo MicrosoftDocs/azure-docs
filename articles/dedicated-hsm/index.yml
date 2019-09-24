@@ -14,7 +14,7 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
 
-# linkListType: architecture | deploy | download | get-started | how-to-guide | learn | overview | quickstart | tutorial
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -26,7 +26,10 @@ landingContent:
         links:
           - text: What is Dedicated HSM?
             url: overview.md
-          - text: High availability
+    linkLists:
+      - linkListType: concept
+        links:
+	  - text: High availability
             url: high-availability.md
           - text: Physical security
             url: physical-security.md

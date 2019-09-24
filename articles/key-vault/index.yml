@@ -14,7 +14,7 @@ metadata:
   manager: rkarlin
   ms.date: 09/19/2019 #Required; mm/dd/yyyy format.
 
-# linkListType: architecture | deploy | download | get-started | how-to-guide | learn | overview | quickstart | tutorial
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
@@ -26,10 +26,15 @@ landingContent:
         links:
           - text: What is Azure Key Vault?
             url: key-vault-overview.md
+    linkLists:
+      - linkListType: concepts
+        links:
           - text: Basic concepts
             url: basic-concepts.md
-          - text: About keys, secrets, and certificates
-            url: about-keys-secrets-and-certificates.md
+          - text: Soft-delete
+            url: key-vault-ovw-soft-delete.md
+          - text: Throttling
+            url: key-vault-ovw-throttling.md
 
   # Card
   - title: Get started
@@ -62,6 +67,34 @@ landingContent:
             url: tutorial-python-linux-virtual-machine.md
           - text: Key Vault with Python - Windows
             url: tutorial-python-windows-virtual-machine.md
+
+  # Card
+  - title: Key Vault and storage keys
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage storage keys with the Azure CLI
+            url: key-vault-ovw-storage-keys.md
+          - text: Manage storage keys with Azure PowerShell
+            url: key-vault-overview-storage-keys-powershell.md
+          - text: Fetch SAS tokens in code
+            url: storage-keys-sas-tokens-code.md
+
+  # Card
+  - title: Key vault app integration
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Developer's guide
+            url: key-vault-developers-guide.md
+          - text: Use managed identity to access Key Vault
+            url: managed-identity.md
+      - linkListType: reference
+        links:
+          - text: Authentication, requests and responses
+            url: authentication-requests-and-responses.md
+          - text: Key Vault REST API reference
+            url: /rest/api/keyvault/
 
   # Card
   - title: Microsoft Learn
