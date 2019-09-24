@@ -4,7 +4,6 @@ description: Add regions, change failover priority, trigger failover for an Azur
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 9/25/2019
 ---

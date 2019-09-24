@@ -4,7 +4,6 @@ description: Update RU/s for a database and collection for MongoDB API for Azure
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-mongodb
 ms.topic: sample
 ms.date: 9/25/2019
 ---

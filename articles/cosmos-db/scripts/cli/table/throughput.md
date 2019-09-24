@@ -4,7 +4,6 @@ description: Update RU/s for a Table API table for Azure Cosmos DB
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-table
 ms.topic: sample
 ms.date: 9/25/2019
 ---
