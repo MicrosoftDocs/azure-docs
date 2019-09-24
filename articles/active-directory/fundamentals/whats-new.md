@@ -35,6 +35,229 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ---
 
+## September 2019
+ 
+[725442](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=725442&triage=true&fullScreen=false&_a=edit)
+
+### My Profile is re-naming and integrating with the Office account page
+
+**Type:** Plan for change  
+**Service category:** User Management  
+**Product capability:** 
+
+The newly refreshed My Profile experience will be Generally Available soon. On top of design improvements, the new experience will include the following two notable changes:
+
+My Profile will be renamed to My Account. Anywhere the previous experience said Profile, it will now say Account.
+If your organization also uses Office, the new experience will feature some initial integrations with the Office account page. Mainly, the ability to access Office installs and subscriptions off of the Overview Account page, and Office related contact preferences on the Privacy page.
+Stay tuned for the official General Availability announcement and updated documentation.
+
+---
+
+[809675](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=809675&triage=true&fullScreen=false&_a=edit)
+
+### MFA server 8.2 is now available for download
+
+**Type:** Fixed  
+**Service category:** MFA  
+**Product capability:** Identity Security & Protection
+
+Version 8.0.2 of the Azure Multi-Factor Authentication Server adds the following additional functionality:
+
+- Fixed issue with AD Sync send email when user enabled state changes
+
+-  Fixed upgrade issue with User Tags
+
+-  Added Kosovo (+383) country code
+
+-  Added One-Time Bypass audit logging to MultiFactorAuthSvc.log
+
+-  Web Service SDK performance improvements
+
+-  Other minor bug fixes
+
+As a reminder, As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
+---
+ 
+[812769](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=812769&triage=true&fullScreen=false&_a=edit)
+
+### Access on-prem Report Server from your Power BI Mobile app with Azure Active Directory Application Proxy
+
+**Type:** New feature  
+**Service category:** App Proxy  
+**Product capability:** Access Control
+ 
+Users can now use the Power BI mobile application to get a seamless single sign-on (SSO) experience to their reports hosted on-premises. This done through an integration with Azure AD Application Proxy which provides a secure connection to the on-premises Power BI Report Server.
+
+To get started, check out our [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-power-bi) on how to set up the Power BI mobile app and Application Proxy together.
+
+---
+
+[819763](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=819763&triage=true&fullScreen=false&_a=edit)
+
+### Dynamic admin consent is now supported on the new admin consent endpoint
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+
+A new admin consent endpoint has been built that supports dynamic consent.  This is helpful for applications that are interested in using the dynamic consent model in the Microsoft identity platform - the existing admin consent endpoint only supported a fix list of permissions.  
+
+See https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-admin-consent for details on how to use this endpoint.
+
+---
+
+[720768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=720768&triage=true&fullScreen=false&_a=edit)
+
+### New detections in refreshed Azure AD Identity Protection
+
+**Type:** New feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+Azure AD Premium P2 customers will soon see the following new detections in the [refreshed Azure AD Identity Protection](https://ipv2blog/).
+[Unfamiliar sign-in properties (Improved)](https://go.microsoft.com/fwlink/?linkid=2016528)
+[Impossible travel and suspicious inbox manipulation rules](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#anomaly-detection-policies) [(from Microsoft Cloud App Security)](https://docs.microsoft.com/cloud-app-security/)
+[Malicious IP address](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#malicious-IP-address)
+[Admin confirmed user compromised](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#admin-confirmed-user-compromised)
+
+For more information, see each of the related links above.
+
+---
+
+[313187](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=313187&triage=true&fullScreen=false&_a=edit)
+
+### Managing users in Azure AD by uploading and downloading files in the Azure AD admininistration portal
+
+**Type:** New feature  
+**Service category:** User Management  
+**Product capability:** Directory
+
+Now you can upload a CSV file in the Azure AD administration portal to bulk create or delete users, or invite guests to collaborate. You can also download a CSV file that contains the profile properties of users in your Azure AD.
+
+---
+
+### View a list of available Azure AD features, based on your license
+
+**Type:** New feature  
+**Service category:** Other  
+**Product capability:** Directory
+
+You can now view a list of your available and active Azure AD features, based on your license type, from the **Licenses - Licensed features** page of the Azure portal. You can also search by a feature, and filter the on-page list to view all features or features available in your directory.
+
+For more information about license types and the available features, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
+
+---
+
+[589400](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=589400&triage=true&fullScreen=false&_a=edit)
+
+### Bulk manage groups and members via CSV file in Azure AD portal (Public Preview)
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. These changes help you better manage groups and member lists via a CSV file. 
+
+Now you can manage groups using the new bulk capabilities in the Azure AD portal, including:
+
+- Add and remove members from a group
+- Download the list of groups in the directory
+- Download the list of group members for a specific group
+
+For more information, see Bulk add members, Bulk remove members, Bulk download members list and Bulk download groups list.
+
+---
+
+[618444](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=618444&triage=true&fullScreen=false&_a=edit)
+
+### License assignment portal experience change
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Directory
+
+Customer today cannot assign and change licenses in one flow. We are introducing changes to license assignment in Azure portal so customers can assign and update licenses easily in a single operation. This change also helps customers to migrate users and group from one license to another.
+
+---
+
+[672383](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=672383&triage=true&fullScreen=false&_a=edit)
+
+### Consolidated Security menu item in the Azure portal
+
+**Type:** Changed feature  
+**Service category:** Identity Protection  
+**Product capability:** Identity Security & Protection
+
+You will soon be able to access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, will provide links to our public documentation, security guidance, and deployment guides.
+
+The new **Security** menu includes:
+
+- Conditional Access
+- Identity Protection
+- Security Center
+- Identity Secure Score
+- Authentication methods
+- MFA
+- Risk reports - Risky users, Risky sign-ins, Risk detections
+
+For more information, see [Need title](https://aka.ms/SecurityMenuDocs).
+---
+
+[809433](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=809433&triage=true&fullScreen=false&_a=edit)
+
+### New version of the AzureADPreview PowerShell module
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Directory
+
+We released an update for the AzureAD Preview PowerShell module.
+
+In the AzureADPreview module the following new cmdlets are added to define and assign custom roles in Azure Active Directory:
+
+Add-AzureADMSFeatureRolloutPolicyDirectoryObject
+
+Get-AzureADMSFeatureRolloutPolicy
+
+New-AzureADMSFeatureRolloutPolicy
+
+Remove-AzureADMSFeatureRolloutPolicy
+
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject
+
+Set-AzureADMSFeatureRolloutPolicy
+
+---
+
+[812644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=812644&triage=true&fullScreen=false&_a=edit)
+
+### New version of Azure AD Connect
+
+**Type:** Changed feature  
+**Service category:** Other  
+**Product capability:** Directory
+
+We released an update for Azure AD Connect, which contains several improvements and bug fixes.
+
+This update is made available for autoupgrade first and will be released for download later.
+
+---
+
+[812644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=388576&triage=true&fullScreen=false&_a=edit)
+
+### Global Reader built-in role in Azure AD
+
+**Type:** Need info  
+**Service category:** Need info  
+**Product capability:** Access Control
+
+Users with this role can read everything that a Global Administrator can, but not edit anything. Think of this role as a read-only counterpart of Global Administrator. These users have read-only access to all features in Azure Active Directory, as well as Microsoft 365 services like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
+
+For more details, see this - https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles
+
+---
+
 ## August 2019
 
 ### Plan for change: Deprecation of the Power BI content packs
@@ -928,165 +1151,5 @@ For more information, see [How to Require app protection policy for cloud app ac
 We've enhanced our Azure AD support for Microsoft Edge, including providing new support for Azure AD single sign-on and Conditional Access. If you've previously used Microsoft Intune Managed Browser, you can now use Microsoft Edge instead.
 
 For more information about setting up and managing your devices and apps using Conditional Access, see [Require managed devices for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) and [Require approved client apps for cloud app access with Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). For more information about how to manage access using Microsoft Edge with Microsoft Intune policies, see [Manage Internet access using a Microsoft Intune policy-protected browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).
-
----
-
-## March 2019
-
-### Identity Experience Framework and custom policy support in Azure Active Directory B2C is now available (GA)
-
-**Type:** New feature  
-**Service category:** B2C - Consumer Identity Management  
-**Product capability:** B2B/B2C
-
-You can now create custom policies in Azure AD B2C, including the following tasks, which are supported at-scale and under our Azure SLA:
-
-- Create and upload custom authentication user journeys by using custom policies.
-
-- Describe user journeys step-by-step as exchanges between claims providers.
-
-- Define conditional branching in user journeys.
-
-- Transform and map claims for use in real-time decisions and communications.
-
-- Use REST API-enabled services in your custom authentication user journeys. For example, with email providers, CRMs, and proprietary authorization systems.
-
-- Federate with identity providers who are compliant with the OpenIDConnect protocol. For example, with multi-tenant Azure AD, social account providers, or two-factor verification providers.
-
-For more information about creating custom policies, see [Developer notes for custom policies in Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-developer-notes-custom) and read [Alex Simon’s blog post, including case studies](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-B2C-custom-policies-to-build-your-own-identity-journeys/ba-p/382791).
-
----
-
-### New Federated Apps available in Azure AD app gallery - March 2019
-
-**Type:** New feature  
-**Service category:** Enterprise Apps  
-**Product capability:** 3rd Party Integration
-
-In March 2019, we've added these 14 new apps with Federation support to the app gallery:
-
-[ISEC7 Mobile Exchange Delegate](https://www.isec7.com/english/), [MediusFlow](https://office365.cloudapp.mediusflow.com/), [ePlatform](https://docs.microsoft.com/azure/active-directory/saas-apps/eplatform-tutorial), [Fulcrum](https://docs.microsoft.com/azure/active-directory/saas-apps/fulcrum-tutorial), [ExcelityGlobal](https://docs.microsoft.com/azure/active-directory/saas-apps/excelityglobal-tutorial), [Explanation-Based Auditing System](https://docs.microsoft.com/azure/active-directory/saas-apps/explanation-based-auditing-system-tutorial), [Lean](https://docs.microsoft.com/azure/active-directory/saas-apps/lean-tutorial), [Powerschool Performance Matters](https://docs.microsoft.com/azure/active-directory/saas-apps/powerschool-performance-matters-tutorial), [Cinode](https://cinode.com/), [Iris Intranet](https://docs.microsoft.com/azure/active-directory/saas-apps/iris-intranet-tutorial), [Empactis](https://docs.microsoft.com/azure/active-directory/saas-apps/empactis-tutorial), [SmartDraw](https://docs.microsoft.com/azure/active-directory/saas-apps/smartdraw-tutorial), [Confirmit Horizons](https://docs.microsoft.com/azure/active-directory/saas-apps/confirmit-horizons-tutorial), [TAS](https://docs.microsoft.com/azure/active-directory/saas-apps/tas-tutorial)
-
-For more information about the apps, see [SaaS application integration with Azure Active Directory](https://aka.ms/appstutorial). For more information about listing your application in the Azure AD app gallery, see [List your application in the Azure Active Directory application gallery](https://aka.ms/azureadapprequest).
-
----
-
-### New Zscaler and Atlassian provisioning connectors in the Azure AD gallery - March 2019
-
-**Type:** New feature  
-**Service category:** App Provisioning  
-**Product capability:** 3rd Party Integration
-
-Automate creating, updating, and deleting user accounts for the following apps:
-
-[Zscaler](https://aka.ms/ZscalerProvisioning), [Zscaler Beta](https://aka.ms/ZscalerBetaProvisioning), [Zscaler One](https://aka.ms/ZscalerOneProvisioning), [Zscaler Two](https://aka.ms/ZscalerTwoProvisioning), [Zscaler Three](https://aka.ms/ZscalerThreeProvisioning), [Zscaler ZSCloud](https://aka.ms/ZscalerZSCloudProvisioning), [Atlassian Cloud](https://aka.ms/atlassianCloudProvisioning)
-
-For more information about how to better secure your organization through automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](https://aka.ms/ProvisioningDocumentation).
-
----
-
-### Restore and manage your deleted Office 365 groups in the Azure AD portal
-
-**Type:** New feature  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-You can now view and manage your deleted Office 365 groups from the Azure AD portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren’t needed by your organization.
-
-For more information, see [Restore expired or deleted groups](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-restore-deleted#view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore).
-
----
-
-### Single sign-on is now available for Azure AD SAML-secured on-premises apps through Application Proxy (public preview)
-
-**Type:** New feature  
-**Service category:** App Proxy  
-**Product capability:** Access Control
-
-You can now provide a single sign-on (SSO) experience for on-premises, SAML-authenticated apps, along with remote access to these apps through Application Proxy. For more information about how to set up SAML SSO with your on-premises apps, see [SAML single sign-on for on-premises applications with Application Proxy (Preview)](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-single-sign-on-on-premises-apps).
-
----
-
-### Client apps in request loops will be interrupted to improve reliability and user experience
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-Client apps can incorrectly issue hundreds of the same login requests over a short period of time. These requests, whether they're successful or not, all contribute to a poor user experience and heightened workloads for the IDP, increasing latency for all users and reducing the availability of the IDP.
-
-This update sends an `invalid_grant` error: `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request` to client apps that issue duplicate requests multiple times over a short period of time, beyond the scope of normal operation. Client apps that encounter this issue should show an interactive prompt, requiring the user to sign in again. For more information about this change and about how to fix your app if it encounters this error, see [What's new for authentication?](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#looping-clients-will-be-interrupted).
-
----
-
-### New Audit Logs user experience now available
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-We've created a new Azure AD **Audit logs** page to help improve both readability and how you search for your information. To see the new **Audit logs** page, select **Audit logs** in the **Activity** section of Azure AD.
-
-![New Audit logs page, with sample info](media/whats-new/audit-logs-page.png)
-
-For more information about the new **Audit logs** page, see [Audit activity reports in the Azure Active Directory portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs#audit-logs).
-
----
-
-### New warnings and guidance to help prevent accidental administrator lockout from misconfigured Conditional Access policies
-
-**Type:** Changed feature  
-**Service category:** Conditional Access  
-**Product capability:** Identity Security & Protection
-
-To help prevent administrators from accidentally locking themselves out of their own tenants through misconfigured Conditional Access policies, we've created new warnings and updated guidance in the Azure portal. For more information about the new guidance, see [What are service dependencies in Azure Active Directory Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
-
----
-
-### Improved end-user terms of use experiences on mobile devices
-
-**Type:** Changed feature  
-**Service category:** Terms of use  
-**Product capability:** Governance
-
-We've updated our existing terms of use experiences to help improve how you review and consent to terms of use on a mobile device. You can now zoom in and out, go back, download the information, and select hyperlinks. For more information about the updated terms of use, see [Azure Active Directory terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
-
----
-
-### New Azure AD Activity logs download experience available
-
-**Type:** Changed feature  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-You can now download large amounts of activity logs directly from the Azure portal. This update lets you:
-
-- Download up to 250,000 rows.
-
-- Get notified after the download completes.
-
-- Customize your file name.
-
-- Determine your output format, either JSON or CSV.
-
-For more information about this feature, see [Quickstart: Download an audit report using the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-download-audit-report)
-
----
-
-### Breaking change: Updates to condition evaluation by Exchange ActiveSync (EAS)
-
-**Type:** Plan for change  
-**Service category:** Conditional Access  
-**Product capability:** Access Control
-
-We’re in the process of updating how Exchange ActiveSync (EAS) evaluates the following conditions:
-
-- User location, based on country, region, or IP address
-
-- Sign-in risk
-
-- Device platform
-
-If you’ve previously used these conditions in your Conditional Access policies, be aware that the condition behavior might change. For example, if you previously used the user location condition in a policy, you might find the policy now being skipped based on the location of your user.
 
 ---
