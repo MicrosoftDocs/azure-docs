@@ -1,14 +1,14 @@
 ---
 title: Tasks for the team lead in the Team Data Science Process Team
 description: A detailed walkthrough of the tasks for a team lead on a Team Data Science Process team
-author: v-thepet
+author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/23/2019
-ms.author: v-thepet
+ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
@@ -22,7 +22,7 @@ A team lead manages a team consisting of many data scientists in the data scienc
 
 The following diagram shows the workflow for the tasks the team lead completes to set up a team environment:
 
-![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
+![Team lead task workflow](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
 1. Create a **team project** in the group's organization in Azure DevOps. 
   
@@ -257,6 +257,7 @@ git push
 > If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
 > 
 > `git config --global user.name <your name>`
+> 
 > `git config --global user.email \<your email address>`
 > 
 > If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when building Power BI dashboards to track your Git activities in multiple repositories.
