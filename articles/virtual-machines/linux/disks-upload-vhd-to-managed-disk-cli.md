@@ -36,10 +36,10 @@ This kind of managed disk has two unique states:
 
 While in either of these states, the managed disk will be billed at [standard HDD pricing](https://azure.microsoft.com/pricing/details/managed-disks/), regardless of the actual type of disk. For example, a P10 will be billed as an S10. This will be true until `revoke-access` is called on the managed disk, which is required in order to attach the disk to a VM.
 
-Create an empty standard HDD for uploading by specifying the **–for-upload** parameter in the [disk create](/cli/azure/disk#az-disk-create) cmdlet:
+Create an empty standard HDD for uploading by specifying the both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 ```azurecli-interactive
-az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --size-gb 128 --sku standard_lrs
+az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
 ```
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
