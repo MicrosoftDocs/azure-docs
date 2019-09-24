@@ -169,7 +169,7 @@ Create the gateway for the virtual network of your primary managed instance usin
 
 1. Select **Create** to create your new virtual network gateway. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Create the gateway for the virtual network of your primary managed instance using PowerShell. 
@@ -200,18 +200,14 @@ Create the gateway for the virtual network of your primary managed instance usin
         -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
     $gw1
     ```
-
-
 ---
--->
+
 
 ## 5 - Create secondary gateway 
 In this step, create the gateway for the virtual network of your secondary managed instance using the Azure Portal, 
 
-<!-- PowerShell, or Az CLI. 
 
 # [Portal](#tab/azure-portal)
--->
 
 Using the Azure portal, repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
 
@@ -233,7 +229,7 @@ Using the Azure portal, repeat the steps in the previous section to create the v
 
    ![Secondary gateway settings](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Create the gateway for the virtual network of the secondary managed instance using PowerShell. 
@@ -264,19 +260,17 @@ Create the gateway for the virtual network of the secondary managed instance usi
     
     $gw2
     ```
-
-
 ---
--->
+
 
 ## 6 - Connect the gateways
 In this step, create a bidirectional connection between the two gateways of the two virtual networks. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 
 Connect the two gateways using the Azure portal. 
--->
+
 
 1. Select **Create a resource** from the [Azure portal](https://portal.azure.com).
 1. Type `connection` in the search box and then press enter to search, which takes you to the **Connection** resource, published by Microsoft.
@@ -298,7 +292,7 @@ Connect the two gateways using the Azure portal.
 
 1. On the **Summary** tab, review the settings for your bidirectional connection and then select **OK** to create your connection. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 
 Connect the two gateways using PowerShell. 
@@ -331,15 +325,15 @@ Connect the two gateways using PowerShell.
     ```
 ---
 
--->
+
 
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 Create the failover group using the Azure portal. 
--->
+
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the primary managed instance you created in the first section, such as `sql-mi-primary`. 
@@ -353,7 +347,7 @@ Create the failover group using the Azure portal.
 
 1. Once failover group deployment is complete, you will be taken back to the **Failover group** page. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 Create the failover group using PowerShell. 
 
@@ -375,16 +369,16 @@ Create the failover group using PowerShell.
     ```
 
 ---
--->
+
 
 
 ## 8 - Test failover
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
 
-<!--
+
 # [Portal](#tab/azure-portal)
 Test failover using the Azure portal. 
--->
+
 
 1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
@@ -398,7 +392,7 @@ Test failover using the Azure portal.
 
 1. Select **Failover** once again to fail the primary instance back to the primary role. 
 
-<!--
+
 # [PowerShell](#tab/azure-powershell)
 Test failover using PowerShell. 
 
@@ -441,7 +435,7 @@ Revert failover group back to the primary server:
     ```
 
 ---
--->
+
 
 
 ## Clean up resources
@@ -452,7 +446,9 @@ Clean up resources by first deleting the managed instance, then the virtual clus
 1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
----
+
+
+## Full script
 
 ## Next steps
 
