@@ -166,6 +166,9 @@
         - name: ASP.NET
           displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
           href: app/asp-net.md
+        - name: Non-Http apps/Background apps
+          displayname: console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host
+          href: app/worker-service.md  
         - name: .NET Console
           displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
           href: app/console.md
@@ -682,6 +685,7 @@
     - name: Storage
       items:
       - name: Azure Monitor for Storage
+        displayname: storage, monitor, insights, storage accounts, azure storage
         href: insights/storage-insights-overview.md
     - name: Databases
       items:
@@ -785,9 +789,9 @@
         - name: Language differences
           href: log-query/data-explorer-difference.md
         - name: Useful operators
-          href: log-query/functions.md
-        - name: Functions
           href: log-query/useful-operators.md
+        - name: Functions
+          href: log-query/functions.md
         - name: Transition from log search
           href: log-query/log-search-transition.md
         - name: Lessons
@@ -1142,7 +1146,7 @@
   - name: Windows Analytics
     href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
   - name: Regional availability
-    href: https://azure.microsoft.com/regions/services/
+    href: https://azure.microsoft.com/regions/services/?products=monitor&regions=all
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
   - name: Quickstart templates

@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/01/2019
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
