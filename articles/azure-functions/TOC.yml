@@ -54,7 +54,7 @@
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
   - name: Develop Python functions with VS Code
-    href: tutorial-vs-code-serverless-python.md
+    href: /azure/python/tutorial-vs-code-serverless-python-01
   - name: OpenAPI definition for serverless APIs
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
@@ -138,6 +138,8 @@
       href: functions-reference-node.md#typescript
   - name: Diagnostics
     href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Consumption plan costs
+    href: functions-consumption-costs.md  
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies
@@ -192,6 +194,8 @@
       href: functions-deployment-slots.md
     - name: Build and deploy using Azure Pipelines
       href: functions-how-to-azure-devops.md
+    - name: Build and deploy using GitHub Actions
+      href: functions-how-to-github-actions.md
     - name: Zip deployment
       href: deployment-zip-push.md
     - name: Run from package
