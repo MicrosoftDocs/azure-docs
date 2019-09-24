@@ -411,7 +411,7 @@
           href: mongodb-mongochef.md
         - name: Connect using Compass
           href: mongodb-compass.md
-        - name: Connect using Robomongo
+        - name: Connect using Robo 3T
           href: mongodb-robomongo.md
         - name: Connect using Mongoose
           href: mongodb-mongoose.md
@@ -679,6 +679,10 @@
       - name: Streaming with Apache Kafka and Cosmos DB
         href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
         maintainContext: true 
+    - name: Built-in Jupyter notebooks
+      items:
+      - name: Enable notebooks
+        href: enable-notebooks.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs

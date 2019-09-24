@@ -18,7 +18,7 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please fill out our [survey](https://aka.ms/mdisnapshotpublicpreview) to get access.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
 
 ## Restrictions
 
@@ -106,6 +106,32 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 }
 ```
 
+## CLI
+
+You can create an incremental snapshot with the Azure CLI using [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create). An example command would look like the following:
+
+```bash
+az snapshot create -g <exampleResourceGroup> \
+-n <exampleSnapshotName> \
+-l <exampleLocation> \
+--source <exampleVMId> \
+--incremental
+```
+
+You can also identify what snapshots are incremental snapshots in the CLI with by using the `--query` parameter on [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show). You can use that parameter to directly query the **SourceResourceId** and **SourceUniqueId** properties of snapshots. SourceResourceId is the Azure Resource Manager resource ID of the parent disk. **SourceUniqueId** is the value inherited from the **UniqueId** property of the disk. If you delete a disk and then create a disk with the same name, the value of the **UniqueId** property will change.
+
+Examples of either queries would look like the following:
+
+```bash
+az snapshot show -g <exampleResourceGroup> \
+-n <yourSnapShotName> \
+--query [creationData.sourceResourceId] -o tsv
+
+az snapshot show -g <exampleResourceGroup> \
+-n <yourSnapShotName> \
+--query [creationData.sourceUniqueId] -o tsv
+```
+
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please fill out our [survey](https://aka.ms/mdisnapshotpublicpreview).
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
