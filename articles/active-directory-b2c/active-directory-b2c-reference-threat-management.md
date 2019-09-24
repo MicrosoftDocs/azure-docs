@@ -35,7 +35,7 @@ To manage password protection settings, including the lockout threshold:
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Under **Security**, select **Authentication methods**, then select **Password protection**.
+1. Under **Security**, select **Authentication methods (Preview)**, then select **Password protection**.
 1. Enter your desired password protection settings, then select **Save**.
 
     ![Azure portal Password protection page in Azure AD settings](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
