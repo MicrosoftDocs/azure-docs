@@ -12,6 +12,6 @@ ms.subservice: disks
 
 [!INCLUDE [disks-upload-vhd-to-managed-disk-storage-explorer](../../../includes/disks-upload-vhd-to-managed-disk-storage-explorer.md)]
 
-Learn how to [Create a VM from a VHD by using the Azure portal](../windows/create-vm-specialized-portal.md).
+Learn how to [Create a VM from a VHD by using the Azure portal](create-vm-specialized-portal.md).
 
-Learn how to [Attach a managed data disk to a Windows VM by using the Azure portal](../windows/attach-managed-disk-portal.md).
+Learn how to [Attach a managed data disk to a Windows VM by using the Azure portal](attach-managed-disk-portal.md).
