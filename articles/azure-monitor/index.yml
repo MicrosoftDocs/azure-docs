@@ -83,31 +83,41 @@ landingContent:
             url: https://go.microsoft.com/fwlink/?linkid=2012827
 
   # Card
-  - title: Reference 
+  - title: Reference - CLI
     linkLists: 
       - linkListType: reference
         links:
-          - text: CLI - Metrics, Autoscale, Collection Settings, Alerts
+          - text: Metrics, Autoscale, Collection Settings, Alerts
             url:  /cli/azure/monitor?view=azure-cli-latest
-          - text: CLI - Log Analytics
+          - text: Log Analytics
             url:  /cli/azure/ext/log-analytics/monitor?view=azure-cli-latest    
-          - text: CLI - Application Insights
-            url:  /cli/azure/ext/application-insights/monitor?view=azure-cli-latest  
-          - text: PowerShell - Metrics, Autoscale, Collection Settings, Alerts
-            url: /powershell/module/az.monitor/?view=azps-2.6.0
-          - text: PowerShell - Log Analytics
-            url: /powershell/module/az.operationalinsights
-          - text: PowerShell (older) - Application Insights
-            url: /powershell/module/azurerm.applicationinsights/?view=azurermps-6.13.0
-          - text: REST API - Metrics, Autoscale, Collection Settings, Alerts
-            url: /rest/api/monitor
-          - text: REST API - Log Analytics
-            url: /rest/api/loganalytics
-          - text: REST API  (which?) - Application Insights
-            url: https://dev.applicationinsights.io
-          - text: REST API  (which?) - Application Insights
-            url: /rest/api/application-insights/
+          - text: Application Insights
+            url:  /cli/azure/ext/application-insights/monitor?view=azure-cli-latest
 
+  # Card
+  - title: Reference - PowerShell
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: Metrics, Autoscale, Collection Settings, Alerts
+            url: /powershell/module/az.monitor/?view=azps-2.6.0
+          - text: Log Analytics
+            url: /powershell/module/az.operationalinsights
+          - text: Application Insights (older FIX)
+            url: /powershell/module/azurerm.applicationinsights/?view=azurermps-6.13.0  
+
+  - title: Reference - REST API
+    linkLists: 
+      - linkListType: reference
+        links:
+          - text: Metrics, Autoscale, Collection Settings, Alerts
+            url: /rest/api/monitor
+          - text: Log Analytics
+            url: /rest/api/loganalytics
+          - text: Application Insights (which?)
+            url: https://dev.applicationinsights.io
+          - text: Application Insights (2 which?)
+            url: /rest/api/application-insights/  
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
