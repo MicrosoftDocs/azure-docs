@@ -6,7 +6,7 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 09/24/2019
 ms.author: allensu
 
 ---
@@ -108,56 +108,37 @@ $probe = New-AzLoadBalancerProbeConfig -Name http -Protocol "http" -Port 80 -Int
 A load balancer rule defines the frontend IP configuration for the incoming traffic and the backend pool to receive the traffic, along with the required source and destination port. Create a load balancer rule *myinboundlbrule* with [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig?view=azps-2.6.0) for listening to port 80 in the frontend pool *myfrontendinbound* and sending load-balanced network traffic to the backend address pool *bepoolinbound* also using port 80. 
 
 >[!NOTE]
->This load balancing rule disables automatic outbound (S)NAT as a result of this rule with the **-DisableOutboundSNAT parameter**. Outbound NAT is only provided by the outbound rule.
+>This load balancing rule disables automatic outbound (S)NAT as a result of this rule with the **-DisableOutboundSNAT** parameter. Outbound NAT is only provided by the outbound rule.
 
-```azurecli-interactive
-az network lb rule create \
---resource-group myresourcegroupoutbound \
---lb-name lb \
---name inboundlbrule \
---protocol tcp \
---frontend-port 80 \
---backend-port 80 \
---probe http \
---frontend-ip-name myfrontendinbound \
---backend-pool-name bepoolinbound \
---disable-outbound-snat
+```azurepowershell-interactive
+$inboundRule = New-AzLoadBalancerRuleConfig -Name inboundlbrule -FrontendIPConfiguration $frontendIPin -BackendAddressPool $bepoolin -Probe $probe -Protocol "Tcp" -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -EnableFloatingIP -LoadDistribution SourceIP -DisableOutboundSNAT
 ```
+
+### Create outbound rule
+
+An outbound rule defines the frontend public IP, represented by the frontend *myfrontendoutbound*, which will be used for all outbound NAT traffic as well as the backend pool to which this rule applies.  Create an outbound rule *myoutboundrule* for outbound network translation of all virtual machines (NIC IP configurations) in *bepool* backend pool.  The command below also changes the outbound idle timeout from 4 to 15 minutes and allocates 10000 SNAT ports instead of 1024.  Review [New-AzLoadBalancerOutboundRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalanceroutboundruleconfig?view=azps-2.7.0) for more details.
+
+```azurepowershell-interactive
+ $outboundRule = New-AzLoadBalancerOutBoundRuleConfig -Name outboundrule -FrontendIPConfiguration $frontendIPout -BackendAddressPool $bepoolout -Protocol All -IdleTimeoutInMinutes 15 -AllocatedOutboundPort 10000
+```
+If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
+
 ### Create Load Balancer
 
 Create a Load Balancer with the inbound IP address using [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurepowershell-interactive
-
+New-AzLoadBalancer -Name lb -ResourceGroupName myresourcegroupoutbound -Location eastus -FrontendIpConfiguration $frontendIPin,$frontendIPout -BackendAddressPool $bepoolin,$bepoolout -Probe $probe -LoadBalancingRule $inboundrule -OutboundRule $outboundrule 
 ```
 
-
-### Create outbound rule
-
-An outbound rule defines the frontend public IP, represented by the frontend *myfrontendoutbound*, which will be used for all outbound NAT traffic as well as the backend pool to which this rule applies.  Create an outbound rule *myoutboundrule* for outbound network translation of all virtual machines (NIC IP configurations) in *bepool* backend pool.  The command below also changes the outbound idle timeout from 4 to 15 minutes and allocates 10000 SNAT ports instead of 1024.  Review [outbound rules](https://aka.ms/lboutboundrules) for more details.
-
-```azurecli-interactive
-az network lb outbound-rule create \
- --resource-group myresourcegroupoutbound \
- --lb-name lb \
- --name outboundrule \
- --frontend-ip-configs myfrontendoutbound \
- --protocol All \
- --idle-timeout 15 \
- --outbound-ports 10000 \
- --address-pool bepooloutbound
-```
-
-If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *bepoolinbound* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
-
-At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [az network nic ip-config address-pool add](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, load balancer, and all related resources.
+When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0) command to remove the resource group, load balancer, and all related resources.
 
-```azurecli-interactive 
-  az group delete --name myresourcegroupoutbound
+```azurepowershell-interactive 
+  Remove-AzResourceGroup -Name myresourcegroupoutbound
 ```
 
 ## Next steps
