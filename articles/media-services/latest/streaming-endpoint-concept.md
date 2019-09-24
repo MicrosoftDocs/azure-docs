@@ -28,11 +28,10 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 
 ## Naming convention
 
-The host name format of a streaming URL is: `{servicename}-{accountname}-{regionname}.streaming.azure.net`.
-
-The default streaming endpoint (origin) is `{accountname}-{regionname}.streaming.azure.net`. The first part will be missing if using the default streaming endpoint.
- 
+The host name format of the streaming URL is: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, where 
 `servicename` = the streaming endpoint name or the live event name.
+
+When using the default streaming endpoint, `servicename` is omitted so the URL is: `{accountname}-{regionname}.streaming.azure.net`. 
 
 The streaming endpoint name has a max value of 24 characters.
 
