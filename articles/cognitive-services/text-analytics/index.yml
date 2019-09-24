@@ -72,9 +72,9 @@ landingContent:
         - text: Using Node.js
           url: quickstarts/nodejs-sdk.md#language-detection
         - text: Using Go   
-          url: quickstarts/go.md#language-detection
+          url: quickstarts/go-sdk.md#language-detection
         - text: Using Ruby   
-          url: quickstarts/ruby.md#language-detection
+          url: quickstarts/ruby-sdk.md#language-detection
     - linkListType: how-to-guide
       links:
         - text: Language detection
@@ -91,9 +91,9 @@ landingContent:
         - text: Using Node.js
           url: quickstarts/nodejs-sdk.md#key-phrase-extraction
         - text: Using Go   
-          url: quickstarts/go.md#key-phrase-extraction
+          url: quickstarts/go-sdk.md#key-phrase-extraction
         - text: Using Ruby   
-          url: quickstarts/ruby.md#key-phrase-extraction
+          url: quickstarts/ruby-sdk.md#key-phrase-extraction
     - linkListType: how-to-guide
       links:
         - text: Keyword extraction
@@ -110,9 +110,9 @@ landingContent:
         - text: Using Node.js
           url: quickstarts/nodejs-sdk.md#entity-recognition
         - text: Using Go   
-          url: quickstarts/go.md#entity-recognition
+          url: quickstarts/go-sdk.md#entity-recognition
         - text: Using Ruby   
-          url: quickstarts/ruby.md#entity-recognition
+          url: quickstarts/ruby-sdk.md#entity-recognition
     - linkListType: how-to-guide
       links:
         - text: Entity recognition
