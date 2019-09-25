@@ -20,7 +20,7 @@ ms.author: banders
 ---
 # Resolve past due balance for your Azure subscription
 
-This article applies to customers with a Microsoft Online Services Program account. [Learn how to check what kind of account you have](#check-account-type).
+This article applies to customers with a Microsoft Online Services Program account.
 
 If your payment isn't received or if we can't process your payment, you might get an email or see an alert in the Azure portal or Account Center.
 If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa), you can settle the outstanding charges in the [Azure portal](https://portal.azure.com). If you are on an invoice mode of payment, send your payment to the location listed at the bottom of your invoice.
@@ -57,8 +57,6 @@ If you're the Account Administrator, [check what email address is used for notif
 The service is canceled and your resources are no longer available. Your Azure data is deleted 90 days after the service is terminated. To learn more, see [Microsoft Trust Center - How we manage your data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 If you know your payment has been processed but your subscription is still disabled, contact [Azure Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-## Check account type
 
 
 ## Need help? Contact us.
