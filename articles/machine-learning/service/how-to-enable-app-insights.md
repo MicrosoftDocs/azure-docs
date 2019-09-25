@@ -1,5 +1,5 @@
 ---
-title: Set up Azure Application Insights to monitor ML models
+title: Monitor and collect data from ML webservice endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor web services deployed with Azure Machine Learning using Azure Application Insights
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 07/12/2019
+ms.date: 09/25/2019
 ms.custom: seoapril2019
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
-In this article, you learn how to set up Azure Application Insights for Azure Machine Learning. Application Insights gives you the opportunity to monitor:
+In this article, you learn how to collect data from and monitor models deployed to webservice endpoints in AKS or ACI by enabling Azure Application Insights. In addition to collecting the endpoints input data and response, you can monitor:
 * Request rates, response times, and failure rates.
 * Dependency rates, response times, and failure rates.
 * Exceptions.
@@ -29,7 +29,38 @@ In this article, you learn how to set up Azure Application Insights for Azure Ma
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
+## Use Studio UI to configure
 
+You can enable and disable Application Insights in the Azure portal or new Studio UI. 
+
+1. In the [Azure portal](https://portal.azure.com), open your workspace.
+
+1. On the **Deployments** tab, select the service where you want to enable Application Insights.
+
+   [![List of services on the Deployments tab](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+
+3. Select **Edit**.
+
+   [![Edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+4. In **Advanced Settings**, select the **Enable AppInsights diagnostics** check box.
+
+   [![Selected check box for enabling diagnostics](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+
+1. Select **Update** at the bottom of the screen to apply the changes. 
+
+### Disable
+1. In the [Azure portal](https://portal.azure.com), open your workspace.
+1. Select **Deployments**, select the service, and select **Edit**.
+
+   [![Use the edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+
+1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box. 
+
+   [![Cleared check box for enabling diagnostics](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+
+1. Select **Update** at the bottom of the screen to apply the changes. 
+ 
 ## Use SDK to configure 
 
 ### Update a deployed service
@@ -71,39 +102,6 @@ To disable Application Insights, use the following code:
 <service_name>.update(enable_app_insights=False)
 ```
 	
-## Use portal to configure
-
-You can enable and disable Application Insights in the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com), open your workspace.
-
-1. On the **Deployments** tab, select the service where you want to enable Application Insights.
-
-   [![List of services on the Deployments tab](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. Select **Edit**.
-
-   [![Edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. In **Advanced Settings**, select the **Enable AppInsights diagnostics** check box.
-
-   [![Selected check box for enabling diagnostics](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes. 
-
-### Disable
-1. In the [Azure portal](https://portal.azure.com), open your workspace.
-1. Select **Deployments**, select the service, and select **Edit**.
-
-   [![Use the edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. In **Advanced Settings**, clear the **Enable AppInsights diagnostics** check box. 
-
-   [![Cleared check box for enabling diagnostics](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. Select **Update** at the bottom of the screen to apply the changes. 
- 
-
 ## Evaluate data
 Your service's data is stored in your Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
