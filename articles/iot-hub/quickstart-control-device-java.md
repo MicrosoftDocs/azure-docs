@@ -137,7 +137,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Output from the telemetry sent by the device to your IoT hub](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## Call the direct method
 
@@ -163,11 +163,11 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgement:
 
-    ![Run the back-end application](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![Output as the application makes a direct method call through your IoT hub](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Console message from device shows the rate at which it changes](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## Clean up resources
 
