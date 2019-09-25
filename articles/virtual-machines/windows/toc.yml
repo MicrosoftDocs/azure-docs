@@ -473,7 +473,7 @@
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Use Azure Storage Explorer to manage disks
-      href: disks-upload-vhd-to-managed-disk-storage-explorer.md
+      href: disks-use-storage-explorer-managed-disks.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Create an incremental snapshot

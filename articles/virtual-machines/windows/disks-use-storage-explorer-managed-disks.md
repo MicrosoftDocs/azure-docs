@@ -1,5 +1,5 @@
 ---
-title: Upload, download, and copy Azure managed disks with Azure Storage Explorer
+title: Use Azure Storage Explorer to manage Azure managed disks
 description: Learn how to upload, download, and migrate an Azure managed disk across regions and create a snapshot of a managed disk, using the Azure Storage Explorer.    
 author: roygara
 ms.author: rogarana
