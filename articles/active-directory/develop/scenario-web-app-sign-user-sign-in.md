@@ -28,7 +28,7 @@ Learn how to add sign-in to the code for your web app that signs-in users.
 The code we've reviewed in the previous article [app's code configuration](scenario-web-app-sign-user-app-configuration.md) is all you need to implement sign-in.
 Once the user has signed-in to your app, you probably want to enable them to sign out. ASP.NET core handles sign-out for you.
 
-## What sign-out involves
+## What sign out involves
 
 Signing out from a web app is about more than removing the information about the signed-in account from the web app's state.
 The web app must also redirect the user to the Microsoft identity platform `logout` endpoint to sign out. When your web app redirects the user to the `logout` endpoint, this endpoint clears the user's session from the browser. If your app didn't go to the `logout` endpoint, the user would reauthenticate to your app without entering their credentials again, because they would have a valid single sign-in session with the Microsoft identity platform endpoint.
@@ -53,7 +53,7 @@ During the application registration, you'll register a **post logout URI**. In o
 
 # [Python](#tab/python)
 
-During the application registration, you don't need to register a logout URL. The sample does not implement global sign-out
+During the application registration, you don't need to register an extra logout URL. The app will be called back on its main URL
 
 ---
 
