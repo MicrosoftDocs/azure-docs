@@ -3,7 +3,7 @@ title: Electric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
 description: EV Routing using Azure Maps routing APIs and Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/24/2019
+ms.date: 09/25/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -94,7 +94,7 @@ In our scenario, package delivery company has some electric vehicles in their fl
 Run the script below to get bounds for the electric vehicle's reachable range.
 
 ```python
-subscriptionKey = "tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA"
+subscriptionKey = "Your Azure Maps primary subscription key"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
