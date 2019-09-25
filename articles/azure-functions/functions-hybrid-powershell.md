@@ -1,5 +1,5 @@
 ---
-title: Manage remote on-premises resources using PowerShell Azure Functions
+title: Manage remote on-premises resources by using PowerShell functions
 description: Learn how to configure Hybrid Connections in Azure Relay to connect a PowerShell function app to on-premises resources, which can then be used to remotely manage the on-premises resource.
 author: eamono
 manager: gailey777
@@ -18,7 +18,7 @@ The Azure App Service Hybrid Connections feature enables access to resources in 
 
 ## Configure an on-premises server for PowerShell remoting
 
-The following script enables PowerShell remoting, and it creates a new firewall rule and a WinRM https listener. For testing purposes, a self-signed cert is used. In a production environment, we recommend that you use a signed certificate.
+The following script enables PowerShell remoting, and it creates a new firewall rule and a WinRM https listener. For testing purposes, a self-signed certificate is used. In a production environment, we recommend that you use a signed certificate.
 
 ```powershell
 # For configuration of WinRM, see
@@ -68,7 +68,7 @@ The App Service Hybrid Connections feature is available only in Basic, Standard,
     | **Resource Group** |  myResourceGroup | Name for the new resource group in which to create your function app. You can also use the suggested value. |
     | **OS** | Preferred OS | Select Windows. |
     | **Runtime stack** | Preferred language | Choose PowerShell Core. |
-    | **Storage** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be from 3 to 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account.
+    | **Storage** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be from 3 to 24 characters in length and can contain numbers and lowercase letters only. You can also use an existing account.
     | **Application Insights** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) region where you want to store your data. |
 
 1. After your settings are validated, select **Create**.
@@ -102,7 +102,7 @@ Hybrid connections are configured from the networking section of the function ap
     
     **Name**: contosopowershellhybrid
 
-5. Click **OK** to create the hybrid connection.
+5. Select **OK** to create the hybrid connection.
 
 ## Download and install the hybrid connection
 
@@ -171,12 +171,12 @@ Hybrid connections are configured from the networking section of the function ap
                    -SessionOption (New-PSSessionOption -SkipCACheck)
     ```
 
-3. Click **Save** and **Run** to test the function.
-![Test function app](./media/functions-hybrid-powershell/test-function-hybrid.png)  
+3. Select **Save** and **Run** to test the function.
+![Test the function app](./media/functions-hybrid-powershell/test-function-hybrid.png)  
 
 ## Managing other systems on-premises
 
-You can use the connected on-premises server to connect to other servers and management systems in the local environment. This lets you manage your data center operations from Azure by using your PowerShell functions. The following script registers a PowerShell configuration session that runs under the provided credentials. These credentials must be for an administrator on the remote servers. You can then use this configuration to access other endpoints on the local server or data center.
+You can use the connected on-premises server to connect to other servers and management systems in the local environment. This lets you manage your datacenter operations from Azure by using your PowerShell functions. The following script registers a PowerShell configuration session that runs under the provided credentials. These credentials must be for an administrator on the remote servers. You can then use this configuration to access other endpoints on the local server or datacenter.
 
 ```powershell
 # Input bindings are passed in via param block.
