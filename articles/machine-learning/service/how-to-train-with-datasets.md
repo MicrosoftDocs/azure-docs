@@ -10,17 +10,18 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 09/16/2019
+ms.date: 09/25/2019
 
 ---
 
 # Train with datasets (preview) in Azure Machine Learning
 
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) and [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in remote experiment training runs without worrying about connection strings or data paths.
 
-- Option 1: Pass datasets directly in your training script.
+- Option 1: If you have structured data, create a TabularDataset and use it directly in your training script.
 
-- Option 2: Use datasets to mount or download files to a remote compute for training.
+- Option 2: If you have unstructured data, create a FileDataset and mount or download files to a remote compute for training.
 
 ## Prerequisites
 
@@ -35,9 +36,9 @@ To create and train with datasets, you need:
 > [!Note]
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
-## Option 1: Pass datasets as inputs to training scripts
+## Option 1: Use datasets directly in training scripts
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) and [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py). In this example, you create a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and use it as input to your `estimator` object for training. 
+In this example, you create a [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) and use it as a direct input to your `estimator` object for training. 
 
 ### Create a TabularDataset
 
@@ -48,6 +49,24 @@ from azureml.core.dataset import Dataset
 
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
 titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
+```
+
+### Access the input dataset in your training script
+
+TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries. To leverage this capability, you can pass a TabularDataset as the input in your training configuration, and then retrieve it in your script.
+
+To do so, access the input dataset through the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) object in your training script and use the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) method. 
+
+```Python
+%%writefile $script_folder/train_titanic.py
+
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+# get the input dataset by name
+dataset = run.input_datasets['titanic_ds']
+# load the TabularDataset to pandas DataFrame
+df = dataset.to_pandas_dataframe()
 ```
 
 ### Configure the estimator
@@ -73,30 +92,11 @@ est = Estimator(source_directory=script_folder,
 # Submit the estimator as part of your experiment run
 experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
-
-```
-
-### Access the input dataset in your training script
-
-TabularDataset objects provide the ability to load the data into a pandas or spark DataFrame so that you can work with familiar data preparation and training libraries. To leverage this capability, you can pass a TabularDataset as the input in your training configuration, and then retrieve it in your script.
-
-To do so, access the input dataset through the [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) object in your training script and use the [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) method. 
-
-```Python
-%%writefile $script_folder/train_titanic.py
-
-from azureml.core import Dataset, Run
-
-run = Run.get_context()
-# get the input dataset by name
-dataset = run.input_datasets['titanic']
-# load the TabularDataset to pandas DataFrame
-df = dataset.to_pandas_dataframe()
 ```
 
 ## Option 2:  Mount files to a remote compute target
 
-If you want to make your data files available on the compute target for training,  use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
+If you want to make your data files available on the compute target for training, use [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) to mount or download files referred by it.
 
 When you mount a file system, you attach that file system to a directory (mount point) and make it available on the compute target. Mounting is instantaneous because files are loaded only at the time of processing. Mounting is supported and recommended for Linux-based computes, including Azure Machine Learning Compute, virtual machines, and HDInsight. For non Linux-based compute, only downloading is supported.  
 
@@ -121,7 +121,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### Configure the estimator
 
-Instead of passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can avoid the dependency on Azure Machine Learning SDK from your training script.
+Instead of passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can access your data and use an existing training script.
 
 An [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) estimator object is used to submit the run for scikit-learn experiments.
 
