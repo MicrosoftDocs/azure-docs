@@ -38,7 +38,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## 1.4.X.0
+## 1.4.18.0
 
 >[!IMPORTANT]
 >Windows Computers registered as Hybrid Azure AD Joined are represented in Azure AD as device objects. These device objects can be used for conditional access. Windows 10 Computers are synced to the cloud via Azure AD Connect, down level Windows Computers are registered directly using either AD FS or seamless single sign on.
@@ -50,7 +50,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 >Some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../../active-directory/devices/hybrid-azuread-join-plan.md) to get their Windows computers registered correctly and ensure that such devices can fully participate in device-based conditional access. If Azure AD Connect is attempting to delete [down-level Windows devices](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.  If you see the deletes of Computer/Device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through.
 
 ### Release status
-9/10/2019: Released for auto-upgrade only
+9/25/2019: Released for auto-upgrade and download
 
 ### New features and improvements
 - New troubleshooting tooling helps troubleshoot "user not syncing", "group not syncing" or "group member not syncing" scenarios.
