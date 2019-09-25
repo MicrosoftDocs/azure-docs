@@ -35,7 +35,7 @@ To complete this guide, make sure you have:
 
 ```swift
 // Create the sensor fingerprint provider
- var sensorProvider: ASAFusedLocationProvider?
+var sensorProvider: ASAFusedLocationProvider?
 sensorProvider = ASAFusedLocationProvider()
 
 // Allow GPS
