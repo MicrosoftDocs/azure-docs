@@ -578,7 +578,7 @@ Based on a criteria, gets the minimum value of a column
 ___
 ### <code>minus</code>
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-Subtracts numbers. Subtract from a date number of days. Substract duration from a timestamp. Substract two timestamps to get difference in milliseconds. Same as the - operator
+Subtracts numbers. Subtract from a date number of days. Subtract duration from a timestamp. Subtract two timestamps to get difference in milliseconds. Same as the - operator
   * ``minus(20, 10) -> 10``  
   * ``20 - 10 -> 10``  
   * ``minus(toDate('2012-12-15'), 3) -> toDate('2012-12-12')``  
