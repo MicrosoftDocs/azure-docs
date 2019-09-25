@@ -172,7 +172,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ## Upgrade a node pool
  
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error will be returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
 
 When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
 
@@ -241,16 +241,15 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 An AKS cluster has two cluster resource objects with Kubernetes versions associated. The first is a control plane Kubernetes version. The second is an agent pool with a Kubernetes version. A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
 
 1. Upgrading the control plane requires using `az aks upgrade`
-   * This will upgrade the control plane version and all node pools in the cluster
-   * By passing `az aks upgrade` with the `--control-plane-only` flag you will only upgrade the cluster control plane and none of the associated node pools
-          * The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher
+   * This upgrades the control plane version and all node pools in the cluster
+   * By passing `az aks upgrade` with the `--control-plane-only` flag only the cluster control plane gets upgraded and none of the associated node pools are changed. The `--control-plane-only` flag is available in **AKS-preview extension v0.4.16** or higher.
 1. Upgrading individual node pools requires using `az aks nodepool upgrade`
-   * This will upgrade only the target node pool with the specified Kubernetes version
+   * This upgrades only the target node pool with the specified Kubernetes version
 
 The relationship between Kubernetes versions held by node pools must also follow a set of rules.
 
 1. You cannot downgrade the control plane nor a node pool Kubernetes version.
-1. If a node pool Kubernetes version is not specified, the default used will fall back to the control plane version.
+1. If a node pool Kubernetes version is not specified, behavior depends on the client being used. For declaration in ARM template the existing version defined for the node pool is used, if none is set the control plane version is used.
 1. You can either upgrade or scale a control plane or node pool at a given time, you cannot submit both operations simultaneously.
 1. A node pool Kubernetes version must be the same major version as the control plane.
 1. A node pool Kubernetes version can be at most two (2) minor versions less than the control plane, never greater.
@@ -590,7 +589,7 @@ AKS nodes do not require their own public IP addresses for communication. Howeve
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it is set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ```
 "agentPoolProfiles":[  

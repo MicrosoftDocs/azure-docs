@@ -305,7 +305,7 @@ landingContent:
           - text: CQL shell, Spark – Cassandra API
             url: cassandra-import-data.md
           - text: Azure Database Migration Service – MongoDB API
-            url: /dms/tutorial-mongodb-cosmos-db?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcosmos-db%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json.md 
+            url: /azure/dms/tutorial-mongodb-cosmos-db 
           - text: AzCopy, Data migration tool – Table API
             url: table-import.md                         
       - linkListType: how-to-guide
@@ -335,4 +335,4 @@ landingContent:
           - text: Use Cosmos DB to Spark connector
             url: spark-connector.md
           - text: Use Cosmos DB with Apache Kafka
-            url: /hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcosmos-db%2FTOC.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json.md
+            url: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
