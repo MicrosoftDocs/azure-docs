@@ -111,7 +111,7 @@ Fill out optional information on the **Additional settings** tab by using the fo
 > 2. Select **Deployments**.
 > 3. Select the managed instance deployment operation in progress.
 
-## Review resources and retrieve your fully qualified host address
+## Review resources and retrieve your host name
 
 After the deployment is successful:
 
@@ -139,11 +139,11 @@ After the deployment is successful:
 
    ![Managed instance in the resource group](./media/sql-database-managed-instance-get-started/managed-instance.png)
 
-7. On the **Overview** tab, locate the **Host** property. Copy the fully qualified host address for the managed instance for use in the next quickstart.
+7. On the **Overview** tab, locate the **Host** property. Copy the host name for the managed instance for use in the next quickstart.
 
    ![Host name](./media/sql-database-managed-instance-get-started/host-name.png)
 
-   The name is similar to *your_machine_name.a1b2c3d4e5f6.database.windows.net*.
+   The host name is also called a fully qualified domain name (FQDN). It's similar to *your_machine_name.a1b2c3d4e5f6.database.windows.net*.
 
 ## Next steps
 
