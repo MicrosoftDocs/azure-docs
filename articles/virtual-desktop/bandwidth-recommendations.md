@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: helohr
 ---
 # Bandwidth recommendations for remote sessions
@@ -20,22 +20,22 @@ When using a remote Windows session, your network’s available bandwidth greatl
 
 The following table lists the minimum requirements for a smooth user experience. 
 
-|Workload        |Sample applications                                                                                  |Recommended bandwidth|
-|----------------|--------------------------------------------------------------------------------------------------------------|------------|
-|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5 Mbps    |
-|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3 Mbps      |
-|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5 Mbps      |
-|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAm, illustration/publishing|15 Mbps     |
+|Workload        |Sample applications                                                                                           |Recommended bandwidth|
+|----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
+|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5 Mbps             |
+|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3 Mbps               |
+|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5 Mbps               |
+|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15 Mbps              |
 
-Keep in mind that your app workload's framerate output combined with your display resolution will put more stress on your network, raising the bandwidth requirement as a result. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
+Keep in mind that the stress your network is under depends on both your app workload's output frame rate and your display resolution will put more stress on your network. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
-Other scenarios that can change your bandwidth requirements:
+Other scenarios can have their bandwidth requirements change depending on how you use them, such as:
 
 - Using voice or video conferencing
 - Real-time communication
 - Streaming 4K video
 
-Make sure to load test these scenarios in your deployment using simulation tools. Vary the load size, run stress tests, and test common user scenarios in remote sessions to better understand your network's requirements. 
+Make sure to load test these scenarios in your deployment using simulation tools like Login VSI. Vary the load size, run stress tests, and test common user scenarios in remote sessions to better understand your network's requirements. 
 
 ## Display resolutions
 
@@ -47,46 +47,3 @@ Different display resolutions require different available bandwidths. The follow
 |About 1280 × 720 px                      |3.0 Mbps             |
 |About 1920 × 1080 px                     |5.0 Mbps             |
 |About 3840 × 2160 px (4K)                |15 Mbps              |
-
-## Cut
-
-The following table lists the recommended available bandwidths for a smooth user experience in remote sessions:
-
-|Available bandwidth|Sample display resolutions at 30 fps  |Sample applications                                              |
-|-------------------|--------------------------------------|-----------------------------------------------------------------|
-|1.5 Mbps           |1024 × 768 px​                         |Microsoft Office (Word, PowerPoint, Excel)                       |
-|3.0 Mbps           |1280 × 720 px                         |Illustration/publishing, voice chat                              |
-|5.0 Mbps           |1920 × 1080 px                        |CAD/CAM, video conferencing (with 640 × 480 px video resolution) |
-|15 Mbps            |3840 × 2160 px (4K)                   |Video conferencing (with 1280 × 720 px video resolution)         |
-
-## Benchmarks
-
-The following table lists rough benchmarks that your network needs to meet for a smooth user experience with certain common display resolutions and apps.
-
-|Workload        |Sample applications                                                                        |Recommended available bandwidth|
-|----------------|-------------------------------------------------------------------------------------------|-------------------------------|
-|Task worker     |Microsoft Office (Word, Excel, Outlook)                                                    |1.5 Mbps                       |
-|Office worker   |Adobe Reader, Photo Viewer, illustration/publishing, voice chat                            |3 Mbps                         |
-|Knowledge worker|Freemind/Java, CAD/CAM, video conferencing with around 640 × 480 px video resolution       |5 Mbps                         |
-|Power worker    |Simulated application install, video conferencing with around 1280 × 720 px video resolution |15 Mbps                      |
-
-To connect to your remote session, we recommend you have at least 1.5 Mbps of available bandwidth. This bandwidth will also provide you a reasonable experience with apps associated with the Login VSI Task Worker workload, such as Microsoft Office. 
-
-For apps that fall under the Login VSI Office Worker workload, we recommend that you have at least 3.0 Mbps of available bandwidth for your remote session. The Login VSI Office Worker workload includes the following apps:
-
-- Photo Viewer
-- Illustrator 
-- Other illustration/publishing software
-- Voice chat
-
-For apps that fall under the Login VSI Knowledge Worker workload, we recommend you have at least 5.0 Mbps of available bandwidth for your remote session. The Login VSI Knowledge Worker workload includes the following apps:
-
-- Freemind
-- Java
-- CAD/CAM software
-- Video conferencing with 640 × 480 px video resolution  
-
-For scenarios that fall under the Login VSI Power Worker workload, we recommend you have at least 15.0 Mbps of available bandwidth for your remote session. The Login VSI Power Worker workload includes the following apps:
-
-- Simulated application install
-- Video conferencing with around 1280 × 720 px video resolution  
