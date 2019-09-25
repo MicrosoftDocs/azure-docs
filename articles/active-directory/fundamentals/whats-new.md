@@ -36,104 +36,76 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 ---
 
 ## September 2019
- 
-[725442](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=725442&triage=true&fullScreen=false&_a=edit)
 
-### My Profile is re-naming and integrating with the Office account page
+### My Profile is re-naming and integrating with the Microsoft Office account page
 
 **Type:** Plan for change  
-**Service category:** User Management  
-**Product capability:** 
+**Service category:** My Profile/Account  
+**Product capability:** Collaboration
 
-The newly refreshed My Profile experience will be Generally Available soon. On top of design improvements, the new experience will include the following two notable changes:
+Starting in October, the My Profile experience will become My Account. As part of that change, everywhere that currently says, **My Profile** will change to **My Account**. On top of the naming change and some design improvements, the updated experience will offer additional integration with the Microsoft Office account page. Specifically, you'll be able to access Office installations and subscriptions from the **Overview Account** page, along with Office-related contact preferences from the **Privacy** page.
 
-My Profile will be renamed to My Account. Anywhere the previous experience said Profile, it will now say Account.
-If your organization also uses Office, the new experience will feature some initial integrations with the Office account page. Mainly, the ability to access Office installs and subscriptions off of the Overview Account page, and Office related contact preferences on the Privacy page.
-Stay tuned for the official General Availability announcement and updated documentation.
+For more information about the My Profile (preview) experience, see [My Profile (preview) portal overview](https://docs.microsoft.com/azure/active-directory/user-help/myprofile-portal-overview).
 
 ---
 
-[809675](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=809675&triage=true&fullScreen=false&_a=edit)
-
-### MFA server 8.2 is now available for download
+### Azure Multi-Factor Authentication (MFA) Server, version 8.0.2 is now available
 
 **Type:** Fixed  
 **Service category:** MFA  
 **Product capability:** Identity Security & Protection
 
-Version 8.0.2 of the Azure Multi-Factor Authentication Server adds the following additional functionality:
+If you're an existing customer, who activated MFA Server prior to July 1, 2019, you can now download the latest version of MFA Server (version 8.0.2). In this new version, we:
 
-- Fixed issue with AD Sync send email when user enabled state changes
+- Fixed an issue so when Azure AD sync changes a user from Disabled to Enabled, an email is sent to the user.
 
--  Fixed upgrade issue with User Tags
+- Fixed an issue so customers can successfully upgrade, while continuing to use the Tags functionality.
 
--  Added Kosovo (+383) country code
+- Added the Kosovo (+383) country code.
 
--  Added One-Time Bypass audit logging to MultiFactorAuthSvc.log
+- Added one-time bypass audit logging to the MultiFactorAuthSvc.log.
 
--  Web Service SDK performance improvements
+- Improved performance for the Web Service SDK.
 
--  Other minor bug fixes
+- Fixed other minor bugs.
 
-As a reminder, As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments. New customers who require multi-factor authentication should use cloud-based Azure Multi-Factor Authentication. For more information, see [Planning a cloud-based Azure Multi-Factor Authentication deployment](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted).
 
 ---
- 
-[812769](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=812769&triage=true&fullScreen=false&_a=edit)
 
-### Access on-prem Report Server from your Power BI Mobile app with Azure Active Directory Application Proxy
+### New Azure AD built-in Global Reader role
+
+**Type:** New feature  
+**Service category:** RBAC  
+**Product capability:** Access Control
+
+Users assigned the new Global Reader built-in role can read everything that a Global Administrator can read, but can't edit anything. Think of this role as a read-only Global Administrator. Global readers have access to all features in Azure AD, as well as Microsoft 365 services, such as Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
+
+For more information, see [Administrator role permissions in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
+
+---
+
+### Access an on-premises Report Server from your Power BI Mobile app using Azure Active Directory Application Proxy
 
 **Type:** New feature  
 **Service category:** App Proxy  
 **Product capability:** Access Control
- 
-Users can now use the Power BI mobile application to get a seamless single sign-on (SSO) experience to their reports hosted on-premises. This done through an integration with Azure AD Application Proxy which provides a secure connection to the on-premises Power BI Report Server.
 
-To get started, check out our [documentation](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-power-bi) on how to set up the Power BI mobile app and Application Proxy together.
+New integration between the Power BI mobile app and Azure AD Application Proxy allows you to securely sign in to the app and view any of your organization's reports hosted on the on-premises Power BI Report Server.
+
+For information about how to set up the Power BI mobile app with Azure AD Application Proxy, see [Enable remote access to Power BI Mobile with Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-integrate-with-power-bi).
 
 ---
 
-[819763](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=819763&triage=true&fullScreen=false&_a=edit)
-
-### Dynamic admin consent is now supported on the new admin consent endpoint
+### Dynamic consent is now supported through a new admin consent endpoint
 
 **Type:** New feature  
 **Service category:** Authentications (Logins)  
 **Product capability:** User Authentication
 
-A new admin consent endpoint has been built that supports dynamic consent.  This is helpful for applications that are interested in using the dynamic consent model in the Microsoft identity platform - the existing admin consent endpoint only supported a fix list of permissions.  
+We've created a new admin consent endpoint to support dynamic consent, which is helpful for apps that want to use the dynamic consent model on the Microsoft Identity platform.
 
-See https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-admin-consent for details on how to use this endpoint.
-
----
-
-[720768](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=720768&triage=true&fullScreen=false&_a=edit)
-
-### New detections in refreshed Azure AD Identity Protection
-
-**Type:** New feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-Azure AD Premium P2 customers will soon see the following new detections in the [refreshed Azure AD Identity Protection](https://ipv2blog/).
-[Unfamiliar sign-in properties (Improved)](https://go.microsoft.com/fwlink/?linkid=2016528)
-[Impossible travel and suspicious inbox manipulation rules](https://docs.microsoft.com/cloud-app-security/anomaly-detection-policy#anomaly-detection-policies) [(from Microsoft Cloud App Security)](https://docs.microsoft.com/cloud-app-security/)
-[Malicious IP address](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#malicious-IP-address)
-[Admin confirmed user compromised](https://docs.microsoft.com/azure/active-directory/identity-protection/risk-events-reference#admin-confirmed-user-compromised)
-
-For more information, see each of the related links above.
-
----
-
-[313187](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=313187&triage=true&fullScreen=false&_a=edit)
-
-### Managing users in Azure AD by uploading and downloading files in the Azure AD admininistration portal
-
-**Type:** New feature  
-**Service category:** User Management  
-**Product capability:** Directory
-
-Now you can upload a CSV file in the Azure AD administration portal to bulk create or delete users, or invite guests to collaborate. You can also download a CSV file that contains the profile properties of users in your Azure AD.
+For more information about how to use this new endpoint, see [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint).
 
 ---
 
@@ -151,13 +123,22 @@ For more information about license types and the available features, see [Azure 
 
 [589400](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=589400&triage=true&fullScreen=false&_a=edit)
 
-### Bulk manage groups and members via CSV file in Azure AD portal (Public Preview)
+### Bulk manage groups and members using CSV files in the Azure AD portal (Public Preview)
 
 **Type:** New feature  
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. These changes help you better manage groups and member lists via a CSV file. 
+We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. You can now use the Azure AD portal to upload a CSV file to manage groups, including:
+
+- Adding or removing members from a group.
+
+- 
+
+
+
+
+ These changes help you better manage groups and member lists via a CSV file. 
 
 Now you can manage groups using the new bulk capabilities in the Azure AD portal, including:
 
@@ -168,6 +149,23 @@ Now you can manage groups using the new bulk capabilities in the Azure AD portal
 For more information, see Bulk add members, Bulk remove members, Bulk download members list and Bulk download groups list.
 
 ---
+
+
+---
+
+[313187](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=313187&triage=true&fullScreen=false&_a=edit)
+
+### Manage Azure AD users by uploading and downloading files from the Azure AD administration portal
+
+**Type:** New feature  
+**Service category:** User Management  
+**Product capability:** Directory
+
+You can now use the Azure AD administration portal to upload a comma-separated values (CSV) file to create or delete multiple users or to invite multiple guests to collaborate. You can also download a CSV file with the profile properties of your Azure AD users.
+
+For more information, see [Bulk create users (preview) in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-add) and [Download a list of users (preview) in Azure Active Directory portal](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-download). - These are for the Azure portal, not the admin portal. Do we have links for the admin portal?
+
+
 
 [618444](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=618444&triage=true&fullScreen=false&_a=edit)
 
@@ -242,19 +240,17 @@ We released an update for Azure AD Connect, which contains several improvements 
 
 This update is made available for autoupgrade first and will be released for download later.
 
+
 ---
 
-[812644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=388576&triage=true&fullScreen=false&_a=edit)
 
-### Global Reader built-in role in Azure AD
 
-**Type:** Need info  
-**Service category:** Need info  
-**Product capability:** Access Control
 
-Users with this role can read everything that a Global Administrator can, but not edit anything. Think of this role as a read-only counterpart of Global Administrator. These users have read-only access to all features in Azure Active Directory, as well as Microsoft 365 services like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
 
-For more details, see this - https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/directory-assign-admin-roles
+
+
+
+
 
 ---
 
