@@ -53,7 +53,7 @@ $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
 
-To make managing your snapshots easier, you can also list all of your existing incremental snapshots. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following script to list the existing incremental snapshots:
+To make managing your snapshots easier, you can also list all of your existing incremental snapshots. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following example to list your existing incremental snapshots:
 
 ```PowerShell
 # You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
@@ -101,7 +101,7 @@ To make managing your snapshots easier, you can also list all of your existing i
 
 The following example uses jq for querying the data. To run the example you must [install jq](https://stedolan.github.io/jq/download/).
 
-Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list the existing incremental snapshots, as long as you've also installed jq:
+Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
 
 ```bash
 sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
