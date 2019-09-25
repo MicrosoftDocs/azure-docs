@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Process data from Azure Event Hubs with Apache Spark in HDInsight'
 description: Tutorial - Connect Apache Spark in Azure HDInsight to Azure Event Hubs and process the streaming data.  
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
@@ -249,7 +249,7 @@ With HDInsight, your data is stored in Azure Storage or Azure Data Lake Storage,
 
 Open the cluster in the Azure portal, and select **Delete**.
 
-![Delete HDInsight cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
+![HDInsight Azure Portal delete cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Delete HDInsight cluster")
 
 You can also select the resource group name to open the resource group page, and then select **Delete resource group**. By deleting the resource group, you delete both the HDInsight Spark cluster, and the default storage account.
 

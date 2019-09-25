@@ -43,7 +43,7 @@ In this example, replace the placeholders in the resource with your subscription
 
 ## Configure the GitHub secret
 
-1. In [GitHub](https://github/com), browse your repository, select **Settings** > **Secrets** > **Add a new secret**.
+1. In [GitHub](https://github.com), browse your repository, select **Settings** > **Secrets** > **Add a new secret**.
 
     ![Add Secret](media/functions-how-to-github-actions/add-secret.png)
 
