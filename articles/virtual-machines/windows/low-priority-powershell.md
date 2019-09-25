@@ -12,7 +12,7 @@ ms.date: 09/23/2019
 ms.author: cynthn
 ---
 
-# Deploy low-priority VMs using Azure PowerShell
+# Preview: Deploy low-priority VMs using Azure PowerShell
 
 
 Using [low-priority VMs](low-priority-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
@@ -22,6 +22,10 @@ Pricing for low-priority VMs is variable, based on region and SKU. For more info
 You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a low-priority VM can be set in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for low-priority or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
 
 > [!IMPORTANT]
+> Low-priority VMs are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
 > For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
 
 ## Register the feature

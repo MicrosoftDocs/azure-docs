@@ -17,7 +17,7 @@ ms.date: 09/23/2019
 ms.author: cynthn
 ---
 
-# Deploy low-priority VMs using the Azure CLI
+# Preview: Deploy low-priority VMs using the Azure CLI
 
 Using [low-priority VMs](low-priority-vms.md) allows you to take advantage of our unused capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
@@ -28,6 +28,10 @@ You have option to set a max price you are willing to pay, per hour, for the VM.
 The process to create a VM with low-priority using the Azure CLI is the same as detailed in the [quickstart article](/azure/virtual-machines/linux/quick-create-cli). Just add the '--priority Low' parameter and provide a max price or `-1`.
 
 > [!IMPORTANT]
+> Low-priority VMs are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
 > For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
 
 This example shows how to deploy a Linux low-priority VM that will not be evicted based on price. 
