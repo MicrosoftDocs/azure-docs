@@ -12,7 +12,7 @@
 
 # Use Azure Storage Explorer to manage Azure managed disks
 
-Storage Explorer 1.10.0 enables users to upload, download, and copy managed disks, as well as create snapshots. Because of these additional capabilities, you can use the Explorer to migrate data from on-prem to Azure, as well as across Azure regions.
+Storage Explorer 1.10.0 enables users to upload, download, and copy managed disks, as well as create snapshots. Because of these additional capabilities, you can use Storage Explorer to migrate data from on-premises to Azure, as well as across Azure regions.
 
 ## Pre-requisites
 
@@ -37,7 +37,7 @@ If your Storage Explorer isn't connected to Azure, you will not be able to use i
 
     ![Azure sign in dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/sign-in.png)
 
-1. Select your subscription from the list and then click **Apply**
+1. Select your subscription from the list and then click **Apply**.
 
     ![Select your subscription](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-subscription.png)
 
@@ -47,7 +47,7 @@ If your Storage Explorer isn't connected to Azure, you will not be able to use i
 
     ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
-1. Select **Upload**
+1. Select **Upload**.
 
     ![Select upload](media/disks-upload-vhd-to-managed-disk-storage-explorer/upload-button.png)
 
