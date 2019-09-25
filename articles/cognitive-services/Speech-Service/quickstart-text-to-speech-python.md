@@ -1,31 +1,29 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Service'
+title: 'Quickstart: Synthesize speech, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text console application that uses the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
+description: Learn how to synthesize speech in Python by using the Speech SDK
 services: cognitive-services
-author: chlandsi
+author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: chlandsi
+ms.date: 09/14/2019
+ms.author: yulili
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Python
+# Quickstart: Synthesize speech with the Speech SDK for Python
 
-Quickstarts are also available for [speech-synthesis](quickstart-text-to-speech-python.md)
+Quickstarts are also available for [speech recognition](quickstart-python.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to recognize speech from microphone input.
+This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to synthesize speech from text and play it with the default audio output.
 
 ## Prerequisites
 
 * An Azure subscription key for the Speech Services. [Get one for free](get-started.md).
 * [Python 3.5 or later](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for these operating systems:
-    * Windows: x64 and x86.
+    * Windows 10: x64 and x86.
     * Mac: macOS X version 10.12 or later.
     * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64.
 * On Linux, run these commands to install the required packages:
@@ -49,6 +47,8 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 ## Install the Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+
+The current version of the Cognitive Services Speech SDK is `1.7.0`. Note that this tutorial will not work with Cognitive Services Speech SDK versions earlier than `1.7.0`.
 
 This command installs the Python package from [PyPI](https://pypi.org/) for the Speech SDK:
 
@@ -74,11 +74,11 @@ You can copy the [sample code](#sample-code) from this quickstart to a source fi
 python quickstart.py
 ```
 
-Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Speech SDK sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
+Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Speech SDK sample repository](https://aka.ms/csspeech/samples) and run it as a notebook.
 
 ### Sample code
 
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
+[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/python/quickstart.py#code)]
 
 ### Install and use the Speech SDK with Visual Studio Code
 
@@ -105,9 +105,9 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    To install the Speech SDK package, open a terminal. Bring up the command palette again (Ctrl+Shift+P) and enter **Terminal: Create New Integrated Terminal**.
    In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech` or the appropriate command for your system.
 1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
-   Speak a few words when you're prompted. The transcribed text displays shortly afterward.
+   Type some text when you're prompted. The synthesized audio is played shortly afterward.
 
-   ![Run a sample](media/sdk/qs-python-vscode-python-run.png)
+   ![Run a sample](media/sdk/qs-python-vscode-python-run-tts.png)
 
 If you have issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
@@ -115,3 +115,8 @@ If you have issues following these instructions, refer to the more extensive [Vi
 
 > [!div class="nextstepaction"]
 > [Explore Python samples on GitHub](https://aka.ms/csspeech/samples)
+
+## See also
+
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)
