@@ -20,7 +20,7 @@ ms.author: shvija
 ---
 # Azure Event Hubs metrics in Azure Monitor
 
-Event Hubs metrics gives you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
+Event Hubs metrics give you the state of Event Hubs resources in your Azure subscription. With a rich set of metrics data, you can assess the overall health of your event hubs not only at the namespace level, but also at the entity level. These statistics can be important as they help you to monitor the state of your event hubs. Metrics can also help troubleshoot root-cause issues without needing to contact Azure support.
 
 Azure Monitor provides unified user interfaces for monitoring across various Azure services. For more information, see [Monitoring in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) and the [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) sample on GitHub.
 
@@ -108,15 +108,17 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 |EntityName| Event Hubs supports the event hub entities under the namespace.|
 
 ## Azure Monitor integration with SIEM tools
-Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner Security information and event management (SIEM) and monitoring tools. For more information, see the following articles/blog posts:
+Routing your monitoring data (activity logs, diagnostics logs, etc.) to an event hub with Azure Monitor enables you to easily integrate with Security Information and Event Management (SIEM) tools. For more information, see the following articles/blog posts:
 
 - [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
 - [Introduction to Azure Log Integration](../security/fundamentals/azure-log-integration-overview.md)
-- [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/en-us/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+- [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
-When you run into monitoring issues that are related to Event Hubs metrics and an external (SIEM) tool consumes data from your event hub, follow these steps to identify the right approach to get help: 
+In the scenario where an SIEM tool consumes log data from an event hub, if you see no incoming messages or you see incoming messages but no outgoing messages in the metrics graph, follow these steps:
 
-In the metrics graph on the Event Hubs Namespace page in the Azure portal, If there are **no incoming messages**, it means that Azure Monitor is not moving the audit/diagnostics logs into the event hub. If you need help from the support team, open a support ticket with the **Azure Monitor team**. If there are **incoming messages, but no outgoing messages**, it means that the SIEM  application is not reading the messages. Contact the **SIEM provider** to determine whether the configuration of the event hub is correct.
+- If there are **no incoming messages**, it means that the Azure Monitor service is not moving audit/diagnostics logs into the event hub. Open a support ticket with the Azure Monitor team in this scenario. 
+- if there are incoming messages, but **no outgoing messages**, it means that the SIEM application is not reading the messages. Contact the SIEM provider to determine whether the configuration of the event hub those applications is correct.
+
 
 ## Next steps
 
