@@ -34,7 +34,7 @@ The libraries used to protect a Web App (and a Web API) are:
 | ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | MSAL for Java - currently in public preview |
 | ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | MSAL for Python - currently in public preview |
 
-Click on the tab corresponding to the platform you're interested in:
+Select the tab corresponding to the platform you're interested in:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
