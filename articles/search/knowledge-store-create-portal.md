@@ -5,7 +5,6 @@ description: Create an Azure Search knowledge store for persisting enrichments f
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
