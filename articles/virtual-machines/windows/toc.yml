@@ -472,6 +472,8 @@
       href: using-managed-disks-template-deployments.md
     - name: Resize a disk
       href: expand-os-disk.md
+    - name: Use Azure Storage Explorer to manage disks
+      href: disks-upload-vhd-to-managed-disk-storage-explorer.md
     - name: Snapshot a disk
       href: snapshot-copy-managed-disk.md
     - name: Create an incremental snapshot
