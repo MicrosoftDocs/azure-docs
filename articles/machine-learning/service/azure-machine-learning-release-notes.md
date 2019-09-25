@@ -50,9 +50,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added additional fields to the list_nodes () function to show the run, the private and the public IP, the port etc.
     + Ability to specify a new field during cluster provisioning --remotelogin_port_public_access which can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service will smartly open or close the port depending on whether you are deploying the cluster inside a VNet.
   + **azureml-explain-model**
-    + Improved documentation for Explanation outputs in the classification scenario. Related work items: #508670
-    + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations. Related work items: #508004
-    + Added explainer property to MimicWrapper to enable getting the underlying MimicExplainer. Related work items: #511019
+    + Improved documentation for Explanation outputs in the classification scenario.
+    + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations.
+    + Added explainer property to MimicWrapper to enable getting the underlying MimicExplainer.
   + **azureml-pipeline-core**
     + Notebook to describe Module, ModuleVersion and ModuleStep
     + Fixed the append of metadata parameters in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
