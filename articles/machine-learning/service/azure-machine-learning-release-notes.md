@@ -48,6 +48,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files.
     + Added additional VM size fields (OS Disk, number of GPUs) to the supported_vmsizes () function
     + Added additional fields to the list_nodes () function to show the run, the private and the public IP, the port etc.
+    + Ability to specify a new field during cluster provisioning --remotelogin_port_public_access which can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service will smartly open or close the port depending on whether you are deploying the cluster inside a VNet.
   + **azureml-explain-model**
     + Improved documentation for Explanation outputs in the classification scenario. Related work items: #508670
     + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations. Related work items: #508004
