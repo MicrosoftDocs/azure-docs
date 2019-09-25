@@ -29,7 +29,7 @@ This Azure Database for PostgreSQL connector is supported for the following acti
 - [Copy activity](copy-activity-overview.md) with a [supported source/sink matrix](copy-activity-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 
-You can copy data from Azure Database for PostgreSQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for PostgreSQL. For a list of data stores that are supported as sources and sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from Azure Database for PostgreSQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for PostgreSQL. For a list of data stores that the copy activity supports as sources and sinks, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity. Therefore, you don't need to manually install any driver to use this connector.
 
@@ -73,7 +73,9 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 }
 ```
 
-**Example: store password in Azure Key Vault**:
+**Example**:
+
+***Store password in Azure Key Vault***
 
 ```json
 {
@@ -100,7 +102,7 @@ A typical connection string is `Server=<server>.postgres.database.azure.com;Data
 
 ## Dataset properties
 
-For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). This section provides a list of properties that are supported by Azure Database for PostgreSQL dataset.
+For a full list of sections and properties available for defining datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md). This section provides a list of properties that Azure Database for PostgreSQL  supports in datasets.
 
 To copy data from Azure Database for PostgreSQL, set the type property of the dataset to **AzurePostgreSqlTable**. The following properties are supported:
 
@@ -109,7 +111,7 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 | type | The type property of the dataset must be set to **AzurePostgreSqlTable** | Yes |
 | tableName | Name of the table | No (if "query" in activity source is specified) |
 
-**Example**
+**Example**:
 
 ```json
 {
@@ -127,7 +129,7 @@ To copy data from Azure Database for PostgreSQL, set the type property of the da
 
 ## Copy activity properties
 
-For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties supported by Azure Database for PostgreSQL source.
+For a full list of sections and properties available for defining activities, see [Pipelines and activities in Azure Data Factory](concepts-pipelines-activities.md). This section provides a list of properties supported by an Azure Database for PostgreSQL source.
 
 ### Azure Database for PostgreSql as source
 
@@ -138,7 +140,7 @@ To copy data from Azure Database for PostgreSQL, set the source type in the copy
 | type | The type property of the copy activity source must be set to **AzurePostgreSqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"` | No (if the tableName property in the dataset is specified) |
 
-**Example:**
+**Example**:
 
 ```json
 "activities":[
@@ -181,7 +183,7 @@ To copy data to Azure Database for PostgreSQL, the following properties are supp
 | writeBatchSize | Inserts data into the Azure Database for PostgreSQL table when the buffer size reaches writeBatchSize.<br>Allowed value is an integer that represents the number of rows. | No (default is 10,000) |
 | writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan strings. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
 
-**Example:**
+**Example**:
 
 ```json
 "activities":[
