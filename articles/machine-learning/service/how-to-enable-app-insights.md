@@ -113,6 +113,12 @@ To view it:
 
    [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
+1. To look into your webservice input and response payloads, select **Analytics**
+1. In the schema section, select **Traces** and filter down traces with the message `"model_data_collection"`. In the custom dimensions, you can see input and prediction. 
+
+   [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+
+
 3. To look into your custom traces, select **Analytics**.
 4. In the schema section, select **Traces**. Then select **Run** to run your query. Data should appear in a table format and should map to your custom calls in your scoring file. 
 
