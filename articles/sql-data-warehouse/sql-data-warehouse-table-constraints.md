@@ -12,7 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ---
 
-## Table constraints
+# Primary key, foreign key, and unique key in Azure SQL Data Warehouse
+
+## Table constraints 
 Azure SQL Data Warehouse supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
 - UNIQUE constraint is only supported with NOT ENFORCED is used.   
