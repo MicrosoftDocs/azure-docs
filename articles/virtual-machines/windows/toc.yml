@@ -472,8 +472,6 @@
       href: using-managed-disks-template-deployments.md
     - name: Upload a vhd to a disk - PowerShell
       href: disks-upload-vhd-to-managed-disk-powershell.md
-    - name: Upload a vhd to a disk - Storage Explorer
-      href: disks-upload-vhd-to-managed-disk-storage-explorer.md
     - name: Resize a disk
       href: expand-os-disk.md
     - name: Snapshot a disk
