@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a directory must have a valid license. Furthermore, licenses must be assigned to relevant users. This article describes the license requirements to use PIM.
 
-## Prerequisites
+## Valid licenses
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
@@ -50,9 +50,9 @@ Here are some example license scenarios to help you determine the number of lice
 
 | Scenario | Calculation | Required number of licenses |
 | --- | --- | --- |
-| OrgA has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make 5 administrators eligible. | 5 license for the administrators that are eligible | 5 |
-| OrgB has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are 3 different users in the organization who can approve activations. | 14 licenses for the eligible roles + 3 approvers | 17 |
-| OrgC has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are 5 different users in the organization who can approve activations. OrgC also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which 6 are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + 5 approvers + 6 reviewers | 53 |
+| OrgA has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make five administrators eligible. | Five licenses for the administrators who are eligible | 5 |
+| OrgB has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
+| OrgC has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. OrgC also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
 
 ## What happens when a license expires?
 
