@@ -188,12 +188,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-The HTTP-triggered function you just created requires a [function key](functions-bindings-http-webhook.md#authorization-keys) when calling the endpoint. At this time, the easiest way to get your function URL, including the key, is from the [Azure portal]. 
+The HTTP-triggered function you created requires a [function key](functions-bindings-http-webhook.md#authorization-keys) when calling the endpoint. At this time, the easiest way to get your function URL, including the key, is from the [Azure portal]. 
 
 > [!TIP]
 > You can also obtain your function keys by using the [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), which requires you to present a [bearer token for authentication](/cli/azure/account#az-account-get-access-token).
 
-1. To find your function app in the [Azure portal], type your function app name in the **Search** box at the top of the page and select the **App Service** resource. 
+1. Locate your new function app in the [Azure portal] by typing your function app name in the **Search** box at the top of the page and selecting the **App Service** resource. 
 
 1. Select the **MyHttpTrigger** function, select **</> Get function URL** > **default (Function key)** > **Copy**. 
 
@@ -204,7 +204,7 @@ The HTTP-triggered function you just created requires a [function key](functions
     > [!NOTE]  
     > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in local container and republish it to Azure.
 
-2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
+1. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
 
     The following example shows the response in the browser:
 
@@ -214,7 +214,7 @@ The HTTP-triggered function you just created requires a [function key](functions
 
 ## Enable continuous deployment
 
-One of the benefits of using containers is being able to automatically deploy updates when containers are updated in the registry. Enable continuous deployment with the [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command.
+One of the benefits of using containers is support for continuous deployment. Functions lets you automatically deploy updates when your container is updated in the registry. Enable continuous deployment with the [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) command.
 
 ```azurecli-interactive
 az functionapp deployment container config --enable-cd \
@@ -244,7 +244,7 @@ FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
 
 The differences in the two base images enable SSH connections into your container. These differences are detailed in [this App Services tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
 
-### Rebuild the image
+### Rebuild and redeploy the image
 
 In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, as before, replace `<docker-id>` with your Docker Hub account ID. 
 
@@ -252,9 +252,7 @@ In the root folder, run the [docker build](https://docs.docker.com/engine/refere
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-### Push the updated image
-
-Push the updated image back to Dockerhub.
+Push the updated image back to Docker Hub.
 
 ```bash
 docker push <docker-id>/mydockerimage:v1.0.0
