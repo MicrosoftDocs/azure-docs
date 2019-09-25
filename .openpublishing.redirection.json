@@ -15631,6 +15631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
       "redirect_document_id": true
