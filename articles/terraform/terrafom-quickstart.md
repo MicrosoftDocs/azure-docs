@@ -5,7 +5,7 @@ services: terraform
 author: neilpeterson
 ms.service: azure
 ms.topic: quickstart
-ms.date: 02/04/2019
+ms.date: 09/20/2019
 ms.author: nepeters
 ---
 
@@ -19,7 +19,7 @@ In this section, you will create the configuration for an Azure Cosmos DB instan
 
 Select **try it now** to open up Azure cloud shell. Once open, enter in `code .` to open the cloud shell code editor.
 
-```azurecli-interactive
+```bash
 code .
 ```
 
@@ -29,7 +29,7 @@ This configuration models an Azure resource group, a random integer, and an Azur
 
 Save the file as `main.tf` when done. This operation can be done using the ellipses in the upper right-hand portion of the code editor.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_resource_group" "vote-resource-group" {
   name     = "vote-resource-group"
   location = "westus"
@@ -62,7 +62,7 @@ resource "azurerm_cosmosdb_account" "vote-cosmos-db" {
 
 The [terraform init](https://www.terraform.io/docs/commands/init.html) command initializes the working directory. Run `terraform init` in the cloud shell terminal to prepare for the deployment of the new configuration.
 
-```azurecli-interactive
+```bash
 terraform init
 ```
 
@@ -70,13 +70,13 @@ The [terraform plan](https://www.terraform.io/docs/commands/plan.html) command c
 
 Run `terraform plan` to test the new Terraform configuration.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Apply the configuration using [terraform apply](https://www.terraform.io/docs/commands/apply.html) and specifying the name of the plan file. This command deploys the resources in your Azure subscription.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -93,7 +93,7 @@ Two environment variables are set, `COSMOS_DB_ENDPOINT` and `COSMOS_DB_MASTERKEY
 
 The configuration also includes an output block, which returns the fully qualified domain name (FQDN) of the container instance.
 
-```azurecli-interactive
+```hcl
 resource "azurerm_container_group" "vote-aci" {
   name                = "vote-aci"
   location            = "${azurerm_resource_group.vote-resource-group.location}"
@@ -112,7 +112,7 @@ resource "azurerm_container_group" "vote-aci" {
       protocol = "TCP"
     }
 
-    secure_environment_variables {
+    secure_environment_variables = {
       "COSMOS_DB_ENDPOINT"  = "${azurerm_cosmosdb_account.vote-cosmos-db.endpoint}"
       "COSMOS_DB_MASTERKEY" = "${azurerm_cosmosdb_account.vote-cosmos-db.primary_master_key}"
       "TITLE"               = "Azure Voting App"
@@ -129,13 +129,13 @@ output "dns" {
 
 Run `terraform plan` to create the updated plan and visualize the changes to be made. You should see that an Azure Container Instance resource has been added to the configuration.
 
-```azurecli-interactive
+```bash
 terraform plan --out plan.out
 ```
 
 Finally, run `terraform apply` to apply the configuration.
 
-```azurecli-interactive
+```bash
 terraform apply plan.out
 ```
 
@@ -151,7 +151,7 @@ Navigate to the FQDN of the container instance. If everything was correctly conf
 
 When done, the Azure resources and resource group can be removed using the [terraform destroy](https://www.terraform.io/docs/commands/destroy.html) command.
 
-```azurecli-interactive
+```bash
 terraform destroy -auto-approve
 ```
 

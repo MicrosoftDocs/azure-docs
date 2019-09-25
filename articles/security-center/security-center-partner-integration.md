@@ -3,25 +3,23 @@ title: Integrate security solutions in Azure Security Center | Microsoft Docs
 description: Learn about how Azure Security Center integrates with partners to enhance the overall security of your Azure resources.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
 ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
+ms.date: 03/20/2019
+ms.author: memildin
 
 ---
 # Integrate security solutions in Azure Security Center
 This document helps you to manage security solutions already connected to Azure Security Center and add new ones.
 
 > [!NOTE]
-> A subset of security solutions will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
+> A subset of security solutions has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_solutions).
 
 ## Integrated Azure security solutions
 Security Center makes it easy to enable integrated security solutions in Azure. Benefits include:
@@ -30,7 +28,7 @@ Security Center makes it easy to enable integrated security solutions in Azure. 
 - **Integrated detections**: Security events from partner solutions are automatically collected, aggregated, and displayed as part of Security Center alerts and incidents. These events also are fused with detections from other sources to provide advanced threat-detection capabilities.
 - **Unified health monitoring and management**: Customers can use integrated health events to monitor all partner solutions at a glance. Basic management is available, with easy access to advanced setup by using the partner solution.
 
-Currently, integrated security solutions include Vulnerability assessment by [Qualys](https://www.qualys.com/public-clouds/microsoft-azure/) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
+Currently, integrated security solutions include Vulnerability assessment by [Qualys](https://www.qualys.com/public-cloud/#azure) and [Rapid7](https://www.rapid7.com/products/insightvm/) and Microsoft Application Gateway Web application firewall.
 
 > [!NOTE]
 > Security Center does not install the Microsoft Monitoring Agent on partner virtual appliances because most security vendors prohibit external agents running on their appliance.
@@ -52,7 +50,7 @@ Azure security solutions that are deployed from Security Center are automaticall
 
    ![Security Center Overview](./media/security-center-partner-integration/overview.png)
 
-Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks. You can also connect other types of security data sources, such as Azure Active Directory Identity Protection alerts and firewall logs in Common Event Format (CEF).
+Under **Security solutions**, you can view information about the health of integrated Azure security solutions and perform basic management tasks.
 
 ### Connected solutions
 
@@ -94,8 +92,6 @@ Select **CONNECT** under a solution to integrate with Security Center and be not
 
 ![Discovered solutions](./media/security-center-partner-integration/security-center-partner-integration-fig5.png)
 
-Security Center also discovers solutions deployed in the subscription that are able to forward Common Event Format (CEF) logs. Learn how to [connect a security solution](quick-security-solutions.md) that uses CEF logs to Security Center.
-
 ### Add data sources
 
 The **Add data sources** section includes other available data sources that can be connected. For instructions on adding data from any of these sources, click **ADD**.
@@ -132,7 +128,7 @@ Please refer to the following article [stream activity log to Event Hubs](../azu
 
 Routing your monitoring data to an Event Hub with Azure Monitor enables you to easily integrate with partner SIEM and monitoring tools.
 
-Refer to the following link to see the list of [supported SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Refer to the following link to see the list of [supported SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-resource-logs-sent-to-an-event-hub)
 
 ### Example for Querying data 
 

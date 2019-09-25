@@ -3,14 +3,15 @@ title: Project Acoustics Frequently Asked Questions
 titlesuffix: Azure Cognitive Services
 description: This page provides answers to questions asked frequently about Project Acoustics, including download instructions and bake process.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Frequently Asked Questions
 

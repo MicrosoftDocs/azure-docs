@@ -2,72 +2,56 @@
 title: Query types and composition - Azure Search
 description: Basics for building a search query in Azure Search, using parameters to filter, select, and sort results.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
-ms.custom: seodec2018
+ms.date: 09/20/2019
 ---
-# How to compose a query in Azure Search
+# Query types and composition in Azure Search
 
-In Azure Search, a query is a full specification of a round-trip operation. Parameters on the request provide match criteria for finding documents in an index, execution instructions for the engine, and directives for shaping the response. 
+In Azure Search, a query is a full specification of a round-trip operation. Parameters on the request provide match criteria for finding documents in an index, which fields to include or exclude, execution instructions passed to the engine, and directives for shaping the response. Unspecified (`search=*`), a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
 
-A query request is a rich construct, specifying which fields are in-scope, how to search, which fields to return, whether to sort or filter, and so forth. Unspecified, a query runs against all searchable fields as a full text search operation, returning an unscored result set in arbitrary order.
-
-## APIs and tools for testing
-
-The following table lists the APIs and tool-based approaches for submitting queries.
-
-| Methodology | Description |
-|-------------|-------------|
-| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
-| [Postman or Fiddler](search-get-started-postman.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Search.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Search Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
-
-## A first look at query requests
-
-Examples are useful for introducing new concepts. As a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents), this example targets the [real estate demo index](search-get-started-portal.md) and includes common parameters.
+The following example is a representative query constructed in the [REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents). This example targets the [hotels demo index](search-get-started-portal.md) and includes common parameters.
 
 ```
 {
     "queryType": "simple" 
-    "search": "seattle townhouse* +\"lake\"",
-    "searchFields": "description, city",
-    "count": "true",
-    "select": "listingId, street, status, daysOnMarket, description",
+    "search": "+New York +restaurant",
+    "searchFields": "Description, Address/City, Tags",
+    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
     "top": "10",
-    "orderby": "daysOnMarket"
+    "count": "true",
+    "orderby": "Rating desc"
 }
 ```
 
-+ **`queryType`** sets the parser, which in Azure Search can be the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
++ **`queryType`** sets the parser, which is either the [default simple query parser](search-query-simple-examples.md) (optimal for full text search), or the [full Lucene query parser](search-query-lucene-examples.md) used for advanced query constructs like regular expressions, proximity search, fuzzy and wildcard search, to name a few.
 
 + **`search`** provides the match criteria, usually text but often accompanied by boolean operators. Single standalone terms are *term* queries. Quote-enclosed multi-part queries are *key phrase* queries. Search can be undefined, as in **`search=*`**, but more likely consists of terms, phrases, and operators similar to what appears in the example.
 
-+ **`searchFields`** is optional, used to constrain query execution to specific fields.
++ **`searchFields`** constrains query execution to specific fields. Any field that is attributed as *searchable* in the index schema is a candidate for this parameter.
 
-Responses are also shaped by the parameters you include in the query. In the example, the result set consists of fields listed in the **`select`** statement. Only the top 10 hits are returned in this query, but **`count`** tells you how many documents match overall. In this query, rows are sorted by daysOnMarket.
+Responses are also shaped by the parameters you include in the query. In the example, the result set consists of fields listed in the **`select`** statement. Only fields marked as *retrievable* can be used in a $select statement. Additionally, only the **`top`** 10 hits are returned in this query, while **`count`** tells you how many documents match overall, which can be more than what are returned. In this query, rows are sorted by Rating in descending order.
 
 In Azure Search, query execution is always against one index, authenticated using an api-key provided in the request. In REST, both are provided in request headers.
 
 ### How to run this query
 
-To execute this query, use [Search explorer and the real estate demo index](search-get-started-portal.md). 
+To execute this query, use [Search explorer and the hotels demo index](search-get-started-portal.md). 
 
-You can paste this query string into the explorer's search bar: `search=seattle townhouse +lake&searchFields=description, city&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket`
+You can paste this query string into the explorer's search bar: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## How query operations are enabled by the index
 
 Index design and query design are tightly coupled in Azure Search. An essential fact to know up front is that the *index schema*, with attributes on each field, determines the kind of query you can build. 
 
-Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example query string, `"$orderby": "daysOnMarket"` only works because the daysOnMarket field is marked as *sortable* in the index schema. 
+Index attributes on a field set the allowed operations - whether a field is *searchable* in the index, *retrievable* in results, *sortable*, *filterable*, and so forth. In the example query string, `"$orderby": "Rating"` only works because the Rating field is marked as *sortable* in the index schema. 
 
-![Index definition for the real estate sample](./media/search-query-overview/realestate-sample-index-definition.png "Index definition for the real estate sample")
+![Index definition for the hotel sample](./media/search-query-overview/hotel-sample-index-definition.png "Index definition for the hotel sample")
 
-The above screenshot is a partial list of index attributes for the real estate sample. You can view the entire index schema in the portal. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
+The above screenshot is a partial list of index attributes for the hotels sample. You can view the entire index schema in the portal. For more information about index attributes, see [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
 > Some query functionality is enabled index-wide rather than on a per-field basis. These capabilities include: [synonym maps](search-synonyms.md), [custom analyzers](index-add-custom-analyzers.md), [suggester constructs (for autocomplete and suggested queries)](index-add-suggesters.md), [scoring logic for ranking results](index-add-scoring-profiles.md).
@@ -86,22 +70,33 @@ Required elements on a query request include the following components:
 
 All other search parameters are optional. For the full list of attributes, see [Create Index (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). For a closer look at how parameters are used during processing, see [How full-text search works in Azure Search](search-lucene-query-architecture.md).
 
+## Choose APIs and tools
+
+The following table lists the APIs and tool-based approaches for submitting queries.
+
+| Methodology | Description |
+|-------------|-------------|
+| [Search explorer (portal)](search-explorer.md) | Provides a search bar and options for index and api-version selections. Results are returned as JSON documents. Recommended for exploration, testing, and validation. <br/>[Learn more.](search-get-started-portal.md#query-index) | 
+| [Postman or other REST tools](search-get-started-postman.md) | Web testing tools are an excellent choice for formulating REST calls. The REST API supports every possible operation in Azure Search. In this article, learn how to set up an HTTP request header and body for sending requests to Azure Search.  |
+| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client that can be used to query an Azure Search index.  <br/>[Learn more.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Search Documents (REST API)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | GET or POST methods on an index, using query parameters for additional input.  |
+
 ## Choose a parser: simple | full
 
 Azure Search sits on top of Apache Lucene and gives you a choice between two query parsers for handling typical and specialized queries. Requests using the simple parser are formulated using the [simple query syntax](query-simple-syntax.md), selected as the default for its speed and effectiveness in free form text queries. This syntax supports a number of common search operators including the AND, OR, NOT, phrase, suffix, and precedence operators.
 
-The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Full syntax extends the simple syntax. Any query you write for the simple syntax runs under the full Lucene parser. 
+The [full Lucene query syntax](query-Lucene-syntax.md#bkmk_syntax), enabled when you add `queryType=full` to the request, exposes the widely adopted and expressive query language developed as part of [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). Full syntax extends the simple syntax. Any query you write for the simple syntax runs under the full Lucene parser. 
 
-The following examples illustrate the point: same query, but with different queryType settings, yield different results. In the first query, the `^3` is treated as part of the search term.
-
-```
-queryType=simple&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
-```
-
-The same query using the full Lucene parser interprets the in-field boost on "ranch", which boosts the search rank of results containing that specific term.
+The following examples illustrate the point: same query, but with different queryType settings, yield different results. In the first query, the `^3` after `historic` is treated as part of the search term. The top-ranked result for this query is "Marquis Plaza & Suites", which has *ocean* in its description
 
 ```
-queryType=full&search=mountain beach garden ranch^3&searchFields=description&$count=true&$select=listingId, street, status, daysOnMarket, description&$top=10&$orderby=daysOnMarket
+queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
+```
+
+The same query using the full Lucene parser interprets `^3` as an in-field term booster. Switching parsers changes the rank, with results containing the term *historic* moving to the top.
+
+```
+queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
 <a name="types-of-queries"></a>
@@ -112,7 +107,7 @@ Azure Search supports a broad range of query types.
 
 | Query type | Usage | Examples and more information |
 |------------|--------|-------------------------------|
-| Free form text search | Search parameter and either parser| Full text search scans for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The example in the introduction is full text search.<br/><br/>Full text search undergoes text analysis using the standard Lucene analyzer (by default) to lower-case all terms, remove stop words like "the". You can override the default with [non-English analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized language-agnostic analyzers](index-add-custom-analyzers.md#AnalyzerTable) that modify text analysis. An example is [keyword](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. | 
+| Free form text search | Search parameter and either parser| Full text search scans for one or more terms in all *searchable* fields in your index, and works the way you would expect a search engine like Google or Bing to work. The example in the introduction is full text search.<br/><br/>Full text search undergoes text analysis using the standard Lucene analyzer (by default) to lower-case all terms, remove stop words like "the". You can override the default with [non-English analyzers](index-add-language-analyzers.md#language-analyzer-list) or [specialized language-agnostic analyzers](index-add-custom-analyzers.md#AnalyzerTable) that modify text analysis. An example is [keyword](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) that treats the entire contents of a field as a single token. This is useful for data like zip codes, IDs, and some product names. | 
 | Filtered search | [OData filter expression](query-odata-filter-orderby-syntax.md) and either parser | Filter queries evaluate a boolean expression over all *filterable* fields in an index. Unlike search, a filter query matches the exact contents of a field, including case-sensitivity on string fields. Another difference is that filter queries are expressed in OData syntax. <br/>[Filter expression example](search-query-simple-examples.md#example-3-filter-queries) |
 | Geo-search | [Edm.GeographyPoint type](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) on the field, filter expression, and either parser | Coordinates stored in a field having an Edm.GeographyPoint are used for "find near me" or map-based search controls. <br/>[Geo-search example](search-query-simple-examples.md#example-5-geo-search)|
 | Range search | filter expression and simple parser | In Azure Search, range queries are built using the filter parameter. <br/>[Range filter example](search-query-simple-examples.md#example-4-range-filters) | 

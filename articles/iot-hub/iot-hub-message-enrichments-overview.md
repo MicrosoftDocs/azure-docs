@@ -24,15 +24,20 @@ A message enrichment has three key elements:
 
 * One or more [endpoints](iot-hub-devguide-endpoints.md) for which the enrichment should be applied.
 
-The key can be any string.
+The **key** is a string. A key can only contain alphanumeric characters or these special characters: hyphen (`-`), underscore (`_`), and period (`.`).
 
-The value can be any of the following examples:
+The **value** can be any of the following examples:
 
 * Any static string. Dynamic values such as conditions, logic, operations, and functions are not allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that identifier available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
 
+* The name of the IoT hub sending the message. This value is *$iothubname*.
+
 * Information from the device twin, such as its path. Examples would be *$twin.tags.field* and *$twin.tags.latitude*.
 
-* The name of the IoT hub sending the message. This value is *$iothubname*.
+   > [!NOTE]
+   > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.
+
+Message Enrichments are added as application properties to messages sent to chosen endpoint(s).  
 
 ## Applying enrichments
 
@@ -66,6 +71,8 @@ To see how to try out message enrichments, see the [message enrichments tutorial
 
 * The total message size, including the enrichments, can't exceed 256 KB. If a message size exceeds 256 KB, the IoT Hub will drop the message. You can use [IoT Hub metrics](iot-hub-metrics.md) to identify and debug errors when messages are dropped. For example, you can monitor d2c.telemetry.egress.invalid.
 
+* Message enrichments don't apply to digital twin change events (part of the [IoT Plug and Play public preview](../iot-pnp/overview-iot-plug-and-play.md)).
+
 ## Pricing
 
 Message enrichments are available for no additional charge. Currently, you are charged when you send a message to an IoT Hub. You are only charged once for that message, even if the message goes to multiple endpoints.
@@ -77,6 +84,8 @@ This capability is available in preview, and is available in all regions except 
 ## Next steps
 
 Check out these articles for more information about routing messages to an IoT Hub:
+
+* [Message enhancements tutorial](tutorial-message-enrichments.md)
 
 * [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
 

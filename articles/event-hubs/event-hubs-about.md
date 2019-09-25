@@ -29,7 +29,7 @@ The following scenarios are some of the scenarios where you can use Event Hubs:
 - User telemetry processing
 - Device telemetry streaming
 
-[!VIDEO https://www.youtube.com/watch?v=45wgY-VSk9I]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/45wgY-VSk9I" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Why use Event Hubs?
 

@@ -4,7 +4,7 @@ description: This article describes how Azure Cosmos DB provides high availabili
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/31/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
@@ -45,9 +45,9 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 - Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.
 
 - **Multi-region accounts with a single-write region (write region outage):** 
-  * During a write region outage, these accounts will remain highly available for reads. However, for writes you must **enable automatic failover** on your Cosmos account to failover the impacted region to another region. The failover will occur in the order of region priority you’ve specified. 
-  * When the impacted region is back online, the unreplicated data present in the impacted write region during the outage is made available through the [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflicts feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Cosmos container as appropriate. 
-  * Once the previously impacted write region recovers, it becomes automatically available as a read region. You can switch back to the recovered region as the write region. You can switch the regions by using [Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after the manual failover. Your application continues to be highly available. 
+  * During a write region outage, these accounts will remain highly available for reads. For the write requests to succeed, you must turn on the **enable automatic failover** option on your Azure Cosmos account. Enabling this option will failover the impacted region to another region in the order of region priority you’ve specified. 
+  * When the previously impacted region is back online,  any write data that was unreplicated when the region failed, is made available through the [conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed). Applications can read the conflicts feed, resolve the conflicts based on the application-specific logic, and write the updated data back to the Azure Cosmos container as appropriate. 
+  * Once the previously impacted write region recovers, it becomes automatically available as a read region. You can switch back to the recovered region as the write region. You can switch the regions by using [Azure CLI or Azure portal](how-to-manage-database-account.md#manual-failover). There is **no data or availability loss** before, during or after you switch the write region and your application continues to be highly available. 
 
 - **Multi-region accounts with a single-write region (read region outage):** 
   * During a read region outage, these accounts will remain highly available for reads and writes. 
@@ -77,6 +77,8 @@ This feature is available in following Azure regions:
 * East US
 * East US 2 
 * Central US
+* West Europe
+* West US 2
 
 > [!NOTE] 
 > Enabling Availability Zones for a single region Azure Cosmos account will result in charges that are equivalent to adding an additional region to your account. For details on pricing, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) and the [multi-region cost in Azure Cosmos DB](optimize-cost-regions.md) articles. 
@@ -100,13 +102,26 @@ The following table summarizes the high availability capability of various accou
 > To enable Availability Zone support for a multi region Azure Cosmos account, the account must have multi-master writes enabled.
 
 
-You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. Currently, you can only enable zone redundancy by using Azure portal, PowerShell and Azure Resource Manager templates. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
+You can enable zone redundancy when adding a region to new or existing Azure Cosmos accounts. To enable zone redundancy on your Azure Cosmos account, you should set the `isZoneRedundant` flag to `true` for a specific location. You can set this flag within the locations property. For example, the following powershell snippet enables zone redundancy for the "Southeast Asia" region:
 
 ```powershell
 $locations = @( 
     @{ "locationName"="Southeast Asia"; "failoverPriority"=0; "isZoneRedundant"= "true" }, 
     @{ "locationName"="East US"; "failoverPriority"=1 } 
 ) 
+```
+
+The following command shows how to enable zone redundancy for the "EastUS" and "WestUS2" regions:
+
+```azurecli-interactive
+az cosmosdb create \
+  --name mycosmosdbaccount \
+  --resource-group myResourceGroup \
+  --kind GlobalDocumentDB \
+  --default-consistency-level Session \
+  --locations regionName=EastUS failoverPriority=0 isZoneRedundant=True \
+  --locations regionName=WestUS2 failoverPriority=1 isZoneRedundant=True \
+  --enable-multiple-write-locations
 ```
 
 You can enable Availability Zones by using Azure portal when creating an Azure Cosmos account. When you create an account, make sure to enable the **Geo-redundancy**, **Multi-region Writes**, and choose a region where Availability Zones are supported: 

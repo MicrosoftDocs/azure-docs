@@ -22,7 +22,7 @@ Understanding the cost model for Azure NetApp Files helps you manage your expens
 
 ## Calculation of capacity consumption
 
-Azure NetApp Files is billed on provisioned storage capacity.  Provisioned capacity is allocated by creating capacity pools.  Capacity pools are billed based on $/provisioned-GiB/month in hourly increments. The minimum size for a single capacity pool is 4 TiB, and capacity pools can be subsequently expanded in 1-TiB increments. Volumes are created within capacity pools.  Each volume is assigned a quota that decrements from the pools-provisioned capacity. The quota that can be assigned to volumes ranges from a minimum of 100 GiB to a maximum of 92 TiB.  
+Azure NetApp Files is billed on provisioned storage capacity.  Provisioned capacity is allocated by creating capacity pools.  Capacity pools are billed based on $/provisioned-GiB/month in hourly increments. The minimum size for a single capacity pool is 4 TiB, and capacity pools can be subsequently expanded in 1-TiB increments. Volumes are created within capacity pools.  Each volume is assigned a quota that decrements from the pools-provisioned capacity. The quota that can be assigned to volumes ranges from a minimum of 100 GiB to a maximum of 100 TiB.  
 
 For an active volume, capacity consumption against quota is based on logical (effective) capacity.
 
@@ -68,7 +68,7 @@ The diagram below illustrates these concepts:
     * Volumes 1 through 8 are assigned a quota of 60 TiB each.  The total used capacity is 480 TiB.  
         Each volume has a QoS limit of 3.75 GiB/s of throughput (60 TiB * 64 MiB/s).  
     * Volume 9 is assigned a quota of 20 TiB.  
-        Volume 9 has a QoS limit of 1.25 GiB/s of throughput (60 TiB * 64 MiB/s).
+        Volume 9 has a QoS limit of 1.25 GiB/s of throughput (20 TiB * 64 MiB/s).
 * Volume 9 is an overage scenario. It has 25 TiB of actual consumption.  
     * After the one-hour grace period, the capacity pool will be resized to 505 TiB.  
         That is, total used capacity = 8 * 60-TiB quota for Volumes 1 through 8, and 25 TiB of actual consumption for Volume 9.

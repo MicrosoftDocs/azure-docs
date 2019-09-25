@@ -1,6 +1,6 @@
 ---
-title: Publish knowledge base, REST, C#
-titleSuffix: QnA Maker- Azure Cognitive Services 
+title: "Quickstart: Publish knowledge base, REST, C# - QnA Maker"
+titleSuffix: Azure Cognitive Services 
 description: This C# REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 09/24/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically publish a knowledge base using C#. 
 ---
@@ -47,15 +47,15 @@ At the top of Program.cs, replace the single using statement with the following 
 
 ## Add required constants
 
-In the **Main** method, add the required constants to access QnA Maker. Replace the values with your own.
+In the **Program** class, add the required constants to access QnA Maker.
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=8-34 "Add the required constants")]
 
-## Add POST request to publish knowledge base
+## Add the Main method to publish the knowledge base
 
 After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-29&dedent=8 "Add HTTP Post request and response")]
+[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=36-56 "Add HTTP Post request and response")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. 
  

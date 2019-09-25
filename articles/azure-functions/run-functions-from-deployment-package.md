@@ -4,24 +4,23 @@ description: Have the Azure Functions runtime run your functions by mounting a d
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/15/2019
 ms.author: glenga
 
 ---
 
 # Run your Azure Functions from a package file
 
-> [!NOTE]
-> The functionality described in this article is not available for function apps running on Linux in an [App Service plan](functions-scale.md#app-service-plan).
-
 In Azure, you can run your functions directly from a deployment package file in your function app. The other option is to deploy your files in the `d:\home\site\wwwroot` directory of your function app.
 
 This article describes the benefits of running your functions from a package. It also shows how to enable this functionality in your function app.
+
+> [!IMPORTANT]
+> When deploying your functions to a Linux function app in a [Premium plan](functions-scale.md#premium-plan), you should always run from the package file and [publish your app using the Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## Benefits of running from a package file
   

@@ -21,7 +21,7 @@ To provide access to your multi-tenant application you must create an Azure Acti
 
 ## Costs of hosting a multi-tenant application
 
-Azure Active Directory is available in three SKUs, Free, Basic, and Premium. [See the detailed feature comparison](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory is available in multiple editions. [See the detailed feature comparison](https://azure.microsoft.com/pricing/details/active-directory/).
 
 You can create your Azure subscription and Azure active directory for free, and use basic features.
 

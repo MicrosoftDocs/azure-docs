@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect to Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -29,9 +29,16 @@ This article identifies common problems with downstream device connections and g
 
 In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway. 
 
+## Prerequisites 
+
+Have the **azure-iot-test-only.root.ca.cert.pem** certificate file that was generated in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. 
+
 ## Prepare a downstream device
 
-A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. 
+A downstream device can be any application or platform that has an identity created with the [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. However, another IoT Edge device cannot be downstream of an IoT Edge gateway. 
+
+>[!NOTE]
+>IoT devices that have identities registered in IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different process, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication. 
 
 To connect a downstream device to an IoT Edge gateway, you need two things:
 
@@ -81,6 +88,14 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 ### Windows
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
+
+You can install certificates using PowerShell's [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) as an administrator:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+You can also install certificates using the **certlm** utility: 
 
 1. In the Start menu, search for and select **Manage computer certificates**. A utility called **certlm** opens.
 2. Navigate to **Certificates - Local Computer** > **Trusted Root Certification Authorities**.
@@ -162,10 +177,9 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway. 
 
-1. Get the sample for **edge_downstream_client** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/device/samples). 
-2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file. 
-3. In the edge_downstream_client.py file, update the **CONNECTION_STRING** and **TRUSTED_ROOT_CA_CERTIFICATE_PATH** variables. 
-4. Refer to the SDK documentation for instructions on how to run the sample on your device. 
+1. Get the sample for **send_message** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios). 
+2. Ensure that you are either running in an Edge container, or in a debug scenario, have the `EdgeHubConnectionString` and `EdgeModuleCACertificateFile` environment variables set.
+3. Refer to the SDK documentation for instructions on how to run the sample on your device. 
 
 
 ## Test the gateway connection

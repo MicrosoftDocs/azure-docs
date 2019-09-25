@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 08/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -31,7 +31,7 @@ The Microsoft identity platform supports the [device code grant](https://tools.i
 >
 > Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
 >
-> As an additional note, the `verification_uri_complete` response field is not included or supported at this time.  
+> As an additional note, the `verification_uri_complete` response field is not included or supported at this time.  We mention this because if you read the standard you see that `verification_uri_complete` is listed as an optional part of the device code flow standard.
 
 > [!NOTE]
 > The Microsoft identity platform endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).

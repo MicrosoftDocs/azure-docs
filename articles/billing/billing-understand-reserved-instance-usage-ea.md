@@ -18,10 +18,11 @@ ms.author: banders
 Reservation costs and usage data are available for Enterprise Agreement customers in the Azure portal and REST APIs. This article helps you:
 
 - Get reservation purchase data
-- Get reservation under-utilization data
-- Amortize reservation costs
+- Know which subscription, resource group or resource used the reservation
 - Chargeback for reservation utilization
 - Calculate reservation savings
+- Get reservation under-utilization data
+- Amortize reservation costs
 
 Marketplace charges are consolidated in usage data. You view charges for first party usage, marketplace usage, and purchases from a single data source.
 
@@ -29,9 +30,9 @@ Marketplace charges are consolidated in usage data. You view charges for first p
 
 Data is divided into two separate data sets: _Actual Cost_ and _Amortized Cost_. How these two datasets differ:
 
-**Actual Cost** - Provides data to reconcile with your monthly bill. This data has reservation purchase costs. It has zero EffectivePrice for the usage that received the reservation discount.
+**Actual Cost** - Provides data to reconcile with your monthly bill. This data has reservation purchase costs and reservation application details. With this data, you can know which subscription or resource group or resource received the reservation discount in a particular day. The EffectivePrice for the usage that receives the reservation discount is zero.
 
-**Amortized Cost** - The resource EffectiveCost that gets the reservation discount is the prorated cost of the reserved instance. The dataset also has unused reservation costs. The sum of the reservation cost and unused reservation provides the daily amortized cost of the reservation.
+**Amortized Cost** - This dataset is similar to the Actual Cost dataset except that - the EffectivePrice for the usage that gets reservation discount is the prorated cost of the reservation (instead of being zero). This helps you know the monetary value of reservation consumption by a subscription, resource group or a resource, and can help you charge back for the reservation utilization internally. The dataset also has unused reservation hours. The dataset does not have reservation purchase records. 
 
 Comparison of two data sets:
 
@@ -51,18 +52,20 @@ Other information available in Azure usage data has changed:
 - Term - 12 months or 36 months.
 - RINormalizationRatio - Available under AdditionalInfo. This is the ratio where the reservation is applied to the usage record. If instance size flexibility is enabled on for your reservation, then it can apply to other sizes. The value shows the ratio that the reservation was applied to for the usage record.
 
+[See field definition](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## Get Azure consumption and reservation usage data using API
 
 You can get the data using the API or download it from Azure portal.
 
-You call the [Usage Details API](/rest/api/consumption/usagedetails/list) with API version &quot;2019-04-01-preview&quot; to get the new data. For details about terminology, see [usage terms](billing-understand-your-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
+You call the [Usage Details API](/rest/api/consumption/usagedetails/list) to get the new data. For details about terminology, see [usage terms](billing-understand-your-usage.md). The caller should be an Enterprise Administrator for the enterprise agreement using the [EA portal](https://ea.azure.com). Read-only Enterprise Administrators can also get the data.
 
 The data is not available in [Reporting APIs for Enterprise customers - Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
 Here's an example call to the API:
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 For more information about {enrollmentId} and {billingPeriodId}, see the [Usage Details – List](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API article.

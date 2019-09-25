@@ -1,11 +1,15 @@
 
 - name: Azure Cognitive Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
   - name: What is Cognitive Services?
     href: Welcome.md
+  - name: Custom subdomains for Cognitive Services
+    href: cognitive-services-custom-subdomains.md
+  - name: Cognitive Services and Machine learning
+    href: cognitive-services-and-machine-learning.md
   - name: Language support
     href: language-support.md
 - name: Container support
@@ -18,7 +22,7 @@
       href: ./containers/container-reuse-recipe.md
     - name: Deploy to Azure Container Instance
       href: ./containers/azure-container-instance-recipe.md
-    - name: Deploy to Azure Kubernetes 
+    - name: Deploy to Azure Kubernetes
       href: ./containers/azure-kubernetes-recipe.md
     - name: Deploy with Docker Compose
       href: ./containers/docker-compose-recipe.md
@@ -32,9 +36,9 @@
       href: ../aks/tutorial-kubernetes-prepare-app.md
 - name: Quickstarts
   items:
-  - name: Create an account using the Azure portal
+  - name: Create a new resource using the Azure portal
     href: cognitive-services-apis-create-account.md
-  - name: Create an account using the Azure CLI
+  - name: Create a new resource using the Azure CLI
     href: cognitive-services-apis-create-account-cli.md
   - name: Authentication
     href: authentication.md
@@ -50,6 +54,8 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Compliance
     href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+  - name: Service Level Agreement(SLA)
+    href: https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
   - name: Blog

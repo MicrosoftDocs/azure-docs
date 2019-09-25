@@ -4,7 +4,7 @@ description: Describes how to perform and agentless migration of on-premises VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -36,7 +36,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 
 To decide whether you want to use agentless or agent-based migration, review these articles:
 
-- [Learn how](server-migrate-overview.md) agentless migration works, and [review the limitations](server-migrate-overview.md#agentless-migration-limitations).
+- [Learn how](server-migrate-overview.md) agentless migration works, and [compare migration methods](server-migrate-overview.md#compare-migration-methods).
 - [Read this article](tutorial-migrate-vmware-agent.md) if you want to use the agent-based method.
 
 ## Prerequisites
@@ -88,7 +88,7 @@ Follow the instructions in [this article](how-to-set-up-appliance-vmware.md) to 
 
 Azure Migrate requires some VM changes to ensure that VMs can be migrated to Azure.
 
-- For some [operating systems](server-migrate-overview.md#agentless-migration-limitations), Azure Migrate makes these changes automatically.
+- For some operating systems, Azure Migrate makes these changes automatically. [Learn more](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
 - If you're migrating a VM that doesn't have one of these operating systems, follow the instructions to prepare the VM.
 - It's important to make these changes before you begin migration. If you migrate the VM before you make the change, the VM might not boot up in Azure.
 - Configuration changes you make on on-premises VMs are replicated to Azure after replication for the VM is enabled. To ensure that changes are replicated, make sure that the recovery point you migrate to is later than the time at which the configuration changes were made on-premises.
@@ -99,7 +99,7 @@ Azure Migrate requires some VM changes to ensure that VMs can be migrated to Azu
 **Action** | **Details** | **Instructions**
 --- | --- | ---
 Ensure that Windows volumes in Azure VM use the same drive letter assignments as the on-premises VM. | Configure the SAN policy as Online All. | 1. Sign in to the VM with an admin account, and open a command window.<br/> 2. Type **diskpart** to run the Diskpart utility.<br/> 3. Type **SAN POLICY=OnlineAll**<br/> 4. Type Exit to leave Diskpart, and close the command prompt.
-Enable Azure serial access console for the Azure VM | This helps with troubleshooting. You don't need to reboot the VM. The Azure VM will boot using the disk image, and this is equivalent to a reboot for the new VM. | Follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console#enable-serial-console-in-custom-or-older-images) to enable.
+Enable Azure serial access console for the Azure VM | This helps with troubleshooting. You don't need to reboot the VM. The Azure VM will boot using the disk image, and this is equivalent to a reboot for the new VM. | Follow [these instructions](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) to enable.
 Install Hyper-V Guest Integration | If you're migrating machines running Windows Server 2003, install Hyper-V Guest Integration Services on the VM operating system. | [Learn more](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services).
 Remote Desktop | Enable Remote Desktop on the VM, and check that the Windows Firewall isn't blocking Remote Desktop access on any network profiles. | [Learn more](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 
@@ -121,7 +121,10 @@ Enable ssh | Ensure ssh is enabled and the sshd service is set to start automati
 
 ## Replicate VMs
 
-With discovery completed, you can begin replication of VMware VMs to Azure.
+With discovery completed, you can begin replication of VMware VMs to Azure. 
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. For agentless migration you can run up to 100 simultaneous replications.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 

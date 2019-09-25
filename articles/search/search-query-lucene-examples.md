@@ -1,18 +1,18 @@
 ---
-title: Lucene query examples - Azure Search
+title: Use full Lucene query syntax - Azure Search
 description: Lucene query syntax for fuzzy search, proximity search, term boosting, regular expression search, and wildcard searches in an Azure Search service.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: Lucene query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Query examples using "full" Lucene search syntax (advanced queries in Azure Search)
+# Use the "full" Lucene search syntax (advanced queries in Azure Search)
 
 When constructing queries for Azure Search, you can replace the default [simple query parser](query-simple-syntax.md) with the more expansive [Lucene Query Parser in Azure Search](query-lucene-syntax.md) to formulate specialized and advanced query definitions. 
 
@@ -234,7 +234,7 @@ When setting the factor level, the higher the boost factor, the more relevant th
 
 ## Example 6: Regex
 
-A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/4_10_2/core/org/apache/lucene/util/automaton/RegExp.html).
+A regular expression search finds a match based on the contents between forward slashes "/", as documented in the [RegExp class](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ### Partial query string
 

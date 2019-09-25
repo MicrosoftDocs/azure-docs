@@ -4,11 +4,11 @@ description: Learn how to troubleshoot the "0x0000005A-CRITICAL SERVICE FAILED" 
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure

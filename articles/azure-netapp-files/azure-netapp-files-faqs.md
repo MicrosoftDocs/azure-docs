@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 09/24/2019
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -53,7 +53,9 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 
 ### How are encryption keys managed? 
 
-Key management for Azure NetApp Files is handled by the service.  Currently, user-managed keys (Bring Your Own Keys) are not supported.
+Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
+
+Currently, user-managed keys (Bring Your Own Keys) are not supported.
 
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
@@ -122,21 +124,21 @@ Root squashing is currently not supported.
 
 ## SMB FAQs
 
-### Does Azure NetApp Files support Azure Active Directory?
-
-No, it’s not currently supported.  Azure NetApp Files support Active Directory Domain Services (Bring Your Own AD), which can use existing Active Directory Domain Controllers with Azure NetApp Files. Domain Controllers can reside in Azure as virtual machines or on premises via ExpressRoute.
-
 ### Is an Active Directory connection required for SMB access? 
 
-Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes#create-an-smb-volume) for details. 
+Yes, you must create an Active Directory connection before deploying an SMB volume. The specified Domain Controllers must be accessible by the delegated subnet of Azure NetApp Files for a successful connection.  See [Create an SMB volume](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb) for details. 
 
 ### How many Active Directory connections are supported?
 
 Azure NetApp Files currently supports one Active Directory connection per subscription. Also, the Active Directory connection is specific to a single NetApp account; it is not shared across accounts. 
 
-### What versions of Windows AD are supported?
+### Does Azure NetApp Files support Azure Active Directory? 
 
-Azure NetApp Files supports Windows Server 2008r2SP1-2016 version of Active Directory Domain Services.
+Both [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) and [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files does not support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
+
+### What versions of Windows Server Active Directory are supported?
+
+Azure NetApp Files supports Windows Server 2008r2SP1-2019 versions of Active Directory Domain Services.
 
 ## Capacity management FAQs
 

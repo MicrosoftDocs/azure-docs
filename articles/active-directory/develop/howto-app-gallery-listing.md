@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/08/2019
+ms.date: 09/16/2019
 ms.author: ryanwi
 ms.reviewer: elisol, bryanla
-ms.custom: "aaddev, seoapril2019"
+ms.custom: aaddev, seoapril2019
 
 ms.collection: M365-identity-device-management
 ---
@@ -45,10 +45,7 @@ This article shows how to list an application in the Azure AD application galler
 
 - For password SSO, please ensure that your application supports form authentication so that password vaulting can be done to get single sign-on work as expected.
 
-- For automatic user-provisioning requests, application should be listed in the gallery with single sign-on feature enabled using SAML 2.0/WS-Fed. You can request for SSO and User provisioning together on the portal, if it's not already listed.
-
->[!NOTE]
->We are running with high number of SCIM connector requests, so we have stopped taking new requests on our portal. Please hold on your requests until further notice. We apologies for this delay and any inconvenience this may have caused.
+- Need a permanent account for testing with atleast 2 users registered.
 
 ## Submit the request in the portal
 
@@ -80,7 +77,7 @@ To list an application in the Azure AD app gallery, you first need to implement 
     ![TimeLine of listing OpenID Connect application into the gallery](./media/howto-app-gallery-listing/openid.png)
 
     * If you want to add your application to list in the gallery using OpenID Connect, select **OpenID Connect & OAuth 2.0** as above.
-    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2.0** or **WS-Fed**: If your app supports SAML 2.0, you can integrate it directly with an Azure AD tenant by using the [instructions to add a custom application](../active-directory-saas-custom-apps.md).
 
@@ -98,6 +95,12 @@ Create a web application that has an HTML sign-in page to configure [password-ba
 * If you want to add your application to list in the gallery using Password SSO, select **Password SSO** as above.
 * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
+## Requesting for User Provisioning
+
+Follow the below process to request for user provisioning-
+
+   ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/user-provisioning.png)
+
 ## Update/Remove existing listing
 
 To update or remove an existing application in the Azure AD app gallery, you first need to submit the request in the [Application Network Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). If you have an Office 365 account, use that to sign in to this portal. If not, use your Microsoft account (such as Outlook or Hotmail) to sign in.
@@ -106,9 +109,9 @@ To update or remove an existing application in the Azure AD app gallery, you fir
 
     ![TimeLine of listing saml application into the gallery](./media/howto-app-gallery-listing/updateorremove.png)
 
-    * If you want to update an existing application, select **Update existing application listing**.
-    * If you want to remove an existing application from the Azure AD gallery, select **Remove existing application listing**.
-    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
+    * If you want to update an existing application, select appropriate option as per your requirement.
+    * If you want to remove an existing application from the Azure AD gallery, select **Remove my application listing from the gallery**.
+    * If you have any issues regarding access, contact the [Azure AD SSO Integration Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## Listing requests by customers
 
@@ -124,11 +127,11 @@ Below is the flow of customer requested applications-
 
 The timeline for the process of listing a SAML 2.0 or WS-Fed application in the gallery is 7-10 business days.
 
-   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline.png)
+  ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline.png)
 
 The timeline for the process of listing an OpenID Connect application in the gallery is 2-5 business days.
 
-   ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
+  ![TimeLine of listing SAML application into the gallery](./media/howto-app-gallery-listing/timeline2.png)
 
 ## Escalations
 

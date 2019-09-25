@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/28/2017
 ---
 
-# Upload files from your device to the cloud with IoT Hub
+# Upload files from your device to the cloud with IoT Hub (Java)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -39,11 +39,11 @@ At the end of this tutorial you run two Java console apps:
 > [!NOTE]
 > IoT Hub supports many device platforms and languages (including C, .NET, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
-To complete this tutorial, you need the following:
+## Prerequisites
 
-* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
-* [Maven 3](https://maven.apache.org/install.html)
+* [Maven 3](https://maven.apache.org/download.cgi)
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -115,11 +115,15 @@ In this section, you modify the device app you created in [Send cloud-to-device 
     mvn clean package -DskipTests
     ```
 
+## Get the IoT hub connection string
+
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-java.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## Receive a file upload notification
 
 In this section, you create a Java console app that receives file upload notification messages from IoT Hub.
-
-You need the **iothubowner** connection string for your IoT Hub to complete this section. You can find the connection string in the [Azure portal](https://portal.azure.com/) on the **Shared access policy** blade.
 
 1. Create a Maven project called **read-file-upload-notification** using the following command at your command prompt. Note this command is a single, long command:
 
@@ -156,7 +160,7 @@ You need the **iothubowner** connection string for your IoT Hub to complete this
     import java.util.concurrent.Executors;
     ```
 
-7. Add the following class-level variables to the **App** class:
+7. Add the following class-level variables to the **App** class. Replace the `{Your IoT Hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```java
     private static final String connectionString = "{Your IoT Hub connection string}";

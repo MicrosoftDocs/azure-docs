@@ -93,6 +93,9 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
     * Specify the **Secret Access Key** value.
     * Select **Test Connection** to test the linked service connection you created.
     * Select **Finish**.
+    
+    > [!NOTE]
+    > In Amazon S3, select your Amazon user name in navigation bar, and then select **My Security Credentials** to locate your **access key**. 
 
 1. In the **Source data store** page, you'll see your new AmazonS31 connection. Select **Next**.
 
@@ -113,6 +116,8 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 ### Copy data into Azure Data Explorer (Destination)
 
 Azure Data Explorer new linked service is created to copy the data into the Azure Data Explorer destination table (sink) specified below.
+
+#### Create the Azure Data Explorer linked service
 
 1. In the **Destination data store** page, you can use an existing data store connection or specify a new data store by clicking **+ Create new connection**.
 
@@ -139,6 +144,8 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     > [!NOTE]
     > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Do not use the **Azure Key Vault** method.
+
+#### Configure the Azure Data Explorer data connection
 
 1. The **Destination data store** opens. The Azure Data Explorer data connection you created is available for use. Select **Next** to configure the connection.
 

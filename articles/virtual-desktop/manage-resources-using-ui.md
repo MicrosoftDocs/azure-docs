@@ -2,12 +2,12 @@
 title: Deploy management tool - Azure
 description: How to install a user interface tool to manage Windows Virtual Desktop preview resources.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
 

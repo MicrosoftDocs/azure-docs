@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 09/05/2019
 ms.author: raynew
 
 ---
@@ -52,10 +52,12 @@ The process server generates a number of health alerts, summarized in the follow
 ![Warning][yellow] | CPU utilization > 80% for the last 15 minutes
 ![Warning][yellow] | Memory usage > 80% for the last 15 minutes
 ![Warning][yellow] | Cache folder free space < 30% for the last 15 minutes
+![Warning][yellow] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 30 minutes.
 ![Warning][yellow] | Process server services aren't running for the last 15 minutes
 ![Critical][red] | CPU utilization > 95% for the last 15 minutes
 ![Critical][red] | Memory usage > 95% for the last 15 minutes
 ![Critical][red] | Cache folder free space < 25% for the last 15 minutes
+![Critical][red] | Site Recovery monitors pending/outgoing data every five minutes, and estimates that data in the process server cache can't be uploaded to Azure within 45 minutes.
 ![Critical][red] | No heartbeat from the process server for 15 minutes.
 
 ![Table key](./media/vmware-physical-azure-monitor-process-server/table-key.png)

@@ -4,7 +4,7 @@ title: 'Troubleshooting Azure Active Directory Activity logs content pack errors
 description: Provides you with a list of error messages of the Azure Active Directory Activity content pack and steps to fix them.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 06/07/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -45,7 +45,7 @@ This article provides you with information about the possible causes and how to 
 | Cause | How to fix |
 | ---   | ---        |
 | Refresh failure errors can be caused when the credentials of the users connecting to the content pack have been reset but not updated in the connection settings of the content pack. | In Power BI, locate the dataset corresponding to the Azure AD activity logs dashboard (**Azure Active Directory Activity logs**), choose schedule refresh, and then enter your Azure AD credentials. |
-| A refresh can fail due to large datasets. | Currently, the Azure AD Content pack with Power BI can support only small data sets (less than 500,00 rows) because of some limitations around timeouts in the Power BI Service. If you encounter throttling errors or if the refresh fails due to timeout issues, this might because you are trying to fetch a large dataset. Reduce the time period in the query and try again.|
+| A refresh can fail due to large datasets. | Currently, the Azure AD Content pack with Power BI can support only small data sets (less than 500,000 rows) because of some limitations around timeouts in the Power BI Service. If you encounter throttling errors or if the refresh fails due to timeout issues, this might because you are trying to fetch a large dataset. Reduce the time period in the query and try again.|
  
  
 ## Failed to update data source credentials 

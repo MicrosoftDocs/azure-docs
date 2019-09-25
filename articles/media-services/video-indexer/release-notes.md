@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 06/25/2019
+ms.date: 08/29/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,53 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## August 2019
+ 
+### Video Indexer deployed in UK South
+
+You can now create a Video Indexer paid account in the UK south region.
+
+### New Editorial Shot Type insights available
+
+New tags added to video shots provides editorial “shot types” to identify them with common editorial phrases used in the content creation workflow such as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (Available in the JSON).
+
+### New People and Locations entities extraction available
+
+Video Indexer identifies named locations and people via natural language processing (NLP) from the video’s OCR and transcription. Video Indexer uses machine learning algorithm to recognize when specific locations (for example, the Eiffel Tower) or people (for example, John Doe) are being called out in a video.
+
+### Keyframes extraction in native resolution
+
+Keyframes extracted by Video Indexer are available in the original resolution of the video.
+ 
+### GA for training custom face models from images
+
+Training faces from images moved from Preview mode to GA (available via API and in the portal).
+
+> [!NOTE]
+> There is no pricing impact related to the "Preview to GA" transition.
+
+### Hide gallery toggle option
+
+User can choose to hide the gallery tab from the portal (similar to hiding the samples tab).
+ 
+### Maximum URL size increased
+
+Support for URL query string of 4096 (instead of 2048) on indexing a video.
+ 
+### Support for multi-lingual projects
+
+Projects can now be created based on videos indexed in different languages (API only).
+
+## July 2019
+
+### Editor as a widget
+
+The Video Indexer AI-editor is now available as a widget to be embedded in customer applications.
+
+### Update custom language model from closed caption file from the portal
+
+Customers can provide VTT, SRT, and TTML file formats as input for language models in the customization page of the portal.
 
 ## June 2019
 
