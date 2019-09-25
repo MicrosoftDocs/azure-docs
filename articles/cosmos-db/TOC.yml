@@ -349,6 +349,8 @@
           href: manage-cassandra-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-cassandra.md
+        - name: Manage using Azure CLI
+          href: cli-samples-cassandra.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -432,6 +434,8 @@
           href: manage-mongodb-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
+        - name: Manage using Azure CLI
+          href: cli-samples-mongodb.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -492,6 +496,8 @@
           href: manage-gremlin-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-gremlin.md
+        - name: Manage using Azure CLI
+          href: cli-samples-gremlin.md
     - name: Table API
       items:
       - name: Introduction
@@ -546,6 +552,8 @@
           href: manage-table-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-table.md
+        - name: Manage using Azure CLI
+          href: cli-samples-table.md
       - name: Reference
         items:
           - name: .NET
