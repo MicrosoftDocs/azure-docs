@@ -135,7 +135,7 @@ serviceContext =>
                     int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
                     opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
                     {
-                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.UseHttps(GetHttpsCertificateFromStore());
                         listenOptions.NoDelay = true;
                     });
                 })
@@ -160,21 +160,23 @@ serviceContext =>
 Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.  
 
 Replace "&lt;your_CN_value&gt;" with "mytestcert" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
+Be aware that in the case of local deployment to `localhost` it's preferable to use "CN=localhost" to avoid authentication exceptions.
 
 ```csharp
-private X509Certificate2 GetCertificateFromStore()
+private X509Certificate2 GetHttpsCertificateFromStore()
 {
-	var store = new X509Store(StoreName.My, StoreLocation.LocalMachine);
-	try
+	using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
 	{
 		store.Open(OpenFlags.ReadOnly);
 		var certCollection = store.Certificates;
 		var currentCerts = certCollection.Find(X509FindType.FindBySubjectDistinguishedName, "CN=<your_CN_value>", false);
-		return currentCerts.Count == 0 ? null : currentCerts[0];
-	}
-	finally
-	{
-		store.Close();
+		
+		if (currentCerts.Count == 0)
+                {
+                    throw new Exception("Https certificate is not found.");
+                }
+		
+		return currentCerts[0];
 	}
 }
 ```
