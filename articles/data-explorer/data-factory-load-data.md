@@ -93,6 +93,9 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
     * Specify the **Secret Access Key** value.
     * Select **Test Connection** to test the linked service connection you created.
     * Select **Finish**.
+    
+    > [!NOTE]
+    > In Amazon S3, select your Amazon user name in navigation bar, and then select **My Security Credentials** to locate your **access key**. 
 
 1. In the **Source data store** page, you'll see your new AmazonS31 connection. Select **Next**.
 
