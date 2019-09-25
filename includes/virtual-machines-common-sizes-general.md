@@ -83,7 +83,7 @@ Premium Storage caching: Supported
 
 Dasv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
-[Click here to sign up for Preview](http://aka.ms/azureamdpreview).
+[Click here to sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Premium Storage caching: Not Supported
 
 Dav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
 
-[Click here to sign up for Preview](http://aka.ms/azureamdpreview)
+[Click here to sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
