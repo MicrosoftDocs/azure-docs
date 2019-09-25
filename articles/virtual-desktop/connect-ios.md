@@ -49,4 +49,4 @@ Once subscribed to a feed, the feed's content will update automatically on a reg
 
 ## Client documentation
 
-To learn more about how to use the iOS Beta client, check out the [Get started with the iOS client] (https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.
+To learn more about how to use the iOS Beta client, check out the [Get started with the iOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.
