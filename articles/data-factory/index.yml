@@ -21,15 +21,15 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Data Factory?
-            url: /data-factory/introduction
+            url: /azure/data-factory/introduction
           - text: Compare version 1 vs. version 2
-            url: /data-factory/compare-versions
+            url: /azure//data-factory/compare-versions
           - text: Data Factory version 1
-            url: /data-factory/v1/data-factory-introduction
+            url: azure//data-factory/v1/data-factory-introduction
       - linkListType: concept
         links:
           - text: FAQs
-            url: data-factory/frequently-asked-questions
+            url: /azure/data-factory/frequently-asked-questions
   - title: Get started
     linkLists:
       - linkListType: deploy
@@ -75,11 +75,9 @@ landingContent:
           - text: Visually monitor Azure data factories
             url: /azure/data-factory/monitor-visually
           - text: Azure Monitor
-            url: manage-dns
-          - text: /azure/data-factory/monitor-using-azure-monitor
-            url: Copy or clone a data factory in Azure Data Factory
-          - text: /azure/data-factory/copy-clone-data-factory
-            url: notifications
+            url: /azure/data-factory/monitor-using-azure-monitor
+          - text: Copy or clone a data factory in Azure Data Factory
+            url: /azure/data-factory/copy-clone-data-factory
   - title: Languages
     linkLists:
       - linkListType: reference
