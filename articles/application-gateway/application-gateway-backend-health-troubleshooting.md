@@ -400,7 +400,7 @@ This behavior can occur for one or more of the following reasons:
 1.	The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop is not specified as "Internet."
 1.	The default route is advertised by an ExpressRoute/VPN connection to a virtual network over BGP.
 1.	The custom DNS server is configured on a virtual network that can't resolve public domain names.
-1. 	Application Gateway is in an unhealthy state.
+1. 	Application Gateway is in an Unhealthy state.
 
 **Solution:**
 
