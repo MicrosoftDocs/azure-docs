@@ -54,7 +54,7 @@ landingContent:
           - text: Connect AWS
             url: connect-aws.md
           - text: Connect Palo Alto Networks
-            url: connect-palo-alto.md
+            url: connect-paloalto.md
           - text: Connect threat intelligence
             url: connect-threat-intelligence.md
       
@@ -92,7 +92,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Respond automatically to threats
-            url: tutorial-respond-threats-playbooks.md
+            url: tutorial-respond-threats-playbook.md
           - text: Use Jupyter Notebooks to hunt for security threats
             url: notebooks.md
 # Card (optional)
