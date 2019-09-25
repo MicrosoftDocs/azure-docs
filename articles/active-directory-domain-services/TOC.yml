@@ -95,22 +95,22 @@
       items:
         - name: Common errors
           href: troubleshoot.md
-        - name: Common alerts
-          items:
-            - name: Common alerts
-              href: troubleshoot-alerts.md
-            - name: Fix a broken network configuration
-              href: alert-nsg.md
-            - name: Restore missing service principals
-              href: alert-service-principal.md
-            - name: Secure LDAP alerts
-              href: alert-ldaps.md
         - name: Mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains
           href: suspension.md
         - name: Secure LDAP
           href: tshoot-ldaps.md
+        - name: Known issues
+          items:
+            - name: Common alerts
+              href: troubleshoot-alerts.md
+            - name: Network alerts
+              href: alert-nsg.md
+            - name: Service principal alerts
+              href: alert-service-principal.md
+            - name: Secure LDAP alerts
+              href: alert-ldaps.md
 - name: Resources
   items:
     - name: FAQs
