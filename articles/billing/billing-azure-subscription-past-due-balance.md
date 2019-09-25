@@ -44,9 +44,9 @@ If you are the [Account Administrator](billing-subscription-transfer.md#whoisaa)
 ## Troubleshoot declined credit card
 
 If your credit card charge is declined by your financial institution, please reach out to your financial institution to resolve the issue. Check with your bank to make sure:
-1.	International transactions are enabled on the card
-2.	The card has sufficient credit limit or funds to settle the balance
-3.	Recurring payments are enabled on the card
+- International transactions are enabled on the card.
+- The card has sufficient credit limit or funds to settle the balance.
+- Recurring payments are enabled on the card.
 
 ## Not getting billing email notifications?
 
