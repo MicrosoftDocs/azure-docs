@@ -6,6 +6,8 @@ ms.date: 09/27/2019
 ms.author: marsma
 # Used by identity provider (IdP) setup articles
 ---
+Communication with Azure AD B2C occurs through an application that you register in your B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
