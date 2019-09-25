@@ -15,7 +15,7 @@ ms.author: diberry
 
 Language for the service is selected when you create the first knowledge base in the resource. All additional knowledge bases in the resource must be in the same language. 
 
-The language determines QnA Maker's ability to auto-extract questions and answers from [sources](../Concepts/data-sources-supported.md) of all knowledge bases in that resource, as well as the relevance of the results QnA Maker provides in response to user queries.
+The language determines the relevance of the results QnA Maker provides in response to user queries.
 
 ## One language for all knowledge bases in resource
 
