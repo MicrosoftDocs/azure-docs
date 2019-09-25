@@ -131,6 +131,8 @@ Each of your two group repositories now contains all the files, except those in 
 
 If you want to customize the contents of your group repositories to meet the specific needs of your group, you can do that now. You can modify the files, change the directory structure, or add files that your group has developed or that are helpful for your group.
 
+### Make changes in Azure Repos
+
 To customize repository contents:
 
 1. On the **GroupCommon** project **Summary** page, select **Repos**. 
@@ -155,13 +157,73 @@ To customize repository contents:
    
    ![Commit changes](./media/group-manager-tasks/commit.png)
 
-If you need to make changes using your local machine or DSVM and push the changes up to the group repositories, follow the instructions in the **Work on your local machine or DSVM** section of [Team Lead tasks for a data science team](team-lead-tasks.md).
+### Make changes using your local machine or DSVM
+
+If you want to make changes using your local machine or DSVM and push the changes up to the group repositories, make sure you have the prerequisites for working with Git and DSVMs:
+
+- An Azure subscription, if you want to create a DSVM.
+- Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
+- If you want to use a DSVM, the Windows or Linux DSVM created and configured in Azure. For more information and instructions, see the [Data Science Virtual Machine Documentation](/azure/machine-learning/data-science-virtual-machine/).
+- For a Windows DSVM, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installed on your machine. In the *README.md* file, scroll down to the **Download and Install** section and select the **latest installer**. Download the *.exe* installer from the installer page and run it. 
+- For a Linux DSVM, an SSH public key set up on your DSVM and added in Azure DevOps. For more information and instructions, see the **Create SSH public key** section in the [Platforms and tools appendix](platforms-and-tools.md#appendix). 
+
+First, copy or *clone* the repository to your local machine. 
+   
+1. On the **GroupCommon** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
+   
+1. On the repo page, select **Clone** at upper right.
+   
+1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
+   
+   ![Clone repo](./media/group-manager-tasks/clone.png)
+   
+1. On your local machine, create the following directories:
+   
+   - For Windows: **C:\GitRepos\GroupCommon**
+   - For Linux, **$/GitRepos/GroupCommon** on your home directory 
+   
+1. Change to the directory you created.
+   
+1. In Git Bash, run the command `git clone <clone URL>.`
+   
+   For example, either of the following commands clones the **GroupUtilities** repository to the *GroupCommon* directory on your local machine. 
+   
+   **HTTPS connection:**
+   
+   ```bash
+   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupUtilities
+   ```
+   
+   **SSH connection:**
+   
+   ```bash
+   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
+   ```
+
+After making whatever changes you want in the local clone of your repository, you can push the changes to the shared group common repositories. 
+
+Run the following Git Bash commands from your local **GroupProjectTemplate** or **GroupUtilities** directory.
+
+```bash
+git add .
+git commit -m "push from local"
+git push
+```
+
+> [!NOTE]
+> If this is the first time you commit to a Git repository, you may need to configure global parameters *user.name* and *user.email* before you run the `git commit` command. Run the following two commands:
+> 
+> `git config --global user.name <your name>`
+> 
+> `git config --global user.email \<your email address>`
+> 
+> If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when building Power BI dashboards to track your Git activities in multiple repositories.
 
 ## Add group members and configure permissions
 
 To add members to the group:
 
-1. From the **GroupCommon** project home page, select **Project settings** from the left navigation. 
+1. In Azure DevOps, from the **GroupCommon** project home page, select **Project settings** from the left navigation. 
    
 1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **GroupCommon Team**. 
    
