@@ -1,5 +1,5 @@
 ---
-title: Mount an Azure HPC Cache 
+title: Mount an Azure HPC Cache (preview)
 description: How to connect clients to an Azure HPC Cache service
 author: ekpgh
 ms.service: hpc-cache
@@ -8,7 +8,7 @@ ms.date: 09/12/2019
 ms.author: v-erkell
 ---
 
-# Mount the Azure HPC Cache
+# Mount the Azure HPC Cache (preview)
 
 After the cache is created, NFS clients can access it with a simple mount command.
 
@@ -49,7 +49,7 @@ For a robust client mount, pass these settings and arguments in your mount comma
 
 | Recommended mount command settings | |
 --- | --- 
-``hard`` | Soft mounts to the vFXT cluster are associated with application failures and possible data loss. 
+``hard`` | Soft mounts to Azure HPC Cache are associated with application failures and possible data loss. 
 ``proto=netid`` | This option supports appropriate handling of NFS network errors.
 ``mountproto=netid`` | This option supports appropriate handling of network errors for mount operations.
 ``retry=n`` | Set ``retry=30`` to avoid transient mount failures. (A different value is recommended in foreground mounts.)
