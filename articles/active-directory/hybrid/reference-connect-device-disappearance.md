@@ -15,10 +15,10 @@ ms.author: billmath
 # Understanding Azure AD Connect 1.4.xx.x and device disappearance
 With version 1.4.xx.x of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. This change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join.
 
-If you see the deletes of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through. [How To: allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
+If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow the deletions to go through. [How To: allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## Background
-Windows devices registered as Hybrid Azure AD Joined are represented in Azure AD as device objects. These device objects can be used for conditional access. Windows 10 devices are synced to the cloud via Azure AD Connect, down level Windows devices are registered directly using either AD FS or seamless single sign on.
+Windows devices registered as Hybrid Azure AD Joined are represented in Azure AD as device objects. These device objects can be used for conditional access. Windows 10 devices are synced to the cloud via Azure AD Connect, down level Windows devices are registered directly using either AD FS or seamless single sign-on.
 
 ## Windows 10 devices
 Only Windows 10 devices with a specific userCertificate attribute value configured by Hybrid Azure AD Join are supposed to be synced to the cloud by Azure AD Connect. In previous versions of Azure AD Connect this requirement was not rigorously enforced, resulting in unnecessary device objects in Azure AD. Such devices in Azure AD always stayed in the “pending” state because these devices were not intended to be registered with Azure AD. 
