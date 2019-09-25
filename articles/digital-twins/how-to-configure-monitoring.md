@@ -52,7 +52,7 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](../azure-monitor/platform/resource-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
@@ -124,6 +124,6 @@ Azure Digital Twins also supports application-specific logging and security audi
 
 - Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
 
-- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
 
 - Read more about [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md).
