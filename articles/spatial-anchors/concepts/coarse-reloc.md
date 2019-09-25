@@ -32,6 +32,8 @@ In general, your application will need to acquire device-specific permissions to
 
 Let's start by creating a sensor fingerprint provider and making the session aware of it:
 
+# [C#](#tab/csharp)
+
 ```csharp
 // Create the sensor fingerprint provider
 sensorProvider = new FusedLocationProvider();
@@ -42,6 +44,79 @@ cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
 // Inform the session it can access sensor data from your provider
 cloudSpatialAnchorSession.LocationProvider = sensorProvider;
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+// Create the sensor fingerprint provider
+ASAFusedLocationProvider *sensorProvider;
+sensorProvider = [[ASAFusedLocationProvider alloc] init];
+
+// Create and configure the session
+cloudSpatialAnchorSession = [[ASACloudSpatialAnchorSession alloc] init];
+
+// Inform the session it can access sensor data from your provider
+cloudSpatialAnchorSession.locationProvider = sensorProvider;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+// Create the sensor fingerprint provider
+var sensorProvider: ASAFusedLocationProvider?
+sensorProvider = ASAFusedLocationProvider()
+
+// Create and configure the session
+cloudSpatialAnchorSession = ASACloudSpatialAnchorSession()
+
+// Inform the session it can access sensor data from your provider
+cloudSpatialAnchorSession!.locationProvider = sensorProvider
+```
+
+# [Java](#tab/java)
+
+```java
+// Create the sensor fingerprint provider
+FusedLocationProvider sensorProvider = new FusedLocationProvider();
+
+// Create and configure the session
+cloudSpatialAnchorSession = new CloudSpatialAnchorSession();
+
+// Inform the session it can access sensor data from your provider
+cloudSpatialAnchorSession.setLocationProvider(sensorProvider);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+// Create the sensor fingerprint provider
+std::shared_ptr<FusedLocationProvider> sensorProvider;
+sensorProvider = std::make_shared<FusedLocationProvider>();
+
+// Create and configure the session
+cloudSpatialAnchorSession = std::make_shared<CloudSpatialAnchorSession>();
+
+// Inform the session it can access sensor data from your provider
+cloudSpatialAnchorSession->LocationProvider(sensorProvider);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+```cpp
+// Create the ASA factory
+SpatialAnchorsFactory m_asaFactory { nullptr };
+// . . .
+
+// Create the sensor fingerprint provider
+FusedLocationProvider sensorProvider;
+sensorProvider = m_asaFactory.CreateFusedLocationProvider();
+
+// Create and configure the session
+cloudSpatialAnchorSession = CloudSpatialAnchorSession();
+
+// Inform the session it can access sensor data from your provider
+cloudSpatialAnchorSession.LocationProvider(sensorProvider);
+```
+---
 
 Next, you'll need to decide which sensors you'd like to use for coarse relocalization. This decision is, in general, specific to the application you're developing, but the recommendations in the following table should give you a good starting point:
 
@@ -57,9 +132,48 @@ Next, you'll need to decide which sensors you'd like to use for coarse relocaliz
 
 Assuming your application already has permission to access the device's GPS position, you can configure Azure Spatial Anchors to use it:
 
+# [C#](#tab/csharp)
+
 ```csharp
 sensorProvider.Sensors.GeoLocationEnabled = true;
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+sensors.geoLocationEnabled = true;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+let sensors = locationProvider?.sensors
+sensors.geoLocationEnabled = true
+```
+
+# [Java](#tab/java)
+
+```java
+SessionSensorCapabilities sensors = sensorProvider.getSensors();
+sensors.setGeoLocationEnabled(true);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+sensors->GeoLocationEnabled(true);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+SessionSensorCapabilities sensors = sensorProvider.Sensors()
+sensors.GeoLocationEnabled(true);
+```
+
+---
 
 When using GPS in your application, keep in mind that the readings provided by the hardware are typically:
 
@@ -72,6 +186,8 @@ In general, both the device OS and Azure Spatial Anchors will do some filtering 
 * keep the sensor fingerprint provider alive and share between multiple sessions
 
 If you plan to use the sensor fingerprint provider outside an anchor session, make sure you start it before requesting sensor estimates. For instance, the following code will take care of updating your device's position on the map in real time:
+
+# [C#](#tab/csharp)
 
 ```csharp
 // Game about to start, start tracking the sensors
@@ -94,13 +210,155 @@ while (m_isRunning)
 sensorProvider.Stop();
 ```
 
+# [ObjC](#tab/objc)
+
+```objc
+// Game about to start, start tracking the sensors
+[sensorProvider start];
+
+// Game loop
+while (m_isRunning)
+{
+    // Get the GPS estimate
+    ASAGeoLocation *geoPose = [sensorProvider getLocationEstimate];
+
+    // Paint it on the map
+    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError);
+}
+
+// Game ended, no need to track the sensors anymore
+[sensorProvider stop];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+// Game about to start, start tracking the sensors
+sensorProvider?.start()
+
+// Game loop
+while m_isRunning
+{
+    // Get the GPS estimate
+    var geoPose: ASAGeoLocation?
+    geoPose = sensorProvider?.getLocationEstimate()
+
+    // Paint it on the map
+    drawCircle(geoPose.longitude, geoPose.latitude, geoPose.horizontalError)
+}
+
+// Game ended, no need to track the sensors anymore
+sensorProvider?.stop()
+```
+
+# [Java](#tab/java)
+
+```java
+// Game about to start, start tracking the sensors
+sensorProvider.start();
+
+// Game loop
+while (m_isRunning)
+{
+    // Get the GPS estimate
+    GeoLocation geoPose = sensorProvider.getLocationEstimate();
+
+    // Paint it on the map
+    drawCircle(geoPose.getLongitude(), geoPose.getLatitude(), geoPose.getHorizontalError());
+}
+
+// Game ended, no need to track the sensors anymore
+sensorProvider.stop();
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+// Game about to start, start tracking the sensors
+sensorProvider->Start();
+
+// Game loop
+while (m_isRunning)
+{
+    // Get the GPS estimate
+    std::shared_ptr<GeoLocation> geoPose = sensorProvider->GetLocationEstimate();
+
+    // Paint it on the map
+    drawCircle(geoPose->Longitude(), geoPose->Latitude(), geoPose->HorizontalError());
+}
+
+// Game ended, no need to track the sensors anymore
+sensorProvider->Stop();
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+// Game about to start, start tracking the sensors
+sensorProvider.Start();
+
+// Game loop
+while (m_isRunning)
+{
+    // Get the GPS estimate
+    GeoLocation geoPose = sensorProvider.GetLocationEstimate();
+
+    // Paint it on the map
+    drawCircle(geoPose.Longitude(), geoPose.Latitude(), geoPose.HorizontalError());
+}
+
+// Game ended, no need to track the sensors anymore
+sensorProvider.Stop();
+```
+
+---
+
 ### Enabling WiFi
 
 Assuming your application already has permission to access the device's WiFi state, you can configure Azure Spatial Anchors to use it:
 
+# [C#](#tab/csharp)
+
 ```csharp
 sensorProvider.Sensors.WifiEnabled = true;
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+sensors.wifiEnabled = true;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+let sensors = locationProvider?.sensors
+sensors.wifiEnabled = true
+```
+
+# [Java](#tab/java)
+
+```java
+SessionSensorCapabilities sensors = sensorProvider.getSensors();
+sensors.setWifiEnabled(true);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+sensors->WifiEnabled(true);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+SessionSensorCapabilities sensors = sensorProvider.Sensors()
+sensors.WifiEnabled(true);
+```
+
+---
 
 When using WiFi in your application, keep in mind that the readings provided by the hardware are typically:
 
@@ -117,9 +375,48 @@ Azure Spatial Anchors will attempt to build a filtered WiFi signal strength map 
 
 Assuming your application already has permission to access the device's Bluetooth state, you can configure Azure Spatial Anchors to use it:
 
+# [C#](#tab/csharp)
+
 ```csharp
 sensorProvider.Sensors.BluetoothEnabled = true;
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+sensors.bluetoothEnabled = true;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+let sensors = locationProvider?.sensors
+sensors.bluetoothEnabled = true
+```
+
+# [Java](#tab/java)
+
+```java
+SessionSensorCapabilities sensors = sensorProvider.getSensors();
+sensors.setBluetoothEnabled(true);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+sensors->BluetoothEnabled(true);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+SessionSensorCapabilities sensors = sensorProvider.Sensors();
+sensors.BluetoothEnabled(true);
+```
+
+---
 
 Beacons are typically versatile devices, where everything - including UUIDs and MAC addresses - can be configured. This flexibility can be problematic for Azure Spatial Anchors that considers beacons to be uniquely identified by their UUIDs. Failing to ensure this uniqueness will most-likely translate into spatial wormholes. For best results you should:
 
@@ -127,6 +424,7 @@ Beacons are typically versatile devices, where everything - including UUIDs and 
 * deploy them - typically in a regular pattern, such as a grid.
 * pass the list of unique beacon UUIDs to the sensor fingerprint provider:
 
+# [C#](#tab/csharp)
 
 ```csharp
 sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
@@ -137,6 +435,61 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 };
 ```
 
+# [ObjC](#tab/objc)
+
+```objc
+NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
+
+ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+sensors.knownBeaconProximityUuids = uuids;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+let uuids = [String]()
+uuids.append("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1")
+uuids.append("a63819b9-8b7b-436d-88ec-ea5d8db2acb0")
+
+let sensors = locationProvider?.sensors
+sensors.knownBeaconProximityUuids = uuids
+```
+
+# [Java](#tab/java)
+
+```java
+String uuids[] = new String[2];
+uuids[0] = "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1";
+uuids[1] = "a63819b9-8b7b-436d-88ec-ea5d8db2acb0";
+
+SessionSensorCapabilities sensors = sensorProvider.getSensors();
+sensors.setKnownBeaconProximityUuids(uuids);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+std::vector<std::string> uuids;
+uuids.push_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
+uuids.push_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
+
+const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+sensors->KnownBeaconProximityUuids(uuids);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+std::vector<winrt::hstring> uuids;
+uuids.emplace_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
+uuids.emplace_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
+
+SessionSensorCapabilities sensors = sensorProvider.Sensors();
+sensors.KnownBeaconProximityUuids(uuids);
+```
+
+---
+
 Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Malicious beacons programmed to have white-listed UUIDs can still negatively impact the quality of the service though. For that reason, you should use beacons only in curated spaces where you can control their deployment.
 
 ## Querying with sensor data
@@ -144,6 +497,8 @@ Azure Spatial Anchors will only track Bluetooth beacons that are on the list. Ma
 Once you have created anchors with associated sensor data, you can start retrieving them using the sensor readings reported by your device. You're no longer required to provide the service with a list of known anchors you're expecting to find - instead you just let the service know the location of your device as reported by its onboard sensors. The Spatial Anchors service will then figure-out the set of anchors close to your device and attempt to visually match them.
 
 To have queries use the sensor data, start by creating a locate criteria:
+
+# [C#](#tab/csharp)
 
 ```csharp
 NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
@@ -158,15 +513,127 @@ anchorLocateCriteria = new AnchorLocateCriteria();
 anchorLocateCriteria.NearDevice = nearDeviceCriteria;
 ```
 
+# [ObjC](#tab/objc)
+
+```objc
+ASANearDeviceCriteria *nearDeviceCriteria = [[ASANearDeviceCriteria alloc] init];
+
+// Choose a maximum exploration distance between your device and the returned anchors
+nearDeviceCriteria.distanceInMeters = 5.0f;
+
+// Cap the number of anchors returned
+nearDeviceCriteria.maxResultCount = 25;
+
+ASAAnchorLocateCriteria *anchorLocateCriteria = [[ASAAnchorLocateCriteria alloc] init];
+anchorLocateCriteria.nearDevice = nearDeviceCriteria;
+```
+
+# [Swift](#tab/swift)
+
+```swift
+let nearDeviceCriteria = ASANearDeviceCriteria()!
+
+// Choose a maximum exploration distance between your device and the returned anchors
+nearDeviceCriteria.distanceInMeters = 5.0
+
+// Cap the number of anchors returned
+nearDeviceCriteria.maxResultCount = 25
+
+let anchorLocateCriteria = ASAAnchorLocateCriteria()!
+anchorLocateCriteria.nearDevice = nearDeviceCriteria
+```
+
+# [Java](#tab/java)
+
+```java
+NearDeviceCriteria nearDeviceCriteria = new NearDeviceCriteria();
+
+// Choose a maximum exploration distance between your device and the returned anchors
+nearDeviceCriteria.setDistanceInMeters(5.0f);
+
+// Cap the number of anchors returned
+nearDeviceCriteria.setMaxResultCount(25);
+
+AnchorLocateCriteria anchorLocateCriteria = new AnchorLocateCriteria();
+anchorLocateCriteria.setNearDevice(nearDeviceCriteria);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+auto nearDeviceCriteria = std::make_shared<NearDeviceCriteria>();
+
+// Choose a maximum exploration distance between your device and the returned anchors
+nearDeviceCriteria->DistanceInMeters(5.0f);
+
+// Cap the number of anchors returned
+nearDeviceCriteria->MaxResultCount(25);
+
+auto anchorLocateCriteria = std::make_shared<AnchorLocateCriteria>();
+anchorLocateCriteria->NearDevice(nearDeviceCriteria);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+NearDeviceCriteria nearDeviceCriteria = m_asaFactory.CreateNearDeviceCriteria();
+
+// Choose a maximum exploration distance between your device and the returned anchors
+nearDeviceCriteria.DistanceInMeters(5.0f);
+
+// Cap the number of anchors returned
+nearDeviceCriteria.MaxResultCount(25);
+
+// Set the session's locate criteria
+anchorLocateCriteria = m_asaFactory.CreateAnchorLocateCriteria();
+anchorLocateCriteria.NearDevice(nearDeviceCriteria);
+```
+
+---
+
 The `DistanceInMeters` parameter controls how far we'll explore the anchor graph to retrieve content. Assume for instance that you have populated some space with anchors at a constant density of 2 every meter. Furthermore, the camera on your device is  observing a single anchor and the service has successfully located it. You're most likely interested in retrieving all the anchors you've placed nearby rather than the single anchor you're currently observing. Assuming the anchors you've placed are connected in a graph, the service can retrieve all the nearby anchors for you by following the edges in the graph. The amount of graph traversal done is controlled by `DistanceInMeters`; you'll be given all the anchors connected to the one you've located, that are closer than `DistanceInMeters`.
  
 Keep in mind that large values for `MaxResultCount` may negatively affect performance. Try to set it to a sensible value that makes sense for your application.
 
 Finally, you'll need to tell the session to use the sensor-based look-up:
 
+# [C#](#tab/csharp)
+
 ```csharp
 cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
 ```
+
+# [ObjC](#tab/objc)
+
+```objc
+[cloudSpatialAnchorSession createWatcher:anchorLocateCriteria];
+```
+
+# [Swift](#tab/swift)
+
+```swift
+cloudSpatialAnchorSession!.createWatcher(anchorLocateCriteria)
+```
+
+# [Java](#tab/java)
+
+```java
+cloudSpatialAnchorSession.createWatcher(anchorLocateCriteria);
+```
+
+# [C++ NDK](#tab/cpp)
+
+```cpp
+cloudSpatialAnchorSession->CreateWatcher(anchorLocateCriteria);
+```
+
+# [C++ WinRT](#tab/cppwinrt)
+
+```cpp
+cloudSpatialAnchorSession.CreateWatcher(anchorLocateCriteria);
+```
+
+---
 
 ## Expected results
 
