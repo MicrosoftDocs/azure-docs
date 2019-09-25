@@ -3,7 +3,7 @@ title: Electric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
 description: EV Routing using Azure Maps routing APIs and Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/19/2019
+ms.date: 09/24/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -94,12 +94,23 @@ In our scenario, package delivery company has some electric vehicles in their fl
 Run the script below to get bounds for the electric vehicle's reachable range.
 
 ```python
-subscriptionKey = "<Your Azure Maps primary subscription key>"
+subscriptionKey = "tTk1JVEaeNvDkxxnxHm9cYaCvqlOq1u-fXTvyXn2XkA"
 currentLocation = [34.028115,-118.5184279]
 session = aiohttp.ClientSession()
 
+# Parameters for the vehicle consumption model 
+travelMode = "car"
+vehicleEngineType = "electric"
+currentChargeInkWh=45
+maxChargeInkWh=80
+timeBudgetInSec=550
+routeType="eco"
+constantSpeedConsumptionInkWhPerHundredkm="50,8.2:130,21.3"
+
+
 # Get bounds for the electric vehicle's reachable range.
-routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={}&api-version=1.0&query={}&travelMode=car&vehicleEngineType=electric&currentChargeInkWh=45&maxChargeInkWh=80&timeBudgetInSec=550&routeType=eco&constantSpeedConsumptionInkWhPerHundredkm=50,8.2:130,21.3".format(subscriptionKey,str(currentLocation[0])+","+str(currentLocation[1])))).json()
+routeRangeResponse = await (await session.get("https://atlas.microsoft.com/route/range/json?subscription-key={}&api-version=1.0&query={}&travelMode={}&vehicleEngineType={}&currentChargeInkWh={}&maxChargeInkWh={}&timeBudgetInSec={}&routeType={}&constantSpeedConsumptionInkWhPerHundredkm={}"
+                                              .format(subscriptionKey,str(currentLocation[0])+","+str(currentLocation[1]),travelMode, vehicleEngineType, currentChargeInkWh, maxChargeInkWh, timeBudgetInSec, routeType, constantSpeedConsumptionInkWhPerHundredkm))).json()
 
 polyBounds = routeRangeResponse["reachableRange"]["boundary"]
 
@@ -266,18 +277,16 @@ locationData = {
          }
 
 # Get the travel time and distance to every given charging station location.
-searchPolyRes = await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={}&api-version=1.0&routeType=shortest&waitForResults=false".format(subscriptionKey), json = locationData) 
-
-routeMatrixResponse = await (await session.get(searchPolyRes.headers["Location"])).json()
-
+searchPolyRes = await (await session.post(url = "https://atlas.microsoft.com/route/matrix/json?subscription-key={}&api-version=1.0&routeType=shortest&waitForResults=true".format(subscriptionKey), json = locationData)).json()
 
 distances = []
 for dist in range(len(reachableLocations)):
-    distances.append(routeMatrixResponse["matrix"][0][dist]["response"]["routeSummary"]["travelTimeInSeconds"])
-    
+    distances.append(searchPolyRes["matrix"][0][dist]["response"]["routeSummary"]["travelTimeInSeconds"])
+
+minDistLoc = []
 minDistIndex = distances.index(min(distances))
-reachableLocations[minDistIndex][0], reachableLocations[minDistIndex][1] = reachableLocations[minDistIndex][1], reachableLocations[minDistIndex][0]
-closestChargeLoc = ",".join(str(i) for i in reachableLocations[minDistIndex])
+minDistLoc.extend([reachableLocations[minDistIndex][1], reachableLocations[minDistIndex][0]])
+closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 ```
 
 ## Calculate route to the closest charging station
