@@ -273,7 +273,7 @@ Note the following points:
 
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your on-premises SQL Server database and Azure SQL database. 
 
 ### Create the SQL Server linked service
 In this step, you link your on-premises SQL Server database to the data factory.
@@ -358,7 +358,7 @@ In this step, you link your on-premises SQL Server database to the data factory.
     ```
 
 ### Create the SQL database linked service
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your SQL Server database, name of your database, user ID, and password before you save the file. 
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in C:\ADFTutorials\IncCopyMultiTableTutorial folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;servername&gt;, &lt;database name&gt;, &lt;user name&gt;, and &lt;password&gt; with the name of your SQL Server database, name of your database, user name, and password before you save the file. 
 
     ```json
     {  
@@ -485,7 +485,7 @@ In this step, you create datasets to represent the data source, the data destina
 ### Create a dataset for a watermark
 In this step, you create a dataset for storing a high watermark value. 
 
-1. Create a JSON file named WatermarkDataset.json in the same folder with the following content: 
+1. Create a JSON file named **WatermarkDataset.json** in the same folder with the following content: 
 
     ```json
     {
@@ -519,15 +519,15 @@ In this step, you create a dataset for storing a high watermark value.
     ```
 
 ## Create a pipeline
-The pipeline takes a list of table names as a parameter. The ForEach activity iterates through the list of table names and performs the following operations: 
+The pipeline takes a list of table names as a parameter. The **ForEach activity** iterates through the list of table names and performs the following operations: 
 
-1. Use the Lookup activity to retrieve the old watermark value (the initial value or the one that was used in the last iteration).
+1. Use the **Lookup activity** to retrieve the old watermark value (the initial value or the one that was used in the last iteration).
 
-1. Use the Lookup activity to retrieve the new watermark value (the maximum value of the watermark column in the source table).
+1. Use the **Lookup activity** to retrieve the new watermark value (the maximum value of the watermark column in the source table).
 
-1. Use the Copy activity to copy data between these two watermark values from the source database to the destination database.
+1. Use the **Copy activity** to copy data between these two watermark values from the source database to the destination database.
 
-1. Use the StoredProcedure activity to update the old watermark value to be used in the first step of the next iteration. 
+1. Use the **StoredProcedure activity** to update the old watermark value to be used in the first step of the next iteration. 
 
 ### Create the pipeline
 1. Create a JSON file named **IncrementalCopyPipeline.json** in the same folder with the following content: 
@@ -804,12 +804,12 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 1. On the **Let's get started** page, select **Monitor** on the left side. 
 ![Pipeline Runs](media/doc-common-process/get-started-page-monitor-button.png)    
 
-1. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column. Select the link in the **Actions** column. 
+1. You can see all the pipeline runs and their status. Notice that in the following example, the status of the pipeline run is **Succeeded**. To check parameters passed to the pipeline, select the link in the **Parameters** column. If an error occurred, you see a link in the **Error** column.
 
     ![Pipeline Runs](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 1. When you select the link in the **Actions** column, you see all the activity runs for the pipeline. 
 
-1. To go back to the **Pipeline Runs** view, select **Pipelines** as shown in the image. 
+1. To go back to the **Pipeline Runs** view, select **All Pipeline Runs**. 
 
 ## Review the results
 In SQL Server Management Studio, run the following queries against the target SQL database to verify that the data was copied from source tables to destination tables: 
