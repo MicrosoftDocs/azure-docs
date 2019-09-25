@@ -56,7 +56,7 @@ ESv3-series instances are based on the 2.3 GHz Intel XEON ® E5-2673 v4 (Broadwe
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
-## Easv3-series _Preview_
+## Easv3-series (Preview)
 
 Premium Storage: Supported
 
@@ -64,7 +64,7 @@ Premium Storage caching: Supported
 
 Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
 
-[_Click here to signup for Preview_](http://aka.ms/azureamdpreview)
+[Click here to signup for Preview](http://aka.ms/azureamdpreview)
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
@@ -107,7 +107,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 
 <sup>3</sup> Instance is isolated to hardware dedicated to a single customer.
 
-## Eav3-series _Preview_
+## Eav3-series (Preview)
 
 Premium Storage: Not Supported
 
@@ -115,7 +115,7 @@ Premium Storage caching: Not Supported
 
 Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
 
-[_Click here to signup for Preview_](http://aka.ms/azureamdpreview)
+[Click here to signup for Preview](http://aka.ms/azureamdpreview)
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |------------------|------|-------------|-------------------------|
