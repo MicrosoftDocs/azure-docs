@@ -22,7 +22,7 @@ IoT Edge hub facilitates module to module communication. Using the IoT Edge hub 
 We want the IoT Edge device to accomplish four things for us:
 
 * Receive data from the leaf devices
-* Predict RUL for the device that sent the data
+* Predict remaining useful life (RUL) for the device that sent the data
 * Send a message with only the RUL for the device to IoT Hub (this function could be modified to only send data if the RUL drops below some level)
 * Save the leaf device data to a local file on the IoT Edge device. This data file is periodically uploaded to IoT Hub via file upload to refine training of the machine learning model. Using file upload instead of constant message streaming is more cost effective.
 
@@ -51,7 +51,7 @@ The steps in this article are typically performed by a cloud developer.
 
 ## Create a new IoT Edge solution
 
-During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, built in the pieces to make the image deployable as an Azure IoT Edge module. In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
+During execution of the second of our two Azure Notebooks, we created and published a container image containing our RUL model. Azure Machine Learning, as part of the image creation process, packaged that model so that the image is deployable as an Azure IoT Edge module. In this step, we are going to create an Azure IoT Edge solution using the “Azure Machine Learning” module and point the module to the image we published using Azure Notebooks.
 
 1. Open a remote desktop session to your development machine.
 
