@@ -756,6 +756,31 @@
       "redirect_document_id": false
     },    
     {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/go.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-nodejs-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/python-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
       "redirect_document_id": false
