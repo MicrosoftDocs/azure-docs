@@ -150,6 +150,7 @@ Each of your two team repositories now contains the files from the corresponding
 ### Customize the contents of the group repositories
 
 If you want to customize the contents of your team repositories to meet your team's specific needs, you can do that now. You can modify files, change the directory structure, or add files and folders.
+
 To modify, upload, or create files or folders directly in Azure DevOps:
 
 1. On the **MyTeam** project **Summary** page, select **Repos**. 
