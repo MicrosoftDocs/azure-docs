@@ -111,6 +111,14 @@ The Enterprise security package allows you to integrate HDInsight with Active Di
 
 You don't need to specify the cluster location explicitly: The cluster is in the same location as the default storage. For a list of supported regions, click the **Region** drop-down list on [HDInsight pricing](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409).
 
+## Enterprise security package
+
+For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
+
+![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-enterprise-security-package.png)
+
+For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
+
 ## Extend clusters with a virtual network
 
 If your solution requires technologies that are spread across multiple HDInsight cluster types, an [Azure virtual network](https://docs.microsoft.com/azure/virtual-network) can connect the required cluster types. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
@@ -164,29 +172,6 @@ To increase performance when using Oozie, use a custom metastore. A metastore ca
 > [!IMPORTANT]  
 > You cannot reuse a custom Oozie metastore. To use a custom Oozie metastore, you must provide an empty Azure SQL Database when creating the HDInsight cluster.
 
-## Classic cluster setup
-
-Classic cluster setup builds on the default create settings, and adds the following options:
-
-* [Enterprise security package](#enterprise-security-package)
-* [HDInsight applications](#install-hdinsight-applications-on-clusters)
-* [Cluster size](#configure-cluster-size)
-* [Script actions](#advanced-settings-script-actions)
-
-## Enterprise security package
-
-For Hadoop, Spark, HBase, Kafka, and Interactive Query cluster types, you can choose to enable the **Enterprise Security Package**. This package provides option to have a more secure cluster setup by using Apache Ranger and integrating with Azure Active Directory. For more information, see [Overview of enterprise security in Azure HDInsight](./domain-joined/hdinsight-security-overview.md).
-
-![hdinsight create options choose enterprise security package](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-For more information on creating domain-joined HDInsight cluster, see [Create domain-joined HDInsight sandbox environment](./domain-joined/apache-domain-joined-configure.md).
-
-## Install HDInsight applications on clusters
-
-An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or that you develop yourself. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
-
-Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
-
 ## Configure cluster size
 
 You are billed for node usage for as long as the cluster exists. Billing starts when a cluster is created and stops when the cluster is deleted. Clusters can’t be de-allocated or put on hold.
@@ -220,9 +205,9 @@ If you are just trying out HDInsight, we recommend you use one Worker node. For 
 > [!NOTE]  
 > The cluster size limit varies among Azure subscriptions. Contact [Azure billing support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) to increase the limit.
 
-When you use the Azure portal to configure the cluster, the node size is available through the **Node Pricing Tiers** blade. In the portal, you can also see the cost associated with the different node sizes.
+When you use the Azure portal to configure the cluster, the node size is available through the **Configuration + pricing** tab. In the portal, you can also see the cost associated with the different node sizes.
 
-![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-node-sizes.png)
+![HDInsight choose your node size](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-node-sizes.png)
 
 ### Virtual machine sizes
 
@@ -237,6 +222,20 @@ To find out what value you should use to specify a VM size while creating a clus
 > If you need more than 32 Worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
 For more information, see [Sizes for virtual machines](../virtual-machines/windows/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
+
+## Classic cluster setup
+
+Classic cluster setup builds on the default create settings, and adds the following options:
+
+* [HDInsight applications](#install-hdinsight-applications-on-clusters)
+* [Script actions](#advanced-settings-script-actions)
+
+## Install HDInsight applications on clusters
+
+An HDInsight application is an application that users can install on a Linux-based HDInsight cluster. You can use applications provided by Microsoft, third parties, or that you develop yourself. For more information, see [Install third-party Apache Hadoop applications on Azure HDInsight](hdinsight-apps-install-applications.md).
+
+Most of the HDInsight applications are installed on an empty edge node.  An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the head node. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. For more information, see [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md).
+
 
 ## Advanced settings: Script actions
 
