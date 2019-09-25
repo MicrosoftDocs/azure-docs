@@ -40,30 +40,15 @@ Run the `npm init` command to create a node application with a `package.json` fi
 npm init
 ```
 
-Create a file named `index.js` and import the following libraries:
+Create a file named `index.js` and add the following libraries:
 
-```javascript
-const CognitiveServicesCredentials = require("@azure/ms-rest-js");
-const TextAnalyticsAPIClient = require("@azure/cognitiveservices-textanalytics");
-```
+[!code-javascript[Const statements](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=constStatements)]
 
 Create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-```javascript
-const key_var = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY';
-if (!process.env[key_var]) {
-    throw new Error('please set/export the following environment variable: ' + key_var);
-}
-const subscription_key = process.env[key_var];
-
-const endpoint_var = 'TEXT_ANALYTICS_ENDPOINT';
-if (!process.env[endpoint_var]) {
-    throw new Error('please set/export the following environment variable: ' + endpoint_var);
-}
-const endpoint = process.env[endpoint_var];
-```
+[!code-javascript[Key and endpoint vars](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyVars)]
 
 ### Install the client library
 
@@ -96,33 +81,14 @@ The response object is a list containing the analysis information for each docum
 
 Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) object with `credentials` and `endpoint` as a parameter.
 
-```javascript
-const creds = new CognitiveServicesCredentials.ApiKeyCredentials({ inHeader: { 'Ocp-Apim-Subscription-Key': subscription_key } });
-const client = new TextAnalyticsAPIClient.TextAnalyticsClient(creds, endpoint);
-```
+[!code-javascript[Authentication and client creation](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=authentication)]
+
 
 ## Sentiment analysis
 
-Create a list of objects, containing the documents you want to analyze.
+Create a list of dictionary objects, containing the documents you want to analyze. Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-```javascript
-const inputDocuments = {documents:[
-    {language:"en", id:"1", text:"I had the best day of my life."}
-]}
-```
-
-Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
-
-```javascript
-const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
-operation
-.then(result => {
-    console.log(result.documents);
-})
-.catch(err => {
-    throw err;
-});
-```
+[!code-javascript[Sentiment analysis](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=sentimentAnalysis)]
 
 Run your code with `node index.js` in your console window.
 
@@ -134,36 +100,9 @@ Run your code with `node index.js` in your console window.
 
 ## Language detection
 
-Create a list of objects containing your documents.
+Create a list of dictionary objects containing your documents. Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-```javascript
-// The documents to be submitted for language detection. The ID can be any value.
-const inputDocuments = {
-    documents: [
-        { id: "1", text: "This is a document written in English." }
-    ]
-    };
-```
-
-Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
-
-```javascript
-const operation = client.detectLanguage({
-    languageBatchInput: inputDocuments
-});
-operation
-    .then(result => {
-    result.documents.forEach(document => {
-        console.log(`ID: ${document.id}`);
-        document.detectedLanguages.forEach(language =>
-        console.log(`\tLanguage: ${language.name}`)
-        );
-    });
-    })
-    .catch(err => {
-    throw err;
-    });
-```
+[!code-javascript[Language detection](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=languageDetection)]
 
 Run your code with `node index.js` in your console window.
 
@@ -176,38 +115,9 @@ ID: 1 Language English
 
 ## Entity recognition
 
-Create a list of objects, containing your documents.
+Create a list of objects, containing your documents. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
-```javascript
-const inputDocuments = {
-    documents: [
-        { language: "en", id: "1", text: "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800" }
-    ]
-}
-```
-
-Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
-
-```javascript
-const operation = client.entities({
-    multiLanguageBatchInput: inputDocuments
-});
-operation
-    .then(result => {
-    result.documents.forEach(document => {
-        console.log(`Document ID: ${document.id}`)
-        document.entities.forEach(e =>{
-        console.log(`\tName: ${e.name} Type: ${e.type} Sub Type: ${e.type}`)
-        e.matches.forEach(match => (
-            console.log(`\t\tOffset: ${match.offset} Length: ${match.length} Score: ${match.entityTypeScore}`)
-        ))
-        })
-    });
-    })
-    .catch(err => {
-    throw err;
-    });
-```
+[!code-javascript[Entity recognition](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=entityRecognition)]
 
 Run your code with `node index.js` in your console window.
 
@@ -233,30 +143,9 @@ Document ID: 1
 
 ## Key phrase extraction
 
-Create a list of objects, containing your documents.
+Create a list of objects, containing your documents. Call `client.keyPhrases()` and get the result. Then iterate through the results and print each document's ID, and any detected key phrases.
 
-```javascript
-    let inputLanguage = {
-    documents: [
-        {language:"en", id:"1", text:"My cat might need to see a veterinarian."}
-    ]
-    };
-```
-
-Call `client.keyPhrases()` and get the result. Then iterate through the results and print each document's ID, and any detected key phrases.
-
-```javascript
-    let operation = client.keyPhrases({
-    multiLanguageBatchInput: inputLanguage
-    });
-    operation
-    .then(result => {
-        console.log(result.documents);
-    })
-    .catch(err => {
-        throw err;
-    });
-```
+[!code-javascript[Key phrase extraction](~/cognitive-services-node-sdk-samples/Samples/textAnalytics.js?name=keyPhraseExtraction)]
 
 Run your code with `node index.js` in your console window.
 
