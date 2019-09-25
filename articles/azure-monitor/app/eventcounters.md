@@ -96,7 +96,8 @@ The following example shows how to add/remove counters. This customization would
 
 To view EventCounter metrics in [Metric Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), select Application Insights resource, and chose Log-based metrics as metric namespace. Then EventCounter metrics get displayed under PerformanceCounter category.
 
-![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
+> [!div class="mx-imgBorder"]
+> ![Event counters reported in Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## Event counters in Analytics
 
