@@ -49,7 +49,7 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
 
-```csharp
+    ```csharp
     using Microsoft.ApplicationInsights.Channel;
     using Microsoft.ApplicationInsights.Extensibility;
 
@@ -80,7 +80,7 @@ To filter telemetry, you write a telemetry processor and register it with the `T
             return dependency.Success != true;
         }
     }
-```
+    ```
 
 2. Add your processor.
 
