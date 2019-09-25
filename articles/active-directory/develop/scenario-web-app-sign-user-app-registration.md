@@ -36,7 +36,7 @@ If you navigate to this link, you can create bootstrap the creation of your web 
 - [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
 - [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
-### Register an app using Azure portal
+## Register an app using Azure portal
 
 > [!NOTE]
 > the portal to use is different depending on if your application runs in the Microsoft Azure public cloud or in a national or sovereign cloud. For more information, see [National Clouds](./authentication-national-cloud.md#app-registration-endpoints)
@@ -53,7 +53,7 @@ If you navigate to this link, you can create bootstrap the creation of your web 
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-WebApp`.
    1. In **Redirect URI**, add the type of application and the URI destination that will accept returned token responses after successfully authenticating. For example, `https://localhost:44321/`.  Select **Register**.
 1. Select the **Authentication** menu, and then add the following information:
-   1. In **Reply URL**, add `https://localhost:44321/signin-oidc`.
+   1. In **Reply URL**, add `https://localhost:44321/signin-oidc` of type "Web".
    1. In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
    1. Under **Implicit grant**, check **ID tokens**.
    1. Select **Save**.
@@ -65,8 +65,7 @@ If you navigate to this link, you can create bootstrap the creation of your web 
    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `MailApp-openidconnect-v2`.
    - In the Redirect URI (optional) section, select **Web** in the combo-box and enter the following redirect URIs: `https://localhost:44326/`.
 1. Select **Register** to create the application.
-1. On the app **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
-1. From the app's Overview page, select the **Authentication** section.
+1. Select the **Authentication** menu, and then add the following information:
    - In the **Advanced settings** | **Implicit grant** section, check **ID tokens** as this sample requires
      the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled to sign in the user.
 1. Select **Save**.
@@ -102,7 +101,7 @@ Click on **save**.
 
 ---
 
-### Register an app using PowerShell
+## Register an app using PowerShell
 
 > [!NOTE]
 > Currently Azure AD PowerShell only creates applications with the following supported account types:

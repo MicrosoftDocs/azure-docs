@@ -98,21 +98,14 @@ To run this sample, you will need:
 1. Open the **app_config.py** file, which can be found in the root folder and replace with the following code snippet:
 
 ```python
-AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
-CLIENT_ID = "Enter_the_Application_Id_here"
 CLIENT_SECRET = "Enter_the_Client_Secret_Here"
-SCOPE = ["https://graph.microsoft.com/User.Read"]
-REDIRECT_URI = "http://localhost:5000/getAToken"
+CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
 > Where:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is one of the options below:
->   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.onmicrosoft.com)
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **All Microsoft account users**, replace this value with `common`
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets**  for the application you registered.
 
 #### Step 4: Run the code sample
@@ -120,10 +113,7 @@ REDIRECT_URI = "http://localhost:5000/getAToken"
 - You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
 
 ```Shell
-pip install msal
-pip install flask
-pip install Flask-Session
-pip install requests
+pip install -r requirements.txt
 ```
 
 - If the environment variable for Flask is already set:
@@ -142,5 +132,8 @@ export FLASK_APP=app.py
 export FLASK_DEBUG=1
 flask run
 ```
+
+> [!NOTE]
+> If your shell is MS-DOS, use `set` instead of `export`
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
