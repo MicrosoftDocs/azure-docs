@@ -13,7 +13,7 @@ ms.author: billmath
 ---
 
 # Understanding Azure AD Connect 1.4.xx.x and device disappearance
-With version 1.4.xx.x of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. This change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join.
+With version 1.4.xx.x of Azure AD Connect, some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. This change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join.
 
 If you see the deletion of device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow the deletions to go through. [How To: allow deletes to flow when they exceed the deletion threshold](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
@@ -26,7 +26,7 @@ Only Windows 10 devices with a specific userCertificate attribute value configur
 This version of Azure AD Connect will only sync Windows 10 devices that are correctly configured to be Hybrid Azure AD Joined. Windows 10 device objects without the Azure AD join specific userCertificate will be removed from Azure AD.
 
 ## Down-Level Windows devices
-Azure AD Connect should never be syncing [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Any devices in Azure AD previously synced incorrectly will now be deleted from Azure AD. If Azure AD Connect is attempting to delete [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices) then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.
+Azure AD Connect should never be syncing [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Any devices in Azure AD previously synced incorrectly will now be deleted from Azure AD. If Azure AD Connect is attempting to delete [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices), then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.
 
 Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan) to get their Windows devices registered correctly and ensure that such devices can fully participate in device-based conditional access. 
 
