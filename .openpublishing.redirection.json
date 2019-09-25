@@ -41767,6 +41767,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/app/java-get-started-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/java-trace-logs-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/java-agent-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/micrometer-java-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Translator/quickstart-csharp-translate.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
       "redirect_document_id": false
