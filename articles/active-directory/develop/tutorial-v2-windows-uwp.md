@@ -71,8 +71,8 @@ This guide creates an application that displays a button that queries Graph API 
     Install-Package Microsoft.Identity.Client
     ```
 
-> [!NOTE]
-> This command installs [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Microsoft identity platform.
+   > [!NOTE]
+   > This command installs [Microsoft Authentication Library](https://aka.ms/msal-net). MSAL acquires, caches, and refreshes user tokens that access APIs protected by Microsoft identity platform.
 
 ### Create your application’s UI
 
