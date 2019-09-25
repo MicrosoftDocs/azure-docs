@@ -185,7 +185,7 @@ The `AddMsal` method ensures that:
 - the `offline_access` scope is added. It's needed so that the user consents to let the application get a refresh token.
 - the app subscribes to the OIDC `OnAuthorizationCodeReceived` event, and redeems the call using MSAL.NET, which is here encapuslated into a reusable component implementing `ITokenAcquisition`.
 
-### The TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync
+### The TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync method
 
 The `TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync` method is located in [Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/4b12ba02e73f62e3e3137f5f4b9ef43cec7c14fd/Microsoft.Identity.Web/TokenAcquisition.cs#L101-L145). It ensures that:
 
