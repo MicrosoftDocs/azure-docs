@@ -257,6 +257,7 @@ Image quarantine is currently a preview feature of ACR. You can enable the quara
 - [New user permissions may not be effective immediately after updating](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Authentication information is not given in the correct format on direct REST API calls](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Why does the Azure portal not list all my repositories or tags?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Why is Azure portal unable to send request for fetching repositories or tags?](#why-is-azure-portal-unable-to-send-request-for-fetching-repositories-or-tags)
 - [How do I collect http traces on Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### Check health with `az acr check-health`
@@ -406,6 +407,17 @@ curl $redirect_url
 ### Why does the Azure portal not list all my repositories or tags? 
 
 If you are using the Microsoft Edge/IE browser, you can see at most 100 repositories or tags. If your registry has more than 100 repositories or tags, we recommend that you use either the Firefox or Chrome browser to list them all.
+
+### Why is Azure portal unable to send request for fetching repositories or tags?
+
+The browser might be unable to send the request for fetching repositories or tags to the server. There could be various reasons, including but not limited to:
+
+* Lack of network connectivity
+* Firewall
+* Ad blockers
+* DNS errors
+
+Please contact your network administrator or check your network configuration and connectivity.
 
 ### How do I collect http traces on Windows?
 
