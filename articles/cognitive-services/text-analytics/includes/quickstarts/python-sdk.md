@@ -40,30 +40,13 @@ pip install --upgrade azure-cognitiveservices-language-textanalytics
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
-```python
-from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
-from msrest.authentication import CognitiveServicesCredentials
-```
+[!code-python[import statements](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=imports)]
 
 Create variables for your resource's Azure endpoint and subscription key. Obtain these values from the environment variables TEXT_ANALYTICS_SUBSCRIPTION_KEY and TEXT_ANALYTICS_ENDPOINT. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the variables.
 
 [!INCLUDE [text-analytics-find-resource-information](../find-azure-resource-info.md)]
 
-```python
-import os
-
-key_var_name = 'TEXT_ANALYTICS_SUBSCRIPTION_KEY'
-if not key_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(key_var_name))
-subscription_key = os.environ[key_var_name]
-
-endpoint_var_name = 'TEXT_ANALYTICS_ENDPOINT'
-if not endpoint_var_name in os.environ:
-    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
-endpoint = os.environ[endpoint_var_name]
-
-credentials = CognitiveServicesCredentials(subscription_key)
-```
+[!code-python[endpoint and key variables](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=initialVars)]
 
 ## Object model
 
@@ -95,19 +78,7 @@ text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=cr
 
 Call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-```python
-documents = [
-    {
-        "id": "1",
-        "language": "en",
-        "text": "I had the best day of my life."
-    }
-]
-response = text_analytics.sentiment(documents=documents)
-for document in response.documents:
-    print("Document Id: ", document.id, ", Sentiment Score: ",
-          "{:.2f}".format(document.score))
-```
+[!code-python[sentiment analysis](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
 
 ### Output
 
@@ -119,18 +90,8 @@ Document Id:  1 , Sentiment Score:  0.87
 
 Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-```python
-documents = [
-    {
-        'id': '1',
-        'text': 'This is a document written in English.'
-    }
-]
-response = text_analytics.detect_language(documents=documents)
-for document in response.documents:
-    print("Document Id: ", document.id, ", Language: ",
-          document.detected_languages[0].name)
-```
+[!code-python[language detection](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=languageDetection)]
+
 
 ### Output
 
@@ -142,26 +103,7 @@ Document Id:  1 , Language:  English
 
 Using the client created earlier, call the [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
 
-```python
-documents = [
-    {
-        "id": "1",
-        "language": "en",
-        "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."
-    }
-]
-response = text_analytics.entities(documents=documents)
-
-for document in response.documents:
-    print("Document Id: ", document.id)
-    print("\tKey Entities:")
-    for entity in document.entities:
-        print("\t\t", "NAME: ", entity.name, "\tType: ",
-              entity.type, "\tSub-type: ", entity.sub_type)
-        for match in entity.matches:
-            print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
-                  "{:.2f}".format(match.entity_type_score))
-```
+[!code-python[Entity recognition](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=entityRecognition)]
 
 ### Output
 
@@ -188,22 +130,7 @@ Document Id:  1
 
 Using the client created earlier, call the [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 
-```python
-documents = [
-    {
-        "id": "1",
-        "language": "en",
-        "text": "My cat might need to see a veterinarian."
-    }
-]
-response = text_analytics.key_phrases(documents=documents)
-
-for document in response.documents:
-    print("Document Id: ", document.id)
-    print("\tKey Phrases:")
-    for phrase in document.key_phrases:
-        print("\t\t", phrase)
-```
+[!code-python[key phrase extraction](~/cognitive-services-python-sdk-samples/samples/language/text_analytics_samples.py?name=keyPhrases)]
 
 
 ### Output
