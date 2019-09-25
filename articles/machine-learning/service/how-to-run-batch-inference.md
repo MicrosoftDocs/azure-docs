@@ -277,6 +277,8 @@ Create the configuration to wrap the scoring script by using `ParallelRunConfig`
 - `compute_target`: only AMLCompute is supported.
 - `node_count`: number of compute nodes to be used.
 - `environment` (optional).
+- `logging_level`: log verbosity. Values in increasing verbosity are: WARNING, INFO, DEBUG, default is INFO (optional).
+- `run_invocation_timeout`: run() method invocation timeout in seconds, default value is 30.
 
 ```python
 parallel_run_config = ParallelRunConfig(
