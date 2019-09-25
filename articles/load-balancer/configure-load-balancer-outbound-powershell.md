@@ -10,17 +10,17 @@ ms.date: 09/24/2019
 ms.author: allensu
 
 ---
-# Configure load balancing and outbound rules in Standard Load Balancer using Azure PowerShell
+# Configure load balancing and outbound rules in Standard load balancer using Azure PowerShell
 
-This article shows you how to configure outbound rules in Standard Load Balancer using Azure PowerShell.  
+This article shows you how to configure outbound rules in Standard load balancer using Azure PowerShell.  
 
-When you are done, the Load Balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.  This article uses two separate backend pools, one for inbound and one for outbound, to illustrate capability and allow for flexibility for this scenario.
+When you are done, the load balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.  This article uses two separate backend pools, one for inbound and one for outbound, to illustrate capability and allow for flexibility for this scenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## Connect to Azure Account
+## Connect to Azure account
 Sign in to your Azure subscription with the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0) command and follow the on-screen directions:
     
 ```azurepowershell-interactive
@@ -44,9 +44,9 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name mysubnetoutbound -AddressPrefix
 New-AzVirtualNetwork -Name myvnetoutbound -ResourceGroupName myresourcegroupoutbound -Location eastus -AddressPrefix "192.168.0.0/16" -Subnet $subnet
 ```
 
-## Create inbound Public IP address 
+## Create inbound public IP address 
 
-To access your web app on the Internet, you need a public IP address for the load balancer. A Standard Load Balancer only supports Standard Public IP addresses. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0) to create a Standard Public IP address named *mypublicipinbound* in *myresourcegroupoutbound*.
+To access your web app on the Internet, you need a public IP address for the load balancer. A Standard load balancer only supports Standard public IP addresses. Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0) to create a Standard Public IP address named *mypublicipinbound* in *myresourcegroupoutbound*.
 
 ```azurepowershell-interactive
 $pubIPin = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipinbound -AllocationMethod Static -Sku Standard -Location eastus
@@ -54,13 +54,13 @@ $pubIPin = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Nam
 
 ## Create outbound public IP address 
 
-Create a Standard IP address for Load Balancer's frontend outbound configuration using [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0).
+Create a Standard IP address for load balancer's frontend outbound configuration using [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0).
 
 ```azurepowershell-interactive
 $pubIPout = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipoutbound -AllocationMethod Static -Sku Standard -Location eastus
 ```
 
-## Create Azure Load Balancer
+## Create Azure load balancer
 
 This section details how you can create and configure the following components of the load balancer:
   - A frontend IP that receives the incoming network traffic on the load balancer.
@@ -71,13 +71,13 @@ This section details how you can create and configure the following components o
   - A load balancer outbound rule that defines how traffic is distributed from the VMs.
 
 ### Create inbound frontend IP
-Create the outbound frontend IP configuration for the Load Balancer with [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0) that includes an inbound frontend IP configuration named *myfrontendinbound* that is associated to the public IP address *mypublicipinbound*
+Create the outbound frontend IP configuration for the load balancer with [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0) that includes an inbound frontend IP configuration named *myfrontendinbound* that is associated to the public IP address *mypublicipinbound*
 
 ```azurepowershell-interactive
 $frontendIPin = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendinbound" -PublicIpAddress $pubIPin
 ```
 ### Create outbound frontend IP
-Create the outbound frontend IP configuration for the Load Balancer with [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0) that includes an outbound frontend IP configuration named *myfrontendoutbound* that is associated to the public IP address *mypublicipoutbound*:
+Create the outbound frontend IP configuration for the load balancer with [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0) that includes an outbound frontend IP configuration named *myfrontendoutbound* that is associated to the public IP address *mypublicipoutbound*:
 
 ```azurepowershell-interactive
 $frontendIPout = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendoutbound" -PublicIpAddress $pubIPout
@@ -90,7 +90,7 @@ $bepoolin = New-AzLoadBalancerBackendAddressPoolConfig -Name bepoolinbound
 ``` 
 
 ### Create outbound backend pool
-Create an additional backend address pool to define outbound connectivity for a pool of VMs with [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0) named *bepooloutbound*.Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.  :
+Create an additional backend address pool to define outbound connectivity for a pool of VMs with [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0) named *bepooloutbound*. Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.  :
 
 ```azurepowershell-interactive
 $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
@@ -121,17 +121,17 @@ An outbound rule defines the frontend public IP, represented by the frontend *my
 ```azurepowershell-interactive
  $outboundRule = New-AzLoadBalancerOutBoundRuleConfig -Name outboundrule -FrontendIPConfiguration $frontendIPout -BackendAddressPool $bepoolout -Protocol All -IdleTimeoutInMinutes 15 -AllocatedOutboundPort 10000
 ```
-If you do not want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend to use separate pools for flexibility and readability of the resulting configuration.
+If you don't want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend using separate pools for flexibility and readability of the resulting configuration.
 
-### Create Load Balancer
+### Create load balancer
 
-Create a Load Balancer with the inbound IP address using [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+Create a load balancer with the inbound IP address using [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0) named *lb* that includes an inbound frontend IP configuration and a backend pool *bepoolinbound* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurepowershell-interactive
 New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutbound -Location eastus -FrontendIpConfiguration $frontendIPin,$frontendIPout -BackendAddressPool $bepoolin,$bepoolout -Probe $probe -LoadBalancingRule $inboundrule -OutboundRule $outboundrule 
 ```
 
-At this point, you can proceed with adding your VM's to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+At this point, you can continue with adding your VMs to the backend pool *bepoolinbound* __and__ *bepooloutbound* by updating the IP configuration of the respective NIC resources using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## Clean up resources
 
@@ -142,7 +142,7 @@ When no longer needed, you can use the [Remove-AzResourceGroup](https://docs.mic
 ```
 
 ## Next steps
-In this article, you created Standard Load Balancer, configured both inbound load balancer traffic rules, configured and health probe for the VMs in the backend pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this article, you created Standard load balancer, configured both inbound load balancer traffic rules, configured and health probe for the VMs in the backend pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure load balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

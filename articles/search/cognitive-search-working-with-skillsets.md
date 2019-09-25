@@ -5,11 +5,9 @@ manager: eladz
 author: vkurpad
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: vikurpad
-ms.subservice: cognitive-search
 ---
 
 # Working with skillsets
