@@ -101,7 +101,7 @@ Now that an enrollment exists for this device, the IoT Edge runtime can automati
 ## Derive a device key
 
 > [!NOTE]
-> This section is required only when using group enrollments.
+> This section is required only if using a group enrollment.
 
 Each device uses its derived device key with your unique registration ID to perform symmetric key attestation with the enrollment during provisioning. To generate the device key, use the key you copied from your DPS enrollment to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
 
