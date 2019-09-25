@@ -18,7 +18,7 @@ ms.author: mbullwin
 # Explore Java trace logs in Application Insights
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
-## Note: if you are using the Application Insights Java agent
+## Using the Application Insights Java agent
 
 You can configure the Application Insights Java agent to automatically capture your logs,
 by enabling the feature in the `AI-Agent.xml` file:
@@ -35,7 +35,7 @@ by enabling the feature in the `AI-Agent.xml` file:
 </ApplicationInsightsAgent>
 ```
 
-Otherwise...
+Alternatively, you can follow the instructions below.
 
 ## Install the Java SDK
 
