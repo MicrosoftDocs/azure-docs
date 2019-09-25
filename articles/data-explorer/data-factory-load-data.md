@@ -215,7 +215,7 @@ After you've created the linked service connection, the **Destination data store
 
     a. Under **Fault tolerance settings**, enter the relevant settings.
 
-    b. Under **Performance settings**, **Enable staging** doesn't apply, and **Advanced settings** includes cost considerations. If you have no specific requirements, leave these setting as is.
+    b. Under **Performance settings**, **Enable staging** doesn't apply, and **Advanced settings** includes cost considerations. If you have no specific requirements, leave these settings as is.
 
     c. Select **Next**.
 
