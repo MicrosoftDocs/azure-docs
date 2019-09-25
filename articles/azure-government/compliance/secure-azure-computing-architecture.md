@@ -9,7 +9,7 @@ ms.author: jahender
 ms.date: 4/9/2019
 ms.topic: article
 # Use ms.service for services or ms.prod for on-premises products. Remove the # before the relevant field.
-ms.service: security
+ms.service: azure-government
 # ms.prod: product-name-from-white-list
 
 # Optional fields. Don't forget to remove # if you need a field.
