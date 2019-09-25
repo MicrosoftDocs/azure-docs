@@ -1,6 +1,6 @@
 ---
 title: Use built-in notebook commands and features
-description: Azure Cosmos DB's built-in notebooks enable you to analyze and visualize your data from within the Portal. This article describes how to use built-in commands and features to do common operations. 
+description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in notebooks.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -9,17 +9,19 @@ ms.author: dech
 
 ---
 
-# Use built-in notebook commands and features
+# Use built-in notebook commands and features in Azure Cosmos DB
 
 Built-in Jupyter notebooks in Azure Cosmos DB enable you to analyze and visualize your data from the Azure portal. This article describes how to use built-in notebook commands and features to do common operations.
 
 ## Install a new package
+After you enable notebook support for your Azure Cosmos accounts, you can open a new notebook and install a package.
+
 In a new code cell, insert and run the following code, replacing ``PackageToBeInstalled`` with the desired Python package.
 ```python
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-This package will be available to use from any notebook in the Cosmos account. 
+This package will be available to use from any notebook in the Azure Cosmos account. 
 
 ## Run a SQL query
 
@@ -39,7 +41,7 @@ For example:
 %%sql --database RetailDemo --container WebsiteData
 SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c
 ```
-Run ```%%sql?``` in a cell to see documentation in the notebook.
+Run ```%%sql?``` in a cell to see the help documentation for the sql magic command in the notebook.
 
 ## Run a SQL query and output to a Pandas DataFrame
 
@@ -75,8 +77,6 @@ df_cosmos.head(10)
 8	Viewed	33.00	Tuvalu	Red Top
 9	Viewed	14.00	Cape Verde	Flip Flop Shoes
 ```
-
-Run ```%%sql?``` in a cell to see documentation in the notebook.
 
 ## Set default database for queries
 You can set the default database ```%%sql``` commands will use for the notebook. Replace ```{database_id}``` with the name of your database.
@@ -117,11 +117,12 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 > The built-in Python SDK is only supported for SQL (Core) API accounts. For other APIs, you will need to [install the relevant Python driver](#install-a-new-package) that corresponds to the API. 
 
 ## Create a custom instance of ``cosmos_client``
-For more flexibility, you can create a custom instance of ``cosmos_client``. You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-environment-variables). 
+For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
-You may wish to use a custom instance of ``cosmos_client`` to:
-- Customize the connection policy
-- Run operations against a different Cosmos account
+- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Run operations against a different Cosmos account than the one you are in
+
+You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-environment-variables). 
 
 ```python
 import os
@@ -130,7 +131,7 @@ import azure.cosmos.documents as documents
 
 # These should be set to a region you've added for Cosmos DB
 region_1 = "Central US" 
-region_2 = "East us 2"
+region_2 = "East US 2"
 
 custom_connection_policy = documents.ConnectionPolicy()
 custom_connection_policy.PreferredLocations = [region_1, region_2] # Set the order of regions the SDK will route requests to. The regions should be regions you've added for Cosmos, otherwise this will error.
