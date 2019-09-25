@@ -34,12 +34,6 @@ landingContent:
             url: container-instances-quickstart.md
           - text: Deploy container instance - Portal
             url: container-instances-quickstart-portal.md
-      - linkListType: tutorial
-        links:
-          - text: Deploy container group - YAML 
-            url : container-instances-multi-container-yaml.md
-          - text: Deploy container group - template
-            url: container-instances-multi-container-group.md
       - linkListType: learn
         links:
           - text: Run Docker containers with Azure Container Instances
@@ -69,9 +63,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Stop and start containers
-            url: container-instances-container-instances-stop-start.md
+            url: container-instances-stop-start.md
           - text: Update running containers
-            url: container-instances-updates.md
+            url: container-instances-update.md
           - text: Share data between containers
             url: container-instances-volume-emptydir.md
 
