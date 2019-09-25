@@ -8,8 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
 ---
 
@@ -17,14 +17,31 @@ ms.custom: seodec18
 ## Speech SDK 1.7.0: 2019-September release
 
 **New Features**
-*	Universal Windows Platform (UWP) support for Xamarin
-*	Android support for Xamarin
-*	iOS support for Xamarin
-*	iOS support for Unity
-*	Compressed input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
+*   Added beta support for Xamarin on Universal Windows Platform (UWP), Android, and iOS
+*   Added iOS support for Unity
+*   Added Compressed input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
+*   Added SendMessageAsync in Connection class for sending a message to service
+*   Added SetMessageProperty in Connection class for setting property of a message
+*   Added "word boundery" information for TTS.
 
-**Bug fix**
-*	Fixed IL2CPP build issue on Unity 2019 for Android
+**Bug fixes**
+*   Fixed IL2CPP build issue on Unity 2019 for Android
+*   Fixed issue with malformed headers in wav file input being proccessed incorrectly
+*   Fixed issue with UUIDs not being unique in some connection properties
+*   Fixed a few warnings about nullability specifiers in the Swift bindings (might require small code changes)
+*   Fixed a bug that caused websocket connections to be closed ungracefully under network load
+*   iOS: dropped support for arm7s architecture
+*   Fixed an issue on Android that sometimes results in duplicate impression IDs used by DialogServiceConnector
+*   Improvements to the stability of connections across multi-turn interactions and the reporting of failures (via Canceled events) when they occur with DialogServiceConnector
+*   DialogServiceConnector session starts will now properly provide events, including when calling ListenOnceAsync() during an active StartKeywordRecognitionAsync()
+*   Addressed a crash associated with DialogServiceConnector activities being received 
+*   TTS added bindings for Java, Python, Switft, and Objective-C
+*   TTS added playback support for OSx, iOS, and Android.
+
+**Samples**
+*   Quickstart for Xamarin
+*   Updated CPP Quickstart with Linux ARM64 information
+*   Updated Unity quickstart with iOS information
 
 ## Speech SDK 1.6.0: 2019-June release
 
