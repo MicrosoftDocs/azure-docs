@@ -47,7 +47,7 @@ landingContent:
           - text: Monitoring with HDInsight
             url: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
           - text: Migrate Apache Hive tables to HDInsight 4.0
-            url: ./apache-hive-migrate-workloads.md
+            url: ./interactive-query/apache-hive-migrate-workloads.md
 
   # Card
   - title: Apache Spark
