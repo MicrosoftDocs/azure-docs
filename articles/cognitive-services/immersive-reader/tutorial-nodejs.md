@@ -92,27 +92,27 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/getimmersivereaderlaunchparams', function(req, res) {
-  request.post ({
-          headers: {
-              'content-type': 'application/x-www-form-urlencoded'
-          },
-          url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
-          form: {
-              grant_type: 'client_credentials',
-              client_id: process.env.CLIENT_ID,
-              client_secret: process.env.CLIENT_SECRET,
-              resource: 'https://cognitiveservices.azure.com/'
-          }
-      },
-      function(err, resp, tokenResponse) {
-          if (err) {
-              return res.status(500).send('CogSvcs IssueToken error');
-          }
- 
-          const token = JSON.parse(tokenResponse).access_token;
-          const subdomain = process.env.SUBDOMAIN;
-          return res.send({token: token, subdomain: subdomain});
-      }
+    request.post ({
+                headers: {
+                    'content-type': 'application/x-www-form-urlencoded'
+                },
+                url: `https://login.windows.net/${process.env.TENANT_ID}/oauth2/token`,
+                form: {
+                    grant_type: 'client_credentials',
+                    client_id: process.env.CLIENT_ID,
+                    client_secret: process.env.CLIENT_SECRET,
+                    resource: 'https://cognitiveservices.azure.com/'
+                }
+        },
+        function(err, resp, tokenResponse) {
+                if (err) {
+                    return res.status(500).send('CogSvcs IssueToken error');
+                }
+        
+                const token = JSON.parse(tokenResponse).access_token;
+                const subdomain = process.env.SUBDOMAIN;
+                return res.send({token: token, subdomain: subdomain});
+        }
   );
 });
  
@@ -141,43 +141,43 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     ```pug
     extends layout
 
-block content
-  h2(id='title') Geography
-  p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
-  div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
-  script.
-
-    function getImmersiveReaderLaunchParamsAsync() {
-        return new Promise((resolve, reject) => {
-            $.ajax({
-                url: '/getimmersivereaderlaunchparams',
-                type: 'GET',
-                success: data => {
-                    resolve(data);
-                },
-                error: err => {
-                    console.log('Error in getting token and subdomain!', err);
-                    reject(err);
-                }
-            });
-        });
-    }
-
-    async function launchImmersiveReader() {
-        const content = {
-            title: document.getElementById('title').innerText,
-            chunks: [{
-                content: document.getElementById('content').innerText + '\n\n',
-                lang: 'en'
-            }]
-        };
-
-        const launchParams = await getImmersiveReaderLaunchParamsAsync();
-        const token = launchParams.token;
-        const subdomain = launchParams.subdomain;
-
-        ImmersiveReader.launchAsync(token, subdomain, content);
-    }
+    block content
+          h2(id='title') Geography
+          p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
+          div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
+          script.
+        
+            function getImmersiveReaderLaunchParamsAsync() {
+                    return new Promise((resolve, reject) => {
+                        $.ajax({
+                                url: '/getimmersivereaderlaunchparams',
+                                type: 'GET',
+                                success: data => {
+                                        resolve(data);
+                                },
+                                error: err => {
+                                        console.log('Error in getting token and subdomain!', err);
+                                        reject(err);
+                                }
+                        });
+                    });
+            }
+        
+            async function launchImmersiveReader() {
+                    const content = {
+                            title: document.getElementById('title').innerText,
+                            chunks: [{
+                                    content: document.getElementById('content').innerText + '\n\n',
+                                    lang: 'en'
+                            }]
+                    };
+            
+                    const launchParams = await getImmersiveReaderLaunchParamsAsync();
+                    const token = launchParams.token;
+                    const subdomain = launchParams.subdomain;
+            
+                    ImmersiveReader.launchAsync(token, subdomain, content);
+            }
     ```
 
 3. Our web app is now ready. Start the app by running:
