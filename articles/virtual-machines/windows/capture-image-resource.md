@@ -204,7 +204,7 @@ You can create a managed image from a snapshot of a generalized VM by following 
 
 ## Create an image from a VM that uses a storage account
 
-To create a managed image from a VM that doesn't use a managed disks, you need the URI of the OS VHD in the storage account, which is in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
+To create a managed image from a VM that doesn't use managed disks, you need the URI of the OS VHD in the storage account, in the following format: https://*mystorageaccount*.blob.core.windows.net/*vhdcontainer*/*vhdfilename.vhd*. In this example, the VHD is in *mystorageaccount*, in a container named *vhdcontainer*, and the VHD filename is *vhdfilename.vhd*.
 
 
 1.  Create some variables.
