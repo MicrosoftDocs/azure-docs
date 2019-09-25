@@ -340,3 +340,6 @@ Now a graphical interface opens with a set of tabs. Use the following quickstart
 
 You can exit Rattle and R. Now you can modify the generated R script. Or, use the script as it is, and run it anytime to repeat everything that was done within the Rattle UI. Especially for beginners in R, this is a way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify or learn.
 
+## Next steps
+
+Have additional questions? Consider creating a [support ticket](https://azure.microsoft.com/support/create-ticket/).

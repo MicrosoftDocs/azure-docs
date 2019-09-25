@@ -5,7 +5,6 @@ description: View and analyze an Azure Search knowledge store with the Azure por
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
