@@ -20,13 +20,13 @@ highlightedContent:
    items:
    - title: What is Azure Data Factory?
      itemType: overview
-     url: /data-factory/introduction
+     url: azure/data-factory/introduction
    - title: Compare version 1 vs. version 2
      itemType: overview
-     url: /data-factory/compare-versions
+     url: azure/data-factory/compare-versions
    - title: Data Factory version 1
      itemType: overview
-     url: /data-factory/v1/data-factory-introduction
+     url: azure/data-factory/v1/data-factory-introduction
 
 conceptualContent:
   # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
