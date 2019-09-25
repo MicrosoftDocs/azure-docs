@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 09/18/2019
 ms.author: shvija
 
 ---
@@ -29,6 +29,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../azure-monitor/platform/data-platform.md).
 
 Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../azure-monitor/platform/diagnostic-settings.md) in Azure Monitor.
+
 
 ## Access metrics in the portal
 
@@ -105,6 +106,17 @@ Azure Event Hubs supports the following dimensions for metrics in Azure Monitor.
 | Metric Name | Description |
 | ------------------- | ----------------- |
 |EntityName| Event Hubs supports the event hub entities under the namespace.|
+
+## Azure Monitor integration with SIEM tools
+Routing your monitoring data to an event hub with Azure Monitor enables you to easily integrate with partner Security information and event management (SIEM) and monitoring tools. For more information, see the following articles/blog posts:
+
+- [Stream Azure monitoring data to an event hub for consumption by an external tool](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+- [Introduction to Azure Log Integration](../security/fundamentals/azure-log-integration-overview.md)
+- [Use Azure Monitor to integrate with SIEM tools](https://azure.microsoft.com/en-us/blog/use-azure-monitor-to-integrate-with-siem-tools/)
+
+When you run into monitoring issues that are related to Event Hubs metrics and an external (SIEM) tool consumes data from your event hub, follow these steps to identify the right approach to get help: 
+
+In the metrics graph on the Event Hubs Namespace page in the Azure portal, If there are **no incoming messages**, it means that Azure Monitor is not moving the audit/diagnostics logs into the event hub. If you need help from the support team, open a support ticket with the **Azure Monitor team**. If there are **incoming messages, but no outgoing messages**, it means that the SIEM  application is not reading the messages. Contact the **SIEM provider** to determine whether the configuration of the event hub is correct.
 
 ## Next steps
 
