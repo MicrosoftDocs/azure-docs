@@ -41888,7 +41888,7 @@
     },
     {
       "source_path": "articles/iot-accelerators/iot-accelerators-architecture-overview.md",
-      "redirect_url": "https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/iot/",
       "redirect_document_id": false
     },
     {

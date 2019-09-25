@@ -256,7 +256,7 @@
 - name: Reference Architecture
   items:
   - name: Overview
-    href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/iot/
+    href: https://docs.microsoft.com/azure/architecture/reference-architectures/iot/
   - name: Partner implementations
     items:
     - name: Intel Connected Logistics Platform
