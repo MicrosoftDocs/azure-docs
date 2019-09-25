@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 07/17/2019
+ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -45,7 +45,7 @@ In addition to these three accounts used to run Azure AD Connect, you will also 
 
 <<<<<<< HEAD
 >[!IMPORTANT]
-> As of build #.#.###.# it is no longer supported to use an enterprise admin or a domain admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive an error.
+> As of build 1.4.###.# it is no longer supported to use an enterprise admin or a domain admin account as the AD DS Connector account.  If you attempt to enter an account that is an enterprise admin or domain admin when specifying **use existing account**, you will receive an error.
 =======
 > [!NOTE]
 > It is supported to manage the administrative accounts used in Azure AD Connect from an ESAE Administrative Forest (also know as "Red forest").
