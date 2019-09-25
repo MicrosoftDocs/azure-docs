@@ -7,7 +7,7 @@ ms.author: b-majude
 ms.author: jzim
 ms.service: container-service
 ms.topic: article
-ms.date: 24/09/2019
+ms.date: 09/25/2019
 #Customer intent: As a developer, I need to understand how to administer and Azure Red Hat cluster using administrative role
 ---
 

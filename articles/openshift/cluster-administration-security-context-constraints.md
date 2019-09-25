@@ -7,7 +7,7 @@ ms.author: b-trconn
 ms.author: jzim
 ms.service: container-service
 ms.topic: article
-ms.date: 23/09/2019
+ms.date: 09/25/2019
 #Customer intent: As a developer, I need to understand how to manage security context constraints.
 ---
 # Overview 
