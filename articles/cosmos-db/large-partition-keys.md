@@ -14,9 +14,21 @@ Azure Cosmos DB uses hash-based partitioning scheme to achieve horizontal scalin
 
 Large partition keys are supported by using the functionality of an enhanced version of the hash function, which can generate a unique hash from large partition keys up to 2 KB. This hash version is also recommended for scenarios with high partition key cardinality irrespective of the size of the partition key. A partition key cardinality is defined as the number of unique logical partitions, for example in the order of ~30000 logical partitions in a container. This article describes how to create a container with a large partition key using the Azure portal and different SDKs. 
 
-## Create a large partition key (.Net SDK V2)
+## Create a large partition key (.Net SDK)
 
 To create a container with a large partition key using the .NET SDK, specify the `PartitionKeyDefinitionVersion.V2` property. The following example shows how to specify the Version property within the PartitionKeyDefinition object and set it to PartitionKeyDefinitionVersion.V2.
+
+### v3 .NET SDK
+
+```csharp
+await database.CreateContainerAsync(
+    new ContainerProperties(collectionName, $"/longpartitionkey")
+    {
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+    })
+```
+
+### v2 .NET SDK
 
 ```csharp
 DocumentCollection collection = await newClient.CreateDocumentCollectionAsync(
