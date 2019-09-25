@@ -499,8 +499,6 @@ Installing Azure Data Factory Analytics creates a default set of views so that t
 
 ![Window with "Workbooks (Preview)" and "AzureDataFactoryAnalytics" highlighted](media/data-factory-monitor-oms/monitor-oms-image6.png)
 
-![Graphical representation of runs and errors](media/data-factory-monitor-oms/monitor-oms-image7.png)
-
 You can visualize the preceding metrics, look at the queries behind these metrics, edit the queries, create alerts, and take other actions.
 
 ![Graphical representation of pipeline runs by data factory"](media/data-factory-monitor-oms/monitor-oms-image8.png)
