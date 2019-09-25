@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -56,6 +56,12 @@ To be able to log the chat logs of your service, you would need to enable Applic
 You can get various analytics of your service usage. Learn more about how to use application insights to get [analytics for your QnA Maker service](../How-To/get-analytics-knowledge-base.md).
 
 Based on what you learn from your analytics, make appropriate [updates to your knowledge base](../How-To/edit-knowledge-base.md).
+
+## Version Control of a knowledge base
+
+Version control is managed in the QnA Maker portal by exporting the knowledge base from the **Settings** page. This allows you to store the knowledge base, in TSV format, in your current version control system.
+
+When you need to go back to a version, from the **Settings** page, import the TSV file. This will replace questions and answers currently in the knowledge base with the contents of the TSV file.   
 
 ## Next steps
 
