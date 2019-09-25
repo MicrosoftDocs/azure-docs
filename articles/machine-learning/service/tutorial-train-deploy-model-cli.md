@@ -86,7 +86,7 @@ az extension add -n azure-cli-ml
 
 If you get a message that the extension is already installed, use the following command to update to the latest version:
 
-```azurecli-interactivee
+```azurecli-interactive
 az extension update -n azure-cli-ml
 ```
 
