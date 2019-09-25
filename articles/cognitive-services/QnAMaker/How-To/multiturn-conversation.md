@@ -62,11 +62,11 @@ When you import the PDF document, QnA Maker determines follow-up prompts from th
 1. Create or use an existing QnA Maker service. In the preceding Microsoft Surface example, because the PDF file is too large for a smaller tier, use a QnA Maker service with a **Search service** of **B** (15 indexes) or greater.
 1. Enter a name for your knowledge base, such as **Surface manual**.
 1. Select the **Enable multi-turn extraction from URLs, .pdf or .docx files** check box. 
-1. Select the Surface manual URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf**.
-
+1. Do not add a file or URL at this point. Finish the creation steps with files and URLs that are not multi-turn. 
 1. Select the **Create your KB** button. 
+1. Go to the **Settings** page, select the example multi-turn .docx file, `https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx`.
 
-    After the knowledge base is created, a view of the question-and-answer pairs is displayed.
+
 
 ## Show questions and answers with context
 
