@@ -34,19 +34,44 @@ The process to create a VM with low-priority using the Azure CLI is the same as 
 >
 > For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority VMs will have a fixed price, so there will not be any price-based evictions.
 
+
+## Install Azure CLI
+
+To create low-priority VMs, you need to be running the Azure CLI version 2.0.74 or later. Run **az --version** to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+Sign in to Azure using [az login](/cli/azure/reference-index#az-login).
+
+```azurecli
+az login
+```
+
+## Create a low-priority VM
+
 This example shows how to deploy a Linux low-priority VM that will not be evicted based on price. 
 
 ```azurecli
+az group create -n myLowPriGroup -l eastus
 az vm create \
-    --resource-group myResourceGroup \
+    --resource-group myLowPriGroup \
     --name myVM \
     --image UbuntuLTS \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Low \
-	--max-price -1
+    --max-billing -1
+```
+
+After the VM is created, you can query to see the max billing price for all of the VMs in the resource group.
+
+```azurecli
+az vm list \
+   -g myLowPriGroup \
+   --query '[].{Name:name, MaxPrice:billingProfile.maxPrice}' \
+   --output table
 ```
 
 **Next steps**
 
 You can also create a low-priority VM using [Azure PowerShell](../windows/low-priority-powershell.md) or a [template](low-priority-template.md).
+
+If you encounter an error, see [Error codes](../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

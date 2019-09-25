@@ -23,3 +23,5 @@ ms.author: cynthn
 
 ## Next steps
 You can also deploy a [scale set with low-priority VM instances](../../virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority.md).
+
+If you encounter an error, see [Error codes](../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -92,3 +92,5 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 ## Next steps
 
 You can also create a low-priority VM using the [Azure CLI](../linux/low-priority-cli.md) or a [template](../linux/low-priority-template.md).
+
+If you encounter an error, see [Error codes](../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

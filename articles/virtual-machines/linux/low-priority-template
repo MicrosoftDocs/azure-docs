@@ -190,3 +190,5 @@ Here is a sample template with the added properties for a low-priority VM. Repla
 ## Next steps
 
 You can also create a low-priority VM using [Azure PowerShell](../windows/low-priority-powershell.md) or the [Azure CLI](low-priority-cli.md).
+
+If you encounter an error, see [Error codes](../error-codes-low-priority.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
