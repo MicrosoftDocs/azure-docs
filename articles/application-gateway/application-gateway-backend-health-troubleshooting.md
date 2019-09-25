@@ -41,7 +41,7 @@ Backend health status: Unhealthy
 
 If the backend health status is Unhealthy, the portal view will resemble the following screenshot:
 
-![Application Gateway Backend Health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
+![Application Gateway backend health - Unhealthy](./media/application-gateway-backend-health-troubleshooting/appgwunhealthy.png)
 
 Or if you're using an Azure PowerShell, CLI, or Azure REST API query, you'll get a response that resembles the following:
 ```azurepowershell
@@ -92,7 +92,7 @@ Error messages
 
 **Cause:** After Application Gateway sends an HTTP(S) probe request to the
 backend server, it waits for a response from the backend server for a configured period. If the backend server doesn't
-respond within the configured period (the timeout value), it's marked Unhealthy until it starts responding within the configured timeout period again.
+respond within the configured period (the timeout value), it's marked as Unhealthy until it starts responding within the configured timeout period again.
 
 **Resolution:** Check why the backend server or application isn't responding within the configured timeout period, and also check the application dependencies. For example, check whether the database has any issues that might trigger a delay in response. If you're aware of the application's behavior and it should respond only after the timeout value, increase the timeout value from the custom probe settings. You must have a custom probe to change the timeout value. For information about how to configure a custom probe, [see the documentation page](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
 
@@ -125,13 +125,13 @@ this message is displayed, it suggests that Application Gateway couldn't success
 1.  Verify that the FQDN entered in the backend pool is correct and that it's a public domain, and then try to resolve it from your local machine.
 
 1.  If you can resolve the IP address, there might be something wrong
-    with the DNS configuration in Azure Virtual Network.
+    with the DNS configuration in the virtual network.
 
-1.  Check whether Virtual Network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
+1.  Check whether the virtual network is configured with a custom DNS server. If it is, check the DNS server about why it can't resolve to the IP address of the specified FQDN.
 
 1.  If you're using Azure default DNS, check with your domain name registrar about whether proper A record or CNAME record mapping has been completed.
 
-1.  If the domain is private or internal, try to resolve it from a VM in the same Virtual Network. If you can resolve it, restart
+1.  If the domain is private or internal, try to resolve it from a VM in the same virtual network. If you can resolve it, restart
     Application Gateway and check again. To restart Application Gateway, you need to
     [stop](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0)
     and
@@ -207,7 +207,7 @@ here:
 | Probe status code mismatch: Received 401 | Check whether the backend server requires authentication. Application Gateway probes can't pass credentials for authentication at this point. Either allow \"HTTP 401\" in a probe status code match or probe to a path where the server doesn't require authentication. | |
 | Probe status code mismatch: Received 403 | Access forbidden. Check whether access to the path is allowed on the backend server. | |
 | Probe status code mismatch: Received 404 | Page not found. Check whether the host name path is accessible on the backend server. Change the host name or path parameter to an accessible value. | |
-| Probe status code mismatch: Received 405 | Application Gateway's probe requests use the HTTP GET method. Check whether your server allows this method. | |
+| Probe status code mismatch: Received 405 | The probe requests for Application Gateway use the HTTP GET method. Check whether your server allows this method. | |
 | Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. | |
 | Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. | |
 
@@ -221,10 +221,10 @@ To create a custom probe, follow [these steps](https://docs.microsoft.com/azure/
 probe setting. Received response body does not contain {string}.
 
 **Cause:** When you create a custom probe, you have an option to mark a
-backend server healthy by matching a string from the response body. For
+backend server as Healthy by matching a string from the response body. For
 example, you can configure Application Gateway to accept "unauthorized"
 as a string to match. If the backend server response for the probe
-request contains the string **unauthorized**, it will be marked Healthy. Otherwise, it will be marked Unhealthy with this message.
+request contains the string **unauthorized**, it will be marked as Healthy. Otherwise, it will be marked as Unhealthy with this message.
 
 **Solution:** To resolve this issue, follow these steps:
 
@@ -392,15 +392,15 @@ Backend health status: unknown
 -------------------------------
 If the backend health is shown as Unknown, the portal view will resemble the following screenshot:
 
-![Application Gateway Backend Health - Unknown](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
+![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
 
 This behavior can occur for one or more of the following reasons:
 
 1.	The NSG on the Application Gateway subnet is blocking inbound access to ports 65503-65534 (v1 SKU) or 65200-65535 (v2 SKU) from “Internet."
 1.	The UDR on the Application Gateway subnet is set to the default route (0.0.0.0/0) and the next hop is not specified as "Internet."
-1.	The default route is advertised by ExpressRoute/VPN connection to Virtual Network over BGP.
-1.	The custom DNS server is configured on a Virtual Network that can't resolve public domain names.
-1. 	Application Gateway is in an Unhealthy state.
+1.	The default route is advertised by an ExpressRoute/VPN connection to a virtual network over BGP.
+1.	The custom DNS server is configured on a virtual network that can't resolve public domain names.
+1. 	Application Gateway is in an unhealthy state.
 
 **Solution:**
 
@@ -428,17 +428,17 @@ This behavior can occur for one or more of the following reasons:
 
     d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
-1.	Default route advertised by the ExpressRoute/VPN connection to Virtual Network over BGP:
+1.	Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP:
 
-    a.	If you have an ExpressRoute/VPN connection to Virtual Network over BGP, and if you are advertising a default route, you must make sure that the packet is routed back to the internet destination without modifying it. You can verify by using the **Connection Troubleshoot** option in the Application Gateway portal.
+    a.	If you have an ExpressRoute/VPN connection to the virtual network over BGP, and if you are advertising a default route, you must make sure that the packet is routed back to the internet destination without modifying it. You can verify by using the **Connection Troubleshoot** option in the Application Gateway portal.
 
     b.	Choose the destination manually as any internet-routable IP address like 1.1.1.1. Set the destination port as anything, and verify the connectivity.
 
-    c.	If the next hop is Virtual Network Gateway, there might be a default route advertised over ExpressRoute or VPN.
+    c.	If the next hop is virtual network gateway, there might be a default route advertised over ExpressRoute or VPN.
 
-1.	If there's a custom DNS server configured on the Virtual Network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
+1.	If there's a custom DNS server configured on the virtual network, verify that the server (or servers) can resolve public domains. Public domain name resolution might be required in scenarios where Application Gateway must reach out to external domains like OCSP servers or to check the certificate’s revocation status.
 
-1.	To verify that Application Gateway is Healthy and running, go to the **Resource Health** option in the portal and verify that it's **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
+1.	To verify that Application Gateway is healthy and running, go to the **Resource Health** option in the portal and verify that the state is **Healthy**. If you see an **Unhealthy** or **Degraded** state, [contact support](https://azure.microsoft.com/support/options/).
 
 Next steps
 ----------
