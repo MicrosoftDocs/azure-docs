@@ -45,7 +45,7 @@ To filter telemetry, you write a telemetry processor and register it with the `T
 
 ### Create a telemetry processor (C#)
 
-1. To create a filter, implement `ITelemetryProcessor`. `ITelemetryProcessor` is another extensibility point like telemetry module, telemetry initializer, and telemetry channel.
+1. To create a filter, implement `ITelemetryProcessor`.
 
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
 
@@ -357,7 +357,7 @@ For a summary of the non-custom properties available on the telemetryItem, see [
 
 You can add as many initializers as you like, and they are called in the order they are added.
 
-### Example enrichers
+### Example TelemetryInitializers
 
 #### Add custom property
 
