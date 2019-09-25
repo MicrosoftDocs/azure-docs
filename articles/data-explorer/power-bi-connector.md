@@ -50,13 +50,13 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
     
     > [!NOTE]
     > Use **Import** mode when:
-    > * Your data set is small - since data is retained with the Power BI report.
-    > * You don't need near real-time data - data can be refreshed via **Scheduled Refresh** with a 30 minute granularity. 
-    > * Your data is already aggregated or you perform aggregation in Kusto (\\link)
+    > * Your data set is small. Data is retained with the Power BI report.
+    > * You don't need near real-time data. 
+    > * Your data is already aggregated or you perform [aggregation in Kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)
     >     
     > Use **DirectQuery** mode when:
-    > * Your data set is very large so can't import it all. DirectQuery requires no large transfer of data, as it is queried in place.
-    > * You need near real-time data - When data is displayed, it is queried directly from your Azure Data Explorer cluster.
+    > * Your data set is very large. DirectQuery doesn't require data transfer and data is queried in its location. 
+    > * You need near real-time data. When data is displayed, it is queried directly from your Azure Data Explorer cluster.
 
 1. If you don't already have a connection to the help cluster, sign in. Sign in with an organizational account, then select **Connect**.
 
@@ -90,4 +90,4 @@ If you no longer need the report you created for this article, delete the Power 
 
 ## Next steps
 
-[Visualize data using an imported query in Power BI](power-bi-imported-query.md)
+[Tips for using the Azure Data Explorer connector for Power BI to query data](power-bi-best-practices.md#tips-for-using-the-azure-data-explorer-connector-for-power-bi-to-query-data)

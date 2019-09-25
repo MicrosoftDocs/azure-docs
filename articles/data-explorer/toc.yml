@@ -88,6 +88,8 @@
     items:
     - name: Power BI
       items:
+      - name: Tips for data query and visualization
+        href: power-bi-best-practices.md
       - name: connector
         href: power-bi-connector.md
       - name: imported query
