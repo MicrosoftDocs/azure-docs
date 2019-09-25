@@ -85,7 +85,7 @@ Currently, the cross-tenant management experience supports the following scenari
 
 [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
 
-- •	Manage Azure Sentinel resources in customer tenants
+- Manage Azure Sentinel resources in customer tenants
 
 [Azure Service Health](https://docs.microsoft.com/azure/service-health/):
 
