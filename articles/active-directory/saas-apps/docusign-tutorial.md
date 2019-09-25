@@ -65,12 +65,12 @@ Configure and test Azure AD SSO with DocuSign by using a test user named **B.Sim
 
 To configure and test Azure AD SSO with DocuSign, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** so that your users can use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure DocuSign SSO](#configure-docusign-sso)** to configure the single sign-on settings on the application side.
-    - **[Create a DocuSign test user](#create-docusign-test-user)** to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
-1. **[Test SSO](#test-sso)** to verify that the configuration works.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) so that your users can use this feature.
+    1. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with B.Simon.
+    1. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable B.Simon to use Azure AD single sign-on.
+1. [Configure DocuSign SSO](#configure-docusign-sso) to configure the single sign-on settings on the application side.
+1. [Create a DocuSign test user](#create-docusign-test-user) to generate a counterpart of B.Simon in DocuSign that's linked to the Azure AD representation of the user.
+1. [Test SSO](#test-sso) to verify that the configuration works.
 
 ## Configure Azure AD SSO
 
