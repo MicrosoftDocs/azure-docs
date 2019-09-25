@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -26,7 +26,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 
 After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
 
-For more information about adding a department, see Create an Azure EA department.
+For more information about adding a department admin, see [Create an Azure EA department admin](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## Enterprise user roles
 
@@ -119,14 +119,14 @@ There's no downtime during the account transfer. It can be completed on the same
 
 When you request an enrollment transfer, provide the following information:
 
-- For the source enrollment, the enrollment number and account to transfer
-- For the target enrollment, the enrollment number to transfer to
+- For the source enrollment, the enrollment number and account to transfer.
+- For the target enrollment, the enrollment number to transfer to.
 - For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't impact usage for any overage invoice already issued.
 
 Other points to keep in mind before an enrollment transfer:
 
-- Approval from an EA Administrator is required for the target and source enrollment
-  - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
+- Approval from an EA Administrator is required for the target and source enrollment.
+  - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - Only the accounts that you specify are transferred. You can request to transfer all of your accounts.
 - The source enrollment retains its status as active/extended. You can continue using the enrollment until it expires.
@@ -203,7 +203,7 @@ If a notification isn't received by a user, verify that the user's notification 
 6. Add a contact, if needed and click **Add**.
 7. Click **Save**.
 
-![Example showing Add Contact to add a ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Example showing Add Contact box ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## Azure Sponsorship offer
 The Azure Sponsorship offer is a limited sponsored Microsoft Azure account. It is available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure Sponsorship offer, you'll receive an e-mail invitation to your account ID.
