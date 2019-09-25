@@ -207,7 +207,7 @@ After you've created the linked service connection, the **Destination data store
 
     * If **Ingestion mapping name** isn't specified, the *by-name* mapping order that's defined in the **Column mappings** section will be used. If *by-name* mapping fails, Azure Data Explorer tries to ingest the data in a *by-column position* order (that is, it maps by  position as the default).
 
-    * Select **Next**
+    * Select **Next**.
 
     ![The destination dataset "Column mapping" pane](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
