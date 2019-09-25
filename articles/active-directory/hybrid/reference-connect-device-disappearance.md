@@ -28,7 +28,7 @@ This version of Azure AD Connect will only sync Windows 10 devices that are corr
 ## Down-Level Windows devices
 Azure AD Connect should never be syncing [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices). Any devices in Azure AD previously synced incorrectly will now be deleted from Azure AD. If Azure AD Connect is attempting to delete [down-level Windows devices](../devices/hybrid-azuread-join-plan.md#windows-down-level-devices), then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.
 
-Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan) to get their Windows devices registered correctly and ensure that such devices can fully participate in device-based conditional access. 
+Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../devices/hybrid-azuread-join-plan.md) to get their Windows devices registered correctly and ensure that such devices can fully participate in device-based conditional access. 
 
 ## Next Steps
 - [Azure AD Connect Version history](reference-connect-version-history.md)
