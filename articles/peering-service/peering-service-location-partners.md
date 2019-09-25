@@ -4,14 +4,13 @@ description:
 services: networking
 documentationcenter: na
 author: ypitsch
-manager: 
 ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 
-ms.author: ypitsch
+ms.date: 09/25/2019
+ms.author: v-meravi
 ---
 
 # Peering Service - Location and Partners
