@@ -210,7 +210,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |East US        |LRS     |No    |Not yet|
 |France Central |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
 |France South   |LRS     |No    |Yes|
-|North Europe   |LRS     |No    |Yes|
+|North Europe   |LRS     |No    |Not yet|
 |South India    |LRS     |No    |Not yet|
 |Southeast Asia |LRS, ZRS|No    |Yes|
 |West Central US|LRS     |No    |Not yet|

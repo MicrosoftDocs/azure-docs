@@ -183,7 +183,7 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## Updating Azure Machine Learning components in AKS cluster
 
-Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these clusters by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

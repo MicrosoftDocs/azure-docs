@@ -49,7 +49,7 @@ The table below lists code samples for your reference.
 |    Language/Tool    |    Code sample documentation    |
 |------------------|--------------------------------------------|
 |    .NET   |    [Azure NetApp Files SDK sample for .NETCore](https://docs.microsoft.com/samples/azure-samples/netappfiles-dotnetcore-sdk-sample/azure-netappfiles-sdk-sample-for-netcore/)    |    
-|    Pythons    |    [Azure NetApp Files SDK sample for Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
+|    Python    |    [Azure NetApp Files SDK sample for Python](https://docs.microsoft.com/samples/azure-samples/netappfiles-python-sdk-sample/azure-netappfiles-sdk-sample-for-python/)    |
 
 ## Next steps   
  [Download Azure SDKs](https://azure.microsoft.com/downloads/)
