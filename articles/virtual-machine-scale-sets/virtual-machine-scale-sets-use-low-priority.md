@@ -26,6 +26,20 @@ Using low-priority VMs on scale sets allows you to take advantage of our unused 
 
 The amount of available capacity can vary based on size, region, time of day, and more. When deploying low-priority VMs on scale sets, Azure will allocate the VMs if there is capacity available, but there is no SLA for these VMs. A low-priority scale set is deployed in a single fault domain and offers no high availability guarantees.
 
+## Pricing
+
+Pricing for low-priority instances is variable, based on region and SKU. For more information, see pricing for [Linux](https://azure.microsoft.com/en-us/pricing/details/virtual-machine-scale-sets/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machine-scale-sets/windows/). 
+
+
+With variable pricing, you have option to set a max price, in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the instance won't be evicted based on price. The price for the instance will be the current price for low-priority or the price for an on-demand instance, which ever is less, as long as there is capacity and quota available.
+
+> [!IMPORTANT]
+> Low-priority instances are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+> For the early part of the public preview, you can set a max price, but it will be ignored. Low-priority instances will have a fixed price, so there will not be any price-based evictions.
+
 ## Eviction Policy
 
 When creating low-priority scale sets, you can set the eviction policy to *Deallocate* (default) or *Delete*. 

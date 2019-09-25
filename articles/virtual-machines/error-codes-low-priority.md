@@ -12,7 +12,7 @@ ms.date: 09/23/2019
 ms.author: cynthn
 ---
 
-# Preview: Error messages for low priority VMs and scale sets
+# Preview: Error messages for low-priority VMs and scale sets
 
 
 > [!IMPORTANT]
@@ -21,7 +21,7 @@ ms.author: cynthn
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-Here are some possible error codes you could receive when using low priority VMs and scale sets.
+Here are some possible error codes you could receive when using low-priority VMs and scale sets.
 
 | Key | Message | Description |
 |-----|---------|
@@ -35,8 +35,8 @@ Here are some possible error codes you could receive when using low priority VMs
 | VariablePricingIsNotSupportedForThisAPIVersion | Variable pricing is not supported for this API version. | The API version needs to be 2019-03-01. |
 | VariablePricingIsNotSupportedForThisVMSize | Variable pricing is not supported for this VM size {0}. | Select another VM size. For more information, see [Low-priority Virtual Machines](low-priority-vms.md). |
 | VariablePricingIsSupportedOnlyForLowPriorityVirtualMachines | Variable pricing is supported only for low-priority Virtual Machines. | For more information, see [Low-priority Virtual Machines](low-priority-vms.md). |
-| MoveResourcesWithLowPriorityVMNotSupported | The move resources request contains a low priority virtual machine. This is currently not supported. Please check the error details for virtual machine Ids.  | You cannot move low-priority VMs. |
-| MoveResourcesWithLowPriorityVmssNotSupported | The Move resources request contains a low priority virtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids.| You cannot move low-priority instances. |
+| MoveResourcesWithLowPriorityVMNotSupported | The move resources request contains a low-priorityvirtual machine. This is currently not supported. Please check the error details for virtual machine Ids.  | You cannot move low-priority VMs. |
+| MoveResourcesWithLowPriorityVmssNotSupported | The Move resources request contains a low-priorityvirtual machine scale set. This is currently not supported. Please check the error details for virtual machine scale set Ids.| You cannot move low-priority instances. |
 
 
 ## Next steps

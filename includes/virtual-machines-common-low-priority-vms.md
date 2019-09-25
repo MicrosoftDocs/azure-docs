@@ -35,7 +35,7 @@ VMs can be evicted based on capacity or the max price you set. For virtual machi
 | Restarting a stop/deallocate VM if the max price is >= the current price | If there is capacity and quota, then the VM is deployed. |
 | Restarting a stop/deallocate VM if the max price is < the current price | You will get an error message that the max price needs to be >= current price. | 
 | Price for the VM has gone up and is now > the max price. | The VM gets evicted. You get a 30s notification before actual eviction. | 
-| After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM youself, and it will be charged at the current price. |
+| After eviction the price for the VM goes back to being < the max price. | The VM will not be automatically re-started. You can restart the VM yourself, and it will be charged at the current price. |
 | If the max price is set to `-1` | The VM will not be evicted for pricing reasons. The max price will be the current price, up to the price for on-demand VMs. You will never be charged above the on-demand price.| 
 
 ## Limitations
@@ -46,7 +46,7 @@ The following VM sizes are not supported for low-priority VMs:
  - The original A-series (like Basic_A1 and Standard_A1)
  - The original D-series (like Standard_D1)
  
-Low-priority VMs can be deployed to any region, except Microsoft Azure China and Department of Defense (DoD) in the Azure Government region.
+Low-priority VMs can be deployed to any region, except Microsoft Azure China 21Vianet and Department of Defense (DoD) in the Azure Government region.
 
 ## Pricing
 
