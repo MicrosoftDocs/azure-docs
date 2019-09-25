@@ -1,25 +1,23 @@
 ---
-title: 'Quickstart: Recognize speech, Java (Android) - Speech Service'
+title: 'Quickstart: Synthesize speech, Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in Java on Android by using the Speech SDK
+description: Learn how to synthesize speech in Java on Android by using the Speech SDK
 services: cognitive-services
-author: fmegen
+author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: wolfma
+ms.date: 09/19/2019
+ms.author: yulili
 ---
 
-# Quickstart: Recognize speech in Java on Android by using the Speech SDK
+# Quickstart: Synthesize speech in Java on Android by using the Speech SDK
 
-Quickstarts are also available for [speech synthesis](quickstart-text-to-seppch-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
+Quickstarts are also available for [speech recognition](quickstart-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
-The application is based on the Speech SDK Maven Package, version 1.6.0, and Android Studio 3.3.
+In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to synthesize speech from text.
+The application is based on the Speech SDK Maven Package, version 1.7.0, and Android Studio 3.3.
 The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
@@ -37,11 +35,13 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
-* Click the TextView element. Change its ID attribute in the upper-right corner to `hello`.
+* Click the TextView element. Change its ID attribute in the upper-right corner to `outputMessage`, and drag it to the lower screen. Delete it's text.
 
 * From the Palette in the upper left of the `activity_main.xml` window, drag a button into the empty space above the text.
 
 * In the button's attributes on the right, in the value for the `onClick` attribute, enter `onSpeechButtonClicked`. We'll write a method with this name to handle the button event.  Change its ID attribute in the upper-right corner to `button`.
+
+* Drag a Plain Text into the space above the button; change its ID attribute to `speakText`, and change the text attribute to `Hi there!`.
 
 * Use the magic wand icon at the top of the designer to infer layout constraints.
 
@@ -49,19 +49,17 @@ We will create a basic user interface for the application. Edit the layout for y
 
 The text and graphical representation of your UI should now look like this:
 
-![](media/sdk/qs-java-android-11-gui.png)
+![](media/sdk/qs-java-android-11-2-tts-gui.png)
 
-[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
+[!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-android/app/src/main/res/layout/activity_main.xml)]
 
 ## Add sample code
 
 1. Open the source file `MainActivity.java`. Replace all the code in this file with the following.
 
-   [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
+   [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-android/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/quickstart/MainActivity.java#code)]
 
-   * The `onCreate` method includes code that requests microphone and internet permissions, and initializes the native platform binding. Configuring the native platform bindings is only required once. It should be done early during application initialization.
-
-   * The method `onSpeechButtonClicked` is, as noted earlier, the button click handler. A button press triggers speech to text transcription.
+   * The method `onSpeechButtonClicked` is, as noted earlier, the button click handler. A button press triggers speech synthesis.
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -69,19 +67,19 @@ The text and graphical representation of your UI should now look like this:
 
 ## Build and run the app
 
-1. Connect your Android device to your development PC. Make sure you have enabled [development mode and USB debugging](https://developer.android.com/studio/debug/dev-options) on the device.
+1. Connect your Android device to your development PC. Make sure you have enabled [development mode and USB debugging](https://developer.android.com/studio/debug/dev-options) on the device. Alternatively, create an [Android emulator](https://developer.android.com/studio/run/emulator).
 
 1. To build the application, press Ctrl+F9, or choose **Build** > **Make Project** from the menu bar.
 
 1. To launch the application, press Shift+F10, or choose **Run** > **Run 'app'**.
 
-1. In the deployment target window that appears, choose your Android device.
+1. In the deployment target window that appears, choose your Android device or emulator.
 
    ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
 
-Press the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to the Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
+Enter a text and press the button in the application to begin a speech synthesis section. You will hear the synthesized audio from the default speaker and see the `speech synthesis succeeded` info on the screen.
 
-![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
+![Screenshot of the Android application](media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
 
 ## Next steps
 
@@ -90,5 +88,5 @@ Press the button in the application to begin a speech recognition section. The n
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)

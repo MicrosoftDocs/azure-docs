@@ -14,7 +14,7 @@ ms.author: bidishac
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, Java
 
-Quickstarts are also available for [speech-to-text](quickstart-java-jre.md) and [speech-translation](quickstart-translate-speech-java-jre.md).
+Quickstarts are also available for [speech-to-text](quickstart-java-jre.md), [text-to-speech](quickstart-text-to-speech-java-jre.md), and [speech-translation](quickstart-translate-speech-java-jre.md).
 
 In this article, you create a Java console application by using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the Direct Line Speech channel, send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Ubuntu Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
 
