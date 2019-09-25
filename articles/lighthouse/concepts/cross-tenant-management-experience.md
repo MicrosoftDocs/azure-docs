@@ -83,7 +83,7 @@ Currently, the cross-tenant management experience supports the following scenari
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
   - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
 
-[Azure Sentinel](./sentinel/multiple-tenants-service-providers):
+[Azure Sentinel](https://docs.microsoft.com/azure/sentinel/multiple-tenants-service-providers):
 
 - •	Manage Azure Sentinel resources in customer tenants
 
