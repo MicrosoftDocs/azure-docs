@@ -23,14 +23,14 @@ productDirectory:
         - url: ./service/overview.md
           text: What is Azure Blockchain Service?
         - url: ./service/index.yml
-          text: Documentation >
+          text: See more >
     - title: Azure Blockchain Workbench
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
           text: What is Azure Blockchain Workbench?
         - url: ./workbench/index.yml
-          text: Documentation >
+          text: See more >
 conceptualContent:
   title: Get started
   items:
