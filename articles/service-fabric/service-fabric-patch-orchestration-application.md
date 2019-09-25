@@ -266,7 +266,7 @@ To enable the reverse proxy on the cluster, follow the instructions in [Reverse 
 This section discusses how to debug or diagnose issues with patch updates through POA on Service Fabric clusters.
 
 > [!NOTE]
-> To get many of the following called-out, self-diagnostic improvements, you should have POA version 1.4.0 installed.
+> To get many of the following called-out, self-diagnostic improvements, you should have POA version 1.4.0 or later installed.
 
 The Node Agent NTService creates [repair tasks](https://docs.microsoft.com/dotnet/api/system.fabric.repair.repairtask?view=azure-dotnet) for installing updates on the nodes. Each task is then prepared by the Coordinator Service according to the task approval policy. Finally, the prepared tasks are approved by Repair Manager, which doesn't approve any task if the cluster is in an unhealthy state. 
 
@@ -291,7 +291,7 @@ To help you understand how updates proceed on a node, let's go step by step:
 
 1. When the repair task is in *Executing* state, the patch installation on that node begins. After the patch is installed, the node might or might not be restarted, depending on the patch. Next, the repair task is moved to *Restoring* state, which reenables the node. The repair task is then marked as completed.
 
-   In POA version 1.4.0 and later, you can find the status of the update by viewing the health events on NodeAgentService with the WUOperationStatus-\<NodeName> property. The highlighted sections in the following images show the status of Windows updates on nodes *poanode_0* and *poanode_2*:
+   In POA versions 1.4.0 and later, you can find the status of the update by viewing the health events on NodeAgentService with the WUOperationStatus-\<NodeName> property. The highlighted sections in the following images show the status of Windows updates on nodes *poanode_0* and *poanode_2*:
 
    [![Image of Windows Update operation status](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png)](media/service-fabric-patch-orchestration-application/wuoperationstatusa.png#lightbox)
 
@@ -473,7 +473,7 @@ An administrator must intervene and determine why the application or cluster bec
 ## POA release notes
 
 >[!NOTE]
-> Starting with POA version 1.4.0, you can find release notes and releases on the [Patch Orchestration Application release page](https://github.com/microsoft/Service-Fabric-POA/releases/) on GitHub.
+> For POA versions 1.4.0 and later, you can find release notes and releases on the [Patch Orchestration Application release page](https://github.com/microsoft/Service-Fabric-POA/releases/) on GitHub.
 
 ### Version 1.1.0
 - Public release
