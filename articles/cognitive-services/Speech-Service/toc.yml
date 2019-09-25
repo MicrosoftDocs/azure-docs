@@ -111,6 +111,27 @@
       - name: 'C++ (Linux)'
         href: quickstart-text-to-speech-cpp-linux.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'Java (Android)'
+        href: quickstart-text-to-speech-java-android.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'Java (Windows, Linux, macOS)'
+        href: quickstart-text-to-speech-java-jre.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, jre, jvm
+      - name: 'Objective-C (iOS)'
+        href: quickstart-text-to-speech-objectivec-ios.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, xcode
+      - name: 'Objective-C (macOS)'
+        href: quickstart-text-to-speech-objectivec-macos.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, xcode
+      - name: 'Swift (iOS)'
+        href: quickstart-text-to-speech-swift-ios.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, xcode
+      - name: 'Swift (macOS)'
+        href: quickstart-text-to-speech-swift-macos.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts, xcode
+      - name: 'Python'
+        href: quickstart-text-to-speech-python.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
     - name: Voice-first virtual assistants (Preview)
       items:
       - name: 'C# (UWP)'
