@@ -16,12 +16,13 @@ ms.date: 09/25/2019
 
 # Train with datasets (preview) in Azure Machine Learning
 
-Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) and [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 In this article, you learn the two ways to consume [Azure Machine Learning datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) in remote experiment training runs without worrying about connection strings or data paths.
 
 - Option 1: If you have structured data, create a TabularDataset and use it directly in your training script.
 
 - Option 2: If you have unstructured data, create a FileDataset and mount or download files to a remote compute for training.
+
+Azure Machine Learning datasets provide a seamless integration with Azure Machine Learning training products like [ScriptRun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) and [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py).
 
 ## Prerequisites
 
@@ -123,7 +124,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 Instead of passing the dataset through the `inputs` parameter in the estimator, you can also pass the dataset through `script_params` and get the data path (mounting point) in your training script via arguments. This way, you can access your data and use an existing training script.
 
-An [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) estimator object is used to submit the run for scikit-learn experiments.
+An [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) estimator object is used to submit the run for scikit-learn experiments. Learn more about training with the [SKlearn estimator](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -183,10 +184,11 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## Notebook examples
 
-The [sample notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article such as, using datasets with ScriptRun and [HyperdDrive](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) objects.
+The [dataset notebooks](https://aka.ms/dataset-tutorial) demonstrate and expand upon concepts in this article. 
 
 ## Next steps
 
 * [Auto train machine learning models](how-to-auto-train-remote.md) with TabularDatasets.
 
 * [Train image classification models](https://aka.ms/filedataset-samplenotebook) with FileDatasets.
+
