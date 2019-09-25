@@ -24,9 +24,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
-  
+    + Added the ONNX conversion support for the ADB and HDI
   + **Preview features**
     + [Contrib features below] 
+    + [AutoML] Supported Bert and BiLSTM as text featurizer (preview only)
+    + [AutoML] Supported featurization customization for column purpose and transformer parameters (preview only)
+    + [AutoML] Supported raw explanations when user enables model explanation during training (preview only)
+    + [AutoML] Added Prophet as a trainable pipeline (preview only)
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
@@ -59,12 +63,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-pipeline-steps**
     + Introducing RScriptStep to support r script run via AML pipeline
   + **azureml-train-automl**
-    + Supported streaming for classification and regression (preview only)
-    + Supported Bert and BiLSTM as text featurizer (preview only)
-    + Supported featurization customization for column purpose and transformer parameters (preview only)
-    + Supported raw explanations when user enables model explanation during training
-    + Adding Prophet as a trainable pipeline (preview only)
-    + Added the ONNX conversion support for the ADB compute target  
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
     + Added deprecation message for explain_model() and retrieve_model_explanations()
 
