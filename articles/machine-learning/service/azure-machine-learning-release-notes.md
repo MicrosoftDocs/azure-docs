@@ -59,9 +59,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-pipeline-steps**
     + Introducing RScriptStep to support r script run via AML pipeline
   + **azureml-train-automl**
-    +  Added deprecation message for explain_model() and retrieve_model_explanations()
+    + Supported streaming for classification and regression
+    + Supported Bert and BiLSTM as text featurizer (preview only)
+    + Supported featurization customization for column purpose and transformer parameters
+    + Supported raw explanations when user enables model explanation during training
     + Adding Prophet as a trainable pipeline (preview only)
-    + Added the ONNX conversion support for the ADB compute target
+    + Added the ONNX conversion support for the ADB compute target  
+    + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
+    + Added deprecation message for explain_model() and retrieve_model_explanations()
 
   
 ## 2019-09-16
