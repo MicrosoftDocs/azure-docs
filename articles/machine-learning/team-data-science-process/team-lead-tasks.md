@@ -150,47 +150,33 @@ Each of your two team repositories now contains the files from the corresponding
 ### Customize the contents of the group repositories
 
 If you want to customize the contents of your team repositories to meet your team's specific needs, you can do that now. You can modify files, change the directory structure, or add files and folders.
+To modify, upload, or create files or folders directly in Azure DevOps:
 
-To modify, upload, or create files or folders directly in Azure DevOps, follow the instructions in the **Customize the contents of the group repositories** section of [Group Manager tasks for a data science team](group-manager-tasks.md). 
+1. On the **MyTeam** project **Summary** page, select **Repos**. 
+   
+1. At the top of the page, select the repository you want to customize.
 
-To work with the team repositories or other team assets on your local machine or DSVM, follow the instructions at [Work on your local machine or DSVM](#work-on-your-local-machine-or-dsvm).
+1. In the repo directory structure, navigate to the folder or file you want to change. 
+   
+   - To create new folders or files, select the arrow next to **New**. 
+     
+     ![Create New file](./media/team-lead-tasks/new-file.png)
+     
+   - To upload files, select **Upload file(s)**. 
+     
+     ![Upload files](./media/team-lead-tasks/upload-files.png)
+     
+   - To edit existing files, navigate to the file and then select **Edit**. 
+     
+     ![Edit a file](./media/team-lead-tasks/edit-file.png)
+     
+1. After adding or editing files, select **Commit**.
+   
+   ![Commit changes](./media/team-lead-tasks/commit.png)
 
-## Add team members and configure permissions
+To work with repositories on your local machine or DSVM, you first copy or *clone* the repositories to your local machine, and then commit and push your changes up to the shared team repositories, 
 
-To add members to the team:
-
-1. In Azure DevOps, from the **MyTeam** project home page, select **Project settings** from the left navigation. 
-   
-1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **MyTeam Team**. 
-   
-   ![Configure Teams](./media/team-lead-tasks/teams.png)
-   
-1. On the **Team Profile** page, select **Add**.
-   
-   ![Add to MyTeam Team](./media/team-lead-tasks/add-to-team.png)
-   
-1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**. 
-   
-   ![Add users and groups](./media/team-lead-tasks/add-users.png)
-   
-
-To configure permissions for team members:
-
-1. From the **Project Settings** left navigation, select **Permissions**. 
-   
-1. On the **Permissions** page, select the group you want to add members to. 
-   
-1. On the page for that group, select **Members**, and then select **Add**. 
-   
-1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
-   
-   ![Grant permissions to members](./media/team-lead-tasks/grant-permissions.png)
-
-## Work on your local machine or DSVM
-
-To work with repositories locally, you first copy or *clone* the repositories to your local machine, and then commit and push your changes up to the shared team repositories, 
-
-### Clone repositories
+To clone repositories:
 
 1. On the **MyTeam** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
    
@@ -223,8 +209,6 @@ To work with repositories locally, you first copy or *clone* the repositories to
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
 
-### Commit and push changes
-
 After making whatever changes you want in the local clone of your repository, commit and push the changes to the shared team repositories. 
 
 Run the following Git Bash commands from your local **GitRepos\MyTeam\TeamTemplate** or **GitRepos\MyTeam\TeamUtilities** directory.
@@ -243,6 +227,37 @@ git push
 > `git config --global user.email \<your email address>`
 > 
 > If you're committing to several Git repositories, use the same name and email address for all of them. Using the same name and email address is convenient when building Power BI dashboards to track your Git activities in multiple repositories.
+
+## Add team members and configure permissions
+
+To add members to the team:
+
+1. In Azure DevOps, from the **MyTeam** project home page, select **Project settings** from the left navigation. 
+   
+1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **MyTeam Team**. 
+   
+   ![Configure Teams](./media/team-lead-tasks/teams.png)
+   
+1. On the **Team Profile** page, select **Add**.
+   
+   ![Add to MyTeam Team](./media/team-lead-tasks/add-to-team.png)
+   
+1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**. 
+   
+   ![Add users and groups](./media/team-lead-tasks/add-users.png)
+   
+
+To configure permissions for team members:
+
+1. From the **Project Settings** left navigation, select **Permissions**. 
+   
+1. On the **Permissions** page, select the group you want to add members to. 
+   
+1. On the page for that group, select **Members**, and then select **Add**. 
+   
+1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
+   
+   ![Grant permissions to members](./media/team-lead-tasks/grant-permissions.png)
 
 ## Create team data and analytics resources
 
