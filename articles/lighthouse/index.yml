@@ -40,7 +40,7 @@ landingContent:
           - text: Cloud Solution Provider program considerations
             url: ./concepts/cloud-solution-provider.md
           - text: Enterprise scenarios
-             url: ./concepts/enterprise.md
+            url: ./concepts/enterprise.md
 
   - title: Marketplace offers
     linkLists:
