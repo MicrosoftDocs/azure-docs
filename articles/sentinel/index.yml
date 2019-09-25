@@ -64,10 +64,20 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: How to enable multi-tenant support in Azure Sentinel
-            url: mssp
+            url: multiple-tenants-service-providers.md
   
-  # Card (optional)
-  - title: Detect and investigate threats
+ # Card (optional)
+  - title: Know what's happening in your environment
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Monitor your data
+            url: tutorial-monitor-your-data.md
+          - text: Investigate incidents
+            url: tutorial-investigate-cases.md
+            
+ # Card (optional)
+  - title: Detect threats
     linkLists:
       - linkListType: tutorial
         links:
@@ -75,8 +85,6 @@ landingContent:
             url: tutorial-detect-threats-built-in.md
           - text: Create custom detection rules
             url: tutorial-detect-threats-custom.md
-          - text: Investigate incidents
-            url: tutorial-investigate-cases.md
 
 # Card (optional)
   - title: Automate threat prevention
