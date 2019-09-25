@@ -22,7 +22,7 @@ If you haven't yet signed up for the preview and you'd like to start using incre
 
 ## Restrictions
 
-- Incremental snapshots are currently only available in West Central US
+- Incremental snapshots are currently only available in West Central US.
 - Incremental snapshots currently cannot be created after you've changed the size of a disk.
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
