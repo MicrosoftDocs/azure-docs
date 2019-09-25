@@ -49,12 +49,6 @@ conceptualContent:
         - text: Python
           itemType: tutorial
           url: /azure/data-factory/quickstart-create-data-factory-python
-        - text: Test your code
-          itemType: tutorial
-          url: /azure/data-factory/
-        - text: Access data locally or in the cloud
-          itemType: tutorial
-          url: /azure/data-factory/
     - title: Follow a tutorial
       links:
         - text: C#
