@@ -15,7 +15,7 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019
+ms.custom: mvc, seo-java-august2019, seo-java-september2019
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
 ---
 
@@ -132,7 +132,7 @@ mvn exec:java -D exec.mainClass=example.demo.App
 
 In the example below, you can see the `Message` key previously had a cached value, which was set using the Redis Console in the Azure portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-![Cache app completed](./media/cache-java-get-started/cache-app-complete.png)
+![Azure Cache for Redis app completed](./media/cache-java-get-started/azure-cache-redis-complete.png)
 
 ## Clean up resources
 
@@ -148,7 +148,7 @@ Otherwise, if you are finished with the quickstart sample application, you can d
 
 1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-   ![Delete](./media/cache-java-get-started/cache-delete-resource-group.png)
+   ![Azure resource group deleted](./media/cache-java-get-started/azure-cache-redis-delete-resource-group.png)
 
 1. You will be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
 
