@@ -1,9 +1,9 @@
 ---
-title: Upload a vhd to Azure using Azure Storage Explorer
-description: Learn how to upload a vhd to an Azure managed disk, using the Azure Storage Explorer.    
+title: Upload, download, and copy Azure managed disks with Azure Storage Explorer
+description: Learn how to upload, download, and migrate an Azure managed disk across regions and create a snapshot of a managed disk, using the Azure Storage Explorer.    
 author: roygara
 ms.author: rogarana
-ms.date: 09/20/2019
+ms.date: 09/25/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
