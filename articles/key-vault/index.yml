@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Key Vault Documentation
+title: Azure Key Vault documentation
 summary: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
 
 metadata:
-  title: Azure Key Vault Documentation
+  title: Azure Key Vault documentation
   description: Learn how to use Key Vault to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
   services: key-vault
   ms.service: key-vault
@@ -80,7 +80,7 @@ landingContent:
             url: storage-keys-sas-tokens-code.md
 
   # Card
-  - title: Key vault app integration
+  - title: Key Vault app integration
     linkLists:
       - linkListType: overview
         links:
@@ -88,6 +88,10 @@ landingContent:
             url: key-vault-developers-guide.md
           - text: Use managed identity to access Key Vault
             url: managed-identity.md
+      - linkListType: tutorial
+        links:
+          - text: Use Key Vault with an .NET Azure web app 
+            url: tutorial-net-create-vault-azure-web-app.md
       - linkListType: reference
         links:
           - text: Authentication, requests and responses
