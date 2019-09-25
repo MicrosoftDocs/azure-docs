@@ -132,6 +132,18 @@ az snapshot show -g <exampleResourceGroup> \
 --query [creationData.sourceUniqueId] -o tsv
 ```
 
+The following example uses jq for querying the data. If you want to run the example you must install it using the [installation option appropriate for your OS](https://stedolan.github.io/jq/download/). 
+
+```bash
+sourceUniqueId=$(az disk show -g SNAPSHOTBILLINGTEST -n isnapshot_data_disk1 --query '[uniqueId]' -o tsv)
+
+ 
+sourceResourceId=$(az disk show -g SNAPSHOTBILLINGTEST -n isnapshot_data_disk1 --query '[id]' -o tsv)
+
+az snapshot list -g SNAPSHOTBILLINGTEST -o json \
+| jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
+```
+
 ## Next steps
 
 If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
