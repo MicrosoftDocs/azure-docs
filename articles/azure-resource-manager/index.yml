@@ -13,7 +13,7 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 09/19/2019
+  ms.date: 09/25/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -78,9 +78,9 @@ landingContent:
             url: child-resource-name-type.md
           - text: Define outputs
             url: template-outputs.md
-          - text: CI/CD
-            url: vs-resource-groups-project-devops-pipelines.md
-
+      -linkListType: reference
+          - text: Azure Quickstart templates
+            url: /resources/templates/
   # Card
   - title: Deploy templates
     linkLists:
@@ -102,6 +102,8 @@ landingContent:
         links:
           - text: Export templates
             url: export-template-portal.md
+          - text: CI/CD
+            url: vs-resource-groups-project-devops-pipelines.md
 
   # Card
   - title: Manage resources
