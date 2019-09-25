@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Connect from macOS
 
-> Applies to macOS 10.12 or later.
+> Applies to: macOS 10.12 or later
 
 >[!NOTE]
 > The ability to access Windows Virtual Desktop resources from the macOS client is currently available in preview.
@@ -30,7 +30,7 @@ To subscribe to a feed:
 
 1. Select **Add Feed** on the main page to connect to the service and retrieve your resources.
 2. Enter the Feed URL. This can be a URL or email address:
-  - If you use a URL, use the one your admin gave you, normally https://rdweb.wvd.microsoft.com.
+  - If you use a URL, use the one your admin gave you. Normally, the URL is <https://rdweb.wvd.microsoft.com>.
   - To use email, enter your email address. This tells the client to search for a URL associated with your email address if your admin configured the server that way.
 3. Select **Subscribe**.
 4. Sign in with your user account when prompted.
