@@ -96,11 +96,14 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
    1. Select **Save**.
 
-Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. Be sure to copy your enrollment's **Primary Key** value to use when creating your device key.
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. Be sure to copy your enrollment's **Primary Key** value to use when installing the IoT Edge runtime, or if you're going to be creating device keys for use with a group enrollment.
 
 ## Derive a device key
 
-Your device uses the derived device key with your unique registration ID to perform symmetric key attestation with the enrollment during provisioning. To generate the device key, use the key you copied from your DPS enrollment to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
+> [!NOTE]
+> This section is required only if using a group enrollment.
+
+Each device uses its derived device key with your unique registration ID to perform symmetric key attestation with the enrollment during provisioning. To generate the device key, use the key you copied from your DPS enrollment to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the unique registration ID for the device and convert the result into Base64 format.
 
 Do not include your enrollment's primary or secondary key in your device code.
 
@@ -155,7 +158,10 @@ You'll need the following information when provisioning your device:
 
 * The DPS **ID Scope** value
 * The device **Registration ID** you created
-* The device's derived device key for symmetric key attestation
+* The **Primary Key** you copied from the DPS enrollment
+
+> [!TIP]
+> For group enrollments, you need each device's [derived key](#derive-a-device-key) rather than the DPS enrollment key.
 
 ### Linux device
 
