@@ -1,5 +1,5 @@
 ---
-title: Configure SSL connectivity in Azure Database for PostgreSQL - Hyperscale (Citus)
+title: Configure SSL in Azure Database for PostgreSQL - Hyperscale (Citus)
 description: Instructions and information to configure Azure Database for PostgreSQL - Hyperscale (Citus) and associated applications to properly use SSL connections.
 author: jonels-msft
 ms.author: jonels
@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/17/2019
 ---
-# Configure SSL connectivity in Azure Database for PostgreSQL - Hyperscale (Citus)
+# Configure SSL in Azure Database for PostgreSQL - Hyperscale (Citus)
 Client application connections to the Hyperscale (Citus) coordinator node require Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man-in-the-middle" attacks by encrypting the data stream between the server and your application.
 
 ## Enforcing SSL connections
