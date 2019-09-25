@@ -30,7 +30,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 
 ## Prerequisites to using codec compressed audio input for Ubuntu 18.04, 16.04 and Debian 9
 
-Handling compressed audio is implemented using [GStreamer](gstreamer.freedesktop.org). For licensing reason Gstreamer binaries are not compiled and linked with speech SDK. So application developer needs to install the following on 18.04, 16.04 and Debian 9 to use compressed input audio.
+Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reason Gstreamer binaries are not compiled and linked with speech SDK. So application developer needs to install the following on 18.04, 16.04 and Debian 9 to use compressed input audio.
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly

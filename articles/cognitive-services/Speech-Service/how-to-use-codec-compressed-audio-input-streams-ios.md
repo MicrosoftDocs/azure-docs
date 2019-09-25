@@ -29,7 +29,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 
 ## Prerequisites to using codec compressed audio input
 
-Handling compressed audio is implemented using [GStreamer](gstreamer.freedesktop.org).
+Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org).
 For licensing reasons, these functions can not be shipped with the SDK, but a wrapper library containing these functions needs to be built by application developers and shipped with the apps using the SDK.
 To build this wrapper library, first download and install the [GStreamer SDK](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg).
 Then, download the Xcode project for the wrapper library from https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper.
