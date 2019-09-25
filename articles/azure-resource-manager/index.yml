@@ -79,7 +79,7 @@ landingContent:
           - text: Define outputs
             url: template-outputs.md
 
-      -linkListType: reference
+      - linkListType: reference
         links:
           - text: Azure Quickstart templates
             url: /resources/templates/
