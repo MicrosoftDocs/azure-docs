@@ -4,7 +4,7 @@ description: Describes how to use Azure Resource Manager templates for deploymen
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
 
 ---
@@ -42,7 +42,7 @@ If you're trying to decide between using Resource Manager templates and one of t
 
 * **Deployment Blueprints**: You can take advantage of [Blueprints](../governance/blueprints/overview.md) provided by Microsoft to meet regulatory and compliance standards. These blueprints include pre-built templates for various architectures.
 
-* **CI\CD integration**: Azure DevOps provides developer services to support teams to plan work, collaborate on code development, and build and deploy applications. You can use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects. To learn more, see [VS project with pipelines](./vs-resource-groups-project-devops-pipelines.md) and [Continuous integration with Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+* **CI/CD integration**: You can integrate templates into your continuous integration and continuous deployment (CI/CD) tools, which can automate your release pipelines for fast and reliable application and infrastructure updates. By using Azure DevOps and Resource Manager template task, you can use Azure Pipelines to continuously build and deploy Azure Resource Manager template projects. To learn more, see [VS project with pipelines](./vs-resource-groups-project-devops-pipelines.md) and [Continuous integration with Azure Pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
 
 * **Exportable code**: You can get a template for an existing resource group by either exporting the current state of the resource group, or viewing the template used for a particular deployment. Viewing the [exported template](export-template-portal.md) is a helpful way to learn about the template syntax.
 
