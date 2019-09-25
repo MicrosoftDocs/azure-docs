@@ -22,14 +22,14 @@ productDirectory:
       links:
         - url: ./service/overview.md
           text: What is Azure Blockchain Service?
-        - url: https://docs.microsoft.com/azure/blockchain/service
+        - url: ./service/index.yml
           text: Documentation >
     - title: Azure Blockchain Workbench Preview
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
           text: What is Azure Blockchain Workbench?
-        - url: https://docs.microsoft.com/azure/blockchain/workbench
+        - url: ./workbench/index.yml
           text: Documentation >
 conceptualContent:
   title: Get started
@@ -80,7 +80,7 @@ additionalContent:
           url: https://marketplace.visualstudio.com/items?itemName=azblockchain.azure-blockchain
         - title: Ethereum Blockchain connector
           summary: Use Azure Logic Apps, Microsoft Flow, and Microsoft PowerApps to perform smart contract actions such as submitting transactions, reading contract state, and triggering flows on contract updates.
-          url: https://docs.microsoft.com/en-us/connectors/blockchainethereum/
+          url: https://docs.microsoft.com/connectors/blockchainethereum/
         - title: Code samples
           summary: GitHub repository with code samples to get you started.
           url: https://github.com/Azure-Samples/blockchain

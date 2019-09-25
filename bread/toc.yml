@@ -109,11 +109,11 @@
     tocHref: /azure/automation/
     topicHref: /azure/automation/
   - name: Blockchain
-    tocHref: /azure/blockchain
-    topicHref: /azure/blockchain
+    tocHref: /azure/blockchain/
+    topicHref: /azure/blockchain/
   - name: Blockchain Service
-    tocHref: /azure/blockchain/service
-    topicHref: /azure/blockchain/service
+    tocHref: /azure/blockchain/service/
+    topicHref: /azure/blockchain/service/index
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
