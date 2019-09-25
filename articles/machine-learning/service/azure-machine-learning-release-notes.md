@@ -24,7 +24,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **New features**
   + [Insert new features below. Reference articles and/or doc pages]
-    + Added the ONNX conversion support for the ADB and HDI
+    + [AutoML] Added the ONNX conversion support for the ADB and HDI
   + **Preview features**
     + [Contrib features below] 
     + [AutoML] Supported Bert and BiLSTM as text featurizer (preview only)
