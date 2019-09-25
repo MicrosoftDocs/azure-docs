@@ -30,7 +30,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 
 ## Prerequisites to using codec compressed audio input on Android
 
-Handling compressed audio is implemented using [GStreamer](gstreamer.freedesktop.org). For licensing reason Gstreamer binaries are not compiled and linked with speech SDK. So the application developer needs to use the prebuilt binaries for Android, which has all the core Gstreamer functionalities and all the avilable plugins. The prebuilt binaries can be downloaded from  [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). Using this documentation application developer needs to build libgstreamer_android.so. They need to make sure the following plugins are linked in the libgstreamer_android.so.  
+Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reason Gstreamer binaries are not compiled and linked with speech SDK. So the application developer needs to use the prebuilt binaries for Android, which has all the core Gstreamer functionalities and all the avilable plugins. The prebuilt binaries can be downloaded from  [Installing for Android Development](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c). Using this documentation application developer needs to build libgstreamer_android.so. They need to make sure the following plugins are linked in the libgstreamer_android.so.  
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
