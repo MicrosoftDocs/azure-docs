@@ -26,7 +26,7 @@ You can write and configure plug-ins for the Application Insights SDK to customi
 
 Before you start:
 
-* Install the appropriate SDK for you application. [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) or [Non Http/Worker for .NET](worker-service.md) or [Java](../../azure-monitor/app/java-get-started.md) in your app.
+* Install the appropriate SDK for you application. [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) or [Non HTTP/Worker for .NET/.NET Core](worker-service.md) or [Java](../../azure-monitor/app/java-get-started.md) in your app.
 
 <a name="filtering"></a>
 
@@ -50,39 +50,39 @@ To filter telemetry, you write a telemetry processor and register it with the `T
     Notice that Telemetry Processors construct a chain of processing. When you instantiate a telemetry processor, you are given a reference to the next processor in the chain. When a telemetry data point is passed to the Process method, it does its work and then calls (or not calls) the next Telemetry Processor in the chain.
 
 ```csharp
-using Microsoft.ApplicationInsights.Channel;
-using Microsoft.ApplicationInsights.Extensibility;
+    using Microsoft.ApplicationInsights.Channel;
+    using Microsoft.ApplicationInsights.Extensibility;
 
-public class SuccessfulDependencyFilter : ITelemetryProcessor
-{
-    private ITelemetryProcessor Next { get; set; }
-
-    // next will point to the next TelemetryProcessor in the chain.
-    public SuccessfulDependencyFilter(ITelemetryProcessor next)
+    public class SuccessfulDependencyFilter : ITelemetryProcessor
     {
-        this.Next = next;
+        private ITelemetryProcessor Next { get; set; }
+
+        // next will point to the next TelemetryProcessor in the chain.
+        public SuccessfulDependencyFilter(ITelemetryProcessor next)
+        {
+            this.Next = next;
+        }
+
+        public void Process(ITelemetry item)
+        {
+            // To filter out an item, return without calling the next processor.
+            if (!OKtoSend(item)) { return; }
+
+            this.Next.Process(item);
+        }
+
+        // Example: replace with your own criteria.
+        private bool OKtoSend (ITelemetry item)
+        {
+            var dependency = item as DependencyTelemetry;
+            if (dependency == null) return true;
+
+            return dependency.Success != true;
+        }
     }
-
-    public void Process(ITelemetry item)
-    {
-        // To filter out an item, return without calling the next processor.
-        if (!OKtoSend(item)) { return; }
-
-        this.Next.Process(item);
-    }
-
-    // Example: replace with your own criteria.
-    private bool OKtoSend (ITelemetry item)
-    {
-        var dependency = item as DependencyTelemetry;
-        if (dependency == null) return true;
-
-        return dependency.Success != true;
-    }
-}
 ```
 
-2. Add your processor
+2. Add your processor.
 
 **ASP.NET apps**
 Insert this snippet in ApplicationInsights.config:
