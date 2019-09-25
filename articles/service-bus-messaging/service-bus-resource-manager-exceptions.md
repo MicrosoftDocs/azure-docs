@@ -22,7 +22,10 @@ ms.author: aschhab
 
 This article lists exceptions generated when interacting with Azure Service Bus using Azure Resource Manager (ARM) - via templates or direct calls.
 
-## Exception Categories
+> [!IMPORTANT]
+> This document is frequently updated. Please check back for updates.
+
+Below are the various exceptions/errors that are surfaced through the Azure Resource Manager (ARM).
 
 ## Error: Bad Request
 
@@ -30,13 +33,14 @@ This article lists exceptions generated when interacting with Azure Service Bus 
 
 | Error code | Error sub-code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
-| Bad Request | 40000 | | TODO - these errors are caused due to operations done on the Basic tier. Add appropriate message | | 
+| Bad Request | 40000 | The property *'property name'* cannot be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier. | On Azure Service Bus Basic Tier, the below properties cannot be set or updated - <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> </ul> | Consider upgrading from Basic to Standard or Premium tier to leverage this functionality. |
 
 ## Error: Not found
 
 ## Error code: 400
 
 ## Error code: 429
+
 | Error code | Error sub-code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | 429 | 50004 | SubCode=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the concurrent receives requests count exceeding the limit. <br/>The request was terminated. | Wait for a few seconds and try again. <br/> <br/> Please learn more about the [quotas](service-bus-quotas) and [ARM request limits](../azure-resource-manager/resource-manager-request-limits)|
