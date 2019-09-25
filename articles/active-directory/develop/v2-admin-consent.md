@@ -87,3 +87,7 @@ Adding to the parameters seen in a successful response, error parameters are see
 | `state`			| A value included in the request that also will be returned in the token response. It can be a string of any content you want. The state is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view they were on.|
 | `admin_consent`	| Will be set to `True` to indicate that this response occurred on an admin consent flow.|
 
+## Next steps
+- See [how to convert an app to be multi-tenant](howto-convert-app-to-be-multi-tenant.md)
+- Learn how [consent is supported at the OAuth 2.0 protocol layer during the authorization code grant flow](active-directory-protocols-oauth-code.md#request-an-authorization-code).
+- Learn [how a multi-tenant application can use the consent framework](active-directory-devhowto-multi-tenant-overview.md) to implement "user" and "admin" consent, supporting more advanced multi-tier application patterns.
