@@ -48,7 +48,7 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. Select your subscription and the workspace you created.
 
-1. Select **Notebooks** on the left.
+1. Select **Notebooks and Files** on the left.
 
 1. Open the **samples** folder.
 
