@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Container Instances documentation # < 60 chars
-summary: Run containerized apps on-demand in a managed, serverless Azure environment.   # < 160 chars
+summary: Run Docker containers on-demand in a managed, serverless Azure environment. Azure Container Instances is a solution for any scenario that can operate in isolated containers, without orchestration. Run event-driven applications, quickly deploy from your container development pipelines, and run data processing and build jobs.   
 
 metadata:
   title: Azure Container Instances documentation - serverless containers, on demand # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: dlepow 
   ms.author: danlep 
-  ms.date: 09/17/2019
+  ms.date: 09/25/2019
 
 
 landingContent:
@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is Azure Container Instances?
             url: container-instances-overview.md
+          - text: Container groups
+            url: container-instances-container-groups.md
           - text: FAQ
             url: container-instances-faq.md  
   - title: Get started
@@ -46,20 +48,31 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Mount an Azure file share
-            url: container-instances-volume-azure-files.md 
           - text: Deploy image from Azure Container Registry
             url: container-instances-using-azure-container-registry.md
-          - text: Deploy in virtual network
-            url: container-instances-vnet.md
           - text: Use managed identity
             url: container-instances-managed-identity.md
-  - title: Manage container apps
+          - text: Mount an Azure file share
+            url: container-instances-volume-azure-files.md 
+  - title: Deployment scenarios
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Connect to a virtual network
+            url: container-instances-vnet.md
           - text: Configure restart policy
             url: container-instances-restart-policy.md
           - text: Set environment variables
             url: container-instances-environment-variables.md
+  - title: Manage container apps
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Stop and start containers
+            url: container-instances-container-instances-stop-start.md
+          - text: Update running containers
+            url: container-instances-updates.md
+          - text: Share data between containers
+            url: container-instances-volume-emptydir.md
+
                   
