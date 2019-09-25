@@ -87,6 +87,7 @@ Get-RdsTenant
 When you find the tenant name for the tenant you want to create a role assignment for, use that name in the following cmdlet:
 
 ```powershell
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 

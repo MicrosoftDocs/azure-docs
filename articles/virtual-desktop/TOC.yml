@@ -28,6 +28,10 @@
         href: connect-windows-7-and-10.md
       - name: Connect from a web browser
         href: connect-web.md
+      - name: Connect with the macOS client
+        href: connect-macos.md
+      - name: Connect with the iOS client
+        href: connect-ios.md
   - name: Create a host pool with an Azure Resource Manager template
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell
@@ -43,8 +47,8 @@
   - name: Prepare and customize a master VHD image
     href: set-up-customize-master-image.md
   - name: Install Office on a master VHD image
-    href: install-office-on-wvd-master-image.md  
-  - name: Configure GPU for Windows Virtual Desktop 
+    href: install-office-on-wvd-master-image.md
+  - name: Configure GPU for Windows Virtual Desktop
     href: configure-vm-gpu.md
   - name: Automatically scale session hosts
     href: set-up-scaling-script.md
@@ -72,15 +76,15 @@
   items:
   - name: Troubleshooting overview, feedback, and support
     href: troubleshoot-set-up-overview.md
-  - name: Identify issues with the diagnostics feature 
-    href: diagnostics-role-service.md   
+  - name: Identify issues with the diagnostics feature
+    href: diagnostics-role-service.md
   - name: Tenant and host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
   - name: Remote Desktop client connections
     href: troubleshoot-client-connection.md
-  - name: Windows Virtual Desktop PowerShell 
+  - name: Windows Virtual Desktop PowerShell
     href: troubleshoot-powershell.md
   - name: Diagnosing graphics performance issues
     href: remotefx-graphics-performance-counters.md
@@ -92,7 +96,7 @@
     href: /rest/api/virtual-desktop/
 - name: Resources
   items:
-  - name: Tech Community support group 
+  - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
-  - name: UserVoice forum 
+  - name: UserVoice forum
     href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general

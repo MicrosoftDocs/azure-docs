@@ -19,7 +19,7 @@ ms.author: pabutler
 Use the following steps to develop your Dynamics 365 for Finance and Operations
 app and publish it to AppSource:
 
-1. As a prerequisite, you must become [Dev Center Certified](https://dev.windows.com/en-us/registration?accountProgram=Azure).
+1. As a prerequisite, you must become [Dev Center Certified](https://dev.windows.com/registration?accountProgram=Azure).
 2. Upgrade your code.
 3. Build, package, and deploy your data using [Lifecycle Services](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs) (LCS).
 4. Create an implementation methodology in LCS.

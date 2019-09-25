@@ -4,7 +4,7 @@ description: Describes the structure and properties of Azure Resource Manager te
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
 ---
 
@@ -79,6 +79,8 @@ The available properties for a parameter are:
 | maxLength |No |The maximum length for string, secure string, and array type parameters, this value is inclusive. |
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
+For examples of how to use parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).
+
 ## Variables
 
 In the variables section, you construct values that can be used throughout your template. You don't need to define variables, but they often simplify your template by reducing complex expressions.
@@ -111,6 +113,8 @@ The following example shows the available options for defining a variable:
 ```
 
 For information about using `copy` to create several values for a variable, see [Variable iteration](resource-group-create-multiple.md#variable-iteration).
+
+For examples of how to use variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
 ## Functions
 
@@ -154,6 +158,8 @@ When defining a user function, there are some restrictions:
 | parameter-value |No |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
 | output-type |Yes |Type of the output value. Output values support the same types as function input parameters. |
 | output-value |Yes |Template language expression that is evaluated and returned from the function. |
+
+For examples of how to use custom functions, see [User-defined functions in Azure Resource Manager template](template-user-defined-functions.md).
 
 ## Resources
 
@@ -254,6 +260,8 @@ The following example shows the structure of an output definition:
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](resource-manager-keyvault-parameter.md). |
 | value |Yes |Template language expression that is evaluated and returned as output value. |
+
+For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
 <a id="comments" />
 
