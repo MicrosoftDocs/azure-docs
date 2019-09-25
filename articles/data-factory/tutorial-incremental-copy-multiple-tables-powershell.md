@@ -288,7 +288,6 @@ In this step, you link your on-premises SQL Server database to the data factory.
 	```json
     {  
         "name":"SqlServerLinkedService",
-        "type":"Microsoft.DataFactory/factories/linkedservices",
         "properties":{  
             "annotations":[  
     
@@ -309,7 +308,6 @@ In this step, you link your on-premises SQL Server database to the data factory.
     ```json
     {  
         "name":"SqlServerLinkedService",
-        "type":"Microsoft.DataFactory/factories/linkedservices",
         "properties":{  
             "annotations":[  
     
@@ -363,7 +361,6 @@ In this step, you link your on-premises SQL Server database to the data factory.
     ```json
     {  
         "name":"AzureSQLDatabaseLinkedService",
-        "type":"Microsoft.DataFactory/factories/linkedservices",
         "properties":{  
             "annotations":[  
     
