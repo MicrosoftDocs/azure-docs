@@ -66,7 +66,7 @@ landingContent:
           - text: How to enable multi-tenant support in Azure Sentinel
   
   # Card (optional)
-  - title: Detect threats
+  - title: Detect and investigate threats
     linkLists:
       - linkListType: tutorial
         links:
@@ -74,4 +74,24 @@ landingContent:
             url: tutorial-detect-threats-built-in.md
           - text: Create custom detection rules
             url: tutorial-detect-threats-custom.md
-          
+          - text: Investigate incidents
+            url: tutorial-investigate-cases.md
+
+# Card (optional)
+  - title: Automate threat prevention
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Respond automatically to threats
+            url: tutorial-respond-threats-playbooks.md
+          - text: Use Jupyter Notebooks to hunt for security threats
+            url: notebooks.md
+# Card (optional)
+  - title: Be proactive about threat detection
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Connect threat intelligence
+            url: connect-threat-intelligence.md
+          - text: Hunt for threats
+            url: hunting.md
