@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: ekpgh
   ms.author: v-erkell
-  ms.date: 08/30/2019
+  ms.date: 09/24/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -36,13 +36,15 @@ landingContent:
           - text: Create the cache 
             url: hpc-cache-create.md
           - text: Add storage  # where to put the ingest articles? collapsible heading??
-            url: hpc-cache-add-storage.md    
+            url: hpc-cache-add-storage.md
           - text: Mount clients
             url: hpc-cache-mount.md
       - linkListType: concept
         links:
           - text: Plan the aggregated namespace
             url: hpc-cache-namespace.md
+          - text: Move data to storage targets (if needed)
+            url: hpc-cache-ingest.md
 
   # Card
   - title: Troubleshoot 
