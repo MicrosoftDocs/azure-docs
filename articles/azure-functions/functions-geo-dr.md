@@ -59,4 +59,4 @@ Read more on information and considerations for failover with [service bus](../s
 ## Next Steps
 
 * [Create Azure Front Door](../frontdoor/quickstart-create-front-door.md)
-* [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr#considerations.md)
+* [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr.md#considerations)
