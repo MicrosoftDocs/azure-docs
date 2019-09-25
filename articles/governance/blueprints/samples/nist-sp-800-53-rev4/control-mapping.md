@@ -55,7 +55,7 @@ definitions to audit use of Azure Active Directory authentication for SQL Server
 Fabric. Using Azure Active Directory authentication enables simplified permission management and
 centralized identity management of database users and other Microsoft services. Additionally, this 
 blueprint assigns an Azure Policy definition to audit the use of custom RBAC rules. Understanding 
-where custom RBAC rules are implement can help you verify need and proper implementation, as custom 
+where custom RBAC rules are implemented can help you verify need and proper implementation, as custom 
 RBAC rules are error prone.
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
