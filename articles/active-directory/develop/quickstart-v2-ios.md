@@ -89,10 +89,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` and `kAuthority` with the client ID and tenant ID that you saved when you registered your app in the portal earlier in the quickstart:
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the client ID that you saved when you registered your app in the portal earlier in the quickstart:
 >    ```swift
->    let kClientID = "Enter_the_Application_Id_here"
->    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+>    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
@@ -116,10 +115,9 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 > [!div renderon="docs"]
 >
 > 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` and `kAuthority` with the clientID and tenant ID that you saved when you registered your app in the portal earlier in this quickstart:
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` with the clientID that you saved when you registered your app in the portal earlier in this quickstart:
 >    ```swift
->    let kClientID = "Enter_the_Application_Id_here"
->    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+>    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
@@ -181,7 +179,6 @@ let authority = try MSALAADAuthority(url: URL(string: kAuthority)!)
             
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
-
 ```
 
 > |Where: ||
