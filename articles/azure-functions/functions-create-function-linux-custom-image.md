@@ -64,15 +64,6 @@ When prompted, choose a worker runtime from the following languages:
 * `node`: creates a JavaScript project.
 * `python`: creates a Python project.  
 
-When the command executes, you see something like the following output:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Writing Dockerfile
-```
-
 Use the following command to navigate to the new `MyFunctionProj` project folder.
 
 ```bash
@@ -98,38 +89,16 @@ COPY . /home/site/wwwroot
 > The complete list of supported base images for Azure Functions can be found in the [Azure Functions base image page](https://hub.docker.com/_/microsoft-azure-functions-base).
 
 ### Run the `build` command
+
 In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command, and provide a name, `mydockerimage`, and tag, `v1.0.0`. Replace `<docker-id>` with your Docker Hub account ID. This command builds the Docker image for the container.
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-When the command executes, you see something like the following output, which in this case is for a JavaScript worker runtime:
+When the command completes, you can run the new container locally.
 
-```bash
-Sending build context to Docker daemon  17.41kB
-Step 1/3 : FROM mcr.microsoft.com/azure-functions/node:2.0
-2.0: Pulling from azure-functions/node
-802b00ed6f79: Pull complete
-44580ea7a636: Pull complete
-73eebe8d57f9: Pull complete
-3d82a67477c2: Pull complete
-8bd51cd50290: Pull complete
-7bd755353966: Pull complete
-Digest: sha256:480e969821e9befe7c61dda353f63298f2c4b109e13032df5518e92540ea1d08
-Status: Downloaded newer image for mcr.microsoft.com/azure-functions/node:2.0
- ---> 7c71671b838f
-Step 2/3 : ENV AzureWebJobsScriptRoot=/home/site/wwwroot
- ---> Running in ed1e5809f0b7
-Removing intermediate container ed1e5809f0b7
- ---> 39d9c341368a
-Step 3/3 : COPY . /home/site/wwwroot
- ---> 5e196215935a
-Successfully built 5e196215935a
-Successfully tagged <docker-id>/mydockerimage:v1.0.0
-```
-
-### Test the image locally
+### Run the image locally
 Verify that the image you built works by running the Docker image in a local container. Issue the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command and pass the name and tag of the image to it. Be sure to specify the port using the `-p` argument.
 
 ```bash
@@ -138,7 +107,7 @@ docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
 
 With the custom image running in a local Docker container, verify the function app and container are functioning correctly by browsing to <http://localhost:8080>.
 
-![Test the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+![Run the function app locally.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
 > [!NOTE]
 > At this point, when you try to call your specific HTTP function, you get an HTTP 401 error response. This is because your function runs in the local container as it would in Azure, which means that the function key is required. Because the container hasn't yet been published to a function app, there is no function key available. You'll see later that when you use Core Tools to publish your container, the function keys are shown to you. If you want to test your function running in the local container, you can change the [authorization key](functions-bindings-http-webhook.md#authorization-keys) to `anonymous`. 
@@ -161,19 +130,7 @@ A "login succeeded" message confirms that you're logged in. After you have signe
 docker push <docker-id>/mydockerimage:v1.0.0
 ```
 
-Verify that the push succeeded by examining the command's output.
-
-```bash
-The push refers to a repository [docker.io/<docker-id>/mydockerimage:v1.0.0]
-24d81eb139bf: Pushed
-fd9e998161c9: Mounted from <docker-id>/mydockerimage
-e7796c35add2: Mounted from <docker-id>/mydockerimage
-ae9a05b85848: Mounted from <docker-id>/mydockerimage
-45c86e20670d: Mounted from <docker-id>/mydockerimage
-v1.0.0: digest: sha256:be080d80770df71234eb893fbe4d... size: 1796
-```
-
-Now, you can use this image as the deployment source for a new function app in Azure.
+After the push succeeds, you can use the image as the deployment source for a new function app in Azure.
 
 [!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
 
@@ -190,7 +147,7 @@ az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan
 --location WestUS --number-of-workers 1 --sku EP1 --is-linux
 ```
 
-## Create and deploy the custom image
+## Create a function app from the custom image
 
 The function app manages the execution of your functions in your hosting plan. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
@@ -227,9 +184,33 @@ AzureWebJobsStorage=$storageConnectionString
 >
 > You will have to stop and then start your function app for these values to be picked up
 
-You can now test your functions running on Linux in Azure.
+## Verify your function
 
-[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+<!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
+
+The HTTP-triggered function you just created requires a [function key](functions-bindings-http-webhook.md#authorization-keys) when calling the endpoint. At this time, the easiest way to get your function URL, including the key, is from the [Azure portal]. 
+
+> [!TIP]
+> You can also obtain your function keys by using the [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), which requires you to present a [bearer token for authentication](/cli/azure/account#az-account-get-access-token).
+
+1. To find your function app in the [Azure portal], type your function app name in the **Search** box at the top of the page and select the **App Service** resource. 
+
+1. Select the **MyHttpTrigger** function, select **</> Get function URL** > **default (Function key)** > **Copy**. 
+
+    ![Copy the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
+
+    In this URL, the function key is the `code` query parameter. 
+
+    > [!NOTE]  
+    > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in local container and republish it to Azure.
+
+2. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
+
+    The following example shows the response in the browser:
+
+    ![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
+
+    The request URL includes a key that is required, by default, to access your function over HTTP. 
 
 ## Enable continuous deployment
 
@@ -245,178 +226,128 @@ This command returns the deployment webhook URL after continuous deployment is e
 
 Copy the deployment URL and browse to your DockerHub repo, choose the **Webhooks** tab, type a **Webhook name** for the webhook, paste your URL in **Webhook URL**, and then choose the plus sign (**+**).
 
-![Add the webhook in your DockerHub repo](media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+![Add the webhook in your DockerHub repo](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
 With the webhook set, any updates to the linked image in DockerHub result in the function app downloading and installing the latest image.
 
 ## Enable SSH connections
 
-SSH enables secure communication between a container and a client. With SSH enables, you can connect to your container using Advanced Tools (Kudu). To enable SSH connection to your container, you must configure SSH in your custom image. 
+SSH enables secure communication between a container and a client. With SSH enabled, you can connect to your container using App Service Advanced Tools (Kudu). To make it easy to connect to your container using SSH, Functions provide a base image that has SSH already enabled. 
 
-### Add a SSH config file to the project
+### Change the base image
 
-In the root of your project, create a file named `sshd_config` that contains the following code:
+In your dockerfile, append the string `-appservice` to the base image in your `FROM` instruction, which for a JavaScript project looks like the following.
 
-```
-#
-# /etc/ssh/sshd_config
-#
-
-Port 			2222
-ListenAddress 		0.0.0.0
-LoginGraceTime 		180
-X11Forwarding 		yes
-Ciphers                 aes128-cbc,3des-cbc,aes256-cbc
-MACs                    hmac-sha1,hmac-sha1-96
-StrictModes 		yes
-SyslogFacility 		DAEMON
-PrintMotd 		no
-IgnoreRhosts 		no
-#deprecated option 
-#RhostsAuthentication 	no
-RhostsRSAAuthentication yes
-RSAAuthentication 	no 
-PasswordAuthentication 	yes
-PermitEmptyPasswords 	no
-PermitRootLogin 	yes
+```docker
+FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
 ```
 
-### Update the dockerfile 
+The differences in the two base images enable SSH connections into your container. These differences are detailed in [this App Services tutorial](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections).
 
-Add the following code at the end of the dockerfile:
+### Rebuild the image
 
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, as before, replace `<docker-id>` with your Docker Hub account ID. 
+
+```bash
+docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
+### Push the updated image
+
+Push the updated image back to Dockerhub.
+
+```bash
+docker push <docker-id>/mydockerimage:v1.0.0
 ```
+
+The updated image is redeployed to your function app.
+
+### Connect to your container in Azure
+
+In the browser, navigate to the following Advanced Tools (Kudu) `scm.` endpoint for your function app container, replacing `<app_name>` with the name of your function app.
+
+```
+https://<app_name>.scm.azurewebsites.net/
+```
+
+Sign in to your Azure account, and then select the **SSH** tab to create an SSH connection into your container.
+
+After the connection is established, run the `top` command to view the currently running processes. 
+
+![Linux top command running in an SSH session.](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
 ## Add a Storage binding
 
-### Download the function app settings
+Functions lets you connect Azure services and other resources to functions without having to write your own integration code. These *bindings*, which represent both input and output, are declared within the function definition. Data from bindings is provided to the function as parameters. A *trigger* is a special type of input binding. Although a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-In the previous quickstart article, you created a function app in Azure along with the required Storage account. The connection string for this account is stored securely in app settings in Azure. In this article, you write messages to a Storage queue in the same account. To connect to your Storage account when running the function locally, you must download app settings to the local.settings.json file. Run the following the Azure Functions Core Tools command to download settings to local.settings.json, replacing `<APP_NAME>` with the name of your function app from the previous article:
+This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
-```bash
-func azure functionapp fetch-app-settings <APP_NAME>
-```
+### Enable extension bundles
 
-You may be required to sign in to your Azure account.
+Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
 
-> [!IMPORTANT]  
-> Because it contains secrets, the local.settings.json file never gets published, and it should be excluded from source control.
-
-You need the value `AzureWebJobsStorage`, which is the Storage account connection string. You use this connection to verify that the output binding works as expected.
-
-## Enable extension bundles
+#### JavaScript/Python
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-Now, you can add a the Storage output binding to your project.
+#### C# class library
 
-## Add an output binding
-
-In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. Depending on the binding type, additional properties may be required. The [queue output configuration](functions-bindings-storage-queue.md#output---configuration) describes the fields required for an Azure Storage queue binding.
-
-To create a binding, you add a binding configuration object to the `function.json` file. Edit the function.json file in your HttpTrigger folder to add an object to the `bindings` array that has the following properties:
-
-| Property | Value | Description |
-| -------- | ----- | ----------- |
-| **`name`** | `msg` | Name that identifies the binding parameter referenced in your code. |
-| **`type`** | `queue` | The binding is an Azure Storage queue binding. |
-| **`direction`** | `out` | The binding is an output binding. |
-| **`queueName`** | `outqueue` | The name of the queue that the binding writes to. When the *queueName* doesn't exist, the binding creates it on first use. |
-| **`connection`** | `AzureWebJobsStorage` | The name of an app setting that contains the connection string for the Storage account. The `AzureWebJobsStorage` setting contains the connection string for the Storage account you created with the function app. |
-
-Your function.json file should now look like the following example:
-
-```json
-{
-  "scriptFile": "__init__.py",
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-  {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
-
-## Add code that uses the output binding
-
-Once it's configured, you can start using the `name` of the binding to access it as a method attribute in the function signature. In the following example, `msg` is an instance of the [`azure.functions.InputStream class`](/python/api/azure-functions/azure.functions.httprequest).
-
-```python
-import logging
-
-import azure.functions as func
-
-
-def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
-
-    name = req.params.get('name')
-    if not name:
-        try:
-            req_body = req.get_json()
-        except ValueError:
-            pass
-        else:
-            name = req_body.get('name')
-
-    if name:
-        msg.set(name)
-        return func.HttpResponse(f"Hello {name}!")
-    else:
-        return func.HttpResponse(
-            "Please pass a name on the query string or in the request body",
-            status_code=400
-        )
-```
-
-By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
-
-## Run the function locally
-
-As before, use the following command to start the Functions runtime locally:
+With the exception of HTTP and timer triggers, bindings are implemented as extension packages. Run the following [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to add the Storage extension package to your project.
 
 ```bash
-func host start
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-> [!NOTE]  
-> Because the previous article had you enable extension bundles in the host.json, the [Storage binding extension](functions-bindings-storage-blob.md#packages---functions-2x) was downloaded and installed for you during startup, along with the other Microsoft binding extensions.
+> [!TIP]
+> When using Visual Studio, you can also use the NuGet package manager to add this package.
 
-Copy the URL of your `HttpTrigger` function from the runtime output and paste it into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. You should see the same response in the browser as you did in the previous article.
+Now, you can add a the Storage output binding to your project.
 
-This time, the output binding also creates a queue named `outqueue` in your Storage account and adds a message with this same string.
+### Add an output binding
 
-Next, you use the Azure CLI to view the new queue and verify that a message was added. You can also view your queue using the [Microsoft Azure Storage Explorer][Azure Storage Explorer] or in the [Azure portal](https://portal.azure.com).
+In Functions, each type of binding requires a `direction`, `type`, and a unique `name` to be defined in the function.json file. The way you define these attributes depends on the language of your function app.
 
-### Set the Storage account connection
+####  JavaScript/Python
 
-Open the local.settings.json file and copy the value of `AzureWebJobsStorage`, which is the Storage account connection string. Set the `AZURE_STORAGE_CONNECTION_STRING` environment variable to the connection string using the following Bash command:
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
-```azurecli-interactive
-export AZURE_STORAGE_CONNECTION_STRING=<STORAGE_CONNECTION_STRING>
+#### C# class library
+
+[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+### Add code that uses the output binding
+
+After the binding is defined, you can use the `name` of the binding to access it as an attribute in the function signature. By using an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
+
+#### JavaScript
+
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
+
+#### Python
+
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+
+#### C# class library
+
+[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+### Update the hosted container
+
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, and this time update the version in the tag to `v1.0.2`. Aas before, replace `<docker-id>` with your Docker Hub account ID. 
+
+```bash
+docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 ```
 
-With the connection string set in the `AZURE_STORAGE_CONNECTION_STRING` environment variable, you can access your Storage account without having to provide authentication each time.
+Push the updated image back to the repository.
+
+```bash
+docker push <docker-id>/mydockerimage:v1.0.0
+```
+
+### Verify the updates in Azure
+
+Use the same URL as before from the browser to trigger your function. You should see the same response. However, this time the string that you pass as the `name` parameter is written to the `outqueue` storage queue.
 
 ### Query the Storage queue
 
@@ -439,48 +370,14 @@ The string returned should be the same as the message you sent to test the funct
 > [!NOTE]  
 > The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](functions-bindings-storage-queue.md#encoding).
 
-Now, it's time to republish the updated function app to Azure.
-
-## Rebuild and republish the updated image
-
-<!-- Steps to rebuild the docker image with the file changes and publish again to DockerHub-->
-
-Again, you can use cURL or a browser to test the deployed function. As before append the query string `&name=<yourname>` to the URL, as in the following example:
-
-```bash
-curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
-```
-
-You can [Examine the Storage queue message](#query-the-storage-queue) to verify that the output binding again generates a new message in the queue.
-
-## Enable Application Insights
-
-The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app by using the Azure CLI, the integration in your function app in Azure isn't done.
-
-To enable Application Insights for your function app:
-
-[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
-
-To learn more, see [Monitor Azure Functions](functions-monitoring.md).
-
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 ## Next steps
 
-In this tutorial, you learned how to:
+Now that you have successfully deployed your container to a function app in Azure, consider reading more about the following:
 
-> [!div class="checklist"]
-> * Create a function app and Dockerfile using Core Tools.
-> * Build a custom image using Docker.
-> * Publish a custom image to a container registry.
-> * Create an Azure Storage account.
-> * Create a Linux Premium plan.
-> * Deploy a function app from Docker Hub.
-> * Add application settings to the function app.
-> * Enable continuous deployment.
-> * Add Application Insights monitoring.
++ [Monitoring functions](functions-monitoring.md)
++ [Scale and hosting options](functions-scale.md)
++ [Kubernetes-based serverless hosting](functions-kubernetes-keda.md)
 
-Learn how to enable continuous integration functionality built into the core App Service platform. You can configure your function app so that the container is redeployed when you update your image in Docker Hub.
-
-> [!div class="nextstepaction"] 
-> [Learn more about options for deploying functions to Azure](functions-deployment-technologies.md)
+[Azure portal]: https://portal.azure.com
