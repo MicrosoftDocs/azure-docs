@@ -60,7 +60,7 @@ To grant admin consent when registering an app:
 To grant admin consent through a URL request:
 
 1. Construct a request to *login.microsoftonline.com* with your app configurations and append on `&prompt=admin_consent`. 
-This URL will look like : 
+This URL will look like: 
 `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`
 2. After signing in with admin credentials, the app has been granted consent for all users.
 
