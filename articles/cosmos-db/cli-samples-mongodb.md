@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Samples for Azure Cosmos DB MongoDB API
-description: Azure CLI Samples for Azure Cosmos DB MongoDB API
+title: Azure CLI samples for Azure Cosmos DB MongoDB API
+description: Azure CLI samples for Azure Cosmos DB MongoDB API
 author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo

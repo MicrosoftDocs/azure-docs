@@ -1,6 +1,6 @@
 ---
-title: Work with account keys and connection strings for an Azure Cosmos Account
-description: Work with account keys and connection strings for an Azure Cosmos Account
+title: Work with account keys and connection strings for an Azure Cosmos account
+description: Work with account keys and connection strings for an Azure Cosmos account
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 9/25/2019
 ---
 
-# Work with account keys and connection strings for an Azure Cosmos Account using Azure CLI
+# Work with account keys and connection strings for an Azure Cosmos account using Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

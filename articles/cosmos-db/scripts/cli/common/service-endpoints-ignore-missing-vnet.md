@@ -1,6 +1,6 @@
 ---
-title: Connect an existing Azure Cosmos Account with Virtual Network Service Endpoints
-description: Connect an existing Azure Cosmos Account with Virtual Network Service Endpoints
+title: Connect an existing Azure Cosmos account with virtual network service endpoints
+description: Connect an existing Azure Cosmos account with virtual network service endpoints
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 9/25/2019
 ---
 
-# Connect an existing Azure Cosmos Account with Virtual Network Service Endpoints using Azure CLI
+# Connect an existing Azure Cosmos account with virtual network service endpoints using Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 

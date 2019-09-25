@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Cosmos Account with Virtual Network Service Endpoints
-description: Create an Azure Cosmos Account with Virtual Network Service Endpoints
+title: Create an Azure Cosmos account with virtual network service endpoints
+description: Create an Azure Cosmos account with virtual network service endpoints
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -9,7 +9,7 @@ ms.topic: sample
 ms.date: 9/25/2019
 ---
 
-# Create an Azure Cosmos Account with VNet Service Endpoints using Azure CLI
+# Create an Azure Cosmos account with virtual network service endpoints using Azure CLI
 
 [!INCLUDE [cloud-shell-try-it.md](../../../../../includes/cloud-shell-try-it.md)]
 
