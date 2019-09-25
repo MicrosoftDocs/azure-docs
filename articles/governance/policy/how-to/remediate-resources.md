@@ -18,7 +18,7 @@ with Azure Policy.
 
 ## How remediation security works
 
-When Azure Policy runs the template in the **deployIfNotExists** policy definition, it does so using
+When Azure Policy runs the template in the **deployIfNotExists** or **modify** policy definition, it does so using
 a [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md).
 Azure Policy creates a managed identity for each assignment, but must have details about what roles
 to grant the managed identity. If the managed identity is missing roles, this error is displayed
