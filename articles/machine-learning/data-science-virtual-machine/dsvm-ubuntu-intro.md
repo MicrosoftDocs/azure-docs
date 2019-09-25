@@ -31,7 +31,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 
 1. On the subsequent window, select **Create**.
 
-    ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/create-linux.png)
+   [![](media/dsvm-ubuntu-intro/create-linux.png "Button to create an Ubuntu machine")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    

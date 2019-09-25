@@ -95,7 +95,8 @@ Select the option that's suitable to your development environment:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -168,7 +169,8 @@ The quickstart code also shows how to initialize the MSAL library:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -181,8 +183,9 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 > |Where  |  |
 > |---------|---------|
-> |`ClientId`     | The application ID of the application that's registered in the Azure portal.|
+> |`clientId`     | The application ID of the application that's registered in the Azure portal.|
 > |`authority`    | (Optional) The authority URL that supports account types, as described previously in the configuration section. The default authority is `https://login.microsoftonline.com/common`. |
+> |`redirectURI`     | The application registration's configured reply/redirect URI. In this case, `http://localhost:30662/`. |
 > |`cacheLocation`  | (Optional) Sets the browser storage for the auth state. The default is sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Optional) The library that stores the authentication request state that's required for validation of the authentication flows in the browser cookies. This cookie is set for IE and Edge browsers to mitigate certain [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
