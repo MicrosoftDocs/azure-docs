@@ -51,6 +51,9 @@ In the case of ASP.NET Core, you'll subscribe to middleware OIDC events. The pri
 
 Code snippets in this article and the following are extracted from the [ASP.NET Core Web app incremental tutorial, chapter 2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph). You might want to refer to this tutorial for full implementation details.
 
+> [!NOTE]
+> To understand fully the code snippets below, you need to be familiar with [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals), and in particular [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) and [options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)
+
 # [ASP.NET](#tab/aspnet)
 
 Given that letting a user sign in is delegated to the Open ID connect (OIDC) middleware, you want to hook-up in the OIDC process. The way to do that is different depending on the framework you use.
@@ -61,9 +64,6 @@ In the case of ASP.NET, you'll subscribe to middleware OIDC events. The principl
 - When the auth code is received, you'll use MSAL libraries to redeem the code. The resulting access tokens and refresh tokens are, then, stored in the token cache. From there, the cache can be used in other parts of the application, for instance in controllers, to acquire other tokens silently.
 
 Code snippets in this article and the following are extracted from the [ASP.NET Web app sample](https://github.com/Azure-Samples/ms-identity-aspnet-webapp-openidconnect). You might want to refer to this sample for full implementation details.
-
-> [!NOTE]
-> To understand fully the code snippets below, you need to be familiar with [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals), and in particular [dependency injection](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection) and [options](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options)
 
 # [Java](#tab/java)
 
@@ -480,8 +480,8 @@ Using client assertions is an advanced scenario, detailed in [Client assertions]
 ## Token cache
 
 > [!IMPORTANT]
-> In web apps (or web APIs as a matter of fact), the token cache implementation is different from the Desktop applications token cache implementations (which are often [file based](scenario-desktop-acquire-token.md#file-based-token-cache).
-> It's important to realize is that for web Apps and web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
+> In web apps (or web APIs as a matter of fact), the token cache implementation is different from the Desktop applications token cache implementations (which are often [file based](scenario-desktop-acquire-token.md#file-based-token-cache)).
+> It's important, for security and performance reasons, to ensure is that for web Apps and web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -587,7 +587,7 @@ app = Flask(__name__)
 app.config.from_object(app_config)
 Session(app)
 
-# Code omitted here
+# Code omitted here for simplicity
 
 def _load_cache():
     cache = msal.SerializableTokenCache()
