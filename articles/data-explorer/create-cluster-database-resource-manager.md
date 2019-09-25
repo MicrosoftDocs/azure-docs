@@ -87,17 +87,18 @@ To deploy the template:
 
 1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
 
-   ```azurepowershell-interactive
-   $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-   $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-   $resourceGroupName = "${projectName}rg"
-   $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json"
-
-   New-AzResourceGroup -Name $resourceGroupName -Location $location
-   New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -projectName $projectName
-
-   Write-Host "Press [ENTER] to continue ..."
-   ```
+    ```azurepowershell-interactive
+    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
+    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+    $resourceGroupName = "${projectName}rg"
+    $clusterName = "${projectName}cluster"
+    $parameters = @{}
+    $parameters.Add(“clusters_kustocluster_name”, $clusterName)
+    $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json"
+    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -TemplateParameterObject $parameters
+    Write-Host "Press [ENTER] to continue ..."
+    ```
 
    It takes a few moments to create an Azure Data Explorer cluster and database
 
@@ -110,11 +111,12 @@ To verify the deployment, you can either open the resource group from the [Azure
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
+
+Install-Module -Name Az.Kusto
 $resourceGroupName = "${projectName}rg"
-$namespaceName = "${projectName}ns"
+$clusterName = "${projectName}cluster"
 
-Get-AzEventHub -ResourceGroupName $resourceGroupName -Namespace $namespaceName
-
+Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
