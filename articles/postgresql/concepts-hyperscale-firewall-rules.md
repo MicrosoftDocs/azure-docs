@@ -23,19 +23,19 @@ Connection attempts from the Internet and Azure must first pass through the fire
 
 A Hyperscale (Citus) server group firewall controls who can connect to the group's coordinator node. The firewall determines access by consulting a configurable list of rules. Each rule is an IP address, or range of addresses, that are allowed in.
 
-Note that when the firewall blocks connections, it can cause application errors. Using the PostgreSQL JDBC driver, for instance, raises an error like this:
+When the firewall blocks connections, it can cause application errors. Using the PostgreSQL JDBC driver, for instance, raises an error like this:
 
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException:
 > org.postgresql.util.PSQLException: FATAL: no pg\_hba.conf entry for host "123.45.67.890", user "citus", database "citus", SSL
 
-See the howto [Create and manage firewall rules](howto-hyperscale-manage-firewall-using-portal.md) howto to learn how the rules are defined.
+See [Create and manage firewall rules](howto-hyperscale-manage-firewall-using-portal.md) to learn how the rules are defined.
 
 ## Troubleshooting the database server firewall
-Consider the following points when access to the Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) service does not behave as you expect:
+When access to the Microsoft Azure Database for PostgreSQL - Hyperscale (Citus) service doesn't behave as you expect, consider these points:
 
 * **Changes to the allow list have not taken effect yet:** There may be as much as a five-minute delay for changes to the Hyperscale (Citus) firewall configuration to take effect.
 
-* **The login is not authorized or an incorrect password was used:** If a login does not have permissions on the server or the password used is incorrect, the connection to the server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must still provide the necessary security credentials.
+* **The user is not authorized or an incorrect password was used:** If a user does not have permissions on the server or the password used is incorrect, the connection to the server is denied. Creating a firewall setting only provides clients with an opportunity to attempt connecting to your server; each client must still provide the necessary security credentials.
 
 For example, using a JDBC client, the following error may appear.
 > java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "yourusername"
