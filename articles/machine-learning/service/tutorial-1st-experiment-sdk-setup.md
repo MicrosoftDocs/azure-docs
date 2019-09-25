@@ -58,11 +58,16 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **tutorial**  folder there.
 
-1. Open your folder and then open the cloned **tutorials** folder.
+1. Under **User files** open your folder and then open the cloned **tutorials** folder.
+
+    ![Open tutorials folder](media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png)
+    
 
 ## Open the tutorial notebook 
 
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
+    > [!IMPORTANT]
+    > You can view notebooks in the **samples** folder but you cannot run a notebook from there.  In order to run a notebook, make sure you open the cloned version of the notebook in the **User files** section.
 
 1. On the top bar, select a Notebook VM. If no VMs are found, select **+ New VM** to create the VM.
 
