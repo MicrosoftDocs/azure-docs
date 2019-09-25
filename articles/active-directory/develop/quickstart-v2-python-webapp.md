@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2019
+ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev 
 ---
@@ -110,30 +110,16 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 
 #### Step 4: Run the code sample
 
-- You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
+1. You will need to install MSAL Python library, Flask framework, Flask-Sessions for server-side session management and requests using pip as follows:
 
-```Shell
-pip install -r requirements.txt
-```
+   ```Shell
+   pip install -r requirements.txt
+   ```
 
-- If the environment variable for Flask is already set:
-Run app.py from shell or command line:
+2. Run app.py from shell or command line:
 
-```Shell
-python app.py
-```
-
-- If the environment variable for Flask is not set:
-
-    1. Type the following commands on shell or command line by navigating to the project directory:
-
-```Shell
-export FLASK_APP=app.py
-export FLASK_DEBUG=1
-flask run
-```
-
-> [!NOTE]
-> If your shell is MS-DOS, use `set` instead of `export`
+   ```Shell
+   python app.py
+   ```
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
