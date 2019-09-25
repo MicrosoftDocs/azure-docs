@@ -64,6 +64,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: How to enable multi-tenant support in Azure Sentinel
+            url: mssp
   
   # Card (optional)
   - title: Detect and investigate threats
