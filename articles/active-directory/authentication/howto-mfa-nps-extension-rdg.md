@@ -230,7 +230,7 @@ To ensure there is time to validate users’ credentials, perform two-step verif
 
 ### Verify Connection Request Policies
 
-By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.
+By default, when you configure the RD Gateway to use a central policy store for connection authorization policies, the RD Gateway is configured to forward CAP requests to the NPS server. The NPS server with the Azure MFA extension installed, processes the RADIUS access request. The following steps show you how to verify the default connection request policy.  
 
 1. On the RD Gateway, in the NPS (Local) console, expand **Policies**, and select **Connection Request Policies**.
 1. Double-click **TS GATEWAY AUTHORIZATION POLICY**.
@@ -240,6 +240,9 @@ By default, when you configure the RD Gateway to use a central policy store for 
    ![Configure Authentication Settings specifying the server group](./media/howto-mfa-nps-extension-rdg/image15.png)
 
 1. Click **Cancel**.
+
+>[!NOTE]
+> In case you would like to know how to create a new Connection request policy please check the [Connection Request Policy](https://docs.microsoft.com/en-us/windows-server/networking/technologies/nps/nps-crp-configure#add-a-connection-request-policy) documentation for the same. 
 
 ## Configure NPS on the server where the NPS extension is installed
 
