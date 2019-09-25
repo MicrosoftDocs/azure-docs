@@ -28,7 +28,7 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
 3. To add multiple custom routes, use a coma and spaces to separate the addresses. For example:
