@@ -22,10 +22,10 @@ To create a container with a large partition key using the .NET SDK, specify the
 
 ```csharp
 await database.CreateContainerAsync(
-                    new ContainerProperties(collectionName, $"/longpartitionkey")
-                    {
-                        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
-                    })
+    new ContainerProperties(collectionName, $"/longpartitionkey")
+    {
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+    })
 ```
 
 ### v2 .NET SDK
