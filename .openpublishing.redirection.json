@@ -3071,16 +3071,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md",
-      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md",
-      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/install-mongodb",
       "redirect_document_id": true
@@ -20532,6 +20522,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-quick-create-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/quick-create-cli-nodejs",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/linux/quick-create-cli-nodejs.md",
+      "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
       "redirect_document_id": false
     },
     {
