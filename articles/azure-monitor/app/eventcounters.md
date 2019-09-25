@@ -109,7 +109,8 @@ For example, run the following query to see what counters are collected and avai
 performanceCounters | summarize avg(value) by name
 ```
 
-![Event counters reported in Application Insights](./media/event-counters/analytics-event-counters.png)
+> [!div class="mx-imgBorder"]
+> ![Event counters reported in Application Insights](./media/event-counters/analytics-event-counters.png)
 
 To get a chart of a specific counter (for example: `ThreadPool Completed Work Item Count`) over the recent period, run the following query.
 
@@ -120,8 +121,8 @@ performanceCounters
 | summarize  avg(value) by cloud_RoleInstance, bin(timestamp, 1m)
 | render timechart
 ```
-
-![Chat of a single counter in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
+> [!div class="mx-imgBorder"]
+> ![Chat of a single counter in Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
 Like other telemetry, **performanceCounters** also has a column `cloud_RoleInstance` that indicates the identity of the host server instance on which your app is running. The above query shows the counter value per instance, and can be used to compare performance of different server instances.
 
