@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40 
@@ -41,7 +41,7 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### Option 1: Register and auto configure your app and then download your code sample
+> ### Option 1: Register and auto configure your app and then download the code sample
 > #### Step 1: Register your application
 > To register your app,
 > 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs) pane.
@@ -58,15 +58,15 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app when they sign in or consent to your app.
 >      - Skip other configurations on this page.
->      - Hit the `Register` button.
+>      - Select `Register`.
 > 1. In the **Manage** section, select `Authentication` > `Add Platform` > `iOS`.
->      - Enter the ***Bundle Identifier*** for your application. 
+>      - Enter the ***Bundle Identifier*** for your application. The bundle identifier is just a unique string that uniquely identifies your application, for example `com.<yourname>.identitysample.MSALMacOS`. Make a note of the value you use.
 >      - Note that the iOS configuration is also applicable to macOS applications.
-> 1. Select `Configure` and save the ***MSAL Configuration*** details for later.
+> 1. Select `Configure` and save the ***MSAL Configuration*** details for later in this quickstart.
 > [!div renderon="portal" class="sxs-lookup"]
 >
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker. 
+> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -80,7 +80,7 @@ This quickstart is applicable to both iOS and macOS apps. Some steps are needed 
 
 #### Step 3: Install dependencies
 
-In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library
+In a terminal window, navigate to the folder with the downloaded code sample and run `pod install` to install the latest MSAL library.
 
 #### Step 4: Configure your project
 
@@ -89,13 +89,41 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet:
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` and `kAuthority` with the client ID and tenant ID that you saved when you registered your app in the portal earlier in the quickstart:
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_here"
 >    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
 >    ```
+> 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace with your ***Bundle Id***:
+> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here`with the ***Bundle Id*** that you entered in the portal.
+>
+>    ```xml
+>    <key>CFBundleURLTypes</key>
+>    <array>
+>       <dict>
+>          <key>CFBundleURLSchemes</key>
+>          <array>
+>             <string>msauth.Enter_the_Bundle_Id_Here</string>
+>          </array>
+>       </dict>
+>    </array>
+>    ```
+> 1. Build & run the app!
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
+> [!div renderon="docs"]
+>
+> 1. Extract the zip file and open the project in XCode.
+> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following code snippet. Remember to update the value for `kClientID` and `kAuthority` with the clientID and tenant ID that you saved when you registered your app in the portal earlier in this quickstart:
+>    ```swift
+>    let kClientID = "Enter_the_Application_Id_here"
+>    let kAuthority = "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+>    ```
+> 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
+> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
+> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here`with the ***Bundle Id*** that you used in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -109,41 +137,13 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    </array>
 > 
 >    ```
-> 1. Build & run the app!
-> [!div class="sxs-lookup" renderon="portal"]
-> > [!NOTE]
-> > This quickstart supports Enter_the_Supported_Account_Info_Here.
-> [!div renderon="docs"]
->
-> 1. Extract the zip file and open the project in XCode.
-> 1. Edit **ViewController.swift** and replace the line starting with 'let kClientID' with the following  code snippet:
->
->    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
-> 
->    ```
-> 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace with your ***Bundle Id***:
->
->    ```xml
->    <key>CFBundleURLTypes</key>
->    <array>
->       <dict>
->          <key>CFBundleURLSchemes</key>
->          <array>
->             <string>msauth.<ENTER_YOUR_BUNDLE_ID></string>
->          </array>
->       </dict>
->    </array>
->
->    ```
 > 1. Build & run the app! 
 
 ## More Information
 
 Read these sections to learn more about this quickstart.
 
-### Getting MSAL
+### Get MSAL
 
 MSAL ([MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can add MSAL to your application using the following process:
 
@@ -166,7 +166,7 @@ Run CocoaPods installation command:
 
 ```pod install```
 
-### MSAL initialization
+### Initialize MSAL
 
 You can add the reference for MSAL by adding the following code:
 
@@ -233,11 +233,11 @@ Finally, your app must has an `LSApplicationQueriesSchemes` entry in your ***Inf
    </array>
    ```
 
-### Sign in users & Request tokens
+### Sign in users & request tokens
 
 MSAL has two methods used to acquire tokens: `acquireToken` and `acquireTokenSilent`.
 
-#### acquireToken: Getting a token interactively
+#### acquireToken: Get a token interactively
 
 Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to your app's permissions. For example, 
 
@@ -255,7 +255,7 @@ self.applicationContext!.acquireToken(with: parameters) { (result, error) in /* 
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested (that is, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs  (`api://<Application ID>/access_as_user`) |
 
-#### acquireTokenSilent: Getting an access token silently
+#### acquireTokenSilent: Get an access token silently
 
 Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently. 
 
@@ -275,7 +275,7 @@ self.applicationContext!.acquireTokenSilent(with: silentParams) { (result, error
 
 Try out the iOS tutorial for a complete step-by-step guide on building applications, including a complete explanation of this quickstart.
 
-### Learn the steps to create the application used in this quickstart
+### Learn how to create the application used in this quickstart
 
 > [!div class="nextstepaction"]
 > [Call Graph API iOS tutorial](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-ios)
