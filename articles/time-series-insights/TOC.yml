@@ -27,7 +27,7 @@
       href: tutorial-create-populate-tsi-environment.md
   - name: Azure Time Series Insights Preview
     items:
-    - name: Azure Time Series Insights Preview tutorial
+    - name: Set up a Preview environment
       href: time-series-insights-update-create-environment.md
 - name: Concepts
   items:
@@ -59,9 +59,9 @@
       href: time-series-insights-update-storage-ingress.md
     - name: Use cases
       href: time-series-insights-update-use-cases.md
-    - name: Data modeling
+    - name: Time Series Model
       href: time-series-insights-update-tsm.md
-    - name: Data querying
+    - name: Time Series Query
       href: time-series-insights-update-tsq.md
     - name: Visualize data in the explorer Preview
       href: time-series-insights-update-explorer.md

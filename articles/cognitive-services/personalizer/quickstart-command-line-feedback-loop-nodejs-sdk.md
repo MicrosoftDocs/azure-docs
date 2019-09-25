@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 09/12/2019
 ms.author: diberry
 #Customer intent: 
 
@@ -43,6 +43,9 @@ After you get a key from your trial subscription or resource, create two [enviro
 
 * `PERSONALIZER_KEY` for the resource key.
 * `PERSONALIZER_ENDPOINT` for the resource endpoint.
+
+In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
+
 
 ### Create a new Node.js application
 
@@ -137,6 +140,11 @@ The following looping code loops through a cycle of asking the user their prefer
 [!code-javascript[Create the learning loop](~/samples-personalizer/quickstarts/node/sample.js?name=mainLoop)]
 
 Take a closer look at the rank and reward calls in the following sections.
+
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+
+* getActionsList
+* getContextFeaturesList
 
 ## Request a rank
 

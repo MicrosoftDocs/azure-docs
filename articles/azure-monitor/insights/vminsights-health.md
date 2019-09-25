@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.date: 09/12/2019
 ms.author: magoedte
 ---
 
@@ -31,49 +31,52 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 
 This section outlines the default health criteria to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to send an alert when they detect an unhealthy condition.
 
-### Windows VMs
+| Monitor name | Frequency (min) | Lookback Duration (min) | Operator | Threshold | Alert on state | Severity | Workload category | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Logical Disk Online | 5 | 15 | <> | 1 (true) | Critical | Sev1 | Linux | 
+| Logical Disk Free Space | 5 | 15 | < | 200 MB (warning)<br> 100 MB (critical) | Warning | Sev1<br> Sev2 | Linux | 
+| Logical Disk % Free Inodes | 5 | 15 | < | 5% | Critical | Sev1 | Linux | 
+| Logical Disk % Free Space | 5 | 15 | < | 5% | Critical | Sev1 | Linux | 
+| Network Adapter Status | 5 | 15 | <> | 1 (true) | Warning | Sev2 | Linux | 
+| Operating System Available Megabytes Memory | 5 | 10 | < | 2.5 MB | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Read | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Transfer | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Write | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Status | 5 | 25 | <> | 1 (true) | Critical | Sev1 | Linux | 
+| Operating System Total Percent Processor Time | 5 | 10 | >= | 95% | Critical | Sev1 | Linux | 
+| Total CPU Utilization Percentage | 5 | 10 | >= | 95% | Critical | Sev1 | Windows | 
+| File system error or corruption | 60 | 60 | <> | 4 | Critical | Sev1 | Windows | 
+| Average Logical Disk Seconds Per Read | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Logical Disk Seconds Per Transfer | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Logical Disk Seconds Per Write (Logical Disk) | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Current Disk Queue Length (Logical Disk) | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| Logical Disk Free Space (MB) | 15 | 60 | > | 500 MB warning<br> 300 MB critical | Critical | Sev1<br> Sev2 | Windows | 
+| Logical Disk Free Space (%) | 15 | 60 | > | 10% warning<br> 5% critical | Critical | Sev1<br> Sev2 | Windows |
+| Logical Disk Percent Idle Time | 15 | 360 | <= | 20% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Read | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Total | 5 | 60 | >= | 75% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Write | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| DHCP Client Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| DNS Client Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Event Log Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Firewall Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| RPC Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Server Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Remote Management Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Available Megabytes of Memory | 5 | 10 | < | 100 MB | Critical | Sev1 | Windows | 
+| Free System Page Table Entries | 5 | 10 | <= | 5000 | Critical | Sev1 | Windows | 
+| Memory Pages Per Second | 5 | 10 | >= | 5000/s | Warning | Sev1 | Windows | 
+| Percentage of Committed Memory in Use | 5 | 10 | > | 80% | Critical | Sev1 | Windows | 
+| Average Disk Seconds Per Transfer | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Disk Seconds Per Write | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Current Disk Queue Length | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| Disk Percent Idle Time | 5 | 60 | >= | 20% | Warning | Sev2 | Windows | 
 
-- Available Megabytes of Memory
-- Average Disk Seconds Per Write (Logical Disk)
-- Average Disk Seconds Per Write (Disk)
-- Average Logical Disk Seconds Per Read
-- Average Logical Disk Seconds Per Transfer
-- Average Disk Seconds Per Read
-- Average Disk Seconds Per Transfer
-- Current Disk Queue Length (Logical Disk)
-- Current Disk Queue Length (Disk)
-- Disk Percent Idle Time
-- File system error or corruption
-- Logical Disk Free Space (%) Low
-- Logical Disk Free Space (MB) Low
-- Logical Disk Percent Idle Time
-- Memory Pages Per Second
-- Percent Bandwidth Used Read
-- Percent Bandwidth Used Total
-- Percent Bandwidth Used Write
-- Percentage of Committed Memory in Use
-- Disk Percent Idle Time
-- DHCP Client Service Health
-- DNS Client Service Health
-- RPC Service Health
-- Server Service Health
-- Total CPU Utilization Percentage
-- Windows Event Log Service Health
-- Windows Firewall Service Health
-- Windows Remote Management Service Health
+>[!NOTE]
+>Lookback Duration represents how often the look back window checks the metric values, such as over the last five minutes.  
 
-### Linux VMs
-
-- Disk Avg. Disk sec/Transfer
-- Disk Avg. Disk sec/Read
-- Disk Avg. Disk sec/Write
-- Disk Health
-- Logical Disk Free Space
-- Logical Disk % Free Space
-- Logical Disk % Free Inodes
-- Network Adapter Health
-- Total Percent Processor Time
-- Operating System Available Megabytes of Memory
+>[!NOTE]
+>Frequency represents how often the metric alert checks if the conditions are met, such as every one minute.  It is the rate at which health criterion is executed, and lookback is the duration over which health criterion is evaluated. For example, health criterion is evaluating if the condition **CPU utilization** is greater than 95 percent with a frequency of 5 minutes and remains greater than 95% for 15 minutes (3 consecutive evaluation cycles), then the state is updated to critical severity if it wasn't already.
 
 ## Sign in to the Azure portal
 
