@@ -1,6 +1,6 @@
 ---
 title: Azure Functions Geo-Disaster Recovery | Microsoft Docs
-description: How to use geographical regions to failover and perform disaster recovery in Azure Functions.
+description: How to use geographical regions to fail over and use disaster recovery in Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -21,9 +21,9 @@ When entire Azure regions or datacenters experience downtime, it is critical for
 
 ## Basic concepts
 
-When Azure Functions are deployed, they target and run in a specific region.  To get higher availability, you should deploy the same functions to multiple regions.  When in multiple regions you can have your functions running in the *active/active* pattern or *active/passive* pattern.  
+Azure Functions run in a specific region.  To get higher availability, you can deploy the same functions to multiple regions.  When in multiple regions you can have your functions running in the *active/active* pattern or *active/passive* pattern.  
 
-* Active/active. Both regions are active and receiving events (duplicate or rotationally). This is recommended for HTTPS functions in combination with Azure Front Door.
+* Active/active. Both regions are active and receiving events (duplicate or rotationally). Active/active is recommended for HTTPS functions in combination with Azure Front Door.
 * Active/passive. One region is active and receiving events, while a secondary is idle.  When failover is required, the secondary region is activated and takes over processing.  This is recommended for non-HTTP functions like Service Bus and Event Hubs.
 
 Read how to [run apps in multiple regions](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region) for more information on multi-region deployments.
@@ -40,14 +40,14 @@ You can still achieve active/active deployments for non-HTTPS functions.  Howeve
 
 ## Active/passive for non-HTTPS functions
 
-Active/passive provides a way for only a single function to process each message, but provides a mechanism to failover to a secondary region in case of a disaster.  Azure Functions works alongside [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md).
+Active/passive provides a way for only a single function to process each message, but provides a mechanism to fail over to a secondary region in case of a disaster.  Azure Functions works alongside [Azure Service Bus geo-recovery](../service-bus-messaging/service-bus-geo-dr.md) and [Azure Event Hubs geo-recovery](../event-hubs/event-hubs-geo-dr.md).
 
-Using Azure Event Hubs trigger as an example, the active/passive pattern would involve the following:
+Using Azure Event Hubs triggers as an example, the active/passive pattern would involve the following:
 
 * Azure Event Hub deployed to both a primary and secondary region.
 * Geo-disaster enabled to pair the primary and secondary Event Hub.  This also creates an "alias" you can use to connect to event hubs and switch from primary to secondary without changing the connection info.
 * Function apps deployed to both a primary and secondary region.
-* The function apps are triggering on the *direct* (non-alias) connection string for it's respective event hub. 
+* The function apps are triggering on the *direct* (non-alias) connection string for its respective event hub. 
 * Publishers to the event hub should publish to the alias connection string. 
 
 ![Active-passive example architecture](media/functions-geo-dr/active-passive.png)
