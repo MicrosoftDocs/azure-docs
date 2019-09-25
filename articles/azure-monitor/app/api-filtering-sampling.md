@@ -19,20 +19,20 @@ ms.author: mbullwin
 
 You can write and configure plug-ins for the Application Insights SDK to customize how telemetry can be enriched and processed before it's sent to the Application Insights service.
 
-* [Sampling](../../azure-monitor/app/sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
-* Filtering with Telemetry Processors [for ASP.NET or ASP.NET Core](#filtering) or [Java](../../azure-monitor/app/java-filter-telemetry.md) lets you select or modify telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. But filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
-* [Telemetry Initializers add properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
+* [Sampling](sampling.md) reduces the volume of telemetry without affecting your statistics. It keeps together related data points so that you can navigate between them when diagnosing a problem. In the portal, the total counts are multiplied to compensate for the sampling.
+* Filtering with Telemetry Processors lets you filter out telemetry in the SDK before it is sent to the server. For example, you could reduce the volume of telemetry by excluding requests from robots. Filtering is a more basic approach to reducing traffic than sampling. It allows you more control over what is transmitted, but you have to be aware that it affects your statistics - for example, if you filter out all successful requests.
+* [Telemetry Initializers add or modify properties](#add-properties) to any telemetry sent from your app, including telemetry from the standard modules. For example, you could add calculated values; or version numbers by which to filter the data in the portal.
 * [The SDK API](../../azure-monitor/app/api-custom-events-metrics.md) is used to send custom events and metrics.
 
 Before you start:
 
-* Install the Application Insights [SDK for ASP.NET](../../azure-monitor/app/asp-net.md) or [SDK for Java](../../azure-monitor/app/java-get-started.md) in your app.
+* Install the appropriate SDK for you application. [ASP.NET](asp-net.md) or [ASP.NET Core](asp-net-core.md) or [Non Http/Worker for .NET](worker-service.md) or [Java](../../azure-monitor/app/java-get-started.md) in your app.
 
 <a name="filtering"></a>
 
 ## Filtering: ITelemetryProcessor
 
-This technique gives you more direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
+This technique gives you direct control over what is included or excluded from the telemetry stream. Filtering can be used to drop telemetry items from being sent to Application Insights. You can use it in conjunction with Sampling, or separately.
 
 To filter telemetry, you write a telemetry processor and register it with the `TelemetryConfiguration`. All telemetry goes through your processor, and you can choose to drop it from the stream or give it to the next processor in the chain. This includes telemetry from the standard modules such as the HTTP request collector and the dependency collector, and telemetry you have tracked yourself. You can, for example, filter out telemetry about requests from robots, or successful dependency calls.
 
@@ -102,7 +102,7 @@ You can pass string values from the .config file by providing public named prope
 > Take care to match the type name and any property names in the .config file to the class and property names in the code. If the .config file references a non-existent type or property, the SDK may silently fail to send any telemetry.
 >
 
-**Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in Global.asax.cs - insert your processor into the chain:
+**Alternatively,** you can initialize the filter in code. In a suitable initialization class - for example AppStart in `Global.asax.cs` - insert your processor into the chain:
 
 ```csharp
 var builder = TelemetryConfiguration.Active.DefaultTelemetrySink.TelemetryProcessorChainBuilder;
@@ -239,6 +239,7 @@ namespace MvcWebRole.Telemetry
 		{
 			// If we set the Success property, the SDK won't change it:
 			requestTelemetry.Success = true;
+
 			// Allow us to filter these requests in the portal:
 			requestTelemetry.Properties["Overridden400s"] = "true";
 		}
@@ -392,11 +393,12 @@ public void Initialize(ITelemetry telemetry)
 
 What's the difference between telemetry processors and telemetry initializers?
 
-* There are some overlaps in what you can do with them: both can be used to add properties to telemetry, though it is recommended to use initializers for that purpose.
+* There are some overlaps in what you can do with them: both can be used to add or modify properties of telemetry, though it is recommended to use initializers for that purpose.
 * TelemetryInitializers always run before TelemetryProcessors.
 * TelemetryInitializers may be called more than once. By convention, they do not set any property that has already been set.
 * TelemetryProcessors allow you to completely replace or discard a telemetry item.
-* Use TelemetryInitializers to enrich telemetry, and use TelemetryProcessor to filter out telemetry.
+* All registered TelemetryInitializers are guaranteed to be called for every telemetry item. For Telemetry processors, SDK guarantees calling the very first telemetry processor. Whether the rest of the processors are called or not, is decided by the preceding telemetry processors.
+* Use TelemetryInitializers to enrich telemetry with additional properties, or override existing one. Use TelemetryProcessor to filter out telemetry.
 
 ## Troubleshooting ApplicationInsights.config
 
