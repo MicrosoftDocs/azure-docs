@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 09/24/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -25,7 +25,7 @@ This article explores ways to clone an IoT Hub and provides some questions you n
 > [!NOTE]
 > John -- next time we talk, can you please provide a 2 minute overview of the last item so I know how the customer would do that, just generally.
 
-To move a hub to a different region, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, but it can be in the same subscription.
+To move a hub to a different region, you need a subscription with administrative access to the original hub. Put the new hub in a new resource group and region, but in the same subscription.
 
 ## Things to consider
 
@@ -77,39 +77,182 @@ This section outlines the instructions for following the general methodology of 
 
 1. Select **Download** to download the template. Save the file somewhere you can find it again. 
 
-### Edit the template 
+### Export the template 
 
 Use [VS Code](https://code.visualstudio.com) or a text editor to edit the template.
 
-1. Go to the Downloads folder (or wherever you exported the template to) and find the zip file. In the zip file, the template name is in the format `ExportedTemplate-<ResourceManagerName>`. This example shows a generic hub with no routing configuration.
-   
-   [show a template for an IoT Hub here]
+1. Go to the Downloads folder (or wherever you exported the template to) and find the zip file. In the zip file, the template name is in the format `ExportedTemplate-<ResourceManagerName>`. This example shows a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub1484** in region **westus**.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "IotHubs_ContosoTestHub1484_name": {
+            "defaultValue": "ContosoTestHub1484",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Devices/IotHubs",
+            "apiVersion": "2018-04-01",
+            "name": "[parameters('IotHubs_ContosoTestHub1484_name')]",
+            "location": "westus",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "properties": {
+                "operationsMonitoringProperties": {
+                    "events": {
+                        "None": "None",
+                        "Connections": "None",
+                        "DeviceTelemetry": "None",
+                        "C2DCommands": "None",
+                        "DeviceIdentityOperations": "None",
+                        "FileUploadOperations": "None",
+                        "Routes": "None"
+                    }
+                },
+                "ipFilterRules": [],
+                "eventHubEndpoints": {
+                    "events": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2,
+                        "partitionIds": [
+                            "0",
+                            "1"
+                        ],
+                        "path": "contosotesthub1484",
+                        "endpoint": "sb://iothub-ns-contosotes-2212280-c7fd261aef.servicebus.windows.net/"
+                    },
+                    "operationsMonitoringEvents": {
+                        "retentionTimeInDays": 1,
+                        "partitionCount": 2,
+                        "partitionIds": [
+                            "0",
+                            "1"
+                        ],
+                        "path": "contosotesthub1484-operationmonitoring",
+                        "endpoint": "sb://iothub-ns-contosotes-2212280-c7fd261aef.servicebus.windows.net/"
+                    }
+                },
+                "routing": {
+                    "endpoints": {
+                        "serviceBusQueues": [],
+                        "serviceBusTopics": [],
+                        "eventHubs": [],
+                        "storageContainers": []
+                    },
+                    "routes": [],
+                    "fallbackRoute": {
+                        "name": "$fallback",
+                        "source": "DeviceMessages",
+                        "condition": "true",
+                        "endpointNames": [
+                            "events"
+                        ],
+                        "isEnabled": true
+                    }
+                },
+                "storageEndpoints": {
+                    "$default": {
+                        "sasTtlAsIso8601": "PT1H",
+                        "connectionString": "",
+                        "containerName": ""
+                    }
+                },
+                "messagingEndpoints": {
+                    "fileNotifications": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "enableFileUploadNotifications": false,
+                "cloudToDevice": {
+                    "maxDeliveryCount": 10,
+                    "defaultTtlAsIso8601": "PT1H",
+                    "feedback": {
+                        "lockDurationAsIso8601": "PT1M",
+                        "ttlAsIso8601": "PT1H",
+                        "maxDeliveryCount": 10
+                    }
+                },
+                "features": "None"
+            }
+        }
+    ]
+}
+````
+
+### Edit the template 
 
 You have to make some changes before you can use the template to upload the template in a new region and create the new hub.
 
-1. Replace the [key values].
+1. Remove the parameters section at the top -- it is much simpler to just use the hub name.
 
-   * To find the key values for the hub, go to the portal and find the original hub and select it. 
+```` json
+    "parameters": {
+        "IotHubs_ContosoTestHub1484_name": {
+            "defaultValue": "ContosoTestHub1484",
+            "type": "String"
+        }
+    },
+````
 
-   * Select **Shared access policies**, and then **iothubowner**. 
+1. Rename the hub. Its name is globally unique, so you can't use the same name as the original hub.
 
-     > [!NOTE]
-     > Ask Jimaco which policy to select. 
+Change these two lines in the template. You don't need to use a parameter -- just put the new IoT Hub name there. Also, change the location to the location of the new hub.
 
-   * Select the Copy button next to the primary key to copy the key into your buffer. 
+    Old version.
 
-   * Go to the template and paste the copied key where it says [whatever it says].
+    ```json
+          "name": "[parameters('IotHubs_ContosoTestHub1484_name')]",
+            "location": "westus",
+    ```
 
-1. Rename the hub. Its name is globally unique, so you can't use the same name as the original hub. Find `whatever-the-string-is` in the template and put in the new hub name.
+    New version. Change the hub name to have **-NEW** on the end, and change the location. 
 
-## Create the hub in the new region by loading the template
-
-Now you will recreate the hub in the new location.
+    ```json
+          "name": "ContosoTestHub1484-NEW",
+            "location": "eastus",
+    ```
 
 > [!NOTE]
-> Robin -- Add instructions for importing the RM template and creating the new hub here.
+> Ask Ashita if you have to do anything to the eventHubEndpoint that look like this:
+> "sb://iothub-ns-contosotes-2212280-c7fd261aef.servicebus.windows.net/"
+> This is in operation monitoring section, too.
 
-Your hub is created and live. Now add the devices that were registered to the original hub.
+### Create a new hub in the new region by loading the template
+
+Now create the new hub in the new location.
+
+1. Select **Create a resource**. 
+
+1. In the search box, put in "template deployment" and select Return.
+
+1. Select **template deployment**. This will take you to a screen for the Template deployment. Select **Create**.
+
+1. Select **Build your own template in the editor**. You're going to upload your template from a file. 
+
+1. Select **Load file**. Browse for the new template you edited and select it, then select **Open**. It loads your template in the edit window. Select **Save**.
+
+1. Select the **Resource Group** on the **Custom deployment** screen, or create a new one. Select the new **Location**.
+
+1. Check the box that says **I agree to the terms and conditions stated above.** and click **Purchase**.
+
+It will now deploy your cloned hub.
+
+> [!NOTE]
+>  (mine failed, no idea why). (When I tried this manually, it wouldn't let me put it in the same resource group with the same name I picked, so it looks like it's holding on to the name). (called it -TRY2, and it worked when I deployed it manually, so my template is a fail).
+>
+>optimist continues...
+
+Now your hub is created and live. The second part is to copy the devices from the old hub to the new one. 
 
 ## Managing the devices registered to the IoT hub
 
@@ -120,16 +263,30 @@ The devices for the IoT Hub can be copied from the old hub to the new hub. To do
 
 1. Download the c# samples: [azure-iot-samples-csharp]  **this is not live yet**
 
-1. Go to the iot-hub>Samples>device and double-click on IoTHubDeviceSamples.sln to open it.
+1. Go to the iot-hub>Samples>service and double-click on IoTHubServiceSamples.sln to open it.
 
 1. Right-click on the ImportExportDevices project and select **Set as Startup project**.
- 
-1. Get the connection string from the original IoT Hub and put it in ProcessImpExpCommands.cs where it says {connection string to your IoT hub}.
 
-1. Get the connection string from the storage account to be used for the import/export procedures and put it in ProcessImpExpCommands.cs where it says {your storage account connection string}.
+1. Tell them how to do environment variables if you have figured it out.
+
+   ```command  
+   SET IOTHUB_CONN_STRING_CSHARP = ""
+   SET DEST_IOTHUB_CONN_STRING_CSHARP = ""
+   SET STORAGE_ACCT_CONN_STRING_CSHARP = ""
+   
+   ImportExportDevicesSample.csproj  
+   ```
+
+1. Get the connection string from the original IoT Hub and put it in the environment variables IOTHUB_CONN_STRING_CSHARP.
+
+1. Get the connection string from the new IoT Hub and put it in the environment variable DEST_IOTHUB_CONN_STRING_CSHARP.
+
+1. Get the connection string from the storage account to be used for the import/export procedures and put it in THE STORAGE_ACCT_CONN_STRING_CSHARP environment variable. 
     
-1. Go to the Main method in the Program.cs file and change the call to IotHubDevices.AddDevicesToHub to set the  number of devices you want to add. You may want to start with a smaller number of devices, such as 1000, to test the import/export. 
-    
+1. Go to the Main method in the Program.cs file and change the call to IotHubDevices.AddDevicesToHub to set the number of devices you want to add. You may want to start with a smaller number of devices, such as 10, to test the import/export. 
+
+**BEING REWRITTEN** 
+
 1. Program.cs contains code to run multiple methods.
 
    - **AddDevicesToHub** -- this adds new devices with random keys (helpful for testing).
@@ -146,7 +303,7 @@ The devices for the IoT Hub can be copied from the old hub to the new hub. To do
 
 1. Run the samples application.
 
-1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just imported. You can also view the properties for the clone. 
+1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the clone. You can also view the properties for the clone. 
 
 > [!NOTE]
 > Robin -- be sure the import/export includes the device twins. I think in the C# version you have to specifically say to include them. 
