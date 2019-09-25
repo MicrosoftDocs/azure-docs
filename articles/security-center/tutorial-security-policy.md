@@ -3,10 +3,8 @@ title: Working with security policies | Microsoft Docs
 description: This article describes how to work with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
+ms.date: 07/18/2019
+ms.author: memildin
 ---
 
 # Working with security policies
@@ -92,7 +90,7 @@ You can edit security policies through the Azure Policy portal, via REST API or 
 
 ## Disable security policies
 If the default security policy is generating a recommendation that is not relevant for your environment, you can stop it by disabling the policy definition that sends the recommendation.
-For further information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
+For more information about recommendations, see [Managing security recommendations](security-center-recommendations.md).
 
 1. In the Security Center, from the **Policy & Compliance** section, click **Security policy**.
 
@@ -127,7 +125,7 @@ Important concepts in Azure Policy:
 
 - An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
-Security Center has a built-in initiative that includes all of its security policies. In order to assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.  
+Security Center has a built-in initiative that includes all of its security policies. In order to assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.
 
 The built-in initiative has all of Security Center’s policies enabled by default. You can choose to disable certain policies from the built-in initiative, for example you can apply all of Security Center’s policies except **web application firewall**, by changing the value of the policy’s effect parameter to **Disabled**. 
 

@@ -8,8 +8,8 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
-
 ---
+
 # Debug Apache Spark jobs running on Azure HDInsight
 
 In this article, you learn how to track and debug [Apache Spark](https://spark.apache.org/) jobs running on HDInsight clusters using the [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) UI, Spark UI, and the Spark History Server. You start a Spark job using a notebook available with the Spark cluster, **Machine learning: Predictive analysis on food inspection data using MLLib**. You can use the following steps to track an application that you submitted using any other approach as well, for example, **spark-submit**.
@@ -24,14 +24,14 @@ You must have the following:
 ## Track an application in the YARN UI
 1. Launch the YARN UI. Click **Yarn** under **Cluster dashboards**.
    
-    ![Launch YARN UI](./media/apache-spark-job-debugging/launch-yarn-ui.png)
+    ![Launch YARN UI](./media/apache-spark-job-debugging/launch-apache-yarn-ui.png)
    
    > [!TIP]  
    > Alternatively, you can also launch the YARN UI from the Ambari UI. To launch the Ambari UI, click **Ambari home** under **Cluster dashboards**. From the Ambari UI, click **YARN**, click **Quick Links**, click the active Resource Manager, and then click **Resource Manager UI**. 
 
 2. Because you started the Spark job using Jupyter notebooks, the application has the name **remotesparkmagics** (this is the name for all applications that are started from the notebooks). Click the application ID against the application name to get more information about the job. This launches the application view.
    
-    ![Find Spark application ID](./media/apache-spark-job-debugging/find-application-id.png)
+    ![Find Spark application ID](./media/apache-spark-job-debugging/find-application-id1.png)
    
     For such applications that are launched from the Jupyter notebooks, the status is always **RUNNING** until you exit the notebook.
 3. From the application view, you can drill down further to find out the containers associated with the application and the logs (stdout/stderr). You can also launch the Spark UI by clicking the linking corresponding to the **Tracking URL**, as shown below. 
@@ -43,13 +43,13 @@ In the Spark UI, you can drill down into the Spark jobs that are spawned by the 
 
 1. To launch the Spark UI, from the application view, click the link against the **Tracking URL**, as shown in the screen capture above. You can see all the Spark jobs that are launched by the application running in the Jupyter notebook.
    
-    ![View Spark jobs](./media/apache-spark-job-debugging/view-spark-jobs.png)
+    ![View Spark jobs](./media/apache-spark-job-debugging/view-apache-spark-jobs.png)
 2. Click the **Executors** tab to see processing and storage information for each executor. You can also retrieve the call stack by clicking on the **Thread Dump** link.
    
     ![View Spark executors](./media/apache-spark-job-debugging/view-spark-executors.png)
 3. Click the **Stages** tab to see the stages associated with the application.
    
-    ![View Spark stages](./media/apache-spark-job-debugging/view-spark-stages.png "View Spark stages")
+    ![View Spark stages](./media/apache-spark-job-debugging/view-apache-spark-stages.png "View Spark stages")
    
     Each stage can have multiple tasks for which you can view execution statistics, like shown below.
    

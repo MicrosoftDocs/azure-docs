@@ -1,7 +1,7 @@
 ---
 title: What is automated ML / automl
-titleSuffix: Azure Machine Learning service
-description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -34,7 +34,7 @@ Data scientists, analysts and developers across industries can use automated ML 
 
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
+Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
@@ -48,7 +48,7 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
   ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
+During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -96,7 +96,12 @@ Building forecasts is an integral part of any business, whether it’s revenue, 
 
 An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md).
+Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ## <a name="ensemble"></a> Ensemble models
 
