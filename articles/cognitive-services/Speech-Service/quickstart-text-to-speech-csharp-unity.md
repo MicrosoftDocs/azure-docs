@@ -1,36 +1,35 @@
 ---
 title: 'Quickstart: Synthesize speech, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a text-to-speech application with Unity and the Speech SDK for Unity (Beta). When finished, you can synthesize speech from text in real time to your device's speaker.
+description: Use this guide to create a text-to-speech application with Unity and the Speech SDK for Unity. When finished, you can synthesize speech from text in real time to your device's speaker.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for Unity (Beta)
+# Quickstart: Synthesize speech with the Speech SDK for Unity
 
-Quickstarts are also available for [speech-recognition](quickstart-csharp-unity.md).
+Quickstarts are also available for [speech recognition](quickstart-csharp-unity.md).
 
-Use this guide to create a text-to-speech application using [Unity](https://unity3d.com/) and the Speech SDK for Unity (Beta).
+Use this guide to create a text-to-speech application using [Unity](https://unity3d.com/) and the Speech SDK for Unity.
 When finished, you can synthesize speech from text in real time to your device's speaker.
 If you are not familiar with Unity, it is recommended to study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your application development.
 
 > [!NOTE]
-> The Speech SDK for Unity is currently in beta.
-> It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), and Android (x86, ARM32/64).
+> It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator, ARM32 and ARM64).
 
 ## Prerequisites
 
 To complete this project, you'll need:
 
 * [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * For ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Version 15.9 or higher of Visual Studio 2017 is also acceptable.
+* For Windows ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * A subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Unity project
