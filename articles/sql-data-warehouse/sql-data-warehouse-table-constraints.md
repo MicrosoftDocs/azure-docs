@@ -14,6 +14,8 @@ ms.reviewer: nibruno; jrasnick
 
 # Primary key, foreign key, and unique key in Azure SQL Data Warehouse
 
+Learn about table constraints in Azure SQL Data Warehouse, including primary key, foreign key, and unique key.
+
 ## Table constraints 
 Azure SQL Data Warehouse supports these table constraints: 
 - PRIMARY KEY is only supported when NONCLUSTERED and NOT ENFORCED are both used.    
@@ -150,16 +152,17 @@ a1          total
 ```
 
 ## Examples
-Create a data warehouse table with a primary key 
+Create a data warehouse table with a primary key: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Create a data warehouse table with unique constraint
+Create a data warehouse table with a unique constraint:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).
+
+After creating the tables for your data warehouse, the next step is to load data into the table. For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).
