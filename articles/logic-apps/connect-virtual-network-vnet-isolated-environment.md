@@ -20,6 +20,12 @@ When you create an ISE, Azure *injects* that ISE into your Azure virtual network
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
 
 > [!IMPORTANT]
+> Subnet name should never starts with a number. The subnet names has the following restrictions. You must have a subnet name which 
+> starts with alphabet and doesn't have any of the characters mentioned below. 
+> Has a name that starts with an alphabetic character or an underscore, and doesn't have these characters: <, >, %, &, \\, ?, /
+
+
+> [!IMPORTANT]
 > For logic apps and integration accounts to work together in an ISE, 
 > both must use the *same ISE* as their location.
 
