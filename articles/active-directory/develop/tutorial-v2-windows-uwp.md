@@ -28,7 +28,7 @@ This guide explains how a native Universal Windows Platform (UWP) application ca
 At the end of this guide, your application calls a protected API by using personal accounts. Examples are outlook.com, live.com, and others. Your application also calls work and school accounts from any company or organization that has Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> This guide requires Visual Studio 2019 with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
+> This guide requires Visual Studio with Universal Windows Platform development installed. See [Get set up](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) for instructions to download and configure Visual Studio to develop Universal Windows Platform apps.
 
 ## How this guide works
 
@@ -38,7 +38,7 @@ This guide creates a sample UWP application that queries Microsoft Graph API. Fo
 
 ## NuGet packages
 
-This guide uses the following NuGet packages:
+This guide uses the following NuGet package:
 
 |Library|Description|
 |---|---|
@@ -46,12 +46,12 @@ This guide uses the following NuGet packages:
 
 ## Set up your project
 
-This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then it can query Web APIs that require a token, such as Microsoft Graph API.
+This section provides step-by-step instructions to integrate a Windows Desktop .NET application (XAML) with Sign-In with Microsoft. Then the application can query Web APIs that require a token, such as Microsoft Graph API.
 
 This guide creates an application that displays a button that queries Graph API and a button to sign out. It also displays text boxes that contain the results of the calls.
 
 > [!NOTE]
-> Do you want to download this sample's Visual Studio project instead? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
+> Do you want to download this sample's Visual Studio project instead of creating it? [Download a project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip) and skip to the [application registration](#register-your-application "application registration step") step to configure the code sample before it runs.
 
 ### Create your application
 
@@ -60,7 +60,7 @@ This guide creates an application that displays a button that queries Graph API 
 1. In **Configure your new project**, name the app, and select **Create**.
 1. If prompted, in **New Universal Windows Platform Project**, select any version for **Target** and **Minimum** versions, and select **OK**.
 
-    >![Minimum and Target versions](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
+   ![Minimum and Target versions](./media/tutorial-v2-windows-uwp/select-uwp-target-minimum.png)
 
 ### Add Microsoft Authentication Library to your project
 
@@ -68,7 +68,7 @@ This guide creates an application that displays a button that queries Graph API 
 1. Copy and paste the following command in the **Package Manager Console** window:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -IncludePrerelease
+    Install-Package Microsoft.Identity.Client
     ```
 
 > [!NOTE]
@@ -78,20 +78,20 @@ This guide creates an application that displays a button that queries Graph API 
 
 Visual Studio creates *MainPage.xaml* as a part of your project template. Open this file, and then replace your application’s **Grid** node with the following code:
 
-    ```xml
-    <Grid>
-        <StackPanel Background="Azure">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
-                <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
-            </StackPanel>
-            <TextBlock Text="API Call Results" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
-            <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
-            <TextBlock Text="Token Info" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
-            <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
+```xml
+<Grid>
+    <StackPanel Background="Azure">
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="CallGraphButton" Content="Call Microsoft Graph API" HorizontalAlignment="Right" Padding="5" Click="CallGraphButton_Click" Margin="5" FontFamily="Segoe Ui"/>
+            <Button x:Name="SignOutButton" Content="Sign-Out" HorizontalAlignment="Right" Padding="5" Click="SignOutButton_Click" Margin="5" Visibility="Collapsed" FontFamily="Segoe Ui"/>
         </StackPanel>
-    </Grid>
-    ```
+        <TextBlock Text="API Call Results" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="ResultText" TextWrapping="Wrap" MinHeight="120" Margin="5" FontFamily="Segoe Ui"/>
+        <TextBlock Text="Token Info" Margin="2,0,0,-5" FontFamily="Segoe Ui" />
+        <TextBox x:Name="TokenInfoText" TextWrapping="Wrap" MinHeight="70" Margin="5" FontFamily="Segoe Ui"/>
+    </StackPanel>
+</Grid>
+```
 
 ### Use MSAL to get a token for Microsoft Graph API
 
@@ -119,8 +119,8 @@ This section shows how to use MSAL to get a token for Microsoft Graph API. Make 
         // Below are the clientId (Application Id) of your app registration and the tenant information. 
         // You have to replace:
         // - the content of ClientID with the Application Id for your app registration
-        // - Te content of Tenant by the information about the accounts allowed to sign-in in your application:
-        //   - For Work or School account in your org, use your tenant ID, or domain
+        // - the content of Tenant with the information about the accounts allowed to sign in in your application:
+        //   - for Work or School account in your org, use your tenant ID, or domain
         //   - for any Work or School accounts, use organizations
         //   - for any Work or School accounts, or Microsoft personal account, use common
         //   - for Microsoft Personal account, use consumers
@@ -274,14 +274,14 @@ To sign out the user, add the following method to *MainPage.xaml.cs*:
            await PublicClientApp.RemoveAsync(firstAccount).ConfigureAwait(false);
            await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
            {
-               ResultText.Text = "User has signed-out";
+               ResultText.Text = "User has signed out";
                this.CallGraphButton.Visibility = Visibility.Visible;
                    this.SignOutButton.Visibility = Visibility.Collapsed;
                });
            }
            catch (MsalException ex)
            {
-               ResultText.Text = $"Error signing-out user: {ex.Message}";
+               ResultText.Text = $"Error signing out user: {ex.Message}";
            }
        }
    ```
@@ -301,7 +301,7 @@ Add the following method to *MainPage.xaml.cs* to display basic information abou
 
    ```csharp
    /// <summary>
-   /// Display basic information contained in the token. Needs to be called from the UI thead.
+   /// Display basic information contained in the token. Needs to be called from the UI thread.
    /// </summary>
    private void DisplayBasicTokenInfo(AuthenticationResult authResult)
    {
@@ -314,7 +314,7 @@ Add the following method to *MainPage.xaml.cs* to display basic information abou
    }
    ```
 
-#### More information<a name="more-information-1"></a> 
+#### More information<a name="more-information-1"></a>
 
 ID tokens acquired by using **OpenID Connect** also contain a small subset of information pertinent to the user. `DisplayBasicTokenInfo` displays basic information contained in the token. This information includes the user's display name and ID. It also includes the expiration date of the token and the string that represents the access token itself. If you select the **Call Microsoft Graph API** button several times, you'll see that the same token was reused for later requests. You can also see the expiration date extended when MSAL decides it's time to renew the token.
 
@@ -342,13 +342,13 @@ Now you need to register your application:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **Azure Active Directory** > **App registrations**.
-1. Select **New registration**. Enter a meaningful application name that will be displayed to users of the app, for example `UWP-App-calling-MSGraph`.
+1. Select **New registration**. Enter a meaningful application name that will be displayed to users of the app, for example *UWP-App-calling-MSGraph*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox)**, then select **Register** to continue.
-1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` this value.
+1. On the overview page, find the **Application (client) ID** value and copy it. Go back to Visual Studio, open *MainPage.xaml.cs*, and replace the value of `ClientId` with this value.
 
 Configure authentication for your application:
 
-1. Back in [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
+1. Back in the [Azure portal](https://portal.azure.com), under **Manage**, select **Authentication**.
 1. In the **Redirect URIs** list, for **TYPE**, select **Public client (mobile & desktop)** and enter `urn:ietf:wg:oauth:2.0:oob` for **REDIRECT URI**.
 1. Select **Save**.
 
@@ -380,7 +380,7 @@ To test your application, select F5 to run your project in Visual Studio. Your m
 
 ![Application's user interface](./media/tutorial-v2-windows-uwp/testapp-ui-vs2019.png)
 
-When you're ready to test, select **Call Microsoft Graph API**. Then use an Azure AD organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. If it's your first time, you see a window asking the user to sign in.
+When you're ready to test, select **Call Microsoft Graph API**. Then use an Azure AD organizational account or a Microsoft account, such as live.com or outlook.com, to sign in. The first time a user runs this, the application displays a window asking the user to sign in.
 
 ### Consent
 
