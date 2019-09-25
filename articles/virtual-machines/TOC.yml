@@ -7,7 +7,7 @@
 - name: VM Extensions Documentation
   href: extensions/overview.md
 - name: Workloads
-  href: workloads.md
+  href: ./workloads/workloads.md
 - name: Classic deployments
   items:
   - name: Linux VMs using classic deployment
