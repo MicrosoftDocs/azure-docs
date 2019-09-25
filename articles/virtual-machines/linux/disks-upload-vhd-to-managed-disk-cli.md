@@ -21,7 +21,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 ## Prerequisites
 
-- Download the latest [preview version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - A vhd file, stored locally
 
