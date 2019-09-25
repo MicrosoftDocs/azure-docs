@@ -46,7 +46,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create Peering Service - Azure Portal
-            url: peering-service-portal.md
+            url: peering-service-azure-portal.md
       - linkListType: quickstart
         links:
           - text: Create Peering Service - Azure Powershell
