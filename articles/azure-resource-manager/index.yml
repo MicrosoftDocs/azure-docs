@@ -78,7 +78,9 @@ landingContent:
             url: child-resource-name-type.md
           - text: Define outputs
             url: template-outputs.md
+
       -linkListType: reference
+        links:
           - text: Azure Quickstart templates
             url: /resources/templates/
   # Card
