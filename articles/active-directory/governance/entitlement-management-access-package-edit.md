@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This article describes how to edit and manage existing access packages.
 
 ## Add resource roles
 
-A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is by adding resource roles to your access package. You can add resource roles for groups, Teams, applications, and SharePoint sites.
 
 **Prerequisite role:** Global administrator, User administrator, Catalog owner, or Access package manager
 
@@ -48,24 +48,24 @@ A resource role is a collection of permissions associated with a resource. The w
 
     ![Access package - Add resource roles](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. Depending on whether you want to add a group, application, or SharePoint site, perform the steps in one of the following resource role sections.
+1. Depending on whether you want to add a group, Team, application, or SharePoint site, perform the steps in one of the following resource role sections.
 
-### Add a group resource role
+### Add a group or Team resource role
 
-You can have entitlement management automatically add users to a group when they are assigned an access package. 
+You can have entitlement management automatically add users to a group or a Microsoft Team when they are assigned an access package. 
 
-- When a group is part of an access package and a user is assigned to that access package, the user is added to that group, if not already present.
-- When a user's access package assignment expires, they are removed from the group, unless they currently have an assignment to another access package that includes that same group.
+- When a group or Team is part of an access package and a user is assigned to that access package, the user is added to that group or Team, if not already present.
+- When a user's access package assignment expires, they are removed from the group or Team, unless they currently have an assignment to another access package that includes that same group or Team.
 
 You can select any Office 365 group or Azure AD security group.  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
 
-- When a user, including a guest, is added as a member to a group, they can see all the other members of that group.
+- When a user, including a guest, is added as a member to a group or Team, they can see all the other members of that group or Team.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
 
-1. On the **Add resource roles to access package** page, click **Groups** to open the Select groups pane.
+1. On the **Add resource roles to access package** page, click **Groups and Teams** to open the Select groups pane.
 
-1. Select the groups you want to include in the access package.
+1. Select the groups and Teams you want to include in the access package.
 
     ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-edit/group-select.png)
 
@@ -75,11 +75,11 @@ You can select any Office 365 group or Azure AD security group.  Administrators 
 
     You typically select the Member role. If you select the Owner role, that will allow users to add or remove other members or owners.
 
-    ![Access package - Add resource role for a group](./media/entitlement-management-access-package-edit/group-role.png)
+    ![Access package - Add resource role for a group or Team](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. Click **Add**.
 
-    Any users with existing assignments to the access package will automatically become members of this group when it is added.
+    Any users with existing assignments to the access package will automatically become members of this group or Team when it is added.
 
 ### Add an application resource role
 
