@@ -102,17 +102,21 @@ You can load your data in either of the following ways:
 
     a. In the **Name** box, enter the name of your new linked service.
 
-    b. In the **Connect via integration runtime** drop-down list, select a value.
+    b. In the **Connect via integration runtime** drop-down list, select the value.
 
-    c. In the **Access Key ID** box, enter a value.
-
+    c. In the **Access Key ID** box, enter the value.
+    
+    > [!NOTE]
+    > In Amazon S3, to locate your access key, select your Amazon username on the navigation bar, and then select **My Security Credentials**.
+    
     d. In the **Secret Access Key** box, enter a value.
 
     e. To test the linked service connection you created, select **Test Connection**.
 
     f. Select **Finish**.
+    
+      The **Source data store** pane displays your new AmazonS31 connection. 
 
-    The **Source data store** pane displays your new AmazonS31 connection. 
 1. Select **Next**.
 
    ![Source data store created connection](media/data-factory-load-data/source-data-store-created-connection.png)
