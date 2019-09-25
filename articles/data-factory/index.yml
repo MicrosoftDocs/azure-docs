@@ -21,87 +21,65 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Data Factory?
-            url: /data-factory/introduction.md
+            url: /data-factory/introduction
           - text: Compare version 1 vs. version 2
-            url: /data-factory/compare-versions.md
+            url: /data-factory/compare-versions
           - text: Data Factory version 1
-            url: /data-factory/v1/data-factory-introduction.md
+            url: /data-factory/v1/data-factory-introduction
       - linkListType: concept
         links:
           - text: FAQs
-            url: data-factory/frequently-asked-questions.md
+            url: data-factory/frequently-asked-questions
   - title: Get started
     linkLists:
       - linkListType: deploy
         links:
           - text: Azure Data Factory UI
-            url: /azure/data-factory/quickstart-create-data-factory-portal.md
+            url: /azure/data-factory/quickstart-create-data-factory-portal
           - text: Copy Data tool
-            url: /azure/data-factory/quickstart-create-data-factory-copy-data-tool.md
+            url: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
           - text: Azure PowerShell
-            url: /azure/data-factory/quickstart-create-data-factory-powershell.md
+            url: /azure/data-factory/quickstart-create-data-factory-powershell
           - text: .NET
-            url: /azure/data-factory/quickstart-create-data-factory-dot-net.md
+            url: /azure/data-factory/quickstart-create-data-factory-dot-net
           - text: Python
-            url: /azure/data-factory/quickstart-create-data-factory-python.md
+            url: /azure/data-factory/quickstart-create-data-factory-python
+  - title: Copy and transform data
+    linkLists:
       - linkListType: tutorial
         links:
           - text: Copy data in cloud
-            url: /azure/data-factory/tutorial-copy-data-tool.md
+            url: /azure/data-factory/tutorial-copy-data-tool
           - text: Copy on-premises data to cloud
-            url: /azure/data-factory/tutorial-hybrid-copy-data-tool.md
+            url: /azure/data-factory/tutorial-hybrid-copy-data-tool
           - text: Copy data in bulk
-            url: /azure/data-factory/tutorial-bulk-copy-portal.md
+            url: /azure/data-factory/tutorial-bulk-copy-portal
           - text: Copy data incrementally
-            url: /azure/data-factory//tutorial-incremental-copy-portal.md
-          - text: Transform data in cloud using Spark
-            url: /azure/data-factory/tutorial-transform-data-spark-portal.md
-          - text: Transform data in virtual network
-            url: /azure/data-factory/tutorial-transform-data-hive-virtual-network-portal.md
-          - text: Add branching and chaining
-            url: /azure/data-factory//azure/data-factory/tutorial-control-flow-portal.md
-          - text: Run SSIS packages in Azure
-            url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal.md
-          - text: Continuous integration and delivery (CI/CD) in Azure Data Factory
-            url: /azure/data-factory/continuous-integration-deployment.md
-  - title: Configure
-    linkLists:
+            url: /azure/data-factory//tutorial-incremental-copy-portald
       - linkListType: tutorial
         links:
-          - text: Configure secure LDAP
-            url: tutorial-configure-ldaps.md
-      - linkListType: how-to-guide
-        links:
-          - text: Enable password hash synchronization
-            url: tutorial-configure-password-hash-sync.md
-          - text: Create an organizational unit (OU)
-            url: create-ou.md
-          - text: Configure Kerberos Constrained Delegation
-            url: deploy-kcd.md
-          - text: Secure managed domain
-            url: secure-your-domain.md
-  - title: Manage
+          - text: Transform data in cloud using Spark
+            url: /azure/data-factory/tutorial-transform-data-spark-portal
+          - text: Transform data in virtual network
+            url: /azure/data-factory/tutorial-transform-data-hive-virtual-network-portal
+          - text: Add branching and chaining
+            url: /azure/data-factory//azure/data-factory/tutorial-control-flow-portal
+          - text: Run SSIS packages in Azure
+            url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+          - text: Continuous integration and delivery (CI/CD) in Azure Data Factory
+            url: /azure/data-factory/continuous-integration-deployment
+  - title: Monitor and manage
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Administer group policy
-            url: manage-group-policy.md
-          - text: Manage DNS
-            url: manage-dns.md
-          - text: Check health status
-            url: check-health.md
-          - text: Configure email notifications
-            url: notifications.md
-          - text: Enable security audits (preview)
-            url: security-audit-events.md
-  - title: Samples
-    linkLists:
-      - linkListType: download
-        links:
-          - text: Code samples
-            url: https://azure.microsoft.com/resources/samples/?service=data-factory&sort=0
-          - text: PowerShell samples
-            url: https://docs.microsoft.com/azure/data-factory/samples-powershell
+          - text: Visually monitor Azure data factories
+            url: /azure/data-factory/monitor-visually
+          - text: Azure Monitor
+            url: manage-dns
+          - text: /azure/data-factory/monitor-using-azure-monitor
+            url: Copy or clone a data factory in Azure Data Factory
+          - text: /azure/data-factory/copy-clone-data-factory
+            url: notifications
   - title: Languages
     linkLists:
       - linkListType: reference
@@ -116,3 +94,11 @@ landingContent:
             url: https://docs.microsoft.com/rest/api/datafactory/
           - text: Resource Manager template
             url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions
+  - title: Samples
+    linkLists:
+      - linkListType: download
+        links:
+          - text: Code samples
+            url: https://azure.microsoft.com/resources/samples/?service=data-factory&sort=0
+          - text: PowerShell samples
+            url: https://docs.microsoft.com/azure/data-factory/samples-powershell
