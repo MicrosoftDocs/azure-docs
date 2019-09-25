@@ -85,7 +85,7 @@ The DSVM is a customized virtual machine (VM) image. It's designed for data scie
 
 The Azure Machine Learning SDK works on either the Ubuntu or Windows version of the DSVM. But if you plan to use the DSVM as a compute target as well, only Ubuntu is supported.
 
-To use the DSVM as a development environment, do the following:
+To use the DSVM as a development environment:
 
 1. Create a DSVM in either of the following environments:
 
@@ -146,9 +146,9 @@ For more information, see [Data Science Virtual Machines](https://azure.microsof
 
 ## <a id="local"></a>Local computer
 
-When you're using a local computer (which might also be a remote virtual machine), create an Anaconda environment and install the SDK by doing the following:
+When you're using a local computer (which might also be a remote virtual machine), create an Anaconda environment and install the SDK. Here's an example:
 
-1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version)  if you don't already have it.
+1. Download and install [Anaconda](https://www.anaconda.com/distribution/#download-section) (Python 3.7 version) if you don't already have it.
 
 1. Open an Anaconda prompt and create an environment with the following commands:
 
@@ -180,10 +180,10 @@ When you're using a local computer (which might also be a remote virtual machine
 
 1. Use the following commands to install packages:
 
-    This command installs the base Azure Machine Learning SDK with notebook and automl extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
+    This command installs the base Azure Machine Learning SDK with notebook and `automl` extras. The `automl` extra is a large install, and can be removed from the brackets if you don't intend to run automated machine learning experiments. The `automl` extra also includes the Azure Machine Learning Data Prep SDK by default as a dependency.
 
     ```shell
-    pip install azureml-sdk[notebooks,automl]
+    pip install azureml-sdk[notebooks, automl]
     ```
 
    > [!NOTE]
@@ -216,7 +216,9 @@ When you're using a local computer (which might also be a remote virtual machine
 
 Jupyter Notebooks are part of the [Jupyter Project](https://jupyter.org/). They provide an interactive coding experience where you create documents that mix live code with narrative text and graphics. Jupyter Notebooks are also a great way to share your results with others, because you can save the output of your code sections in the document. You can install Jupyter Notebooks on a variety of platforms.
 
-The procedure in the [Local computer](#local) section installs necessary components for running Jupyter Notebooks in an Anaconda environment. To enable these components in your Jupyter Notebook environment, do the following:
+The procedure in the [Local computer](#local) section installs necessary components for running Jupyter Notebooks in an Anaconda environment.
+
+To enable these components in your Jupyter Notebook environment:
 
 1. Open an Anaconda prompt and activate your environment.
 
@@ -249,15 +251,15 @@ The procedure in the [Local computer](#local) section installs necessary compone
     import sys
     sys.path
     ```
-    
+
 1. To configure the Jupyter Notebook to use your Azure Machine Learning workspace, go to the [Create a workspace configuration file](#workspace) section.
 
 
 ### <a id="vscode"></a>Visual Studio Code
 
-Visual Studio Code is a very popular cross platform code editor that supports an extensive set of programming languages and tools through extensions available in the [Visual Studio marketplace](https://marketplace.visualstudio.com/vscode). The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installs the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for coding in all types of Python environments (virtual, Anaconda, etc). In addition, it provides convenience features for working with Azure Machine Learning resources and running Azure Machine Learning experiments all without leaving Visual Studio Code.
+Visual Studio Code is a very popular cross platform code editor that supports an extensive set of programming languages and tools through extensions available in the [Visual Studio marketplace](https://marketplace.visualstudio.com/vscode). The [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) installs the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for coding in all types of Python environments (virtual, Anaconda, etc.). In addition, it provides convenience features for working with Azure Machine Learning resources and running Azure Machine Learning experiments all without leaving Visual Studio Code.
 
-To use Visual Studio Code for development, do the following:
+To use Visual Studio Code for development:
 
 1. Install the Azure Machine Learning extension for Visual Studio Code, see [Azure Machine Learning](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai).
 
@@ -298,7 +300,7 @@ Use these settings:
 | Setting |Applies to| Value |
 |----|---|---|
 | Cluster name |always| yourclustername |
-| Databricks Runtime |always| Any non ML runtime (non ML 4.x, 5.x) |
+| Databricks Runtime |always| Any non-ML runtime (non-ML 4.x, 5.x) |
 | Python version |always| 3 |
 | Workers |always| 2 or higher |
 | Worker node VM types <br>(determines max # of concurrent iterations) |Automated ML<br>only| Memory optimized VM preferred |
@@ -322,7 +324,7 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
 
-1. Monitor for errors until status changes to **Attached**, which may take several minutes.  If this step fails, check the following:
+1. Monitor for errors until status changes to **Attached**, which may take several minutes.  If this step fails:
 
    Try restarting your cluster by:
    1. In the left pane, select **Clusters**.
