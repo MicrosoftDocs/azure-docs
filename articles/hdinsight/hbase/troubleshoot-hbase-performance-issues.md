@@ -11,11 +11,11 @@ ms.date: 09/24/2019
 
 # Troubleshoot Apache HBase performance issues on Azure HDInsight
 
-This document describes various Apache HBase performance tuning guidelines and tips for getting optimal performance on Azure HDInsight. Many of these tips depend on the particular workload and Read/Write/Scan pattern so they should be tested thoroughly before applying on a production environment.
+This document describes various Apache HBase performance tuning guidelines and tips for getting optimal performance on Azure HDInsight. Many of these tips depend on the particular workload and read/write/scan pattern. Test configuration changes thoroughly before applying on a production environment.
 
-## HDI HBase Performance Insights
+## HDInsight HBase performance insights
 
-As generally agreed in the community, the top bottleneck in most HBase workloads is the Write Ahead Log. It severely impacts write performance. HDInsight HBase has a separated storage-compute model – that is, data is stored remotely on Azure Storage but the region servers are hosted on the VMs. Until recently, the Write Ahead Log was also written to Azure Storage thus amplifying this bottleneck in the case of HDInsight. To address this problem, we came up with our [Accelerated Writes](./apache-hbase-accelerated-writes.md) feature. This benefits write performance tremendously, and helps many issues faced by some of the write-intensive workloads.
+The top bottleneck in most HBase workloads is the Write Ahead Log (WAL). It severely impacts write performance. HDInsight HBase has a separated storage-compute model – that is, data is stored remotely on Azure Storage but the region servers are hosted on the VMs. Until recently, the Write Ahead Log was also written to Azure Storage thus amplifying this bottleneck in the case of HDInsight. The [Accelerated Writes](./apache-hbase-accelerated-writes.md) feature is designed to solve this problem, by writing the Write Ahead Log to Azure premium SSD managed disks. This benefits write performance tremendously, and helps many issues faced by some of the write-intensive workloads.
 
 Use [Premium Block Blob Storage Account](https://azure.microsoft.com/blog/azure-premium-block-blob-storage-is-now-generally-available/) as your remote storage to gain significant improvement in read operations. This option is possible only if Write Ahead Logs feature is enabled.
 
@@ -27,9 +27,16 @@ The assumption is that the customer will take care to schedule the major compact
 
 For scan operations in particular, mean latencies much higher than 100 ms should be a cause for concern. Check if major compaction has been scheduled accurately.
 
-## Know Your Workload
+## Know your Apache Phoenix workload
 
-Are you using Apache Phoenix? If yes, are all your "reads" translating to scans and if so what are the characteristics of these scans? Have you optimized your phoenix table schema for these including appropriate indexing? Use `EXPLAIN` statement to understand the query plans your "reads" generate. Also, if using Phoenix are your writes "upsert-selects"? If yes, they would also be doing scans. Expected latency for scans is of the order of 100 ms on average, as opposed to 10 ms for point gets in HBase.  
+Answering the following questions will help you understand your Apache Phoenix workload better:
+
+* Are all your "reads" translating to scans?
+    * If so, what are the characteristics of these scans?
+    * Have you optimized your phoenix table schema for these scans including appropriate indexing?
+* Have you used the `EXPLAIN` statement to understand the query plans your "reads" generate.
+* Are your writes "upsert-selects"?
+    * If so, they would also be doing scans. Expected latency for scans is of the order of 100 ms on average, as opposed to 10 ms for point gets in HBase.  
 
 ## Test Methodology and Metrics Monitoring
 
@@ -73,13 +80,13 @@ Some of the other specific parameters we tuned that seemed to have helped to var
 
     1. `Hbase.regionserver.global.memstore.upperLimit` = 0.60.
 
-1. Phoenix specific configs for thread pool tuning:
+1. Phoenix-specific configs for thread pool tuning:
 
     1. `Phoenix.query.queuesize` can be increased to 10000.
 
     1. `Phoenix.query.threadpoolsize` can be increased to 512.
 
-1. Other phoenix specific configs:
+1. Other phoenix-specific configs:
 
     1. `Phoenix.rpc.index.handler.count` can be set to 50 if we have large or many index lookups.
 
