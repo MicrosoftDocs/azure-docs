@@ -7,7 +7,7 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
 ---
-# How to work with big data sources in Azure Data Catalog
+# How to catalog big data in Azure Data Catalog
 
 ## Introduction
 
