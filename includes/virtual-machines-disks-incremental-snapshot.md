@@ -18,7 +18,7 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
 
 ## Restrictions
 
@@ -74,7 +74,6 @@ foreach ($snapshot in $snapshots)
 $incrementalSnapshots
 ```
 
-
 ## CLI
 
 You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. The following command will either install or update your existing installation to the latest version:
@@ -99,7 +98,7 @@ az snapshot create -g <yourResourceGroupNameHere> \
 
 To make managing your snapshots easier, you can also list all of your existing incremental snapshots.
 
-The following example uses jq for querying the data. To run the example you must [install jq](https://stedolan.github.io/jq/download/).
+The following example uses jq for querying the data. To run the example, you must [install jq](https://stedolan.github.io/jq/download/).
 
 Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
 
@@ -112,7 +111,6 @@ sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskNa
 az snapshot list -g <yourResourceGroupNameHere> -o json \
 | jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
 ```
-
 
 ## Resource Manager template
 
@@ -152,4 +150,4 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
