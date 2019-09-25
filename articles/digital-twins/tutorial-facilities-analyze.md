@@ -137,7 +137,7 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. In the **Event Source** tab, enter a **Name**, select **Event Hub** as the **Source type**, and make sure the other values are selected correctly. Select **ManageSend** for **Event Hub access policy name**, and then select the consumer group that you created in the previous section for **Event Hub consumer group**. Select **Review + create**.
 
-    ![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)
+    [![Selections for creating an event source](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. In the **Review + Create** pane, review the information you entered, and select **Create**.
 
@@ -149,13 +149,13 @@ You can use the [Event Hubs](../event-hubs/event-hubs-about.md) service to creat
 
 1. After a few simulated events are generated, go back to the Time Series Insights explorer, and select the refresh button at the top. You should see analytical charts being created for your simulated sensor data. 
 
-    ![Chart in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)
+    [![Chart in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. In the Time Series Insights explorer, you can then generate charts and heatmaps for different events and data from your rooms, sensors, and other resources. On the left side, use the **MEASURE** and **SPLIT BY** drop-down boxes to create your own visualizations. 
 
    For example, select **Events** for **MEASURE** and **DigitalTwins-SensorHardwareId** for **SPLIT BY**, to generate a heatmap for each of your sensors. The heatmap will be similar to the following image:
 
-   ![Heatmap in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)
+   [![Heatmap in the Time Series Insights explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## Clean up resources
 

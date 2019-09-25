@@ -97,7 +97,7 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
 
    This command creates the endpoint for Event Grid. 
 
-   [![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)(./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
+   [![Endpoints for Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## Notify events with Logic Apps
 
