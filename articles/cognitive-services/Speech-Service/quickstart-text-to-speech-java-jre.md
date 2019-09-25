@@ -1,25 +1,22 @@
 ---
-title: 'Quickstart: Recognize speech, Java (Windows, Linux, macOS) - Speech Service'
+title: 'Quickstart: Synthesize speech, Java (Windows, Linux, macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
+description: In this quickstart, you'll learn to create a simple Java application that captures and synthesize speech from text and play it with the default speaker.
 services: cognitive-services
-author: fmegen
+author: yulin-li
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
-ms.author: fmegen
+ms.date: 09/19/2019
+ms.author: yulili
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Java
+# Quickstart: Synthesize speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md), and [speech synthesis](quickstart-text-to-speech-java-jre.md).
+Quickstarts are also available for [speech recognition](quickstart-java-jre.md), [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
 
-If desired, choose a different programming language and/or environment:<br/>
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You synthesize speech from text and play it with your PC's default speaker. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
@@ -66,7 +63,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. Replace all code in `Main.java` with the following snippet:
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/src/speechsdk/quickstart/Main.java#code)]
+   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-jre/src/speechsdk/quickstart/Main.java#code)]
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -77,9 +74,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 ## Build and run the app
 
 Press F11, or select **Run** > **Debug**.
-The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
-
-![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
+Input a text when promoted, and you will here the synthesized audio played from default speaker.
 
 ## Next steps
 
@@ -90,7 +85,7 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
+- [Quickstart: Recognize speech, java (Windows, Linux, macOS)](quickstart-java-jre.md)
 - [Quickstart: Translate speech, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
-- [Quickstart: Synthesize speech, Java (Windows, Linux, macOS)](quickstart-text-to-speech-java-jre.md)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize voice fonts](how-to-customize-voice-font.md)
+- [Record voice samples](record-custom-voice-samples.md)
