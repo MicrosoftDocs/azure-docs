@@ -25,7 +25,7 @@ landingContent:
           - text: Compare version 1 vs. version 2
             url: /azure//data-factory/compare-versions
           - text: Data Factory version 1
-            url: azure//data-factory/v1/data-factory-introduction
+            url: azure/data-factory/v1/data-factory-introduction
       - linkListType: concept
         links:
           - text: FAQs
