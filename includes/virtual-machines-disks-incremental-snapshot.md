@@ -132,7 +132,7 @@ az snapshot show -g <exampleResourceGroup> \
 --query [creationData.sourceUniqueId] -o tsv
 ```
 
-The following example uses jq for querying the data. If you want to run the example you must install it using the [installation option appropriate for your OS](https://stedolan.github.io/jq/download/). 
+The following example uses jq for querying the data. To run the example you must [install jq](https://stedolan.github.io/jq/download/).
 
 ```bash
 sourceUniqueId=$(az disk show -g SNAPSHOTBILLINGTEST -n isnapshot_data_disk1 --query '[uniqueId]' -o tsv)
