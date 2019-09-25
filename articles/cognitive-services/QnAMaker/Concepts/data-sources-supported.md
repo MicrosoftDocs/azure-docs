@@ -16,7 +16,9 @@ ms.author: diberry
 
 QnA Maker automatically extracts question-answer pairs from  semi-structured content such as FAQs, product manuals, guidelines, support documents, and policies stored as web pages, PDF files, or MS Word doc files    . Content can also be added to the knowledge base from structured QnA content files. 
 
-## Data types
+<a name="data-types"></a>
+
+## File and URL data types
 
 The table below summarizes the types of content and file formats that are supported by QnA Maker.
 
@@ -220,6 +222,10 @@ Once you are done with your edits, reimport the TSV file from the **Settings** p
 ## Testing your Markdown
 
 Use the **[CommonMark](https://commonmark.org/help/tutorial/index.html)** tutorial to validate your Markdown. The tutorial has a **Try it** feature for quick copy/paste validation. 
+
+## Version control for data in your knowledge base
+
+Version control for data is provided through the [import/export feature](development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) on the **Settings** page. 
 
 ## Next steps
 
