@@ -75,9 +75,6 @@ To recover a single, pooled, or instance database to a point in time by using th
 
 ![Screenshot of point-in-time-restore](./media/sql-database-recovery-using-backups/point-in-time-recovery.png)
 
-> [!IMPORTANT]
-> To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups).
-
 ## Deleted database restore
 
 You can restore a deleted database to the deletion time, or to an earlier point in time on the same SQL Database server. Again, you can accomplish this by using the Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). You can [restore a deleted database on a managed instance by using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
@@ -95,9 +92,6 @@ To recover a deleted database by using the Azure portal, open the page for your 
 ![Screenshot of SQL Database Overview page](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
 ![Screenshot of Deleted databases page](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
-
-> [!IMPORTANT]
-> To programmatically restore a deleted database, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups).
 
 ## Geo-restore
 
