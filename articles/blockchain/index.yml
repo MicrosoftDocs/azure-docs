@@ -13,7 +13,7 @@ metadata:
 
   author: PatAltimore
   ms.author: patricka
-  ms.date: 09/24/2019 
+  ms.date: 09/25/2019 
 
 productDirectory:
   items:
@@ -24,7 +24,7 @@ productDirectory:
           text: What is Azure Blockchain Service?
         - url: ./service/index.yml
           text: Documentation >
-    - title: Azure Blockchain Workbench Preview
+    - title: Azure Blockchain Workbench
       imageSrc: ./media/index/blockchain-workbench.svg
       links:
         - url: ./workbench/overview.md
@@ -34,7 +34,7 @@ productDirectory:
 conceptualContent:
   title: Get started
   items:
-    - title: Azure Blockchain Service
+    - title: Build, govern, and develop consortium blockchain networks.
       links:
         - url: ./service/create-member.md
           itemType: quickstart
@@ -48,7 +48,7 @@ conceptualContent:
         - url: https://channel9.msdn.com/Shows/Blocktalk/Getting-started-with-Azure-Blockchain-Service-Part-II-Write-and-test-smart-contracts-with-VS-Code
           itemType: video
           text: Watch how to write a smart contract with VS Code
-    - title: Azure Blockchain Workbench
+    - title: Experiment and prototype a blockchain solution with Azure Blockchain Workbench
       links:
         - url: ./workbench/deploy.md
           itemType: how-to-guide
@@ -62,7 +62,7 @@ conceptualContent:
         - url: https://channel9.msdn.com/Shows/Blocktalk/Building-your-first-Azure-Blockchain-Workbench-application
           itemType: video
           text: Watch how to build your first application
-    - title: Solution templates
+    - title: Build with the ledger that suits your use case
       links:
         - url: ./templates/ethereum-poa-deployment.md
           itemType: how-to-guide
