@@ -40,15 +40,15 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Once that is installed, login to your PowerShell session with `az login`.
 
+To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
+
 Replace `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`, and `<yourDesiredSnapShotNameHere>` with your values, then you can use the following script to create an incremental snapshot:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName <yourDiskNameHere> -ResourceGroupName <yourResourceGroupNameHere>
 
-# Create an incremental snapshot by setting:
-# 1. Incremental property
-# 2. SourceUri property with the value of the Id property of the disk
+# Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
 ```
