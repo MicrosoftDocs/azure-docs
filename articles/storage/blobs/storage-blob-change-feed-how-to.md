@@ -18,7 +18,7 @@ This article shows you how to process a change feed log in a .NET client applica
 To learn how to enable change feed logs, find them, and interpret their contents, see [Change feed logs in Azure Blob Storage](storage-blob-change-feed.md);
 
 > [!NOTE]
-> Change feed logs are in public preview, and are available in [these regions](#region-availability). To review limitations, see the [Known issues](data-lake-storage-known-issues.md) article. To enroll in the preview, see [this page](www.microsoft.com).
+> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
 
 ## Enable the change feed
 
