@@ -160,7 +160,7 @@ serviceContext =>
 Also add the following method so that Kestrel can find the certificate in the `Cert:\LocalMachine\My` store using the subject.  
 
 Replace "&lt;your_CN_value&gt;" with "mytestcert" if you created a self-signed certificate with the previous PowerShell command, or use the CN of your certificate.
-Be aware that in the case of local deployment to `localhost` it's preferable to use "CN=localhost for avoiding authentication exceptions.
+Be aware that in the case of local deployment to `localhost` it's preferable to use "CN=localhost" to avoid authentication exceptions.
 
 ```csharp
 private X509Certificate2 GetHttpsCertificateFromStore()
