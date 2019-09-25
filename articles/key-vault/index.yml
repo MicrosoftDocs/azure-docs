@@ -56,7 +56,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Key Vault from a Web Application
+          - text: Key Vault from a web application
             url: tutorial-net-create-vault-azure-web-app.md
           - text: Key Vault with Azure Linux Virtual Machine
             url: tutorial-net-linux-virtual-machine.md
