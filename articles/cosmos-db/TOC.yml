@@ -227,6 +227,10 @@
         href: spark-api-introduction.md
       - name: Lambda architecture
         href: lambda-architecture.md 
+    - name: Built-in analytics with Jupyter notebooks
+      items:
+      - name: Jupyter notebooks overview
+        href: cosmosdb-jupyter-notebooks.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -345,6 +349,8 @@
           href: manage-cassandra-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-cassandra.md
+        - name: Manage using Azure CLI
+          href: cli-samples-cassandra.md
     - name: MongoDB API
       items: 
       - name: Introduction
@@ -407,7 +413,7 @@
           href: mongodb-mongochef.md
         - name: Connect using Compass
           href: mongodb-compass.md
-        - name: Connect using Robomongo
+        - name: Connect using Robo 3T
           href: mongodb-robomongo.md
         - name: Connect using Mongoose
           href: mongodb-mongoose.md
@@ -428,6 +434,8 @@
           href: manage-mongodb-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-mongodb.md
+        - name: Manage using Azure CLI
+          href: cli-samples-mongodb.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -488,6 +496,8 @@
           href: manage-gremlin-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-gremlin.md
+        - name: Manage using Azure CLI
+          href: cli-samples-gremlin.md
     - name: Table API
       items:
       - name: Introduction
@@ -542,6 +552,8 @@
           href: manage-table-with-resource-manager.md
         - name: Manage using PowerShell
           href: powershell-samples-table.md
+        - name: Manage using Azure CLI
+          href: cli-samples-table.md
       - name: Reference
         items:
           - name: .NET
@@ -666,7 +678,7 @@
         href: how-to-configure-change-feed-start-time.md
       - name: Using the change feed estimator
         href: how-to-use-change-feed-estimator.md
-      - name: Migrating from change feed processor library
+      - name: Migrate from change feed processor library
         href: how-to-migrate-from-change-feed-library.md
     - name: Built-in analytics with Apache Spark
       items:
@@ -675,6 +687,10 @@
       - name: Streaming with Apache Kafka and Cosmos DB
         href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
         maintainContext: true 
+    - name: Built-in Jupyter notebooks
+      items:
+      - name: Enable notebooks
+        href: enable-notebooks.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs

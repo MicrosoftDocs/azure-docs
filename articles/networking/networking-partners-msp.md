@@ -36,7 +36,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [InterCloud](https://www.intercloud.com/partners/cloud-service-providers/get-azure-expressroute)
 
-[IIJ](https://www.iij.ad.jp/en/)
+[IIJ](https://www.iij.ad.jp/biz/cloudex/)
 
 [Interxion](https://www.interxion.com/products/interconnection/cloud-connect/)
 
@@ -45,6 +45,8 @@ Use the links in this section for more information about managed cloud networkin
 [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
 
 [Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
+
+[Orixcom]( https://www.orixcom.com/cloud-solutions/)
 
 [Tata Communications](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)
 

@@ -150,11 +150,13 @@ In this section, you will configure the Azure Cosmos DB Cassandra API account as
 
    ![Connect to target](./media/cosmosdb-cassandra-api-migrate-data-striim/connect-to-target.png)
 
-1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/java/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store).
+1. Before configuring the target, make sure you have added a [Baltimore root certificate to Striim's Java environment](/azure/java/java-sdk-add-certificate-ca-store#to-add-a-root-certificate-to-the-cacerts-store).
 
 1. Enter the configuration properties of your target Azure Cosmos DB instance and select **Save** to continue. Here are the key parameters to note:
 
    * **Adapter** - Use **DatabaseWriter**. When writing to Azure Cosmos DB Cassandra API, DatabaseWriter is required. The Cassandra driver 3.6.0 is bundled with Striim. If the DatabaseWriter exceeds the number of RUs provisioned on your Azure Cosmos container, the application will crash.
+
+   * **Connection URL** - Specify your Azure Cosmos DB JDBC connection URL. The URL is in the format     `jdbc:cassandra://<contactpoint>:10350/<databaseName>?SSL=true`
 
    * **Username** - Specify your Azure Cosmos account name.
    
