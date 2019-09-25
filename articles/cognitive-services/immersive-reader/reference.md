@@ -21,11 +21,11 @@ The Immersive Reader SDK is a JavaScript library that allows you to integrate th
 
 The SDK exposes the functions:
 
-[`ImmersiveReader.launchAsync(token, subdomain, content, options)`.](#launchasync)
+- [`ImmersiveReader.launchAsync(token, subdomain, content, options)`](#launchasync)
 
-[`ImmersiveReader.close()`.](#close)
+- [`ImmersiveReader.close()`](#close)
 
-[`ImmersiveReader.renderButtons(options)`.](#renderbuttons)
+- [`ImmersiveReader.renderButtons(options)`](#renderbuttons)
 
 ## launchAsync
 
@@ -35,7 +35,7 @@ Launches the Immersive Reader within an `iframe` in your web application.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-##### Parameters
+### Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -44,11 +44,11 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
-##### Returns
+### Returns
 
 Returns a `Promise<HTMLDivElement>` which resolves when the Immersive Reader is loaded. The `Promise` resolves to a `div` element whose only child is an `iframe` element that contains the Immersive Reader page.
 
-##### Exceptions
+### Exceptions
 
 The returned `Promise` will be rejected with an [`Error`](#error) object if the Immersive Reader fails to load. For more information, see the [error codes](#error-codes).
 
@@ -56,7 +56,7 @@ The returned `Promise` will be rejected with an [`Error`](#error) object if the 
 
 Closes the Immersive Reader.
 
-An example use case for this function is if the exit button is hidden by setting ```hideExitButton = true``` in [options](#options). Then, a different button (for example a mobile header's back arrow) can call this ```close``` function when it is clicked.
+An example use case for this function is if the exit button is hidden by setting ```hideExitButton: true``` in [options](#options). Then, a different button (for example a mobile header's back arrow) can call this ```close``` function when it is clicked.
 
 ```typescript
 close(): void;
@@ -64,17 +64,17 @@ close(): void;
 
 ## renderButtons
 
-This styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```.immersive-reader-button```.
+This styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button```.
 
-This function is automatically called by the sdk when the window loads.
+This function is automatically called by the SDK when the window loads.
 
 See [Optional Attributes](#optional-attributes) for more rendering options.
 
 ```typescript
-renderButtons(options?: RenderButtonsOptions): void ;
+renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-##### Parameters
+### Parameters
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
@@ -122,8 +122,7 @@ A single chunk of data which will be passed into the Content of the Immersive Re
 | Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
 | Hyperlinks | Coming Soon |
 
-Unsupported tags will be rendered comparably.
-We currently do not support images or tables.
+Unsupported tags will be rendered comparably. Images and tables are currently not supported.
 
 ### Options
 
