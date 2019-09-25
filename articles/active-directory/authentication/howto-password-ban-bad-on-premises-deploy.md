@@ -40,23 +40,24 @@ After the feature has been running in audit mode for a reasonable period, you ca
 ## Deployment requirements
 
 * Licensing requirements for Azure AD password protection can be found in the article [Eliminate bad passwords in your organization](concept-password-ban-bad.md#license-requirements).
-* All domain controllers that get the DC Agent service for Azure AD password protection installed must run Windows Server 2012 or later. This requirement does not imply that the Active Directory domain or forest must also be at Windows Server 2012 domain or forest functional level. As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there is no minimum DFL or FFL required for either the DC agent or proxy software to run.
+* All machines where the Azure AD Password Protection DC Agent software will be installed must run Windows Server 2012 or later. This requirement does not imply that the Active Directory domain or forest must also be at Windows Server 2012 domain or forest functional level. As mentioned in [Design Principles](concept-password-ban-bad-on-premises.md#design-principles), there is no minimum DFL or FFL required for either the DC agent or proxy software to run.
 * All machines that get the DC agent service installed must have .NET 4.5 installed.
-* All machines that get the proxy service for Azure AD password protection installed must run Windows Server 2012 R2 or later.
+* All machines where the Azure AD Password Protection Proxy service will be installed  must run Windows Server 2012 R2 or later.
    > [!NOTE]
-   > Proxy service deployment is a mandatory requirement for deploying Azure AD password protection even though the Domain controller may have outbound direct internet connectivity. 
+   > Proxy service deployment is a mandatory requirement for deploying Azure AD password protection even though the domain controller may have outbound direct internet connectivity. 
    >
 * All machines where the Azure AD Password Protection Proxy service will be installed must have .NET 4.7 installed.
   .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-* All machines, including domain controllers, that get Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
+* All machines, including domain controllers, that have Azure AD password protection components installed must have the Universal C Runtime installed. You can get the runtime by making sure you have all updates from Windows Update. Or you can get it in an OS-specific update package. For more information, see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Network connectivity must exist between at least one domain controller in each domain and at least one server that hosts the proxy service for password protection. This connectivity must allow the domain controller to access RPC endpoint mapper port 135 and the RPC server port on the proxy service. By default, the RPC server port is a dynamic RPC port, but it can be configured to [use a static port](#static).
-* All machines that host the proxy service must have network access to the following endpoints:
+* All machines where the Azure AD Password Protection Proxy service will be installed must have network access to the following endpoints:
 
     |**Endpoint**|**Purpose**|
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
 
+  You must also enable network access for the set of ports and urls specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). These configuration steps are required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function (this service  is installed side-by-side with the Proxy service). It is not recommended to install Azure AD Password Protection Proxy and Application Proxy side by side on the same machine, due to incompatibilities between the versions of the Microsoft Azure AD Connect Agent Updater software.
 * All machines that host the proxy service for password protection must be configured to grant domain controllers the ability to logon to the proxy service. This is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.

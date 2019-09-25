@@ -5,7 +5,6 @@ manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
