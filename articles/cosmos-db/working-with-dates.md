@@ -14,7 +14,7 @@ In addition to the basic types, many applications need the DateTime type to repr
 
 ## Storing DateTimes
 
-Azure Cosmos DB is scoped to the JSON types which does not include a datetime type. So, in Azure Cosmos DB, dates must be stored as strings. The recommended format for datetime strings in Azure Cosmos DB is `YYYY-MM-DDThh:mm:ss.sssZ` which follows the ISO 8601 UTC standard. Formatting the strings in this format will allow sorting dates lexicographically. Currently Azure Cosmos DB doesn't support localization of dates. Logic to handle non-UTC dates must be defined by the client. Most applications can use the default string representation for DateTime for the following reasons:
+Azure Cosmos DB is scoped to the JSON types which does not include a DateTime type. So, in Azure Cosmos DB, dates must be stored as strings. The recommended format for datetime strings in Azure Cosmos DB is `YYYY-MM-DDThh:mm:ss.sssZ` which follows the ISO 8601 UTC standard. Formatting the strings in this format will allow sorting dates lexicographically. Currently Azure Cosmos DB doesn't support localization of dates. Logic to handle non-UTC dates must be defined by the client. Most applications can use the default string representation for DateTime for the following reasons:
 
 * Strings can be compared, and the relative ordering of the DateTime values is preserved when they are transformed to strings. 
 * This approach doesn't require any custom code or attributes for JSON conversion.
