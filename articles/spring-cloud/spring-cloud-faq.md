@@ -41,15 +41,12 @@ Persistent volumes | 10 x 50 GBytes
 
 However we don't have support plan before public preview. For more details, please refer to [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
 
-### How to get access to Azure Spring Cloud?
-The private preview is currently under NDA and "Invitation Only", so only select customers will be provided access. To contact us, please submit [Azure Spring Cloud (Private Preview) - Interest Form](https://aka.ms/AzureSpringCloudInterest).
-
 ### How secure is Azure Spring Cloud?
 Security and privacy are one of the top priorities for Azure and Azure Spring Cloud customers. Microsoft has no access to application data, logs or configurations as they are encrypted in Azure. All the service instances in Azure Spring Cloud are completely isolated to each other.
 
 Azure Spring Cloud provides complete solution of SSL and certificate management.
 
-Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as they are available.
+Critical security patches for OpenJDK and Spring Cloud runtimes are applied to Azure Spring Cloud as soon as possible.
 
 ### Which regions Azure Spring Cloud are available?
 In private preview, we only support East US and Western Europe.
