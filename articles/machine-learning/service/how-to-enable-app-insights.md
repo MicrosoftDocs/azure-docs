@@ -19,7 +19,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 * Dependency rates, response times, and failure rates.
 * Exceptions.
 
-[Learn more about Application Insights](../../azure-monitor/app/app-insights-overview.md). 
+[Learn more about Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). 
 
 
 ## Prerequisites
@@ -31,15 +31,15 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 ## Web service input and response data
 
-The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Application Insights traces under the message `"model_data_collection"`. You can query Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
+The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
 
 ## Use the Azure Portal or Studio UI to configure
 
-You can enable and disable Application Insights in the Azure portal or new Studio UI. 
+You can enable and disable Azure Application Insights in the Azure portal or new Studio UI. 
 
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 
-1. On the **Deployments** tab, select the service where you want to enable Application Insights.
+1. On the **Deployments** tab, select the service where you want to enable Azure Application Insights.
 
    [![List of services on the Deployments tab](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
@@ -74,7 +74,7 @@ You can enable and disable Application Insights in the Azure portal or new Studi
     from azureml.core.web service import Webservice
     aks_service= Webservice(ws, "my-service-name")
     ```
-2. Update your service and enable Application Insights. 
+2. Update your service and enable Azure Application Insights. 
 
     ```python
     aks_service.update(enable_app_insights=True)
@@ -99,7 +99,7 @@ If you want to log custom traces, follow the standard deployment process for AKS
 
 ### Disable tracking in Python
 
-To disable Application Insights, use the following code:
+To disable Azure Application Insights, use the following code:
 
 ```python 
 ## replace <service_name> with the name of the web service
@@ -107,9 +107,9 @@ To disable Application Insights, use the following code:
 ```
 	
 ## Evaluate data
-Your service's data is stored in your Application Insights account, within the same resource group as Azure Machine Learning.
+Your service's data is stored in your Azure Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
-1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Application Insights link.
+1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Azure Application Insights link.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
@@ -128,7 +128,7 @@ To view it:
 
    [![Custom traces](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
-To learn more about how to use Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
+To learn more about how to use Azure Application Insights, see [What is Application Insights?](../../azure-monitor/app/app-insights-overview.md).
 
 
 ## Example notebook
