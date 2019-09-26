@@ -39,8 +39,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [Get-AzDataShareSynchronization](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | List synchronizations on a share. |
-| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.resources/get-azdatasharesynchronizationdetails) | Gets synchronization details of a share synchronization. |
+| [Get-AzDataShareSynchronization](/powershell/module/az.datashare/get-azdatasharesynchronization?view=azps-2.6.0) | List synchronizations on a share. |
+| [Get-AzDataShareSynchronizationDetails](/powershell/module/az.datashare/get-azdatasharesynchronizationdetail?view=azps-2.6.0) | Gets synchronization details of a share synchronization. |
 |||
 
 ## Next steps

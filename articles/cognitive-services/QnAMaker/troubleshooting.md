@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -43,6 +43,8 @@ QnA Maker provides a **Help** bot within the QnA Maker portal to help you. The h
 ## Manage the knowledge base
 
 ### I accidentally deleted a part of my QnA Maker, what should I do? 
+
+Do not delete any of the Azure services created along with the QnA Maker resource such as Search or Web App. These are necessary for QnA Maker to work, if you delete one, QnA Maker will stop working correctly.
 
 All deletes are permanent, including question and answer pairs, files, URLs, custom questions and answers, knowledge bases, or Azure resources. Make sure you export your knowledge base from the **Settings** page before deleting any part of your knowledge base. 
 
@@ -128,7 +130,7 @@ To use multiple language and multiple knowledge bases, the user has to create an
 
 ### How can I change the name of the Azure Search resource used by QnA Maker?
 
-The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure Search](How-To/set-up-qnamaker-service-azure.md#upgrade-azure-search-service).
+The name of the Azure Search resource is the QnA Maker resource name with some random letters appended at the end. This makes it hard to distinguish between multiple Search resources for QnA Maker. Create a separate Azure Search service (naming it the way you would like to) and connect it to your QnA Service. The steps are similar to the steps you need to do to [upgrade an Azure search](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
 ### When QnA Maker returns `Runtime core is not initialized,` how do I fix it?
 

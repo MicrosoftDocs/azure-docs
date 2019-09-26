@@ -43,7 +43,6 @@ Using entity linking in various languages requires using a corresponding knowled
 | Quantity      | Number        | "6", "six"     |
 | Quantity      | Percentage    | "50%", "fifty percent"|
 | Quantity      | Ordinal       | "2nd", "second"     |
-| Quantity      | NumberRange   | "4 to 8"     |
 | Quantity      | Age           | "90 day old", "30 years old"    |
 | Quantity      | Currency      | "$10.99"     |
 | Quantity      | Dimension     | "10 miles", "40 cm"     |
@@ -55,7 +54,6 @@ Using entity linking in various languages requires using a corresponding knowled
 | DateTime      | TimeRange     | "6pm to 7pm"     |
 | DateTime      | Duration      | "1 minute and 45 seconds"   |
 | DateTime      | Set           | "every Tuesday"     |
-| DateTime      | TimeZone      |    |
 | URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
@@ -94,7 +92,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 + Create a **POST** request. Review the API documentation for this request: [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Set the HTTP endpoint for entity extraction. It must include the `/entities` resource: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
++ Set the HTTP endpoint for key phrase extraction by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). You must include `/text/analytics/v2.1/entities`. For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 
 + Set a request header to include [the access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 

@@ -5,10 +5,8 @@ services: managed-applications
 author: tfitzmac
 
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: quickstart
-ms.tgt_pltfrm: na
-ms.date: 08/06/2019
+ms.date: 09/13/2019
 ms.author: tomfitz
 ---
 # Publish an Azure managed application definition
@@ -56,7 +54,7 @@ az managedapp definition create \
   --display-name "Managed Storage Account" \
   --description "Managed Azure Storage Account" \
   --authorizations "$userid:$roleid" \
-  --package-file-uri "https://raw.githubusercontent.com/Azure/azure-managedapp-samples/master/samples/201-managed-storage-account/managedstorage.zip"
+  --package-file-uri "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed%20Application%20Sample%20Packages/201-managed-storage-account/managedstorage.zip"
 ```
 
 When the command completes, you have a managed application definition in your resource group. 

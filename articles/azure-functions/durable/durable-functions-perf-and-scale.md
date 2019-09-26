@@ -239,4 +239,4 @@ an Azure Storage account and sufficiently high loads may result in storage accou
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create your first durable function in C#](durable-functions-create-first-csharp.md)
+> [Learn about disaster recovery and geo-distribution](durable-functions-disaster-recovery-geo-distribution.md)

@@ -1,10 +1,11 @@
 ---
 title: Pegged CPU on region server in Apache HBase cluster in Azure HDInsight
-description: Pegged CPU on region server in Apache HBase cluster in Azure HDInsight
+description: Troubleshoot pegged CPU on region server in Apache HBase cluster in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 08/01/2019
 ---
 

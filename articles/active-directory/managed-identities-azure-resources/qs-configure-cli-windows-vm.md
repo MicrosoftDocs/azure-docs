@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/10/2018
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
@@ -103,8 +103,7 @@ If you have a virtual machine that no longer needs system-assigned identity and 
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-> [!NOTE]
-> If you have provisioned the managed identity for Azure resources VM extension (to be deprecated), you need to remove it using [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/). For more information, see [Migrate from VM extension to Azure IMDS for authentication](howto-migrate-vm-extension.md).
+
 
 ## User-assigned managed identity
 

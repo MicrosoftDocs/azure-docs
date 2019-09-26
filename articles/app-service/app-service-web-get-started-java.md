@@ -16,7 +16,7 @@ ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019
+ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 #Customer intent: As a Java developer, I want deploy a java app so that it is hosted on Azure App Service.
 ---
 # Quickstart: Create a Java app on Azure App Service on Windows
@@ -30,7 +30,7 @@ ms.custom: mvc, seo-java-july2019, seo-java-august2019
 > [!NOTE]
 > The same thing can also be done using popular IDEs like IntelliJ and Eclipse. Check out our similar documents at [Azure Toolkit for IntelliJ Quickstart](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) or [Azure Toolkit for Eclipse Quickstart](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app).
 >
-![Sample app running in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -67,10 +67,10 @@ Then add the following plugin definition inside the `<build>` element of the `po
             <!-- Specify v2 schema -->
             <schemaVersion>v2</schemaVersion>
             <!-- App information -->
-            <subscriptionId>${SUBSCRIPTION_ID}</subscriptionId>
-            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
-            <appName>${WEBAPP_NAME}</appName>
-            <region>${REGION}</region>
+            <subscriptionId>SUBSCRIPTION_ID</subscriptionId>
+            <resourceGroup>RESOURCEGROUP_NAME</resourceGroup>
+            <appName>WEBAPP_NAME</appName>
+            <region>REGION</region>
             <!-- Java Runtime Stack for App Service on Windows-->
             <runtime>
                 <os>windows</os>
@@ -115,7 +115,7 @@ mvn package azure-webapp:deploy
 
 Once deployment has completed, browse to the deployed application using the following URL in your web browser, for example `http://<webapp>.azurewebsites.net/`.
 
-![Sample app running in Azure](./media/app-service-web-get-started-java/java-hello-world-in-browser.png)
+![Sample app running in Azure App Service](./media/app-service-web-get-started-java/java-hello-world-in-browser-azure-app-service.png)
 
 **Congratulations!** You've deployed your first Java app to App Service on Windows.
 

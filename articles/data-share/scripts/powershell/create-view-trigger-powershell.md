@@ -42,8 +42,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareTrigger](/powershell/module/az.resources/new-azdatasharetrigger) | Create a share snapshot trigger. |
-| [Get-AzDataShareTrigger](/powershell/module/az.resources/get-azdatasharetrigger) | Gets synchronization settings of a share synchronization. |
+| [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger?view=azps-2.6.0) | Create a share snapshot trigger. |
+| [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Gets synchronization settings of a share synchronization. |
 |||
 
 ## Next steps
