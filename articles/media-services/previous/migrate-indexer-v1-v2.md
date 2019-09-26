@@ -38,7 +38,7 @@ This article discusses the steps for migrating from the Azure Media Indexer and 
 
 ## Getting started with Video Indexer
 
-The following section points you to relevant links: [How can I get started with Video Indexer?](https://docs.microsoft.com/en-us/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+The following section points you to relevant links: [How can I get started with Video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
 
 ## Getting started with Media Services v3 APIs
 
