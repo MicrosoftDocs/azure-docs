@@ -32,7 +32,8 @@ Before you can use Azure AD B2C, you must create a directory, or tenant. A direc
 Next, register an application in your Azure AD B2C tenant. This gives Azure AD the information it needs to communicate securely with your app.
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
-1. Select the application in the list and record the **Custom Redirect URI** for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+
+Record the **APPLICATION ID** for use in a later step. Next, select the application in the list and record the **Custom Redirect URI**, also for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## Create your user flows
 In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
