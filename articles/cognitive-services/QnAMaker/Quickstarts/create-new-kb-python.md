@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,8 @@ This quickstart walks you through programmatically creating and publishing a sam
 This quickstart calls QnA Maker APIs:
 * [Create KB](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
 
