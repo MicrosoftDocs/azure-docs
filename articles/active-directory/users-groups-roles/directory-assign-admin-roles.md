@@ -210,7 +210,7 @@ Users with this role have access to all administrative features in Azure Active 
 
 ### [Global Reader](#global-reader-permissions)
 
-Users with this role can read everything that a Global Administrator can, but not edit anything. Think of this role as a read-only counterpart of Global Administrator. These users have read-only access to all features in Azure Active Directory, as well as Microsoft 365 services like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online.
+Users in this role can read settings and administrative information across Microsoft 365 services but cannot take management actions. Global Reader is the read-only counterpart to Global Administrator. Assign Global Reader instead of Global Administrator for planning, audits, or investigations. Use Global Reader in combination with other limited admin roles like Exchange Administrator to make it easier to get work done without the invoking the Global Administrator role. Global Reader works with the new Microsoft 365 admin center, Exchange admin center, Teams admin center, Security center, Compliance center, Azure AD admin center, and Device Management admin center. 
 
 > [!NOTE]
 > Global Reader role has following limitations now -
