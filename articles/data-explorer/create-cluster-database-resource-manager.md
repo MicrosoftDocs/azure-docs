@@ -66,7 +66,7 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
               "tier": "Standard",
               "capacity": 2
           },
-          "apiVersion": "2018-09-07-preview",
+          "apiVersion": "2019-09-07-preview",
           "location": "[parameters('location')]",
           "tags": {
             "Created By": "GitHub quickstart template"
@@ -75,7 +75,7 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
       {
           "name": "[concat(parameters('clusters_kustocluster_name'), '/', parameters('databases_kustodb_name'))]",
           "type": "Microsoft.Kusto/clusters/databases",
-          "apiVersion": "2018-09-07-preview",
+          "apiVersion": "2019-09-07-preview",
           "location": "[parameters('location')]",
           "dependsOn": [
               "[resourceId('Microsoft.Kusto/clusters', parameters('clusters_kustocluster_name'))]"
@@ -120,15 +120,17 @@ It takes a few minutes to create an Azure Data Explorer cluster and database.
 
 1. To create a cluster and database, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
 
-    [![Deploy to Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Deploy to Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
 
     The **Deploy to Azure** button takes you to the Azure portal to fill out a deployment form.
 
-    ![Deploy to Azure](media/ingest-data-event-hub/deploy-to-azure.png)
+    ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-to-azure.png)
+
+You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
 ## Verify the deployment
 
-To verify the deployment, you can open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+To verify the deployment, you can open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
