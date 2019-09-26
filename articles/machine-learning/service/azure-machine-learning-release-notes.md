@@ -25,10 +25,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 + **New features**
   + [AutoML] Added the ONNX conversion support for the ADB and HDI
 + **Preview features**  
-  + [AutoML] Supported Bert and BiLSTM as text featurizer (preview only)
+  + [AutoML] Supported BERT and BiLSTM as text featurizer (preview only)
   + [AutoML] Supported featurization customization for column purpose and transformer parameters (preview only)
   + [AutoML] Supported raw explanations when user enables model explanation during training (preview only)
-  + [AutoML] Added Prophet as a trainable pipeline (preview only)
+  + [AutoML] Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
