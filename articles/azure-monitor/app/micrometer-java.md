@@ -19,7 +19,7 @@ Micrometer application monitoring measures metrics for JVM-based application cod
 ## Using Spring Boot 1.5x
 Add the following dependencies to your pom.xml or build.gradle file: 
 * [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)
-  2.5.0 or above
+  2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 or above (this backports the autoconfig code in the Spring framework).
 * [ApplicationInsights Resource](../../azure-monitor/app/create-new-resource.md )
@@ -59,7 +59,7 @@ Steps
 Add the following dependencies to your pom.xml or build.gradle file:
 
 * Application Insights Spring-boot-starter 2.1.2 or above
-* Azure-spring-boot-metrics-starters 2.0.7 or above  
+* Azure-spring-boot-metrics-starters 2.0.7 or later
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
 Steps:
@@ -117,7 +117,7 @@ How to turn off automatic metrics collection:
 
 Add the following dependencies to your pom.xml or build.gradle file:
 
-* Application Insights Web Auto 2.5.0 or above
+* Application Insights Web Auto 2.5.0 or later
 * Micrometer Azure Registry 1.1.0 or above
 * [Application Insights Resource](../../azure-monitor/app/create-new-resource.md )
 
@@ -139,7 +139,7 @@ Steps:
         </dependency>
      ```
 
-2. Put `ApplicationInsights.xml` file in the resources folder
+2. Put `ApplicationInsights.xml` file in the resources folder:
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -272,5 +272,5 @@ Add the following binding code to the configuration  file:
 
 ## Next steps
 
-* To learn more about Micrometer, refer to the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure, refer to the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* To learn more about Micrometer, see the official [Micrometer documentation](https://micrometer.io/docs).
+* To learn about Spring on Azure, see the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
