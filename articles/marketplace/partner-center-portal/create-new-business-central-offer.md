@@ -3,7 +3,7 @@ title: Create a new Dynamics 365 Business Central offer in the Commercial Market
 description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
 author: ChJenk 
 manager: evansma
-ms.author: ChJenk 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 09/26/2019
