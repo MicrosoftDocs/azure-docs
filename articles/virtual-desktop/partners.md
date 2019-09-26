@@ -21,6 +21,8 @@ Citrix is a Windows Virtual Desktop value-added services partner that offers ent
 
 Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management.  IT can optimize costs with intelligent scaling tools, while delivering an incredible end-user experience that has been field-tested against the toughest of applications across industries.
 
+- [Go to the partner website.](https://www.citrix.com/global-partners/microsoft/windows-virtual-desktop.html)
+
 
 ## VMware
 
@@ -30,8 +32,8 @@ VMware Horizon Cloud on Microsoft Azure gives organizations the ability to conne
 
 Customers will receive all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
 
-[Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)
-[Horizon Cloud on Microsoft Azure website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)
+- [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)
+- [Go to the partner website.](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)
 
 ## CloudJumper
 
@@ -50,9 +52,10 @@ CloudJumper’s software, Cloud Workspace Management Suite extends the value of 
 
 ControlUp is a Windows Virtual Desktop value-added services provider that enables IT teams to monitor, troubleshoot, analyze, and directly remediate problems in their on-premise, hybrid cloud, and cloud infrastructure in real-time from a single console. ControlUp’s analytics and management platform also allows IT to proactively automate fixes for a rapidly growing set of use cases.
 
-When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize Windows Virtual Desktop environments and the end-user experience. From the ControlUp console, IT gets end-user environment visibility to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for virtual desktop deployments, as well as options for automated reporting enriched with community benchmarks. ControlUp can manage multiple data sources and types, organizing them in high performance data sets aggregated across compute, storage and Windows Virtual Desktop infrastructure, allowing granular visibility from a single pane of glass. 
--[See the join solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)
--[Go to the partner website.](https://www.controlup.com/solutions/ms_wvd/)
+When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize Windows Virtual Desktop environments and the end-user experience. From the ControlUp console, IT gets end-user environment visibility to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for virtual desktop deployments, as well as options for automated reporting enriched with community benchmarks. ControlUp can manage multiple data sources and types, organizing them in high performance data sets aggregated across compute, storage and Windows Virtual Desktop infrastructure, allowing granular visibility from a single pane of glass.
+
+- [See the join solution brief.](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)
+- [Go to the partner website.](https://www.controlup.com/solutions/ms_wvd/)
 
 ## Lakeside Software
 
