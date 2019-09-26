@@ -44,19 +44,17 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, select **Continuous Data Export**.
+2. In the left menu, select **Data Export**.
 
     > [!Note]
-    > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
-
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export_menu1.png)
+    > If you don't see Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
 3. Select the **+ New** button in the top right. Choose **Azure Blob Storage** as the destination of your export. 
 
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export_new1.png)
+    ![Create new continuous data export](media/howto-export-data-pnp/export_new2.png)
 
 4. In the drop-down list box, select your **Storage Account namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -66,7 +64,7 @@ Now that you have a Storage destination to export data to, follow these steps to
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export-create-blob.png)
+    ![Create new cde blob](media/howto-export-data-pnp/export-create-blob2.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Storage account, go to the Storage account in the Azure portal.
@@ -82,7 +80,7 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 9. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-   ![Configure continuous data export](media/howto-export-data-pnp/export-list-blob.png)
+   ![Configure continuous data export](media/howto-export-data-pnp/export-list-blob2.png)
 
 10. After a few minutes, your data will appear in your storage account.
 
@@ -96,6 +94,7 @@ Telemetry, devices, and device templates data are exported to your storage accou
 
 You can browse the exported files in the Azure Portal by navigating to the file and choosing the **Edit blob** tab.
 
+## Data format
 ### Telemetry
 
 The exported telemetry data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
