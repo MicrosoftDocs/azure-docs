@@ -21,13 +21,13 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: Deploying Security Center
+  - title: Deploy Security Center
     linkLists:
       - linkListType: overview
         links:
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
-          - text: Integration with other Azure security products
+          - text: Integrate with other Azure security products
             url: security-center-alerts-integration.md
       - linkListType: learn
         links:
@@ -37,7 +37,7 @@ landingContent:
             url: security-center-intro.md
 
   # Card
-  - title: Getting started
+  - title: Get started
     linkLists:
       - linkListType: get-started
         links:
@@ -52,7 +52,7 @@ landingContent:
 
 
   # Card
-  - title: Improving your secure score
+  - title: Improve your secure score
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -66,7 +66,7 @@ landingContent:
             url: security-center-using-recommendations.md
 
   # Card
-  - title: Mitigating threats
+  - title: Mitigate threats
     linkLists:
       - linkListType: how-to-guide
         links:
