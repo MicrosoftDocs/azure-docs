@@ -1,16 +1,15 @@
 ---
-title: Tutorial - Share data with customers and partners using Azure Data Share Preview
+title: 'Tutorial: Share outside your org - Azure Data Share Preview'
 description: Tutorial - Share data with customers and partners using Azure Data Share Preview
 author: joannapea
-
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
 # Tutorial: Share your data using Azure Data Share Preview
 
-In this tutorial you will learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
+In this tutorial, you will learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 
 In this tutorial, you'll learn how to:
 
