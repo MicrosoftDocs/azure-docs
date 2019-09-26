@@ -1,5 +1,5 @@
 ---
-title: Quickstart for adding feature flags to Spring Boot | Microsoft Docs
+title: Quickstart for adding feature flags to Spring Boot - Azure App Configuration | Microsoft Docs
 description: A quickstart for adding feature flags to Spring Boot apps and managing them in Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,13 +13,13 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
-ms.date: 04/19/2019
+ms.date: 09/26/2019
 ms.author: mametcal
 
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
-# Quickstart: Add feature flags to an Spring Boot app
+# Quickstart: Add feature flags to a Spring Boot app
 
 In this quickstart, you incorporate Azure App Configuration into a Spring Boot web app to create an end-to-end implementation of feature management. You can use the App Configuration service to centrally store all your feature flags and control their states.
 
@@ -28,7 +28,7 @@ The Spring Boot Feature Management libraries extend the framework with comprehen
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- A supported [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) with version 8..
+- A supported [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) with version 8.
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 ## Create an App Configuration store
@@ -79,7 +79,8 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     </dependency>
     ```
 
-**Note**: There is a non-web Feature Management Library that doesn't have a dependency on spring-web. See the additional [Docs](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences. Also, when not using App Configuration see [Feature Flag Declaration](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
+[!Note]
+There is a non-web Feature Management Library that doesn't have a dependency on spring-web. See the additional [Docs](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences. Also, when not using App Configuration see [Feature Flag Declaration](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
 
 ## Connect to an App Configuration store
 
@@ -124,7 +125,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     }
     ```
 
-5. Create a new html file named *welcome.html* in the templates directory of your app. Add the following lines:
+5. Create a new HTML file named *welcome.html* in the templates directory of your app. Add the following lines:
 
     ```html
     <!DOCTYPE html>
@@ -181,7 +182,7 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
 
     ```
 
-6. Create a new folder named css under static and inside of it a new css file named *main.css*. Add the following lines:
+6. Create a new folder named CSS under static and inside of it a new CSS file named *main.css*. Add the following lines:
 
     ```css
     html {

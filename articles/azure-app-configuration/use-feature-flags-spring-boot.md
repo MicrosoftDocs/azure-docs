@@ -1,5 +1,5 @@
 ---
-title: Tutorial for using feature flags in a Spring Boot app | Microsoft Docs
+title: Tutorial for using feature flags in a Spring Boot app - Azure App Configuration | Microsoft Docs
 description: In this tutorial, you learn how to implement feature flags in Spring Boot apps.
 services: azure-app-configuration
 documentationcenter: ''
@@ -12,7 +12,7 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: mametcal
 ms.custom: mvc
 
@@ -63,7 +63,7 @@ Each feature flag has two parts: a name and a list of one or more filters that a
 
 When a feature flag has multiple filters, the filter list is traversed in order until one of the filters determines the feature should be enabled. At that point, the feature flag is *on*, and any remaining filter results are skipped. If no filter indicates the feature should be enabled, the feature flag is *off*.
 
-The feature manager supports *application.yml* as a configuration source for feature flags. The following example shows how to set up feature flags in a yaml file:
+The feature manager supports *application.yml* as a configuration source for feature flags. The following example shows how to set up feature flags in a YAML file:
 
 ```yml
 feature-management:
@@ -79,7 +79,7 @@ feature-management:
               value: 50
 ```
 
-By convention, the `feature-management` section of this yml document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:
+By convention, the `feature-management` section of this YML document is used for feature flag settings. The prior example shows three feature flags with their filters defined in the `EnabledFor` property:
 
 * `FeatureA` is *on*.
 * `FeatureB` is *off*.
