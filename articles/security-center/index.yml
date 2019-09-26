@@ -31,8 +31,8 @@ landingContent:
             url: security-center-alerts-integration.md
       - linkListType: learn
         links:
-          - text: Which versions of Windows server and Linux are supported?
-            url: security-center-os-coverage.md
+          - text: Cross tenant management
+            url: security-center-cross-tenant-management.md
           - text: What are the key capabilities of Security Center?
             url: security-center-intro.md
 
@@ -47,6 +47,8 @@ landingContent:
             url: security-center-remediate-recommendations.md
           - text: Customize your security recommendations
             url: tutorial-security-policy.md
+          - text: Use recommendations to enhance security
+            url: security-center-using-recommendations.md
 
   # Card
   - title: Mitigating threats
@@ -57,3 +59,5 @@ landingContent:
             url: security-center-just-in-time.md
           - text: Set up adaptive application controls
             url: security-center-adaptive-application.md
+          - text: Implement Adaptive Network Hardening
+            url: security-center-adaptive-network-hardening.md          
