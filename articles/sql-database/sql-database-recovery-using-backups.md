@@ -7,9 +7,9 @@ ms.subservice: backup-restore
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: anosov1960, danimir
-ms.author: sashan, danil
-ms.reviewer: mathoma, carlrab
+author: anosov1960
+ms.author: sashan
+ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
 ---
 # Recover an Azure SQL database using automated database backups
@@ -92,7 +92,7 @@ You can restore a deleted database to the deletion time or an earlier point in t
 > [!IMPORTANT]
 > If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
 
-### Deleted database restore using Azure portal
+### Deleted database restore using the Azure portal
 
 To recover a deleted database using Azure portal, open the server overview page and click **Deleted databases** on the navigation menu.
 
