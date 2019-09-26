@@ -28,7 +28,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 - ALAW in wav container
 - MULAW in wav container
 
-## Prerequisites to using codec compressed audio input for Ubuntu 18.04, 16.04 and Debian 9
+## Prerequisites
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org). For licensing reason Gstreamer binaries are not compiled and linked with speech SDK. So application developer needs to install the following on 18.04, 16.04 and Debian 9 to use compressed input audio.
 
