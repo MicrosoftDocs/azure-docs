@@ -1,5 +1,5 @@
----
-title: Monitor and collect data from ML webservice endpoints
+ ---
+title: Monitor and collect data from ML web service endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor web services deployed with Azure Machine Learning using Azure Application Insights
 services: machine-learning
@@ -12,9 +12,9 @@ author: lostmygithubaccount
 ms.date: 09/25/2019
 ms.custom: seoapril2019
 ---
-# Monitor and collect data from ML webservice endpoints
+# Monitor and collect data from ML web service endpoints
 
-In this article, you learn how to collect data from and monitor models deployed to webservice endpoints in AKS or ACI by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
+In this article, you learn how to collect data from and monitor models deployed to web service endpoints in AKS or ACI by enabling Azure Application Insights. In addition to collecting an endpoint's input data and response, you can monitor:
 * Request rates, response times, and failure rates.
 * Dependency rates, response times, and failure rates.
 * Exceptions.
@@ -29,7 +29,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-## Webservice input and response data
+## Web service input and response data
 
 The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Application Insights traces under the message `"model_data_collection"`. You can query Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
 
@@ -71,7 +71,7 @@ You can enable and disable Application Insights in the Azure portal or new Studi
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace.
 
     ```python
-    from azureml.core.webservice import Webservice
+    from azureml.core.web service import Webservice
     aks_service= Webservice(ws, "my-service-name")
     ```
 2. Update your service and enable Application Insights. 
@@ -117,7 +117,7 @@ To view it:
 
    [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
-1. To look into your webservice input and response payloads, select **Analytics**
+1. To look into your web service input and response payloads, select **Analytics**
 1. In the schema section, select **Traces** and filter down traces with the message `"model_data_collection"`. In the custom dimensions, you can see input and prediction. 
 
    [![Model data](media/how-to-enable-app-insights/model-data-trace.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
