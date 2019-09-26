@@ -21,11 +21,11 @@ ms.collection: M365-identity-device-management
 
 # Web app that signs in users - sign in and sign out
 
-Learn how to add sign-in to the code for your web app that signs-in users, and how to let them sign out
+Learn how to add sign-in to the code for your web app that signs-in users, and then, how to let them sign out
 
 ## Sign-in
 
-Sign is is brought by two parts:
+Sign-in is brought by two parts:
 
 - the sign-in button in the HTML page
 - the sign-in action in the code behind in the controller
@@ -34,7 +34,7 @@ Sign is is brought by two parts:
 
 # [ASP.NET Core](#tab/aspnetcore)
 
-In ASP.NET Core, the sign-in button is exposed in `Views\Shared\_LoginPartial.cshtml` and only displayed when there's no authenticated account (that is when the user has not yet signed-in, or has signed-out).
+In ASP.NET Core, the sign-in button is exposed in `Views\Shared\_LoginPartial.cshtml` and only displayed when there's no authenticated account (that is when the user hasn't yet signed-in, or has signed-out).
 
 ```html
 @using Microsoft.Identity.Web
@@ -91,7 +91,7 @@ In our Java quickstart, the sign-out button is located in the [main/resources/te
 
 # [Python](#tab/python)
 
-In the Python quickstart, there is no sign-in button. The user is automatically prompted for sign-in by the code behind when reaching the root of the web app. See [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18)
+In the Python quickstart, there's no sign-in button. The user is automatically prompted for sign-in by the code behind when reaching the root of the web app. See [app.py#L14-L18](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/0.1.0/app.py#L14-L18)
 
 ```Python
 @app.route("/")
@@ -329,7 +329,7 @@ In ASP.NET, pressing the **Sign-out** button on the web app triggers the `SignOu
 The code for the `AccountController` is available from the ASP.NET core repository at
 from [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs). The account control:
 
-- Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has performed the sign-out
+- Sets an OpenID redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has completed the sign-out
 - Calls `Signout()`, which lets the OpenIdConnect middleware contact the Microsoft identity platform `logout` endpoint which:
 
   - Clears the session cookie from the browser, and

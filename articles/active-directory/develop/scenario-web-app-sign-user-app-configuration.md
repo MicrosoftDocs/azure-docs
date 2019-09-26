@@ -343,7 +343,7 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
 
 # [Java](#tab/java)
 
-The Java sample uses the Spring framework. The application is protected because you implement a `Filter`, which gets each HTTP response. In the Java Web app quickstart, this filter is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. The filter process the OAuth 2.0 authorization code flow and therefore:
+The Java sample uses the Spring framework. The application is protected because you implement a `Filter`, which intercepts each HTTP response. In the Java Web app quickstart, this filter is `AuthFilter` in `src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java`. The filter process the OAuth 2.0 authorization code flow and therefore:
 
 - verifies if the user is authenticated (`isAuthenticated()` method)
 - if the user isn't authenticated, it computes the url of the Azure AD authorize endpoints, and redirects the browser to this URI
@@ -355,7 +355,7 @@ For details see the `doFilter()` method in [AuthFilter.java](https://github.com/
 > [!NOTE]
 > The code of the `doFilter()` is written in a slightly different order, but the flow is the one described.
 
-See [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) for details about the authorization code flow triggered by this method
+See [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md) for details about the authorization code flow, triggered by this method
 
 # [Python](#tab/python)
 

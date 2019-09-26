@@ -122,4 +122,11 @@ CLIENT_ID = "Enter_the_Application_Id_here"
    python app.py
    ```
 
+## Next steps
+
+Learn more about web apps that sign in users, and then that calls web APIs:
+
+> [!div class="nextstepaction"]
+> [Scenario: Web apps that sign in users](scenario-web-app-sign-user-overview.md)
+
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
