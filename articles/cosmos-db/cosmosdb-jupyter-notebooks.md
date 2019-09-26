@@ -51,9 +51,8 @@ Jupyter notebooks can include several types of components, each organized into d
 
 To get started with built-in Jupyter notebooks in Azure Cosmos DB see the following articles:
 
-* [How to create a notebook]()
-* [How to install dependencies in a notebook]()
-* [How to use a notebook and Cosmos magic extension to analyze data]()
+* [Enable notebooks in an Azure Cosmos account](enable-notebooks.md)
+* [Use notebook features and commands](use-notebook-features-and-commands.md)
 
 
 
