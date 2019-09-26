@@ -48,7 +48,9 @@ You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the local function app project
+[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+
+## Create the local project
 
 Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. For a Python project, you [must be running in a virtual environment](functions-create-first-function-python.md#create-and-activate-a-virtual-environment-optional).
 
@@ -74,7 +76,7 @@ cd MyFunctionProj
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 
-## Build the image from the Docker file
+## Build from the Docker file
 
 Take a look at the _Dockerfile_ in the root folder of the project. This file describes the environment that is required to run the function app on Linux. The following example is a Dockerfile that creates a container that runs a function app on the JavaScript (Node.js) worker runtime: 
 
@@ -114,7 +116,7 @@ With the custom image running in a local Docker container, verify the function a
 
 After you have verified the function app in the container, stop the execution. Now, you can push the custom image to your Docker Hub account.
 
-## Push the custom image to Docker Hub
+## Push to Docker Hub
 
 A registry is an application that hosts images and provides services image and container services. To share your image, you must push it to a registry. Docker Hub is a registry for Docker images that allows you to host your own repositories, either public or private.
 
@@ -147,7 +149,7 @@ az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan
 --location WestUS --number-of-workers 1 --sku EP1 --is-linux
 ```
 
-## Create a function app from the custom image
+## Create an app from the image
 
 The function app manages the execution of your functions in your hosting plan. Create a function app from a Docker Hub image by using the [az functionapp create](/cli/azure/functionapp#az-functionapp-create) command.
 
@@ -184,7 +186,7 @@ AzureWebJobsStorage=$storageConnectionString
 >
 > You will have to stop and then start your function app for these values to be picked up
 
-## Verify your function
+## Verify your functions
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
@@ -193,24 +195,24 @@ The HTTP-triggered function you created requires a [function key](functions-bind
 > [!TIP]
 > You can also obtain your function keys by using the [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), which requires you to present a [bearer token for authentication](/cli/azure/account#az-account-get-access-token).
 
-1. Locate your new function app in the [Azure portal] by typing your function app name in the **Search** box at the top of the page and selecting the **App Service** resource. 
+Locate your new function app in the [Azure portal] by typing your function app name in the **Search** box at the top of the page and selecting the **App Service** resource.
 
-1. Select the **MyHttpTrigger** function, select **</> Get function URL** > **default (Function key)** > **Copy**. 
+Select the **MyHttpTrigger** function, select **</> Get function URL** > **default (Function key)** > **Copy**.
 
-    ![Copy the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
+![Copy the function URL from the Azure portal](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
 
-    In this URL, the function key is the `code` query parameter. 
+In this URL, the function key is the `code` query parameter. 
 
-    > [!NOTE]  
-    > Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in local container and republish it to Azure.
+> [!NOTE]  
+> Because your function app is deployed as a container, you can't make changes to your function code in the portal. You must instead update the project in local container and republish it to Azure.
 
-1. Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.  
+Paste the function URL into your browser's address bar. Add the query string value `&name=<yourname>` to the end of this URL and press the `Enter` key on your keyboard to execute the request. You should see the response returned by the function displayed in the browser.
 
-    The following example shows the response in the browser:
+The following example shows the response in the browser:
 
-    ![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
+![Function response in the browser.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
 
-    The request URL includes a key that is required, by default, to access your function over HTTP. 
+The request URL includes a key that is required, by default, to access your function over HTTP. 
 
 ## Enable continuous deployment
 
@@ -280,6 +282,10 @@ Functions lets you connect Azure services and other resources to functions witho
 
 This section shows you how to integrate your function with an Azure Storage queue. The output binding that you add to this function writes data from an HTTP request to a message in the queue.
 
+### Download the function app settings
+
+[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+
 ### Enable extension bundles
 
 Because you are using a Queue storage output binding, you must have the Storage bindings extension installed before you run the project. 
@@ -299,7 +305,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 > [!TIP]
 > When using Visual Studio, you can also use the NuGet package manager to add this package.
 
-Now, you can add a the Storage output binding to your project.
+Now, you can add a Storage output binding to your project.
 
 ### Add an output binding
 
@@ -331,7 +337,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 
 ### Update the hosted container
 
-In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, and this time update the version in the tag to `v1.0.2`. Aas before, replace `<docker-id>` with your Docker Hub account ID. 
+In the root folder, run the [docker build](https://docs.docker.com/engine/reference/commandline/build/) command again, and this time update the version in the tag to `v1.0.2`. As before, replace `<docker-id>` with your Docker Hub account ID. 
 
 ```bash
 docker build --tag <docker-id>/mydockerimage:v1.0.0 .
@@ -347,32 +353,19 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 Use the same URL as before from the browser to trigger your function. You should see the same response. However, this time the string that you pass as the `name` parameter is written to the `outqueue` storage queue.
 
+### Set the Storage account connection
+
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
+
 ### Query the Storage queue
 
-You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
-
-```azurecli-interactive
-az storage queue list --output tsv
-```
-
-The output from this command includes a queue named `outqueue`, which is the queue that was created when the function ran.
-
-Next, use the [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) command to view the messages in this queue, as in the following example.
-
-```azurecli-interactive
-echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
-```
-
-The string returned should be the same as the message you sent to test the function.
-
-> [!NOTE]  
-> The previous example decodes the returned string from base64. This is because the Queue storage bindings write to and read from Azure Storage as [base64 strings](functions-bindings-storage-queue.md#encoding).
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 ## Next steps
 
-Now that you have successfully deployed your container to a function app in Azure, consider reading more about the following:
+Now that you have successfully deployed your custom container to a function app in Azure, consider reading more about the following topics:
 
 + [Monitoring functions](functions-monitoring.md)
 + [Scale and hosting options](functions-scale.md)
