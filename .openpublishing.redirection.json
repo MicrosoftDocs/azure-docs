@@ -756,6 +756,31 @@
       "redirect_document_id": false
     },    
     {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/csharp.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-csharp-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/go.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/java.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-new-kb-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-nodejs-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/quickstarts/python.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/python-sdk",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/key-management.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/set-up-qnamaker-service-azure#types-of-keys-in-qna-maker",
       "redirect_document_id": false
@@ -1714,6 +1739,66 @@
       "source_path": "articles/cosmos-db/manage-account-with-powershell.md",
       "redirect_url": "/azure/cosmos-db/manage-with-powershell",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-cassandra-database-account-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/cassandra/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-database-account-collections-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/sql/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-firewall-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/ipfirewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-gremlin-database-account-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/gremlin/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-mongodb-database-account-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/mongodb/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/create-table-database-account-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/table/create",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/ha-failover-policy.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-collection-throughput-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/sql/throughput",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/scale-multiregion-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/regions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-get-account-key-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-mongo-connection-string.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scripts/secure-generate-key-cli.md",
+      "redirect_url": "/azure/cosmos-db/scripts/cli/common/keys",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/programming.md",
@@ -3069,16 +3154,6 @@
       "source_path": "articles/virtual-machines/linux/expand-disks-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/expand-disks",
       "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/virtual-machines/linux/disks-upload-vhd-to-managed-disk-cli.md",
-      "redirect_url": "/azure/virtual-machines/linux/managed-disks-overview",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/virtual-machines/windows/disks-upload-vhd-to-managed-disk-powershell.md",
-      "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
-      "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/install-mongodb-nodejs.md",
@@ -15631,6 +15706,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/vpn-gateway/vpn-gateway-point-to-site-gateway-public-ca.md",
+      "redirect_url": "/azure/vpn-gateway/point-to-site-about",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-networks-create-nsg-arm-pportal.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
       "redirect_document_id": true
@@ -20532,6 +20612,11 @@
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-quick-create-cli-nodejs.md",
       "redirect_url": "/azure/virtual-machines/linux/quick-create-cli-nodejs",
+      "redirect_document_id": false
+    },
+	    {
+      "source_path": "articles/virtual-machines/linux/quick-create-cli-nodejs.md",
+      "redirect_url": "/azure/virtual-machines/linux/quick-create-cli",
       "redirect_document_id": false
     },
     {
@@ -36880,7 +36965,12 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/archive-diagnostic-logs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/archive-diagnostic-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-storage",
       "redirect_document_id": true
     },
     {
@@ -36896,6 +36986,11 @@
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-template",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-template.md",
+      "redirect_url": "/azure/azure-monitor/platform/diagnostic-settings-template",
       "redirect_document_id": true
     },
     {
@@ -36965,7 +37060,17 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-overview",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/monitoring-and-diagnostics/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-overview.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
       "redirect_document_id": true
     },
     {
@@ -36980,12 +37085,22 @@
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-stream-event-hubs",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md",
       "redirect_url": "/azure/azure-monitor/platform/diagnostic-logs-stream-log-store",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs-stream-log-store.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-collect-workspace",
       "redirect_document_id": true
     },
     {
@@ -41379,6 +41494,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/platform/diagnostic-logs.md",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain.md",
       "redirect_url": "/azure/active-directory-domain-services/manage-domain",
       "redirect_document_id": true
@@ -41677,6 +41797,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-monitor/app/java-get-started-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/java-trace-logs-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-trace-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/java-agent-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/java-agent",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/app/micrometer-java-25-beta.md",
+      "redirect_url": "/azure/azure-monitor/app/micrometer-java",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Translator/quickstart-csharp-translate.md",
       "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
       "redirect_document_id": false
@@ -41894,6 +42034,11 @@
     {
       "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mysql/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-accelerators/iot-accelerators-architecture-overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/iot/",
       "redirect_document_id": false
     },
     {

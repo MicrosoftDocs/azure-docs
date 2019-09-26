@@ -41,13 +41,8 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ## 1.4.X.0
 
 >[!IMPORTANT]
->Windows Computers registered as Hybrid Azure AD Joined are represented in Azure AD as device objects. These device objects can be used for conditional access. Windows 10 Computers are synced to the cloud via Azure AD Connect, down level Windows Computers are registered directly using either AD FS or seamless single sign on.
->
->Only Windows 10 computers with a specific userCertificate attribute value configured by Hybrid Azure AD Join are supposed to be synced to the cloud by Azure AD Connect.  In previous versions of Azure AD Connect this requirement was not rigorously enforced, resulting in unnecessary device objects in Azure AD. Such devices in Azure AD always stayed in the “pending” state because these computers were not intended to be registered with Azure AD.
->
->This version of Azure AD Connect will only sync Windows 10 computers that are correctly configured to be Hybrid Azure AD Joined. Azure AD Connect should never be syncing [down-level Windows devices](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Any devices in Azure AD previously synced incorrectly will now be deleted from Azure AD.  However, this change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join. 
->
->Some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../../active-directory/devices/hybrid-azuread-join-plan.md) to get their Windows computers registered correctly and ensure that such devices can fully participate in device-based conditional access. If Azure AD Connect is attempting to delete [down-level Windows devices](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.  If you see the deletes of Computer/Device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through.
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
+
 
 ### Release status
 9/10/2019: Released for auto-upgrade only
@@ -58,7 +53,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new AAD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the AADC wizard.
