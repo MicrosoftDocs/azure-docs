@@ -241,7 +241,7 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
     using System.Net.Http;
     using System.Threading.Tasks;
 
-    namespace WorkerSDKOnConsoleTest
+    namespace WorkerSDKOnConsole
     {
         class Program
         {
