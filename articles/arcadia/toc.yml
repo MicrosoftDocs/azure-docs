@@ -106,12 +106,12 @@
         #   href: article-template.md
       - name: Code artifacts
         items:
-#       - name: Notebooks
-#         href: article-template.md
-#       - name: SQL script
-#         href: article-template.md
-#       - name: Mapping Data Flow
-#         href: article-template.md
+        # - name: Notebooks
+        #   href: article-template.md
+        # - name: SQL script
+        #   href: article-template.md
+        # - name: Mapping Data Flow
+        #   href: article-template.md
       - name: Maintenance schedule
         href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
       # - name: Backup and restore  
@@ -120,20 +120,20 @@
     items:
     - name: Standard monitoring
       items:
-#       - name: Azure Monitor Integration
-#         href: article-template.md
-#       - name: Resource health
-#         href: article-template.md
-#       - name: Azure Advisor Recommendation
-#         href: article-template.md
+      # - name: Azure Monitor Integration
+      #   href: article-template.md
+      # - name: Resource health
+      #   href: article-template.md
+      # - name: Azure Advisor Recommendation
+      #   href: article-template.md
     - name: Activity monitoring
       items:
-#       - name: SQL request monitoring (OD + Pool)
-#         href: article-template.md
-#       - name: Spark application monitoring
-#         href: article-template.md
-#       - name: Pipeline monitoring
-#         href: article-template.md
+      # - name: SQL request monitoring (OD + Pool)
+      #   href: article-template.md
+      # - name: Spark application monitoring
+      #   href: article-template.md
+      # - name: Pipeline monitoring
+      #   href: article-template.md
     - name: Pool monitoring
       items:
       - name: SQL Analytics pool
@@ -142,8 +142,8 @@
           href: ../sql-data-warehouse/sql-data-warehouse-overview-manageability-monitoring.md?toc=/azure/arcadia/toc.json
         - name: Resource utilization & query activity 
           href: ../sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity.md?toc=/azure/arcadia/toc.json 
-#       - name: Spark Pool
-#         href: article-template.md
+      # - name: Spark Pool
+      #   href: article-template.md
   - name: Security
     items:
     - name: Network Security
@@ -152,6 +152,8 @@
         href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/arcadia/toc.json
       - name: Virtual network service endpoints
         href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/arcadia/toc.json
+      # - name: Virtual network private link
+      #   href: article-template.md
     - name: Authentication and pass-through
       items:
       - name: Azure Active Directory
@@ -166,10 +168,10 @@
       items:
       - name: Overview
         href: ../sql-database/sql-database-control-access.md?toc=/azure/arcadia/toc.json
-#       - name: Workspace
-#         href: article-template.md
-#       - name: Pool and On-Demand
-#         href: article-template.md
+      # - name: Workspace
+      #   href: article-template.md
+      # - name: Pool and On-Demand
+      #   href: article-template.md
       - name: Data
         items:
         - name: Column-level security
@@ -204,8 +206,8 @@
           href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/arcadia/toc.json
         - name: Auditing
           href: ../sql-database/sql-database-auditing.md?toc=/azure/arcadia/toc.json
-#       - name: Securing Arcadia meta data objects
-#         href: article-template.md
+      # - name: Securing Arcadia meta data objects
+      #   href: article-template.md
   # - name: Data integration & Orchestration
   #   href: article-template.md
   - name: Spark
@@ -260,8 +262,8 @@
       #   href: article-template.md
       # - name: Workload Management
       #   href: article-template.md
-    - name: SQL Analytics
-      items:
+  - name: SQL Analytics
+    items:
     - name: Overview
       items:
       - name: What is SQL Analytics pool and SQL on demand
