@@ -1,4 +1,4 @@
- ---
+---
 title: Monitor and collect data from ML web service endpoints
 titleSuffix: Azure Machine Learning
 description: Monitor web services deployed with Azure Machine Learning using Azure Application Insights
