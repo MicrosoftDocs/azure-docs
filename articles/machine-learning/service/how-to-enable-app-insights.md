@@ -12,7 +12,7 @@ author: lostmygithubaccount
 ms.date: 09/25/2019
 ms.custom: seoapril2019
 ---
-# Monitor your Azure Machine Learning models with Application Insights
+# Monitor and collect data from ML webservice endpoints
 
 In this article, you learn how to collect data from and monitor models deployed to webservice endpoints in AKS or ACI by enabling Azure Application Insights. In addition to collecting the endpoints input data and response, you can monitor:
 * Request rates, response times, and failure rates.
