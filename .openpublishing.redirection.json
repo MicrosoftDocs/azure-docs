@@ -1226,11 +1226,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/governance/management-groups/overview.md",
-      "redirect_url": "/azure/governance/management-groups/index",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": true

@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: dapine
 ---
 
-# HI Install and run Speech Service containers
+# Install and run Speech Service containers
 
 Speech containers enable customers to build one speech application architecture that is optimized to take advantage of both robust cloud capabilities and edge locality. 
 
