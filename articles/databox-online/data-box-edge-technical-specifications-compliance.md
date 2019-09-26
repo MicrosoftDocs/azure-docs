@@ -30,7 +30,7 @@ A Field Programmable Gate Array (FPGA) is included on every Data Box Edge device
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service).| 
+| FPGA   | Intel Arria 10 <br> Available Deep Neural Network (DNN) models are the same as those [supported by cloud FPGA instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service).| 
 
 
 ## Power supply unit specifications
