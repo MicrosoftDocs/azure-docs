@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 This topic outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.md) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment. For instructions on how to execute a data science project under the TDSP, see [Execution of Data Science Projects](project-execution.md). 
+The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment. For instructions on how to execute a data science project under the TDSP, see [Execution of data science projects](project-execution.md). 
 
 ![Individual contributor tasks](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -87,21 +87,9 @@ To work with repositories locally and push your changes up to the shared team an
    
    ![Three local repository folders](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## Commit and push changes
-
-After making whatever changes you want in your local clone of your project repository, you can push the changes to the shared repository. 
-
-Run the following Git Bash commands from your local project repository folder: 
-
-```bash
-git add .
-git commit -m "push from local"
-git push
-```
-
 ## Mount Azure file storage to your DSVM
 
-If your team or project has shared assets in Azure file storage, see the instructions in Section 4 of the [Team lead tasks for a data science team](team-lead-tasks.md) to mount the file storage to your DSVM.
+If your team or project has shared assets in Azure file storage, mount the file storage to your local machine or DSVM. Follow the instructions at [Mount Azure file storage on your local machine or DSVM](team-lead-tasks.md#mount-azure-file-storage-on-your-local-machine-or-dsvm).
 
 ## Next steps
 
