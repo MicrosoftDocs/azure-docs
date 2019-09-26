@@ -737,7 +737,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |DocumentCount|Document Count|Count|Total|Total document count reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
 |DocumentQuota|Document Quota|Bytes|Total|Total storage quota reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
 |IndexUsage|Index Usage|Bytes|Total|Total index usage reported at 5 minutes granularity|CollectionName, DatabaseName, Region|
-|MetadataRequests|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, |
+|MetadataRequests|Metadata Requests|Count|Count|Count of metadata requests. Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc., and their configurations, free of charge.|DatabaseName, CollectionName, Region, StatusCode, |
 |MongoRequestCharge|Mongo Request Charge|Count|Total|Mongo Request Units Consumed|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
 |MongoRequests|Mongo Requests|Count|Count|Number of Mongo Requests Made|DatabaseName, CollectionName, Region, CommandName, ErrorCode|
 |ProvisionedThroughput|Provisioned Throughput|Count|Maximum|Provisioned Throughput|DatabaseName, CollectionName|
@@ -1798,4 +1798,4 @@ Azure Monitor provides several ways to interact with metrics, including charting
 ## Next steps
 * [Read about metrics in Azure Monitor](data-platform.md)
 * [Create alerts on metrics](alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](diagnostic-logs-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](resource-logs-overview.md)

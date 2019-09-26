@@ -82,7 +82,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-   ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
+   ![View the connection string information in the Connection String pane](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right.
 

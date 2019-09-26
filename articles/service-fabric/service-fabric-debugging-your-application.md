@@ -58,6 +58,13 @@ You can save time and money by deploying and debugging your Azure Service Fabric
    
     ![Start debugging an application][breakpoint]
 
+
+### Running a script as part of debugging
+In certain scenarios you might need to run a script as part of starting a debugging session (e.g. when not using Default Services).
+
+In Visual Studio, you can add a file called **Start-Service.ps1** in the **Scripts** folder of the Service Fabric Application project (.sfproj). This script will be invoked after the application has been created in the local cluster.
+
+
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 
 ## Debug a remote Service Fabric application
