@@ -23,14 +23,14 @@ REPLICATE(<str_expr>, <num_expr>)
    Is a string expression.
   
 *num_expr*  
-   Is a numeric expression. If num_expr is negative or non-finite, the result is undefined.
+   Is a numeric expression. If *num_expr* is negative or non-finite, the result is undefined.
   
 ## Return Types
   
   Returns a string expression.
   
 ## Remarks
-  The maximum length of the result is 10,000 characters i.e. (length(str_expr)  *  num_expr) <= 10,000.
+  The maximum length of the result is 10,000 characters i.e. (length(*str_expr*)  *  *num_expr*) <= 10,000.
 
 ## Examples
   
