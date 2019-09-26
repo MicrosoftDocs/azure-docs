@@ -57,15 +57,16 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    ![Link an existing subscription selection in Azure portal](media/tutorial-create-tenant/portal-05-link-subscription.png)
 
 1. Select the **Azure AD B2C Tenant** that you created, then select your **Subscription**.
-1. For **Resource group**, select **Create new**. Enter a **Name** for the resource group that will contain the tenant, select the **Resource group location**, and then select **Create**.
+
+    For **Resource group**, select **Create new**. Enter a **Name** for the resource group that will contain the tenant, select the **Resource group location**, and then select **Create**.
 
     ![Link subscription settings form in Azure portal](media/tutorial-create-tenant/portal-06-link-subscription-settings.png)
 
 ## Select your B2C tenant directory
 
-To start using your new Azure AD B2C tenant, you need to switch to the directory that contains your B2C tenant.
+To start using your new Azure AD B2C tenant, you need to switch to the directory that contains the tenant.
 
-Select the **Directory + subscription** filter in the top menu, then select the directory that contains your Azure AD B2C tenant.
+Select the **Directory + subscription** filter in the top menu of the Azure portal, then select the directory that contains your Azure AD B2C tenant.
 
 If at first you don't see your new Azure B2C tenant in the list, refresh your browser window, then select the **Directory + subscription** filter again in the top menu.
 
