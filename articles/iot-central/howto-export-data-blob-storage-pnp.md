@@ -12,11 +12,9 @@ manager: corywink
 
 # Export your data to Azure Blob Storage
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
-
 *This topic applies to administrators.*
 
-This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **telemetry**, **devices**, and **device templates** to files in JSON or Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
+This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **telemetry**, **devices**, and **device templates** to files in JSON format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
 > When you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
@@ -75,9 +73,10 @@ Now that you have a Storage destination to export data to, follow these steps to
  
 6. Choose a Container from the drop-down list box.
 
-7. (Optional) The default **Data format** is JSON. You can also export your data in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, which is a data serialization system that represents the JSON data in a compact binary format.
-
 8.  Under **Data to export**, specify each type of data to export by setting the type to **On**.
+   
+    > [!NOTE] 
+    > The data is exported in JSON format.
 
 9. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
