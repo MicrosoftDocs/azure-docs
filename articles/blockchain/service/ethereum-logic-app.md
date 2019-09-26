@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/19/2019
+ms.date: 09/26/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -37,7 +37,7 @@ Every logic app must start with a trigger, which fires when a specific event hap
 
 The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario.
 
-If your workflow:
+Choose each of the following sections if your workflow:
 
 * Triggers when an event occurs on the blockchain, [use the event trigger](#use-the-event-trigger).
 * Queries or deploys a smart contract, [use actions](#use-actions).
@@ -45,7 +45,7 @@ If your workflow:
 
 ## Use the event trigger
 
-You use Ethereum Blockchain event triggers when you want a logic app to run after a smart contract event occurs. For example, you want to send an email when a smart contract function is called.
+Use Ethereum Blockchain event triggers when you want a logic app to run after a smart contract event occurs. For example, you want to send an email when a smart contract function is called.
 
 1. In the Logic App designer, choose the Ethereum Blockchain connector.
 1. From the **Triggers** tab, choose **When a smart contract event occurs**.
@@ -63,11 +63,13 @@ You use Ethereum Blockchain event triggers when you want a logic app to run afte
 
 1. Select **Save**.
 
+Once you configure the Ethereum Blockchain event trigger, you can add a new step to your logic app that performs an action based on the event trigger. For example, send an email.
+
 ## Use actions
 
-You use the Ethereum Blockchain actions when you want a logic app to perform an action on the blockchain ledger. For example, you want to create a REST-based microservice that calls a smart contract function when an HTTP request is made to a logic app.
+Use the Ethereum Blockchain actions when you want a logic app to perform an action on the blockchain ledger. For example, you want to create a REST-based microservice that calls a smart contract function when an HTTP request is made to a logic app.
 
-Connector actions require a trigger. You can use an Ethereum Blockchain connector action as the next step after a trigger.
+Connector actions require a trigger. You can use an Ethereum Blockchain connector action as the next step after a trigger. For example, an HTTP request trigger for a microsservice.
 
 1. In the Logic App designer, select **New step** following a trigger.
 1. Choose the Ethereum Blockchain connector.
@@ -87,6 +89,8 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
 
+When the logic app event is triggered, the Ethereum Blockchain action runs. For example, an HTTP request trigger runs a Ethereum blockchain action to query a smart contract state value resulting in an HTTP response that returns the value.
+
 ## Generate a workflow
 
 The Azure Blockchain Development Kit for Ethereum Visual Studio Code extension can generate logic app workflows for common scenarios. There are four scenarios available:
@@ -96,7 +100,7 @@ The Azure Blockchain Development Kit for Ethereum Visual Studio Code extension c
 * Report publishing
 * REST-based microservice
 
- Azure Blockchain Development Kit uses Truffle to simplify blockchain development. To generate a logic app based on a smart contract, you need a Truffle solution for the smart contract. You also need to be connected to your Azure Blockchain Service consortium network. For more information, see [use Visual Studio Code to connect to an Azure Blockchain Service consortium network quickstart](connect-vscode.md).
+ Azure Blockchain Development Kit uses Truffle to simplify blockchain development. To generate a logic app based on a smart contract, you need a Truffle solution for the smart contract. You also need a connection to your Azure Blockchain Service consortium network. For more information, see [use Visual Studio Code to connect to an Azure Blockchain Service consortium network quickstart](connect-vscode.md).
 
 For example, the following steps generate a REST-based microservice logic app based on the quickstart **HelloBlockchain** smart contract:
 
@@ -140,6 +144,8 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     ![RequestMessage property output](./media/ethereum-logic-app/curl.png)
 
+For more information about using the development kit, see [Azure Blockchain Development Kit for Ethereum wiki](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki) page.
+
 ## Create an API connection
 
 An API connection to a blockchain is required for the Ethereum Blockchain connector. You can use the API connector for multiple logic apps. Some properties are required and others depend on your scenario.
@@ -147,7 +153,7 @@ An API connection to a blockchain is required for the Ethereum Blockchain connec
 > [!IMPORTANT]
 > A private key or account address and password is required for creating transactions on a blockchain. Only one form of authentication is needed. You don't need to provide both the private key and account details. Querying contracts does not require a transaction. If you are using actions that query contract state, the private key or account address and password are not required.
 
-To set up a connection to an Azure Blockchain Service member, the following is a list of possible properties you may need depending on your scenario.
+To set up a connection to an Azure Blockchain Service member, the following list are possible properties you may need depending on your scenario.
 
 | Property | Description |
 |----------|-------------|
