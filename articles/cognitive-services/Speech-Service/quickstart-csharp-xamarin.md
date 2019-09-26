@@ -15,7 +15,7 @@ ms.custom:
 
 # Quickstart: Recognize speech using cross-platform Xamarin app by using the Speech SDK
 
-Quickstarts are also available for [speech to text](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md) and [speech translation](quickstart-translate-speech-uwp.md).
+Quickstarts are also available for [speech to text](quickstart-csharp-uwp.md), [text to speech](quickstart-text-to-speech-csharp-uwp.md) and [speech translation](quickstart-translate-speech-uwp.md).
 
 In this article, you develop a cross-platform C# application using Xamarin for Universal Windows Platform (UWP), Android and iOS by using the Cognitive Services [Speech SDK](speech-sdk.md). The program transcribes speech to text in real time from your device's or simulator's microphone. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
