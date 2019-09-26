@@ -35,7 +35,7 @@ ms.author: diberry
 
 ## Get intent with browser
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint V2](/includes/quickstart-rest-get-intent-get-intent-with-browser.md)]
 
 ## Get intent programmatically
 
