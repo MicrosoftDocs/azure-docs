@@ -44,21 +44,19 @@ This article shows how to complete these tasks:
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-  * Your virtual network must have four *empty* subnets for creating and deploying resources in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
-  
-    > [!NOTE]
-    > If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
-    > which provides a private connection to Microsoft cloud services, you must 
-    > [create a route table](../virtual-network/manage-route-table.md) that has 
-    > the following route and link that table with each subnet used by your ISE:
-    > 
-    > **Name**: <*route-name*><br>
-    > **Address prefix**: 0.0.0.0/0<br>
-    > **Next hop**: Internet
+  * Your virtual network needs to have four *empty* subnets for creating and deploying resources in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
+
+  * Subnet names need to start with either an alphabetic character or an underscore and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
 
   * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
+
+  * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
+
+    **Name**: <*route-name*><br>
+    **Address prefix**: 0.0.0.0/0<br>
+    **Next hop**: Internet
 
 * If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE, which is a capability that's available with ISE public preview.
 
@@ -138,10 +136,14 @@ In the search box, enter "integration service environment" as your filter.
 
    **Create subnet**
 
-   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. You *can't* change these subnet addresses after you create your environment. Each subnet must meet these criteria:
-
-   * Has a name that starts with an alphabetic character or an underscore, 
-   and doesn't have these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. You *can't* change these subnet addresses after you create your environment.
+   
+   > [!IMPORTANT]
+   > 
+   > Subnet names must start with either an alphabetic character or an underscore 
+   > (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   
+   Also, each subnet must meet these requirements:
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
@@ -155,8 +157,7 @@ In the search box, enter "integration service environment" as your filter.
 
      To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), remember to [create a route table](../virtual-network/manage-route-table.md) 
-   that has the following route and link that table with each subnet used by your ISE:
+   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), you have to [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table with each subnet that's used by your ISE:
 
      **Name**: <*route-name*><br>
      **Address prefix**: 0.0.0.0/0<br>
