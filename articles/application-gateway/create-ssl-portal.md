@@ -155,7 +155,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 5. For the **HTTP setting**, select **Create new** to create a new HTTP setting. The HTTP setting will determine the behavior of the routing rule. In the **Add an HTTP setting** window that opens, enter *myHTTPSetting* for the **HTTP setting name**. Accept the default values for the other settings in the **Add an HTTP setting** window, then select **Add** to return to the **Add a routing rule** window. 
 
-        ![Create new application gateway: HTTP setting](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   ![Create new application gateway: HTTP setting](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
