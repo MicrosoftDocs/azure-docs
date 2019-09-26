@@ -89,7 +89,7 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
 
-When the logic app event is triggered, the Ethereum Blockchain action runs. For example, an HTTP request trigger runs a Ethereum blockchain action to query a smart contract state value resulting in an HTTP response that returns the value.
+When the logic app event is triggered, the Ethereum Blockchain action runs. For example, an HTTP request trigger runs an Ethereum blockchain action to query a smart contract state value resulting in an HTTP response that returns the value.
 
 ## Generate a workflow
 
