@@ -147,7 +147,7 @@ To populate your team repositories with the contents of the group common reposit
    
 Each of your two team repositories now contains the files from the corresponding group common repository. 
 
-### Customize the contents of the group repositories
+### Customize the contents of the team repositories
 
 If you want to customize the contents of your team repositories to meet your team's specific needs, you can do that now. You can modify files, change the directory structure, or add files and folders.
 
