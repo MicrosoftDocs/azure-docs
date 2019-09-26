@@ -32,7 +32,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 1. [Create an app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Add an intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) for each QnA Maker knowledge base. The example utterances should correspond to questions in the QnA Maker knowledge bases.
 1. [Train the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) and [publish the LUIS app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) your LUIS App.
-1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and host region. You will need these values later. 
+1. In the **Manage** section, make note of your LUIS app ID, LUIS endpoint key, and [custom domain name](../../cognitive-services-custom-subdomains.md). You will need these values later. 
 
 ## Create QnA Maker knowledge bases
 
