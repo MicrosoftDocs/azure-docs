@@ -30,16 +30,16 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 The following steps show you how to create a managed instance:
 
 1. Select **Azure SQL** on the left menu of Azure portal. If **Azure SQL** is not in the list, select **All services**, and then enter **Azure SQL** in the search box.
-1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about an Azure SQL Database managed instance by selecting **Show details** on the **Managed instances** tile.
-1. Select **Create**.
+2. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information about an Azure SQL Database managed instance by selecting **Show details** on the **Managed instances** tile.
+3. Select **Create**.
 
    ![Create a managed instance](./media/sql-database-managed-instance-get-started/create-managed-instance.png)
 
-1. Use the tabs on the **Create Azure SQL Database Managed Instance** provisioning form to add required and optional information. The following sections describe these tabs.
+4. Use the tabs on the **Create Azure SQL Database Managed Instance** provisioning form to add required and optional information. The following sections describe these tabs.
 
 ### Basics
 
-1. Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a managed instance.
+4.1 Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a managed instance.
 
 !["Basics" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
 
@@ -54,7 +54,7 @@ Use the table below as a reference for information required at this tab.
 | **Managed instance admin login** | Any valid username. | For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" because that's a reserved server-level role.|
 | **Password** | Any valid password.| The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
-1. Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tiers. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
+4.2 Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tiers. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
 
 ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
 
@@ -62,7 +62,7 @@ Use the table below as a reference for information required at this tab.
 
 ### Networking
 
-1. Fill out optional information on the **Networking** tab. If you omit this information, the portal will apply default settings.
+4.3 Fill out optional information on the **Networking** tab. If you omit this information, the portal will apply default settings.
 
 !["Networking" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
 
@@ -79,7 +79,7 @@ Use the table below as a reference for information required at this tab.
 
 ### Additional settings
 
-1. Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
+4.4 Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
 
 !["Additional settings" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
 
@@ -94,22 +94,22 @@ Use the table below as a reference for information required at this tab.
 
 ### Review + create
 
-1. Select the **Review + create** tab to review your choices before you create the managed instance.
+4.5 Select the **Review + create** tab to review your choices before you create the managed instance.
 
    ![Tab for reviewing and creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
 
-1. Select **Create** to start provisioning the managed instance.
+4.6 Select **Create** to start provisioning the managed instance.
 
 > [!IMPORTANT]
 > Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 ### Monitor deployment progress
 
-1. Select the **Notifications** icon to view the status of the deployment.
+5. Select the **Notifications** icon to view the status of the deployment.
 
     ![Deployment progress of a managed instance deployment](./media/sql-database-managed-instance-get-started/in-progress/mi-create-deployment-in-progress.png)
 
-1. Select **Deployment in progress** in the notification to open the managed instance window and further monitor the deployment progress. 
+6. Select **Deployment in progress** in the notification to open the managed instance window and further monitor the deployment progress. 
 
 > [!TIP]
 > If you closed your web browser or moved away from the deployment progress screen, follow these steps to locate that screen:
@@ -137,19 +137,19 @@ To optionally fine-tune networking settings, inspect the following:
 
    ![Route table](./media/sql-database-managed-instance-get-started/route-table.png)
 
-1. In the route table, review the entries to route traffic from and within the managed instance's virtual network. If you create or configure your route table manually, ensure to create these entries in the managed instance route table.
+2. In the route table, review the entries to route traffic from and within the managed instance's virtual network. If you create or configure your route table manually, ensure to create these entries in the managed instance route table.
 
    ![Entry for a managed instance subnet to local](./media/sql-database-managed-instance-get-started/udr.png)
 
-1. Return to the resource group, and select the network security group.
+3. Return to the resource group, and select the network security group.
 
    ![Network security group](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-1. Review the inbound and outbound security rules. 
+4. Review the inbound and outbound security rules. 
 
    ![Security rules](./media/sql-database-managed-instance-get-started/security-rules.png)
 
-> [!NOTE]
+> [!IMPORTANT]
 > If you have configured public endpoint for your managed instance, you need to open ports to allow network traffic allowing connections to managed instance from the public Internet, see [Configure a public endpoint](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
 >
 
@@ -161,7 +161,7 @@ To connect to managed instance, follow these steps to retrieve host name and ful
 
    ![Managed instance in the resource group](./media/sql-database-managed-instance-get-started/managed-instance.png)
 
-1. On the **Overview** tab, locate the **Host** property. Copy the host name for the managed instance for use in the next quickstart.
+2. On the **Overview** tab, locate the **Host** property. Copy the host name for the managed instance for use in the next quickstart.
 
    ![Host name](./media/sql-database-managed-instance-get-started/host-name.png)
 
