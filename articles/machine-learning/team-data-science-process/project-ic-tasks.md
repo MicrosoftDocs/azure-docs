@@ -14,17 +14,15 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Tasks for an individual contributor in the Team Data Science Process
 
-This topic outlines the tasks that an *individual contributor* completes for their data science team. The objective is to establish a collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This topic outlines the tasks that an *individual contributor* completes to set up a project in the [Team Data Science Process](overview.md) (TDSP). The objective is to work in a collaborative team environment that standardizes on the TDSP. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
-The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment:
+The following diagram shows the tasks that project individual contributors (data scientists) complete to set up their team environment. For instructions on how to execute a data science project under the TDSP, see [Execution of Data Science Projects](project-execution.md). 
 
 ![Individual contributor tasks](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
 - **ProjectRepository** is the repository your project team maintains to share project templates and assets.
 - **TeamUtilities** is the utilities repository your team maintains specifically for your team. 
 - **GroupUtilities** is the repository your group maintains to share useful utilities across the entire group. 
-
-For instructions on how to execute a data science project under TDSP, see [Execution of Data Science Projects](project-execution.md). 
 
 > [!NOTE] 
 > This article uses Azure Repos and a Data Science Virtual Machine (DSVM) to set up a TDSP environment, because that is how to implement TDSP at Microsoft. If your team uses other code hosting or development platforms, the individual contributor tasks are the same, but the way to complete them may be different.
@@ -36,8 +34,8 @@ This tutorial assumes that the following resources and permissions have been set
 - The Azure DevOps **organization** for your data unit
 - A **project repository** set up by your project lead to share project templates and assets
 - **GroupUtilities** and **TeamUtilities** repositories set up by the group manager and team lead, if applicable
-- Azure file storage set up for shared assets for your team or project, if applicable
-- Permissions for you to clone from and push back to your project repository. 
+- Azure **file storage** set up for shared assets for your team or project, if applicable
+- **Permissions** for you to clone from and push back to your project repository 
 
 To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need the following:
 
@@ -52,7 +50,7 @@ To clone repositories and modify content on your local machine or DSVM, or mount
 
 To work with repositories locally and push your changes up to the shared team and project repositories, you first copy or *clone* the repositories to your local machine. 
 
-1. In Azure DevOps, go to your team's project Summary page at *https:\//\<servername>/\<organization-name>/\<TeamName>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
+1. In Azure DevOps, go to your team's project Summary page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
    
 1. Select **Repos** in the left navigation, and at the top of the page, select the repository you want to clone.
    
@@ -60,9 +58,9 @@ To work with repositories locally and push your changes up to the shared team an
    
 1. In the **Clone repository** dialog, select **HTTPS** for an HTTP connection, or **SSH** for an SSH connection, and copy the clone URL under **Command line** to your clipboard.
    
-   ![Clone repo](./media/team-lead-tasks/clone.png)
+   ![Clone repo](./media/project-ic-tasks/clone.png)
    
-1. On your local machine, create the following directories:
+1. On your local machine or DSVM, create the following directories:
    
    - For Windows: **C:\GitRepos**
    - For Linux: **$home/GitRepos**
@@ -85,7 +83,7 @@ To work with repositories locally and push your changes up to the shared team an
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
    
-1. Confirm that you can see the folders for the cloned repositories under your project directory.
+1. Confirm that you can see the folders for the cloned repository in your local project directory.
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
