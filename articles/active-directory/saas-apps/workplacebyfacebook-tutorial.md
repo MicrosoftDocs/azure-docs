@@ -38,7 +38,7 @@ To get started, you need the following items:
 * Workplace by Facebook single sign-on (SSO) enabled subscription.
 
 > [!NOTE]
-> Facebook has two products, Workplace Standard (free) and Workplace Premium (paid). Any Workplace Premium tenant can configure SCIM and SSO integration with no other implications to cost or licenses required. SSO and SCIM are not available in Workplace Standard instances.
+> Facebook has three products, Workplace Standard (free) and Workplace Advanced/Enterprise (paid editions). Any Workplace Advanced or Workplace Enterprise tenant can configure SCIM and SSO integration with no other implications to cost or licenses required. SSO and SCIM are not available in Workplace Standard instances.
 
 ## Scenario description
 
@@ -140,13 +140,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	> [!NOTE]
 	> As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-2. In the **Admin Panel**, go to the **Security** tab.
+2. In the **Admin Panel**, navigate to the **Security**. Under the **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
-	![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
-
-3. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
-
-	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
+	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
 	a. In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
@@ -168,11 +164,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	i. All users using Workplace will now be presented with Azure AD login page for authentication.
 
-4. **SAML Logout Redirect (optional)** -
+3. **SAML Logout Redirect (optional)** -
 
 	You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
 
-### Configuring reauthentication frequency
+### Configuring re-authentication frequency
 
 You can configure Workplace to prompt for a SAML check every day, three days, week, two weeks, month or never.
 
