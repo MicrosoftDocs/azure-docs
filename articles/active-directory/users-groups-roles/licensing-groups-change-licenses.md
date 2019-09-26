@@ -46,11 +46,11 @@ Before you begin the migration, it's important to verify certain assumptions are
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group. Azure AD will show you which features it is licensing for each license plan assigned to the user, and automatically resolves license conflicts.
 
-  ![Select the Assignments command on a user or group Licenses page](media/license-change-licenses/assignments-command.png)
+    ![Select the Assignments command on a user or group Licenses page](media/licensing-groups-change-licenses/assignments-command.png)
 
 1. Edit the options until the licenses are as you want them to be.
 
-    ![Assignments page, with number of purchased services and assigned licenses](media/license-change-licenses/update-license-assignments.png)
+    ![Assignments page, with number of purchased services and assigned licenses](media/licensing-groups-change-licenses/update-license-assignments.png)
 
 ## Next steps
 
