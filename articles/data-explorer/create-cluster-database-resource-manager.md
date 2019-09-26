@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using an Azure Resource Manager template
@@ -135,7 +135,7 @@ It takes a few minutes to create an Azure Data Explorer cluster and database.
 1. Right-click the shell console, and then select **Paste**.
 It takes a few minutes to create an Azure Data Explorer cluster and database.
 
-### Verify the deployment using powershell
+#### Verify the deployment using powershell
 
 To verify the deployment, use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Make relevant changes
 
