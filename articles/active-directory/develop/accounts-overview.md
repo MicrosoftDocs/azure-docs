@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform accounts and tenant profiles | Azure
-description: An overview of Microsoft identity platform accounts
+title: Microsoft identity platform accounts and tenant profiles (Android) | Azure
+description: An overview of Microsoft identity platform accounts for Android
 services: active-directory
 documentationcenter: ''
 author: shoatman
@@ -19,7 +19,7 @@ ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
 ---
 
-# Accounts & tenant profiles
+# Accounts & tenant profiles (Android)
 
 This article provides an overview of what an account is in the Microsoft identity platform.
 
