@@ -6,16 +6,16 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 
 # Customer intent: As a data analyst, I want to visualize my data for additional insights using Power BI.
 ---
 
 # Best practices for using Power BI to query and visualize Azure Data Explorer data
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. [Power BI](https://docs.microsoft.com/power-bi/) is a business analytics solution that lets you visualize your data and share the results across your organization. Azure Data Explorer provides three options for connecting to data in Power BI: use the [built-in connector](power-bi-connector.md), [import a query from Azure Data Explorer into Power BI](power-bi-imported-query.md), or use a [SQL query](power-bi-sql-query.md). The following article supplies you with tips for querying and visualizing your Azure Data Explorer data with Power BI. 
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. [Power BI](https://docs.microsoft.com/power-bi/) is a business analytics solution that lets you visualize your data and share the results across your organization. Azure Data Explorer provides three options for connecting to data in Power BI. Use the [built-in connector](power-bi-connector.md), [import a query from Azure Data Explorer into Power BI](power-bi-imported-query.md), or use a [SQL query](power-bi-sql-query.md). This  article supplies you with tips for querying and visualizing your Azure Data Explorer data with Power BI. 
 
-## Tips for using Power BI when working with Azure Data Explorer data
+## Best practices for using Power BI 
 
 When working with terabytes of fresh raw data, follow these guidelines to keep Power BI dashboards and reports snappy and updated:
 
@@ -23,7 +23,7 @@ When working with terabytes of fresh raw data, follow these guidelines to keep P
 
 * **Composite model** - Use [composite model](https://docs.microsoft.com/power-bi/desktop-composite-models) to combine aggregated data for top-level dashboards with filtered operational raw data. You can clearly define when to use raw data and when to use an aggregated view. 
 
-* **Import mode versus DirectQuery mode** - Use **Import** mode for interaction of smaller data sets. Use **DirectQuery** mode for large, frequently updated data sets. For example, create dimension tables using **Import** mode since they are small and don't change often. Set the refresh interval according to the expected rate of data updates. On the other hand, create fact tables using **DirectQuery** mode since these tables are large and contain raw data. Use these tables to present filtered data using Power BI [drillthrough](https://docs.microsoft.com/power-bi/desktop-drillthrough).
+* **Import mode versus DirectQuery mode** - Use **Import** mode for interaction of smaller data sets. Use **DirectQuery** mode for large, frequently updated data sets. For example, create dimension tables using **Import** mode since they're small and don't change often. Set the refresh interval according to the expected rate of data updates. Create fact tables using **DirectQuery** mode since these tables are large and contain raw data. Use these tables to present filtered data using Power BI [drillthrough](https://docs.microsoft.com/power-bi/desktop-drillthrough).
 
 * **Parallelism** – Azure Data explorer is a linearly scalable data platform, therefore, you can improve the performance of dashboard rendering by increasing the parallelism of the end-to-end flow as follows:
 
@@ -31,7 +31,7 @@ When working with terabytes of fresh raw data, follow these guidelines to keep P
 
    * Use [weak consistency to improve parallelism](/azure/kusto/concepts/queryconsistency). This may have an impact on the freshness of the data.
 
-* **Effective slicers** – you can use [sync slicers](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) to prevent reports from loading data before you are ready. After you structure the data set, place all visuals, and mark all the slicers, you can select the sync slicer to load only the data needed.
+* **Effective slicers** – you can use [sync slicers](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) to prevent reports from loading data before you're ready. After you structure the data set, place all visuals, and mark all the slicers, you can select the sync slicer to load only the data needed.
 
 * **Use filters** - Use as many Power BI filters as possible to focus the Azure Data Explorer search on the relevant data shards.
 
@@ -135,7 +135,7 @@ You can use a query parameter in any query step that supports it. For example, f
 
 ### Don't use Power BI data refresh scheduler to issue control commands to Kusto
 
-Power BI includes a data refresh scheduler, capable of periodically issuing
+Power BI includes a data refresh scheduler that can periodically issue
 queries against a data source. This mechanism shouldn't be used to schedule control commands to Kusto, since Power BI assumes all queries are read-only.
 
 ### Power BI can send only short (&lt;2000 characters) queries to Kusto

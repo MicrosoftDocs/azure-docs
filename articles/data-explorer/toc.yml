@@ -88,7 +88,7 @@
     items:
     - name: Power BI
       items:
-      - name: Tips for data query and visualization
+      - name: Best practices
         href: power-bi-best-practices.md
       - name: connector
         href: power-bi-connector.md

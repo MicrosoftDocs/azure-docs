@@ -49,14 +49,16 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
     | | | |
     
     > [!NOTE]
+    > In **Import** mode, data is moved to Power BI. In **DirectQuery** mode, data is queried directly from your Azure Data Explorer cluster.
+    >
     > Use **Import** mode when:
-    > * Your data set is small. Data is retained with the Power BI report.
+    > * Your data set is small.
     > * You don't need near real-time data. 
-    > * Your data is already aggregated or you perform [aggregation in Kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)
-    >     
+    > * Your data is already aggregated or you perform [aggregation in Kusto](/azure/kusto/query/summarizeoperator#list-of-aggregation-functions)    
+    >
     > Use **DirectQuery** mode when:
-    > * Your data set is very large. DirectQuery doesn't require data transfer and data is queried in its location. 
-    > * You need near real-time data. When data is displayed, it is queried directly from your Azure Data Explorer cluster.
+    > * Your data set is very large. 
+    > * You need near real-time data.   
 
 1. If you don't already have a connection to the help cluster, sign in. Sign in with an organizational account, then select **Connect**.
 
