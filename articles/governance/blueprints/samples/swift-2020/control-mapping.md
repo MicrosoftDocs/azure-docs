@@ -29,7 +29,8 @@ built-in policy initiative.
 > compliance standard includes controls that aren't addressed by any Azure Policy definitions at
 > this time. Therefore, compliance in Azure Policy is only a partial view of your overall compliance
 > status. The associations between controls and Azure Policy definitions for this compliance
-> blueprint sample may change over time.
+> blueprint sample may change over time. To view the change history, see the
+> [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
 
 ## 1.2 and 5.1 Account Management
 
