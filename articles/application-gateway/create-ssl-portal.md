@@ -209,17 +209,17 @@ In this example, you install IIS on the virtual machines only to verify Azure cr
 
 2. Run the following command to install IIS on the virtual machine: 
 
-```azurepowershell-interactive
-       Set-AzVMExtension `
-         -ResourceGroupName myResourceGroupAG `
-         -ExtensionName IIS `
-         -VMName myVM `
-         -Publisher Microsoft.Compute `
-         -ExtensionType CustomScriptExtension `
-         -TypeHandlerVersion 1.4 `
-         -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-         -Location EastUS
-```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
 
