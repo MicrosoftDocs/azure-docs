@@ -13,7 +13,7 @@
 - name: Release notes
   items:
   - name: Recent release
-    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/arcadia/toc.json
+    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
 - name: Quickstarts
   items:
   - name: Create a workspace
