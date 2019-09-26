@@ -87,7 +87,7 @@ In ASP.NET Core, the principle is that in the `Startup.cs` file. You'll want to 
 
 In practice the [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2) attempts to provide you with reusable code for your web apps.
 
-Here is the [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42) code, featuring the call to the `AddMicrosoftIdentityPlatformAuthentication` method which adds authentication to the web app, and `AddMsal` which adds the capability of calling Web APIs. The call to `AddInMemoryTokenCaches` is about chosing a token cache implementation among the ones which are possible:
+Here is the [Startup.cs#L40-L42](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/bc564d68179c36546770bf4d6264ce72009bc65a/2-WebApp-graph-user/2-1-Call-MSGraph/Startup.cs#L40-L42) code, featuring the call to the `AddMicrosoftIdentityPlatformAuthentication` method which adds authentication to the web app, and `AddMsal` which adds the capability of calling Web APIs. The call to `AddInMemoryTokenCaches` is about choosing a token cache implementation among the ones which are possible:
 
 ```CSharp
 public class Startup
@@ -183,7 +183,7 @@ The `AddMsal` method ensures that:
 
 - the ASP.NET Core Web app requests both an IDToken for the user, and an authentication code (`options.ResponseType = OpenIdConnectResponseType.CodeIdToken`)
 - the `offline_access` scope is added. It's needed so that the user consents to let the application get a refresh token.
-- the app subscribes to the OIDC `OnAuthorizationCodeReceived` event, and redeems the call using MSAL.NET, which is here encapuslated into a reusable component implementing `ITokenAcquisition`.
+- the app subscribes to the OIDC `OnAuthorizationCodeReceived` event, and redeems the call using MSAL.NET, which is here encapsulated into a reusable component implementing `ITokenAcquisition`.
 
 ### The TokenAcquisition.AddAccountToCacheFromAuthorizationCodeAsync method
 
