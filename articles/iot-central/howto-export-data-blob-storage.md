@@ -26,12 +26,8 @@ This article describes how to use the continuous data export feature in Azure Io
 
 - You must be an administrator in your IoT Central application
 
-
-## Set up export destination
-
+## Create storage account
 If you don't have an existing Storage to export to, follow these steps:
-
-## Create Storage account
 
 1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more in [Azure Storage docs](https://aka.ms/blobdocscreatestorageaccount).
 2. Choose a subscription. 
