@@ -69,4 +69,3 @@ To get started with these use cases on go to the following articles:
 * [Built-in Jupyter notebooks in Azure Cosmos DB](cosmosdb-jupyter-notebooks.md)
 * [How to enable notebooks for Azure Cosmos accounts](enable-notebooks.md)
 * [Create a notebook to analyze and visualize data](create-notebook-visualize-data.md)
-
