@@ -73,6 +73,10 @@ We're transitioning to [W3C distributed tracing format](https://w3c.github.io/tr
 - `tracestate`: Carries tracing system-specific context.
 
 #### Enable W3C distributed tracing support for classic ASP.NET apps
+ 
+  > [!NOTE]
+  > No configuration needed starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` version 2.11.0 
+  > If you run older version of the SDK, we recommend updating it or applying following configuration
 
 This feature is available in `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages starting with version 2.8.0-beta1.
 It's disabled by default. To enable it, change `ApplicationInsights.config`:
@@ -90,6 +94,10 @@ It's disabled by default. To enable it, change `ApplicationInsights.config`:
 
 #### Enable W3C distributed tracing support for ASP.NET Core apps
 
+ > [!NOTE]
+  > No configuration needed starting with `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0.
+  > If you run older version of the SDK, we recommend updating it or applying following configuration
+  
 This feature is in `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 and in `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
 It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
 
