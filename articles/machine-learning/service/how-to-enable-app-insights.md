@@ -29,7 +29,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
-## Use Studio UI to configure
+## Use the Azure Portal or Studio UI to configure
 
 You can enable and disable Application Insights in the Azure portal or new Studio UI. 
 
@@ -134,6 +134,6 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
-You can also collect data on your models in production. Read the article  [Collect data for models in production](how-to-enable-data-collection.md). 
+You can also collect data on your models in production. Read the article [Collect data for models in production](how-to-enable-data-collection.md). 
 
 Also read [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).
