@@ -84,8 +84,9 @@ OIDServiceConfiguration *configuration =
 ### Authorizing
 
 After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you need the following information:
-* Client ID (for example, 00000000-0000-0000-0000-000000000000)
-* Redirect URI with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+
+* Client ID (APPLICATION ID) that you recorded earlier. For example, `00000000-0000-0000-0000-000000000000`.
+* Custom Redirect URI that you recorded earlier. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
