@@ -62,12 +62,12 @@ The `redirect_uri` must be registered in the app configuration, and also in  `An
 `IPublicClientApplication` is constructed by a factory method to allow the application configuration to be parsed asynchronously.
 
 ```java
-PublicClientApplication.create(
+PublicClientApplication.createMultipleAccountPublicClientApplication(
     context, // Your application Context
     R.raw.msal_config, // Id of app JSON config
     new IPublicClientApplication.ApplicationCreatedListener() {
         @Override
-        public void onCreated(IPublicClientApplication pca) {
+        public void onCreated(IMultipleAccountPublicClientApplication pca) {
             // Application has been initialized.
         }
 
@@ -85,7 +85,7 @@ PublicClientApplication.create(
 To acquire a token interactively with MSAL, build a `AcquireTokenParameters` instance and supply it to `acquireToken`. The token request below uses the `default` authority.
 
 ```java
-IPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
     .startAuthorizationFromActivity(activity)
@@ -116,7 +116,7 @@ pca.acquireToken(parameters);
 `acquireTokenSilent` has an `AcquireTokenSilentParameters` object that specifies the request properties. Like the interactive token request `aquireToken`, it takes an `AcquireTokenParameters` object:
 
 ```java
-IPublicClientApplication pca = ...; // Initialization not shown
+IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)
