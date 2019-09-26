@@ -93,7 +93,7 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 
 ## Deploy the template
 
-You can deploy the Azure Resource Manager template by [using powershell](#using-powershell) or [using the Azure portal](#using-the-azure-portal)
+You can deploy the Azure Resource Manager template by [using powershell](#use-powershell-to-deploy-the-template) or [using the Azure portal](#use-the-azure-portal-to-deploy-the-template).
 
 ### Use powershell to deploy the template
 
@@ -158,4 +158,4 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Next steps
 
-[Ingest data into Azure Data Explorer cluster and database](ingest-data-overview)
+[Ingest data into Azure Data Explorer cluster and database](ingest-data-overview.md)
