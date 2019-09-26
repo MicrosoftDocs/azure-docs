@@ -107,7 +107,7 @@ For Azure CLI samples for all Azure Cosmos DB APIs [SQL API](cli-samples.md), [C
 
 Create a Cosmos container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
 
-For more Azure CLI samples for Azure Cosmos DB for SQL API see, [Azure CLI samples for Azure Cosmos DB SQL (Core) API](cli-samples.md) and [Manage Azure Cosmos resources using Azure CLI](manage-wit-cli.md)
+For more Azure CLI samples for Azure Cosmos DB for SQL API see, [Azure CLI samples for Azure Cosmos DB SQL (Core) API](cli-samples.md) and [Manage Azure Cosmos resources using Azure CLI](manage-with-cli.md)
 
 ```azurecli-interactive
 # Create a SQL API container

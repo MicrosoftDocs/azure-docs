@@ -186,7 +186,7 @@ az cosmosdb sql container throughput update \
     --throughput $newRU
 ```
 
-## List all account keys
+## <a id="list-account-keys"></a> List all account keys
 
 Get all keys for a Cosmos account.
 
