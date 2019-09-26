@@ -25,7 +25,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/sql-data-warehouse.svg" alt="" />
+                            <!-- <img src="media/index/sql-data-warehouse.svg" alt="" /> -->
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,7 +43,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/video-library.svg" alt="" />
+                            <!-- <img src="media/index/video-library.svg" alt="" /> -->
                         </div>
                     </div>
                     <div class="cardText">
@@ -62,7 +62,7 @@ Learn how to use an Azure SQL Data Warehouse, which combines SQL relational data
                     <div class="cardImageOuter">
                         <div class="cardImage">
 
-<img src="media/index/portal.svg" alt="" />
+<!-- <img src="media/index/portal.svg" alt="" /> -->
                         </div>
                     </div>
                     <div class="cardText">
