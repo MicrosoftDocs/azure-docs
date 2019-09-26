@@ -46,6 +46,8 @@ Network security groups (NSGs) are supported on Application Gateway. But there a
 
 - You must include exceptions for incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU, and ports 65200-65535 for the v2 SKU. This port range is required for Azure infrastructure communication. These ports are protected (locked down) by Azure certificates. External entities, including the customers of those gateways, can't initiate changes on those endpoints without appropriate certificates in place.
 
+- To restrict incoming traffic to an IP range, either specifiy the entire Application Gateway subnet in the NSG Destination, or explicitly configure a Private Frontend IP configuration. The public IP address is translated on the DNAT layer to a private IP before being evaluated by the NSG.  
+
 - Outbound internet connectivity can't be blocked. Default outbound rules in the NSG allow internet connectivity. We recommend that you:
 
   - Don't remove the default outbound rules.
