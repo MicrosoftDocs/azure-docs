@@ -25,7 +25,11 @@ Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more info
 
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
+- Europe North
+- Europe West
 - US East
+- US East 2
+- US Central
 
 Microsoft continues to enable GZRS and RA-GZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about supported regions.
 

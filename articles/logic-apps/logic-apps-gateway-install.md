@@ -58,7 +58,7 @@ This article shows how to download, install, and set up your on-premises data ga
   * Solid-state drive (SSD) storage for spooling
 
   > [!NOTE]
-  > The gateway doesn't support Windows Server 2016 Core.
+  > The gateway doesn't support Windows Server Core.
 
 * **Related considerations**
 
@@ -76,6 +76,8 @@ This article shows how to download, install, and set up your on-premises data ga
   * The region that you select for your gateway installation is the same location that you must select when you later create the Azure gateway resource for your logic app. By default, this region is the same location as your Azure AD tenant that manages your Azure account. However, you can change the location during gateway installation.
 
   * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
+
+  * Azure Logic Apps supports write operations, including inserts and updates, through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
