@@ -15,7 +15,7 @@ Change feed logs record all changes that occur to the blobs and the blob metadat
 
 Use these logs at your convenience. You can use them to audit or analyze changes over any period of time.  Your applications can take action on objects that have changed. For example, to synchronize data with a cache, update a search engine or data warehouse, or perform other derivative batch or analytic processing. 
 
-Because change feed logs are stored as blobs, analytic applications can consume them directly. Use analytic applications to efficiently process logs in batch-mode, at low cost, and without having to write a custom application.  
+Because change feed logs are stored as blobs, analytic applications can consume them directly. This lets you process logs in batch-mode, at low cost, and without having to write a custom application.  
 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
@@ -24,26 +24,27 @@ Because change feed logs are stored as blobs, analytic applications can consume 
 
 Unlike *Blob Storage events*, which enable your applications to react to changes in real-time, change feed logs provide an ordered log of records called *change event records*. Changes are appended to the change feed every 60 - 120 seconds. Your applications can periodically poll for new changes based on this frequency. 
 
-If your application has to react to events much quicker than this, consider using blob storage events instead. See [Reacting to Blob storage events](storage-blob-event-overview.md)
+If your application has to react to events much quicker than this, consider using blob storage events instead. To learn more about how to handle Blob Storage events, see [Reacting to Blob storage events](storage-blob-event-overview.md)
 
 ## Enabling and disabling the change feed
 
-You have to enable the change feed to begin capturing change logs. Disable the change feed to stop capturing changes. You can enable and disable changes by using the Azure portal. 
+You have to enable the change feed to begin capturing changes. Disable the change feed to stop capturing changes. You can enable and disable changes by using the Azure portal. 
 
 Show screenshot here.
 
 Here's a few things to keep in mind when you enable the change feed.
 
-- You can't exclude event types. If you enable the change feed, you'll capture all supported events. 
+- The storage account has only one change feed. 
+
+- You can't exclude event types. If you enable the change feed, you'll capture all supported events.
+
   In the current public preview, that list includes the create, update, delete and copy operations.
 
 - Changes are captured only as they relate to blobs and blob metadata in the storage account, and not at the resource group level.
 
-- The storage account has only one change feed. 
-
 ## Understanding the Change feed files
 
-The change feed creates several files, and you can find them in the **$blobchangefeed** container. This table describes each file and how to use it.
+The change feed creates several files. This table describes each file and how to use it.
 
 | File    | Blob virtual directory | Purpose    |
 |--------|-----------|---|
@@ -51,14 +52,13 @@ The change feed creates several files, and you can find them in the **$blobchang
 | Log files | `$blobchangefeed/log/`|A log file contains a series of change event records. These records are listed in the order in which they occurred. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. <br><br>To learn more, see the [Log files](#log-files) section of this article.|
 | Segments.json | `$blobchangefeed/meta/`|There is only one of these files. You can use it to determine the last consumable log file. <br><br>To learn more, see the [Segments.json](#segment-json) section of this article.|
 
-In your client applications, start by reading the segments.json file to determine the last consumable segment. Then, read the segment file for each segment of interest based on your custom check pointing and filtering logic. 
+In your client applications, read the segment files of interest based on your custom check pointing and filtering logic. Each segment file points to log files associated with that segment. Read each log file and iterate through all the change event records. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. There are several libraries available to process files in that format. 
 
-Each segment file contains a path to log files related to that segment. Read each log file and iterate through all the change event records. 
+You can read files by using an SDK (For example: .NET, Java, or Python), or just use [Get Blob](https://docs.microsoft.com/rest/api/storageservices/get-blob) and [List Blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operations of the Blob Service REST API. Your application must use it's own filtering logic and check pointing logic. Because the change feed logs are immutable and append-only, your check points will be stable.
 
-You can read files by using an SDK (For example: .NET, Java, or Python), or just use GetBlob and ListBlob REST calls. Your application must use it's own filtering logic and check pointing logic. Because the change feed logs are immutable and append-only, your check points will be stable.
+To see an example of processing change feed logs by using the Azure Blob Storage client library for .NET, and the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
-There are several libraries available to process files that use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format.
-To see an example of processing change feed logs by using the [Apache.Avro](https://www.nuget.org/packages/Apache.Avro/) NuGet Package for .NET client applications, see [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+
 
 <a id="segment-index" />
 
