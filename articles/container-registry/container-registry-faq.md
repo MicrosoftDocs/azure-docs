@@ -417,7 +417,7 @@ The browser might be unable to send the request for fetching repositories or tag
 * Ad blockers
 * DNS errors
 
-Please contact your network administrator or check your network configuration and connectivity.
+Please contact your network administrator or check your network configuration and connectivity. In addition, you could also try an incognito or private session in your browser to avoid any stale browser cache or cookies.
 
 ### How do I collect http traces on Windows?
 
