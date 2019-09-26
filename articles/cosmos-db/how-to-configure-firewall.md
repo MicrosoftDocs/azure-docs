@@ -4,7 +4,7 @@ description: Learn how to configure IP access control policies for firewall supp
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
 ---
 
@@ -111,29 +111,21 @@ To configure access control to your Azure Cosmos DB account, make sure that the 
 
 ## <a id="configure-ip-firewall-cli"></a>Configure an IP access control policy by using the Azure CLI
 
-The following command shows how to create an Azure Cosmos DB account with IP access control: 
+The following command shows how to create an Azure Cosmos DB account with IP access control:
 
 ```azurecli-interactive
+# Create a Cosmos DB account with default values and IP Firewall enabled
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+ipRangeFilter='192.168.221.17,183.240.196.255,40.76.54.131'
 
-name="<Azure Cosmos DB account name>"
-resourceGroupName="<Resource group name>"
-
+# Make sure there are no spaces in the comma-delimited list of IP addresses or CIDR ranges.
 az cosmosdb create \
-  --name $name \
-  --kind GlobalDocumentDB \
-  --resource-group $resourceGroupName \
-  --max-interval 10 \
-  --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
-```
-
-To update the firewall settings for an existing account, run the following command:
-
-```azurecli-interactive
-az cosmosdb update \
-      --name $name \
-      --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    -n $accountName \
+    -g $resourceGroupName \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False \
+    --ip-range-filter $ipRangeFilter
 ```
 
 ## <a id="configure-ip-firewall-ps"></a>Configure an IP access control policy by using PowerShell
@@ -141,28 +133,24 @@ az cosmosdb update \
 The following script shows how to create an Azure Cosmos DB account with IP access control:
 
 ```azurepowershell-interactive
-
+# Create a Cosmos DB account with default values and IP Firewall enabled
 $resourceGroupName = "myResourceGroup"
-$accountName = "myaccountname"
+$accountName = "mycosmosaccount"
+$ipRangeFilter = "192.168.221.17,183.240.196.255,40.76.54.131"
 
 $locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0; "isZoneRedundant"=False },
+    @{ "locationName"="East US 2"; "failoverPriority"=1, "isZoneRedundant"=False }
 )
 
-# Add local machine's IP address to firewall, InterfaceAlias is your Network Adapter's name
-$ipRangeFilter = Get-NetIPConfiguration | Where-Object InterfaceAlias -eq "Ethernet 2" | Select-Object IPv4Address
-
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
-
+# Make sure there are no spaces in the comma-delimited list of IP addresses or CIDR ranges.
 $CosmosDBProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
     "ipRangeFilter"=$ipRangeFilter
 }
 
-Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
@@ -190,4 +178,3 @@ To configure a virtual network service endpoint for your Azure Cosmos DB account
 
 * [Virtual network and subnet access control for your Azure Cosmos DB account](vnet-service-endpoint.md)
 * [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
-

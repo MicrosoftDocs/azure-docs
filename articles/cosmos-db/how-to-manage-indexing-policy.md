@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
 ---
 
@@ -329,6 +329,7 @@ In Azure Cosmos DB, the indexing policy can be updated using any of the below me
 
 - from the Azure portal
 - using the Azure CLI
+- using PowerShell
 - using one of the SDKs
 
 An [indexing policy update](index-policy.md#modifying-the-indexing-policy) triggers an index transformation. The progress of this transformation can also be tracked from the SDKs.
@@ -356,15 +357,125 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 ## Use the Azure CLI
 
-The [az cosmosdb collection update](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) command from the Azure CLI lets you replace the JSON definition of a container's indexing policy:
+This sample creates a container with a default index policy, then updates it with a custom index policy that specifies a path to not index, a composite index and spatial index.
 
 ```azurecli-interactive
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
+# Create a SQL API container with default index policy
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define a custom index policy for the container with a path to not index, include spatial and composite indexes
+idxpolicy=$(cat << EOF
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {"path": "/*"}
+    ],
+    "excludedPaths": [
+        { "path": "/headquarters/employees/?"}
+    ],
+    "spatialIndexes": [
+        {"path": "/*", "types": ["Point"]}
+    ],
+    "compositeIndexes":[
+        [
+            { "path":"/name", "order":"ascending" },
+            { "path":"/age", "order":"descending" }
+        ]
+    ]
+}
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+# Update the container with the new index policy
+az cosmosdb sql container update \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
+```
+
+## Use PowerShell
+
+This sample creates a container with a default index policy, then updates it with a custom index policy that specifies a path to not index, a composite index and spatial index.
+
+```azurepowershell-interactive
+# Generate a random 10 character alphanumeric string to ensure unique resource names
+$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
+
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
+$databaseName = "database1"
+$containerName = "container1"
+$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+# Create container with default index policy
+$containerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash"
+        }
+    };
+    "options"=@{ "Throughput"= 400 }
+}
+
+New-AzResource -ResourceType $containerResourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerResourceName -PropertyObject $containerProperties
+
+# Update container with custom index policy
+$containerProperties = @{
+    "resource"=@{
+        "id"=$containerName;
+        "partitionKey"=@{
+            "paths"=@("/myPartitionKey");
+            "kind"="Hash"
+        };
+        "indexingPolicy"=@{
+            "indexingMode"="Consistent";
+            "includedPaths"= @(@{
+                "path"="/*";
+            });
+            "excludedPaths"= @(@{
+                "path"="/myPathToNotIndex/*"
+            });
+            "spatialIndexes"= @(@{
+                "path"="/*", "types"=@("Point")
+            });
+            "compositeIndexes"=@(
+                @(
+                    @{ "path"="/name", "order"="ascending" },
+                    @{ "path"="/age", "order"="descending" }
+                )
+            )In P
+        }
+    };
+    "options"=@{ "Throughput"= 400 }
+}
+
+Set-AzResource -ResourceType $containerResourceType `
+    -ApiVersion $apiVersion -ResourceGroupName $resourceGroupName `
+    -Name $containerResourceName -PropertyObject $containerProperties
 ```
 
 ## Use the .NET SDK V2

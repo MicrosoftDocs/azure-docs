@@ -1,11 +1,11 @@
 ---
 title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
+ms.date: 09/28/2019
+ms.author: mjbrown
 ---
 
 # Provision throughput on an Azure Cosmos container
@@ -32,13 +32,17 @@ This article explains how to provision throughput on a container (collection, gr
 
 ```azurecli-interactive
 # Create a container with a partition key and provision throughput of 400 RU/s
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput
 ```
 
 ## Provision throughput using PowerShell
@@ -49,7 +53,9 @@ $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
 $containerName = "container1"
-$resourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
+$throughput = 400
 
 $ContainerProperties = @{
     "resource"=@{
@@ -59,12 +65,12 @@ $ContainerProperties = @{
             "kind"="Hash"
         }
     };
-    "options"=@{ "Throughput"= 400 }
+    "options"=@{ "Throughput"=$throughput }
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
+New-AzResource -ResourceType $containerResourceType `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $resourceName -PropertyObject $ContainerProperties
+    -Name $containerResourceName -PropertyObject $ContainerProperties
 ```
 
 If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path. If you are provisioning throughput on a container in an Azure Cosmos account configured with Cassandra API, use `/myPrimaryKey` for the partition key path.

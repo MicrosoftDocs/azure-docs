@@ -1,11 +1,11 @@
 ---
 title: Provision database throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the database level in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
+ms.date: 09/28/2019
+ms.author: mjbrown
 ---
 
 # Provision throughput on a database in Azure Cosmos DB
@@ -22,28 +22,28 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 
-   * Enter a database ID. 
+   * Enter a database ID.
    * Select **Provision throughput**.
    * Enter a throughput (for example, 1000 RUs).
    * Select **OK**.
 
 ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-
 ## Provision throughput using Azure CLI
 
 ```azcli-interactive
-az cosmosdb database create --db-name
-                            [--key]
-                            [--name]
-                            [--resource-group-name]
-                            [--subscription]
-                            [--throughput]
-                            [--url-connection]
+# Create a database and provision throughput of 400 RU/s
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+throughput=400
+
+az cosmosdb sql database create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    --throughput $throughput
 ```
-
-
-
 
 ## Provision throughput using PowerShell
 
@@ -52,6 +52,7 @@ az cosmosdb database create --db-name
 $resourceGroupName = "myResourceGroup"
 $accountName = "mycosmosaccount"
 $databaseName = "database1"
+$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
 $databaseResourceName = $accountName + "/sql/" + $databaseName
 
 $databaseProperties = @{
@@ -59,7 +60,7 @@ $databaseProperties = @{
     "options"=@{ "Throughput"= 400 }
 }
 
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
+New-AzResource -ResourceType $databaseResourceType `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName -PropertyObject $databaseProperties
 ```

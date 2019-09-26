@@ -4,7 +4,7 @@ description: Learn how to configure and manage time to live in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
 ---
 
@@ -31,10 +31,63 @@ Use the following steps to enable time to live on a container with no expiration
 
    ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* When DefaultTimeToLive is null then your Time to Live is Off
+* When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
+* When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On
 
-- When DefaultTimeToLive is null then your Time to Live is Off
-- When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
-- When DefaultTimeToLive has any other Int value (except 0) your Time to Live setting is On
+## Enable time to live on a container using PowerShell
+
+```azurepowershell-interactive
+# Update a Cosmos SQL API container with a TTL of one day
+$resourceGroupName = "myResourceGroup"
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
+$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+# Container properties
+$containerProperties = @{
+  "resource"=@{
+    "id"=$containerName;
+    "partitionKey"=@{
+        "paths"=@("/myPartitionKey");
+        "kind"="Hash"
+    };
+    "indexingPolicy"=@{
+        "indexingMode"="Consistent";
+        "includedPaths"= @(@{
+            "path"="/*"
+        });
+        "excludedPaths"= @(@{
+            "path"="/myPathToNotIndex/*"
+        })
+    };
+    "defaultTtl"=86400
+  }
+}
+
+Set-AzResource -ResourceType $containerResourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerResourceName -PropertyObject $containerProperties
+```
+
+## Enable time to live on a container using Azure CLI
+
+```azurecli-interactive
+# Update an Azure Cosmos container to enable TTL of one day
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+databaseName = 'database1'
+containerName = 'container1'
+
+az cosmosdb sql container update \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --ttl = 86400
+```
 
 ## Enable time to live on a container using SDK
 
@@ -180,11 +233,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## Reset time to live
 
@@ -248,6 +300,58 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ## Disable time to live
 
 To disable time to live on a container and stop the background process from checking for expired items, the `DefaultTimeToLive` property on the container should be deleted. Deleting this property is different from setting it to -1. When you set it to -1, new items added to the container will live forever, however you can override this value on specific items in the container. When you remove the TTL property from the container the items will never expire, even if there are they have explicitly overridden the previous default TTL value.
+
+### Disable time to live on a container using PowerShell
+
+```azurepowershell-interactive
+# Disable TTL on a container
+$accountName = "mycosmosaccount"
+$databaseName = "database1"
+$containerName = "container1"
+$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
+$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
+
+# Container properties (simply remove the TTL property)
+$containerProperties = @{
+  "resource"=@{
+    "id"=$containerName;
+    "partitionKey"=@{
+        "paths"=@("/myPartitionKey");
+        "kind"="Hash"
+    };
+    "indexingPolicy"=@{
+        "indexingMode"="Consistent";
+        "includedPaths"= @(@{
+            "path"="/*"
+        });
+        "excludedPaths"= @(@{
+            "path"="/myPathToNotIndex/*"
+        })
+    }
+  }
+}
+
+Set-AzResource -ResourceType $containerResourceType `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
+    -Name $containerResourceName -PropertyObject $containerProperties
+```
+
+## Disable time to live on a container using Azure CLI
+
+```azurecli-interactive
+# Disable TTL on a container
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+databaseName = 'database1'
+containerName = 'container1'
+
+# update without the --ttl property
+az cosmosdb sql container update \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName
+```
 
 ### <a id="dotnet-disable-ttl"></a>.NET SDK V2 (Microsoft.Azure.DocumentDB)
 

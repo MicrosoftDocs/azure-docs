@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/01/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
 ---
 
@@ -101,70 +101,234 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 ## Create a container using Azure CLI
 
+For Azure CLI samples for all Azure Cosmos DB APIs [SQL API](cli-samples.md), [Cassandra API](cli-samples-cassandra.md), [MongoDB API](cli-samples-mongodb.md), [Gremlin API](cli-samples-gremlin.md), and [Table API](cli-samples-table.md)
+
 ### <a id="cli-sql"></a>SQL API
 
-```azurecli-interactive
-# Create a container with a partition key and provision 400 RU/s throughput.
+Create a Cosmos container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
 
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $containerName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
+For more Azure CLI samples for Azure Cosmos DB for SQL API see, [Azure CLI samples for Azure Cosmos DB SQL (Core) API](cli-samples.md) and [Manage Azure Cosmos resources using Azure CLI](manage-wit-cli.md)
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define the index policy for the container, include spatial and composite indexes
+idxpolicy=$(cat << EOF
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {"path": "/*"}
+    ],
+    "excludedPaths": [
+        { "path": "/headquarters/employees/?"}
+    ],
+    "spatialIndexes": [
+        {"path": "/*", "types": ["Point"]}
+    ],
+    "compositeIndexes":[
+        [
+            { "path":"/name", "order":"ascending" },
+            { "path":"/age", "order":"descending" }
+        ]
+    ]
+}
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
 ```
 
 ### <a id="cli-mongodb"></a>Azure Cosmos DB API for MongoDB
 
+Create a partitioned collection for Azure Cosmos DB for MongoDB API with an index policy, unique index and 30-day TTL.
+
+For more Azure CLI samples for Azure Cosmos DB for MongoDB API see, [Azure CLI samples for MongoDB](cli-samples-mongodb.md)
+
 ```azurecli-interactive
-# Create a collection with a shard key and provision 400 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $collectionName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myShardKey \
-    --throughput 400
+# Create a collection with a shard key, index policy and 400 RU/s
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+collectionName='collection1'
+shardKey='user_id'
+throughput=400
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define the index policy for the collection, include unique index and 30-day TTL
+idxpolicy=$(cat << EOF
+[
+    {
+        "key": {"keys": ["user_id", "user_address"]},
+        "options": {"unique": "true"}
+    },
+    {
+        "key": {"keys": ["_ts"]},
+        "options": {"expireAfterSeconds": 2629746}
+    }
+]
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+# Create a MongoDB API collection
+az cosmosdb mongodb collection create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $collectionName \
+    --shard $shardKey \
+    --throughput $throughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
 ```
 
 ### <a id="cli-cassandra"></a>Cassandra API
 
+Create a Cassandra table with a schema, partition key, cluster key and 400 RU/s
+
+For more Azure CLI samples for Azure Cosmos DB for Cassandra API see, [Azure CLI samples for Cassandra](cli-samples-cassandra.md)
+
 ```azurecli-interactive
-# Create a table with a partition/primary key and provision 400 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $tableName \
-    --name $accountName \
-    --db-name $keyspaceName \
-    --partition-key-path /myPrimaryKey \
-    --throughput 400
+# Create a Cassandra table with a schema, partition key, cluster key with 400 RU/s
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+keySpaceName='keyspace1'
+tableName='table1'
+throughput=400
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define the schema for the table
+schema=$(cat << EOF
+{
+    "columns": [
+        {"name": "columnA","type": "uuid"},
+        {"name": "columnB","type": "int"},
+        {"name": "columnC","type": "text"}
+    ],
+    "partitionKeys": [
+        {"name": "columnA"}
+    ],
+    "clusterKeys": [
+        { "name": "columnB", "orderBy": "asc" }
+    ]
+}
+EOF
+)
+# Persist schema to json file
+echo "$schema" > "schema-$uniqueId.json"
+
+# Create the Cassandra table
+az cosmosdb cassandra table create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -k $keySpaceName \
+    -n $tableName \
+    --throughput $throughput \
+    --schema @schema-$uniqueId.json
+
+# Clean up temporary schema file
+rm -f "schema-$uniqueId.json"
 ```
 
 ### <a id="cli-gremlin"></a>Gremlin API
 
+Create a Gremlin graph with custom index policy, spatial index, composite index, partition key with 400 RU/s
+
+For more Azure CLI samples for Azure Cosmos DB for Gremlin API see, [Azure CLI samples for Gremlin](cli-samples-gremlin.md)
+
 ```azurecli-interactive
 # Create a graph with a partition key and provision 400 RU/s throughput.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $graphName \
-    --name $accountName \
-    --db-name $databaseName \
-    --partition-key-path /myPartitionKey \
-    --throughput 400
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+graphName='graph1'
+partitionKey='/zipcode'
+throughput=400
+
+# Define the index policy for the graph, include spatial and composite indexes
+idxpolicy=$(cat << EOF 
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {"path": "/*"}
+    ],
+    "excludedPaths": [
+        { "path": "/headquarters/employees/?"}
+    ],
+    "spatialIndexes": [
+        {"path": "/*", "types": ["Point"]}
+    ],
+    "compositeIndexes":[
+        [
+            { "path":"/name", "order":"ascending" },
+            { "path":"/age", "order":"descending" }
+        ]
+    ]
+}
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+# Create a Gremlin graph
+az cosmosdb gremlin graph create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $graphName \
+    -p $partitionKey \
+    --throughput $thoughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
 ```
 
 ### <a id="cli-table"></a>Table API
 
+Create a Table API table with 400 RU/s
+
+For more Azure CLI samples for Azure Cosmos DB for Table API see, [Azure CLI samples for Table](cli-samples-table.md)
+
 ```azurecli-interactive
 # Create a table with 400 RU/s
 # Note: you don't need to specify partition key in the following command because the partition key is set on each row.
-az cosmosdb collection create \
-    --resource-group $resourceGroupName \
-    --collection-name $tableName \
-    --name $accountName \
-    --db-name $databaseName \
-    --throughput 400
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+tableName='table1'
+throughput=400
+
+az cosmosdb table create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $tableName \
+    --throughput $throughput
 ```
 
 ## Create a container using PowerShell
@@ -176,7 +340,6 @@ The samples below shows creating all the supporting resources needed to provisio
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
-$location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
 $databaseName = "database1"
 $databaseResourceName = $accountName + "/sql/" + $databaseName
@@ -185,8 +348,8 @@ $containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $contain
 
 # Create account
 $locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -194,12 +357,11 @@ $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
 $accountProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "consistencyPolicy"=$consistencyPolicy
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
 
 
@@ -215,17 +377,17 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 # Create a container with default policies
 $containerProperties = @{
     "resource"=@{
-        "id"=$containerName; 
+        "id"=$containerName;
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
         }
-    }; 
+    };
     "options"=@{}
-} 
+}
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerResourceName -PropertyObject $containerProperties 
+    -Name $containerResourceName -PropertyObject $containerProperties
 ```
 
 ### <a id="ps-cassandra"></a>Cassandra API
@@ -256,12 +418,11 @@ $accountProperties = @{
     "capabilities"= @( @{ "name"="EnableCassandra" } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "consistencyPolicy"=$consistencyPolicy
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
 
 # Create keyspace with shared throughput
@@ -276,7 +437,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspac
 # Create a table
 $tableProperties = @{
     "resource"=@{
-        "id"=$tableName; 
+        "id"=$tableName;
         "schema"= @{
             "columns"= @(
                 @{ "name"= "loadid"; "type"= "uuid" };
@@ -288,9 +449,9 @@ $tableProperties = @{
             "partitionKeys"= @(
                 @{ "name"= "machine" };
                 @{ "name"= "cpu" };
-                @{ "name"= "mtime" }; 
+                @{ "name"= "mtime" };
             );
-            "clusterKeys"= @( 
+            "clusterKeys"= @(
                 @{ "name"= "loadid"; "orderBy"= "asc" }
             )
         }
@@ -299,7 +460,7 @@ $tableProperties = @{
 } 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspaces/tables" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $tableResourceName -PropertyObject $tableProperties 
+    -Name $tableResourceName -PropertyObject $tableProperties
 
 ```
 
@@ -308,7 +469,6 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/keyspac
 ```azurepowershell-interactive
 # Create a collection for an Azure Cosmos Account for MongoDB API
 $resourceGroupName = "myResourceGroup"
-$location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
 $databaseName = "database1"
 $databaseResourceName = $accountName + "/mongodb/" + $databaseName
@@ -317,8 +477,8 @@ $collectionResourceName = $accountName + "/mongodb/" + $databaseName + "/" + $co
 
 # Create account
 $locations = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="North Central US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -326,12 +486,11 @@ $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
 $accountProperties = @{
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "consistencyPolicy"=$consistencyPolicy
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Kind "MongoDB" -Name $accountName -PropertyObject $accountProperties
 
 
@@ -339,7 +498,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 $databaseProperties = @{
     "resource"=@{ "id"=$databaseName };
     "options"=@{ "Throughput"="400" }
-} 
+}
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Name $databaseResourceName -PropertyObject $databaseProperties
@@ -348,7 +507,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 # Create Collection
 $collectionProperties = @{
     "resource"=@{
-        "id"=$collectionName; 
+        "id"=$collectionName;
         "shardKey"= @{ "user_id"="Hash" };
         "indexes"= @(
             @{
@@ -360,12 +519,12 @@ $collectionProperties = @{
                 "options"= @{ "expireAfterSeconds"= "1000" }
             }
         )
-    }; 
+    };
     "options"=@{}
-} 
+}
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/collections" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $collectionResourceName -PropertyObject $collectionProperties 
+    -Name $collectionResourceName -PropertyObject $collectionProperties
 ```
 
 ### <a id="ps-gremlin"></a>Gremlin API
@@ -373,7 +532,6 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 ```azurepowershell-interactive
 # Create an Azure Cosmos Account for Gremlin API
 $resourceGroupName = "myResourceGroup"
-$location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
 $databaseName = "database1"
 $databaseResourceName = $accountName + "/gremlin/" + $databaseName
@@ -382,8 +540,8 @@ $graphResourceName = $accountName + "/gremlin/" + $databaseName + "/" + $graphNa
 
 # Create account
 $locations = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="North Central US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -392,12 +550,11 @@ $accountProperties = @{
     "capabilities"= @( @{ "name"="EnableGremlin" } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "consistencyPolicy"=$consistencyPolicy
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
 
 
@@ -414,17 +571,17 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 # Create a graph with defaults
 $graphProperties = @{
     "resource"=@{
-        "id"=$graphName; 
+        "id"=$graphName;
         "partitionKey"=@{
-            "paths"=@("/myPartitionKey"); 
+            "paths"=@("/myPartitionKey");
             "kind"="Hash"
         }
-    }; 
+    };
     "options"=@{}
-} 
+}
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/graphs" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $graphResourceName -PropertyObject $graphProperties 
+    -Name $graphResourceName -PropertyObject $graphProperties
 ```
 
 ### <a id="ps-table"></a>Table API
@@ -432,15 +589,14 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 ```azurepowershell-interactive
 # Create an Azure Cosmos account for Table API
 $resourceGroupName = "myResourceGroup"
-$location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
 $tableName = "table1"
 $tableResourceName = $accountName + "/table/" + $tableName
 
 # Create account
 $locations = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="North Central US"; "failoverPriority"=1 }
+    @{ "locationName"="West US 2"; "failoverPriority"=0 },
+    @{ "locationName"="East US 2"; "failoverPriority"=1 }
 )
 
 $consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
@@ -449,12 +605,11 @@ $accountProperties = @{
     "capabilities"= @( @{ "name"="EnableTable" } );
     "databaseAccountOfferType"="Standard";
     "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy;
-    "enableMultipleWriteLocations"="true"
+    "consistencyPolicy"=$consistencyPolicy
 }
 
 New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Location $location `
+    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
     -Kind "GlobalDocumentDB" -Name $accountName -PropertyObject $accountProperties
 
 

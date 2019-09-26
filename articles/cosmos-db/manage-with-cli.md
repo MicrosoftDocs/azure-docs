@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
 
 ---
@@ -18,94 +18,227 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Create an Azure Cosmos DB account
 
-To create an Azure Cosmos DB account with SQL API, Session consistency in East US and West US regions, run the following command:
-
-```azurecli-interactive
-az cosmosdb create \
-   --name mycosmosdbaccount # must be lowercase and < 31 characters \
-   --resource-group myResourceGroup \
-   --kind GlobalDocumentDB \
-   --default-consistency-level Session \
-   --locations regionName=EastUS failoverPriority=0 isZoneRedundant=False \
-   --locations regionName=WestUS failoverPriority=1 isZoneRedundant=False \
-   --enable-multiple-write-locations false
-```
+Create an Azure Cosmos DB account with SQL API, Session consistency in West US 2 and East US 2 regions:
 
 > [!IMPORTANT]
-> The Azure Cosmos account name must be lowercase.
+> The Azure Cosmos account name must be lowercase and less than 31 characters.
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount' #needs to be lower case and less than 31 characters
+
+az cosmosdb create \
+    -n $accountName \
+    -g $resourceGroupName \
+    --default-consistency-level Session \
+    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
+    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
+```
 
 ## Create a database
 
-To create a Cosmos database, run the following command:
+Create a Cosmos database.
 
 ```azurecli-interactive
-az cosmosdb database create \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+
+az cosmosdb sql database create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName
+```
+
+## Create a database with shared throughput
+
+Create a Cosmos database with shared throughput.
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+throughput=400
+
+az cosmosdb sql database create \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    --throughput $throughput
+```
+
+## Change the throughput of a database
+
+Increase the throughput of a Cosmos database by 1000 RU/s.
+
+```azurecli-interactive
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+increaseRU=1000
+
+originalRU=$(az cosmosdb sql database throughput show \
+    -g $resourceGroupName -a $accountName -n $databaseName \
+    --query throughput -o tsv)
+
+newRU=$((originalRU + increaseRU))
+
+az cosmosdb sql database throughput update \
+    -a $accountName \
+    -g $resourceGroupName \
+    -n $databaseName \
+    --throughput $newRU
 ```
 
 ## Create a container
 
-To create a Cosmos container with RU/s of 400 and a partition key, run the following command:
+Create a Cosmos container with default index policy, partition key and RU/s of 400.
 
 ```azurecli-interactive
-# Create a container
-az cosmosdb collection create \
-   --collection-name myContainer \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup \
-   --partition-key-path /myPartitionKey \
-   --throughput 400
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput
+```
+
+## Create a container with a custom index policy
+
+Create a Cosmos container with a custom index policy, a spatial index, composite index, a partition key and RU/s of 400.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+throughput=400
+
+# Generate a unique 10 character alphanumeric string to ensure unique resource names
+uniqueId=$(env LC_CTYPE=C tr -dc 'a-z0-9' < /dev/urandom | fold -w 10 | head -n 1)
+
+# Define the index policy for the container, include spatial and composite indexes
+idxpolicy=$(cat << EOF
+{
+    "indexingMode": "consistent",
+    "includedPaths": [
+        {"path": "/*"}
+    ],
+    "excludedPaths": [
+        { "path": "/headquarters/employees/?"}
+    ],
+    "spatialIndexes": [
+        {"path": "/*", "types": ["Point"]}
+    ],
+    "compositeIndexes":[
+        [
+            { "path":"/name", "order":"ascending" },
+            { "path":"/age", "order":"descending" }
+        ]
+    ]
+}
+EOF
+)
+# Persist index policy to json file
+echo "$idxpolicy" > "idxpolicy-$uniqueId.json"
+
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --throughput $throughput \
+    --idx @idxpolicy-$uniqueId.json
+
+# Clean up temporary index policy file
+rm -f "idxpolicy-$uniqueId.json"
 ```
 
 ## Change the throughput of a container
 
-To change the throughput of a Cosmos container to 1000 RU/s, run the following command:
+Increase the throughput of a Cosmos container by 1000 RU/s.
 
 ```azurecli-interactive
-# Update container throughput
-az cosmosdb collection update \
-   --collection-name myContainer \
-   --name mycosmosdbaccount \
-   --db-name myDatabase \
-   --resource-group myResourceGroup \
-   --throughput 1000
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+increaseRU=1000
+
+originalRU=$(az cosmosdb sql container throughput show \
+    -g $resourceGroupName -a $accountName -d $databaseName \
+    -n $containerName --query throughput -o tsv)
+
+newRU=$((originalRU + increaseRU))
+
+az cosmosdb sql container throughput update \
+    -a $accountName \
+    -g $resourceGroupName \
+    -d $databaseName \
+    -n $containerName \
+    --throughput $newRU
 ```
 
-## List account keys
+## List all account keys
 
-To get the keys for your Cosmos account, run the following command:
+Get all keys for a Cosmos account.
 
 ```azurecli-interactive
-# List account keys
+# List all account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
 az cosmosdb keys list \
-   --name  mycosmosdbaccount \
-   --resource-group myResourceGroup
+   -n $accountName \
+   -g $resourceGroupName
+```
+
+## List read-only account keys
+
+Get read-only keys for a Cosmos account.
+
+```azurecli-interactive
+# List read-only account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb list-read-only-keys \
+   -n $accountName \
+   -g $resourceGroupName
 ```
 
 ## List connection strings
 
-To get the connection strings for your Cosmos account, run the following command:
+Get the connection strings for a Cosmos account.
 
 ```azurecli-interactive
 # List connection strings
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
 az cosmosdb list-connection-strings \
-   --name mycosmosdbaccount \
-   --resource-group myResourceGroup
+    -n $accountName \
+    -g $resourceGroupName
 ```
 
 ## Regenerate account key
 
-To regenerate a new primary key for your Cosmos account, run the following command:
+Regenerate a new key for a Cosmos account.
 
 ```azurecli-interactive
-# Regenerate account key
+# Regenerate secondary account keys
+# key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
 az cosmosdb regenerate-key \
-   --name mycosmosdbaccount \
-   --resource-group myResourceGroup \
-   --key-kind primary
+    -n $accountName \
+    -g $resourceGroupName \
+    --key-kind secondary
 ```
 
 ## Next steps
