@@ -91,11 +91,30 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
 
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 
-## Deploy the template
+## Deploy the template and verify template deployment
 
 You can deploy the Azure Resource Manager template by [using powershell](#use-powershell-to-deploy-the-template) or [using the Azure portal](#use-the-azure-portal-to-deploy-the-template).
 
-### Use powershell to deploy the template
+### Use the Azure portal to deploy the template and verify template deployment
+
+1. To create a cluster and database, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
+
+    [![Deploy to Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
+
+    The **Deploy to Azure** button takes you to the Azure portal to fill out a deployment form.
+
+    ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+
+You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
+
+1. Complete **BASICS** and **SETTINGS** sections. Select unique cluster and database names.
+It takes a few minutes to create an Azure Data Explorer cluster and database.
+
+1. To verify the deployment, you open the resource group in the [Azure portal](https://portal.azure.com) to find your new cluster and database. 
+
+### Use powershell to deploy the template and verify template deployment
+
+#### Deploy the template using powershell
 
 1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
 
@@ -116,21 +135,9 @@ You can deploy the Azure Resource Manager template by [using powershell](#use-po
 1. Right-click the shell console, and then select **Paste**.
 It takes a few minutes to create an Azure Data Explorer cluster and database.
 
-### Use the Azure portal to deploy the template
+### Verify the deployment using powershell
 
-1. To create a cluster and database, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
-
-    [![Deploy to Azure](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
-
-    The **Deploy to Azure** button takes you to the Azure portal to fill out a deployment form.
-
-    ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-to-azure.png)
-
-You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
-
-## Verify the deployment
-
-To verify the deployment, you can open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0).
+To verify the deployment, use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Make relevant changes
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -145,7 +152,11 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Clean up resources
 
-When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. 
+
+### Clean up resources using powershell
+
+If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -155,6 +166,9 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 Write-Host "Press [ENTER] to continue ..."
 ```
+### Clean up resources using the Azure portal
+
+Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
 
 ## Next steps
 
