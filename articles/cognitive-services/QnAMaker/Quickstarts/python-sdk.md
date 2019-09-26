@@ -37,7 +37,7 @@ Use the QnA Maker client library for python to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
 
-After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_KEY` and `QNAMAKER_HOST`. Use the key and host values found in the Azure portal.
+After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_KEY` and `QNAMAKER_HOST`. Use the key and endpoint values found in the Azure portal.
 
 ### Install the python library for QnA Maker
 
@@ -79,7 +79,7 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 |Environment variable|python variable|Example|
 |--|--|--|
 |`QNAMAKER_KEY`|`subscription_key`|32 character GUID|
-|`QNAMAKER_HOST`|`host`|`https://westus.api.cognitive.microsoft.com`|
+|`QNAMAKER_HOST`|`host`|`https://your-resource-name.api.cognitive.microsoft.com` - change `your-resource-name` to your own resource name|
 ||||
 
 [!code-python[Azure resource variables](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=resourcekeys)]

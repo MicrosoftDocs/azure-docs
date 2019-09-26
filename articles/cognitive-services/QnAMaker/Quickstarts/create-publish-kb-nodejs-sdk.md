@@ -37,7 +37,7 @@ Use the QnA Maker client library for Node.js to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
 
-After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_SUBSCRIPTION_KEY` and `QNAMAKER_HOST`. Use the key and host values found in the Resource's **Keys** and **Overview** pages in the Azure portal.
+After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_SUBSCRIPTION_KEY` and `QNAMAKER_HOST`. Use the key and endpoint values found in the Resource's **Keys** and **Overview** pages in the Azure portal.
 
 ### Create a new Node.js application
 
@@ -91,11 +91,10 @@ Create a file named `index.js`. Add the QnA Maker library and the Azure REST lib
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
-
 |Environment variable|Node.js variable|Example|
 |--|--|--|
 |`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|32 character GUID|
-|`QNAMAKER_HOST`|`endpoint`|`https://westus.api.cognitive.microsoft.com`|
+|`QNAMAKER_HOST`|`endpoint`|`https://your-resource-name.api.cognitive.microsoft.com` - replace the subdomain `your-resource-name` with the value of your resource's name|
 ||||
 
 [!code-javascript[Azure resource variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=resourcekeys)]
