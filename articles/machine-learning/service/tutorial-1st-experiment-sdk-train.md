@@ -46,6 +46,10 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
+> [!Warning]
+> Do **not** create a *new* notebook in the Jupyter interface! The notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` is inclusive of **all code and data needed** 
+> for this tutorial.
+
 ## Connect workspace and create experiment
 
 > [!Important]
