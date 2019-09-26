@@ -1,5 +1,5 @@
 ---
-title: Limits and configuration - Azure Logic Apps | Microsoft Docs
+title: Limits and configuration - Azure Logic Apps
 description: Service limits and configuration values for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
@@ -123,6 +123,12 @@ To go above these limits in normal processing, or run load testing that might go
 > The [Developer SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) has no published limits as this SKU 
 > doesn't have any service-level agreement (SLA) or capabilities for scaling up. 
 > Use this SKU only for experimenting, development, and testing, not production or performance testing.
+
+<a name="gateway-limits"></a>
+
+## Gateway limits
+
+Azure Logic Apps supports write operations, including inserts and updates, through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="request-limits"></a>
 
