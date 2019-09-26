@@ -21,7 +21,13 @@ The hardest data to extract is the machine-learned data because it isn't an exac
 ## Data location and key usage
 LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint). The **HTTPS request** (POST or GET) contains the utterance as well as some optional configurations such as staging or production environments.
 
+#### [V2 prediction endpoint reqeust](#tab/V2)
+
 `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&q=book 2 tickets to paris`
+
+#### [V3 prediction endpoint reqeust](#tab/V3)
+
+* * * 
 
 The `appID` is available on the **Settings** page of your LUIS app as well as part of the URL (after `/apps/`) when you're editing that LUIS app. The `subscription-key` is the endpoint key used for querying your app. While you can use your free authoring/starter key while you're learning LUIS, it is important to change the endpoint key to a key that supports your [expected LUIS usage](luis-boundaries.md#key-limits). The `timezoneOffset` unit is minutes.
 
@@ -29,6 +35,8 @@ The **HTTPS response** contains all the intent and entity information LUIS can d
 
 ## Data from intents
 The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
+
+#### [V2 prediction endpoint reqeust](#tab/V2)
 
 ```JSON
 {
@@ -107,6 +115,9 @@ If you add prebuilt domains, the intent name indicates the domain, such as `Util
 |Communication|Intent|String|intents[1].intent|<b>Communication</b>.StartOver"|
 ||Intent|String|intents[2].intent|"None"|
 
+#### [V3 prediction endpoint reqeust](#tab/V3)
+
+* * * 
 
 ## Data from entities
 Most chatbots and applications need more than the intent name. This additional, optional data comes from entities discovered in the utterance. Each type of entity returns different information about the match.

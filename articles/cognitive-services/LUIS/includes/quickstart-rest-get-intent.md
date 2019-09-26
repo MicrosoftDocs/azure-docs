@@ -12,11 +12,9 @@ ms.date: 08/16/2018
 ms.author: diberry
 ---
 
-
-
 To understand what a LUIS prediction endpoint returns, view a prediction result in a web browser. In order to query a public app, you need your own key and the app ID. The public IoT app ID, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, is provided as part of the URL in step one.
 
-#### [V2 prediction endpoint reqeust](#tab/V2)
+#### [V2 prediction endpoint request](#tab/V2)
 
 The format of the V2 URL for a **GET** endpoint request is:
 
@@ -88,7 +86,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription
     }
     ```
 
-#### [V3 prediction endpoint reqeust](#tab/V3)
+#### [V3 prediction endpoint request](#tab/V3)
 
 
 The format of the V3 URL for a **GET** endpoint (by slots) request is:

@@ -83,6 +83,10 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 1. Select the endpoint URL associated with your new resource name. This action opens a web browser with a correctly constructed URL to make a `GET` request to the prediction endpoint runtime.
 
+## Prediction endpoint request
+
+#### [V2 prediction endpoint reqeust](#tab/V2)
+
 1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
     ```Is there a form named hrf-234098```
@@ -120,6 +124,11 @@ Train the app when you're ready to test it. Publish the app when you want the cu
     This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
 
     [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+#### [V3 prediction endpoint reqeust](#tab/V3)
+
+* * * 
+
 
 ## Clean up resources
 
