@@ -231,6 +231,7 @@
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
+    displayName: negative sampling, nondeterministic, non-deterministic, UseAllTrainingData
   - name: Test
     items:
     - name: Interactive testing
