@@ -366,12 +366,12 @@
     items:
       - name: Overview
         href: msal-overview.md
+      - name: Accounts & tenant profiles (Android)
+        href: accounts-overview.md
       - name: Authorization agents (Android)
         href: authorization-agents.md
       - name: Brokered auth (Android)
         items:
-          - name: Accounts & tenant profiles (Android)
-            href: accounts-overview.md
           - name: Brokered auth (Android)
             href: brokered-auth.md
       - name: Migration
