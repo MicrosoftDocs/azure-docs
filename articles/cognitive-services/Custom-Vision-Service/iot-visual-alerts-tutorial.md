@@ -13,7 +13,7 @@ ms.date: 09/11/2019
 ms.author: pafarley
 ---
 
-# Tutorial: IoT Visual Alerts sample
+# Tutorial: Report visual states on an IoT device
 
 This sample app illustrates how to use Azure Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an ONNX model exported from the Custom Vision service.
 
