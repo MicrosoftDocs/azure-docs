@@ -6,7 +6,7 @@ ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 24/09/2019
+ms.date: 09/24/2019
 ---
 
 # Create database/table policies for Azure Data Explorer by using .NET Standard SDK (Preview)

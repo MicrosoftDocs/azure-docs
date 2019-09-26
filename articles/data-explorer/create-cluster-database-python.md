@@ -58,11 +58,12 @@ For running the examples in this article, we need an Azure AD Application and se
                                          client_secret=client_secret)
 
     location = 'Central US'
-    sku = 'D13_v2'
+    sku = 'Standard_D13_v2'
     capacity = 5
+    tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
