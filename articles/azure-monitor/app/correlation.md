@@ -61,7 +61,7 @@ We're transitioning to [W3C Trace-Context](https://w3c.github.io/trace-context/)
 - `traceparent`: Carries the globally unique operation ID and unique identifier of the call.
 - `tracestate`: Carries tracing system-specific context.
 
-Latest versions of Application Insights SDKs support Teace-Context protocol, but you may need to opt-into that (it will keep backward compatibility with old correlation protocol supported by ApplicationInsights SDKs).
+Latest versions of Application Insights SDKs support Trace-Context protocol, but you may need to opt-into that (it will keep backward compatibility with old correlation protocol supported by ApplicationInsights SDKs).
 
 The [correlation HTTP protocol aka Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) is on deprecation path. This protocol defines two headers:
 
