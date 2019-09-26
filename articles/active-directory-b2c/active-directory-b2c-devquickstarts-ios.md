@@ -28,11 +28,11 @@ If you're new to OAuth2 or OpenID Connect, much of this sample configuration may
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all your users, apps, groups, and more. If you don't have one already, [create a B2C directory](tutorial-create-tenant.md) before you continue.
 
 ## Create an application
-Next, you need to create an app in your B2C directory. The app registration gives Azure AD information that it needs to communicate securely with your app. To create a mobile app, follow [these instructions](active-directory-b2c-app-registration.md). Be sure to:
 
-* Include a **Native client** in the application.
-* Copy the **Application ID** that is assigned to your app. You need this GUID later.
-* Set up a **Redirect URI** with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). You need this URI later.
+Next, register an application in your Azure AD B2C tenant. This gives Azure AD the information it needs to communicate securely with your app.
+
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
+1. Select the application in the list and record the **Custom Redirect URI** for use in a later step. For example, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
 ## Create your user flows
 In Azure AD B2C, every user experience is defined by a [user flow](active-directory-b2c-reference-policies.md). This application contains one identity experience: a combined sign-in and sign-up. When you create the user flow, be sure to:
@@ -75,21 +75,21 @@ static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.
 Run the following code to create your AuthorizationServiceConfiguration object:
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
 ### Authorizing
 
-After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you need the following information:  
+After configuring or retrieving an authorization service configuration, an authorization request can be constructed. To create the request, you need the following information:
 * Client ID (for example, 00000000-0000-0000-0000-000000000000)
 * Redirect URI with a custom scheme (for example, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
 
 Both items should have been saved when you were [registering your app](#create-an-application).
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -98,7 +98,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {
