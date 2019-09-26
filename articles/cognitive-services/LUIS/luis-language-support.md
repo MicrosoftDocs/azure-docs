@@ -29,18 +29,18 @@ LUIS understands utterances in the following languages:
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Dutch |`nl-NL` |-|  -   |-|✔|
-| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| Dutch |`nl-NL` |✔|  -   |-|✔|
+| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | French (Canada) |`fr-CA` |-|   -   |-|✔|
-| German |`de-DE` |-| ✔ |✔ |✔|
+| German |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italian |`it-IT` |-| ✔ |✔|✔|
-| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
-| Korean |`ko-KR` |-|   -   |-|Key phrase only|
-| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
-| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| Italian |`it-IT` |✔| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |✔|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
-| Turkish | `tr-TR` |-|-|-|Sentiment only|
+| Turkish | `tr-TR` |✔|-|-|Sentiment only|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
