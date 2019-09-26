@@ -12,7 +12,7 @@ ms.author: rimman
 
 Jupyter notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Azure Cosmos DB supports built-in Jupyter notebooks for all APIs such as Cassandra, MongoDB, SQL, Gremlin, and Table. The built-in notebook support for all Azure Cosmos DB APIs and data models allows you to interactively run queries. The Jupyter notebooks run within the Azure Cosmos accounts and they enable developers to perform data exploration, data cleaning, data transformations, numerical simulations, statistical modeling, data visualization, and machine learning.
 
-![Jupyter notebooks support in Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
+![Jupyter notebooks visualizations in Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
 The Jupyter notebooks supports magic functions that extend the capabilities of the kernel by supporting additional commands. Cosmos magic is a command that extends the capabilities of the Python kernel in Jupyter notebook so you can run Azure Cosmos SQL API queries in addition to Apache Spark. You can easily combine Python and SQL API queries to query and visualize data by using rich visualization libraries integrated with render commands.
 Azure portal natively integrates Jupyter notebook experience into Azure Cosmos accounts as shown in the following image:
