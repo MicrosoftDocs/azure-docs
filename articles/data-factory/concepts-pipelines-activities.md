@@ -17,6 +17,7 @@ ms.date: 06/12/2018
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-pipelines.md)
 > * [Current version](concepts-pipelines-activities.md)
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 This article helps you understand pipelines and activities in Azure Data Factory and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
