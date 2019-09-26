@@ -223,27 +223,20 @@
       items:
         - name: Overview
           href: msal-overview.md
-<<<<<<< HEAD
         - name: Accounts & Tenant Profiles
           href: accounts-overview.md
         - name: Brokered auth (Android)
           href: brokered-auth.md
         - name: Migration
-=======
-        - name: Migration from ADAL
->>>>>>> 87f4a6ed0030a940e5387c9bbcafce52b11c88f2
           items:
           - name: Migrate to MSAL.NET
             href: msal-net-migration.md
           - name: Migrate to MSAL.js
             href: msal-compare-msal-js-and-adal-js.md
-<<<<<<< HEAD
-          - name: Migrate to MSAL for Android
+          - name: Migrate to MSAL.Android
             href: migrate-android-adal-msal.md
-=======
-          - name: Migrate to MSAL for iOS and MacOS
+          - name: Migrate to MSAL.iOS and MacOS
             href: migrate-objc-adal-msal.md
->>>>>>> 87f4a6ed0030a940e5387c9bbcafce52b11c88f2
           - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
             href: msal-net-migration-ios-broker.md
         - name: Supported authentication flows
@@ -272,16 +265,8 @@
           href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
-<<<<<<< HEAD
         - name: Authorization agents (Android)
           href: authorization-agents.md
-        - name: Single sign-on (JS)
-          href: msal-js-sso.md
-        - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md 
-        - name: ADFS support (.NET)
-          href: msal-net-adfs-support.md
-=======
         - name: Single sign-on
           items:
           - name: Single sign-on with MSAL.js
@@ -296,7 +281,6 @@
           items:
           - name: ADFS support in MSAL.NET
             href: msal-net-adfs-support.md
->>>>>>> 87f4a6ed0030a940e5387c9bbcafce52b11c88f2
         - name: Integrate with Azure AD B2C
           items:
           - name: Android
