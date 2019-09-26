@@ -35,7 +35,7 @@ To build this wrapper library, first download and install the [GStreamer SDK](ht
 Then, download the Xcode project for the [wrapper library](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper).
 Open the project in Xcode and build it for the **Generic iOS Device** target -- it will not work to build it for a specific target.
 The build step will generate a dynamic framework bundle with a dynamic library for all necessary architectures with the name of `GStreamerWrapper.framework`.
-This framework needs to be included in all apps using compressed streams with the Speech Services SDK.
+This framework must be included in all apps that use compressed audio streams with the Speech Services SDK.
 
 Apply the following settings in your Xcode project to accomplish this:
 
