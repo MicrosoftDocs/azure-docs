@@ -11,6 +11,14 @@
   topicHref: /azure/index
   items:
   - name: Arcadia
+    tocHref: /azure/sql-data-warehouse/
+    topicHref: /azure/arcadia/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Arcadia
     tocHref: /azure/azure-databricks/
     topicHref: /azure/arcadia/index
 
@@ -28,7 +36,7 @@
   items:
   - name: Arcadia
     tocHref: /sql/t-sql/
-    topicHref: /azure/Arcadia/index      
+    topicHref: /azure/arcadia/index      
 
 ### Leave this element for testing from the contributor guide instructions. 
 - name: Azure

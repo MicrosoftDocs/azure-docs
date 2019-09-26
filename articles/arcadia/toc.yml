@@ -20,24 +20,24 @@
     href: quickstart-create-a-workspace.md
   - name: Create pools
     items:
-    # - name: Create SQL Analytics pool
-    #   href: article-template.md
-    # - name: Create Spark pool template
-    #   href: article-template.md
-    # - name: Ingest data into Data Lake
-    #   href: article-template.md
-    # - name: Ingest data into SQL Analytics pool
-    #   href: article-template.md
-    # - name: Browse data using workspace
-    #   href: article-template.md
+  #   - name: Create Spark pool template
+  #     href: article-template.md
+  #   - name: Create SQL Analytics pool
+  #     href: article-template.md
+  # - name: Ingest data into Data Lake
+  #   href: article-template.md
+  # - name: Ingest data into SQL Analytics pool
+  #   href: article-template.md
+  # - name: Browse data using workspace
+  #   href: article-template.md
   - name: Analyze and Visualize data
     items:
     # - name: With Spark
-    # href: article-template.md
+    #   href: article-template.md
     # - name: With SQL Analytics pool
-    # href: article-template.md
+    #   href: article-template.md
     # - name: With SQL on-demand
-    # href: article-template.md
+    #   href: article-template.md
   - name: Tutorials
     items:
   # - name: BI Professional
@@ -47,25 +47,25 @@
      - name: Predict food inspection results
        href: tutorial-predict-food-inspection-results.md 
     # - name: Analyze website logs
-    #  href: article-template.md
+    #   href: article-template.md
     # - name: use Tensorflow for deep learning
     #   href: article-template.md
     # - name: Use Torch for deep learning
     #   href: article-template.md
   - name: Data Engineer
     items:
-    # - name: Data Preparation
-    #   href: article-template.md
-    # - name: Data Analyst
-    #   href: article-template.md
-    # - name: IT Administrator
-    #   href: article-template.md
+    - name: Data Preparation
+      href: article-template.md
+  # - name: Data Analyst
+  #   href: article-template.md
+  # - name: IT Administrator
+  #   href: article-template.md
   - name: Concepts
     items:
     - name: Workspace
       items:
-    #   - name: Overview
-    #     href: article-template.md
+      # - name: Overview
+      #   href: article-template.md
     - name: Pool
       items:
       # - name: SQL Analytics pool
