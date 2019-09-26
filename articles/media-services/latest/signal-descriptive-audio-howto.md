@@ -38,7 +38,7 @@ The steps that are covered in this article are:
 
 - [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
-- Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial that is referenced a lot in this article.
+- Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
 ## Create an input asset and upload a local file into it 
 
