@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 08/22/2019
+ms.date: 09/26/2019
 ---
 # Automated backups
 
@@ -108,15 +108,19 @@ You can change the default PITR backup retention period using the Azure portal, 
 > [!NOTE]
 > These APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. For more information about how to change the LTR retention period(s), see [Long-term retention](sql-database-long-term-retention.md).
 
-### Change PITR backup retention period using the Azure portal
+### Change PITR backup retention period using Azure portal
 
 To change the PITR backup retention period using the Azure portal, navigate to the server object whose retention period you wish to change within the portal and then select the appropriate option based on which server object you're modifying.
 
-#### Change PITR for a SQL Database server
+#### Auzure SQL Database server
+
+Change of PITR backup retention for single Azure SQL Databases is performed at the server level. Change made at the server level applies to databases on that server. To change PITR for Azure SQL Database server from Azure portal, navigate to the server overview blade, click on Manage Backups on the navigation menu, and then click on Configure retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### Change PITR for a Managed Instance
+#### Azure SQL Managed Instance
+
+Change of PITR backup retention for SQL database managed instance is performed at an individual database level. To change PITR backup retention for an instance database from Azure portal, navigate to the individual database overview blade, and then click on Configure backup retention at the navigation bar.
 
 ![Change PITR Azure portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 
