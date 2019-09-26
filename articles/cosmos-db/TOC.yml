@@ -691,6 +691,8 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
+      - name: Use built-in notebook commands
+        href: use-notebook-features-and-commands.md        
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
