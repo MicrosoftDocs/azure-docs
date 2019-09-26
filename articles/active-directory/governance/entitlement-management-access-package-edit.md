@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -57,11 +57,13 @@ You can have entitlement management automatically add users to a group or a Micr
 - When a group or Team is part of an access package and a user is assigned to that access package, the user is added to that group or Team, if not already present.
 - When a user's access package assignment expires, they are removed from the group or Team, unless they currently have an assignment to another access package that includes that same group or Team.
 
-You can select any Office 365 group or Azure AD security group.  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
+You can select any [Azure AD security group or Office 365 group](../fundamentals/active-directory-groups-create-azure-portal.md).  Administrators can add any group to a catalog; catalog owners can add any group to the catalog if they are owner of the group. Keep the following Azure AD constraints in mind when selecting a group:
 
 - When a user, including a guest, is added as a member to a group or Team, they can see all the other members of that group or Team.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect, or that was created in Exchange Online as a distribution group.  
 - The membership of dynamic groups cannot be updated by adding or removing a member, so dynamic group memberships are not suitable for use with entitlement management.
+
+For more information, see [Compare groups](/office365/admin/create-groups/compare-groups) and [Office 365 Groups and Microsoft Teams](/microsoftteams/office-365-groups).
 
 1. On the **Add resource roles to access package** page, click **Groups and Teams** to open the Select groups pane.
 
@@ -70,6 +72,15 @@ You can select any Office 365 group or Azure AD security group.  Administrators 
     ![Access package - Add resource roles - Select groups](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. Click **Select**.
+
+    Once you select the group or Team, the **Sub type** column will list one of the following subtypes:
+
+    |  |  |
+    | --- | --- |
+    | Security | Used for granting access to resources. |
+    | Distribution | Used for sending notifications to a group of people. |
+    | O365 | Office 365 group that is not Teams enabled. Used for collaboration between users, both inside and outside your company. |
+    | Team | Office 365 group that is Teams enabled. Used for collaboration between users, both inside and outside your company. |
 
 1. In the **Role** list, select **Owner** or **Member**.
 
