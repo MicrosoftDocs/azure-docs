@@ -18,6 +18,8 @@ ms.author: abnarain
 ---
 
 # Integration runtime in Azure Data Factory
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 The Integration Runtime (IR) is the compute infrastructure used by Azure Data Factory to provide the following data integration capabilities across different network environments:
 
 - **Data Flow**: Execute a [Data Flow](concepts-data-flow-overview.md) in managed Azure compute environment.  
