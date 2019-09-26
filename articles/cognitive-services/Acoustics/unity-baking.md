@@ -22,7 +22,7 @@ Software requirements:
 * *Optional:* An [Azure Batch account](create-azure-account.md) to accelerate bakes by using cloud computing
 
 ## Open the Project Acoustics bake window
-Choose **Window > Acoustics** from the Unity menu.
+In Unity, select **Acoustics** from the *Window** menu.
 
 ![Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
 
@@ -49,28 +49,28 @@ An object's transform during probe calculation (through the **Probes** tab, see 
 Navigation meshes that were created through the Unity workflow will be picked up by the Acoustics system. To use your own meshes, mark them from the **Objects** tab.
 
 ### For reference: The Objects tab parts
-The parts of the tab page are:
+The parts of the tab page (pictured below) are:
 
-1. The tab selection buttons (**Objects** tab selected). Use these buttons to move through the various steps of an acoustics bake, from left to right.
+1. The tab selection buttons (with the **Objects** tab selected). Use these buttons to move through the various steps of an acoustics bake, from left to right.
 1. A brief description of what you can do by using this tab.
 1. Available filters for the hierarchy window. Use these options to filter the hierarchy window to objects of the specified type so that you can easily mark them. If you haven't yet marked anything for acoustics, selecting the last two options will show you nothing. However, these options help you find objects after they're marked.
-2. When no objects are selected, this section shows the status of all objects in the scene.
+1. When no objects are selected, this section shows the status of all objects in the scene.
     * Total: The total number of active, non-hidden objects.
     * Ignored: The number of objects that aren't mesh renderers or terrains.
     * Mesh: The number of mesh renderer objects.
     * Terrain: The number of terrain objects.
     * Geometry: The number of mesh or terrain objects that are marked as *Acoustics Geometry*.
     * Navigation: The number of mesh or terrain objects marked as *Acoustics Navigation*. This number doesn't include the Unity NavMesh.
-3. The total number of "mark-able" objects in the scene, which are only mesh renderers and terrains. Use the checkboxes to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
-4. When nothing is selected, this note reminds you to select objects for marking, if needed. You can also select one or both checkboxes to mark all the objects in the scene.
-5. When objects are selected (previous item), this section shows the status of only the selected objects.
-6. This area shows the total number of "markable" selected objects. Selecting or clearing the checkboxes marks or unmarks only the selected objects.
+1. The total number of "mark-able" objects in the scene, which are only mesh renderers and terrains. Use the checkboxes to mark (add the appropriate component to) those objects as geometry or navigation for acoustics.
+1. When nothing is selected, this note reminds you to select objects for marking, if needed. You can also select one or both checkboxes to mark all the objects in the scene.
+1. When objects are selected, this section shows the status of only the selected objects.
+1. This area shows the total number of "markable" selected objects. Selecting or clearing the checkboxes marks or unmarks only the selected objects.
 
 If you have nothing selected in your scene, the **Objects** tab looks like the following picture.
 
 ![TheAcoustics Objects tab with nothing selected](media/objects-tab-no-selection-detail.png)
 
-If you have something selected in your scene or hierarchy window, it looks like the following picture.
+If you have something selected in your scene or hierarchy window, the tabs looks like the following picture.
 
 ![The Acoustics Objects tab with selections](media/objects-tab-selection-detail.png)
 
