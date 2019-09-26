@@ -14,7 +14,7 @@ ms.date: 07/16/2019
 ---
 # Use PowerShell to add an Azure SQL Database managed instance database to a failover group 
 
-This PowerShell script example creates a single database, adds it to an elastic pool, creates a failover group, and tests failover. 
+This PowerShell script example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -24,7 +24,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Sample scripts
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic to a failover group")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-managed-instance-to-failover-group-az-ps.ps1 "Add managed instance to a failover group")]
 
 ## Clean up deployment
 
