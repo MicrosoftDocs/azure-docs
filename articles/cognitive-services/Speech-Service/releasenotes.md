@@ -22,11 +22,13 @@ ms.custom: seodec18
 *   Added Compressed input support for ALaw, Mulaw, FLAC on Android, iOS and Linux
 *   Added SendMessageAsync in Connection class for sending a message to service
 *   Added SetMessageProperty in Connection class for setting property of a message
-*   Added "word boundery" information for TTS.
+*   TTS added bindings for Java (Jre and Android), Python, Swift, and Objective-C
+*   TTS added playback support for macOS, iOS, and Android.
+*   Added "word boundary" information for TTS.
 
 **Bug fixes**
 *   Fixed IL2CPP build issue on Unity 2019 for Android
-*   Fixed issue with malformed headers in wav file input being proccessed incorrectly
+*   Fixed issue with malformed headers in wav file input being processed incorrectly
 *   Fixed issue with UUIDs not being unique in some connection properties
 *   Fixed a few warnings about nullability specifiers in the Swift bindings (might require small code changes)
 *   Fixed a bug that caused websocket connections to be closed ungracefully under network load
@@ -35,8 +37,6 @@ ms.custom: seodec18
 *   Improvements to the stability of connections across multi-turn interactions and the reporting of failures (via Canceled events) when they occur with DialogServiceConnector
 *   DialogServiceConnector session starts will now properly provide events, including when calling ListenOnceAsync() during an active StartKeywordRecognitionAsync()
 *   Addressed a crash associated with DialogServiceConnector activities being received 
-*   TTS added bindings for Java, Python, Switft, and Objective-C
-*   TTS added playback support for OSx, iOS, and Android.
 
 **Samples**
 *   Quickstart for Xamarin
