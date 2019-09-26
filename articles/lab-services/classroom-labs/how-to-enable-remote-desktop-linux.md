@@ -34,6 +34,7 @@ On the **Enabling Remote Desktop Connection** message box, select **Continue wit
 
 > [!IMPORTANT] 
 > Enabling **remote desktop connection** only opens the **RDP** port on Linux machines. If RDP is already installed and configured on the virtual machine image (for example: Ubuntu Data Science Virtual Machine image), you/students can connect to VMs via RDP without following any additional steps.
+> 
 > If the VM image doesn't have RDP installed and configured, you need to connect to the Linux machine using SSH for the first time, and install RDP and GUI packages so that you/students can connect to the Linux machine using RDP later. Then, you publish the image so that students can RDP in to the student Linux VMs.
 
 ## Supported operating systems
