@@ -34,6 +34,21 @@ Make sure that you have installed Azure CLI version 2.0.70 or later, and signed 
 > - The preview initial release supports the following VM series: DSv3 and ESv3. 
  
 
+## Register the features
+To use Azure Image Builder during the preview, you need to register the new feature.
+
+```azurecli
+az feature register --namespace Microsoft.Compute --name LowPrioritySingleVM
+```
+
+Check the status of the feature registration.
+
+```azurecli
+az feature show --namespace Microsoft.Compute --name LowPrioritySingleVM | grep state
+```
+
+When `"state": "Registered"` is returned, you can move on to the next step.
+
 ## Create resource group 
 An Azure resource group is a logical container into which Azure resources are deployed and managed. Create the resource group with az group create. The following example creates a resource group named *myDHResourceGroup* in the *East US* location.
 

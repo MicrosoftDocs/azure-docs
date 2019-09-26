@@ -42,6 +42,8 @@ It takes a few minutes for the registration to complete. Use [Get-AzProviderFeat
 Get-AzProviderFeature -FeatureName LowPrioritySingleVM -ProviderNamespace Microsoft.Compute
 ```
 
+When `RegistrationState` returns `Registered`, you can move on to the next step.
+
 ## Create the VM
 
 Create a low-priorityVM using [New-AzVmConfig](/powershell/module/az.compute/new-azvmconfig) to create the configuration. Include `-Priority low` and set `-MaxPrice` to either:
