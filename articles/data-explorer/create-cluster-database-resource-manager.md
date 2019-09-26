@@ -25,7 +25,7 @@ In this article, you create an Azure Data Explorer cluster and database by using
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Create an Azure Data Explorer cluster and database
+## Azure Resource Manager template for cluster and database creation
 
 In this article, you use an [existing quickstart template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-kusto-cluster-database/azuredeploy.json)
 
