@@ -42,10 +42,10 @@ To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The fo
 
 Use the following example to view custom routes:
 
-    ```azurepowershell-interactive
-    $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
-    $gw.CustomRoutes | Format-List
-    ```
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  $gw.CustomRoutes | Format-List
+  ```
 
 ## Next steps
 
