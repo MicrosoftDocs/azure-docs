@@ -14,12 +14,12 @@
 
 Storage Explorer 1.10.0 enables users to upload, download, and copy managed disks, as well as create snapshots. Because of these additional capabilities, you can use Storage Explorer to migrate data from on-premises to Azure, and migrate data across Azure regions.
 
-## Pre-requisites
+## Prerequisites
 
 To complete this article, you'll need the following:
 - An Azure subscription
 - One or more Azure managed disks
-- The latest version of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- The latest version of [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 ## Connect to an Azure subscription
 
