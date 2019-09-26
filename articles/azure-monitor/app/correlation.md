@@ -75,9 +75,18 @@ We're transitioning to [W3C distributed tracing format](https://w3c.github.io/tr
 #### Enable W3C distributed tracing support for classic ASP.NET apps
  
   > [!NOTE]
-  > No configuration needed starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` version 2.11.0 
-  > If you run older version of the SDK, we recommend updating it or applying following configuration
+  > No configuration needed starting with `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` 
 
+W3C Trace-Context support is done in the backward-compatible way and correlation is expected to work with applications that are instrumented with previous versions of SDK (without W3C support). 
+
+If for any reason you want to keep using legacy `Request-Id` protocol, you may *disable* Trace-Context with following configuration
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+If you run older version of the SDK, we recommend updating it or applying following configuration to enable Trace-Context.
 This feature is available in `Microsoft.ApplicationInsights.Web` and `Microsoft.ApplicationInsights.DependencyCollector` packages starting with version 2.8.0-beta1.
 It's disabled by default. To enable it, change `ApplicationInsights.config`:
 
@@ -96,8 +105,18 @@ It's disabled by default. To enable it, change `ApplicationInsights.config`:
 
  > [!NOTE]
   > No configuration needed starting with `Microsoft.ApplicationInsights.AspNetCore` version 2.8.0.
-  > If you run older version of the SDK, we recommend updating it or applying following configuration
-  
+ 
+W3C Trace-Context support is done in the backward-compatible way and correlation is expected to work with applications that are instrumented with previous versions of SDK (without W3C support). 
+
+If for any reason you want to keep using legacy `Request-Id` protocol, you may *disable* Trace-Context with following configuration
+
+```csharp
+  Activity.DefaultIdFormat = ActivityIdFormat.Hierarchical;
+  Activity.ForceDefaultIdFormat = true;
+```
+
+If you run older version of the SDK, we recommend updating it or applying following configuration to enable Trace-Context.
+
 This feature is in `Microsoft.ApplicationInsights.AspNetCore` version 2.5.0-beta1 and in `Microsoft.ApplicationInsights.DependencyCollector` version 2.8.0-beta1.
 It's disabled by default. To enable it, set `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` to `true`:
 
