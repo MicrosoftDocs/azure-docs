@@ -73,7 +73,7 @@ sections:
       - image:
           src: media/index/logo_netcore.svg
       - image:
-          src: media/sample-v2-code/logo_xamarin.png          
+          src: https://docs.microsoft.com/media/logos/logo_xamarin.svg          
       - image:
           src: https://docs.microsoft.com/media/logos/logo_unity.svg
       - image:
