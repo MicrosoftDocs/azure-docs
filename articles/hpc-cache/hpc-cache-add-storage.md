@@ -1,14 +1,14 @@
 ---
-title: Add storage to an Azure HPC Cache 
+title: Add storage to an Azure HPC Cache (preview)
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
 ---
 
-# Add storage
+# Add storage targets
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache instance. You can add NFS storage, like an on-premises hardware system, or store data in Azure Blob.
 
@@ -16,13 +16,13 @@ You can define up to ten different storage targets for one cache. The cache pres
 
 Remember that the storage exports must be accessible from your cache's virtual network. For on-premises hardware storage, you might need to set up a DNS server that can resolve hostnames for NFS storage access. Read more in [DNS access](hpc-cache-prereqs.md#dns-access).
 
-You can add storage targets while creating your Azure HPC Cache, or afterward. The procedure is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
+You can add storage targets while creating your cache, or afterward. The procedure is slightly different depending on whether you're adding Azure Blob storage or an NFS export. Details for each are below.
 
 ## Add storage targets while creating the cache
 
-Use the **Storage targets** tab of the cache creation wizard to define storage at the same time you create the cache instance.
+Use the **Storage targets** tab of the Azure HPC Cache creation wizard to define storage at the same time you create the cache instance.
 
-![screenshot of storage targets page](media/create-targets.png)
+![screenshot of storage targets page](media/hpc-cache-storage-targets-pop.png)
 
 Click the **Add storage target** link to add storage.
 
@@ -30,13 +30,17 @@ Click the **Add storage target** link to add storage.
 
 From the Azure portal, open your cache instance and click **Storage targets** on the left sidebar. The storage target page lists all existing targets and gives a link to add a new one.
 
+![screenshot of the storage targets link on the sidebar, under the heading Configure, which is between the category headings Settings and Monitoring](media/hpc-cache-storage-targets-sidebar.png)
+
 ## Add a new Azure Blob storage target
 
-A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud filesystem format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
+A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud file system format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 To define an Azure Blob container, enter this information.
 
 ![screenshot of the add storage target page, populated with information for a new Azure Blob storage target](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **Storage target name** - Set a name that identifies this storage target in the Azure HPC Cache.
 * **Target type** - Choose **Blob**.
@@ -45,17 +49,15 @@ To define an Azure Blob container, enter this information.
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
 * **Storage container** - Select the Blob container for this target.
 
-* **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
-
-<!--  The namespace path value must end with a slash (``/``) and should not start with one.  -->
+* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
 When finished, click **OK** to add the storage target.
 
 ### Add the access control roles to your account
 
-The Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
+Azure HPC Cache uses [role-based access control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) to authorize the cache application to access your storage account for Azure Blob storage targets.
 
-The storage account owner must explicitly add the rolls [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
+The storage account owner must explicitly add the roles [Storage Account Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) and [Storage Blob Data Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) for the user "StorageCache Resource Provider".
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
 
@@ -93,11 +95,16 @@ Provide this information for an NFS-backed storage target:
 
 * **Usage model** - Choose one of the data caching profiles based on your workflow, described in [Choose a usage model, below](#choose-a-usage-model).
 
-You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target.
+### NFS namespace paths
 
-For each export, fill in these values:
+An NFS storage target can have multiple virtual paths, as long as each path represents a different export or subdirectory on the same storage system.
 
-* **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
+Create all of the paths from one storage target.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Fill in these values for each namespace path: 
+
+* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
 <!--  The virtual path should start with a slash ``/``. -->
 
@@ -107,8 +114,8 @@ For each export, fill in these values:
 
 When finished, click **OK** to add the storage target.
 
-### Choose a usage model 
-<!-- link in GUI to this heading -->
+### Choose a usage model
+<!-- referenced from GUI - update aka.ms link if you change this heading -->
 
 When you create a storage target that points to an NFS storage system, you need to choose the *usage model* for that target. This model determines how your data is cached.
 

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: magoedte
 ---
 
@@ -40,10 +40,13 @@ Azure Monitor for VMs supports a Log Analytics workspace in the following region
 - West Central US
 - West US 2<sup>1</sup>
 - East US
+- East US2<sup>1</sup>
 - Canada Central
 - UK South
+- North Europe<sup>1</sup>
 - West Europe
 - Southeast Asia
+- Japan East<sup>1</sup>
 - Australia East<sup>1</sup>
 - Australia Southeast<sup>1</sup>
 
@@ -174,7 +177,7 @@ You can download the Dependency agent from these locations:
 
 | File | OS | Version | SHA-256 |
 |:--|:--|:--|:--|
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.1 | FCF9C1D9B20AD414051B49EE79144E595CCC411EB6D444D6D5B5A7B1874DCDEC |
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
 
 ## Role-based access control

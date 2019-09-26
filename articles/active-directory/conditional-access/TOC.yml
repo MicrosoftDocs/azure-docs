@@ -19,10 +19,10 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Adopting Conditional Access
-    href: howto-conditional-access-adoption-kit.md
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
+  - name: Conditional Access policy components
+    href: concept-conditional-access-policies.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
