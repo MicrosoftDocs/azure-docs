@@ -27,15 +27,16 @@ The following diagram shows the tasks that project individual contributors (data
 For instructions on how to execute a data science project under TDSP, see [Execution of Data Science Projects](project-execution.md). 
 
 > [!NOTE] 
-> This article uses Azure DevOps and a DSVM to set up a TDSP environment, because that is how to implement TDSP at Microsoft. If your team uses other code hosting or development platforms, the individual contributor tasks are the same, but the way to complete them may be different.
+> This article uses Azure Repos and a Data Science Virtual Machine (DSVM) to set up a TDSP environment, because that is how to implement TDSP at Microsoft. If your team uses other code hosting or development platforms, the individual contributor tasks are the same, but the way to complete them may be different.
 
 ## Prerequisites
 
-This tutorial assumes that the following resources and permissions have been set up by your [group manager](group-manager-tasks.md), [team lead](), and [project lead]():
+This tutorial assumes that the following resources and permissions have been set up by your [group manager](group-manager-tasks.md), [team lead](team-lead-tasks.md), and [project lead](project-lead-tasks.md):
 
 - The Azure DevOps **organization** for your data unit
 - A **project repository** set up by your project lead to share project templates and assets
-- **GroupUtilities** and **TeamUtilities** repositories set up by the group manager and team lead, if applicable.
+- **GroupUtilities** and **TeamUtilities** repositories set up by the group manager and team lead, if applicable
+- Azure file storage set up for shared assets for your team or project, if applicable
 - Permissions for you to clone from and push back to your project repository. 
 
 To clone repositories and modify content on your local machine or DSVM, or mount Azure file storage to your DSVM, you need the following:
@@ -50,8 +51,10 @@ To clone repositories and modify content on your local machine or DSVM, or mount
 ## Clone repositories
 
 To work with repositories locally and push your changes up to the shared team and project repositories, you first copy or *clone* the repositories to your local machine. 
+
+1. In Azure DevOps, go to your team's project Summary page at *https:\//\<servername>/\<organization-name>/\<TeamName>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**.
    
-1. On the **MyTeam** project **Summary** page, select **Repos**, and at the top of the page, select the repository you want to clone.
+1. Select **Repos** in the left navigation, and at the top of the page, select the repository you want to clone.
    
 1. On the repo page, select **Clone** at upper right.
    
@@ -62,13 +65,13 @@ To work with repositories locally and push your changes up to the shared team an
 1. On your local machine, create the following directories:
    
    - For Windows: **C:\GitRepos**
-   - For Linux, **$home/GitRepos**
+   - For Linux: **$home/GitRepos**
    
 1. Change to the directory you created.
    
-1. In Git Bash, run the command `git clone <clone URL>.`
+1. In Git Bash, run the command `git clone <clone URL>` for each repository you want to clone. 
    
-   For example, either of the following commands clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
+   For example, the following command clones the **TeamUtilities** repository to the *MyTeam* directory on your local machine. 
    
    **HTTPS connection:**
    
@@ -81,8 +84,8 @@ To work with repositories locally and push your changes up to the shared team an
    ```bash
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
-
-Confirm that you see the three folders under your project directory.
+   
+1. Confirm that you can see the folders for the cloned repositories under your project directory.
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
@@ -98,16 +101,15 @@ git commit -m "push from local"
 git push
 ```
 
-## Step 4-5: Mount Azure file storage to your DSVM (Optional)
+## Mount Azure file storage to your DSVM
 
-To mount Azure file storage to your DSVM, see the instructions in Section 4 of the [Team lead tasks for a data science team](team-lead-tasks.md)
+If your team or project has shared assets in Azure file storage, see the instructions in Section 4 of the [Team lead tasks for a data science team](team-lead-tasks.md) to mount the file storage to your DSVM.
 
 ## Next steps
 
-Here are links to the more detailed descriptions of the roles and tasks defined by the Team Data Science Process:
+Here are links to detailed descriptions of the other roles and tasks defined by the Team Data Science Process:
 
 - [Group Manager tasks for a data science team](group-manager-tasks.md)
 - [Team Lead tasks for a data science team](team-lead-tasks.md)
 - [Project Lead tasks for a data science team](project-lead-tasks.md)
-- [Project Individual Contributors for a data science team](project-ic-tasks.md)
 
