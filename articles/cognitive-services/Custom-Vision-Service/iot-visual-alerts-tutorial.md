@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: IoT Visual Alerts sample"
 titleSuffix: "Azure Cognitive Services"
-description: In this tutorial, ...
+description: In this tutorial, you use Custom Vision with an IoT device to recognize and report visual states from a camera's video feed.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -13,7 +13,7 @@ ms.date: 09/11/2019
 ms.author: pafarley
 ---
 
-# Tutorial: Report visual states on an IoT device
+# Tutorial: Use Custom Vision with an IoT device to report visual states
 
 This sample app illustrates how to use Custom Vision to train a device with a camera to detect visual states. You can run this detection scenario on an IoT device by using an ONNX model exported from the Custom Vision service.
 
