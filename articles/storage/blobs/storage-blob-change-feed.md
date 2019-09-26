@@ -189,6 +189,7 @@ This section describes known issues and limitations in the current public previe
 - The `LastConsumable` property of the segments.json file does not list the very first segment that the change feed finalizes. This issue occurs only after the first segment is finalized. All subsequent segments are accurately captured in the `LastConsumable` property. 
 - If you list the containers in your storage account, the **$blobchangefeed** container appears only after you've enabled the change feed feature on your account. You'll have to wait a few minutes after you enable the change feed before you can see the container.
 - Log files don't immediately appear after a segment is created. The length of delay is within the normal interval of the change feed (60 to 120 seconds).
+- Accounts that have a hierarchical namespace are not yet supported.
 
 
 ## Next steps
