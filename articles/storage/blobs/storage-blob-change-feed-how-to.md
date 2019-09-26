@@ -18,7 +18,7 @@ This article shows you how to process a change feed log in a .NET client applica
 To learn how to enable change feed logs, find them, and interpret their contents, see [Change feed logs in Azure Blob Storage](storage-blob-change-feed.md);
 
 > [!NOTE]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
+> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md).
 
 ## Enable the change feed
 
@@ -42,10 +42,10 @@ using Avro.Generic;
 
 ## Determine the last consumable segment
 
-Parse the index of segments. It is a json file. (need format). Use that file to determine which segment to examine.
+ Start by reading the [segments.json](storage-blob-change-feed#segment-json) file to determine the last consumable segment. This file appears in the `$blobchangefeed/meta/` virtual directory. Segments that appear in the `$blobchangefeed/idx/segments/` virtual directory that are dated after the last consumable segment date are not finalized and should not be consumed by your application. 
 
 ```csharp
-public async Task<string> ProcessIndexFile(CloudBlobClient cloudBlobClient)
+public async Task<string> GetLastConsumableSegment(CloudBlobClient cloudBlobClient)
 {
     CloudBlobContainer container =
         cloudBlobClient.GetContainerReference("$blobchangefeed");
@@ -67,10 +67,13 @@ public async Task<string> ProcessIndexFile(CloudBlobClient cloudBlobClient)
 
 ## Read the segment files of interest to you
 
-Parse the segment file(s). This file describes a segment and points to an avro file.
+The `$blobchangefeed/idx/segments/` virtual directory contains a list (or *index*) of these [segment files](storage-blob-change-feed#segment-index) files. A *segment* represents 60 minutes worth of change events. This example reads the segment files that are dated after the last time this index was polled and before the last consumable date obtained in the previous snippet. 
+
+This example uses the `chunkFilePaths` property to obtain the path to related log files, and then calls a helper method to read those log files. 
+
 
 ```csharp
-public async Task GetCreatedFiles(CloudBlobClient cloudBlobClient, 
+public async Task ReadChangeFeedFromSpecifiedTimeTillEnd(CloudBlobClient cloudBlobClient, 
     DateTimeOffset lastChecked, DateTimeOffset lastConsumable)
 {
     CloudBlobContainer container =
@@ -88,7 +91,7 @@ public async Task GetCreatedFiles(CloudBlobClient cloudBlobClient,
         blobContinuationToken = resultSegment.ContinuationToken;
 
         foreach (CloudBlockBlob item in resultSegment.Results)
-        {
+        {                  
             await item.FetchAttributesAsync();
 
             DateTimeOffset lastModified = (DateTimeOffset)item.Properties.LastModified;
@@ -110,21 +113,23 @@ public async Task GetCreatedFiles(CloudBlobClient cloudBlobClient,
 
                     foreach (string filePath in chunkFilePaths)
                     {
-                        await ParseAvroFile(cloudBlobClient, filePath);
+                        await ParseChangeFeedLogChunk(cloudBlobClient, filePath);
                     }
                 }
             }
+                  
         }
     } while (blobContinuationToken != null);
+
 }
 ```
 
 ## Open the log files and read change event records
 
-Parse each avro file for information. Contents of this file conform to the Event Grid Change Event Schema.
+A log file contains a series of change event records. These records are listed in the order in which they occurred. These records use the [Apache Avro 1.8.2](https://avro.apache.org/docs/1.8.2/spec.html) format. This example opens each log file and prints the url of each blob that was created within this time window.  
 
 ```csharp
-public async Task ParseAvroFile(CloudBlobClient cloudBlobClient, string chunkFilePath)
+public async Task ParseChangeFeedLogChunk(CloudBlobClient cloudBlobClient, string chunkFilePath)
 {
     CloudBlobContainer container = 
         cloudBlobClient.GetContainerReference("$blobchangefeed");
@@ -154,9 +159,10 @@ public async Task ParseAvroFile(CloudBlobClient cloudBlobClient, string chunkFil
             dataRecord.TryGetValue("url", out tempDataField);
 
             Console.WriteLine((string)tempDataField);
-        }
+        }                  
     }
 }
+
 ```
 
 ## Next steps
