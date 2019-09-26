@@ -37,7 +37,7 @@ Every logic app must start with a trigger, which fires when a specific event hap
 
 The Ethereum Blockchain connector has one trigger and several actions. Which trigger or action you use depends on your scenario.
 
-Choose each of the following sections if your workflow:
+Choose one of the following sections if your workflow:
 
 * Triggers when an event occurs on the blockchain, [use the event trigger](#use-the-event-trigger).
 * Queries or deploys a smart contract, [use actions](#use-actions).
@@ -63,7 +63,7 @@ Use Ethereum Blockchain event triggers when you want a logic app to run after a 
 
 1. Select **Save**.
 
-Once you configure the Ethereum Blockchain event trigger, you can add a new step to your logic app that performs an action based on the event trigger. For example, send an email.
+To complete your logic app, you can add a new step that performs an action based on the Ethereum blockchain event trigger. For example, send an email.
 
 ## Use actions
 
@@ -89,7 +89,7 @@ Connector actions require a trigger. You can use an Ethereum Blockchain connecto
 
     After choosing a smart contract function name, you may see required fields for function parameters. Enter the values or dynamic content required for your scenario.
 
-When the logic app event is triggered, the Ethereum Blockchain action runs. For example, an HTTP request trigger runs an Ethereum blockchain action to query a smart contract state value resulting in an HTTP response that returns the value.
+You can now use your logic app. When the logic app event is triggered, the Ethereum Blockchain action runs. For example, an HTTP request trigger runs an Ethereum blockchain action to query a smart contract state value resulting in an HTTP response that returns the value.
 
 ## Generate a workflow
 
@@ -130,7 +130,7 @@ For example, the following steps generate a REST-based microservice logic app ba
 
     ![Microservice logic app](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. You can test the REST-based microservice by issuing an HTTP POST request to the logic app request URL. Copy the **HTTP POST URL** from the **When a HTTP request is received** step.
+1. You can now use your logic app. To test the REST-based microservice, issue an HTTP POST request to the logic app request URL. Copy the **HTTP POST URL** from the **When a HTTP request is received** step.
 
     ![HTTP POST URL](./media/ethereum-logic-app/post-url.png)
 
