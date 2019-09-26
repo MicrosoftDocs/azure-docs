@@ -159,7 +159,7 @@ On the **Configuration** tab, you'll connect the frontend and backend pool you c
 
 6. On the **Add a routing rule** window, select **Add** to save the routing rule and return to the **Configuration** tab.
 
-        ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![Create new application gateway: routing rule](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Select **Next: Tags** and then **Next: Review + create**.
 
