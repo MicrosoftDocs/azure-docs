@@ -1,6 +1,6 @@
 ---
 title: SQL Database managed instance - Point-in-time restore | Microsoft Docs
-description: How to restore a database in a SQL managed instance to a previous point in time.
+description: How to restore a SQL database in a managed instance to a previous point in time.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -12,43 +12,39 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
 ---
-# Restore a SQL managed instance database to a previous point in time
+# Restore a SQL managed-instance database to a previous point in time
 
-Point-in-time restore (PITR) enables you to create a database as a copy of another database at some point in time in the past. This article describes how to perform a point-in-time restore of a database in a managed instance.
+Use point-in-time restore (PITR) to create a database as a copy of another database from some time in the past. This article describes how to perform a point-in-time restore of a database in an Azure SQL Database managed instance.
 
-Point-in-time restore can be used in recovery scenarios, such as incidents caused by errors, incorrectly loaded data, deletion of crucial data, and other issues as well as simply for testing or auditing purposes. Depending on your database settings, backup files are kept for a period between 7 and 35 days.
+Point-in-time restore is useful in recovery scenarios, such as incidents caused by errors, incorrectly loaded data, or deletion of crucial data. You can also use it simply for testing or auditing. Backup files are kept for 7 to 35 days, depending on your database settings.
 
-Point-in-time restore can be used to:
+Point-in-time restore can:
 
 - Restore a database from an existing database.
 - Restore a database from a deleted database.
 
-Additionally, with a managed instance, point-in-time restore can be used to: 
+With a managed instance, point-in-time restore can also:
 
 - Restore a database to the same managed instance.
 - Restore a database to another managed instance.
 
-
 > [!NOTE]
-> Point-in-time restore of a whole managed instance is not possible. What is possible, and explained in this article, is point-in-time restore of a database hosted on a managed instance.
-
+> Point-in-time restore of a whole managed instance is not possible. This article explains only what's possible: point-in-time restore of a database that's hosted on a managed instance.
 
 ## Limitations
 
-When restoring to another managed instance, both instances must be in the same subscription and region. Cross-region and cross-subscription restores are not currently supported.
+When restoring from one managed instance to another, both instances must be in the same subscription and region. Cross-region and cross-subscription restores are not currently supported.
 
 > [!WARNING]
-> Be careful with the storage size of your managed instance – depending on size of restoring data, you may run out of instance storage. If there is not enough space for restored data, use an alternative approach.
+> Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
 
-The following table shows point-in-time recovery scenarios for managed instance:
+The following table shows point-in-time recovery scenarios for managed instances:
 
-|           |Restore existing DB| Restore existing DB|Restore dropped DB| Restore dropped DB|
+|           |Restore existing DB to same managed instance| Restore existing DB to another managed instance|Restore dropped DB to same managed instance|Restore dropped DB to another managed instance|
 |:----------|:----------|:----------|:----------|:----------|
-|Destination| Same MI|Another MI |Same MI|Another MI |
-|Azure portal| Yes|No |No|No|
-|Azure CLI|Yes |Yes |No|No|
-|PowerShell| Yes|Yes |Yes|Yes|
-
+|**Azure portal**| Yes|No |No|No|
+|**Azure CLI**|Yes |Yes |No|No|
+|**PowerShell**| Yes|Yes |Yes|Yes|
 
 ## Restore existing database
 
@@ -184,8 +180,8 @@ New-AzResource -Location $location -Properties $properties `
         -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
 ```
 
-## Overwrite existing database 
- 
+## Overwrite existing database
+
 To overwrite an existing database, you must also:
 
 1. DROP the existing database that you want to overwrite.
