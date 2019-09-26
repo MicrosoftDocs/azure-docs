@@ -57,22 +57,22 @@ In this section, you will create the Azure Cosmos database, container, and impor
 
    ![Refresh the data tab to see the new container](media/create-notebook-visualize-data/refresh-data-tab.png)
 
- 1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
+1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
 
    ```json
-   {
-   "CartID":5399,
-   "Action":"Viewed",
-   "Item":"Cosmos T-shirt",
-   "Price":350,
-   "UserName":"Demo.User10",
-   "Country":"Iceland",
-   "EventDate":"2015-06-25T00:00:00",
-   "Year":2015,"Latitude":-66.8673,
-   "Longitude":-29.8214,
-   "Address":"852 Modesto Loop, Port Ola, Iceland",
-   "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
-   }
+    {
+       "CartID":5399,
+       "Action":"Viewed",
+       "Item":"Cosmos T-shirt",
+       "Price":350,
+       "UserName":"Demo.User10",
+       "Country":"Iceland",
+       "EventDate":"2015-06-25T00:00:00",
+       "Year":2015,"Latitude":-66.8673,
+       "Longitude":-29.8214,
+       "Address":"852 Modesto Loop, Port Ola, Iceland",
+       "id":"00ffd39c-7e98-4451-9b91-b2bcf2f9a32d"
+    }
    ```
 
    For the tutorial purpose, the sample retail data is stored in the Azure blob storage. You can import it to the Azure Cosmos container by pasting the following code into a new cell. You can confirm that the data is successfully imported by running a query to select the number of items.
