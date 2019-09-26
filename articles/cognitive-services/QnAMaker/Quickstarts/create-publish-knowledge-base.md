@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ---
 
@@ -16,12 +16,23 @@ ms.author: diberry
 
 You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. This article includes an example of creating a QnA Maker knowledge base from a simple FAQ webpage, to answer questions on BitLocker key recovery.
 
+ You can create a new QnA Maker knowledge base from the following document types:
+
+<!-- added for scanability -->
+* FAQ pages
+* Products manuals
+* Structured documents
+
+Include a chit-chat personality to make your knowledge more engaging with your users.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
 ## Prerequisite
 
 > [!div class="checklist"]
 > * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Create a QnA Maker knowledge base
+## Create a new QnA Maker knowledge base
 
 1. Sign in to the [QnAMaker.ai](https://QnAMaker.ai) portal with your Azure credentials.
 
@@ -37,14 +48,13 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 
 1. In step 3, name your knowledge base **My Sample QnA KB**.
 
-1. To add content to your knowledge base, select three types of data sources. In step 4, under **Populate your KB**, add the 
-   [BitLocker Recovery FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
+1. Add the QnA Maker troubleshooting page as a URL: `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`, then select `+ Add URL`. See more information on the types of sources supported [here](../Concepts/data-sources-supported.md). For this quickstart, **don't upload files** for data you want extracted. See the [pricing information](https://aka.ms/qnamaker-pricing) to see how many documents you can add.
 
-   ![Screenshot of adding data sources](../media/qnamaker-quickstart-kb/add-datasources.png)
+1. Add **_professional_ Chit-chat** to your KB. 
 
 1. In step 5, select **Create your KB**.
 
-1. While QnA Maker creates the knowledge base, a pop-up window appears. The extraction process takes a few minutes to read the HTML page and identify questions and answers.
+1. While QnA Maker creates the knowledge base, a pop-up window appears. The extraction process takes a few minutes to read the document and identify questions and answers.
 
 1. After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
@@ -99,8 +109,13 @@ When you make changes to the knowledge base and republish, you don't need to tak
         * Azure Storage
     * The bot and QnA Maker can share the web app service plan, but can't share the web app. This means the **app name** must be different from the app name you used when you created the QnA Maker service. 
 
+## Clean up resources
+
+Clean up the QnA Maker and Bot framework resources in the Azure portal. 
 
 ## Next steps
+
+For cost savings measures, you can [share](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Create a knowledge base](../How-To/create-knowledge-base.md)
