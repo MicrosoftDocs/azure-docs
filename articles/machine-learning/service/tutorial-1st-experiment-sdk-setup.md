@@ -57,7 +57,7 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **tutorial**  folder there.
 
-## <a name="open">Open the tutorial notebook 
+## <a name="open">Select a VM to run the notebook
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 
