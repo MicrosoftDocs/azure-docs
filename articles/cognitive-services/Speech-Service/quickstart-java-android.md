@@ -14,7 +14,7 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in Java on Android by using the Speech SDK
 
-Quickstarts are also available for [speech synthesis](quickstart-text-to-seppch-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
+Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
