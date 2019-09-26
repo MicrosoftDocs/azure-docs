@@ -19,17 +19,19 @@ ms.custom: oldportal;it-pro;
 
 ms.collection: M365-identity-device-management
 ---
-# Administrative units management in Azure Active Directory (public preview)
+# Administrative units management in Azure Active Directory (preview)
 
-This article describes administrative units in Azure Active Directory (Azure AD). From the central administrator’s point of view, an administrative unit is an Azure AD resource that can be created and populated with other Azure AD resources. Administrative units are a container of Azure AD resources. You can delegating administrative permissions over subsets of users and applying policies to a subset of users. You can use administrative units to delegate permissions to regional administrators or to set policy at a granular level. For example, an administrative unit-scoped User account admin can update profile information, reset passwords, and assign licenses for users only in their administrative unit.
+This article describes administrative units in Azure Active Directory (Azure AD). An administrative unit is an Azure AD resource that can be a container for other Azure AD resources. In this preview release, these resources can be only users. For example, an administrative unit-scoped User account admin can update profile information, reset passwords, and assign licenses for users only in their administrative unit.
+
+You can use administrative units to delegate administrative permissions over subsets of users and applying policies to a subset of users. You can use administrative units to delegate permissions to regional administrators or to set policy at a granular level.
 
 ## Deployment scenario
 
-This can useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each have their own IT administrators who control access, manage users, and set policies for their school. Central university administrators can use administrative units to grant these school-level administrators permissions over the users in their particular divisions. More specifically, using the same example, a central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
+Administrative units can be useful in organizations with independent divisions. Consider the example of a large university that is made up of many autonomous schools (School of Business, School of Engineering, and so on) that each has their own IT administrators who control access, manage users, and set policies for their school. A central administrator could create an administrative unit for the School of Business and populate it with only the business school students and staff. Then the central administrator can add the Business school IT staff to a scoped role that grants administrative permissions over only Azure AD users in the business school administrative unit.
 
 ## License requirements
 
-To use administrative units requires the administrative unit admin to have an Azure Active Directory Premium license. For more information, see [Getting started with Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
+To use administrative units requires an Azure Active Directory Premium license for each administrative unit admin. For more information, see [Getting started with Azure AD Premium](../fundamentals/active-directory-get-started-premium.md).
 
 ## Managing administrative units
 
