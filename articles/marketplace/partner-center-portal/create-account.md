@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
 ms.topic: guide
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ---
 
 # Create a Commercial Marketplace account in Partner Center
@@ -78,8 +78,8 @@ Use this section to create a Commercial Marketplace account if you already have 
 
 There are two types of existing enrollments that you can use to set up your Commercial Marketplace account. Choose the one that applies to you:
 
-- If you have an existing Microsoft Partner Network enrollment, use [You're enrolled in the Microsoft Partner Network](#you're-enrolled-in-the-microsoft-partner-network).
-- If you have an existing developer program enrollment, use [You're enrolled in a developer program](#you're-enrolled-in-a-developer-program).
+- If you have an existing Microsoft Partner Network enrollment, create your account using [Enrolled in the Microsoft Partner Network](#enrolled-in-the-microsoft-partner-network).
+- If you have an existing developer program enrollment, create your account using [Enrolled in a developer program](#enrolled-in-a-developer-program).
 
 For both methods, you'll use these steps:
 
@@ -91,7 +91,7 @@ Make sure to have your account information handy.
 >[!IMPORTANT]
 >If you have an account in the [Cloud Partner Portal (CPP)](https://cloudpartner.azure.com/) that has been moved to Partner Center, you do not need to create a new account. See [Publishers moving from CPP](#publishers-moving-from-cpp) for more information.
 
-### You're enrolled in the Microsoft Partner Network
+### Enrolled in the Microsoft Partner Network
 
 If you're already enrolled in the Microsoft Partner Network, use this section to create your account directly from Partner Center.
 
@@ -116,7 +116,7 @@ Once enrolled, you're taken to the Commercial Marketplace Overview page. **Comme
 
 Thank you for creating an account on Partner Center! For help, see [Commercial Marketplace Overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the Commercial Marketplace program](#add-new-publishers-to-the-commercial-marketplace-program).
 
-### You're enrolled in a developer program
+### Enrolled in a developer program
 
 If you're already enrolled in a Partner Center developer program, use this section to create your account directly from Partner Center.
 
