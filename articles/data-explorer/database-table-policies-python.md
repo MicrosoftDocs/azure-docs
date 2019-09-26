@@ -3,7 +3,7 @@ title: 'Create policies for Azure Data Explorer cluster and database using the A
 description: In this article, you learn how to create policies using .NET Standard SDK.
 author: lugoldbe
 ms.author: lugoldbe
-ms.reviewer: itsagui
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 24/09/2019

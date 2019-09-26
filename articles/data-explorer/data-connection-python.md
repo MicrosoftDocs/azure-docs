@@ -3,7 +3,7 @@ title: 'Add data connections for Azure Data Explorer by using Python'
 description: In this article, you learn how to add data connections for Azure Data Explorer by using Python.
 author: lugoldbe
 ms.author: lugoldbe
-ms.reviewer: itsagui
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 24/09/2019
