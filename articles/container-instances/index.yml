@@ -38,16 +38,14 @@ landingContent:
         links:
           - text: Run Docker containers with Azure Container Instances
             url: /learn/modules/run-docker-with-azure-container-instances/
-  - title: Integrate with Azure
+  - title: Create multi-container groups
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: tutorial
         links:
-          - text: Deploy image from Azure Container Registry
-            url: container-instances-using-azure-container-registry.md
-          - text: Use managed identity
-            url: container-instances-managed-identity.md
-          - text: Mount an Azure file share
-            url: container-instances-volume-azure-files.md 
+          - text: Deploy container group - YAML 
+            url : container-instances-multi-container-yaml.md
+          - text: Deploy container group - template
+            url: container-instances-multi-container-group.md 
   - title: Deployment scenarios
     linkLists:
       - linkListType: how-to-guide
@@ -68,5 +66,15 @@ landingContent:
             url: container-instances-update.md
           - text: Share data between containers
             url: container-instances-volume-emptydir.md
+  - title: Integrate with Azure
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy image from Azure Container Registry
+            url: container-instances-using-azure-container-registry.md
+          - text: Use managed identity
+            url: container-instances-managed-identity.md
+          - text: Mount an Azure file share
+            url: container-instances-volume-azure-files.md 
 
                   
