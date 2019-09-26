@@ -58,7 +58,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-pipeline-core**
     + Added notebook to describe Module, ModuleVersion and ModuleStep
   + **azureml-pipeline-steps**
-    + Introducing RScriptStep to support r script run via AML pipeline
+    + Introducing RScriptStep to support R script run via AML pipeline
     + Fixed metadata parameters parsing in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
   + **azureml-train-automl**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
