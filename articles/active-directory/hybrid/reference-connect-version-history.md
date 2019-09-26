@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/23/2019
+ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -41,7 +41,8 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ## 1.4.X.0
 
 >[!IMPORTANT]
->Previously, Windows down-level computers joined to on-prem AD were incorrectly getting synced to the cloud under some circumstances. As an example, the userCertificate attribute value for Windows down-level devices in AD is populated. But such devices in Azure AD always stayed in the “pending” state because these OS versions were not designed to be registered with Azure AD via AAD Sync. In this version of Azure AD Connect, AAD Sync will stop syncing Windows down-level computers to Azure AD and will also remove the previously incorrectly synced Windows down-level devices from Azure AD. Please note that this change will not delete any Windows down-level devices that were correctly registered with Azure AD by using the MSI package. Those devices will continue to work as expected for the purposes of device-based conditional access. Some customers may see some or all of their Windows down-level devices disappear from Azure AD. This is not a cause for concern, as these device identities were never actually used by Azure AD during conditional access authorization. Such customers may need to revisit https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan and get their Windows down-level devices registered correctly to ensure that such devices can fully participate in device-based conditional access. Note that if you see these deletes of down-level Computer/Device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through.
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
+
 
 ### Release status
 9/10/2019: Released for auto-upgrade only
@@ -52,7 +53,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new AAD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the AADC wizard.
@@ -1268,7 +1269,7 @@ Released: December 2014
 **New features:**
 
 * Password synchronization with attribute-based filtering is now supported. For more information, see [Password synchronization with filtering](how-to-connect-sync-configure-filtering.md).
-* The ms-DS-ExternalDirectoryObjectID attribute is written back to Active Directory. This feature adds support for Office 365 applications. It uses OAuth2 to access Online and On-Premises mailboxes in a Hybrid Exchange Deployment.
+* The ms-DS-ExternalDirectoryObjectID attribute is written back to Active Directory. This feature adds support for Office 365 applications. It uses OAuth2 to access online and on-premises mailboxes in a Hybrid Exchange Deployment.
 
 **Fixed upgrade issues:**
 
