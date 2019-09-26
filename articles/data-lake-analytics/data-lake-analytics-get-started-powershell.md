@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Data Lake Analytics using Azure PowerShell
+title: Query Azure Data Lake Analytics using Azure PowerShell
 description: Use Azure PowerShell to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
 ms.service: data-lake-analytics

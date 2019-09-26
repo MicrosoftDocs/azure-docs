@@ -1,5 +1,5 @@
 ---
-title: Best practices for managing U-SQL assemblies in a CI/CD pipeline for Azure Data Lake
+title: Mange U-SQL assemblies in a CI/CD pipeline - Azure Data Lake
 description: 'Learn the best practices for managing U-SQL C# assemblies in a CI/CD pipeline with Azure DevOps.'
 services: data-lake-analytics
 author: yanancai

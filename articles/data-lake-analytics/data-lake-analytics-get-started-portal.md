@@ -1,5 +1,5 @@
 ---
-title: Get Started with Azure Data Lake Analytics using the Azure portal
+title: Create Azure Data Lake Analytics using the Azure portal
 description: Use the Azure portal to create an Azure Data Lake Analytics account and submit a U-SQL job.
 services: data-lake-analytics
 ms.service: data-lake-analytics
