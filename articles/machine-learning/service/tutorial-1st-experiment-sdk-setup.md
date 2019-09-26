@@ -40,8 +40,6 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning.
-
 You complete the following experiment set-up and run steps in the workspace landing page (preview), a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
 1. Sign in to the [workspace landing page](https://ml.azure.com/).
@@ -69,7 +67,9 @@ You complete the following experiment set-up and run steps in the workspace land
     
 1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
 
-1. On the top bar, select a Notebook VM. If no VMs are found, select **+ New VM** to create the VM.
+1. On the top bar, select a Notebook VM. You can select a VM created by any user of your workspace.
+
+1. If no VMs are found, select **+ New VM** to create the VM.
 
     ![Create a VM](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
 
