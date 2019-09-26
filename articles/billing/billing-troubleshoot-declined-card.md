@@ -16,18 +16,9 @@ ms.author: banders
 
 # Troubleshoot a declined card at Azure sign-up
 
-This article helps you resolve issues in which a credit card is declined at Azure sign-up in the Azure portal or Azure account center. Before you begin to troubleshoot the issue, check the following points:
+You may experience an issue or error in which a credit card is declined at Azure sign-up in either the Microsoft Azure portal, or the Azure account center.
 
-* The credit card provider is not accepted for your country
-* You're using a virtual or prepaid card
-* Your credit information is inaccurate or incomplete
-* The card is inactive or blocked
-* You represent a business that doesn't want to pay by card
-* Your credit card information is outdated
-
-## Issues
-
-The following lists common issues that can cause a credit card to be declined at Azure sign-up.
+To resolve your issue, select the topic below which most closely resembles your error.
 
 ## The credit card provider is not accepted for your country
 

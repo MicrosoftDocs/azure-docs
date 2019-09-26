@@ -16,20 +16,9 @@ ms.author: jaserano
 
 # Troubleshoot Azure payment issues
 
-You may experience an issue when you try to update the payment information account in the Microsoft Azure portal or Azure account center. Before you troubleshoot the issue, consider the following guidelines:
+You may experience an issue or error when you try to update the payment information account in either the Microsoft Azure portal, or the Azure account center.
 
-* Unable to remove a credit card from a saved billing payment method
-* Unable to delete an old payment method after adding a new payment method
-* Unable to delete a payment method because of Cannot delete payment method error
-* Unable to see subscriptions under my account to update the payment method
-* Unable to make payment for a subscription
-* Unable to change payment method because of browser issues (browser does not respond, does not load, and so on)
-* My subscription is still disabled after updating the payment method
-* Unable to change payment method because of an XML error response page
-
-## Issues
-
-To resolve any errors, select the issue that you experience when you try to sign-up for Azure.
+To resolve your issue, select the topic below which most closely resembles your error.
 
 ## Unable to remove a credit card from a saved billing payment method
 
