@@ -88,7 +88,7 @@ Once set as a security message and sent, this message will be processed by Azure
 
 ## Send security messages 
 
-Send security messages *without* using Azure Security Center for IoT agent, by using the [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview) [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node),[Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java), or [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python).
+Send security messages *without* using Azure Security Center for IoT agent, by using the [Azure IoT C device SDK](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview), [Azure IoT C# device SDK](https://github.com/Azure/azure-iot-sdk-csharp/tree/preview), , [Azure IoT Node.js SDK](https://github.com/Azure/azure-iot-sdk-node), [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python), or [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java).
 
 To send the device data from your devices for processing by Azure Security Center for IoT, use one of the following APIs to mark messages for correct routing to Azure Security Center for IoT processing pipeline. 
 
@@ -97,19 +97,6 @@ All data that is sent, even if marked with the correct header, must also comply 
 ### Send security message API 
 
 The **Send security messages** API is currently available in C and C#, Python, Node.js and Java.  
-
-#### C# API
-
-```cs
-
-private static async Task SendSecurityMessageAsync(string messageContent)
-{
-    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
-    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
-    securityMessage.SetAsSecurityMessage();
-    await client.SendEventAsync(securityMessage);
-}
-```
 
 #### C API
 
@@ -155,20 +142,18 @@ static void SendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void* 
     }
 }
 ```
+#### C# API
 
-#### Python API
+```cs
 
-```python
-async def send_security_message_async(message_content):
-    conn_str = os.getenv("<connection_string>")​
-    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)​
-    await device_client.connect()​
-    security_message = Message(message_content)​
-    security_message.set_as_security_message()​
-    await device_client.send_d2c_message(security_message)​
-    await device_client.disconnect()
+private static async Task SendSecurityMessageAsync(string messageContent)
+{
+    ModuleClient client = ModuleClient.CreateFromConnectionString("<connection_string>");
+    Message  securityMessage = new Message(Encoding.UTF8.GetBytes(messageContent));
+    securityMessage.SetAsSecurityMessage();
+    await client.SendEventAsync(securityMessage);
+}
 ```
-
 #### Node.js API
 
 ```typescript
@@ -201,6 +186,21 @@ function SendSecurityMessage(messageContent)​
   client.open(connectCallback);​
 }
 ```
+
+#### Python API
+
+```python
+async def send_security_message_async(message_content):
+    conn_str = os.getenv("<connection_string>")​
+    device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)​
+    await device_client.connect()​
+    security_message = Message(message_content)​
+    security_message.set_as_security_message()​
+    await device_client.send_d2c_message(security_message)​
+    await device_client.disconnect()
+```
+
+
 
 ## Next steps
 - Read the Azure Security Center for IoT service [Overview](overview.md)
