@@ -32,7 +32,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org).
 For licensing reasons, these functions can not be shipped with the SDK, but a wrapper library containing these functions needs to be built by application developers and shipped with the apps using the SDK.
 To build this wrapper library, first download and install the [GStreamer SDK](https://gstreamer.freedesktop.org/data/pkg/ios/1.16.0/gstreamer-1.0-devel-1.16.0-ios-universal.pkg).
-Then, download the Xcode project for the wrapper library from https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper.
+Then, download the Xcode project for the [wrapper library](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/compressed-streams/GStreamerWrapper).
 Open the project in Xcode and build it for the **Generic iOS Device** target -- it will not work to build it for a specific target.
 The build step will generate a dynamic framework bundle with a dynamic library for all necessary architectures with the name of `GStreamerWrapper.framework`.
 This framework needs to be included in all apps using compressed streams with the Speech Services SDK.
