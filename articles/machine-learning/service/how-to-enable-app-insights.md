@@ -116,7 +116,7 @@ To view it:
 1. To look into your webservice input and response payloads, select **Analytics**
 1. In the schema section, select **Traces** and filter down traces with the message `"model_data_collection"`. In the custom dimensions, you can see input and prediction. 
 
-   [![Model data](media/how-to-enable-app-insights/model-data-trace.png.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
+   [![Model data](media/how-to-enable-app-insights/model-data-trace.png)](./media/how-to-enable-app-insights/model-data-trace.png#lightbox)
 
 
 3. To look into your custom traces, select **Analytics**.
