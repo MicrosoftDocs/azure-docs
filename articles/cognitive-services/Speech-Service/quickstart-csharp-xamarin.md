@@ -40,7 +40,7 @@ This quickstart requires:
 
 ## Add sample code for the common `helloworld` project
 
-Common `helloworld` project contains platform independent implementations for your cross-platform application.
+The common `helloworld` project contains platform independent implementations for your cross-platform application.
 Now add the XAML code that defines the user interface of the application, and add the C# code behind implementation.
 
 1. In **Solution Explorer**, under the common `helloworld` project open `MainPage.xaml`.
