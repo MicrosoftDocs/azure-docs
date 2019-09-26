@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou, cynthn
+ms.author: iainfou
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
