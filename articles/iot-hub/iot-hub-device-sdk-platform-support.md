@@ -39,13 +39,13 @@ For each of the listed SDKs, Microsoft:
 
 The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is tested with and supports the following configurations.
 
-| OS                  | TLS library                 | Additional requirements                                                                     |
-|---------------------|-----------------------------|---------------------------------------------------------------------------------------------|
-| Linux               | OpenSSL, WolfSSL or BearSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX)                       |
-| iOS 12.2            | OpenSSL or Native OSX       | XCode emulated in OSX 10.13.4                                                               |
-| Windows 10 family   | SChannel                    |                                                                                             |
-| Mbed OS 5.4         | Mbed TLS 2                  | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Azure Sphere OS     | WolfSSL                     | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| OS                  | TLS library                 -| Additional requirements                                                                     |
+|---------------------|------------------------------|---------------------------------------------------------------------------------------------|
+| Linux               | OpenSSL, WolfSSL, or BearSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX)                       |
+| iOS 12.2            | OpenSSL or Native OSX       -| XCode emulated in OSX 10.13.4                                                               |
+| Windows 10 family   | SChannel                   - |                                                                                             |
+| Mbed OS 5.4         | Mbed TLS 2                 - | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
+| Azure Sphere OS     | WolfSSL                    - | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
 
 ### Python SDK
 
