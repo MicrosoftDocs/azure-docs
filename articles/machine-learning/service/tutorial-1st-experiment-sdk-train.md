@@ -34,13 +34,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 1. Sign in to the [workspace landing page](https://ml.azure.com/).
 
-1. Select your subscription and the workspace you created if necessary.
-
-1. Select **Notebooks** on the left.
-
-1. Select the **tutorial-1st-experiment-sdk-train.ipynb** file in your **tutorials** folder.
-
-1. On the top bar, you will see the Notebook VM you created or selected in part one of this tutorial. 
+1. Open the **tutorial-1st-experiment-sdk-train.ipynb** in your folder as shown in [part one](tutorial-1st-experiment-sdk-setup.md#open).
 
 
 ## Connect workspace and create experiment
