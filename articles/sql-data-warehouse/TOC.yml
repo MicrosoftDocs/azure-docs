@@ -92,13 +92,13 @@
       - name: Column-level security
         href: column-level-security.md
       - name: Row-level security
-        href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json
+        href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
     - name: Data protection
       items:
       - name: Transparent Data Encryption (TDE) overview
-        href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       - name: TDE with Bring Your Own Key
-        href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+        href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
   - name: Data loading
     items:
     - name: Overview
@@ -140,7 +140,11 @@
       - name: Performance tuning guidance  
         href: performance-tuning-ordered-CCI.md
     - name: Result set caching
-      href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
+      items:
+      - name: Set for a database
+        href: https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest
+      - name: Set for a session 
+        href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
       items:
       - name: Overview
@@ -151,6 +155,8 @@
         href: sql-data-warehouse-tables-data-types.md
       - name: Distributed tables
         href: sql-data-warehouse-tables-distribute.md
+      - name: table constraints 
+        href: sql-data-warehouse-table-constraints.md
       - name: Indexes
         href: sql-data-warehouse-tables-index.md
       - name: Identity
@@ -228,11 +234,11 @@
   - name: Secure
     items:
     - name: Configure Azure AD auth
-      href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+      href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Conditional Access
-      href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+      href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Virtual network rules by PowerShell
-      href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
+      href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Enable encryption - portal
       href: sql-data-warehouse-encryption-tde.md
     - name: Enable encryption - T-SQL
@@ -332,7 +338,7 @@
   - name: T-SQL
     items:
     - name: Full reference
-      href: https://docs.microsoft.com/sql/t-sql/language-reference/
+      href: /sql/t-sql/language-reference
     - name: SQL DW language elements
       href: sql-data-warehouse-reference-tsql-language-elements.md
     - name: SQL DW statements

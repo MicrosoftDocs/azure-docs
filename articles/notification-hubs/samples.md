@@ -3,15 +3,17 @@ title: Azure Notification Hubs Samples
 description: A list of the available Azure Notification Hubs SDKs
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.author: jowargo
 ms.date: 03/28/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/28/2019
 ---
 
 # Azure Notification Hubs Samples
