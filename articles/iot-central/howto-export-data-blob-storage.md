@@ -4,10 +4,10 @@ description: How to export data from your Azure IoT Central application to Azure
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/08/2019
+ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
+manager: corywink
 ---
 
 # Export your data to Azure Blob Storage
@@ -16,10 +16,10 @@ manager: peterpr
 
 *This topic applies to administrators.*
 
-This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **measurements**, **devices**, and **device templates** to files in Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
+This article describes how to use the continuous data export feature in Azure IoT Central to periodically export data to your **Azure Blob storage account**. You can export **telemetry**, **devices**, and **device templates** to files in JSON or Apache Avro format. The exported data can be used for cold path analytics like training models in Azure Machine Learning or long-term trend analysis in Microsoft Power BI.
 
 > [!Note]
-> Once again, when you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
+> When you turn on continuous data export, you get only the data from that moment onward. Currently, data can't be retrieved for a time when continuous data export was off. To retain more historical data, turn on continuous data export early.
 
 
 ## Prerequisites
@@ -34,13 +34,12 @@ If you don't have an existing Storage to export to, follow these steps:
 ## Create Storage account
 
 1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more in [Azure Storage docs](https://aka.ms/blobdocscreatestorageaccount).
-2. For the account type, choose **General purpose** or **Blob storage**.
-3. Choose a subscription. 
+2. Choose a subscription. 
 
     > [!Note] 
-    > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
+    > You can export data to storage accounts in subscriptions different than the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 
-4. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container
+3. Create a container in your storage account. Go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
 
 ## Set up continuous data export
@@ -80,42 +79,52 @@ Now that you have a Storage destination to export data to, follow these steps to
  
 6. Choose a Container from the drop-down list box.
 
-7. Under **Data to export**, specify each type of data to export by setting the type to **On**.
+7. (Optional) The default **Data format** is JSON. You can also export your data in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, which is a data serialization system that represents the JSON data in a compact binary format.
 
-6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
+8.  Under **Data to export**, specify each type of data to export by setting the type to **On**.
+
+9. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
    ![Configure continuous data export](media/howto-export-data/export-list-blob.png)
 
-7. After a few minutes, your data will appear in your chosen destination.
+10. After a few minutes, your data will appear in your storage account.
 
 
-## Export to Azure Blob Storage
+## Path structure
 
-Measurements, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data is in [Apache Avro](https://avro.apache.org/docs/current/index.html) format, and will be exported in to three folders. The default paths in your storage account are:
-- Messages: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+Telemetry, devices, and device templates data are exported to your storage account once per minute, with each file containing the batch of changes since the last exported file. The exported data will be in three folders, in either JSON or Avro format. The default paths in your storage account are:
+- Telemetry: {container}/{app-id}/telemetry/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Devices: {container}/{app-id}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Device templates: {container}/{app-id}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 
-### Measurements
+You can browse the exported files in the Azure Portal by navigating to the file and choosing the **Edit blob** tab.
 
-The exported measurements data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
+### Telemetry
+
+The exported telemetry data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
-> The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.
+> The devices that send the telemetry are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.
 
-The following example shows a record in a decoded Avro file:
+The following example shows a record in JSON format.
 
 ```json
 {
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
+    "EnqueuedTimeUtc": "2019-09-26T17:46:09.8870000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
+        "connectionDeviceId": "123",
+        "connectionAuthMethod": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+        "connectionDeviceGenerationId": "637051167384630591",
+        "contentType": "application/json",
+        "contentEncoding": "utf-8",
+        "enqueuedTime": "2019-09-26T17:46:09.8870000Z"
     },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
+    "Body": {
+        "temp": 49.91322758395974,
+        "humid": 49.61214852573155,
+        "pm25": 25.87332214661367
+    }
 }
 ```
 
@@ -139,33 +148,47 @@ A new snapshot is written once per minute. The snapshot includes:
 >
 > The device template that each device belongs to is represented by a device template ID. To get the name of the device template, export the device template snapshots.
 
-A record in the decoded Avro file can look like:
+The following example shows a record in JSON format.
 
 ```json
 {
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
-    },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
+    "@id": "<id-value>",
+    "@type": "Device",
+    "displayName": "Airbox",
+    "data": {
+        "$cloudProperties": {},
+        "EnvironmentalSensor": {
+            "thsensormodel": {
+                "reported": {
+                    "value": "Neque quia et voluptatem veritatis assumenda consequuntur quod.",
+                    "$lastUpdatedTimestamp": "2019-09-26T17:56:34.7507554Z"
+                }
+            },
+            "pm25sensormodel": {
+                "reported": {
+                    "value": "Aut alias odio.",
+                    "$lastUpdatedTimestamp": "2019-09-26T17:56:34.7507554Z"
+                }
+            }
         },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
+        "urn_azureiot_DeviceManagement_DeviceInformation": {
+            "totalStorage": {
+                "reported": {
+                    "value": 27900.9730905171,
+                    "$lastUpdatedTimestamp": "2019-09-26T17:56:34.7507554Z"
+                }
+            },
+            "totalMemory": {
+                "reported": {
+                    "value": 4667.82916715811,
+                    "$lastUpdatedTimestamp": "2019-09-26T17:56:34.7507554Z"
+                }
+            }
         }
     },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
-    }
+    "instanceOf": "<template-id>",
+    "deviceId": "<device-id>",
+    "simulated": true
 }
 ```
 
@@ -182,90 +205,107 @@ When continuous data export is first turned on, a single snapshot with all devic
 A new snapshot is written once per minute. The snapshot includes:
 
 - New device templates added since the last snapshot.
-- Device templates with changed measurements, property, and setting definitions since the last snapshot.
+- Device templates with changed telemetry, property, and setting definitions since the last snapshot.
 
 > [!NOTE]
 > Device templates deleted since the last snapshot aren't exported. Currently, the snapshots don't have indicators for deleted device templates.
 
-A record in the decoded Avro file can look like this:
+The following example shows a record in JSON format.
 
 ```json
 {
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
+    "@id": "<id>",
+    "@type": "DeviceModelDefinition",
+    "displayName": "Airbox",
+    "capabilityModel": {
+        "@id": "<id>",
+        "@type": "CapabilityModel",
+        "implements": [{
+            "@id": "<id>",
+            "@type": "InterfaceInstance",
+            "name": "EnvironmentalSensor",
+            "schema": {
+                "@id": "<id>",
+                "@type": "Interface",
+                "comment": "Requires temperature and humidity sensors.",
+                "description": "Provides functionality to report temperature, humidity. Provides telemetry, commands and read-write properties",
+                "displayName": "Environmental Sensor",
+                "contents": [{
+                    "@id": "urn:aaeon:AAEONAirbox52Sensor:temp:1",
+                    "@type": "Telemetry",
+                    "description": "Current temperature on the device",
+                    "displayName": "Temperature",
+                    "name": "temp",
+                    "schema": "double"
+                }, {
+                    "@id": "urn:aaeon:AAEONAirbox52Sensor:humid:1",
+                    "@type": "Telemetry",
+                    "description": "Current humidity on the device",
+                    "displayName": "Humidity",
+                    "name": "humid",
+                    "schema": "integer"
+                }, {
+                    "@id": "urn:aaeon:AAEONAirbox52Sensor:pm25:1",
+                    "@type": "Telemetry",
+                    "description": "Current PM2.5 on the device",
+                    "displayName": "PM2.5",
+                    "name": "pm25",
+                    "schema": "integer"
+                }, {
+                    "@id": "urn:aaeon:AAEONAirbox52Sensor:thsensormodel:1",
+                    "@type": "Property",
+                    "description": "T&H Sensor Model Name",
+                    "displayName": "T&H Sensor Model",
+                    "name": "thsensormodel",
+                    "schema": "string"
+                }, {
+                    "@id": "urn:aaeon:AAEONAirbox52Sensor:pm25sensormodel:1",
+                    "@type": "Property",
+                    "description": "PM2.5 Sensor Model Name",
+                    "displayName": "PM2.5 Sensor Model",
+                    "name": "pm25sensormodel",
+                    "schema": "string"
+                }]
             }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
+        }, {
+            "@id": "<id>",
+            "@type": "InterfaceInstance",
+            "name": "urn_azureiot_DeviceManagement_DeviceInformation",
+            "schema": {
+                "@id": "<id>",
+                "@type": "Interface",
+                "displayName": "Device information",
+                "contents": [{
+                    "@id": "<id>",
+                    "@type": "Property",
+                    "comment": "Total available storage on the device in kilobytes. Ex. 20480000 kilobytes.",
+                    "displayName": "Total storage",
+                    "name": "totalStorage",
+                    "displayUnit": "kilobytes",
+                    "schema": "long"
+                }, {
+                    "@id": "<id>",
+                    "@type": "Property",
+                    "comment": "Total available memory on the device in kilobytes. Ex. 256000 kilobytes.",
+                    "displayName": "Total memory",
+                    "name": "totalMemory",
+                    "displayUnit": "kilobytes",
+                    "schema": "long"
+                }]
             }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
+        }],
+        "displayName": "AAEONAirbox52"
     },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
-    },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
+    "solutionModel": {
+        "@id": "<id>",
+        "@type": "SolutionModel"
     }
 }
 ```
 
 ## Read exported Avro files
 
-Avro is a binary format, so the files can't be read in their raw state. The files can be decoded to JSON format. The following examples show how to parse the measurements, devices, and device templates Avro files. The examples correspond to the examples described in the previous section.
+Avro is a binary format, so the files can't be read in their raw state. The files can be decoded to JSON format. The following examples show how to parse the telemetry, devices, and device templates Avro files. The examples correspond to the examples described in the previous section.
 
 ### Read Avro files by using Python
 
@@ -276,7 +316,7 @@ pip install pandas
 pip install pandavro
 ```
 
-#### Parse a measurements Avro file
+#### Parse a telemetry Avro file
 
 ```python
 import json
@@ -287,7 +327,7 @@ import pandas as pd
 def parse(filePath):
     # Pandavro loads the Avro file into a pandas DataFrame
     # where each record is a single row.
-    measurements = pdx.from_avro(filePath)
+    telemetry = pdx.from_avro(filePath)
 
     # This example creates a new DataFrame and loads a series
     # for each column that's mapped into a column in our new DataFrame.
@@ -295,13 +335,13 @@ def parse(filePath):
 
     # The SystemProperties column contains a dictionary
     # with the device ID located under the connectionDeviceId key.
-    transformed["device_id"] = measurements["SystemProperties"].apply(
+    transformed["device_id"] = telemetry["SystemProperties"].apply(
         lambda x: x["connectionDeviceId"])
 
     # The Body column is a series of UTF-8 bytes that is stringified
     # and parsed as JSON. This example pulls the humidity property
     # from each column to get the humidity field.
-    transformed["humidity"] = measurements["Body"].apply(
+    transformed["humidity"] = telemetry["Body"].apply(
         lambda x: json.loads(bytes(x).decode('utf-8'))["humidity"])
 
     # Finally, print the new DataFrame with our device IDs and humidities.
@@ -384,7 +424,7 @@ def parse(filePath):
 Install-Package Microsoft.Hadoop.Avro -Version 1.5.6
 ```
 
-#### Parse a measurements Avro file
+#### Parse a telemetry Avro file
 
 ```csharp
 using Microsoft.Hadoop.Avro;
@@ -527,7 +567,7 @@ public static async Task Run(string filePath)
 npm install avsc
 ```
 
-#### Parse a measurements Avro file
+#### Parse a telemetry Avro file
 
 ```javascript
 const avro = require('avsc');
