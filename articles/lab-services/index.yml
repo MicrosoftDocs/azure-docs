@@ -81,9 +81,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Classroom Labs concepts
-            url: classroom-labs-concepts.md
+            url: ./classroom-labs/classroom-labs-concepts.md
           - text: Use labs for conducting classes
-            url: classroom-labs-scenarios.md            
+            url: ./classroom-labs/classroom-labs-scenarios.md            
   - title: Explore our reference content
     linkLists:
       - linkListType: reference
