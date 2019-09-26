@@ -21,50 +21,68 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 The format of the V2 URL for a **GET** endpoint request is:
 
 ```JSON
-https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<YOUR-KEY>&q=<user-utterance>
+https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={your-key}&q={user-utterance}
 ```
 
-1. The endpoint of the public IoT app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_KEY>&q=turn on the bedroom light`
+1. The endpoint of the public IoT app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}`
 
-    Copy the URL and substitute your key for the value of `<YOUR_KEY>`.
+    Copy the URL and substitute your key for the value of `{your-key}`.
 
-2. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Room` entity with the value `bedroom`.
+1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
 
     ```JSON
     {
-      "query": "turn on the bedroom light",
+      "query": "turn on all lights",
       "topScoringIntent": {
         "intent": "HomeAutomation.TurnOn",
-        "score": 0.809439957
+        "score": 0.5375382
       },
       "entities": [
         {
-          "entity": "bedroom",
-          "type": "HomeAutomation.Room",
-          "startIndex": 12,
-          "endIndex": 18,
-          "score": 0.8065475
+          "entity": "on",
+          "type": "HomeAutomation.Operation",
+          "startIndex": 5,
+          "endIndex": 6,
+          "score": 0.724984169
         }
       ]
     }
     ```
 
-3. Change the value of the `q=` parameter in the URL to `turn off the living room light`, and press Enter. The result now indicates that LUIS detected the `HomeAutomation.TurnOff` intent as the top intent and the `HomeAutomation.Room` entity with value `living room`. 
+1. Add the **verbose** flag to the end of the querystring to **show all intents**:
 
-    ```JSON
+    ```text
+    https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
+    ```
+
+    ```json
     {
-      "query": "turn off the living room light",
+      "query": "turn on all lights",
       "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOff",
-        "score": 0.984057844
+        "intent": "HomeAutomation.TurnOn",
+        "score": 0.5375382
       },
+      "intents": [
+        {
+          "intent": "HomeAutomation.TurnOn",
+          "score": 0.5375382
+        },
+        {
+          "intent": "None",
+          "score": 0.08687421
+        },
+        {
+          "intent": "HomeAutomation.TurnOff",
+          "score": 0.0207554
+        }
+      ],
       "entities": [
         {
-          "entity": "living room",
-          "type": "HomeAutomation.Room",
-          "startIndex": 13,
-          "endIndex": 23,
-          "score": 0.9619945
+          "entity": "on",
+          "type": "HomeAutomation.Operation",
+          "startIndex": 5,
+          "endIndex": 6,
+          "score": 0.724984169
         }
       ]
     }
@@ -73,7 +91,79 @@ https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription
 #### [V3 prediction endpoint reqeust](#tab/V3)
 
 
-The format of the V3 URL for a **GET** endpoint request is:
+The format of the V3 URL for a **GET** endpoint (by slots) request is:
 
+```JSON
+https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slots/{slotName}/predict?query={user-utterance}&subscription-key={your-key}
+```
+
+1. The endpoint of the public IoT app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}`
+
+    Copy the URL and substitute your key for the value of `{your-key}`.
+
+
+1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "normalizedQuery": "turn on all lights",
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ]
+            }
+        }
+    }
+    ```
+
+1. Add the **verbose** flag to the end of the querystring to show **entity metadata details**:
+
+    ```text
+    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on the bedroom light&subscription-key={your-key}&verbose=true
+    ```
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "normalizedQuery": "turn on all lights",
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 * * * 
