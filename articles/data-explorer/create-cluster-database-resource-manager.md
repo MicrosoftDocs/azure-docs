@@ -1,21 +1,29 @@
 ---
-title: 'Create an Azure Data Explorer cluster and database by using PowerShell'
-description: Learn how to create an Azure Data Explorer cluster and database by using PowerShell
+title: 'Create an Azure Data Explorer cluster and database by using an Azure Resource Manager template'
+description: Learn how to create an Azure Data Explorer cluster and database by using an Azure Resource Manager template
 author: orspod
 ms.author: orspodek 
 ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/25/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using an Azure Resource Manager template
+
+> [!div class="op_single_selector"]
+> * [Portal](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+> * [ARM template](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. 
 
 In this article, you create an Azure Data Explorer cluster and database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). The article shows how to define which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this template for your own deployments, or customize it to meet your requirements. For information about creating templates, see [authoring Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-authoring-templates). For the JSON syntax and properties to use in a template, see [Microsoft.Kusto resource types](/azure/templates/microsoft.kusto/allversions).
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/)before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure Data Explorer cluster and database
 
@@ -83,7 +91,11 @@ In this article, you use an [existing quickstart template](https://raw.githubuse
 
 To find more template samples, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).
 
-To deploy the template:
+## Deploy the template
+
+You can deploy the Azure Resource Manager template by [using powershell](#using-powershell) or [using the Azure portal](#using-the-azure-portal)
+
+### Use powershell to deploy the template
 
 1. Select **Try it** from the following code block, and then follow the instructions to sign in to the Azure Cloud shell.
 
@@ -100,14 +112,23 @@ To deploy the template:
     Write-Host "Press [ENTER] to continue ..."
     ```
 
-   It takes a few moments to create an Azure Data Explorer cluster and database
-
 1. Select **Copy** to copy the PowerShell script.
 1. Right-click the shell console, and then select **Paste**.
+It takes a few minutes to create an Azure Data Explorer cluster and database.
+
+### Use the Azure portal to deploy the template
+
+1. To create a cluster and database, use the following button to start the deployment. Right-click and select **Open in new window**, so you can follow the rest of the steps in this article.
+
+    [![Deploy to Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+
+    The **Deploy to Azure** button takes you to the Azure portal to fill out a deployment form.
+
+    ![Deploy to Azure](media/ingest-data-event-hub/deploy-to-azure.png)
 
 ## Verify the deployment
 
-To verify the deployment, you can either open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+To verify the deployment, you can open the resource group from the [Azure portal](https://portal.azure.com), or use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
