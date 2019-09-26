@@ -114,7 +114,7 @@
       href: event-hubs-get-connection-string.md
     - name: Exchange events between applications using different protocols
       href: event-hubs-exchange-events-different-protocols.md
-    - name: Programming guide
+    - name: .NET programming guide
       href: event-hubs-programming-guide.md
     - name: Send, receive, and capture events using Python
       href: event-hubs-python.md

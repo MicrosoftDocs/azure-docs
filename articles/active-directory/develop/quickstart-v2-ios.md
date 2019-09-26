@@ -193,12 +193,9 @@ Your app must also have the following in your `AppDelegate`. This lets MSAL SDK 
 
  ```swift
  func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-         guard let sourceApplication = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String else {
-             return false
-         }
-         
-         return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApplication)
-     }
+        
+        return MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String)
+    }
 
  ```
 

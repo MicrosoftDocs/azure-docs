@@ -137,18 +137,6 @@
       href: Tutorials/choosing-capacity-qnamaker-deployment.md
     - name: Create a business continuity plan
       href: How-To/business-continuity-plan.md      
-  - name: Use REST API
-    items:
-    - name: C#
-      href: Quickstarts/csharp.md
-    - name: Java
-      href: Quickstarts/java.md
-    - name: Node.js
-      href: Quickstarts/nodejs.md
-    - name: Python
-      href: Quickstarts/python.md
-    - name: Go
-      href: Quickstarts/go.md
 - name: Reference
   items:
   - name: REST API Reference
