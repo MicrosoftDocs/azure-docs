@@ -40,7 +40,7 @@ This tutorial assumes that your [group manager](group-manager-tasks.md) and [tea
 - Team template and utilities **repositories**
 - **Permissions** on your organization account for you to create and edit repositories for your project
 
-To clone repositories and modify content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you also need the following:
+To clone repositories and modify content on your local machine or Data Science Virtual Machine (DSVM), or set up Azure file storage and mount it to your DSVM, you also need the following:
 
 - An Azure subscription.
 - Git installed on your machine. If you're using a DSVM, Git is pre-installed. Otherwise, see the [Platforms and tools appendix](platforms-and-tools.md#appendix).
@@ -52,7 +52,7 @@ To clone repositories and modify content on your local machine or DSVM, or set u
 
 To create a project repository in your team's **MyTeam** project:
 
-1. Go to your team's project **Summary** page at *https:\//\<servername>/\<organization-name>/\<TeamName>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, and select **Repos** from the left navigation. 
+1. Go to your team's project **Summary** page at *https:\//\<server name>/\<organization name>/\<team name>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, and select **Repos** from the left navigation. 
    
 1. Select the repository name at the top of the page, and then select **New repository** from the dropdown.
    
@@ -78,7 +78,7 @@ To populate your project repository with the contents of your team template repo
    
    ![Select Import](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your **TeamTemplate** repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>*. For example: *https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate*. 
+1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your **TeamTemplate** repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>*. For example: **https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate**. 
    
 1. Select **Import**. The contents of your team template repository are imported into your project repository. 
    
