@@ -93,7 +93,7 @@ This section covers the following aspects of planning:
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure AD Premium P1 or higher subscription license. The license required for every user that will be sourced from Workday and provisioned into either on-premises Active Directory or Azure Active Directory.
+* A valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from Workday and provisioned into either on-premises Active Directory or Azure Active Directory.
 * Azure AD global administrator access to configure the provisioning agent
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
