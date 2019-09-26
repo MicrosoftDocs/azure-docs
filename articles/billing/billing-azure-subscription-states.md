@@ -2,7 +2,7 @@
 title: Azure subscription states
 description: Describes the different states\status of an Azure subscription
 keywords: azure subscription state status
-author: andalmia
+author: anuragdalmia
 manager: andalmia
 tags: billing
 ms.service: billing
