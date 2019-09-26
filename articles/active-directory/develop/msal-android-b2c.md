@@ -82,7 +82,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## Interactively acquire a token
 
-To acquire a token interactively with MSAL, build a `AcquireTokenParameters` instance and supply it to `acquireToken`. The token request below uses the `default` authority.
+To acquire a token interactively with MSAL, build an `AcquireTokenParameters` instance and supply it to the `acquireToken` method. The token request below uses the `default` authority.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -113,7 +113,7 @@ pca.acquireToken(parameters);
 
 ## Silently renew a token
 
-`acquireTokenSilent` has an `AcquireTokenSilentParameters` object that specifies the request properties. Like the interactive token request `aquireToken`, it takes an `AcquireTokenParameters` object:
+To acquire a token silently with MSAL, build an `AcquireTokenSilentParameters` instance and supply it to the `acquireTokenSilentAsync` method. Unlike the `acquireToken` method, the `authority` must be specified to acquire a token silently.
 
 ```java
 IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
