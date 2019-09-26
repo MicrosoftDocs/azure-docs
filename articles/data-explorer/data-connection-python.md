@@ -71,6 +71,7 @@ For running the examples in this article, we need an Azure AD Application and se
     cluster_name = "mykustocluster";
     database_name = "mykustodatabase";
     data_connection_name = "myeventhubconnect";
+    #The event hub that is created in step(5) at the Prerequisite section
     event_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
     consumer_group = "$Default";
     location = "Central US";
