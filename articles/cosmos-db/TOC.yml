@@ -229,7 +229,7 @@
         href: spark-api-introduction.md
       - name: Lambda architecture
         href: lambda-architecture.md 
-    - name: Built-in analytics with Jupyter notebooks
+    - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
         href: cosmosdb-jupyter-notebooks.md
