@@ -77,8 +77,8 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 6.	The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) as needed.
 7.	Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 8.	An automated deployment approach. The goal of the automation of infrastructure deployments on Azure is to deploy in a deterministic way and get deterministic results. Many customers use PowerShell or CLI-based scripts. But there are various open-source technologies that you can use to deploy Azure infrastructure for SAP and even install SAP software. You can find examples on GitHub:
-	1. [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
-	1. [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
+	- [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana)
+	- [SAP HANA Installation](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.	Define a regular design and deployment review cadence between you as the customer, the system integrator, Microsoft, and other involved parties.
 
  
