@@ -2673,7 +2673,7 @@ By default, logic app instances run at the same time (concurrently or in paralle
 
 To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations when you use the concurrency control:
 
-* The concurrency control uses a "look back" window that includes only the latest 1,000 succeeded and failed runs. Despite having concurrency enabled, your logic app can enter a waiting state if the first instance in the look back window is still running. This condition prevents the window from moving forward and prevents Azure Logic Apps from creating new instances due to this waiting state. 
+* The concurrency control uses a "look back" window that includes only the latest 1,000 succeeded, failed, or in-progress runs. When concurrency is turned on, if the first logic app instance in the look back window is still running, new logic app runs go into a waiting state. This behavior happens even when the number of concurrent runs is less than the specified maximum number. This condition prevents the window from moving forward and prevents Azure Logic Apps from creating new instances due to this waiting state.
 
   * To interrupt this state, cancel the earliest instances that are *still running*.
 
