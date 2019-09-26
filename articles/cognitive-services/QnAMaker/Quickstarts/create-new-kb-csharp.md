@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically create a knowledge base using C#. 
 ---
@@ -22,6 +22,8 @@ This quickstart calls QnA Maker APIs:
 * [Create KB](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Get Operation Details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 * [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
+
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisites
 
