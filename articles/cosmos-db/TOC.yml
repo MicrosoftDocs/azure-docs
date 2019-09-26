@@ -36,8 +36,6 @@
           href: sql-api-async-java-get-started.md
         - name: Node.js
           href: sql-api-nodejs-get-started.md
-        - name: Create a notebook to visualize data
-          href: create-notebook-visualize-data.md
       - name: Build a web app
         items:
         - name: .NET
@@ -53,7 +51,9 @@
       href: import-data.md
     - name: 3 - Query data
       href: tutorial-query-sql-api.md
-    - name: 4 - Distribute data globally
+    - name: 4 - Create a notebook
+      href: create-notebook-visualize-data.md
+    - name: 5 - Distribute data globally
       href: tutorial-global-distribution-sql-api.md
   - name: Samples
     items:
