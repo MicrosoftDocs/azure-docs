@@ -1,7 +1,7 @@
 ---
 title: Azure subscription states
-description: Describes the different states of an Azure subscription
-keywords: azure subscription state
+description: Describes the different states\status of an Azure subscription
+keywords: azure subscription state status
 author: andalmia
 manager: andalmia
 tags: billing
@@ -15,6 +15,7 @@ ms.author: andalmia
 
 ---
 # Azure subscription states
+This article describes the various states that an Azure subscription may have. You will find these states show up as "Status" under subscription blades.
 
 | Subscription State | Description |
 |-------------| ----------------|
