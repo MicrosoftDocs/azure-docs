@@ -1,6 +1,6 @@
 ---
 title: Create a notebook in Azure Cosmos DB to analyze and visualize the data
-description: Learn how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB, analyze the data and visualize the output. 
+description: Learn how to use built-in Jupyter notebooks to import data to Azure Cosmos DB, analyze the data, and visualize the output. 
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 # Create a notebook in Azure Cosmos DB to analyze and visualize the data
 
-This article describes the how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB. You will see how to use the SQL and Cosmos magic commands to run queries, analyze the data, and visualize the results.
+This article describes how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB. You will see how to use the SQL and Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
 ## Prerequisites
 
@@ -19,17 +19,17 @@ This article describes the how to use built-in Jupyter notebooks to import sampl
 
 ## Create the resources and import data
  
-In this section, you will create the Azure Cosmos database, container and import the retail data to the container.
+In this section, you will create the Azure Cosmos database, container, and import the retail data to the container.
 
 1. Navigate to your Azure Cosmos account and open the **Data Explorer.**
 
-2. Go to the **Notebooks** tab, select … next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
+1. Go to the **Notebooks** tab, select `…` next to **My Notebooks** and create a **New Notebook**. Select **Python 3** as the default Kernel.
 
    ![Create a new notebook](./media/create-notebook-visualize-data/create-new-notebook.png)
 
-3. A new notebook is created you can rename it to something like **VisualizeRetailData.ipynb.**
+1. After a new notebook is created, you can rename it to something like **VisualizeRetailData.ipynb.**
 
-4. Next you will create a database named “RetailDemo” and a container named “WebsiteData” to store the retail data. You can use /CardID as the partition key. Copy and paste the following code to a new cell in your notebook and run it. To run a cell, select `shift + enter` Or select the cell and choose **Run Active Cell** option at the data explorer navigation bar.
+1. Next you will create a database named “RetailDemo” and a container named “WebsiteData” to store the retail data. You can use /CardID as the partition key. Copy and paste the following code to a new cell in your notebook and run it:
 
    ```python
    import azure.cosmos
@@ -42,14 +42,22 @@ In this section, you will create the Azure Cosmos database, container and import
    print('Container WebsiteData created')
    ```
 
-   The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RUs. If there are existing database and container with those names, they are replaced with the new resources. You will see the following output after the database and container is created. You can also refresh the **Data** tab and see the newly created resources:
+   To run a cell, select `Shift + Enter` Or select the cell and choose **Run Active Cell** option at the data explorer navigation bar.
+
+   ![Run the active cell](./media/create-notebook-visualize-data/run-active-cell.png)
+
+   The database and container are created in your current Azure Cosmos account. The container is provisioned with 400 RU/s. You will see the following output after the database and container is created. 
 
    ```console
 	Database RetailDemo created
 	Container WebsiteData created
    ```
 
-5. Import the sample retail data to your Azure Cosmos container. Here is the format of an item from the retail data:
+   You can also refresh the **Data** tab and see the newly created resources:
+
+   ![Refresh the data tab to see the new container](media/create-notebook-visualize-data/refresh-data-tab.png)
+
+ 1. Next you will import the sample retail data into Azure Cosmos container. Here is the format of an item from the retail data:
 
    ```json
    {
@@ -67,28 +75,28 @@ In this section, you will create the Azure Cosmos database, container and import
    }
    ```
 
- 6.	The sample retail data is stored in the Azure blob storage. You can import it to the Azure Cosmos container by pasting the following code into a new cell. You can confirm that the data is successfully imported by running a query to select the number of items.
+   For the tutorial purpose, the sample retail data is stored in the Azure blob storage. You can import it to the Azure Cosmos container by pasting the following code into a new cell. You can confirm that the data is successfully imported by running a query to select the number of items.
 
    ```python
-   # Read data from storage
-   import urllib.request, json
+    # Read data from storage
+    import urllib.request, json
 
-   with urllib.request.urlopen("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json") as url:
+    with urllib.request.urlopen("https://cosmosnotebooksdata.blob.core.windows.net/notebookdata/websiteData.json") as url:
       data = json.loads(url.read().decode())
 
-   print("Importing data. This will take a few minutes...\n")
+    print("Importing data. This will take a few minutes...\n")
 
-   for event in data:
-    try: 
+    for event in data:
+     try: 
         container.upsert_item(body=event)
-    except errors.CosmosHttpResponseError as e:
+     except errors.CosmosHttpResponseError as e:
         raise
         
-   ## Run a query against the container to see number of documents
-   query = 'SELECT VALUE COUNT(1) FROM c'
-   result = list(container.query_items(query, enable_cross_partition_query=True))
+    ## Run a query against the container to see number of documents
+    query = 'SELECT VALUE COUNT(1) FROM c'
+    result = list(container.query_items(query, enable_cross_partition_query=True))
 
-   print('Container with id \'{0}\' contains \'{1}\' items'.format(container.id, result[0]))
+    print('Container with id \'{0}\' contains \'{1}\' items'.format(container.id, result[0]))
    ```
 
    When you run the previous query, it returns the following output:
@@ -101,11 +109,14 @@ In this section, you will create the Azure Cosmos database, container and import
 
 ## Get your data into a DataFrame
 
-before running queries to analyze the data, you need to read the data from Azure Cosmos container to a DataFrame. A DataFrame is a 2-dimensional spreadsheet-like data structure with columns of different types. Use the following sql magic command to read the data into a DataFrame:
+Before running queries to analyze the data, you can read the data from container to a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html) for analysis. Use the following sql magic command to read the data into a DataFrame:
 
-`%%sql --database {database_id} --container {container_id} --output outputDataframeVar {Query text}`
+```bash
+%%sql --database {database_id} --container {container_id} --output outputDataframeVar 
+{Query text}
+```
 
-To learn more about the [](use-notebook-features-and-commands.md). You will run the query- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. The results will be saved into a Pandas DataFrame named df_cosmos. Paste the following command in a new notebook cell and run it:
+To learn more, see the [built-in notebook commands and features in Azure Cosmos DB](use-notebook-features-and-commands.md) article. You will run the query- `SELECT c.Action, c.Price as ItemRevenue, c.Country, c.Item FROM c`. The results will be saved into a Pandas DataFrame named df_cosmos. Paste the following command in a new notebook cell and run it:
 
 ```python
 %%sql --database RetailDemo --container WebsiteData --output df_cosmos
@@ -134,7 +145,7 @@ In this section, you will run some queries on the data retrieved.
 
    ![Total sales revenue output](./media/create-notebook-visualize-data/total-sales-revenue-output.png)
 
-* **Query2:** To get a list of top 5 purchased items, open a new notebook cell and run the following code:
+* **Query2:** To get a list of top five purchased items, open a new notebook cell and run the following code:
 
    ```python
    import pandas as pd
@@ -143,18 +154,18 @@ In this section, you will run some queries on the data retrieved.
    pd.DataFrame(df_cosmos[df_cosmos['Action']=='Purchased'].groupby('Item').size().sort_values(ascending=False).head(5), columns=['Count'])
    ```
 
-   ![Top 5 purchased items](./media/create-notebook-visualize-data/top5-purchased-items.png)
+   ![Top five purchased items](./media/create-notebook-visualize-data/top5-purchased-items.png)
 
 ## Visualize your data  
 
-1. Now that we have our data on revenue from the Azure Cosmos container, you can visualize it by using the interactive visualization library such as Bokeh. Bokeh offers support to visualize data geographically on maps. Open a new notebook cell and run the following code to install the Bokeh library. After all the requirements are satisfied, the library will be installed.
+1. Now that we have our data on revenue from the Azure Cosmos container, you can visualize your data with a visualization library of your choice. In this tutorial, we will use Bokeh library. Open a new notebook cell and run the following code to install the Bokeh library. After all the requirements are satisfied, the library will be installed.
 
    ```python
    import sys
    !{sys.executable} -m pip install bokeh --user
    ```
 
-2. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
+1. Next prepare to plot the data on a map. Join the data in Azure Cosmos DB with country information located in Azure Blob storage and convert the result to GeoJSON format. Copy the following code to a new notebook cell and run it.
 
    ```python
    import urllib.request, json
@@ -171,7 +182,7 @@ In this section, you will run some queries on the data retrieved.
    json_data = json.dumps(merged_json)
    ```
 
-3. Visualize the sales revenue of different countries on a world map by running the following code in a new notebook cell:
+1. Visualize the sales revenue of different countries on a world map by running the following code in a new notebook cell:
 
    ```python
     from bokeh.io import output_notebook, show
@@ -221,7 +232,7 @@ In this section, you will run some queries on the data retrieved.
 
    ![Countries revenue map visualization](./media/create-notebook-visualize-data/countries-revenue-map-visualization.png)
 
-4. Let’s see another case of data visualization. Let’s plot the conversion rate of items viewed, added to cart, and purchased. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Run the following code in a new cell to visualize the conversion rate for each item:
+1. Let’s see another case of data visualization. The WebsiteData container has record of users who viewed an item, added to their cart, and purchased the item. Let’s plot the conversion rate of items purchased. Run the following code in a new cell to visualize the conversion rate for each item:
 
    ```python
     from bokeh.io import show, output_notebook
