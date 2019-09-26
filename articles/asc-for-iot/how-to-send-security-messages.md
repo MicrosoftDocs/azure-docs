@@ -96,7 +96,7 @@ All data that is sent, even if marked with the correct header, must also comply 
 
 ### Send security message API 
 
-The **Send security messages** API is currently available in C and C#, Python, Node.js and Java.  
+The **Send security messages** API is currently available in C and C#, Python, Node.js, and Java.  
 
 #### C API
 
