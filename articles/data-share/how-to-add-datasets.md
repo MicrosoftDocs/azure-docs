@@ -1,12 +1,11 @@
 ---
-title: Add datasets to an existing data share in Azure Data Share Preview
+title: Add datasets to an existing Azure Data Share Preview
 description: Add datasets to an existing data share
-author: madams0013
-
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
 ---
 
 # How to add datasets to an existing share in Azure Data Share Preview
