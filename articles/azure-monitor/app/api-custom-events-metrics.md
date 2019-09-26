@@ -60,7 +60,7 @@ If you don't have a reference on Application Insights SDK yet:
 
 Get an instance of `TelemetryClient` (except in JavaScript in webpages):
 
-For [ASP.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/asp-net-core#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](https://docs.microsoft.com/en-us/azure/azure-monitor/app/worker-service#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of TelemetryClient from the dependency injection container as explained in their respective documentation.
+For [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps and [Non HTTP/Worker for .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) apps, it is recommended to get an instance of TelemetryClient from the dependency injection container as explained in their respective documentation.
 
 *C#*
 
