@@ -58,7 +58,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Customers should be informed that the deprecated WMI endpoints for MIIS_Service have now been removed. Any WMI operations should now be done via PS cmdlets.
 - Security improvement by resetting constrained delegation on AZUREADSSOACC object
 - When adding/editing a sync rule, if there are any attributes used in the rule that are in the connector schema but not added to the connector, the attributes automatically added to the connector. The same is true for the object type the rule affects. If anything is added to the connector, the connector will be marked for full import on the next sync cycle.
-- Using an Enterprise or Domain admin as the connector account is no longer supported.
+- Using an Enterprise or Domain admin as the connector account is no longer supported in new AAD Connect Deployments. Current AAD Connect deployments using an Enterprise or Domain admin as the connector account will not be affected by this release.
 - In the Synchronization Manager a full sync is run on rule creation/edit/deletion. A popup will appear on any rule change notifying the user if full import or full sync is going to be run.
 - Added mitigation steps for password errors to 'connectors > properties > connectivity' page
 - Added a deprecation warning for the sync service manager on the connector properties page. This warning notifies the user that changes should be made through the AADC wizard.
