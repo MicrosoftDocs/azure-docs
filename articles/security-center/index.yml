@@ -28,6 +28,7 @@ landingContent:
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
           - text: Integration with other Azure security products
+            url: security-center-alerts-integration.md
       - linkListType: learn
         links:
           - text: Which versions of Windows server and Linux are supported?
