@@ -85,7 +85,9 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 ### Is Dynamics 365 supported on ExpressRoute?
 
-Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and therefore customers benefit from the underlying ExpressRoute support for Azure resources. You can connect to its service endpoints if your router filter includes the Azure regions your Dynamics 365/CDS environments are hosted in. The Dynamics route filter is referred to as CRM Online, 12076:5040, and does not require the Premium Add-On. 
+Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and therefore customers benefit from the underlying ExpressRoute support for Azure resources. You can connect to its service endpoints if your router filter includes the Azure regions your Dynamics 365/CDS environments are hosted in.
+
+Note: [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) is **not** required for Dynamics 365 connectivity via Azure ExpressRoute.
 
 ## Data and connections
 
