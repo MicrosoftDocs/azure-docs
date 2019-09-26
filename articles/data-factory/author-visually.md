@@ -14,7 +14,7 @@ ms.reviewer:
 manager: craigg
 ---
 
-[!INCLUDE[appliesto-adf-xxx-md](../includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 # Visual authoring in Azure Data Factory
 
