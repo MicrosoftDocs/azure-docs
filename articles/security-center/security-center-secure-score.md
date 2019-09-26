@@ -3,18 +3,16 @@ title: Secure score in Azure Security Center | Microsoft Docs
 description: " Prioritize your security recommendations using the secure score in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
 ms.service: security-center
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: v-mohabe
+ms.date: 01/15/2019
+ms.author: memildin
 
 ---
 # Improve your secure score in Azure Security Center

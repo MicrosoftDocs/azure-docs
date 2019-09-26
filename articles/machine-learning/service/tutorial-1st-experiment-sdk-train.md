@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Train your first ML model"
-titleSuffix: Azure Machine Learning service
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set.
+titleSuffix: Azure Machine Learning
+description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 09/03/2019
 
 # Tutorial: Train your first ML model
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning service, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
@@ -45,6 +45,10 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
    This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the notebook VM itself.  If you delete the notebook VM, you'll still keep all your work.  When you create a new notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
 1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
+
+> [!Warning]
+> Do **not** create a *new* notebook in the Jupyter interface! The notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` is inclusive of **all code and data needed** 
+> for this tutorial.
 
 ## Connect workspace and create experiment
 
@@ -192,7 +196,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 ## Clean up resources
 
-Do not complete this section if you plan on running other Azure Machine Learning service tutorials.
+Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
 ### Stop the notebook VM
 
