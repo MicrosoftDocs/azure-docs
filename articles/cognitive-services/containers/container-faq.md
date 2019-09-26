@@ -44,7 +44,7 @@ ms.author: dapine
 Cognitive Services container configurations of resources are controlled by customers, so Microsoft will not offer an SLA for general availability (GA). Customers are free to deploy containers on-premises, thus they define the host environments.
 
 > [!IMPORTANT]
-> To learn more about Cognitive Services Service-Level Agreements, [visit our SLA page](https://azure.microsoft.com/en-us/support/legal/sla/cognitive-services/v1_1/).
+> To learn more about Cognitive Services Service-Level Agreements, [visit our SLA page](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
 
 **Q: Are these containers available in sovereign clouds?**
 
@@ -72,7 +72,7 @@ Unfortunately, the Cognitive Services containers are *not* natively supported in
 
 **Q: How should I run the Cognitive Services containers on IoT devices?**
 
-Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/en-us/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
+Whether you don’t have a reliable internet connection, or want to save on bandwidth cost. Or if have low-latency requirements, or are dealing with sensitive data that needs to be analyzed on-site, [Azure IoT Edge with the Cognitive Services containers](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) gives you consistency with the cloud.
 
 **Q: How do I provide product feedback and feature recommendations?**
 
@@ -84,11 +84,11 @@ Whether you don’t have a reliable internet connection, or want to save on band
 
 ### Customer support plan
 
-Customers should refer to their [Azure support plan](https://azure.microsoft.com/en-us/support/plans/) to see who to contact for support.
+Customers should refer to their [Azure support plan](https://azure.microsoft.com/support/plans/) to see who to contact for support.
 
 ### Azure knowledge center
 
-Customer are free to explore the [Azure knowledge center](https://azure.microsoft.com/en-us/resources/knowledge-center/) to answer questions and support issues.
+Customer are free to explore the [Azure knowledge center](https://azure.microsoft.com/resources/knowledge-center/) to answer questions and support issues.
 
 ### Stack Overflow
 
@@ -106,7 +106,7 @@ Explore the following tags for potential questions and answers that align with y
 * [Anomaly Detector][ad-containers-billing]
 * [Computer Vision][cv-containers-billing]
 * [Face][fa-containers-billing]
-* [Form Recognizerg][fr-containers-billing]
+* [Form Recognizer][fr-containers-billing]
 * [Language Understanding (LUIS)][lu-containers-billing]
 * [Speech Service API][sp-containers-billing]
 * [Text Analytics][ta-containers-billing]
