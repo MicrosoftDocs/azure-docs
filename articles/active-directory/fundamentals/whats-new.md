@@ -135,12 +135,12 @@ For information about how to set up the Power BI mobile app with Azure AD Applic
 
 New cmdlets were added to the AzureADPreview module, to help define and assign custom roles in Azure AD, including:
 
-    - `Add-AzureADMSFeatureRolloutPolicyDirectoryObject`
-    - `Get-AzureADMSFeatureRolloutPolicy`
-    - `New-AzureADMSFeatureRolloutPolicy`
-    - `Remove-AzureADMSFeatureRolloutPolicy`
-    - `Remove-AzureADMSFeatureRolloutPolicyDirectoryObject`
-    - `Set-AzureADMSFeatureRolloutPolicy`
+- `Add-AzureADMSFeatureRolloutPolicyDirectoryObject`
+- `Get-AzureADMSFeatureRolloutPolicy`
+- `New-AzureADMSFeatureRolloutPolicy`
+- `Remove-AzureADMSFeatureRolloutPolicy`
+- `Remove-AzureADMSFeatureRolloutPolicyDirectoryObject`
+- `Set-AzureADMSFeatureRolloutPolicy`
 
 ---
 
