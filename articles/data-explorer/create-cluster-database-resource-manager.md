@@ -93,7 +93,7 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 
 ## Deploy the template and verify template deployment
 
-You can deploy the Azure Resource Manager template by [using powershell](#use-powershell-to-deploy-the-template) or [using the Azure portal](#use-the-azure-portal-to-deploy-the-template).
+You can deploy the Azure Resource Manager template by [using powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment) or [using the Azure portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment).
 
 ### Use the Azure portal to deploy the template and verify template deployment
 
