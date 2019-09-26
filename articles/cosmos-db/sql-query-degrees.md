@@ -1,11 +1,12 @@
 ---
-title: DEGREES (Azure Cosmos DB)
+title: DEGREES in Azure Cosmos DB query language
 description: Learn about SQL system function DEGREES in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # DEGREES (Azure Cosmos DB)
  Returns the corresponding angle in degrees for an angle specified in radians.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-DEGREES (<numeric_expression>)  
+DEGREES (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

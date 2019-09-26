@@ -1,11 +1,12 @@
 ---
-title: ARRAY_LENGTH (Azure Cosmos DB)
+title: ARRAY_LENGTH in Azure Cosmos DB query language
 description: Learn about SQL system function ARRAY_LENGTH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ARRAY_LENGTH (Azure Cosmos DB)
  Returns the number of elements of the specified array expression.  
@@ -19,7 +20,7 @@ ARRAY_LENGTH(<arr_expr>)
 ## Arguments
   
 *arr_expr*  
-   Is any valid array expression.  
+   Is an array expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ ARRAY_LENGTH(<arr_expr>)
   
 ## Examples
   
-  The following example how to get the length of an array using ARRAY_LENGTH.  
+  The following example how to get the length of an array using `ARRAY_LENGTH`.  
   
 ```sql
 SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len  

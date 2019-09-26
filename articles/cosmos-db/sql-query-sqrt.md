@@ -1,11 +1,12 @@
 ---
-title: SQRT (Azure Cosmos DB)
+title: SQRT in Azure Cosmos DB query language
 description: Learn about SQL system function SQRT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # SQRT (Azure Cosmos DB)
  Returns the square root of the specified numeric value.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-SQRT(<numeric_expression>)  
+SQRT(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

@@ -1,11 +1,12 @@
 ---
-title: SUBSTRING (Azure Cosmos DB)
+title: SUBSTRING in Azure Cosmos DB query language
 description: Learn about SQL system function SUBSTRING in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # SUBSTRING (Azure Cosmos DB)
  Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string.  
@@ -13,17 +14,20 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
+SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)  
 ```  
   
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is a string expression.
   
-*num_expr*  
-   Is any valid numeric expression to denote the start and end character.    
+*num_expr1*  
+   Is a numeric expression to denote the start character. A value of 0 is the first character of *str_expr*.
   
+*num_expr2*  
+   Is a numeric expression to denote the maximum number of characters of *str_expr* to be returned. A value of 0 or less results in empty string.
+
 ## Return Types
   
   Returns a string expression.  

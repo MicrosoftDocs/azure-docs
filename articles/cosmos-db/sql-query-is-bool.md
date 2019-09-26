@@ -1,11 +1,12 @@
 ---
-title: IS_BOOL (Azure Cosmos DB)
+title: IS_BOOL in Azure Cosmos DB query language
 description: Learn about SQL system function IS_BOOL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # IS_BOOL (Azure Cosmos DB)
  Returns a Boolean value indicating if the type of the specified expression is a Boolean.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-IS_BOOL(<expression>)  
+IS_BOOL(<expr>)  
 ```  
   
 ## Arguments
   
-*expression*  
-   Is any valid expression.  
+*expr*  
+   Is any expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ IS_BOOL(<expression>)
   
 ## Examples
   
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_BOOL` function.  
   
 ```sql
 SELECT   

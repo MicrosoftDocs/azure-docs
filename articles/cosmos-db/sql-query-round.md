@@ -1,11 +1,12 @@
 ---
-title: ROUND (Azure Cosmos DB)
+title: ROUND in Azure Cosmos DB query language
 description: Learn about SQL system function ROUND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ROUND (Azure Cosmos DB)
  Returns a numeric value, rounded to the closest integer value.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ROUND(<numeric_expression>)  
+ROUND(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -29,7 +30,7 @@ ROUND(<numeric_expression>)
   
   The rounding operation performed follows midpoint rounding away from zero. If the input is a numeric expression which falls exactly between two integers then the result will be the closest integer value away from zero.  
   
-  |<numeric_expression>|Rounded|
+  |<numeric_expr>|Rounded|
   |-|-|
   |-6.5000|-7|
   |-0.5|-1|

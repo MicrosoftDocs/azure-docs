@@ -1,11 +1,12 @@
 ---
-title: ST_WITHIN (Azure Cosmos DB)
+title: ST_WITHIN in Azure Cosmos DB query language
 description: Learn about SQL system function ST_WITHIN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ST_WITHIN (Azure Cosmos DB)
  Returns a Boolean expression indicating whether the GeoJSON object (Point, Polygon, or LineString) specified in the first argument is within the GeoJSON (Point, Polygon, or LineString) in the second argument.  
@@ -19,10 +20,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
 ## Arguments
   
 *spatial_expr*  
-   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
- 
-*spatial_expr*  
-   Is any valid GeoJSON Point, Polygon, or LineString object expression.  
+   Is a GeoJSON Point, Polygon, or LineString object expression.  
   
 ## Return Types
   
@@ -30,7 +28,7 @@ ST_WITHIN (<spatial_expr>, <spatial_expr>)
   
 ## Examples
   
-  The following example shows how to find all family documents within a polygon using ST_WITHIN.  
+  The following example shows how to find all family documents within a polygon using `ST_WITHIN`.  
   
 ```sql
 SELECT f.id   

@@ -1,11 +1,12 @@
 ---
-title: REVERSE (Azure Cosmos DB)
+title: REVERSE in Azure Cosmos DB query language
 description: Learn about SQL system function REVERSE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # REVERSE (Azure Cosmos DB)
  Returns the reverse order of a string value.  
@@ -19,7 +20,7 @@ REVERSE(<str_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is a string expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ REVERSE(<str_expr>)
   
 ## Examples
   
-  The following example shows how to use REVERSE in a query.  
+  The following example shows how to use `REVERSE` in a query.  
   
 ```sql
 SELECT REVERSE("Abc") AS reverse  

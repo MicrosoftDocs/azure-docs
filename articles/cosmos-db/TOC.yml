@@ -206,76 +206,76 @@
               displayName: mathematical, mathematical functions, system functions, built-in functions
               href: sql-query-mathematical-functions.md
             - name: ABS
-              displayName: ABS, abs, absolute value, built-in functions
+              displayName: ABS, absolute value, built-in functions
               href: sql-query-abs.md
             - name: ACOS
-              displayName: ACOS, acos, arccosine, built-in functions
+              displayName: ACOS, arccosine, built-in functions
               href: sql-query-acos.md
             - name: ASIN
-              displayName: ASIN, asin, asine, built-in functions
+              displayName: ASIN, asine, built-in functions
               href: sql-query-asin.md
             - name: ATAN
-              displayName: ATAN, atan, built-in functions
+              displayName: ATAN, arctangent, built-in functions
               href: sql-query-atan.md
             - name: ATN2
-              displayName: ATN2, atn2, built-in functions
+              displayName: ATN2, built-in functions
               href: sql-query-atn2.md
             - name: CEILING
-              displayName: CEILING, ceiling, built-in functions
+              displayName: CEILING, built-in functions
               href: sql-query-ceiling.md
             - name: COS
-              displayName: COS, cos, cosine, built-in functions
+              displayName: COS, cosine, built-in functions
               href: sql-query-cos.md
             - name: COT
-              displayName: COT, cot, built-in functions
+              displayName: COT, cotangent, built-in functions
               href: sql-query-cot.md
             - name: DEGREES
-              displayName: DEGREES, degrees, built-in functions
+              displayName: DEGREES, built-in functions
               href: sql-query-degrees.md
             - name: EXP
-              displayName: EXP, exp, built-in functions
+              displayName: EXP, exponential value, built-in functions
               href: sql-query-exp.md
             - name: FLOOR
-              displayName: FLOOR, floor, built-in functions
+              displayName: FLOOR, built-in functions
               href: sql-query-floor.md
             - name: LOG
-              displayName: LOG, log, built-in functions
+              displayName: LOG, logarithm, built-in functions
               href: sql-query-log.md
             - name: LOG10
-              displayName: LOG10, log10, log base 10, built-in functions
+              displayName: LOG10, log base 10, built-in functions
               href: sql-query-log10.md
             - name: PI
-              displayName: PI, pi, built-in functions
+              displayName: PI, built-in functions
               href: sql-query-pi.md
             - name: POWER
-              displayName: POWER, power, built-in functions
+              displayName: POWER, exponent, built-in functions
               href: sql-query-power.md
             - name: RADIANS
-              displayName: RADIANS, radians, built-in functions
+              displayName: RADIANS, built-in functions
               href: sql-query-radians.md
             - name: RAND
-              displayName: RAND, rand, random, built-in functions
+              displayName: RAND, random, built-in functions
               href: sql-query-rand.md
             - name: ROUND
-              displayName: ROUND, round, built-in functions
+              displayName: ROUND, built-in functions
               href: sql-query-round.md
             - name: SIGN
-              displayName: SIGN, sign, built-in functions
+              displayName: SIGN, built-in functions
               href: sql-query-sign.md              
             - name: SIN
-              displayName: SIN, sin, sine, built-in functions
+              displayName: SIN, sine, built-in functions
               href: sql-query-sin.md
             - name: SQRT
-              displayName: SQRT, sqrt, square root, built-in functions
+              displayName: SQRT, square root, built-in functions
               href: sql-query-sqrt.md
             - name: SQUARE
-              displayName: SQUARE, square, built-in functions
+              displayName: SQUARE, built-in functions
               href: sql-query-square.md
             - name: TAN
-              displayName: TAN, tan, built-in functions
+              displayName: TAN, built-in functions
               href: sql-query-tan.md
             - name: TRUNC
-              displayName: TRUNC, trunc, truncate, built-in functions
+              displayName: TRUNC, truncate, built-in functions
               href: sql-query-trunc.md                        
           - name: Spatial functions
             items:
@@ -303,46 +303,46 @@
               displayName: string functions, string, system functions, built-in functions
               href: sql-query-string-functions.md
             - name: CONCAT
-              displayName: CONCAT, concat, concatanate, built-in functions
+              displayName: CONCAT, concatanate, built-in functions
               href: sql-query-concat.md
             - name: CONTAINS
-              displayName: CONTAINS, contains, built-in functions
+              displayName: CONTAINS, built-in functions
               href: sql-query-contains.md
             - name: ENDSWITH
-              displayName: ENDSWITH, endswith, built-in functions
+              displayName: ENDSWITH, built-in functions
               href: sql-query-endswith.md
             - name: INDEX_OF
               displayName: INDEX_OF, index of, built-in functions
               href: sql-query-index-of.md
             - name: LEFT
-              displayName: LEFT, left, built-in functions
+              displayName: LEFT, built-in functions
               href: sql-query-left.md
             - name: LENGTH
-              displayName: LENGTH, length, built-in functions
+              displayName: LENGTH, built-in functions
               href: sql-query-length.md
             - name: LOWER
-              displayName: LOWER, lower, built-in functions
+              displayName: LOWER, built-in functions
               href: sql-query-lower.md
             - name: LTRIM
-              displayName: LTRIM, ltrim, left trim, built-in functions
+              displayName: LTRIM, left trim, built-in functions
               href: sql-query-ltrim.md
             - name: REPLACE
-              displayName: REPLACE, replace, built-in functions
+              displayName: REPLACE, built-in functions
               href: sql-query-replace.md
             - name: REPLICATE
-              displayName: REPLICATE, replicate, built-in functions
+              displayName: REPLICATE, built-in functions
               href: sql-query-replicate.md
             - name: REVERSE
-              displayName: REVERSE, reverse, built-in functions
+              displayName: REVERSE, built-in functions
               href: sql-query-reverse.md
             - name: RIGHT
-              displayName: RIGHT, right, built-in functions
+              displayName: RIGHT, built-in functions
               href: sql-query-right.md
             - name: RTRIM
-              displayName: RTRIM, rtrim, right trim, built-in functions
+              displayName: RTRIM, right trim, built-in functions
               href: sql-query-rtrim.md
             - name: STARTSWITH
-              displayName: STARTSWITH, startswith, starts with, built-in functions
+              displayName: STARTSWITH, starts with, built-in functions
               href: sql-query-startswith.md
             - name: StringToArray
               displayName: StringToArray, string to array, built-in functions
@@ -360,16 +360,16 @@
               displayName: StringToObject, string to object, built-in functions
               href: sql-query-stringtoobject.md
             - name: SUBSTRING
-              displayName: SUBSTRING, substring, built-in functions
+              displayName: SUBSTRING, built-in functions
               href: sql-query-substring.md
             - name: ToString
               displayName: ToString, to sting, built-in functions
               href: sql-query-tostring.md
             - name: TRIM
-              displayName: TRIM, trim, built-in functions
+              displayName: TRIM, built-in functions
               href: sql-query-trim.md
             - name: UPPER
-              displayName: UPPER, upper, built-in functions
+              displayName: UPPER, built-in functions
               href: sql-query-upper.md       
           - name: Type checking functions
             items:

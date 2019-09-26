@@ -1,11 +1,12 @@
 ---
-title: RTRIM (Azure Cosmos DB)
+title: RTRIM in Azure Cosmos DB query language
 description: Learn about SQL system function RTRIM in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # RTRIM (Azure Cosmos DB)
  Returns a string expression after it removes trailing blanks.  
@@ -27,7 +28,7 @@ RTRIM(<str_expr>)
   
 ## Examples
   
-  The following example shows how to use RTRIM inside a query.  
+  The following example shows how to use `RTRIM` inside a query.  
   
 ```sql
 SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3  

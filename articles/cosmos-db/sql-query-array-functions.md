@@ -1,13 +1,14 @@
 ---
-title: Array functions (Azure Cosmos DB)
+title: Array functions in Azure Cosmos DB query language
 description: Learn about array SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
-# Array functions
+# Array functions (Azure Cosmos DB)
 
 The following scalar functions perform an operation on an array input value and return numeric, boolean or array value:
   

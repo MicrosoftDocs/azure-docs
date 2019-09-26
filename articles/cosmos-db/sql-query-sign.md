@@ -1,11 +1,12 @@
 ---
-title: SIGN (Azure Cosmos DB)
+title: SIGN in Azure Cosmos DB query language
 description: Learn about SQL system function SIGN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # SIGN (Azure Cosmos DB)
  Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-SIGN(<numeric_expression>)  
+SIGN(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ SIGN(<numeric_expression>)
   
 ## Examples
   
-  The following example returns the SIGN values of numbers from -2 to 2.  
+  The following example returns the `SIGN` values of numbers from -2 to 2.  
   
 ```sql
 SELECT SIGN(-2) AS s1, SIGN(-1) AS s2, SIGN(0) AS s3, SIGN(1) AS s4, SIGN(2) AS s5  

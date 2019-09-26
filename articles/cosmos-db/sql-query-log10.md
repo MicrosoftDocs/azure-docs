@@ -1,11 +1,12 @@
 ---
-title: LOG10 (Azure Cosmos DB)
+title: LOG10 in Azure Cosmos DB query language
 description: Learn about SQL system function LOG10 in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # LOG10 (Azure Cosmos DB)
  Returns the base-10 logarithm of the specified numeric expression.  
@@ -13,7 +14,7 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-LOG10 (<numeric_expression>)  
+LOG10 (<numeric_expr>)  
 ```  
   
 ## Arguments

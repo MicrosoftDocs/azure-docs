@@ -1,11 +1,12 @@
 ---
-title: ACOS (Azure Cosmos DB)
+title: ACOS in Azure Cosmos DB query language
 description: Learn about SQL system function ACOS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ACOS (Azure Cosmos DB)
  Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ACOS(<numeric_expression>)  
+ACOS(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ ACOS(<numeric_expression>)
   
 ## Examples
   
-  The following example returns the ACOS of -1.  
+  The following example returns the `ACOS` of -1.  
   
 ```sql
 SELECT ACOS(-1) AS acos 

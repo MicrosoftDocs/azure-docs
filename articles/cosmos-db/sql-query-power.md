@@ -1,11 +1,12 @@
 ---
-title: POWER (Azure Cosmos DB)
+title: POWER in Azure Cosmos DB query language
 description: Learn about SQL system function POWER in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # POWER (Azure Cosmos DB)
  Returns the value of the specified expression to the specified power.  
@@ -13,16 +14,16 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-POWER (<numeric_expression>, <y>)  
+POWER (<numeric_expr1>, <numeric_expr2>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr1*  
    Is a numeric expression.  
   
-*y*  
-   Is the power to which to raise `numeric_expression`.  
+*numeric_expr2*  
+   Is the power to which to raise *numeric_expr1*.  
   
 ## Return Types
   

@@ -1,11 +1,12 @@
 ---
-title: REPLICATE (Azure Cosmos DB)
+title: REPLICATE in Azure Cosmos DB query language
 description: Learn about SQL system function REPLICATE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # REPLICATE (Azure Cosmos DB)
  Repeats a string value a specified number of times.
@@ -19,10 +20,10 @@ REPLICATE(<str_expr>, <num_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.
+   Is a string expression.
   
 *num_expr*  
-   Is any valid numeric expression. If num_expr is negative or non-finite, the result is undefined.
+   Is a numeric expression. If num_expr is negative or non-finite, the result is undefined.
   
 ## Return Types
   
@@ -33,7 +34,7 @@ REPLICATE(<str_expr>, <num_expr>)
 
 ## Examples
   
-  The following example shows how to use REPLICATE in a query.
+  The following example shows how to use `REPLICATE` in a query.
   
 ```sql
 SELECT REPLICATE("a", 3) AS replicate

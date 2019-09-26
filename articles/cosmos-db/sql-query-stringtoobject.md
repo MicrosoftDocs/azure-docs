@@ -1,11 +1,12 @@
 ---
-title: StringToObject (Azure Cosmos DB)
+title: StringToObject in Azure Cosmos DB query language
 description: Learn about SQL system function StringToObject in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # StringToObject (Azure Cosmos DB)
  Returns expression translated to an Object. If expression cannot be translated, returns undefined.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-StringToObject(<expr>)  
+StringToObject(<str_expr>)  
 ```  
   
 ## Arguments
   
-*expr*  
-   Is any valid scalar expression to be evaluated as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
+*str_expr*  
+   Is a string expression to be parsed as a JSON object expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ StringToObject(<expr>)
   
 ## Examples
   
-  The following example shows how StringToObject behaves across different types. 
+  The following example shows how `StringToObject` behaves across different types. 
   
  The following are examples with valid input.
 

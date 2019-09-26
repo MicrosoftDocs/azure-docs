@@ -1,11 +1,12 @@
 ---
-title: COT (Azure Cosmos DB)
+title: COT in Azure Cosmos DB query language
 description: Learn about SQL system function COT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # COT (Azure Cosmos DB)
  Returns the trigonometric cotangent of the specified angle, in radians, in the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-COT(<numeric_expression>)  
+COT(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ COT(<numeric_expression>)
   
 ## Examples
   
-  The following example calculates the COT of the specified angle.  
+  The following example calculates the `COT` of the specified angle.  
   
 ```sql
 SELECT COT(124.1332) AS cot  

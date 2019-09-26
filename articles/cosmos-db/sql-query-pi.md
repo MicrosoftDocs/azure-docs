@@ -1,11 +1,12 @@
 ---
-title: PI (Azure Cosmos DB)
+title: PI in Azure Cosmos DB query language
 description: Learn about SQL system function PI in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # PI (Azure Cosmos DB)
  Returns the constant value of PI.  
@@ -22,7 +23,7 @@ PI ()
   
 ## Examples
   
-  The following example returns the value of PI.  
+  The following example returns the value of `PI`.  
   
 ```sql
 SELECT PI() AS pi 

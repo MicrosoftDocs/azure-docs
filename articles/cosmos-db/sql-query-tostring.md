@@ -1,11 +1,12 @@
 ---
-title: ToString (Azure Cosmos DB)
+title: ToString in Azure Cosmos DB query language
 description: Learn about SQL system function ToString in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ToString (Azure Cosmos DB)
  Returns a string representation of scalar expression. 
@@ -19,7 +20,7 @@ ToString(<expr>)
 ## Arguments
   
 *expr*  
-   Is any valid scalar expression.  
+   Is any scalar expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ ToString(<expr>)
   
 ## Examples
   
-  The following example shows how ToString behaves across different types.   
+  The following example shows how `ToString` behaves across different types.   
   
 ```sql
 SELECT 
@@ -50,7 +51,7 @@ SELECT
 ```json
 {"Products":[{"ProductID":1,"Weight":4,"WeightUnits":"lb"},{"ProductID":2,"Weight":32,"WeightUnits":"kg"},{"ProductID":3,"Weight":400,"WeightUnits":"g"},{"ProductID":4,"Weight":8999,"WeightUnits":"mg"}]}
 ```    
- The following example shows how ToString can be used with other string functions like CONCAT.   
+ The following example shows how `ToString` can be used with other string functions like `CONCAT`.   
  
 ```sql
 SELECT 
@@ -71,7 +72,7 @@ Given the following input.
 ```json
 {"id":"08259","description":"Cereals ready-to-eat, KELLOGG, KELLOGG'S CRISPIX","nutrients":[{"id":"305","description":"Caffeine","units":"mg"},{"id":"306","description":"Cholesterol, HDL","nutritionValue":30,"units":"mg"},{"id":"307","description":"Sodium, NA","nutritionValue":612,"units":"mg"},{"id":"308","description":"Protein, ABP","nutritionValue":60,"units":"mg"},{"id":"309","description":"Zinc, ZN","nutritionValue":null,"units":"mg"}]}
 ```
-The following example shows how ToString can be used with other string functions like REPLACE.   
+The following example shows how `ToString` can be used with other string functions like `REPLACE`.   
 ```sql
 SELECT 
     n.id AS nutrientID,

@@ -1,11 +1,12 @@
 ---
-title: ST_ISVALIDDETAILED (Azure Cosmos DB)
+title: ST_ISVALIDDETAILED in Azure Cosmos DB query language
 description: Learn about SQL system function ST_ISVALIDDETAILED in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ST_ISVALIDDETAILED (Azure Cosmos DB)
  Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value.  
@@ -19,7 +20,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 ## Arguments
   
 *spatial_expr*  
-   Is any valid GeoJSON point or polygon expression.  
+   Is a GeoJSON point or polygon expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
   
 ## Examples
   
-  The following example how to check validity (with details) using ST_ISVALIDDETAILED.  
+  The following example how to check validity (with details) using `ST_ISVALIDDETAILED`.  
   
 ```sql
 SELECT ST_ISVALIDDETAILED({   

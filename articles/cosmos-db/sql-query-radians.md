@@ -1,11 +1,12 @@
 ---
-title: RADIANS (Azure Cosmos DB)
+title: RADIANS in Azure Cosmos DB query language
 description: Learn about SQL system function RADIANS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # RADIANS (Azure Cosmos DB)
  Returns radians when a numeric expression, in degrees, is entered.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-RADIANS (<numeric_expression>)  
+RADIANS (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

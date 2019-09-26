@@ -1,11 +1,12 @@
 ---
-title: TAN (Azure Cosmos DB)
+title: TAN in Azure Cosmos DB query language
 description: Learn about SQL system function TAN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # TAN (Azure Cosmos DB)
  Returns the tangent of the specified angle, in radians, in the specified expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-TAN (<numeric_expression>)  
+TAN (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

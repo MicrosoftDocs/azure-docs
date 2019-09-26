@@ -1,11 +1,12 @@
 ---
-title: SIN (Azure Cosmos DB)
+title: SIN in Azure Cosmos DB query language
 description: Learn about SQL system function SIN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # SIN (Azure Cosmos DB)
  Returns the trigonometric sine of the specified angle, in radians, in the specified expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-SIN(<numeric_expression>)  
+SIN(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ SIN(<numeric_expression>)
   
 ## Examples
   
-  The following example calculates the SIN of the specified angle.  
+  The following example calculates the `SIN` of the specified angle.  
   
 ```sql
 SELECT SIN(45.175643) AS sin  

@@ -1,11 +1,12 @@
 ---
-title: ABS (Azure Cosmos DB)
+title: ABS in Azure Cosmos DB query language
 description: Learn about SQL system function ABS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ABS (Azure Cosmos DB)
  Returns the absolute (positive) value of the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ABS (<numeric_expression>)  
+ABS (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ ABS (<numeric_expression>)
   
 ## Examples
   
-  The following example shows the results of using the ABS function on three different numbers.  
+  The following example shows the results of using the `ABS` function on three different numbers.  
   
 ```sql
 SELECT ABS(-1) AS abs1, ABS(0) AS abs2, ABS(1) AS abs3 

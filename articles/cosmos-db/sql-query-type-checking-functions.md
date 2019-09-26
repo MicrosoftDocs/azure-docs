@@ -1,13 +1,14 @@
 ---
-title: Type checking functions (Azure Cosmos DB)
+title: Type checking functions in Azure Cosmos DB query language
 description: Learn about type checking SQL system functions in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
-# Type checking functions
+# Type checking functions (Azure Cosmos DB)
 
 The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. Here’s a table of supported built-in type-checking functions:
 

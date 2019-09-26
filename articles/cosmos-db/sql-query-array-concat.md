@@ -1,11 +1,12 @@
 ---
-title: ARRAY_CONCAT (Azure Cosmos DB)
+title: ARRAY_CONCAT in Azure Cosmos DB query language
 description: Learn about SQL system function ARRAY_CONCAT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ARRAY_CONCAT (Azure Cosmos DB)
  Returns an array that is the result of concatenating two or more array values.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ARRAY_CONCAT (<arr_expr>, <arr_expr> [, <arr_expr>])  
+ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])  
 ```  
   
 ## Arguments
   
 *arr_expr*  
-   Is any valid array expression.  
+   Is an array expression to concatenate to the other values. The `ARRAY_CONCAT` function requires at least two *arr_expr* arguments.  
   
 ## Return Types
   

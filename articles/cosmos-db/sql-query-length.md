@@ -1,11 +1,12 @@
 ---
-title: LENGTH (Azure Cosmos DB)
+title: LENGTH in Azure Cosmos DB query language
 description: Learn about SQL system function LENGTH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # LENGTH (Azure Cosmos DB)
  Returns the number of characters of the specified string expression.  
@@ -19,11 +20,11 @@ LENGTH(<str_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is the string expression to be evaluated.  
   
 ## Return Types
   
-  Returns a string expression.  
+  Returns a numeric expression.  
   
 ## Examples
   

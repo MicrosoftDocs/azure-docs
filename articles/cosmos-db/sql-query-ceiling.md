@@ -1,11 +1,12 @@
 ---
-title: CEILING (Azure Cosmos DB)
+title: CEILING in Azure Cosmos DB query language
 description: Learn about SQL system function CEILING in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # CEILING (Azure Cosmos DB)
  Returns the smallest integer value greater than, or equal to, the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-CEILING (<numeric_expression>)  
+CEILING (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ CEILING (<numeric_expression>)
   
 ## Examples
   
-  The following example shows positive numeric, negative, and zero values with the CEILING function.  
+  The following example shows positive numeric, negative, and zero values with the `CEILING` function.  
   
 ```sql
 SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3  

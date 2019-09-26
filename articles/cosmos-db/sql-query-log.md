@@ -1,11 +1,12 @@
 ---
-title: LOG (Azure Cosmos DB)
+title: LOG in Azure Cosmos DB query language
 description: Learn about SQL system function LOG in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # LOG (Azure Cosmos DB)
  Returns the natural logarithm of the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-LOG (<numeric_expression> [, <base>])  
+LOG (<numeric_expr> [, <base>])  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 *base*  
@@ -50,7 +51,7 @@ SELECT LOG(10) AS log
 [{log: 2.3025850929940459}]  
 ```  
   
- The following example calculates the LOG for the exponent of a number.  
+ The following example calculates the `LOG` for the exponent of a number.  
   
 ```sql
 SELECT EXP(LOG(10)) AS expLog  

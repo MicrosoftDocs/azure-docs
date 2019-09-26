@@ -1,11 +1,12 @@
 ---
-title: TRIM (Azure Cosmos DB)
+title: TRIM in Azure Cosmos DB query language
 description: Learn about SQL system function TRIM in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # TRIM (Azure Cosmos DB)
  Returns a string expression after it removes leading and trailing blanks.  
@@ -19,7 +20,7 @@ TRIM(<str_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is a string expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ TRIM(<str_expr>)
   
 ## Examples
   
-  The following example shows how to use TRIM inside a query.  
+  The following example shows how to use `TRIM` inside a query.  
   
 ```sql
 SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM("abc") AS t4

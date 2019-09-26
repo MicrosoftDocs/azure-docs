@@ -1,11 +1,12 @@
 ---
-title: EXP (Azure Cosmos DB)
+title: EXP in Azure Cosmos DB query language
 description: Learn about SQL system function EXP in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # EXP (Azure Cosmos DB)
  Returns the exponential value of the specified numeric expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-EXP (<numeric_expression>)  
+EXP (<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

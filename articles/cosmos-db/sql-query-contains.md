@@ -1,11 +1,12 @@
 ---
-title: CONTAINS (Azure Cosmos DB)
+title: CONTAINS in Azure Cosmos DB query language
 description: Learn about SQL system function CONTAINS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # CONTAINS (Azure Cosmos DB)
  Returns a Boolean indicating whether the first string expression contains the second.  
@@ -13,13 +14,16 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-CONTAINS(<str_expr>, <str_expr>)  
+CONTAINS(<str_expr1>, <str_expr2>)  
 ```  
   
 ## Arguments
   
-*str_expr*  
-   Is any valid string expression.  
+*str_expr1*  
+   Is the string expression to be searched.  
+  
+*str_expr2*  
+   Is the string expression to find.  
   
 ## Return Types
   
@@ -27,7 +31,7 @@ CONTAINS(<str_expr>, <str_expr>)
   
 ## Examples
   
-  The following example checks if "abc" contains "ab" and contains "d".  
+  The following example checks if "abc" contains "ab" and if "abc" contains "d".  
   
 ```sql
 SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2 

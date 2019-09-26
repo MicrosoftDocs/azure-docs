@@ -1,11 +1,12 @@
 ---
-title: SQUARE (Azure Cosmos DB)
+title: SQUARE in Azure Cosmos DB query language
 description: Learn about SQL system function SQUARE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # SQUARE (Azure Cosmos DB)
  Returns the square of the specified numeric value.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-SQUARE(<numeric_expression>)  
+SQUARE(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

@@ -1,11 +1,12 @@
 ---
-title: RAND (Azure Cosmos DB)
+title: RAND in Azure Cosmos DB query language
 description: Learn about SQL system function RAND in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # RAND (Azure Cosmos DB)
  Returns a randomly generated numeric value from [0,1).
@@ -22,7 +23,7 @@ RAND ()
 
 ## Remarks
 
-  RAND() is a nondeterministic function. Repetitive calls of RAND() do not return the same results.
+  `RAND` is a nondeterministic function. Repetitive calls of `RAND` do not return the same results.
 
 ## Examples
   

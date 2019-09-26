@@ -1,11 +1,12 @@
 ---
-title: TRUNC (Azure Cosmos DB)
+title: TRUNC in Azure Cosmos DB query language
 description: Learn about SQL system function TRUNC in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # TRUNC (Azure Cosmos DB)
  Returns a numeric value, truncated to the closest integer value.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-TRUNC(<numeric_expression>)  
+TRUNC(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

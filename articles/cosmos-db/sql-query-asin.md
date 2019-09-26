@@ -1,11 +1,12 @@
 ---
-title: ASIN (Azure Cosmos DB)
+title: ASIN in Azure Cosmos DB query language
 description: Learn about SQL system function ASIN in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ASIN (Azure Cosmos DB)
  Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ASIN(<numeric_expression>)  
+ASIN(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ ASIN(<numeric_expression>)
   
 ## Examples
   
-  The following example returns the ASIN of -1.  
+  The following example returns the `ASIN` of -1.  
   
 ```sql
 SELECT ASIN(-1) AS asin  

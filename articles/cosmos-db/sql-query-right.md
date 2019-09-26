@@ -1,11 +1,12 @@
 ---
-title: RIGHT (Azure Cosmos DB)
+title: RIGHT in Azure Cosmos DB query language
 description: Learn about SQL system function RIGHT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # RIGHT (Azure Cosmos DB)
  Returns the right part of a string with the specified number of characters.  
@@ -19,10 +20,10 @@ RIGHT(<str_expr>, <num_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is the string expression to extract characters from.  
   
 *num_expr*  
-   Is any valid numeric expression.  
+   Is a numeric expression which specifies the number of characters.  
   
 ## Return Types
   

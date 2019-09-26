@@ -1,11 +1,12 @@
 ---
-title: ATN2 (Azure Cosmos DB)
+title: ATN2 in Azure Cosmos DB query language
 description: Learn about SQL system function ATN2 in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ATN2 (Azure Cosmos DB)
  Returns the principal value of the arc tangent of y/x, expressed in radians.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ATN2(<numeric_expression>, <numeric_expression>)  
+ATN2(<numeric_expr>, <numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types

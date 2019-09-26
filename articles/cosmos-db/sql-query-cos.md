@@ -1,11 +1,12 @@
 ---
-title: COS (Azure Cosmos DB)
+title: COS in Azure Cosmos DB query language
 description: Learn about SQL system function COS in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # COS (Azure Cosmos DB)
  Returns the trigonometric cosine of the specified angle, in radians, in the specified expression.  
@@ -13,12 +14,12 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-COS(<numeric_expression>)  
+COS(<numeric_expr>)  
 ```  
   
 ## Arguments
   
-*numeric_expression*  
+*numeric_expr*  
    Is a numeric expression.  
   
 ## Return Types
@@ -27,7 +28,7 @@ COS(<numeric_expression>)
   
 ## Examples
   
-  The following example calculates the COS of the specified angle.  
+  The following example calculates the `COS` of the specified angle.  
   
 ```sql
 SELECT COS(14.78) AS cos  

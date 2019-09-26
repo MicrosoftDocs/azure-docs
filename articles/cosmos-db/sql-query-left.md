@@ -1,11 +1,12 @@
 ---
-title: LEFT (Azure Cosmos DB)
+title: LEFT in Azure Cosmos DB query language
 description: Learn about SQL system function LEFT in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # LEFT (Azure Cosmos DB)
  Returns the left part of a string with the specified number of characters.  
@@ -19,10 +20,10 @@ LEFT(<str_expr>, <num_expr>)
 ## Arguments
   
 *str_expr*  
-   Is any valid string expression.  
+   Is the string expression to extract characters from.  
   
 *num_expr*  
-   Is any valid numeric expression.  
+   Is a numeric expression which specifies the number of characters.  
   
 ## Return Types
   

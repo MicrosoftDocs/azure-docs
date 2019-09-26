@@ -1,11 +1,12 @@
 ---
-title: StringToNumber (Azure Cosmos DB)
+title: StringToNumber in Azure Cosmos DB query language
 description: Learn about SQL system function StringToNumber in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # StringToNumber (Azure Cosmos DB)
  Returns expression translated to a Number. If expression cannot be translated, returns undefined.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-StringToNumber(<expr>)  
+StringToNumber(<str_expr>)  
 ```  
   
 ## Arguments
   
-*expr*  
-   Is any valid scalar expression to be evaluated as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
+*str_expr*  
+   Is a string expression to be parsed as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ StringToNumber(<expr>)
   
 ## Examples
   
-  The following example shows how StringToNumber behaves across different types. 
+  The following example shows how `StringToNumber` behaves across different types. 
 
 Whitespace is allowed only before or after the Number.
 

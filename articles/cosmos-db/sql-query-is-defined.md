@@ -1,11 +1,12 @@
 ---
-title: IS_DEFINED (Azure Cosmos DB)
+title: IS_DEFINED in Azure Cosmos DB query language
 description: Learn about SQL system function IS_DEFINED in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # IS_DEFINED (Azure Cosmos DB)
  Returns a Boolean indicating if the property has been assigned a value.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-IS_DEFINED(<expression>)  
+IS_DEFINED(<expr>)  
 ```  
   
 ## Arguments
   
-*expression*  
-   Is any valid expression.  
+*expr*  
+   Is any expression.  
   
 ## Return Types
   

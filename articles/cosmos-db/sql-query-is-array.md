@@ -1,11 +1,12 @@
 ---
-title: IS_ARRAY (Azure Cosmos DB)
+title: IS_ARRAY in Azure Cosmos DB query language
 description: Learn about SQL system function IS_ARRAY in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # IS_ARRAY (Azure Cosmos DB)
  Returns a Boolean value indicating if the type of the specified expression is an array.  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-IS_ARRAY(<expression>)  
+IS_ARRAY(<expr>)  
 ```  
   
 ## Arguments
   
-*expression*  
-   Is any valid expression.  
+*expr*  
+   Is any expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ IS_ARRAY(<expression>)
   
 ## Examples
   
-  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the `IS_ARRAY` function.  
   
 ```sql
 SELECT   

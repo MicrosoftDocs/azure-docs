@@ -1,11 +1,12 @@
 ---
-title: IS_PRIMITIVE (Azure Cosmos DB)
+title: IS_PRIMITIVE in Azure Cosmos DB query language
 description: Learn about SQL system function IS_PRIMITIVE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # IS_PRIMITIVE (Azure Cosmos DB)
  Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or null).  
@@ -13,13 +14,13 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-IS_PRIMITIVE(<expression>)  
+IS_PRIMITIVE(<expr>)  
 ```  
   
 ## Arguments
   
-*expression*  
-   Is any valid expression.  
+*expr*  
+   Is any expression.  
   
 ## Return Types
   
@@ -27,7 +28,7 @@ IS_PRIMITIVE(<expression>)
   
 ## Examples
   
-  The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_PRIMITIVE function.  
+  The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the `IS_PRIMITIVE` function.  
   
 ```sql
 SELECT   

@@ -1,11 +1,12 @@
 ---
-title: ST_DISTANCE (Azure Cosmos DB)
+title: ST_DISTANCE in Azure Cosmos DB query language
 description: Learn about SQL system function ST_DISTANCE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ST_DISTANCE (Azure Cosmos DB)
  Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions.  
@@ -27,7 +28,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
   
 ## Examples
   
-  The following example shows how to return all family documents that are within 30 km of the specified location using the ST_DISTANCE built-in function. .  
+  The following example shows how to return all family documents that are within 30 km of the specified location using the `ST_DISTANCE` built-in function. .  
   
 ```sql
 SELECT f.id   

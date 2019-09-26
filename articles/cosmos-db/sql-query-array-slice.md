@@ -1,11 +1,12 @@
 ---
-title: ARRAY_SLICE (Azure Cosmos DB)
+title: ARRAY_SLICE in Azure Cosmos DB query language
 description: Learn about SQL system function ARRAY_SLICE in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ARRAY_SLICE (Azure Cosmos DB)
  Returns part of an array expression.
@@ -19,13 +20,13 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 ## Arguments
   
 *arr_expr*  
-   Is any valid array expression.  
+   Is any array expression.  
   
 *num_expr*  
    Zero-based numeric index at which to begin the array. Negative values may be used to specify the starting index relative to the last element of the array i.e. -1 references the last element in the array.  
 
 *num_expr*
-   Maximum number of elements in the resulting array.    
+   Optional numeric expression that sets the maximum number of elements in the resulting array.    
 
 ## Return Types
   
@@ -33,7 +34,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 ## Examples
   
-  The following example shows how to get different slices of an array using ARRAY_SLICE.  
+  The following example shows how to get different slices of an array using `ARRAY_SLICE`.  
   
 ```sql
 SELECT

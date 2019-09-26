@@ -1,11 +1,12 @@
 ---
-title: ENDSWITH (Azure Cosmos DB)
+title: ENDSWITH in Azure Cosmos DB query language
 description: Learn about SQL system function ENDSWITH in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
+ms.custom: query-reference
 ---
 # ENDSWITH (Azure Cosmos DB)
  Returns a Boolean indicating whether the first string expression ends with the second.  
@@ -13,13 +14,16 @@ ms.author: girobins
 ## Syntax
   
 ```sql
-ENDSWITH(<str_expr>, <str_expr>)  
+ENDSWITH(<str_expr1>, <str_expr2>)  
 ```  
   
 ## Arguments
   
-*str_expr*  
-   Is any valid string expression.  
+*str_expr1*  
+   Is a string expression.  
+  
+*str_expr2*  
+   Is a string expression to be compared to the end of *str_expr1*.  
   
 ## Return Types
   
