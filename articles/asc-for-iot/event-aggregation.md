@@ -1,6 +1,6 @@
 ---
-title: Understanding Azure Security Center for IoT solution event aggregation| Microsoft Docs
-description: Learn about how events are aggregated in Azure Security Center for IoT service.
+title: Understanding Azure Security Center for IoT event aggregation| Microsoft Docs
+description: Learn about Azure Security Center for IoT event aggregation.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
 
 ---
 
-# Security agent event aggregation
+# Azure Security Center for IoT event aggregation
 
 Azure Security Center for IoT security agents collect data and system events from your local device and send this data to the Azure cloud for processing and analytics. The security agent collects many types of device events including new process and new connection events. Both new process and new connection events may legitimately occur frequently on a device within a second, and while important for robust and comprehensive security, the amount of messages this forces the security agents to send may quickly reach or exceed your IoT Hub quota and cost limits. However, these events contain highly valuable security information that are crucial to protecting your device.
 
