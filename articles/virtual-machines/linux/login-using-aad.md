@@ -3,7 +3,7 @@ title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
+ms.author: iainfou, cynthn
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
