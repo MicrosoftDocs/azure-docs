@@ -60,9 +60,9 @@ Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. F
 
 When you add a multi-turn document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
 
-1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. Support for creating a knowledge base with a multi-turn file isn't supported.
-1. Go to the **Settings** page, select the example multi-turn file or URL. You can add multi-turn documents from the file selection. 
-1. Save and train the knowledge base.
+1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. Support for creating a knowledge base with a multi-turn file or URL, at the time of knowledge base creation, isn't supported.
+1. Go to the **Settings** page, select the file or URL to add. 
+1. **Save and train** the knowledge base.
 
 ## Create knowledge base with multi-turn prompts with the Create API
 
@@ -352,7 +352,7 @@ You can add or delete multi-turn prompts using the [QnA Maker Update API](https:
 
 ## Export knowledge base for version control
 
-QnA Maker [supports version control](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) in the QnA Maker portal by including multi-turn conversation steps in the exported TSV file.
+QnA Maker [supports version control](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) in the QnA Maker portal by including multi-turn conversation steps in the exported file.
 
 ## Next steps
 
