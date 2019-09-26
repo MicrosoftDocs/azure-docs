@@ -33,12 +33,12 @@ For Step 6: Set up security control of project repository, see [Add team members
 
 ## Prerequisites
 
-This tutorial assumes that your [group manager](group-manager-tasks.md) and [team lead]](team-lead-tasks.md) have set up the following resources and permissions:
+This tutorial assumes that your [group manager](group-manager-tasks.md) and [team lead](team-lead-tasks.md) have set up the following resources and permissions:
 
-- The Azure DevOps organization for your data unit
-- A team project for your data science team
-- Team template and utilities repositories
-- Permissions on your organization account for you to create and edit repositories for your project
+- The Azure DevOps **organization** for your data unit
+- A team **project** for your data science team
+- Team template and utilities **repositories**
+- **Permissions** on your organization account for you to create and edit repositories for your project
 
 To clone repositories and modify content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you also need the following:
 
@@ -84,7 +84,7 @@ To populate your project repository with the contents of your team template repo
    
    ![Import team template repository](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-If you need to customize the contents of your project repository to meet your project's specific needs, you can add, delete, or modify repository files and folders. You can work directly in Azure Repos, or clone the repository to your local machine or DSVM, make changes, and commit and push your updates to the shared project repository. Follow the instructions at [Customize the contents of the team repositories](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
+If you need to customize the contents of your project repository to meet your project's specific needs, you can add, delete, or modify repository files and folders. You can work directly in Azure Repos, or clone the repository to your local machine or DSVM, make changes, and commit and push your updates to the shared project repository. Follow the instructions at [Customize the contents of the team repositories](team-lead-tasks.md).
 
 ## Next steps
 
