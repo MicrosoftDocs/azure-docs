@@ -56,10 +56,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations.
     + Added explainer property to MimicWrapper to enable getting the underlying MimicExplainer.
   + **azureml-pipeline-core**
-    + Notebook to describe Module, ModuleVersion and ModuleStep
-    + Fixed the append of metadata parameters in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
+    + Added notebook to describe Module, ModuleVersion and ModuleStep
   + **azureml-pipeline-steps**
     + Introducing RScriptStep to support r script run via AML pipeline
+    + Fixed metadata parameters parsing in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
   + **azureml-train-automl**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
     + Added deprecation message for explain_model() and retrieve_model_explanations()
