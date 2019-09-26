@@ -62,6 +62,18 @@
       href: ingest-data-logstash.md
     - name: Copy data using Azure Data Factory
       href: data-factory-load-data.md 
+  - name: Create policies
+    items:
+    - name: .NET Standard SDK
+      href: database-table-policies-csharp.md
+    - name: Python
+      href: database-table-policies-python.md
+  - name: Create data connections
+    items:
+    - name: C#
+      href: data-connection-csharp.md
+    - name: Python
+      href: data-connection-python.md
   - name: Deploy
     items:
     - name: DevOps task

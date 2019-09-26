@@ -32,26 +32,27 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
 
+## Authentication
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `tenantId`, `clientId`.
+
 ## Create the Azure Data Explorer cluster
 
 1. Create your cluster by using the following code:
 
     ```csharp
-    var resourceGroupName = "testrg";
-    var clusterName = "mykustocluster";
-    var location = "Central US";
-    var sku = new AzureSku("D13_v2", 5);
-    var cluster = new Cluster(location, sku);
-
-    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
-    var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
+    var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+    var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+    var clientSecret = "xxxxxxxxxxxxxx";
+    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    var authenticationContext = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var credential = new ClientCredential(clientId, clientSecret);
     var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
 
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
 
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-        SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+        SubscriptionId = subscriptionId
     };
 
     kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
@@ -59,7 +60,7 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
-   | clusterName | *mykustocluster* | The desired name of your cluster.|
+   | clusterName | *mykustocluster* | The wanted name of your cluster.|
    | sku | *D13_v2* | The SKU that will be used for your cluster. |
    | resourceGroupName | *testrg* | The resource group name where the cluster will be created. |
 
