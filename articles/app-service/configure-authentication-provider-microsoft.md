@@ -50,7 +50,7 @@ With this commented out, the next step doesn't make sense. the user is already s
 ## <a name="secrets"> </a>Add Microsoft Account information to your App Service application
 
 1. Go to your application in the [Azure portal].
-1. Select **Authentication / Authorization** and make sure that the **Authentication / Authorization** is **On**.
+1. Select **Settings > Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 1. Under **Authentication Providers**, select **Microsoft Account**. Paste in the Application (client) ID and client secret that you obtained earlier. Enable any scopes needed by your application.
 1. Select **OK**.
 

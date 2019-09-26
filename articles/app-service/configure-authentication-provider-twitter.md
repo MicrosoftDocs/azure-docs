@@ -45,8 +45,7 @@ To complete the procedure in this article, you need a Twitter account that has a
 ## <a name="secrets"> </a>Add Twitter information to your application
 
 1. Go to your application in the [Azure portal].
-1. Select **Settings**, and then **Authentication / Authorization**.
-1. Make sure that the **Authentication / Authorization** feature is enabled. Switch it **On** if necessary.
+1. Select **Settings > Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 1. Select **Twitter**.
 1. Paste in the `API Key` and `API Secret` values that you obtained previously.
 1. Select **OK**.

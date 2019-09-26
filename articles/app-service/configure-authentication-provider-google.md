@@ -39,7 +39,7 @@ To complete the procedure in this topic, you must have a Google account that has
 ## <a name="secrets"> </a>Add Google information to your application
 
 1. In the [Azure portal], go to your App Service app.
-1. Select **Authentication / Authorization** and make sure that **Authentication / Authorization** is **On**.
+1. Select **Settings > Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
 1. Select **Google**, then paste in the App ID and App Secret values that you obtained previously. Enable any scopes needed by your application.
 1. Select **OK**.
 
