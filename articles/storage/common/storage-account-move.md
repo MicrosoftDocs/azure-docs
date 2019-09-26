@@ -32,6 +32,8 @@ In this article, you'll learn how to:
 
 - For preview features, ensure that your subscription is whitelisted for the target region.
 
+<a id="prepare" />
+
 ## Prepare
 
 To get started, export, and then modify a Resource Manager template. 
@@ -167,6 +169,8 @@ To deploy the template by using PowerShell:
     ```
 ---
 
+<a id="move" />
+
 ## Move
 
 Deploy the template to create a new storage account in the target region. 
@@ -250,7 +254,7 @@ Here's some ways to move your data over.
 
 ## Discard or Clean up
 
-After the deployment, if you wish to start over or discard the target storage account, you can delete it. 
+After the deployment, if you want to start over, you can delete the target storage account, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
 
 To commit the changes and complete the move of a storage account, delete the source storage account.
 
