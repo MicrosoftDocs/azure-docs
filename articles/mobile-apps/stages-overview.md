@@ -18,13 +18,13 @@ Building a mobile application involves multiple stages and developers can easily
     Developers building client front ends can make use of IDEs and code editors, such as Visual Studio, Xamarin Studio, or Visual Studio Code on PCs and Macs, to construct their client apps.
 
 - **Plan and design with back-end services** - Microsoft provides variety of services for setting up a secure, scalable, and reliable back-end for your mobile application. Developers can create serverless APIs and triggers without having to maintain their own servers. They can leverage services, such as push notification, data sync online/offline, authentication, and a data platform, which together form a comprehensive and expansive mobile back end as a service that supports a variety of app construction scenarios. Building a backend service has multiple requirements:
-    - Limit on storing data on the device.
-    - Synchronize data across multiple devices.
-    - Making sure the application runs without network connectivity. 
-    - Send notifications to users.
-    - Reduce battery consumption.
-    - Build scalable, reliable, and secure back-end.
-    - Automatic server maintainence.
+    - Limit on storing data on the device
+    - Synchronize data across multiple devices
+    - Making sure the application runs without network connectivity
+    - Send notifications to users
+    - Reduce battery consumption
+    - Build scalable, reliable, and secure back-end
+    - Automatic server maintainence
 
 - **DevOps and continuous monitoring** - Developers creating mobile and cloud focused apps can leverage continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms, run UI automation tests on thousands of physical devices, automated their releases through beta testing channels or deploy directly to app store. In addition, they can gather usage analytics, crash, and exception information for their apps.
 

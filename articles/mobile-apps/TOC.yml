@@ -4,7 +4,7 @@
   items:
   - name: Overview
     href: stages-overview.md
-  - name: Choose the Front-End Development Platform
+  - name: Choose Mobile Development Framework
     href: front-end-development-platform.md
   - name: Plan and Design Mobile App with Back-end Services
     items:
@@ -18,7 +18,7 @@
       href: azure-storage.md
     - name: Real-time apps
       href: real-time.md
-  - name: Code Hosting Services
+  - name: Source Control
     href: code-hosting-services.md
   - name: DevOps
     items:
@@ -32,9 +32,9 @@
       href: continuous-delivery.md
   - name: Analyze Usage and User Behavior 
     href: analytics.md
-  - name: Monitor Health of your Application 
+  - name: Real-time Crash Reporting
     href: diagnostics.md
-  - name: Engage with your App Users 
+  - name: Push Notifications
     href: push-notifications.md
 - name: Additional Services
   items:
@@ -43,6 +43,6 @@
   - name: Azure Maps 
     href: azure-maps.md
   - name: Azure CDN
-    href: azure-cdn.md        
+    href: azure-cdn.md      
   - name: Azure Search
     href: azure-search.md

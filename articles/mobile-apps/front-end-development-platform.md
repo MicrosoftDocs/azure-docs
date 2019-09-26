@@ -9,8 +9,8 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: emalani
 ---
-# Choose the front end development platform for developing client mobile applications
-Developers can use client-side technologies to build client apps themselves, using specific frameworks and patterns for a cross-platform approach. With Microsoft technologies, developers can build native (native-single-platform using languages like Objective-C and Java, and cross-platform apps using Xamarin, .NET, and C#), hybrid (using Cordova) and its variants, depending upon their decision factors.
+# Choose Mobile Development Framework
+Developers can use client-side technologies to build mobile apps themselves, using specific frameworks and patterns for a cross-platform approach. Developers can build native (native-single-platform using languages like Objective-C and Java) apps, cross-platform apps using Xamarin, .NET, and C#), and hybrid (using Cordova) and its variants, depending upon their decision factors.
 
 ## Native platforms
 Building a native app requires platform-specific programming languages, SDKs, development environment and other tools provided by OS vendors.
@@ -35,14 +35,14 @@ Designed by Google and the most popular OS in the world, apps built on Android c
 - **SDK** - Windows SDK
 
 ### **Pros**
-- Good user experience.
-- Responsive apps with high Performance and ability to interface with native libraries.
-- Highly secure apps.
+- Good user experience
+- Responsive apps with high Performance and ability to interface with native libraries
+- Highly secure apps
 
 ### **Cons**
-- App runs only on one platform.
-- More developer resource and expensive to build an app.
-- Lower code reuse.
+- App runs only on one platform
+- More developer resource and expensive to build an app
+- Lower code reuse
 
 ## Cross-platforms and Hybrid apps
 Cross-platform apps gives you the power to write native mobile applications once, share code, and run them on iOS, Android, and Windows.
@@ -66,14 +66,14 @@ Released by Facebook in 2015, [React Native](https://facebook.github.io/react-na
 Cordova lets you build Hybrid apps using Visual Studio Tools for Apache Codova or Visual Studio Code with extensions for Cordova. With the Hybrid approach, you can share components with websites and reuse web server-based apps with hosted web apps approaches based on Cordova.
 
 ### **Pros**
-- Code reusability as it's possible to create one codebase for different platforms at the same time.
-- Wide audience as the app can be used iOS, Android, and Windows users.
-- Dramatic reduction in development time.
-- Easy to launch and update.
+- Code reusability as it's possible to create one codebase for different platforms at the same time
+- Wide audience as the app can be used iOS, Android, and Windows users
+- Dramatic reduction in development time
+- Easy to launch and update
 
 ###  **Cons**
-- Lower performance.
-- Lack of flexibility.
-- Platform limitations as each platform has a unique set of features and functionality to make the native app more creative.
-- Poor UX - Developing an app for different OS can be a bit challenging.
-- Tool limitation.
+- Lower performance
+- Lack of flexibility
+- Platform limitations as each platform has a unique set of features and functionality to make the native app more creative
+- Poor UX - Developing an app for different OS can be a bit challenging
+- Tool limitation

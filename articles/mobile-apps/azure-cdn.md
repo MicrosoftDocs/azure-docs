@@ -12,7 +12,7 @@ ms.author: emalani
 
 # Azure Content Delivery Network (CDN)
 
-[Azure CDN](https://azure.microsoft.com/en-us/services/cdn/) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. Azure CDN can also accelerate dynamic content, which cannot be cached and lets you reduce load times, save bandwidth, and speed responsiveness—whether you’re developing or managing websites or mobile apps, or encoding and distributing streaming media, gaming software, firmware updates, or IoT endpoints.
+[Azure CDN](https://azure.microsoft.com/en-us/services/cdn/) offers developers a global solution for rapidly delivering high-bandwidth content like videos, images, static files etc. to users by caching their content to hundreds of points of presence (PoP) physical nodes across the world. Azure CDN can also accelerate dynamic content, which cannot be cached and lets you reduce load times, save bandwidth, and speed responsiveness—whether you’re developing or managing websites or mobile apps, or encoding and distributing streaming media, gaming software, firmware updates, or IoT endpoints.
 
 ## Azure CDN Features
 - Works **seamlessly** with Azure services, including Web Apps, Media Services, Storage, and Cloud Services
@@ -29,4 +29,5 @@ ms.author: emalani
    - [Azure Portal](https://portal.azure.com) to manage CDN endpoints
    - [Documentation](https://docs.microsoft.com/en-us/azure/cdn/)
    - [Get started with CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)
-   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)   
+   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-new-endpoint)
+

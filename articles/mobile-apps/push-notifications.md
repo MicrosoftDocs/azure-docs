@@ -10,7 +10,7 @@ ms.date: 08/09/2019
 ms.author: emalani
 ---
 
-# Engage with your application users by sending them Push Notifications 
+# Engage with your application users by sending Push Notifications 
 
 Whether you are building consumer or enterprise applications, you want users to use your app actively. App Store supports millions of applications for users nowadays and it is a common norm for users to install applications, use for some time and never come back to it. There are often times when you want to breaking news, game updates, exciting offers, product update, or any relavant information with your users. In order to increase usage and retain users, you need a way for you to communicate with your users in real time.
 
@@ -20,12 +20,12 @@ Push notifications are a powerful technique to provides fast and efficient way t
 Push notifications provides value to both end users and the business.
 
 Businesses can:
-- **Communicate directly with their users** with sending them messages on supported platform at the right time.
-- **Boost user engagement** by sending real-time updates anr reminders to your users, encouraging them to engage with your app on a regular basis.
-- **Retain users** and re-engage with inactive users that have downloaded the app but don't use it to become active again.
-- **Increase conversion rates** by analyzing end-user behavior segmenting end users and leveraging campaigns based on mobile push notifications.
-- **Promote Products and Services** by sending push messages and timely updates to the users.
-- **Target the users** sending them personalized push messages.
+- **Communicate directly with their users** with sending them messages on supported platform at the right time
+- **Boost user engagement** by sending real-time updates anr reminders to your users, encouraging them to engage with your app on a regular basis
+- **Retain users** and re-engage with inactive users that have downloaded the app but don't use it to become active again
+- **Increase conversion rates** by analyzing end-user behavior segmenting end users and leveraging campaigns based on mobile push notifications
+- **Promote Products and Services** by sending push messages and timely updates to the users
+- **Target the users** sending them personalized push messages
 
 For application users, push notification:
 - **Provides value and information** in real time.
@@ -56,12 +56,12 @@ For application users, push notification:
     [Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview) provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform and from any backend (cloud or on-premises).
     
     **Key Features**
-    - **Send push notifications** to any platform from any back-end, in the cloud or on-premises.
-    - **Fast broadcast** push to millions of mobile devices with single API call.
-    - Tailor push notifications by customer, language, and location.
-    - Dynamically define and notify **customer segments**.
-    - **Scale instantly** to millions of mobile devices.
-    - **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
+    - **Send push notifications** to any platform from any back-end, in the cloud or on-premises
+    - **Fast broadcast** push to millions of mobile devices with single API call
+    - Tailor push notifications by customer, language, and location
+    - Dynamically define and notify **customer segments**
+    - **Scale instantly** to millions of mobile devices
+    - **Platform Support** - iOS, Android, Windows, Kindle, Baidu
             
     **References**
     - [Azure Portal](https://portal.azure.com) 

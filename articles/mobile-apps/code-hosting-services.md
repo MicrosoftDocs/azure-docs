@@ -16,37 +16,15 @@ If you have development teams with multiple team members working on the same cod
 Cloud hosting is much easier than on-premises options as it requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.
 
 ## Benefits of hosting source code in the cloud
-- **Centralized cloud storage** to view and manage your data from anywhere.
-- Enables **better collaboration and cleaner code** within teams to keep track of code and manage projects to ensure the continuous delivery of excellent software.
-- **Get involved** and makes it **easy to contribute** to your projects.
-- **Faster release cycle** as your team can work faster and **easily to contribute** to your projects.
-- **Reduce the cost** without having to worry about maintaining your own hardware, servers, VPN and so on.
+- **Centralized cloud storage** to view and manage your data from anywhere
+- Enables **better collaboration and cleaner code** within teams to keep track of code and manage projects to ensure the continuous delivery of excellent software
+- **Get involved** and makes it **easy to contribute** to your projects
+- **Faster release cycle** as your team can work faster and **easily to contribute** to your projects
+- **Reduce the cost** without having to worry about maintaining your own hardware, servers, VPN and so on
 
 ## Services
 
-1. ### **Azure DevOps**
-    [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) supports [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) that provides Git repositories or [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/index?view=azure-devops) for source control of your code and it has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high quality code. Azure Repos is great for small projects as well as large organizations that need native AAD support and advanced policies.
-     
-    **Key Features**
-    - **Unlimited cloud hosted Git source code repository** for your public and private repos.
-        - Support for any Git client
-        - Web hooks and API integration
-    - **Kick off your next build** from a Repos pull request
-        - Collaborate to build better code by using threaded discussion and continuous integration for each change
-        - Set up continuous integration/continuous delivery (CI/CD) to automatically trigger builds, tests, and deployments with every completed pull request using Azure Pipelines or your tools
-        - Protect your code quality with branch policies
-    - **Centralized version control with Team Foundation Version Control**, including Code Review.
-    - **Connect to your code** using Xcode, Eclipse, InteliJ, Android Studio, Visual Studio, Visual Studio Code, and more.
-    - **Powerful semantic code search**. 
-    - **Enterprise ready** as it has native integration with Azure Active Directory (AD), simplifying the process of managing access to your code repositories. 
-    - **Ensure code quality** with branch policies such as minimum number of code reviews, requiring successful builds, and enforcing Git merge strategies.
-    - **Connect your favorite development environment** to access repos and manage work. 
-
-    **References**
-    - [Get started with Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) 
-    - [Azure Repos Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/?view=azure-devops)
-
-2. ### **GitHub**
+1. ### **GitHub**
     [GitHub](https://github.com/) is an open-source repository hosting service that hosts source code projects in a variety of different programming languages and keeps track of the various changes made to every iteration.
 
     **Key Features**
@@ -73,4 +51,27 @@ Cloud hosting is much easier than on-premises options as it requires less hardwa
     - [GitHub Guides](https://guides.github.com/)
     - [GitHub Community Forum](https://github.community/)
     - [GitHub Marketplace](https://github.com/marketplace)
-    
+
+2. ### **Azure DevOps**
+    [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) supports [Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) that provides Git repositories or [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/index?view=azure-devops) for source control of your code and it has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high quality code. Azure Repos is great for small projects as well as large organizations that need native AAD support and advanced policies.
+     
+    **Key Features**
+    - **Unlimited cloud hosted Git source code repository** for your public and private repos
+        - Support for any Git client
+        - Web hooks and API integration
+    - **Kick off your next build** from a Repos pull request
+        - Collaborate to build better code by using threaded discussion and continuous integration for each change
+        - Set up continuous integration/continuous delivery (CI/CD) to automatically trigger builds, tests, and deployments with every completed pull request using Azure Pipelines or your tools
+        - Protect your code quality with branch policies
+    - **Centralized version control with Team Foundation Version Control**, including Code Review
+    - **Connect to your code** using Xcode, Eclipse, InteliJ, Android Studio, Visual Studio, Visual Studio Code, and more
+    - **Powerful semantic code search**
+    - **Enterprise ready** as it has native integration with Azure Active Directory (AD), simplifying the process of managing access to your code repositories
+    - **Ensure code quality** with branch policies such as minimum number of code reviews, requiring successful builds, and enforcing Git merge strategies
+    - **Connect your favorite development environment** to access repos and manage work
+
+    **References**
+    - [Get started with Azure Repos](https://azure.microsoft.com/en-us/services/devops/repos/) 
+    - [Azure Repos Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/?view=azure-devops)
+
+   

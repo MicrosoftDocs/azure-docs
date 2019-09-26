@@ -14,13 +14,13 @@ ms.author: emalani
 [Azure Search](https://azure.microsoft.com/en-us/services/search/) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ## Azure Search Features
-- **Free-form text search** with full text search, simple query syntax, and lucene query syntax.
-- **Simple scoring profiles** to model relevance as a function of values in the documents themselves. 
-- **Geo-search** enables users to explore data based on the proximity of a search result to a physical location.
+- **Free-form text search** with full text search, simple query syntax, and lucene query syntax
+- **Simple scoring profiles** to model relevance as a function of values in the documents themselves
+- **Geo-search** enables users to explore data based on the proximity of a search result to a physical location
 - **User experieneces features** withautocomplete, search suggestions, sorting, and paging
-- **Cognitive search** for image and text analysis can be applied to an indexing pipeline to extract text information from raw content. 
-- **Knowledge store** to save enrichments created during indexing.
-- Connect to Azure SQL Database, Azure Cosmos DB, or Azure Blob storage as **data sources** to extract searchable content in primary data stores.
+- **Cognitive search** for image and text analysis can be applied to an indexing pipeline to extract text information from raw content
+- **Knowledge store** to save enrichments created during indexing
+- Connect to Azure SQL Database, Azure Cosmos DB, or Azure Blob storage as **data sources** to extract searchable content in primary data stores
 - Use the **Import data wizard** to configure indexers, index designer to stand up an index, and Search explorer to test queries and refine scoring profiles
 
 Detailed description on Azure Search [Features](https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search#feature-descriptions)
