@@ -38,7 +38,7 @@ Codec compressed audio is implemented using [GStreamer](https://gstreamer.freede
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
 ```
 
-An example `Android.mk` and `Application.mk` file is given below. Please follow the steps below to create the gstreamer shared object (libgstreamer_android.so).
+An example `Android.mk` and `Application.mk` file are provided below. Follow these steps to create the gstreamer shared object: `libgstreamer_android.so`.
 
 ```make
 # Android.mk
