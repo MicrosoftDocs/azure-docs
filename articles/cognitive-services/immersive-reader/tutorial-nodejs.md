@@ -82,7 +82,7 @@ Next, open _app.js_ and add the following to the top of the file. This loads the
 require('dotenv').config();
 ```
 
-Open the _routes\index.js_ file and add replace its content with the following code.
+Open the _routes\index.js_ file and replace its content with the following code.
 
 This code creates an API endpoint that acquires an Azure AD authentication token using your service principal password. It also retrieves the subdomain. It then returns an object containing the token and subdomain.
 

@@ -46,7 +46,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### Returns
 
-Returns a `Promise<HTMLDivElement>` which resolves when the Immersive Reader is loaded. The `Promise` resolves to a `div` element whose only child is an `iframe` element that contains the Immersive Reader page.
+Returns a `Promise<HTMLDivElement>`, which resolves when the Immersive Reader is loaded. The `Promise` resolves to a `div` element whose only child is an `iframe` element that contains the Immersive Reader page.
 
 ### Exceptions
 
@@ -64,7 +64,7 @@ close(): void;
 
 ## renderButtons
 
-This styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button```.
+This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then this function will render buttons within ```options.elements```. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button```.
 
 This function is automatically called by the SDK when the window loads.
 
@@ -95,7 +95,7 @@ Contains the content to be shown in the Immersive Reader.
 
 ### Chunk
 
-A single chunk of data which will be passed into the Content of the Immersive Reader.
+A single chunk of data, which will be passed into the Content of the Immersive Reader.
 
 ```typescript
 {
@@ -117,7 +117,7 @@ A single chunk of data which will be passed into the Content of the Immersive Re
 ### HTML Support
 | HTML | Supported Content |
 | --------- | ----------- |
-| Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript and Subscript |
+| Font Styles | Bold, Italic, Underline, Code, Strikethrough, Superscript, Subscript |
 | Unordered Lists | Disc, Circle, Square |
 | Ordered Lists | Decimal, Upper-Alpha, Lower-Alpha, Upper-Roman, Lower-Roman |
 | Hyperlinks | Coming Soon |
@@ -186,7 +186,7 @@ Use the following attributes to configure the look and feel of the button.
 | Attribute | Description |
 | --------- | ----------- |
 | `data-button-style` | Sets the style of the button. Can be `icon`, `text`, or `iconAndText`. Defaults to `icon`. |
-| `data-locale` | Sets the locale, e.g. `en-US`, `fr-FR`. Defaults to English `en`. |
+| `data-locale` | Sets the locale. For example, `en-US` or `fr-FR`. Defaults to English `en`. |
 | `data-icon-px-size` | Sets the size of the icon in pixels. Defaults to 20px. |
 
 ## Browser support
