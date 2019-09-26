@@ -181,7 +181,7 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 | `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferecning |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |
-| `mcr.microsoft.com/azureml/onnxruntime::latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
 | `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Movidius<sup>TM</sup> USB sticks |
 
 For more information about the ONNX Runtime base images see the [ONNX Runtime dockerfile section](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) in the GitHub repo.
