@@ -31,7 +31,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 ## Webservice input and response data
 
-The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Application Insights traces under the message `"model_data_collection"`. You can query Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to export to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
+The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Application Insights traces under the message `"model_data_collection"`. You can query Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
 
 ## Use the Azure Portal or Studio UI to configure
 
