@@ -388,7 +388,7 @@
           href: msal-net-migration-ios-broker.md
       - name: Supported authentication flows
         href: msal-authentication-flows.md
-      - name: Single and multi account public client apps
+      - name: Single and multi account public client apps (Android)
         href: single-multi-account.md
       - name: Acquire and cache tokens
         items:
