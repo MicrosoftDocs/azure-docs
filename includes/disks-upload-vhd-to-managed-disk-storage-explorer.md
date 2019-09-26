@@ -121,7 +121,7 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
 
     ![Create snapshot dialog](media/disks-upload-vhd-to-managed-disk-storage-explorer/create-snapshot-dialog.png)
 
-1. Once the snapshot has been created, you can select **Open in Portal** in **Activities** to view the snapshot in the Azure Portal.
+1. Once the snapshot has been created, you can select **Open in Portal** in **Activities** to view the snapshot in the Azure portal.
 
     ![Open snapshot in portal](media/disks-upload-vhd-to-managed-disk-storage-explorer/open-in-portal.png)
 
