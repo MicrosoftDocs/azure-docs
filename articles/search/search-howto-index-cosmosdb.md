@@ -246,7 +246,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 > [!NOTE]
 > For partitioned collections, the default document key is Azure Cosmos DB's `_rid` property, which Azure Search automatically renames to `rid` because field names cannot start with an undescore character. Also, Azure Cosmos DB `_rid` values contain characters that are invalid in Azure Search keys. For this reason, the `_rid` values are Base64 encoded.
 > 
-> For MongoDB collections, Azure Search automatically renames the `_id` property to `doc_id`.  
+> For MongoDB collections, Azure Search automatically renames the `_id` property to `id`.  
 
 ### Mapping between JSON Data Types and Azure Search Data Types
 | JSON data type | Compatible target index field types |
