@@ -73,6 +73,36 @@ Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments
 
 ---
 
+### Bulk manage groups and members using CSV files in the Azure AD portal (Public Preview)
+
+**Type:** New feature  
+**Service category:** Group Management  
+**Product capability:** Collaboration
+
+We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. You can now use a CSV file and the Azure AD portal to manage groups and member lists, including:
+
+- Adding or removing members from a group.
+
+- Downloading the list of groups from the directory.
+
+- Downloading the list of group members for a specific group.
+
+For more information, see [Bulk add members](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-import-members), [Bulk remove members](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-remove-members), [Bulk download members list](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download-members), and [Bulk download groups list](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-bulk-download).
+
+---
+
+### Dynamic consent is now supported through a new admin consent endpoint
+
+**Type:** New feature  
+**Service category:** Authentications (Logins)  
+**Product capability:** User Authentication
+
+We've created a new admin consent endpoint to support dynamic consent, which is helpful for apps that want to use the dynamic consent model on the Microsoft Identity platform.
+
+For more information about how to use this new endpoint, see [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint).
+
+---
+
 ### New Azure AD built-in Global Reader role
 
 **Type:** New feature  
@@ -97,138 +127,22 @@ For information about how to set up the Power BI mobile app with Azure AD Applic
 
 ---
 
-### Dynamic consent is now supported through a new admin consent endpoint
-
-**Type:** New feature  
-**Service category:** Authentications (Logins)  
-**Product capability:** User Authentication
-
-We've created a new admin consent endpoint to support dynamic consent, which is helpful for apps that want to use the dynamic consent model on the Microsoft Identity platform.
-
-For more information about how to use this new endpoint, see [Using the admin consent endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#using-the-admin-consent-endpoint).
-
----
-
-### View a list of available Azure AD features, based on your license
-
-**Type:** New feature  
-**Service category:** Other  
-**Product capability:** Directory
-
-You can now view a list of your available and active Azure AD features, based on your license type, from the **Licenses - Licensed features** page of the Azure portal. You can also search by a feature, and filter the on-page list to view all features or features available in your directory.
-
-For more information about license types and the available features, see [Azure Active Directory pricing](https://azure.microsoft.com/pricing/details/active-directory/).
-
----
-
-[589400](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=589400&triage=true&fullScreen=false&_a=edit)
-
-### Bulk manage groups and members using CSV files in the Azure AD portal (Public Preview)
-
-**Type:** New feature  
-**Service category:** Group Management  
-**Product capability:** Collaboration
-
-We're pleased to announce public preview availability of the bulk group management experiences in the Azure AD portal. You can now use the Azure AD portal to upload a CSV file to manage groups, including:
-
-- Adding or removing members from a group.
-
-- 
-
-
-
-
- These changes help you better manage groups and member lists via a CSV file. 
-
-Now you can manage groups using the new bulk capabilities in the Azure AD portal, including:
-
-- Add and remove members from a group
-- Download the list of groups in the directory
-- Download the list of group members for a specific group
-
-For more information, see Bulk add members, Bulk remove members, Bulk download members list and Bulk download groups list.
-
----
-
-
----
-
-[313187](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=313187&triage=true&fullScreen=false&_a=edit)
-
-### Manage Azure AD users by uploading and downloading files from the Azure AD administration portal
-
-**Type:** New feature  
-**Service category:** User Management  
-**Product capability:** Directory
-
-You can now use the Azure AD administration portal to upload a comma-separated values (CSV) file to create or delete multiple users or to invite multiple guests to collaborate. You can also download a CSV file with the profile properties of your Azure AD users.
-
-For more information, see [Bulk create users (preview) in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-add) and [Download a list of users (preview) in Azure Active Directory portal](https://docs.microsoft.com/azure/active-directory/users-groups-roles/users-bulk-download). - These are for the Azure portal, not the admin portal. Do we have links for the admin portal?
-
-
-
-[618444](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=618444&triage=true&fullScreen=false&_a=edit)
-
-### License assignment portal experience change
+### New version of the AzureADPreview PowerShell module is available
 
 **Type:** Changed feature  
 **Service category:** Other  
 **Product capability:** Directory
 
-Customer today cannot assign and change licenses in one flow. We are introducing changes to license assignment in Azure portal so customers can assign and update licenses easily in a single operation. This change also helps customers to migrate users and group from one license to another.
+New cmdlets were added to the AzureADPreview module, to help define and assign custom roles in Azure AD, including:
+
+    - `Add-AzureADMSFeatureRolloutPolicyDirectoryObject`
+    - `Get-AzureADMSFeatureRolloutPolicy`
+    - `New-AzureADMSFeatureRolloutPolicy`
+    - `Remove-AzureADMSFeatureRolloutPolicy`
+    - `Remove-AzureADMSFeatureRolloutPolicyDirectoryObject`
+    - `Set-AzureADMSFeatureRolloutPolicy`
 
 ---
-
-[672383](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=672383&triage=true&fullScreen=false&_a=edit)
-
-### Consolidated Security menu item in the Azure portal
-
-**Type:** Changed feature  
-**Service category:** Identity Protection  
-**Product capability:** Identity Security & Protection
-
-You will soon be able to access all of the available Azure AD security features from the new **Security** menu item, and from the **Search** bar, in the Azure portal. Additionally, the new **Security** landing page, called **Security - Getting started**, will provide links to our public documentation, security guidance, and deployment guides.
-
-The new **Security** menu includes:
-
-- Conditional Access
-- Identity Protection
-- Security Center
-- Identity Secure Score
-- Authentication methods
-- MFA
-- Risk reports - Risky users, Risky sign-ins, Risk detections
-
-For more information, see [Need title](https://aka.ms/SecurityMenuDocs).
----
-
-[809433](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=809433&triage=true&fullScreen=false&_a=edit)
-
-### New version of the AzureADPreview PowerShell module
-
-**Type:** Changed feature  
-**Service category:** Other  
-**Product capability:** Directory
-
-We released an update for the AzureAD Preview PowerShell module.
-
-In the AzureADPreview module the following new cmdlets are added to define and assign custom roles in Azure Active Directory:
-
-Add-AzureADMSFeatureRolloutPolicyDirectoryObject
-
-Get-AzureADMSFeatureRolloutPolicy
-
-New-AzureADMSFeatureRolloutPolicy
-
-Remove-AzureADMSFeatureRolloutPolicy
-
-Remove-AzureADMSFeatureRolloutPolicyDirectoryObject
-
-Set-AzureADMSFeatureRolloutPolicy
-
----
-
-[812644](https://identitydivision.visualstudio.com/IAM/IXR/_queries?id=812644&triage=true&fullScreen=false&_a=edit)
 
 ### New version of Azure AD Connect
 
@@ -236,21 +150,7 @@ Set-AzureADMSFeatureRolloutPolicy
 **Service category:** Other  
 **Product capability:** Directory
 
-We released an update for Azure AD Connect, which contains several improvements and bug fixes.
-
-This update is made available for autoupgrade first and will be released for download later.
-
-
----
-
-
-
-
-
-
-
-
-
+We've released an updated version of Azure AD Connect for auto-upgrade customers. This new version includes several new features, improvements, and bug fixes. For more information about this new version, see [Azure AD Connect: Version release history](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#14x0).
 
 ---
 
