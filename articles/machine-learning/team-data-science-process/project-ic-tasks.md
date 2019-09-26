@@ -31,7 +31,7 @@ The following diagram shows the tasks that project individual contributors (data
 
 This tutorial assumes that the following resources and permissions have been set up by your [group manager](group-manager-tasks.md), [team lead](team-lead-tasks.md), and [project lead](project-lead-tasks.md):
 
-- The Azure DevOps **organization** for your data unit
+- The Azure DevOps **organization** for your data science unit
 - A **project repository** set up by your project lead to share project templates and assets
 - **GroupUtilities** and **TeamUtilities** repositories set up by the group manager and team lead, if applicable
 - Azure **file storage** set up for shared assets for your team or project, if applicable
@@ -83,15 +83,15 @@ To work with repositories locally and push your changes up to the shared team an
    git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
    ```
    
-1. Confirm that you can see the folders for the cloned repository in your local project directory.
-
-![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
+1. Confirm that you can see the folders for the cloned repositories in your local project directory.
+   
+   ![Three local repository folders](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
 ## Commit and push changes
 
-After making whatever changes you want in the local clone of your repository, you can push the changes to the shared project or team repository. 
+After making whatever changes you want in your local clone of your project repository, you can push the changes to the shared repository. 
 
-Run the following Git Bash commands from your local **GitRepos\MyTeam\TeamTemplate** or **GitRepos\MyTeam\TeamUtilities** directory.
+Run the following Git Bash commands from your local project repository folder: 
 
 ```bash
 git add .
