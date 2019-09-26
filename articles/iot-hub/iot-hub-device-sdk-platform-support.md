@@ -5,7 +5,7 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/25/2019
 ms.author: robinsh
 ---
 
@@ -15,13 +15,13 @@ Microsoft strives to continually expand the universe of Azure IoT Hub capable de
 
 In addition to the device SDKs, Microsoft provides several other avenues to empower customers and developers to connect their devices to Azure IoT:
 
-* Microsoft collaborates with several partner companies to help them publish semiconductor development kits, based on the Azure IoT C SDK, for their hardware platforms.
+* Microsoft collaborates with several partner companies to help them publish development kits, based on the Azure IoT C SDK, for their hardware platforms.
 
-* Microsoft works with Microsoft Trusted Partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT.
+* Microsoft works with Microsoft trusted partners to provide an ever-expanding set of devices that have been tested and certified for Azure IoT. For a current list of these devices, see the [Azure certified for IoT device catalog](https://catalog.azureiotsolutions.com/).
 
-* Microsoft provides a platform abstraction layer (PAL) in the Azure IoT Hub Device C SDK that helps developers to easily port the SDK to their platform.
+* Microsoft provides a platform abstraction layer (PAL) in the Azure IoT Hub Device C SDK that helps developers to easily port the SDK to their platform. To learn more, see the [C SDK porting guidance](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
-This topic provides information about the Microsoft SDKs and the platforms they are tested against, as well as each of the other options listed above.
+This topic provides information about the Microsoft SDKs and the platform configurations they support, as well as each of the other options listed above.
 
 ## Microsoft SDKs and device platform support
 
@@ -37,17 +37,19 @@ For each of the listed SDKs, Microsoft:
 
 ### C SDK
 
-The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) has the following requirements.
+The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is tested with and supports the following configurations.
 
-| OS                  | TLS library                                      | Additional requirements |
-|---------------------|--------------------------------------------------|-------------------------|
-| Linux               | OpenSSL or WolfSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX) |
-| OSX 10.13.4         | OpenSSL or Native OSX                            |                         |
-| Windows 10 family   | SChannel                                         |                         |
+| OS                  | TLS library                 | Additional requirements                                                                     |
+|---------------------|-----------------------------|---------------------------------------------------------------------------------------------|
+| Linux               | OpenSSL, WolfSSL or BearSSL | Berkeley sockets</br></br>Portable Operating System Interface (POSIX)                       |
+| iOS 12.2            | OpenSSL or Native OSX       | XCode emulated in OSX 10.13.4                                                               |
+| Windows 10 family   | SChannel                    |                                                                                             |
+| Mbed OS 5.4         | Mbed TLS 2                  | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
+| Azure Sphere OS     | WolfSSL                     | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
 
 ### Python SDK
 
-The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-python) has the following requirements.
+The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-python) is tested with and supports the following configurations.
 
 | OS                  | Compiler                       |
 |---------------------|--------------------------------|
@@ -57,7 +59,7 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 
 ### .NET SDK
 
-The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-csharp) has the following requirements.
+The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-csharp) is tested with and supports the following configurations.
 
 | OS                  | Standard          |
 |---------------------|-------------------|
@@ -66,12 +68,9 @@ The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-
 
 The IoT Hub .NET (C#) device SDK is supported on runtimes compliant with .NET Standard 2.0. For detailed information, see [OS and hardware compatibility](https://github.com/azure/azure-iot-sdk-csharp#os-platforms-and-hardware-compatibility) in the .NET (C#) SDK readme on GitHub. You can find additional information about platform compatibility support for the .NET standard 2.0 in the [.NET standard 2.0 documentation on GitHub](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md).
 
-> [!NOTE]
-> Due to the high number of supported platforms, Microsoft limits is testing to the following DevOps Hosted agents: "Windows Server 2016 with Visual Studio 2017" and "Ubuntu 16.04". For details, see [Use a Microsoft-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops#use-a-microsoft-hosted-agent).
-
 ### Node.js SDK
 
-The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-node) has the following requirements.
+The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-node) is tested with and supports the following configurations.
 
 | OS                  | Node version    |
 |---------------------|-----------------|
@@ -80,7 +79,7 @@ The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 ### Java SDK
 
-The [Azure IoT Hub Java device SDK](https://github.com/Azure/azure-iot-sdk-java) is built and tested against the following platforms.
+The [Azure IoT Hub Java device SDK](https://github.com/Azure/azure-iot-sdk-java) is tested with and supports the following configurations.
 
 | OS                  | Java version |
 |---------------------|--------------|
@@ -110,6 +109,10 @@ Microsoft works with a number of partners to continually expand the Azure IoT un
 * To browse Azure IoT certified devices, see [Microsoft Azure Certified for IoT Device Catalog](https://catalog.azureiotsolutions.com/).
 
 * To learn more about Microsoft trusted partners or to learn how to become a Microsoft trusted partner, see [Microsoft Azure Certified Internet of Things Trusted Partners](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+
+## Connecting to IoT Hub without an SDK
+
+If you are unable to use one of the IoT Hub device SDKs, you can connect directly to IoT Hub using the [IoT Hub REST APIs](https://docs.microsoft.com/en-us/rest/api/iothub/) from any application capable of sending and receiving HTTPS responses.
 
 ## Support and other resources
 
