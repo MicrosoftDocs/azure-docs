@@ -122,7 +122,7 @@ For more flexibility, you can create a custom instance of ``cosmos_client`` in o
 - Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
 - Run operations against a different Cosmos account than the one you are in
 
-You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-environment-variables). 
+You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 
 
 ```python
 import os
