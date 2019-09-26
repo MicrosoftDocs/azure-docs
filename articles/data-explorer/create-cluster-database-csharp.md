@@ -43,7 +43,7 @@ For running the examples in this article, we need an Azure AD Application and se
     var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
     var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
     var clientSecret = "xxxxxxxxxxxxxx";
-    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
     var authenticationContext = new AuthenticationContext($"https://login.windows.net/{tenantId}");
     var credential = new ClientCredential(clientId, clientSecret);
     var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
@@ -55,6 +55,11 @@ For running the examples in this article, we need an Azure AD Application and se
         SubscriptionId = subscriptionId
     };
 
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var sku = new AzureSku("Standard_D13_v2", "Standard", 2);
+    var cluster = new Cluster(location, sku);
     kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
     ```
 
