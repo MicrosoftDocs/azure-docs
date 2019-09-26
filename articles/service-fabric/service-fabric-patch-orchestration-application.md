@@ -285,9 +285,9 @@ To help you understand how updates proceed on a node, let's go step by step:
     [![Image of cluster patching status](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png)](media/service-fabric-patch-orchestration-application/clusterpatchingstatus.png#lightbox)
 
 1. After the node is disabled, the repair task is moved to *Executing* state. 
-
+   
    > [!NOTE]
-   > If a repair task is stuck in *Preparing* state because the node is disabled, both the new repair task and the cluster patching are blocked.
+   > A node that's stuck in *Disabled* state can block a new repair task, which halts the patching operation on the cluster.
 
 1. When the repair task is in *Executing* state, the patch installation on that node begins. After the patch is installed, the node might or might not be restarted, depending on the patch. Next, the repair task is moved to *Restoring* state, which reenables the node. The repair task is then marked as completed.
 
@@ -509,4 +509,4 @@ An administrator must intervene and determine why the application or cluster bec
 - Changing default value of InstallWindowsOSOnlyUpdates to False.
 
 ### Version 1.3.2
-- Fixing an issue that affects the patching lifecycle on a node if there are nodes with a name that's a subset of the current node name. For such nodes, it's possible that patching was missed or reboot is pending. 
+- Fixing an issue that affects the patching lifecycle on a node, if there are nodes with a name that's a subset of the current node name. For such nodes, it's possible that patching was missed or a reboot is pending.
