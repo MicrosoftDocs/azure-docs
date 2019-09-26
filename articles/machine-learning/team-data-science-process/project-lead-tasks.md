@@ -14,16 +14,22 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Project lead tasks in the Team Data Science Process
 
-This tutorial describes tasks that a *project lead* completes to set up a repository for their project team in the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to efficiently execute cloud-based, predictive analytics solutions. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and associated tasks for a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This article describes tasks that a *project lead* completes to set up a repository for their project team in the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to efficiently execute cloud-based, predictive analytics solutions. The TDSP is designed to help improve collaboration and team learning. For an outline of the personnel roles and associated tasks for a data science team standardizing on the TDSP, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 A project lead manages the daily activities of individual data scientists on a specific data science project in the TDSP. The following diagram shows the workflow for project lead tasks:
 
 ![Project lead task workflow](./media/project-lead-tasks/project-leads-1-tdsp-creating-projects.png)
 
-This tutorial covers steps 1 and 2, setting up a data science project repository.
+This tutorial covers Step 1: Create project repository, and Step 2: Seed project repository from your team ProjectTemplate repository. 
+
+For Step 3: Create Feature work item for project, and Step 4: Add Stories for project phases, see [Agile development of data science projects](agile-development.md).
+
+For Step 5: Create and customize storage/analysis assets and share, if necessary, see [Create team data and analytics resources](team-lead-tasks.md).
+
+For Step 6: Set up security control of project repository, see [Add team members and configure permissions](team-lead-tasks.md).
 
 > [!NOTE] 
-> This article uses Azure Repos and a Data Science Virtual Machine (DSVM) to set up a TDSP project, because that is how to implement TDSP at Microsoft. If your team uses other code hosting or development platforms, the project lead tasks are the same, but the way to complete them may be different.
+> This article uses Azure Repos to set up a TDSP project, because that is how to implement TDSP at Microsoft. If your team uses another code hosting platform, the project lead tasks are the same, but the way to complete them may be different.
 
 ## Prerequisites
 
@@ -32,7 +38,7 @@ This tutorial assumes that your [group manager](group-manager-tasks.md) and [tea
 - The Azure DevOps organization for your data unit
 - A team project for your data science team
 - Team template and utilities repositories
-- Permissions on your organization account for you to create repositories for your project
+- Permissions on your organization account for you to create and edit repositories for your project
 
 To clone repositories and modify content on your local machine or DSVM, or set up Azure file storage and mount it to your DSVM, you also need the following:
 
@@ -44,21 +50,21 @@ To clone repositories and modify content on your local machine or DSVM, or set u
 
 ## Create a project repository in your team project
 
-In this section, you create a project repository in your team's **MyTeam** project.
+To create a project repository in your team's **MyTeam** project:
 
 1. Go to your team's project **Summary** page at *https:\//\<servername>/\<organization-name>/\<TeamName>*, for example, **https:\//dev.azure.com/DataScienceUnit/MyTeam**, and select **Repos** from the left navigation. 
    
-   ![Select Repos](./media/project-lead-tasks/project-leads-9-select-repos.png)
-   
 1. Select the repository name at the top of the page, and then select **New repository** from the dropdown.
+   
+   ![Select New repository](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
 1. In the **Create a new repository** dialog, make sure **Git** is selected under **Type**. Enter *DSProject1* under **Repository name**, and then select **Create**.
    
-   ![Create repository](./media/project-lead-tasks/team-leads-10-create-team-utilities-2.png)
+   ![Create repository](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
 1. Confirm that you can see the new **DSProject1** repository on your project settings page. 
    
-   ![Project repository in Project Settings](./media/project-lead-tasks/team-leads-11-two-repo-in-team.png)
+   ![Project repository in Project Settings](./media/project-lead-tasks/project-leads-4-create-project-repo-3.png)
 
 ## Import the team template into your project repository
 
@@ -70,52 +76,15 @@ To populate your project repository with the contents of your team template repo
    
 1. On the **DSProject1 is empty** page, select **Import**. 
    
-   ![Select Import](./media/project-lead-tasks/import-repo.png)
+   ![Select Import](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
 1. In the **Import a Git repository** dialog, select **Git** as the **Source type**, and enter the URL for your **TeamTemplate** repository under **Clone URL**. The URL is *https:\//\<server name>/\<organization name>/\<team name>/_git/\<team template repository name>*. For example: *https:\//dev.azure.com/DataScienceUnit/MyTeam/_git/TeamTemplate*. 
    
 1. Select **Import**. The contents of your team template repository are imported into your project repository. 
    
-   ![Import team template repository](./media/project-lead-tasks/import-repo-2.png)
+   ![Import team template repository](./media/project-lead-tasks/project-leads-6-create-project-repo-5.png)
 
-## Customize the contents of the project repository
-
-If you want to customize the contents of your project repository to meet your project's specific needs, you can do that now. You can modify files, change the directory structure, or add or delete files and folders.
-
-Follow the instructions in the **Customize the contents of the team repositories** section of [Team lead tasks for a data science team](group-manager-tasks.md).
-
-To create Azure file storage to share data, such as project raw data or features, and give all project members access to the data from multiple DSVMs, follow the instructions in the **Create team data and analytics resources** section of [Team lead tasks for a data science team](team-lead-tasks.md). 
-
-## Add team members and configure permissions
-
-To add members to the team:
-
-1. From the **MyTeam** project home page, select **Project settings** from the left navigation. 
-   
-1. From the **Project Settings** left navigation, select **Teams**, then on the **Teams** page, select the **MyTeam Team**. 
-   
-   ![Configure Teams](./media/project-lead-tasks/teams.png)
-   
-1. On the **Team Profile** page, select **Add**.
-   
-   ![Add to MyTeam Team](./media/project-lead-tasks/add-to-team.png)
-   
-1. In the **Add users and groups** dialog, search for and select members to add to the group, and then select **Save changes**. 
-   
-   ![Add users and groups](./media/project-lead-tasks/add-users.png)
-   
-
-To configure permissions for team members:
-
-1. From the **Project Settings** left navigation, select **Permissions**. 
-   
-1. On the **Permissions** page, select the group you want to add members to. 
-   
-1. On the page for that group, select **Members**, and then select **Add**. 
-   
-1. In the **Invite members** popup, search for and select members to add to the group, and then select **Save**. 
-   
-   ![Grant permissions to members](./media/project-lead-tasks/grant-permissions.png)
+If you need to customize the contents of your project repository to meet your project's specific needs, you can add, delete, or modify repository files and folders. You can work directly in Azure Repos, or clone the repository to your local machine or DSVM, make changes, and commit and push your updates to the shared project repository. Follow the instructions at [Customize the contents of the team repositories](team-lead-tasks.md#customize-the-contents-of-the-team-repositories).
 
 ## Next steps
 
