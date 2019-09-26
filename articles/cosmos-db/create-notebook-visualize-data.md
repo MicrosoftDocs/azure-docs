@@ -285,4 +285,4 @@ In this section, you will run some queries on the data retrieved.
 
 ## Next steps
 
-* 
+* To learn more about notebook commands, see [how to use built-in notebook commands and features in Azure Cosmos DB](use-notebook-features-and-commands.md) article. 
