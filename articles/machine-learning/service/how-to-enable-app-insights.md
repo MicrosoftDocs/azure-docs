@@ -65,7 +65,7 @@ You can enable and disable Application Insights in the Azure portal or new Studi
 
 1. Select **Update** at the bottom of the screen to apply the changes. 
  
-## Use SDK to configure 
+## Use Python SDK to configure 
 
 ### Update a deployed service
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace.
