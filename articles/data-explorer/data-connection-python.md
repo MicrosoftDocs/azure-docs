@@ -78,9 +78,10 @@ For running the examples in this article, we need an Azure AD Application and se
     table_name = "StormEvents";
     mapping_rule_name = "StormEvents_CSV_Mapping";
     data_format = "csv";
-    kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
+    #Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                            parameters=EventHubDataConnection(event_hub_resource_id=event_hub_resource_id, consumer_group=consumer_group, location=location,
-                                                                             table_name=table_name, mapping_rule_name=mapping_rule_name, data_format=data_format)).result()
+                                                                             table_name=table_name, mapping_rule_name=mapping_rule_name, data_format=data_format))
     ```
     |**Setting** | **Suggested value** | **Field description**|
     |---|---|---|
@@ -108,9 +109,11 @@ For running the examples in this article, we need an Azure AD Application and se
     #The event hub and storage account that are created in step(5) at the Prerequisite section
     event_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx"
     storage_account_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Storage/storageAccounts/xxxxxx"
-    kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
+
+    #Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
                                                parameters=EventGridDataConnection(storage_account_resource_id=storage_account_resource_id, event_hub_resource_id=event_hub_resource_id, 
-                                                                                  consumer_group=consumer_group, table_name=table_name, location=location, mapping_rule_name=mapping_rule_name, data_format=data_format)).result()
+                                                                                  consumer_group=consumer_group, table_name=table_name, location=location, mapping_rule_name=mapping_rule_name, data_format=data_format))
     ```
     |**Setting** | **Suggested value** | **Field description**|
     |---|---|---|

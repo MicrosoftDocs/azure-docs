@@ -60,8 +60,10 @@ resource_group_name = "testrg";
 #The cluster and database that are created in step(2) at the Prerequisite section
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
-kustoManagementClient.databases.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
-                                           parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10))).result()
+
+#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
+                                           parameters=DatabaseUpdate(soft_delete_period=datetime.timedelta(days=10)))
 ```
 
 ## Alter a database's cache policy
@@ -92,8 +94,10 @@ resource_group_name = "testrg";
 #The cluster and database that are created in step(2) at the Prerequisite section
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
-kustoManagementClient.databases.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
-                                           parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5))).result()
+
+#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+poller = kustoManagementClient.databases.update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name,
+                                           parameters=DatabaseUpdate(hot_cache_period=datetime.timedelta(days=5)))
 ```
 
 ## Alter a table's cache policy

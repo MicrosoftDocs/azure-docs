@@ -61,27 +61,30 @@ For running the examples in this article, we need an Azure AD Application and se
                                          client_secret=client_secret)
 
     location = 'Central US'
-    sku = 'Standard_D13_v2'
+    sku_name = 'Standard_D13_v2'
     capacity = 5
     tier = "Standard"
     resource_group_name = 'testrg'
     cluster_name = 'mykustocluster'
-    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity, tier=tier))
+    cluster = Cluster(location=location, sku=AzureSku(name=sku_name, capacity=capacity, tier=tier))
     
     kustoManagementClient = KustoManagementClient(credentials, subscription_id)
     
     cluster_operations = kustoManagementClient.clusters
     
-    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    poller = cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | cluster_name | *mykustocluster* | The desired name of your cluster.|
-   | sku | *D13_v2* | The SKU that will be used for your cluster. |
+   | sku_name | *Standard_D13_v2* | The SKU that will be used for your cluster. |
+   | tier | *Standard* | The SKU tier. |
+   | capacity | *number* | The number of the instances of the cluster. |
    | resource_group_name | *testrg* | The resource group name where the cluster will be created. |
 
-    There are additional optional parameters that you can use, such as the capacity of the cluster.
+    > [!NOTE]
+    > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, please check [LROPoller class](https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
 	
 1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
 
@@ -110,7 +113,8 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 						soft_delete_period=softDeletePeriod,
 						hot_cache_period=hotCachePeriod)
 	
-	database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
+	#Returns an instance of LROPoller, check https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python
+    poller =database_operations.create_or_update(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName, parameters = _database)
     ```
 
    |**Setting** | **Suggested value** | **Field description**|

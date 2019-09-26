@@ -59,7 +59,7 @@ var resourceGroupName = "testrg";
 //The cluster and database that are created in step(3) at the Prerequisite section
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
-kustoManagementClient.Databases.Update(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(softDeletePeriod: TimeSpan.FromDays(10)));
+await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(softDeletePeriod: TimeSpan.FromDays(10)));
 ```
 
 ## Alter a databse's cache policy
@@ -85,7 +85,7 @@ var resourceGroupName = "testrg";
 //The cluster and database that are created in step(3) at the Prerequisite section
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
-kustoManagementClient.Databases.Update(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(hotCachePeriod: TimeSpan.FromDays(5)));
+await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(hotCachePeriod: TimeSpan.FromDays(5)));
 ```
 
 ## Alter a table's cache policy
@@ -142,7 +142,7 @@ var resourceGroupName = "testrg";
 //The cluster and database that are created in step(3) at the Prerequisite section
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
-kustoManagementClient.Databases.AddPrincipals(resourceGroupName, clusterName, databaseName,
+await kustoManagementClient.Databases.AddPrincipalsAsync(resourceGroupName, clusterName, databaseName,
                 new DatabasePrincipalListRequest()
                 {
                     Value = new List<DatabasePrincipal>()

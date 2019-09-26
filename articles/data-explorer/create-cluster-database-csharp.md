@@ -58,20 +58,24 @@ For running the examples in this article, we need an Azure AD Application and se
     var resourceGroupName = "testrg";
     var clusterName = "mykustocluster";
     var location = "Central US";
-    var sku = new AzureSku("Standard_D13_v2", "Standard", 2);
+    var skuName = "Standard_D13_v2";
+    var tier = "Standard";
+    var capacity = 5;
+    var sku = new AzureSku(skuName, tier, capacity);
     var cluster = new Cluster(location, sku);
-    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
    | clusterName | *mykustocluster* | The wanted name of your cluster.|
-   | sku | *D13_v2* | The SKU that will be used for your cluster. |
+   | skuName | *Standard_D13_v2* | The SKU that will be used for your cluster. |
+   | tier | *Standard* | The SKU tier. |
+   | capacity | *number* | The number of the instances of the cluster. |
    | resourceGroupName | *testrg* | The resource group name where the cluster will be created. |
 
-    There are additional optional parameters that you can use, such as the capacity of the cluster.
-
-1. Set [your credentials](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+    > [!NOTE]
+    > **Create a cluster** is a long running operation, so it's highly recommended to use CreateOrUpdateAsync, instead of CreateOrUpdate. 
 
 1. Run the following command to check whether your cluster was successfully created:
 
@@ -91,7 +95,7 @@ If the result contains `ProvisioningState` with the `Succeeded` value, then the 
     var databaseName = "mykustodatabase";
     var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
-    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
