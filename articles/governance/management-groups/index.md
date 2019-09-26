@@ -124,9 +124,11 @@ The following chart shows the list of roles and the supported actions on managem
 |MG Reader*                  |        |        |        |        |               |               | X     |
 |Resource Policy Contributor |        |        |        |        |               | X             |       |
 |User Access Administrator   |        |        |        |        | X             | X             |       |
+|All AAD Tenant Users***     | X***   |        |        |        |               |               |       |
 
 *: MG Contributor and MG Reader only allow users to do those actions on the management group scope.  
 **: Role Assignments on the Root management group aren't required to move a subscription or management group to and from it.  See [Manage your resources with management groups](manage.md) for details on moving items within the hierarchy.
+***: All registered AAD users have the abiltiy to create a management group under the root management group without having explicit write permissions. This is to help everyone onboard to management groups easily and not require user administrative access at the root management group level. Creation under an existing management group other than the Root requires Owner, Contributor, or MG Contributor Role Assignments.  
 
 ### Custom RBAC Role Definition and Assignment
 
