@@ -463,13 +463,20 @@ OriginalUrl.
 
 ### Examples
 
-#### Example
+#### Example - adding header, override existing
 
 ```xml
 <set-header name="some header name" exists-action="override">
     <value>20</value>
 </set-header>
 ```
+#### Example - removing header
+
+```xml
+ <set-header name="some header name" exists-action="delete" />
+```
+
+
 
 #### Forward context information to the backend service
  This example shows how to apply policy at the API level to supply context information to the backend service. For a demonstration of configuring and using this policy, see [Cloud Cover Episode 177: More API Management Features with Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) and fast-forward to 10:30. At 12:10 there is a demo of calling an operation in the developer portal where you can see the policy at work.
@@ -503,7 +510,7 @@ OriginalUrl.
 |Name|Description|Required|
 |----------|-----------------|--------------|
 |set-header|Root element.|Yes|
-|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|Yes|
+|value|Specifies the value of the header to be set. For multiple headers with the same name add additional `value` elements.|No|
 
 ### Properties
 
