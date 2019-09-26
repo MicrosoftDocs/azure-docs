@@ -65,7 +65,7 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Manage just in time access
+          - text: Manage just-in-time access
             url: security-center-just-in-time.md
           - text: Set up adaptive application controls
             url: security-center-adaptive-application.md
