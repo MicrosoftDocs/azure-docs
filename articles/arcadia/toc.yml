@@ -114,8 +114,8 @@
 #         href: article-template.md
       - name: Maintenance schedule
         href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
-      - name: Backup and restore  
-        href: article-template.md
+      # - name: Backup and restore  
+      #   href: article-template.md
   - name: Monitoring 
     items:
     - name: Standard monitoring
@@ -206,6 +206,8 @@
           href: ../sql-database/sql-database-auditing.md?toc=/azure/arcadia/toc.json
 #       - name: Securing Arcadia meta data objects
 #         href: article-template.md
+  # - name: Data integration & Orchestration
+  #   href: article-template.md
   - name: Spark
     items:
     - name: Overview
@@ -219,6 +221,8 @@
     - name: Development
       items:
       # - name: Overview, using tools to interact with Apache Spark
+      #   href: article-template.md
+      # - name: Using Arcadia Spark Job Definitions
       #   href: article-template.md
       - name: Using Arcadia Studio Notebooks
         items:
@@ -355,9 +359,15 @@
       - name: Workload importance
         href: ../sql-data-warehouse/sql-data-warehouse-workload-importance.md?toc=/azure/arcadia/toc.json
       - name: Memory & concurrency limits
-        href: ../sql-data-warehouse/memory-and-concurrency-limits.md?toc=/azure/arcadia/toc.json 
-  - name: Integrate AI and BI
+        href: ../sql-data-warehouse/memory-and-concurrency-limits.md?toc=/azure/arcadia/toc.json
+  # - name: Disaster recovery
+  #   href: article-template.md 
+  # - name: CI/CD
+  #   href: article-template.md
+  - name: Tools Integration (AI, ETL, BI)
     items:
+    # - name: Working with Arcadia Studio
+    #   href: article-template.md
     # - name: Integrate with AML
     #   href: article-template.md
     - name: Integrate with Power BI
