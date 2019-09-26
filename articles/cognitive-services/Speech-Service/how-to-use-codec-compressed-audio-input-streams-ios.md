@@ -27,7 +27,7 @@ For wav/PCM see the mainline speech documentation.  Outside of wav/PCM, the foll
 - ALAW in wav container
 - MULAW in wav container
 
-## Prerequisites to using codec compressed audio input
+## Prerequisites
 
 Handling compressed audio is implemented using [GStreamer](https://gstreamer.freedesktop.org).
 For licensing reasons, these functions can not be shipped with the SDK, but a wrapper library containing these functions needs to be built by application developers and shipped with the apps using the SDK.
