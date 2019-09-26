@@ -37,6 +37,21 @@ landingContent:
             url: security-center-intro.md
 
   # Card
+  - title: Getting started
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Configure your security policies
+            url: tutorial-security-policy.md
+          - text: Adjust Security Center's settings
+            url: security-center-policies-overview.md
+          - text: Evaluate your security posture
+            url: security-center-secure-score.md
+          - text: Upgrade to advanced security
+            url: security-center-onboarding.md
+
+
+  # Card
   - title: Improving your secure score
     linkLists:
       - linkListType: how-to-guide
@@ -60,4 +75,4 @@ landingContent:
           - text: Set up adaptive application controls
             url: security-center-adaptive-application.md
           - text: Implement Adaptive Network Hardening
-            url: security-center-adaptive-network-hardening.md          
+            url: security-center-adaptive-network-hardening.md
