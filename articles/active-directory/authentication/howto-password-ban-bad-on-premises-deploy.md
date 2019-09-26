@@ -56,8 +56,18 @@ After the feature has been running in audit mode for a reasonable period, you ca
     | --- | --- |
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
+ 
+* Microsoft Azure AD Connect Agent Updater prerequisites
 
-  You must also enable network access for the set of ports and urls specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). These configuration steps are required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function (this service  is installed side-by-side with the Proxy service). It is not recommended to install Azure AD Password Protection Proxy and Application Proxy side by side on the same machine, due to incompatibilities between the versions of the Microsoft Azure AD Connect Agent Updater software.
+  The Microsoft Azure AD Connect Agent Updater service is installed side-by-side with the Azure AD Password Protection Proxy service. Additional configuration is required in order for the Microsoft Azure AD Connect Agent Updater service to be able to function:
+
+  If your environment uses an http proxy server, you must follow the guidelines specified in [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+
+  Network access must be enabled for the set of ports and urls specified in the [Application Proxy environment setup procedures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+
+  > [!WARNING]
+  > Azure AD Password Protection Proxy and Application Proxy install different versions of the Microsoft Azure AD Connect Agent Updater service, which is why the instructions refer to Application Proxy content. These different versions are incompatible when installed side by side, so it is not recommended to install Azure AD Password Protection Proxy and Application Proxy side by side on the same machine.
+
 * All machines that host the proxy service for password protection must be configured to grant domain controllers the ability to logon to the proxy service. This is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
