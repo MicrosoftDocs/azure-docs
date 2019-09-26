@@ -31,11 +31,13 @@ There are several license plans available for the Azure AD service, including:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](../authentication/concept-sspr-licensing.md).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/).
+
+Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 
 ## View license plans and plan details
 
-You can view your available service plans, including the individual licenses, checking for any pending expiration dates and the number of assignments available.
+You can view your available service plans, including the individual licenses, check pending expiration dates, and view the number of available assignments.
 
 ### To find your service plan and plan details
 
@@ -54,9 +56,6 @@ You can view your available service plans, including the individual licenses, ch
 ## Assign licenses to users or groups
 
 Make sure that anyone needing to use a licensed Azure AD service has the appropriate license. You can add the licensing rights to users or to an entire group.
-
-> [!NOTE]
-> Group-based licensing is a public preview feature of Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>For detailed information about how to add users, see [How to add or delete users in Azure Active Directory](add-users-azure-active-directory.md). For detailed information about how to create groups and add members, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
 
 ### To assign a license to a user
 
@@ -79,7 +78,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
     > [!NOTE]
-    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD.
+    > Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the **Usage location**. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 
 1. Select **Assign**.
 
@@ -87,7 +86,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 ### To assign a license to a group
 
-1. On the **Products** page, select the name of the license plan you want to assign to the user. 
+1. On the **Products** page, select the name of the license plan you want to assign to the user.
 
     ![Products blade, with highlighted product license plan](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
@@ -104,9 +103,6 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
     ![License option page, with all options available in the license plan](media/license-users-groups/license-option-blade-group-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
-
-    >[!NOTE]
-    >Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 
 1. Select **Assign**.
 

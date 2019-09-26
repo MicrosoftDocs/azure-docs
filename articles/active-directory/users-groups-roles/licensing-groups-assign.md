@@ -1,12 +1,11 @@
 ---
-
 title: Assign licenses to a group - Azure Active Directory | Microsoft Docs
 description: How to assign licenses to users by means of Azure Active Directory group licensing
 services: active-directory
 keywords: Azure AD licensing
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 
 ms.service: active-directory
 ms.topic: article
@@ -58,7 +57,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. Go to **Azure Active Directory** > **Groups**. Select the group that licenses were assigned to.
 
-1. On the group page, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
+1. On the group page, select **Assignments**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
    - List of product licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
@@ -89,8 +88,6 @@ When assign licenses to a group, Azure AD processes all existing members of that
    ![View all license conflicts for a user](./media/licensing-groups-assign/user-license-view.png)
 
 1. To solve this conflict, remove the user from the **Kiosk users** group. After Azure AD processes the change, the **HR Department** licenses are correctly assigned.
-
-   ![Licenses are here correctly assigned](./media/licensing-groups-assign/license-correctly-assigned.png)
 
 ## Next steps
 
