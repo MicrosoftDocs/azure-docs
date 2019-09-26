@@ -20,66 +20,34 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
-  # Card (optional)
-  - title: Key capabilities of Security Center [service]
+  # Card
+  - title: Deploying Security Center [service]
     linkLists:
-      - linkListType: About Security Center
+      - linkListType: overview
         links:
           - text: What can [service] do?
             url: security-center-intro.md
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
-  # Card (optional)
-  - title: Get started
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
 
   # Card
-  - title: cardtitle3
+  - title: Improving your secure score
     linkLists:
-      - linkListType: linkListType
+      - linkListType: how-to-guide
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: What is a secure score?
+            url: security-center-secure-score.md
+          - text: Remediate security recommendations
+            url: security-center-remediate-recommendations.md
+          - text: Customize your security recommendations
+            url: tutorial-security-policy.md#disable-security-policies
 
   # Card
-  - title: cardtitle4
+  - title: Mitigating threats
     linkLists:
-      - linkListType: linkListType
+      - linkListType: how-to-guide
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Manage just in time access
+            url: security-center-just-in-time.md
+          - text: Set up adaptive application controls
+            url: security-center-adaptive-application.md
