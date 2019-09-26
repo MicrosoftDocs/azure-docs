@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Sentinel Documentation # < 60 chars
-summary: This article presents use cases to get started using Azure Sentinel. # < 160 chars
+title: Azure Sentinel documentation # < 60 chars
+summary: This article presents use cases to get started using Azure Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Azure Sentinel is your birds-eye view across the enterprise. # < 160 chars
 
 metadata:
   title: Azure Sentinel Documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: This article presents use cases and scenarios to get started using Azure Sentinel. # Required; article description that is displayed in search results. < 160 chars.
+  description: This article presents use cases and scenarios to get started using Azure Sentinel. See and stop threats before they cause harm, with SIEM reinvented for a modern world. Azure Sentinel is your birds-eye view across the enterprise.# Required; article description that is displayed in search results. < 160 chars.
   services: sentinel
   ms.service: sentinel #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: azure-sentinel
@@ -59,7 +59,7 @@ landingContent:
             url: connect-threat-intelligence.md
       
   # Card
-  - title: Work with multiple tenants (MSSP)
+  - title: Work with multiple tenants
     linkLists:
       - linkListType: how-to-guide
         links:
