@@ -58,7 +58,7 @@ Scale sets are built from virtual machines. With scale sets, the management and 
 
 There is no additional cost to scale sets. You only pay for the underlying compute resources such as the VM instances, load balancer, or Managed Disk storage. The management and automation features, such as autoscale and redundancy, incur no additional charges over the use of VMs.
 
-## Monitor
+## How to monitor your scale sets
 
 Use [Azure Monitor for VMs](../azure-monitor/insights/vminsights-overview.md), which has a simple onboarding process and will automate the collection of important CPU, memory, disk, and network performance counters from the VMs in your scale set. It also includes additional monitoring capabilities that help you focus on the availability and performance of your scale sets without having to specify what data to collect, create dashboards and visualizations to present the data in meaningful ways, and use custom methods to discover application components and establish their relationships between running on each VM. Combined with [Application Insights](../azure-monitor/app/app-insights-overview.md), you monitor your application and capture telemetry such as HTTP requests, exceptions, etc. so you can correlate issues between the VMs and your application.
 
