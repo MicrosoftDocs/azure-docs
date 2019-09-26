@@ -56,8 +56,6 @@ class Program
 
     static void Main(string[] args)
     {
-        IConfigurationRefresher refresher = null;
-
         var builder = new ConfigurationBuilder();
         builder.AddAzureAppConfiguration(options =>
         {
