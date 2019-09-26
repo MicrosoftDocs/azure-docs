@@ -208,7 +208,7 @@ To join VMs to a domain, you must have a domain controller. Azure AD DS is the m
 
 Using a certificate issued by a certificate authority is recommended, but using a self-signed certificate is also supported on ESP. For more information, see:
 
-- [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds.md)
+- [Enable Azure Active Directory Domain Services](domain-joined/apache-domain-joined-configure-using-azure-adds.md#enable-azure-ad-ds)
 
 - [Tutorial: Configure secure LDAP for an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/tutorial-configure-ldaps.md)
 
@@ -242,7 +242,7 @@ No, it's currently not possible to add an Azure Data Lake Storage Gen2 storage a
 
 ### How can I find the currently linked Service Principal for a Data Lake storage account?
 
-You can find your settings in **Data Lake Storage Gen1 access** under your cluster properties in the Azure portal. For more information, see [Verify cluster setup](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal#verify-cluster-set-up.md).
+You can find your settings in **Data Lake Storage Gen1 access** under your cluster properties in the Azure portal. For more information, see [Verify cluster setup](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md#verify-cluster-set-up).
  
 ### How can I calculate the usage of storage accounts and blob containers for my HDInsight clusters?
 
