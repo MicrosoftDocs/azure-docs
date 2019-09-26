@@ -93,7 +93,7 @@ To find more template samples, see [Azure Quickstart Templates](https://azure.mi
 
 ## Deploy the template and verify template deployment
 
-You can deploy the Azure Resource Manager template by [using powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment) or [using the Azure portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment).
+You can deploy the Azure Resource Manager template by [using the Azure portal](#use-the-azure-portal-to-deploy-the-template-and-verify-template-deployment) or [using powershell](#use-powershell-to-deploy-the-template-and-verify-template-deployment).
 
 ### Use the Azure portal to deploy the template and verify template deployment
 
@@ -154,6 +154,10 @@ Write-Host "Press [ENTER] to continue ..."
 
 When the Azure resources are no longer needed, clean up the resources you deployed by deleting the resource group. 
 
+### Clean up resources using the Azure portal
+
+Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
+
 ### Clean up resources using powershell
 
 If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
@@ -166,9 +170,6 @@ Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
 
 Write-Host "Press [ENTER] to continue ..."
 ```
-### Clean up resources using the Azure portal
-
-Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
 
 ## Next steps
 
