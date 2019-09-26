@@ -93,7 +93,7 @@ Export-PfxCertificate `
 
     Select **OK** to close the **Create virtual network** window and save the virtual network settings.
 
-         ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Create new application gateway: virtual network](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. On the **Basics** tab, accept the default values for the other settings and then select **Next: Frontends**.
 
