@@ -73,6 +73,8 @@ sections:
       - image:
           src: media/index/logo_netcore.svg
       - image:
+          src: media/sample-v2-code/logo_xamarin.png          
+      - image:
           src: https://docs.microsoft.com/media/logos/logo_unity.svg
       - image:
           src: media/index/logo_java.jpg
@@ -95,6 +97,7 @@ sections:
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-csharp-xamarin
         - href: quickstart-csharp-unity
         - href: quickstart-java-jre
         - href: quickstart-python
@@ -108,6 +111,7 @@ sections:
         - href: quickstart-csharp-windows
         - href: quickstart-cpp-windows
         - href: quickstart-csharp-dotnetcore-windows
+        - href: quickstart-csharp-xamarin
         - href: quickstart-csharp-unity
         - href:
         - href: quickstart-python
@@ -121,6 +125,7 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-xamarin
         - href: quickstart-csharp-unity
         - href:
         - href:
@@ -134,6 +139,7 @@ sections:
         - href:
         - href: quickstart-cpp-linux
         - href: quickstart-csharp-dotnetcore-windows
+        - href:
         - href:
         - href: quickstart-java-jre
         - href: quickstart-python
@@ -152,6 +158,7 @@ sections:
         - href:
         - href:
         - href:
+        - href:
         - href: quickstart-js-node
         - href:
       - title: Linux (ARM64)
@@ -159,6 +166,7 @@ sections:
         - href:
         - href:
         - href: quickstart-cpp-linux
+        - href:
         - href:
         - href:
         - href: quickstart-java-jre
@@ -173,6 +181,7 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-xamarin
         - href: quickstart-csharp-unity
         - href: quickstart-java-android
         - href:
@@ -186,6 +195,7 @@ sections:
         - href:
         - href:
         - href:
+        - href: quickstart-csharp-xamarin
         - href: quickstart-csharp-unity
         - href: quickstart-java-android
         - href:
@@ -199,7 +209,8 @@ sections:
         - href:
         - href:
         - href:
-        - href:
+        - href: quickstart-csharp-xamarin
+        - href: quickstart-csharp-unity
         - href:
         - href:
         - href: quickstart-objectivec-ios
@@ -213,6 +224,7 @@ sections:
         - href: quickstart-cpp-macos
         - href: quickstart-csharp-dotnetcore-windows
         - href:
+        - href:
         - href: quickstart-java-jre
         - href: quickstart-python
         - href: quickstart-objective-c-macos
@@ -221,6 +233,7 @@ sections:
         - href:
       - title: Devices SDK (ARM32)
         values:
+        - href:
         - href:
         - href:
         - href:
@@ -244,9 +257,11 @@ sections:
         - href:
         - href:
         - href:
+        - href:
         - href: quickstart-js-browser
       - title: REST
         values:
+        - href:
         - href:
         - href:
         - href:
