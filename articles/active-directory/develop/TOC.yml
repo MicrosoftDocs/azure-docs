@@ -366,6 +366,8 @@
     items:
       - name: Overview
         href: msal-overview.md
+      - name: Authorization agents (Android)
+        href: authorization-agents.md
       - name: Brokered auth (Android)
         items:
           - name: Accounts & tenant profiles (Android)
@@ -410,8 +412,6 @@
         href: msal-handling-exceptions.md        
       - name: Logging
         href: msal-logging.md
-      - name: Authorization agents (Android)
-        href: authorization-agents.md
       - name: Single sign-on
         items:
         - name: Single sign-on with MSAL.js
