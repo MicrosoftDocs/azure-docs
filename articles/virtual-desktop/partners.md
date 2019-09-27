@@ -11,15 +11,15 @@ ms.author: helohr
 ---
 # Windows Virtual Desktop partner integrations
 
-This article lists the Windows Virtual Desktop's partners.
+This article lists partners of Windows Virtual Desktop.
 
 ## Citrix
 
 ![Citrix logo](./media/partners/citrix.png)
 
-Citrix is an approved provider that offers enterprises centralized hybrid management of virtual apps and desktops workloads in Azure, side-by-side with on-premises deployments.  Citrix Workspace with the Virtual Apps and Desktops service allows users to access apps and desktops from any device, leveraging the advanced Citrix HDX protocol to deliver a high definition experience from anywhere.
+Citrix is an approved provider that offers enterprises centralized hybrid management of virtual apps and desktops workloads in Azure, side-by-side with on-premises deployments. Citrix Workspace with the Virtual Apps and Desktops service allows users to access apps and desktops from any device, leveraging the advanced Citrix HDX protocol to deliver a high definition experience from anywhere.
 
-Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management.  IT can optimize costs with intelligent scaling tools, while delivering an incredible end-user experience that has been field-tested against the toughest of applications across industries.
+Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management. IT can optimize costs with intelligent scaling tools, while delivering an incredible end-user experience that has been field-tested against the toughest of applications across industries.
 
 - [Go to the partner website.](https://more.citrix.com/wvd)
 
