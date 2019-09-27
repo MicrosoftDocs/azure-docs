@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from Dynamics AX by using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from Dynamics AX source. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 

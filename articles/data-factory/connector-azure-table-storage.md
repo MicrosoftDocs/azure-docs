@@ -21,6 +21,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-table-connector.md)
 > * [Current version](connector-azure-table-storage.md)
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to use Copy Activity in Azure Data Factory to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
