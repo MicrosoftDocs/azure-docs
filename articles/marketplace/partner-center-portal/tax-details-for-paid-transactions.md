@@ -11,13 +11,13 @@ ms.service: marketplace
 
 # Tax details for commercial marketplace publishers
 
-To understand your tax considerations for price selection, and tax responsibility under the App Developer Agreement or Modern Publisher Agreement, see your countries/regions of distribution in the tables below.
+To understand your tax considerations for price selection, and tax responsibility under the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) or Modern Publisher Agreement, see your countries/regions of distribution in the tables below.
 
 > [!NOTE]
-> The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [App Developer Agreement](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement) and the list of [affected countries/regions](define-market-selection.md#price-considerations-for-specific-markets).
+> The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of [affected countries/regions](define-market-selection.md#price-considerations-for-specific-markets).
 
 > [!IMPORTANT]
-> Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit C of the [App Developer Agreement](https://docs.microsoft.com/en-us/legal/windows/agreements/app-developer-agreement), notwithstanding the information in the table below.
+> Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit C of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
 > Note that the **Payout implication** column only applies to Windows app/game developers. Tax rates noted in this column are subject to change at any time, and Microsoft cannot guarantee that the rates in the tables below will always be accurate.
 
 
@@ -279,7 +279,7 @@ Certain Microsoft billing partners may collect and remit sales, use, goods and s
 
 ## Reseller countries/regions
 
-In certain countries/regions, Microsoft acts as a reseller, rather than your agent, in making your app(s) and in-app product(s) available in the Store. For further details about terms and conditions for reseller countries/regions, see the [App Developer Agreement](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement).
+In certain countries/regions, Microsoft acts as a reseller, rather than your agent, in making your app(s) and in-app product(s) available in the Store. For further details about terms and conditions for reseller countries/regions, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560).
 
 The following applies only to Windows app/games developers:   
 

@@ -15,15 +15,15 @@ In order to receive money from app sales in the Microsoft Store, you need to set
 If you only plan to list free apps (and don't plan to offer in-app purchases or use Microsoft Advertising), you don't need to set up a payout account or fill out any tax forms. If you change your mind later and decide you do want to sell apps (or add-ons), you can set up your payout account and fill out tax forms at that time. You won't be able to submit any paid apps or add-ons until your payout account and tax profile have been completed.
 
 > [!NOTE]
-> In [certain markets](account-types-locations-and-fees.md#developer-account-and-app-submission-markets), developers can only submit free apps. If your account is registered in one of these markets, you will not have the option to set up a payout account.
+> In certain markets, developers can only submit free apps. If your account is registered in one of these markets, you will not have the option to set up a payout account.
 
-After you have [set up your developer account](opening-a-developer-account.md), there are two things you need to do before you can sell apps (or add-ons) in the Microsoft Store:
+After you have set up your account, there are two things you need to do before you can sell apps (or add-ons) in the Microsoft Store:
 
 - [Fill out your tax forms](#tax-forms)
 - [Set up your payout account](#payout-account)
 
 > [!NOTE]
-> For details about how and when you will be paid for the money your apps make, see [Getting paid](getting-paid-apps.md).
+> For details about how and when you will be paid for the money your apps make, see [Getting paid](getting-paid.md).
 
 ## Tax forms
 
@@ -37,22 +37,16 @@ First, you'll need to create a tax profile and assign it to the programs you par
 You can complete and submit your tax forms electronically in Partner Center; in most cases, you don't need to print and mail any forms.
 
 > [!IMPORTANT]
-> Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your apps. See the [App Developer Agreement](https://docs.microsoft.com/legal/windows/agreements/app-developer-agreement) to find out for which countries Microsoft remits sales and use tax on your behalf. In other countries, depending on where you are registered, you may need to remit sales and use tax for your app sales directly to the local taxing authority. In addition, the app sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft Store developer activities.
+> Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your apps. See the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) to find out for which countries Microsoft remits sales and use tax on your behalf. In other countries, depending on where you are registered, you may need to remit sales and use tax for your app sales directly to the local taxing authority. In addition, the app sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft Store developer activities.
 
 1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Account settings** icon in the top right corner, then select **Developer settings**.
 2. In the left navigation menu, select **Payout and tax**, then select **Payout and tax assignments**.
 
-    ![Payout and tax profile assignment](images/payout-tax-profile-assignment.png)
-
 3. Select the program and seller id combination for which you want to configure tax information.
-
-    ![Payout select seller id](images/payout-select-seller-id.png)
 
 4. If you would like to use an existing tax profile, select it from the dropdown. Otherwise, select **Create new profile** and press **Submit**. You will be taken to the tax profiles page.
 5. Click the **Edit** button to edit your tax information.
 6. Select the appropriate radio button, and select your country if prompted. This step determines the Microsoft business entity that will be used to make payouts on your account.
-
-    ![Payout select tax country](images/payout-select-tax-country.png)
 
 7. Depending on your selections in step 6, you will be prompted to provide tax information required for your country.
 
@@ -87,8 +81,6 @@ A payout account is the bank account to which we send the proceeds from your sal
 
 3. Select the payment method you would like to configure.
 
-    ![Payout account type selection](images/payout-account-type-selection.png)
-
 4. Select an existing payment profile, or click **Create a new payment profile** to create a new profile for the chosen payment method.
 
 ### Create a bank-based payment profile
@@ -101,8 +93,6 @@ If you elected to use a bank account to receive payouts, you'll complete the fol
     > [!NOTE]
     > The fields you use to provide your account info accept only alphanumeric characters.
 
-    ![Payout bank info](images/payout-bank-info.png)
-
 3. Provide beneficiary details.
 4. Back on the *Profile assignment* page, select the currency you would like us to use when we issue your payouts.
 
@@ -110,8 +100,6 @@ If you elected to use a bank account to receive payouts, you'll complete the fol
     > Make sure your bank accepts the payout currency you select.
 
 5. You will need to select a payment profile for each program you participate in, though you can use the same profile for multiple programs.
-
-    ![Payout use bank profile](images/payout-use-bank-profile.png)
 
 6. Click submit to save your changes.
 
@@ -167,7 +155,7 @@ Once the payout has been submitted to your bank, you have 30 days to submit a Fo
 If you’re a developer who lives in Russia, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
 1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. App Developer Agreement (ADA) – a signed copy of the developer agreement that needs to be counter signed.
+2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560)  – a signed copy of the developer agreement that needs to be counter signed.
 
 To ensure your payout is successful, please also keep in mind the following:
 
@@ -181,7 +169,7 @@ To ensure your payout is successful, please also keep in mind the following:
 If you’re a developer who lives in Ukraine, you may need to provide documentation to your bank before your bank will deposit funds into your account. When you’re eligible to be paid, we will provide you with the following documentation in an email message:
 
 1. Acceptance Certificate (AC) – contains the amount of payout being transferred to your account.
-2. App Developer Agreement (ADA) – a signed copy of the developer agreement that needs to be counter signed.
+2. [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) – a signed copy of the developer agreement that needs to be counter signed.
 3. Amendment Agreement (AA) – this document can be used by your bank to help identify your payout funds.
 
 Microsoft provides all three documents when your first payout is attempted. For any subsequent payouts, you will only receive the AC document. Please retain the ADA and AA documents in case you need them to receive future payouts from your bank.
@@ -195,8 +183,6 @@ If you elected to use a bank account to receive payouts, you'll complete the fol
 
     > [!NOTE]
     > The fields you use to provide your account info accept only alphanumeric characters.
-
-    ![Payout paypal info](images/payout-paypal-info.png)
 
 3. Provide beneficiary details.
 4. Back on the *Profile assignment* page, select the currency you would like us to use when we issue your payouts.
