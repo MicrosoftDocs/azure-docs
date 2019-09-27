@@ -348,3 +348,4 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 - [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Request process and email notifications](entitlement-management-process.md)
+- [Manage access for external users](entitlement-management-external-users.md)

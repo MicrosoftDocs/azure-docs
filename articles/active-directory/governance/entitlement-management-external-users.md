@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/16/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -29,35 +29,45 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management utilizes [Azure AD B2B](../b2b/what-is-b2b.md) to collaborate with people outside your organization in another Azure AD directory. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.
+Azure AD entitlement management utilizes [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) to collaborate with people outside your organization in another Azure AD directory. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.
 
 This article describes the settings you can specify to manage access for external users.
 
+## How entitlement management can help manage access for external users
+
+When using the Azure AD B2B invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
+
+With entitlement management, you can define a policy that allows users from organizations you specify to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate one or more users from the external organization as approvers that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person (sponsor) at the external organization. That contact can share with other users in the external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
+
+When a request is approved, entitlement management will provision the user with the necessary access, which may include inviting the user if they're not already in your directory. Azure AD will automatically create a B2B account for them. Note that an administrator may have previously limited which organizations are permitted for collaboration, by setting a [B2B allow or deny list](../b2b/allow-deny-list.md) to allow or block invites to other organizations.  If the user is not permitted by the allow or block list, then they will not be invited.
+
+Since you do not want the external user's access to last forever, you specify an expiration date in the policy, such as 180 days. After 180 days, if their access is not extended, entitlement management will remove all access associated with that access package. If the user who was invited through entitlement management has no other access package assignments, then when they lose their last assignment, their B2B account will be blocked from sign in for 30 days, and subsequently removed.  This prevents the proliferation of unnecessary accounts.  
+
 ## How access works for external users
 
-The following diagram shows an overview of how access to access packages works for external users.
+The following diagram and steps provides an overview of how external users are granted access to an access packages.
 
 ![Diagram showing the lifecycle of external users](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
 1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
 
-1. You send the external user a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) that they can use to request the access package.
+1. You send a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) to your contact at the external organization that they can share with external users to request the access package.
 
-1. The external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
+1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
 
 1. An approver [approves the request](entitlement-management-request-approve.md) (or the request is auto-approved).
 
 1. The request goes into the [delivering state](entitlement-management-process.md).
 
-1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If there an [allow list or a deny list](../b2b/allow-deny-list.md) is defined, those setting will be applied.
+1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If an [allow list or a deny list](../b2b/allow-deny-list.md) is defined, those setting will be applied.
 
-1. The guest user is assigned access to all of the resources in the access package.
+1. The guest user is assigned access to all of the resources in the access package. It can take up some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When are changes applied](entitlement-management-access-package-edit.md#when-are-changes-applied).
 
 1. The external user receives an email indicating that their access was [delivered](entitlement-management-process.md).
 
 1. To access the resources, the external user must click the link in the email to complete the invitation process.
 
-1. Depending on the policy settings, the access package assignment for the external user expires, and the external user's access is removed.
+1. Depending on the policy settings, as time passes, the access package assignment for the external user expires, and the external user's access is removed.
 
 1. Depending on the lifecycle of external users settings, when the external user no longer has any access package assignments, the external user is blocked from signing in and the guest user account is removed from your directory.
 
