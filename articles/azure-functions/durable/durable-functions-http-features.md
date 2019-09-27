@@ -46,7 +46,7 @@ The [orchestration client binding](durable-functions-bindings.md#orchestration-c
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-#### JavaScript (Functions 2.x only)
+#### JavaScript with Functions 2.0 or later only
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
@@ -80,20 +80,20 @@ Retry-After: 10
 In the previous example, each of the fields ending in `Uri` corresponds to a built-in HTTP API. You can use these APIs to manage the target orchestration instance.
 
 > [!NOTE]
-> The format of the webhook URLs depend on which version of the Azure Functions host you are running. The previous example is for the Azure Functions 2.0 host.
+> The format of the webhook URLs depends on which version of the Azure Functions host you are running. The previous example is for the Azure Functions 2.0 host.
 
 For a description of all built-in HTTP APIs, see the [HTTP API reference](durable-functions-http-api.md).
 
 ### Async operation tracking
 
-The HTTP response mentioned previously is designed to help implement long-running HTTP async APIs with Durable Functions. This pattern is sometimes referred to as the *Polling Consumer Pattern*. The client/server flow works as follows:
+The HTTP response mentioned previously is designed to help implement long-running HTTP async APIs with Durable Functions. This pattern is sometimes referred to as the *polling consumer pattern*. The client/server flow works as follows:
 
-1. The client issues an HTTP request to start a long-running process, such as an orchestrator function.
-1. The target HTTP trigger returns an HTTP 202 response with a `Location` header that has the value "statusQueryGetUri".
-1. The client polls the URL in the `Location` header. It continues to see HTTP 202 responses with a `Location` header.
-1. When the instance finishes or fails, the endpoint in the `Location` header returns HTTP 200.
+1. The client issues an HTTP request to start a long-running process like an orchestrator function.
+1. The target HTTP trigger returns an HTTP 202 response with a Location header that has the value "statusQueryGetUri".
+1. The client polls the URL in the Location header. The client continues to see HTTP 202 responses with a Location header.
+1. When the instance finishes or fails, the endpoint in the Location header returns HTTP 200.
 
-This protocol allows coordination of long-running processes with external clients or services that can poll an HTTP endpoint and follow the `Location` header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
+This protocol allows coordination of long-running processes with external clients or services that can poll an HTTP endpoint and follow the Location header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
 
 > [!NOTE]
 > By default, all HTTP-based actions provided by [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/) support the standard asynchronous operation pattern. This capability makes it possible to embed a long-running durable function as part of a Logic Apps workflow. You can find more details on Logic Apps support for asynchronous HTTP patterns in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md).
@@ -142,14 +142,14 @@ The ability to consume HTTP APIs directly from orchestrator functions is intende
 
 ### HTTP 202 handling
 
-The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a `Location` header, the orchestrator function  automatically polls the `Location` resource until a non-202 response comes back. The non-202 response will be the response returned to the orchestrator function code.
+The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
 
 > [!NOTE]
-> Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style application development.
+> Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
 
 ### Managed identities
 
-Durable Functions natively supports calling APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
+Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
 
 The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
@@ -176,35 +176,35 @@ public static async Task RunOrchestrator(
 }
 ```
 
-In the previous example, the *tokenSource* parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
+In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 
-At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the `Authorization` header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
+At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
 
 * Token refresh is handled automatically. You don't need to worry about expired tokens.
 * Tokens are never stored in the durable orchestration state.
-* You don't need to write any code to managed token acquisition.
+* You don't need to write any code to manage token acquisition.
 
 You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
 
-Managed identities aren't limited to Azure resource management. Managed identities can access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft or web applications from others. A partner web app can even be another function app. For a list of Azure services that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### Limitations
 
 The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
 
-HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also means that:
+HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
 
 * Each HTTP request involves additional latency when compared to a native HTTP client.
-* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage causes potential performance degradation.
+* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
 * Streaming, chunked, and binary payloads aren't supported.
 * The ability to customize the behavior of the HTTP client is limited.
 
 If any of these limitations might affect your use case, consider instead using activity functions and language-specific HTTP client libraries to make outbound HTTP calls.
 
 > [!NOTE]
-> If you are a .NET developer, you might wonder why this feature uses the **DurableHttpRequest** and **DurableHttpResponse** types instead of the built-in **HttpRequestMessage** and **HttpResponseMessage** .NET types.
+> If you are a .NET developer, you might wonder why this feature uses the **DurableHttpRequest** and **DurableHttpResponse** types instead of the built-in .NET **HttpRequestMessage** and **HttpResponseMessage** types.
 >
-> This design choice is intentional. The primary reason is that custom types help ensure users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Types specific to Durable Functions also make it possible to simplify the API design and more easily activate special features like [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling).
+> This design choice is intentional. The primary reason is that custom types help ensure users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Types specific to Durable Functions also make it possible to simplify API design. They also can more easily make available special features like [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling).
 
 ## Next steps
 
