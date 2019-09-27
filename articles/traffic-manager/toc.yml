@@ -93,6 +93,8 @@
     items:
     - name: Configure subnet override - Azure CLI
       href: traffic-manager-subnet-override-cli.md
+    - name: Configure subnet override - PowerShell
+      href: traffic-manager-subnet-override-powershell.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot degraded state on Azure Traffic Manager
