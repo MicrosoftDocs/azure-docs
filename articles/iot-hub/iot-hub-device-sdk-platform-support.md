@@ -61,12 +61,10 @@ The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-pyt
 
 The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-csharp) is tested with and supports the following configurations.
 
-| OS                  | Standard          |
-|---------------------|-------------------|
-| Linux               | .NET standard 2.0 |
-| Windows 10 family   | .NET standard 2.0 |
-
-The IoT Hub .NET (C#) device SDK is supported on runtimes compliant with .NET Standard 2.0. For detailed information, see [OS and hardware compatibility](https://github.com/azure/azure-iot-sdk-csharp#os-platforms-and-hardware-compatibility) in the .NET (C#) SDK readme on GitHub. You can find additional information about platform compatibility support for the .NET standard 2.0 in the [.NET standard 2.0 documentation on GitHub](https://github.com/dotnet/standard/blob/master/docs/versions/netstandard2.0.md).
+| OS                  | Standard                                                   |
+|---------------------|------------------------------------------------------------|
+| Linux               | .NET Core 2.1                                              |
+| Windows 10 family   | .NET Core 2.1, .NET Framework 4.5.1, or .NET Framework 4.7 |
 
 ### Node.js SDK
 
