@@ -1,10 +1,10 @@
 ---
 title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/28/2019
@@ -247,7 +247,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 3. To view Kafka configuration, select __Configs__ from the top middle.
 
-    ![Configs links for Kafka](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
+    ![Apache Ambari services configuration](./media/apache-kafka-connect-vpn-gateway/select-kafka-config1.png)
 
 4. To find the __kafka-env__ configuration, enter `kafka-env` in the __Filter__ field on the upper right.
 
@@ -269,7 +269,7 @@ By default, Apache Zookeeper returns the domain name of the Kafka brokers to cli
 
 8. To save the configuration changes, use the __Save__ button. Enter a text message describing the changes. Select __OK__ once the changes have been saved.
 
-    ![Save configuration button](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
+    ![Apache Ambari save configuration](./media/apache-kafka-connect-vpn-gateway/save-configuration-button.png)
 
 9. To prevent errors when restarting Kafka, use the __Service Actions__ button and select __Turn On Maintenance Mode__. Select OK to complete this operation.
 

@@ -126,19 +126,8 @@ If a disk drive used for storage suffers a hardware failure, it is securely [era
 Microsoft Azure provides various cloud-based computing services that include a wide selection of compute instances & services that can scale up and down automatically to meet the needs of your application or enterprise. These compute instance and service offer isolation at multiple levels to secure data without sacrificing the flexibility in configuration that customers demand.
 
 ### Isolated Virtual Machine Sizes
-Azure Compute offers virtual machine sizes that are Isolated to a specific hardware type and dedicated to a single customer.  These virtual machine sizes are best suited for workloads that require a high degree of isolation from other customers for workloads involving elements like compliance and regulatory requirements.  Customers can also choose to further subdivide the resources of these Isolated virtual machines by using [Azure support for nested virtual machines](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
-Utilizing an isolated size guarantees that your virtual machine will be the only one running on that specific server instance.  The current Isolated virtual machine offerings include:
-* Standard_E64is_v3
-* Standard_E64i_v3
-* Standard_M128ms
-* Standard_GS5
-* Standard_G5
-* Standard_DS15_v2
-* Standard_D15_v2
-* Standard_F72s_v2
-
-You can learn more about each Isolated size available [here](../../virtual-machines/windows/sizes-memory.md).
+[!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
 
 ### Hyper-V & Root OS Isolation Between Root VM & Guest VMs
 Azure’s compute platform is based on machine virtualization—meaning that all customer code executes in a Hyper-V virtual machine. On each Azure node (or network endpoint), there is a Hypervisor that runs directly over the hardware and divides a node into a variable number of Guest Virtual Machines (VMs).
@@ -351,7 +340,7 @@ Azure deployment has multiple layers of network isolation. The following diagram
 
 - [Network Isolation Options for Machines in Windows Azure Virtual Networks](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
 
-This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on a whitelist of IP addresses.
+This includes the classic front-end and back-end scenario where machines in a particular back-end network or subnetwork may only allow certain clients or other computers to connect to a particular endpoint based on an allow list of IP addresses.
 
 - [Compute Isolation](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
 

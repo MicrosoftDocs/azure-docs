@@ -118,7 +118,7 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Create an ACR with an AKS cluster
+    - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
@@ -151,6 +151,8 @@
       href: azure-files-volume.md
     - name: NFS Server - Static
       href: azure-nfs-volume.md
+    - name: Azure NetApp Files
+      href: azure-netapp-files.md      
   - name: Configure networking
     items:
     - name: Create or use existing virtual network

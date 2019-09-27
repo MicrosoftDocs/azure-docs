@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
 ---
@@ -41,10 +41,9 @@ This article will help you to troubleshoot common issues that may occur when usi
 
 ## Intermittent test failure with a protocol violation error
 
-|Symptom/error message| Possible causes|
-|----|---------|
-protocol violation CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate end of line, which violates the HTTP specification and therefore will fail validation at the .NET WebRequest level.
- || This can also be caused by load balancers or CDNs.
+|Symptom/error message| Possible causes| Possible Resolutions |
+|----|---------|-----|
+|The server committed a protocol violation. Section=ResponseHeader Detail=CR must be followed by LF | This occurs when malformed headers are detected. Specifically, some headers might not be using CRLF to indicate the end of line, which violates the HTTP specification. Application Insights enforces this HTTP specification and fails responses with malformed headers.| a. Contact web site host provider / CDN provider to fix the faulty servers. <br> b. In case the failed requests are resources (e.g. style files, images, scripts), you may consider disabling the parsing of dependent requests. Keep in mind, if you do this you will lose the ability to monitor the availability of those files).
 
 > [!NOTE]
 > The URL may not fail on browsers that have a relaxed validation of HTTP headers. See this blog post for a detailed explanation of this issue: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  

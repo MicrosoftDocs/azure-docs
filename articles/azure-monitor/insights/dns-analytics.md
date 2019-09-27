@@ -174,6 +174,12 @@ On the Log Search page, you can create a query. You can filter your search resul
 1. In the **search query box**, type `DnsInventory` to view all the DNS inventory-related data for the DNS servers managed by the solution. The results list the log data for DNS servers, DNS zones, and resource records.
 
     ![DnsInventory log search](./media/dns-analytics/log-search-dnsinventory.png)
+    
+## Troubleshooting
+
+Common troubleshooting steps:
+
+1. Missing DNS Lookups Data - To troubleshoot this issue, try resetting the config or just loading the configuration page once in portal. For resetting, just change a setting to another value, then change it back to to the original value, and save the config.
 
 ## Feedback
 
