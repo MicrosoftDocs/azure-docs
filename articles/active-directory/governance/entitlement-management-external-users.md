@@ -65,7 +65,7 @@ The following diagram and steps provides an overview of how external users are g
 
 1. The external user receives an email indicating that their access was [delivered](entitlement-management-process.md).
 
-1. To access the resources, the external user must click the link in the email to complete the invitation process.
+1. To access the resources, the external user can either click the link in the email or attempt to access any of the resource tenant resource’s directly to complete the invitation process.
 
 1. Depending on the policy settings, as time passes, the access package assignment for the external user expires, and the external user's access is removed.
 
