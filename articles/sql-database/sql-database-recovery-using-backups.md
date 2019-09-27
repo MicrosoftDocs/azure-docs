@@ -78,9 +78,19 @@ You generally restore a database to an earlier point for recovery purposes. You 
   
 ### Point-in-time restore using Azure portal
 
-To recover a single, pooled, or instance database to a point in time using Azure portal, open the database overview page and click **Restore** on the toolbar. Choose backup source and select the point in time backup point from which a new database will be created.
+Recovery of a single SQL database or instance database to a point in time is performed from the overview blade of the database you wish to restore in Azure portal.
 
-  ![point-in-time-restore](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+#### Single Azure SQL Database
+
+To recover a single or pooled database to a point in time using Azure portal, open the database overview page and click **Restore** on the toolbar. Choose backup source and select the point in time backup point from which a new database will be created. 
+
+  ![point-in-time-restore-single-sql-database](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+
+#### Managed instance database
+
+To recover managed instance database to a point in time using Azure portal, open the database overview page and click **Restore** on the toolbar. Choose the point in time backup point from which a new database will be created. 
+
+  ![point-in-time-restore-managed-instance-database](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
 
 > [!TIP]
 > To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
@@ -142,7 +152,7 @@ To geo-restore single Azure SQL Database from Azure portal in the region and ser
 3. Under Use existing data click on **Backup**
 4. Select a backup from the drop-down list of available geo-restore backups
 
-  ![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+    ![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 Complete the process of creating a new database. Once the single Azure SQL Database is created, it will contain restored geo-restore backup.
 
@@ -155,7 +165,7 @@ To geo-restore managed instance database from Azure portal to an existing manage
 3. Under Use existing data select option **Backup**
 4. Select a backup from the drop-down list of available geo-restore backups
 
-  ![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+    ![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
 Complete the process of creating a new database. Once the instance database is created, it will contain restored geo-restore backup.
 
@@ -186,6 +196,8 @@ As previously discussed, in addition to Azure portal, database recovery can be p
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in AzureRm modules are to a great extent identical.
 
+#### Single Azure SQL Database
+
 - To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Description |
@@ -197,6 +209,8 @@ As previously discussed, in addition to Azure portal, database recovery can be p
 
   > [!TIP]
   > For a sample PowerShell script showing how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### Managed instance database
 
 - To restore a Managed Instance database, see [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
@@ -217,8 +231,13 @@ To restore a single or pooled database using the REST API:
 
 ### Azure CLI
 
-- To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
+#### Single Azure SQL Database
+
+To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+
+#### Managed instance database
+
+To restore a managed instance database using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## Summary
 
