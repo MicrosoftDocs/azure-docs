@@ -29,18 +29,18 @@ For instructions on how to create and customize dashboards and widgets in Azure 
 
 Here is a simple example dashboard that tracks the sprint activities of an Agile data science project, including the number of commits to associated repositories. 
 
-- At upper left, the **countdown** widget shows the number of days that remain in the current sprint. The two **code tiles** show the number of commits in the two project repositories for the past seven days. 
+- At upper left, the **countdown** tile shows the number of days that remain in the current sprint. The two **code tiles** show the number of commits in the two project repositories for the past seven days. 
 
-- Below the tiles are **query results** that show all work items and their current states. 
+- Below the tiles are **query results** that show all work items and their status. 
 
-- Below the query results is a **cumulative flow diagram** (CFD) that shows the number of Closed and Active work items.
+- Below the query results, a **cumulative flow diagram** (CFD) shows the number of Closed and Active work items.
 
-- At upper right is a **burndown chart** that shows work still to complete against remaining time in the sprint
+- At upper right, a **burndown chart** shows work still to complete against remaining time in the sprint.
 
-- Below that is a **burnup chart** that shows completed work against the total amount of work in the sprint.
+- Below the burndown chart is a **burnup chart** that shows completed work compared to total amount of work in the sprint.
 
 ![Dashboard](./media/track-progress/dashboard.png)
 
 ## Next steps
 
-[Example walkthroughs](walkthroughs.md) lists walkthroughs that demonstrate all the steps in the process for specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
+[Example walkthroughs](walkthroughs.md) lists walkthroughs that demonstrate all the steps in the Team Data Science Process for specific scenarios, with links and thumbnail descriptions. The linked scenarios illustrate how to combine cloud and on-premises tools and services into workflows or pipelines to create intelligent applications. 
