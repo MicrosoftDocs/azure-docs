@@ -27,12 +27,18 @@ You can use Python to access the same results you saw in the browser window in t
 
 1. Copy one of the following code snippets to a file called `quickstart-call-endpoint.py`:
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/2.x/quickstart-call-endpoint-2-7.py)]
+    #### [Python 2.7](#tab/P2)
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/3.x/quickstart-call-endpoint-3-6.py)]
+    [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/2.x/quickstart-call-endpoint-2-7.py)]    
 
-2. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS endpoint key.
+    #### [Python 3.6](#tab/P3)
 
-3. Install dependencies with `pip install requests`.
+    [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/3.x/quickstart-call-endpoint-3-6.py)]
 
-4. Run the script with `python ./quickstart-call-endpoint.py`. It displays the same JSON that you saw earlier in the browser window.
+    * * *
+
+1. Replace the value of the `Ocp-Apim-Subscription-Key` field with your LUIS endpoint key.
+
+1. Install dependencies with `pip install requests`.
+
+1. Run the script with `python ./quickstart-call-endpoint.py`. It displays the same JSON that you saw earlier in the browser window.

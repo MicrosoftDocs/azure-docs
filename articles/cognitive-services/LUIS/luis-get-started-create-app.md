@@ -182,9 +182,7 @@ Select **Test** again to collapse the test pane.
 
     Without `verbose=true`:
 
-    `
-    https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
-    `
+    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
     ```json
     {
@@ -210,9 +208,7 @@ Select **Test** again to collapse the test pane.
 
     With `verbose=true`:
 
-    `
-    https://\<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/\<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=\<YOUR_KEY>&**query=\<user-utterance-text>**
-    `
+    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
     ```json
     {

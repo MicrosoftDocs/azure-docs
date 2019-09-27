@@ -47,8 +47,6 @@ In order to query a public app, you need:
     https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
     `
     
-    Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
-    
     * * *
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
@@ -95,8 +93,6 @@ In order to query a public app, you need:
         }
     }
     ```
-
-    Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
 
     * * *
 
@@ -177,11 +173,11 @@ In order to query a public app, you need:
     }
     ```
 
-    Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
-
     * * * 
 
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 > [!div class="nextstepaction"]
 > [Create an app in the LUIS portal](get-started-portal-build-app.md)

@@ -38,7 +38,7 @@ The `appID` is available on the **Settings** page of your LUIS app as well as pa
 The **HTTPS response** contains all the intent and entity information LUIS can determine based on the current published model of either the staging or production endpoint. The endpoint URL is found on the [LUIS](luis-reference-regions.md) website, in the **Manage** section, on the **Keys and endpoints** page.
 
 ## Data from intents
-The primary data is the top scoring **intent name**. Using the `MyStore` [quickstart](luis-quickstart-intents-only.md), the endpoint response is:
+The primary data is the top scoring **intent name**. The endpoint response is:
 
 #### [V2 prediction endpoint response](#tab/V2)
 
@@ -109,7 +109,27 @@ Set the querystring parameter, `verbose=true`. The endpoint response is:
 
 #### [V3 prediction endpoint response](#tab/V3)
 
-All intents are returned in V3 by default. Verbose has a different meaning in V3.
+Set the querystring parameter, `show-all-intents=true`. The endpoint response is:
+
+```JSON
+{
+    "query": "when do you open next?",
+    "prediction": {
+        "normalizedQuery": "when do you open next?",
+        "topIntent": "GetStoreInfo",
+        "intents": {
+            "GetStoreInfo": {
+                "score": 0.984749258
+            },
+            "None": {
+                 "score": 0.2040639
+            }
+        },
+        "entities": {
+        }
+    }
+}
+```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
@@ -933,6 +953,8 @@ The LUIS endpoint can discover the same data in different entities.
 
 #### [V3 prediction endpoint response](#tab/V3)
 
+Without `verbose=true` as a querystring parameter.
+
 ```json
 "entities": {
     "TicketsOrder": [
@@ -967,6 +989,9 @@ The LUIS endpoint can discover the same data in different entities.
     ]
 }
 ```
+
+With `verbose=true` as a querystring parameter.
+
 
 ```json
 "entities": {
@@ -1152,6 +1177,93 @@ For the query `when is the best time to go to red rock?`, and the app has the wo
 
 
 #### [V3 prediction endpoint response](#tab/V3)
+
+Without `verbose=true` in the query string:
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ]
+        }
+    }
+}
+```
+
+
+With `verbose=true` in the query string:
+
+```JSON
+{
+    "query": "when is the best time to go to red rock",
+    "prediction": {
+        "normalizedQuery": "when is the best time to go to red rock",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.823669851
+            }
+        },
+        "entities": {
+            "Colors": [
+                [
+                    "red"
+                ]
+            ],
+            "Cities": [
+                [
+                    "Destinations"
+                ]
+            ],
+            "$instance": {
+                "Colors": [
+                    {
+                        "type": "Colors",
+                        "text": "red",
+                        "startIndex": 31,
+                        "length": 3,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "Cities": [
+                    {
+                        "type": "Cities",
+                        "text": "red rock",
+                        "startIndex": 31,
+                        "length": 8,
+                        "modelTypeId": 5,
+                        "modelType": "List Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
