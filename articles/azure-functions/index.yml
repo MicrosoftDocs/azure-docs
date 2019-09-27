@@ -96,7 +96,8 @@ landingContent:
         links:
           - text: Event-driven triggers
             url: functions-triggers-bindings.md
-          - text: functions-networking-options.md  
+          - text: Networking options
+            url: functions-networking-options.md  
       - linkListType: tutorial
         links:
           - text: Integrate with Logic Apps
