@@ -14,7 +14,7 @@ ms.service: marketplace
 To understand your tax considerations for price selection, and tax responsibility under the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) or Modern Publisher Agreement, see your countries/regions of distribution in the tables below.
 
 > [!NOTE]
-> The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of [affected countries/regions](define-market-selection.md#price-considerations-for-specific-markets).
+> The Commerce Expansion Adjustment may have payout implications in a limited set of countries/regions. For further details about the Commerce Expansion Adjustment and the markets where it applies, see the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) and the list of affected countries/regions.
 
 > [!IMPORTANT]
 > Tax responsibility for Reseller countries/regions and circumstances (as described [below](#reseller-countriesregions)) is covered by Exhibit C of the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560), notwithstanding the information in the table below.
