@@ -139,14 +139,16 @@
     items: 
     - name: Developer guide
       href: functions-reference.md
-    - name: Develop and debug locally
-      href: functions-develop-local.md
-    - name: Visual Studio Code development
-      href: functions-develop-vs-code.md
-    - name: Visual Studio development
-      href: functions-develop-vs.md
-    - name: Core Tools development
-      href: functions-run-local.md
+    - name: Local development
+      items:  
+        - name: Develop and debug locally
+          href: functions-develop-local.md
+        - name: Visual Studio Code development
+          href: functions-develop-vs-code.md
+        - name: Visual Studio development
+          href: functions-develop-vs.md
+        - name: Core Tools development
+          href: functions-run-local.md
     - name: Create functions
       items: 
       - name: HTTP trigger   
