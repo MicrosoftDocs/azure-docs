@@ -55,7 +55,7 @@ The MSAL public API reflects introduces important usability changes, including:
   - By default, the default browser on the device is used. This allows MSAL to use authentication state (cookies) that may already be present for one or more signed in accounts. If no authentication state is present, authenticating during authorization via MSAL results in authentication state (cookies) being created for the benefit of other web applications that will be used in the same browser.
 - New Exception Model:
   - Exceptions are clearer about the type of exception that occurred and what the developer needs to do to resolve it
-- MSAL supports parameter objects
+- MSAL supports parameter objects for `AcquireToken` and `AcquireTokenSilent` calls.
 - MSAL supports declarative configuration for:
   - Client ID, Redirect URI
   - Embedded vs Default Browser
@@ -131,8 +131,15 @@ MSAL does not have a flag to enable or disable authority validation. Authority v
 If you attempt to use an authority that isn't known to Microsoft, and isn't included in your configuration, you will get an `UnknownAuthorityException`.
 
 ### Logging
-
->TBD: Look at any changes in logging configuration and/or output
+You can now declaratively configure logging as part of your configuration like below
+ 
+ ```
+ "logging": {
+    "pii_enabled": false,
+    "log_level": "WARNING",
+    "logcat_enabled": true
+  }
+  ```
 
 ## Migrate from UserInfo to Account
 
@@ -182,8 +189,32 @@ public interface AuthenticationCallback<T> {
 ```
 
 ```java
-// New Interface
+// New Interface for Interactive AcquireToken
 public interface AuthenticationCallback {
+
+    /**
+     * Authentication finishes successfully.
+     *
+     * @param authenticationResult {@link IAuthenticationResult} that contains the success response.
+     */
+    void onSuccess(final IAuthenticationResult authenticationResult);
+
+    /**
+     * Error occurs during the authentication.
+     *
+     * @param exception The {@link MsalException} contains the error code, error message and cause if applicable. The exception
+     *                  returned in the callback could be {@link MsalClientException}, {@link MsalServiceException}
+     */
+    void onError(final MsalException exception);
+
+    /**
+     * Will be called if user cancels the flow.
+     */
+    void onCancel();
+}
+
+// New Interface for Silent AcquireToken
+public interface SilentAuthenticationCallback {
 
     /**
      * Authentication finishes successfully.
@@ -200,12 +231,9 @@ public interface AuthenticationCallback {
      *                  {@link MsalUiRequiredException}.
      */
     void onError(final MsalException exception);
-
-    /**
-     * Will be called if user cancels the flow.
-     */
-    void onCancel();
 }
+
+
 ```
 
 ## Migrate to the new exceptions
@@ -213,15 +241,19 @@ public interface AuthenticationCallback {
 In ADAL, there's one type of exception, `AuthenticationException`, which includes a method for retrieving the `ADALError` enum value.
 In MSAL, there's a hierarchy of exceptions, and each has its own set of associated specific error codes.
 
-TODO: Insert hierarchy of Exceptions
+List of MSAL Exceptions
 
-For the following ADAL exceptions, use the corresponding MSAL exception:
-
-|ADAL exception  | MSAL exception  |
+|Exception  | Description  |
 |---------|---------|
-| `MsalException`     | `MsalClientException`  |
-| `MsalException`     | `MsalServiceException` |
-| `MsalException`     | `UserCancelledException` |
+| `MsalException`     | Default checked exception thrown by MSAL.  |
+| `MsalClientException`     | Exception thrown if the error is client side. |
+| `MsalArgumentException`     | Exception thrown if one or more inputs arguments are invalid. |
+| `MsalClientException`     | Exception thrown if the error is client side. |
+| `MsalServiceException`     | Exception thrown if the error is from the server side. |
+| `MsalUserCancelException`     | Exception thrown if the user cancelled the flow.  |
+| `MsalUiRequiredException`     | Exception thrown to indicate that the token cannot be refreshed silently.  |
+| `MsalDeclinedScopeException`     | Exception thrown to indicate that one or more requested scopes have been declined by the server.  |
+| `MsalIntuneAppProtectionPolicyRequiredException`     | Exception thrown to indicated the resource has MAMCA protection policy enabled. |
 
 ### ADALError to MsalException ErrorCode
 
@@ -229,19 +261,24 @@ For the following ADAL exceptions, use the corresponding MSAL exception:
 
 ```java
 // Legacy Interface
-public void Log(
-                    String tag,
-                    String message,
-                    String additionalMessage,
-                    com.microsoft.aad.adal.Logger.LogLevel level,
-                    ADALError errorCode)
-{
-}
+    StringBuilder logs = new StringBuilder();
+    Logger.getInstance().setExternalLogger(new ILogger() {
+            @Override
+            public void Log(String tag, String message, String additionalMessage, LogLevel logLevel, ADALError errorCode) {
+                logs.append(message).append('\n');
+            }
+        });
 ```
 
 ```java
 // New interface
-public void Log()
+  StringBuilder logs = new StringBuilder();
+  Logger.getInstance().setExternalLogger(new ILoggerCallback() {
+            @Override
+            public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII) {
+                logs.append(message).append('\n');
+            }
+        });
 
 // New Log Levels:
 public enum LogLevel
