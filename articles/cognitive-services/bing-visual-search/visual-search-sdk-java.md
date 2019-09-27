@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: 
 ms.topic: quickstart
-ms.date: 09/25/2019
+ms.date: 09/27/2019
 ms.author: aahi
 ---
 
@@ -81,10 +81,22 @@ Create a folder for your sample app. From your working directory, run the follow
 mkdir -p src/main/java
 ```
 
+Create a folder for the image you want to upload to the API. Place the image inside the **resources** folder.
+
+```console
+mkdir -p src/main/resources
+``` 
+
 Navigate to the new folder and create a file called *BingVisualSearchSample.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
 [!code-csharp[Import statements](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=imports)]
 
+Then create a new class.
+
+```java
+public class BingVisualSearchSample {
+}
+```
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
 
@@ -105,13 +117,6 @@ dependencies {
 }
 ```
 
-## Object model
-
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
-
 ## Code examples
 
 These code snippets show you how to do the following tasks with the Bing Visual Search client library and Java:
@@ -126,19 +131,23 @@ These code snippets show you how to do the following tasks with the Bing Visual 
 > This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing Visual Search key, named `TBD_KEY`.
 
 
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+In your main method, be sure to use your subscription key to instantiate a `BingVisualSearchAPI` object.
 
-[!code-csharp[Main method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=main)]
+```csharp
+BingVisualSearchAPI client = BingVisualSearchManager.authenticate(subscriptionKey);
+```
 
 ## Send a visual search request
 
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
+In a new method, send the image byte array (which was created in the `main()` method) using the client's `bingImages().visualSearch()` method. 
 
-[!code-csharp[searchRequest() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=searchRequest)]
+[!code-csharp[visualSearch() method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=visualSearch)]
 
 ## Print the image insight token and visual search tags
 
-[!code-csharp[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printTokenAndTags)]
+Check if the `ImageKnowledge` object is null. If not, print the image insights token, the number of tags, the number of actions, and the first action type.
+
+[!code-csharp[Print token and tags](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=printVisualSearchResults)]
 
 ## Run the application
 
