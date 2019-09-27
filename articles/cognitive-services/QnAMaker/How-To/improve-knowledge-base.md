@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
 ---
 
@@ -74,6 +74,8 @@ Active learning is off by default. Turn it on to see suggested questions. After 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
 ## Accept an active learning suggestion in the knowledge base
+
+Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. 
 
@@ -382,7 +384,14 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
 ]
 ```
 
+You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
+
+
 
 ## Best practices
 

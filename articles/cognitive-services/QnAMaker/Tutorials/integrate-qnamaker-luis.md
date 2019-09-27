@@ -46,7 +46,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Web app Bot
 
-1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select the 4.x SDK and the C# programming language.
+1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select C# programming language.
 
 1. Once the web app bot is created, in the Azure portal, select the web app bot.
 1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.

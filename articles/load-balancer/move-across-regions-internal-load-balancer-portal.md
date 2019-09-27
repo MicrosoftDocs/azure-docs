@@ -22,7 +22,7 @@ Azure internal load balancers can't be moved from one region to another. You can
 - Azure internal load balancers can't be moved between regions.  You'll have to associate the new load balancer to resources in the target region.
 
 - To export an internal load balancer configuration and deploy a template to create an internal load balancer in another region, you'll need the Network Contributor role or higher.
-   
+
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups, virtual machines, and virtual networks.
 
 - Verify that your Azure subscription allows you to create internal load balancers in the target region that's used. Contact support to enable the required quota.
@@ -38,13 +38,13 @@ The following steps show how to prepare the internal load balancer for the move 
 
 ### Export the virtual network template and deploy from the Azure portal
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source virtual network and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 6. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
-    
+
     ```json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -60,8 +60,8 @@ The following steps show how to prepare the internal load balancer for the move 
 
 8. Click **Save** in the editor.
 
-9. Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
-    
+9. Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
+
 10. To edit the target region where the VNET will be moved, change the **location** property under resources:
 
     ```json
@@ -81,9 +81,9 @@ The following steps show how to prepare the internal load balancer for the move 
                         },
 
     ```
-  
+
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-    
+
 12. You can also change other parameters in the **template.json** file if you choose, and are optional depending on your requirements:
 
     * **Address Space** - The address space of the VNET can be altered before saving by modifying the **resources** > **addressSpace** section and changing the **addressPrefixes** property in the **template.json** file:
@@ -177,7 +177,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target VNET will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target VNET will be deployed.  You can click **Create new** to create a new resource group for the target VNET.  Ensure the name is not the same as the source resource group of the existing VNET.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the VNET to be deployed.
 
@@ -189,7 +189,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 ### Export the internal load balancer template and deploy from Azure PowerShell
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source internal load balancer and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
@@ -210,15 +210,15 @@ The following steps show how to prepare the internal load balancer for the move 
              "type": "String"
              }
     ```
- 
+
 6. To edit value of the target virtual network that was moved above, you must first obtain the resource ID and then copy and paste it into the **parameters.json** file. To obtain the ID:
-    
-    1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups** in another browser tab or window.
+
+    1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups** in another browser tab or window.
     2. Locate the target resource group that contains the moved virtual network from the steps above, and click on it.
     3. Select > **Settings** > **Properties**.
     4. In the blade to the right, highlight the **Resource ID** and copy it to the clipboard.  Alternatively, you can click on the **copy to clipboard** button to the right of the **Resource ID** path.
     5. Paste the resource ID into the **defaultValue** property into the **Edit Parameters** editor open in the other browser window or tab:
-   
+
         ```json
          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
          "contentVersion": "1.0.0.0",
@@ -251,9 +251,9 @@ The following steps show how to prepare the internal load balancer for the move 
     ```
 
 9.  To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-    
+
 10. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
-    
+
     * **Sku** - You can change the sku of the internal load balancer in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
 
         ```json
@@ -369,12 +369,12 @@ The following steps show how to prepare the internal load balancer for the move 
         }
         ```
         For more information on inbound NAT rules, see [What is Azure Load Balancer?](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
-    
+
 12. Click **Save** in the online editor.
-    
+
 13. Click **BASICS** > **Subscription** to choose the subscription where the target internal load balancer will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target internal load balancer or choose the existing resource group that was created above for the virtual network.  Ensure the name isn't the same as the source resource group of the existing source internal load balancer. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target load balancer will be deployed.  You can click **Create new** to create a new resource group for the target internal load balancer or choose the existing resource group that was created above for the virtual network.  Ensure the name isn't the same as the source resource group of the existing source internal load balancer.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the internal load balancer to be deployed.
 
@@ -384,7 +384,7 @@ The following steps show how to prepare the internal load balancer for the move 
 
 19. Click the **Purchase** button to deploy the target virtual network.
 
-## Discard 
+## Discard
 
 If you wish to discard the target virtual network and internal load balancer, delete the resource group that contains the target virtual network and internal load balancer.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 

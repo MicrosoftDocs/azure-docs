@@ -1,10 +1,10 @@
 ---
-title: Create a Commercial Marketplace account in Partner Center 
-description: Learn how to create a Commercial Marketplace account in Partner Center. 
+title: Create a Commercial Marketplace account in Partner Center
+description: Learn how to create a Commercial Marketplace account in Partner Center.
 author: ChJenk
 manager: evansma
-ms.author: parthp 
-ms.service: marketplace 
+ms.author: parthp
+ms.service: marketplace
 ms.topic: guide
 ms.date: 09/10/2019
 ---
@@ -55,7 +55,7 @@ Sign in with a work account so you so that you can link your company's work emai
 
 ### Agree to terms and conditions
 
-You'll need to agree to terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560).
+You'll need to agree to terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560).
 
 ### Provide your publisher profile
 
@@ -98,7 +98,7 @@ After you sign in, use the steps in this section to finish setting up your accou
 
 1. From Partner Center, select **Settings** > **Partner Settings** > **Programs** > **Get Started**.
 2. Microsoft Partner Network detects your subscription and displays the publisher profile page for you to enter your company name and MPN ID.
-3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](http://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
+3. Read the terms and conditions in the [Microsoft Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/?LinkID=699560), and then select **Accept and continue** to complete your enrollment.
 
 Once enrolled, you're taken to the Commercial Marketplace Overview page. **Commercial Marketplace** is displayed in the left navigation bar. If you select **Settings** > **Partner Settings** > **Programs**, you'll see that Commercial Marketplace is listed as registered.
 
