@@ -9,13 +9,15 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/27/2019
 ms.author: aahi
 ---
 
 # How to page through results from the Bing Search APIs
 
-When you send a call to the Bing Web, Custom, Image, News and Video Search APIs, Bing returns a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's `totalEstimatedMatches` field. For example: 
+When you send a call to the Bing Web, Custom, Image, News and Video Search APIs, Bing returns a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's `totalEstimatedMatches` field. 
+
+For example: 
 
 ```json
 {
@@ -30,12 +32,12 @@ When you send a call to the Bing Web, Custom, Image, News and Video Search APIs,
 
 ## Paging through search results
 
+To page through the available results, use the `count` and `offset` query parameters when sending your request.  
+
 > [!NOTE]
 >
 > * Paging with the Bing Video, Image, and News APIs applies only to general video (`/video/search`), news (`/news/search`) and image (`/image/search`) searches. Paging through trending topics and categories is not supported.  
 > * The `TotalEstimatedAnswers` field is an estimate of the total number of search results for the current query. When you set the `count` and `offset` parameters, this estimate may change.
-
-To page through the available results, use the `count` and `offset` query parameters when sending your request.  
 
 | Parameter | Description                                                                                                                                                                |
 |-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,8 +52,6 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-
-
 If you use the default `count` value, you only need to specify the `offset` query parameter in your API calls.  
 
 ```  
@@ -65,11 +65,9 @@ Host: api.cognitive.microsoft.com
 >
 > If you use the `responseFilter` query parameter without specifying any filter values, don't use the `count` and `offset` parameters. 
 
-
 ## Next steps
 
 * [What are the Bing Web Search APIs?](bing-api-comparison.md)
-
 * [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-referenc)
 * [Bing Custom Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 * [Bing News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
