@@ -253,7 +253,7 @@ Here's some ways to move your data over.
 
 ---
 
-## Discard or Clean up
+## Discard or clean up
 
 After the deployment, if you want to start over, you can delete the target storage account, and repeat the steps described in the [Prepare](#prepare) and [Move](#move) sections of this article.
 
@@ -263,7 +263,7 @@ To commit the changes and complete the move of a storage account, delete the sou
 
 To remove a storage account by using the Azure portal:
 
-1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts*** to display the list of your storage accounts.
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Storage accounts** to display the list of your storage accounts.
 
 2. Locate the target storage account to delete, and right-click the **More** button (**...**) on the right side of the listing.
 
