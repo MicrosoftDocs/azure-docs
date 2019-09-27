@@ -74,4 +74,4 @@ az network traffic-manager endpoint update \
 ## Next Steps
 Learn more about Traffic Manager [traffic routing methods](traffic-manager-routing-methods.md).
 
-Learn about the [Subnet traffic-routing method](https://review.docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods?branch=pr-en-us-85549#subnet)
+Learn about the [Subnet traffic-routing method](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#subnet-traffic-routing-method)
