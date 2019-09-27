@@ -40,7 +40,7 @@ The following table shows the different methods you can use to set up an HDInsig
 
 This article walks you through setup in the [Azure portal](https://portal.azure.com), where you can create an HDInsight cluster using the default view or *Classic*.
 
-![hdinsight create options custom quick create](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics.png)
+![hdinsight create options custom quick create](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
 Follow instructions on the screen. Details are provided below for:
 
