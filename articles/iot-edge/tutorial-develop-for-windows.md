@@ -52,6 +52,7 @@ A development machine:
 
 * Windows 10 with 1809 update or newer.
 * You can use your own computer or a virtual machine, depending on your development preferences.
+  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
 * Install [Git](https://git-scm.com/). 
 
 An Azure IoT Edge device on Windows:
@@ -294,7 +295,7 @@ The IotEdgeModule1 code receives messages through its input queue and passes the
 
 3. Watch the **Output** section in Visual Studio to see messages arriving at your IoT hub. 
 
-   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. If you 
+   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. 
 
    ![View incoming device to cloud messages](./media/tutorial-develop-for-windows/view-d2c-messages.png)
 

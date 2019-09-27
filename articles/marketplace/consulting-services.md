@@ -19,15 +19,17 @@ These consulting-service offerings are customer-specific engagements. Publishers
 ## Consulting Services in Azure Marketplace vs AppSource Storefront
 The marketplace storefronts are aligned with audiences and Microsoft cloud products to help customers find what they need. Each storefront offers specialized publishing options to help you maximize your publishing investment. The following table summarizes these options:
 
-|         |Azure Marketplace  |AppSource |
+|         |Azure Marketplace  |Microsoft AppSource |
 |---------|---------|---------|
 |**Audience**  	|**IT pros and cloud developers**|**Business Users / Line-of-business decision makers**|
 |Solution Relevance  	|Technical apps built for or built on Azure|Business Apps That Leverage / Extend D365, Power BI, O365, Azure. (Add-in or Add-on finished apps)|
-|Publishing Options  	|Contact me, Trial, Transact, or Consulting Services|Contact Me, Trial, or Consulting Services|
+|Publishing Options  	|Contact me, Trial, Transact, or Services for Azure|Contact Me, Trial, or Services for Dynamics 365 and Power BI|
 |In Product Experience  	|Azure Management Portal|Dynamics 365, Office 365, Office Client Apps| 
-|Other  	|On-Premises Publishing Via Azure Stack|Consulting Services for Dynamics and Power BI|
+|Other  	|On-Premises Publishing Via Azure Stack, Consulting Services for Azure, Managed Services for Azure|Consulting Services for Dynamics and Power BI|
 
-Service offers that are based on Microsoft Dynamics 365, Office 365, and Power BI are eligible to be listed on AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+Consulting Services offers that are based on Microsoft Dynamics 365 and Power BI are eligible to be listed on Microsoft AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
+
+Consulting Services and Managed Services offers that are based on Microsoft Azure are eligible to be listed on Azure Marketplace. For more information, see articles on [publishing an Azure consulting service](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) and [publish a managed services offer to Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers).
 
 > [!Note]
 > Consulting services in Azure Marketplace should leverage offerings geared towards a **technical audience with focuses on *Azure technical solutions and services.* **

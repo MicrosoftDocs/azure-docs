@@ -35,6 +35,7 @@
 - name: Samples
   items:    
   - name: Media Services samples
+    displayName: .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
 - name: Concepts
   items:
@@ -127,8 +128,8 @@
       displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
-    - name: Using a cloud DVR
-      displayName: archive
+    - name: Time-shifting and live-to-VOD
+      displayName: archive, dvr
       href: live-event-cloud-dvr.md
     - name: Feature comparison
       href: live-event-types-comparison.md
