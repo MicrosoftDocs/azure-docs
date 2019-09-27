@@ -260,4 +260,4 @@ To remove the Azure Policy add-on from your AKS cluster, use either the Azure po
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/index.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).

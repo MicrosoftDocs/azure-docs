@@ -28,7 +28,7 @@ You can also configure the action that will take place when an alert is triggere
 * Selecting an existing action group
 * Creating a new action group
 
-To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md.
+To learn more about action groups, see [Create and manage action groups](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
 > Advisor alerts are currently only available for High Availability, Performance, and Cost recommendations. Security recommendations are not supported. 

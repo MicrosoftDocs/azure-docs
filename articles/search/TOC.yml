@@ -249,6 +249,8 @@
         href: knowledge-store-view-storage-explorer.md
       - name: Connect with Power BI
         href: knowledge-store-connect-power-bi.md
+    - name: Troubleshoot enrichment issues
+      href: cognitive-search-common-errors-warnings.md    
   - name: Query documents
     items:
     - name: Query types and composition
