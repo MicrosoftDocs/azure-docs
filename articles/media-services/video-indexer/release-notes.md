@@ -24,6 +24,26 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+## September 2019
+ 
+Multiple advancements announced at IBC 2019:
+ 
+* Animated character recognition  (public preview)
+
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision.
+* Multi-language identification (public preview)
+
+    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. 
+* Named entity extraction for People and Location
+
+    NLP extraction of people and locations from speech  and visual text. 
+* Editorial shot type classification
+
+    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc.
+* Topic inferencing enhancement - now covering level 2
+    
+    The topic inferencing model now support deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+
 ## August 2019
  
 ### Video Indexer deployed in UK South
