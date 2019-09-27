@@ -5,7 +5,7 @@ services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
 author: v-miegge
-ms.author: Ramakoni1
+ms.author: ramakoni
 ms.reviewer: ""
 ms.date: 09/27/2019
 ---
