@@ -145,31 +145,31 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
 4. In the upper-right corner of the page, select the profile logo, and then select **Go to Admin**.
   
-    ![Configuring single sign-on][51]
+    ![Go to Admin under Profile][51]
 
 5. On your domain solutions page, select **Domains**.
 
-    ![Configuring single sign-on][50]
+    ![Domain Solutions/Domains][50]
 
 6. In the **Domains** section, select **CLAIM DOMAIN**.
 
-    ![Configuring single sign-on][52]
+    ![Claim Domain option][52]
 
 7. In the **Claim a Domain** dialog box, in the **Domain Name** box, type your company domain, and then select **CLAIM**. Make sure you verify the domain and that its status is active.
 
-    ![Configuring single sign-on][53]
+    ![Claim a Domain/Domain Name dialog][53]
 
 8. On the domain solutions page, select **Identity Providers**.
   
-    ![Configuring single sign-on][54]
+    ![Identity Providers option][54]
 
 9. In the **Identity Providers** section, select **ADD IDENTITY PROVIDER**.
 
-    ![Configuring single sign-on][55]
+    ![Add Identity Provider option][55]
 
 10. On the **Identity Provider Settings** page, follow these steps:
 
-    ![Configuring single sign-on][56]
+    ![Identity Provider Settings fields][56]
 
     a. In the **Name** box, type a unique name for your configuration. Don't use spaces.
 
@@ -187,22 +187,22 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
     h. In the **Custom Attribute Mapping** section, select **ADD NEW MAPPING**.
 
-       ![Configuring single sign-on][62]
+       ![Custom Attribute Mapping UI][62]
 
     i. Choose the field you want to map to the Azure AD claim. In this example, the **emailaddress** claim is mapped with the value of `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`. That's the default claim name from Azure AD for the email claim. Select **SAVE**.
 
-       ![Configuring single sign-on][57]
+       ![Custom Attribute Mapping fields][57]
 
        > [!NOTE]
        > Use the appropriate **User identifier** to map the user from Azure AD to DocuSign user mapping. Select the proper field, and enter the appropriate value based on your organization settings.
 
     j. In the **Identity Provider Certificates** section, select **ADD CERTIFICATE**, upload the certificate you downloaded from Azure AD portal, and select **SAVE**.
 
-       ![Configuring single sign-on][58]
+       ![Identity Provider Certificates/Add Certificate][58]
 
     k. In the **Identity Providers** section, select **ACTIONS**, and then select **Endpoints**.
 
-       ![Configuring single sign-on][59]
+       ![Identity Providers/Endpoints][59]
 
     l. In the **View SAML 2.0 Endpoints** section of the DocuSign admin portal, follow these steps:
        1. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** box in **Basic SAML Configuration** section in the Azure portal.
@@ -211,7 +211,7 @@ In this section, you'll grant B.Simon access to DocuSign so that this user can u
 
        1. Select **Close**.
 
-       ![Configuring single sign-on][60]
+       ![View SAML 2.0 Endpoints][60]
 
 ### Create DocuSign test user
 
