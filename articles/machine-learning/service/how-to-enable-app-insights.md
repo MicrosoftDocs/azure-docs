@@ -31,7 +31,7 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 ## Web service input and response data
 
-The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/en-us/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
+The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
 
 ## Use the Azure Portal or Studio UI to configure
 
@@ -139,5 +139,5 @@ The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/M
 
 ## Next steps
 
-* See [how to deploy a model to an Azure Kubernetes Service cluster](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-azure-kubernetes-service) or [how to deploy a model to Azure Container Instances](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-deploy-azure-container-instance) to deploy your models to web service endpoints, and enable Azure Application Insights to leverage data collection and endpoint monitoring.
-* See our [overview of MLOps](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-model-management-and-deployment) to learn more about leveraging data collected from models in production to continually improve your machine learning process. 
+* See [how to deploy a model to an Azure Kubernetes Service cluster](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-kubernetes-service) or [how to deploy a model to Azure Container Instances](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-azure-container-instance) to deploy your models to web service endpoints, and enable Azure Application Insights to leverage data collection and endpoint monitoring.
+* See our [overview of MLOps](https://docs.microsoft.com/azure/machine-learning/service/concept-model-management-and-deployment) to learn more about leveraging data collected from models in production to continually improve your machine learning process. 
