@@ -114,7 +114,7 @@ The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
-## <a name="imbalance"></a> Imbalanced data and automated ML
+## <a name="imbalance"></a> Imbalanced data
 
 Imbalanced data is commonly found in data for machine learning classification scenarios, and refers to data that contains a disproportionate ratio of observations in each class. This imbalance can lead to a falsely perceived positive effect of a model's accuracy, because the input data has bias towards one class, which results in the trained model to mimic that bias. 
 
