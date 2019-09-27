@@ -92,9 +92,9 @@ landingContent:
           - text: Security agent troubleshoot guide (Linux)
             url: troubleshoot-agent.md
           - text: Understanding the LocalConfiguration.json file - C agent
-            url: azure-iot-security-local-confuguration-c.md
+            url: azure-iot-security-local-configuration-c.md
           - text: Understanding the Local configuration file - C# agent
-            url: azure-iot-security-local-confuguration-csharp.md
+            url: azure-iot-security-local-configuration-csharp.md
   - title: Azure Security Center for IoT solution resources
     linkLists:
       - linkListType: reference
