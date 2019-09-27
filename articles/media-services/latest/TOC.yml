@@ -129,7 +129,7 @@
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
     - name: Time-shifting and live-to-VOD
-      displayName: archive
+      displayName: archive, dvr
       href: live-event-cloud-dvr.md
     - name: Feature comparison
       href: live-event-types-comparison.md
