@@ -4,12 +4,12 @@ description: This quickstart provides several Node.js code samples you can use t
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
 ---
-# Azure Database for MySQL: Use Node.js to connect and query data
+# Quickstart: Use Node.js to connect and query data in Azure Database for MySQL
 This quickstart demonstrates how to connect to an Azure Database for MySQL using [Node.js](https://nodejs.org/) from Windows, Ubuntu Linux, and Mac platforms. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with developing using Node.js and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
