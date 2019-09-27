@@ -41,13 +41,8 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ## 1.4.X.0
 
 >[!IMPORTANT]
->Windows Computers registered as Hybrid Azure AD Joined are represented in Azure AD as device objects. These device objects can be used for conditional access. Windows 10 Computers are synced to the cloud via Azure AD Connect, down level Windows Computers are registered directly using either AD FS or seamless single sign on.
->
->Only Windows 10 computers with a specific userCertificate attribute value configured by Hybrid Azure AD Join are supposed to be synced to the cloud by Azure AD Connect.  In previous versions of Azure AD Connect this requirement was not rigorously enforced, resulting in unnecessary device objects in Azure AD. Such devices in Azure AD always stayed in the “pending” state because these computers were not intended to be registered with Azure AD.
->
->This version of Azure AD Connect will only sync Windows 10 computers that are correctly configured to be Hybrid Azure AD Joined. Azure AD Connect should never be syncing [down-level Windows devices](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Any devices in Azure AD previously synced incorrectly will now be deleted from Azure AD.  However, this change won't delete any Windows devices that were correctly registered with Azure AD for Hybrid Azure AD Join. 
->
->Some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. Some customers may need to revisit [How To: Plan your hybrid Azure Active Directory join implementation](../../active-directory/devices/hybrid-azuread-join-plan.md) to get their Windows computers registered correctly and ensure that such devices can fully participate in device-based conditional access. If Azure AD Connect is attempting to delete [down-level Windows devices](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) then the device is not the one that was created by the [Microsoft Workplace Join for non-Windows 10 computers MSI](https://www.microsoft.com/download/details.aspx?id=53554) and it is not able to be consumed by any other Azure AD feature.  If you see the deletes of Computer/Device objects in Azure AD exceeding the Export Deletion Threshold, it is advised that the customer allow these deletes to go through.
+>With this version of Azure AD Connect some customers may see some or all of their Windows devices disappear from Azure AD. This is not a cause for concern, as these device identities are not used by Azure AD during conditional access authorization. For more information see [Understanding Azure AD Connect 1.4.xx.x device disappearnce](reference-connect-device-disappearance.md)
+
 
 ### Release status
 9/10/2019: Released for auto-upgrade only
