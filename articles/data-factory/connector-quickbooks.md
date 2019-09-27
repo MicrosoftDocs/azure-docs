@@ -17,6 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from QuickBooks Online using Azure Data Factory (Preview)
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
