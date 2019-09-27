@@ -79,9 +79,6 @@ Use *Azure CNI* when:
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
 
-> [!NOTE]
-> Kuberouter makes it possible to enable network policy when using kubenet and can be installed as a daemonset in an AKS cluster. Please be aware kube-router is still in beta and no support is offered by Microsoft for the project.
-
 ## Create a virtual network and subnet
 
 To get started with using *kubenet* and your own virtual network subnet, first create a resource group using the [az group create][az-group-create] command. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
