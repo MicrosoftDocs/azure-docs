@@ -43,7 +43,8 @@ Prerequisites to getting started with Microsoft Security Code Analysis:
 - After a support contract is in place, contact your Technical Account Manager to help get you started and to help you collect all the required details.
 
 >[!NOTE]
-> If you are a partner registered in the Microsoft Partners Network, you are eligible to purchase Premier Support for Partners. Otherwise, you must purchase one of the eligible support offerings mentioned previously.
+> If you do not have a Support contract, we are working on a Partner Purchase program where you can leverage 3rd party partners to buy the extension without having to purchase the Unified Support plan to get the extension. Please email us at mscahelp@microsoft.com if you are interested in this option.
+
 
 ## Installing the Microsoft Security Code Analysis extension
 
