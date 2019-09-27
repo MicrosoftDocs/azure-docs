@@ -5401,6 +5401,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
       "redirect_document_id": false
