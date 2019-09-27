@@ -4,7 +4,7 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2019
+ms.date: 09/28/2019
 ms.author: victorh
 ms.topic: article
 ---
