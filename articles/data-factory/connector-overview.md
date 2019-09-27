@@ -13,6 +13,7 @@ ms.reviewer: craigg
 ---
 
 # Azure Data Factory connector overview
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 Azure Data Factory support the following data stores via Copy activity, Data Flow, Lookup activity, Get Metadata activity and Delete activity. Click each data store to learn the supported capabilities in details and the corresponding configurations.
 

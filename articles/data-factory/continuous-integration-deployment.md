@@ -14,6 +14,7 @@ ms.date: 08/14/2019
 ---
 
 # Continuous integration and delivery (CI/CD) in Azure Data Factory
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 ## Overview
 
