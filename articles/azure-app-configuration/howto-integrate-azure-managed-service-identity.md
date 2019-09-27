@@ -45,11 +45,13 @@ To complete this tutorial, you must have:
 
 To set up a managed identity in the portal, you first create an application as normal and then enable the feature.
 
-1. Create an app in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
+1. Create an App Services instance in the [Azure portal](https://portal.azure.com) as you normally do. Go to it in the portal.
 
 2. Scroll down to the **Settings** group in the left pane, and select **Identity**.
 
 3. On the **System assigned** tab, switch **Status** to **On** and select **Save**.
+
+4. Answer **Yes** when prompted to enable system assigned managed identity.
 
     ![Set managed identity in App Service](./media/set-managed-identity-app-service.png)
 
@@ -71,7 +73,9 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Use a managed identity
 
-1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store:
+1. Find the URL to your app configuration store by going into its configuration screen in the Azure portal, then clicking on the **Access Keys** tab.
+
+2. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store. 
 
     ```json
     "AppConfig": {
@@ -79,7 +83,7 @@ To set up a managed identity in the portal, you first create an application as n
     }
     ```
 
-2. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
+3. Open *Program.cs*, and update the `CreateWebHostBuilder` method by replacing the `config.AddAzureAppConfiguration()` method.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -106,6 +110,13 @@ The easiest way to enable local Git deployment for your app with the Kudu build 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### Enable local Git with Kudu
+If you do not yet have a local git repository for your app, you'll need to initialize one by running the following commands from your app's project directory:
+
+```cmd
+git init
+git add .
+git commit -m "Initial version"
+```
 
 To enable local Git deployment for your app with the Kudu build server, run [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) in Cloud Shell.
 

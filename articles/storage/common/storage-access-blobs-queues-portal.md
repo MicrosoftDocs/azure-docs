@@ -18,7 +18,7 @@ When you access blob or queue data using the [Azure portal](https://portal.azure
 
 ## Permissions needed to access blob or queue data
 
-Depending on how you want to authorize access blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
+Depending on how you want to authorize access to blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 
 ### Account access key
 

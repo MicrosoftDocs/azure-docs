@@ -76,8 +76,8 @@
       href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
-  - name: Azure common security attributes
-    href: azure-resource-manager-security-attributes.md
+  - name: Built-in security controls
+    href: azure-resource-manager-security-controls.md
 - name: How to
   items:
   - name: Create templates

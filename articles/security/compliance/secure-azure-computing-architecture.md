@@ -122,7 +122,7 @@ As mentioned earlier, you can build this SACA reference by using a variety of ap
     - [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview )
     - [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) 
     - [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 
-    - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) 
+    - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) 
     - [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)
     - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/overview)
     - [Azure Firewall](https://docs.microsoft.com/azure/firewall/overview) 

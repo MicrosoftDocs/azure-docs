@@ -41,8 +41,6 @@ Azure tenant administrators can use the [User Privacy blade](https://portal.azur
 
 ## Next steps
 
-For inquiries related to Azure Security and Compliance Blueprints, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide feedback, email [azureblueprint@microsoft.com](mailto:azureblueprint@microsoft.com).
-
 Visit the [Azure Security and Compliance Blueprint page](https://aka.ms/azureblueprint) on the Service Trust Portal.
 
 [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)

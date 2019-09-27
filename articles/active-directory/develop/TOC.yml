@@ -9,7 +9,7 @@
     href: v2-overview.md
   - name: Quickstarts
     items:
-    - name: Set up a dev environment
+    - name: Set up a tenant
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
@@ -37,6 +37,8 @@
         href: https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs
       - name: Java
         href: quickstart-v2-java-webapp.md
+      - name: Python
+        href: quickstart-v2-python-webapp.md
     - name: Web APIs
       items:
       - name: ASP .NET
@@ -47,7 +49,7 @@
       items:
       - name: Android
         href: quickstart-v2-android.md
-      - name: iOS
+      - name: iOS and macOS
         href: quickstart-v2-ios.md
       - name: Universal Windows Platform
         href: quickstart-v2-uwp.md
@@ -73,7 +75,7 @@
       items:
       - name: Android
         href: tutorial-v2-android.md
-      - name: iOS
+      - name: iOS and macOS
         href: tutorial-v2-ios.md
       - name: Universal Windows Platform
         href: tutorial-v2-windows-uwp.md
@@ -87,6 +89,8 @@
       href: authentication-scenarios.md
     - name: Authentication flows and app scenarios
       href: authentication-flows-app-scenarios.md
+    - name: Identity platform best practices
+      href: identity-platform-integration-checklist.md
     - name: Application scenarios
       items:
       - name: Sign-in audience
@@ -205,6 +209,8 @@
             href: msal-net-system-browser-android-considerations.md
           - name: Xamarin iOS
             href: msal-net-xamarin-ios-considerations.md
+          - name: Use brokers with Xamarin iOS and Android Applications
+            href: msal-net-use-brokers-with-xamarin-apps.md
           - name: Universal Windows Platform
             href: msal-net-uwp-considerations.md
         - name: Acquiring a token for the app
@@ -212,19 +218,21 @@
         - name: Calling a web API
           href: scenario-mobile-call-api.md
         - name: Move to production
-          href: scenario-mobile-production.md
-      - name: Integration checklist
-        href: identity-platform-integration-checklist.md
+          href: scenario-mobile-production.md      
     - name: Microsoft Authentication Library (MSAL)
       items:
         - name: Overview
           href: msal-overview.md
-        - name: Migration
+        - name: Migration from ADAL
           items:
           - name: Migrate to MSAL.NET
             href: msal-net-migration.md
           - name: Migrate to MSAL.js
             href: msal-compare-msal-js-and-adal-js.md
+          - name: Migrate to MSAL for iOS and MacOS
+            href: migrate-objc-adal-msal.md
+          - name: Migrate Xamarin apps using brokers from ADAL.NET to MSAL.NET
+            href: msal-net-migration-ios-broker.md
         - name: Supported authentication flows
           href: msal-authentication-flows.md
         - name: Acquire and cache tokens
@@ -233,8 +241,6 @@
             href: msal-acquire-cache-tokens.md
           - name: Scopes for v1.0 apps
             href: msal-v1-app-scopes.md
-          - name: Token cache serialization (.NET)
-            href: msal-net-token-cache-serialization.md
         - name: Client applications
           items:
           - name: Client applications
@@ -251,18 +257,28 @@
           href: msal-handling-exceptions.md        
         - name: Logging
           href: msal-logging.md
-        - name: Single sign-on (JS)
-          href: msal-js-sso.md
-        - name: Prompt behavior (JS)
-          href: msal-js-prompt-behavior.md 
-        - name: ADFS support (.NET)
-          href: msal-net-adfs-support.md
+        - name: Single sign-on
+          items:
+          - name: Single sign-on with MSAL.js
+            href: msal-js-sso.md
+          - name: Single sign-on with MSAL for iOS and macOS
+            items:
+            - name: SSO between MSAL apps
+              href: single-sign-on-macos-ios.md
+            - name: SSO between ADAL and MSAL apps
+              href: sso-between-adal-msal-apps-macos-ios.md
+        - name: Integrate with ADFS
+          items:
+          - name: ADFS support in MSAL.NET
+            href: msal-net-adfs-support.md
         - name: Integrate with Azure AD B2C
           items:
           - name: JavaScript
             href: msal-b2c-overview.md
           - name: .NET
             href: msal-net-aad-b2c-considerations.md
+          - name: iOS and macOS
+            href: config-authority.md#b2c
         - name: Considerations and known issues
           items:
             - name: MSAL.NET
@@ -277,6 +293,10 @@
                 href: msal-js-known-issues-ie-edge-browsers.md
               - name: Known issues- Safari 
                 href: msal-js-known-issues-safari-browser.md
+            - name: MSAL for iOS and macOS
+              items:
+              - name: SSL issues
+                href: ssl-issues.md
     - name: Authentication protocol
       items:
       - name: Application types and OAuth2.0
@@ -324,6 +344,8 @@
         href: v2-permissions-and-consent.md
       - name: Consent framework
         href: consent-framework.md
+      - name: Admin consent
+        href: v2-admin-consent.md
       - name: Application consent experiences
         href: application-consent-experience.md
     - name: National Clouds
@@ -372,6 +394,8 @@
           items:
             - name: Acquire a token from the cache
               href: msal-net-acquire-token-silently.md
+            - name: Token cache serialization
+              href: msal-net-token-cache-serialization.md
             - name: Clear the token cache
               href: msal-net-clear-token-cache.md
             - name: Instantiate a public client with options
@@ -387,7 +411,21 @@
             - name: Avoid page reloads
               href: msal-js-avoid-page-reloads.md
             - name: Pass custom state in authentication requests
-              href:  msal-js-pass-custom-state-authentication-request.md
+              href: msal-js-pass-custom-state-authentication-request.md
+            - name: Prompt behavior
+              href: msal-js-prompt-behavior.md 
+        - name: MSAL for iOS and macOS
+          items:
+            - name: Microsoft Authentication Library for iOS and macOS differences
+              href: msal-differences-ios-macos.md
+            - name: Configure keychain
+              href: howto-v2-keychain-objc.md
+            - name: Customize browsers and WebViews
+              href: customize-webviews.md
+            - name: Request custom claims
+              href: request-custom-claims.md
+            - name: Redirect URI configuration
+              href: redirect-uris-ios.md
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -422,7 +460,7 @@
     href: v1-overview.md
   - name: Quickstarts
     items:
-    - name: Set up a dev environment
+    - name: Set up a tenant
       href: quickstart-create-new-tenant.md
     - name: Configure an application
       items:
@@ -462,7 +500,7 @@
       items:
       - name: Android
         href: quickstart-v1-android.md
-      - name: iOS
+      - name: iOS and MacOS
         href: quickstart-v1-ios.md
       - name: Windows Desktop .NET
         href: quickstart-v1-dotnet.md

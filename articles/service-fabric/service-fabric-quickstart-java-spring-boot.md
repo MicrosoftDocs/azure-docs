@@ -15,14 +15,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter, seo-java-august2019
+ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
 
 ---
 # Quickstart: Deploy a Java Spring Boot app on Azure Service Fabric
 
-Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers.
+This quickstart shows how to deploy a Java Spring Boot application to Azure Service Fabric. Azure Service Fabric is a distributed systems platform for deploying and managing microservices and containers. 
 
-This quickstart shows how to deploy a Spring Boot application to Service Fabric. This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric.
+This quickstart uses the [Getting Started](https://spring.io/guides/gs/spring-boot/) sample from the Spring website. Using familiar command-line tools, this quickstart walks you through deploying the Spring Boot sample as a Service Fabric application. When you're finished, you have the Spring Boot Getting Started sample working on Service Fabric.
 
 ![Application Screenshot](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 

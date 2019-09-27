@@ -28,6 +28,9 @@ This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
+> [!NOTE]
+> This guide only applies to the now-deprecated V1 Python SDK. Simulated TPM devices are not yet been supported in V2. The team is currently hard at work bringing V2 to feature parity.
+
 ## Prepare the environment 
 
 1. Make sure you have installed either [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later, with the 'Desktop development with C++' workload enabled for your Visual Studio installation.
@@ -39,7 +42,7 @@ This article will demonstrate individual enrollments.
 1. Open a command prompt or Git Bash. Clone the GitHub repo for device simulation code sample:
     
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
+    git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
 1. Create a folder in your local copy of this GitHub repo for CMake build process. 

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Create your first ML experiment: Setup"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: In this tutorial series, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  Part one covers creating a cloud notebook server environment as well as creating a workspace to manage your experiments and machine learning models.
 services: machine-learning
 ms.service: machine-learning
@@ -22,11 +22,11 @@ In this tutorial, you:
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
 > * Create a cloud-based Jupyter notebook VM with Azure Machine Learning Python SDK installed and pre-configured.
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Create a workspace
 
-An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning service workspace, skip to the [next section](#azure). Otherwise, create one now.
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning workspace, skip to the [next section](#azure). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -34,7 +34,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.
 
-From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning service.
+From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
 
@@ -64,7 +64,7 @@ From your workspace, you create a cloud resource to get started using Jupyter no
 
 In this tutorial, you completed these tasks:
 
-* Created an Azure Machine Learning service workspace.
+* Created an Azure Machine Learning workspace.
 * Created and configured a cloud notebook server in your workspace.
 
 In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk-train.ipynb` to train a machine learning model. 
@@ -74,3 +74,5 @@ In **part two** of the tutorial you run the code in `tutorial-1st-experiment-sdk
 
 > [!IMPORTANT]
 > If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the cloud notebook server VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
+
+

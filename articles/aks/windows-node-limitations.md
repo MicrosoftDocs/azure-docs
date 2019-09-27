@@ -34,7 +34,7 @@ Window Server node pool support includes some limitations that are part of the u
 
 Kubernetes is historically Linux-focused. Many examples used in the upstream [Kubernetes.io][kubernetes] website are intended for use on Linux nodes. When you create deployments that use Windows Server containers, the following considerations at the OS-level apply:
 
-- **Identity** - Linux uses userID (UID) and groupID (GID), represented as integer types. User and group names are not canonical - they are just an alias in */etc/groups* or */etc/passwd* back to UID+GID.
+- **Identity** - Linux identifies a user by an integer user identifier (UID). A user also has an alphanumeric user name for logging on, which Linux translates to the user's UID. Similarly Linux identifies a user group by an integer group identifier (GID) and translates a group name to its corresponding GID.
     - Windows Server uses a larger binary security identifier (SID) which is stored in the Windows Security Access Manager (SAM) database. This database is not shared between the host and containers, or between containers.
 - **File permissions** - Windows Server uses an access control list based on SIDs, rather than a bitmask of permissions and UID+GID
 - **File paths** - convention on Windows Server is to use \ instead of /.

@@ -3,9 +3,8 @@ title: Threat detection for cloud native compute in Azure Security Center | Micr
 description: This topic presents the cloud native compute alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 5aa5efcf-9f6f-4aa1-9f72-d651c6a7c9cd
 ms.service: security-center
 ms.devlang: na
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/02/2019
-ms.author: "v-mohabe"
+ms.author: memildin
 ---
 # Threat detection for cloud native compute in Azure Security Center
 
