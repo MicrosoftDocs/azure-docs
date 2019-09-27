@@ -39,9 +39,9 @@ The following steps show you how to create a managed instance:
 
 ### Basics
 
-5. Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a managed instance.
+- Fill out mandatory information required on the **Basics** tab. This is a minimum set of information required to provision a managed instance.
 
-!["Basics" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
+   !["Basics" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-basics.png)
 
 Use the table below as a reference for information required at this tab.
 
@@ -54,17 +54,17 @@ Use the table below as a reference for information required at this tab.
 | **Managed instance admin login** | Any valid username. | For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" because that's a reserved server-level role.|
 | **Password** | Any valid password.| The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 
-6. Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tiers. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
+- Select **Configure Managed Instance** to size compute and storage resources and to review the pricing tiers. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. When you're finished, select **Apply** to save your selection. 
 
-![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
+   ![Managed instance form](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-configure-performance.png)
 
 - To review your choices before you create a managed instance, you can select **Review + create**. Or, configure networking options by selecting **Next: Networking**.
 
 ### Networking
 
-7. Fill out optional information on the **Networking** tab. If you omit this information, the portal will apply default settings.
+- Fill out optional information on the **Networking** tab. If you omit this information, the portal will apply default settings.
 
-!["Networking" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
+   !["Networking" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-networking.png)
 
 Use the table below as a reference for information required at this tab.
 
@@ -79,9 +79,9 @@ Use the table below as a reference for information required at this tab.
 
 ### Additional settings
 
-8. Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
+- Fill out optional information on the **Additional settings** tab. If you omit this information, the portal will apply default settings.
 
-!["Additional settings" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
+   !["Additional settings" tab for creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-additional-settings.png)
 
 Use the table below as a reference for information required at this tab.
 
@@ -94,22 +94,22 @@ Use the table below as a reference for information required at this tab.
 
 ### Review + create
 
-9. Select the **Review + create** tab to review your choices before you create the managed instance.
+5. Select **Review + create** tab to review your choices before you create the managed instance.
 
    ![Tab for reviewing and creating a managed instance](./media/sql-database-managed-instance-get-started/tabs/mi-create-tab-review-create.png)
 
-10. Select **Create** to start provisioning the managed instance.
+6. Select **Create** to start provisioning the managed instance.
 
 > [!IMPORTANT]
 > Deploying a managed instance is a long-running operation. Deployment of the first instance in the subnet typically takes much longer than deploying into a subnet with existing managed instances. For average provisioning times, see [Managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations).
 
 ### Monitor deployment progress
 
-11. Select the **Notifications** icon to view the status of the deployment.
+7. Select the **Notifications** icon to view the status of the deployment.
 
-    ![Deployment progress of a managed instance deployment](./media/sql-database-managed-instance-get-started/in-progress/mi-create-deployment-in-progress.png)
+   ![Deployment progress of a managed instance deployment](./media/sql-database-managed-instance-get-started/in-progress/mi-create-deployment-in-progress.png)
 
-12. Select **Deployment in progress** in the notification to open the managed instance window and further monitor the deployment progress. 
+8. Select **Deployment in progress** in the notification to open the managed instance window and further monitor the deployment progress. 
 
 > [!TIP]
 > If you closed your web browser or moved away from the deployment progress screen, follow these steps to locate back the deployment progress screen:
