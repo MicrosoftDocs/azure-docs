@@ -742,27 +742,27 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent",
       "redirect_document_id": false
     },  
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent",
       "redirect_document_id": false
     },  
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent",
       "redirect_document_id": false
     },    
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent",
       "redirect_document_id": false
     },  
     {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-get-intent.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent",
       "redirect_document_id": false
     },                
     {
