@@ -34,7 +34,7 @@ Get started with the Personalizer client library for Python. Follow these steps 
 
 ### Create a Personalizer Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://portal.azure.com/) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. Please refer to [How to create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for more details. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/).
@@ -124,6 +124,12 @@ The following code in the `main` method of the program loops through a cycle of 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 
 Take a closer look at the rank and reward calls in the following sections.
+
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+
+* get_user_preference
+* get_user_timeofday
+* get_actions
 
 ## Request a rank
 

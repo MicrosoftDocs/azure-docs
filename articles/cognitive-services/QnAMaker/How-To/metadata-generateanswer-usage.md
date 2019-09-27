@@ -54,7 +54,7 @@ You can also get your endpoint details from the **Settings** tab of your knowled
 
 ## GenerateAnswer request configuration
 
-You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/csharp.md). 
+You call GenerateAnswer with an HTTP POST request. For sample code that shows how to call GenerateAnswer, see the [quickstarts](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
 
 The POST request uses:
 
@@ -124,6 +124,9 @@ using Microsoft.Bot.Builder.AI.QnA;
 var metadata = new Microsoft.Bot.Builder.AI.QnA.Metadata();
 var qnaOptions = new QnAMakerOptions();
 
+metadata.Name = Constants.MetadataName.Intent;
+metadata.Value = topIntent;
+qnaOptions.StrictFilters = new Microsoft.Bot.Builder.AI.QnA.Metadata[] { metadata };
 qnaOptions.Top = Constants.DefaultTop;
 qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);

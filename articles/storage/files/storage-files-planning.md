@@ -91,6 +91,8 @@ Currently, you cannot directly convert between a standard file share and a premi
 
 > [!IMPORTANT]
 > Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+>
+> To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
 
 #### Provisioned shares
 
@@ -210,6 +212,7 @@ Standard file shares are available in all regions up to 5 TiB. In certain region
 |East US        |LRS     |No    |Not yet|
 |France Central |LRS, ZRS|No    |LRS - Yes, ZRS - Not yet|
 |France South   |LRS     |No    |Yes|
+|North Europe   |LRS     |No    |Not yet|
 |South India    |LRS     |No    |Not yet|
 |Southeast Asia |LRS, ZRS|No    |Yes|
 |West Central US|LRS     |No    |Not yet|
