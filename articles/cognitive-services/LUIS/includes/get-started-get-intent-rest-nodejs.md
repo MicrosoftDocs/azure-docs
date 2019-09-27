@@ -10,11 +10,11 @@
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent with browser
 
-[!INCLUDE [Use authoring key for endpoint](./includes/quickstart-rest-get-intent.md)]
+[!INCLUDE [Use authoring key for endpoint](quickstart-rest-get-intent.md)]
 
 ## Get intent programmatically
 

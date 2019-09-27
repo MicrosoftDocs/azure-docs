@@ -3,15 +3,15 @@
 * [Python 3.6](https://www.python.org/downloads/) or later.
 * [Visual Studio Code](https://code.visualstudio.com/)
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent with browser
 
-[!INCLUDE [Use authoring key for endpoint](./includes/quickstart-rest-get-intent.md)]
+[!INCLUDE [Use authoring key for endpoint](quickstart-rest-get-intent.md)]
 
 ## Get intent  programmatically
 

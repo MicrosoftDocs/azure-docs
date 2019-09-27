@@ -4,15 +4,15 @@
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent with browser
 
-[!INCLUDE [Use authoring key for endpoint](./includes/quickstart-rest-get-intent.md)]
+[!INCLUDE [Use authoring key for endpoint](quickstart-rest-get-intent.md)]
 
 ## Get intent programmatically
 

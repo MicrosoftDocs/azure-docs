@@ -741,6 +741,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-nodejs-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent.md",
+      "redirect_document_id": false
+    },                
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
       "redirect_document_id": false
