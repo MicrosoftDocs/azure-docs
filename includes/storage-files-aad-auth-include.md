@@ -18,8 +18,5 @@ On directory/file level, Azure Files supports preserving, inheriting, and enforc
 
 
 > [!NOTE]
-> - Azure AD DS authentication for Server Message Block (SMB) access is not supported for Linux VMs. Only Windows VMs are supported.
 > - Azure AD DS authentication for SMB access is not supported for Active Directory domain-joined machines. In the interim, consider using [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning) to start migrating your data to Azure Files and to continue enforcing access control by using Active Directory credentials from your on-premises Active Directory domain-joined machines. 
 > - Azure AD DS authentication for SMB access is available only for storage accounts created after September 24, 2018.
-> - Azure AD DS authentication for SMB access and NTFS DACL persistence is not supported on Azure file shares managed by Azure File Sync.
-> - Azure AD DS authentication does not support authentication against Machine Accounts created in Azure AD DS.
