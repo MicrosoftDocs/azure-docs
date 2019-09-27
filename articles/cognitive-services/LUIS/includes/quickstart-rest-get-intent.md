@@ -31,7 +31,7 @@ The format of the V3 URL for a **GET** endpoint (by slots) request is:
 https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
 `
 
-Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
 
 * * *
 
@@ -82,7 +82,7 @@ Copy one of the URLs above (either V2 or V3) and substitute your key for the val
     }
     ```
 
-    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+    Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
 
     * * *
 
@@ -165,6 +165,6 @@ Copy one of the URLs above (either V2 or V3) and substitute your key for the val
     }
     ```
 
-    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+    Learn more about the [V3 prediction endpoint](../luis-migration-api-v3.md).
 
     * * * 
