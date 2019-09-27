@@ -9,7 +9,7 @@ ms.date: 08/21/2019
 ms.author: victorh
 ---
 
-# Policy settings for Web Application Firewall with Azure Front Door
+# Policy settings for Web Application Firewall on Azure Front Door
 
 A Web Application Firewall (WAF) policy allows you to control access to your web applications by a set of custom and managed rules. The WAF policy name must be unique. You will receive a validation error if you try to use an existing name. There are multiple policy level settings that apply to all rules specified for that policy as described in this article.
 

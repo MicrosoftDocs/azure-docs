@@ -5,7 +5,7 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/28/2019
 ms.author: victorh
 ---
 
