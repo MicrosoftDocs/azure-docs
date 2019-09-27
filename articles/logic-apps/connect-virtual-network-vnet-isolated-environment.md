@@ -58,7 +58,11 @@ This article shows how to complete these tasks:
     **Address prefix**: 0.0.0.0/0<br>
     **Next hop**: Internet
 
-* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE, which is a capability that's available with ISE public preview.
+* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE.
+
+  > [!IMPORTANT]
+  > If you change your DNS server settings after you create an ISE, make sure that you restart your ISE. 
+  > For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 
