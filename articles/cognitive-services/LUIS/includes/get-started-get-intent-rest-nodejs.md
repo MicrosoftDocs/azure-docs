@@ -44,3 +44,17 @@ You can use Node.js to access the same results you saw in the browser window in 
 4. Install dependencies by running the following command at the command-line: `npm install`.
 
 5. Run the code with `npm start`. It displays the same values that you saw earlier in the browser window.
+
+
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+
+## Clean up resources
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add utterances and train with Node.js](luis-get-started-node-add-utterance.md)

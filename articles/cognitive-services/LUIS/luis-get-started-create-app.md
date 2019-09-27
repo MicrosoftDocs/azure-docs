@@ -101,71 +101,23 @@ Select **Test** again to collapse the test pane.
 
     #### [V2 prediction endpoint](#tab/V2)
 
-    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?verbose=true&subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
 
     The browser displays the **V2 API** version of the JSON response of your HTTP endpoint.
 
     ```json
     {
-      "query": "turn off the living room light",
+      "query": "turn off the lights",
       "topScoringIntent": {
         "intent": "HomeAutomation.TurnOff",
-        "score": 0.9753089
+        "score": 0.995867
       },
-      "intents": [
-        {
-          "intent": "HomeAutomation.TurnOff",
-          "score": 0.9753089
-        },
-        {
-          "intent": "HomeAutomation.QueryState",
-          "score": 0.01027893
-        },
-        {
-          "intent": "HomeAutomation.TurnUp",
-          "score": 0.006881481
-        },
-        {
-          "intent": "HomeAutomation.SetDevice",
-          "score": 0.006786365
-        },
-        {
-          "intent": "HomeAutomation.TurnDown",
-          "score": 0.005145787
-        },
-        {
-          "intent": "HomeAutomation.TurnOn",
-          "score": 0.004114749
-        },
-        {
-          "intent": "None",
-          "score": 0.000598924
-        }
-      ],
       "entities": [
         {
-          "entity": "living room",
-          "type": "HomeAutomation.Location",
-          "startIndex": 13,
-          "endIndex": 23,
-          "score": 0.94558233
-        },
-        {
-          "entity": "living room light",
-          "type": "HomeAutomation.DeviceName",
-          "startIndex": 13,
-          "endIndex": 29,
-          "resolution": {
-            "values": [
-              "living room light"
-            ]
-          }
-        },
-        {
-          "entity": "light",
+          "entity": "lights",
           "type": "HomeAutomation.DeviceType",
-          "startIndex": 25,
-          "endIndex": 29,
+          "startIndex": 13,
+          "endIndex": 18,
           "resolution": {
             "values": [
               "light"
@@ -179,8 +131,6 @@ Select **Test** again to collapse the test pane.
     #### [V3 prediction endpoint](#tab/V3)
 
     For a [V3 API query](luis-migration-api-v3.md), in the browser, change the GET method HTTPS request, changing out the values in angle brackets for your own values.     
-
-    Without `verbose=true`:
 
     `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
@@ -206,46 +156,6 @@ Select **Test** again to collapse the test pane.
     }
     ```
 
-    With `verbose=true`:
-
-    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?verbose=true&subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
-
-    ```json
-    {
-        "query": "turn off the lights",
-        "prediction": {
-            "normalizedQuery": "turn off the lights",
-            "topIntent": "HomeAutomation.TurnOff",
-            "intents": {
-                "HomeAutomation.TurnOff": {
-                    "score": 0.99649024
-                }
-            },
-            "entities": {
-                "HomeAutomation.DeviceType": [
-                    [
-                        "light"
-                    ]
-                ],
-                "$instance": {
-                    "HomeAutomation.DeviceType": [
-                        {
-                            "type": "HomeAutomation.DeviceType",
-                            "text": "lights",
-                            "startIndex": 13,
-                            "length": 6,
-                            "modelTypeId": 5,
-                            "modelType": "List Entity Extractor",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
-            }
-        }
-    }
-    ```
 
     Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
     

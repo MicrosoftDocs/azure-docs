@@ -37,3 +37,17 @@ You can use Java to access the same results you saw in the browser window in the
 
     ![Console window displays JSON result from LUIS](../media/luis-get-started-java-get-intent/console-turn-on.png)
     
+
+
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+
+## Clean up resources
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add utterances and train with Java](luis-get-started-java-add-utterance.md)

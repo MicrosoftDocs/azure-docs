@@ -42,3 +42,17 @@ You can use Python to access the same results you saw in the browser window in t
 1. Install dependencies with `pip install requests`.
 
 1. Run the script with `python ./quickstart-call-endpoint.py`. It displays the same JSON that you saw earlier in the browser window.
+1. 
+1. 
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+
+## Clean up resources
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add utterances and train with Python](luis-get-started-python-add-utterance.md)

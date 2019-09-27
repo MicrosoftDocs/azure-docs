@@ -46,3 +46,16 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
     ![Console window displays JSON result from LUIS](../media/luis-get-started-cs-get-intent/console-turn-on.png)
 
 
+
+## LUIS keys
+
+[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+
+## Clean up resources
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Add utterances and train with C#](luis-get-started-cs-add-utterance.md)
