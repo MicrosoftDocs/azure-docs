@@ -19,7 +19,7 @@ This article lists partners of Windows Virtual Desktop.
 
 Citrix is an approved provider that offers enterprises centralized hybrid management of virtual apps and desktops workloads in Azure, side-by-side with on-premises deployments. Citrix Workspace with the Virtual Apps and Desktops service allows users to access apps and desktops from any device, leveraging the advanced Citrix HDX protocol to deliver a high definition experience from anywhere.
 
-Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management. IT can optimize costs with intelligent scaling tools, while delivering an incredible end-user experience that has been field-tested against the toughest of applications across industries.
+Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management. IT can optimize costs with intelligent scaling tools, while it delivers an incredible end-user experience that has been field-tested against the toughest of applications across industries.
 
 - [Go to the partner website](https://more.citrix.com/wvd).
 
@@ -30,7 +30,7 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure.
 
-As an approved provider, VMware Horizon Cloud on Microsoft Azure customers will receive all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
+As an approved provider, VMware Horizon Cloud on Microsoft Azure customers get all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -41,7 +41,7 @@ As an approved provider, VMware Horizon Cloud on Microsoft Azure customers will 
 
 CloudJumper is a Windows Virtual Desktop value-added services provider that equips solution providers and enterprise IT with software to holistically provision and manage Windows Virtual Desktop environments. With CloudJumper software, IT can manage every layer of a Windows Virtual Desktop deployment. Delivery of workloads and applications is automated, ensuring that users can quickly access their desktop anywhere on any device.
 
-CloudJumper’s software, Cloud Workspace Management Suite extends the value of Windows Virtual Desktop by simplifying deployment and ongoing administration tasks in Azure. From a single pane of glass, IT can provision, manage and optimize infrastructure for user workspaces. CloudJumper’s Simple Script Triggering Engine integrates with IT service platforms to automate tasks involved in provisioning Windows Virtual Desktop. Additionally, CloudJumper APIs allow further extensibility and integration with other enterprise systems like ServiceNow and BMC Ready.
+CloudJumper’s software, Cloud Workspace Management Suite extends the value of Windows Virtual Desktop by simplifying deployment and ongoing administration tasks in Azure. From a single pane of glass, IT can provision, manage, and optimize infrastructure for user workspaces. CloudJumper’s Simple Script Triggering Engine integrates with IT service platforms to automate tasks involved in provisioning Windows Virtual Desktop. Additionally, CloudJumper APIs allow further extensibility and integration with other enterprise systems like ServiceNow and BMC Ready.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mg).
 - [Go to the partner website](https://cloudjumper.com/wvd/).
@@ -52,7 +52,7 @@ CloudJumper’s software, Cloud Workspace Management Suite extends the value of 
 
 ControlUp is a Windows Virtual Desktop value-added services provider that enables IT teams to monitor, troubleshoot, analyze, and directly remediate problems in their on-premises, hybrid cloud, and cloud infrastructure in real-time from a single console. ControlUp’s analytics and management platform also allows IT to proactively automate fixes for a rapidly growing set of use cases.
 
-When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize Windows Virtual Desktop environments and the end-user experience. From the ControlUp console, IT gets end-user environment visibility to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for virtual desktop deployments, as well as options for automated reporting enriched with community benchmarks. ControlUp can manage multiple data sources and types, organizing them in high performance data sets aggregated across compute, storage and Windows Virtual Desktop infrastructure, allowing granular visibility from a single pane of glass.
+When used with Windows Virtual Desktop, ControlUp provides additional capabilities to optimize Windows Virtual Desktop environments and the end-user experience. From the ControlUp console, IT gets end-user environment visibility to effectively monitor and troubleshoot performance issues. An intuitive dashboard provides insights and analytics for virtual desktop deployments, as well as options for automated reporting enriched with community benchmarks. ControlUp can manage multiple data sources and types, organizing them in high-performance data sets aggregated across compute, storage, and Windows Virtual Desktop infrastructure, allowing granular visibility from a single pane of glass.
 
 - [See the join solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Go to the partner website](https://www.controlup.com/solutions/ms_wvd/).
