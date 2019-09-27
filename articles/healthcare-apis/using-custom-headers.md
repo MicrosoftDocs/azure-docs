@@ -32,6 +32,33 @@ There are several ways to use custom headers when calling APIs. For example:
 
 ## How to use Custom Headers
 
+Any http header named with the following convention: X-MS-HEALTHCAREAPIS-AUDIT-<name> will be included in a property bag that is added to the log. Examples:
+
+* X-MS-HEALTHCAREAPIS-AUDIT-USERID: 1234 
+* X-MS-HEALTHCAREAPIS-AUDIT-USERLOCATION: XXXX
+* X-MS-HEALTHCAREAPIS-AUDIT-XYZ: 1234
+
+This information will then be serialized to JSON when added to the properties column in the log.  Example:
+
+```json
+{ “X-MS-HEALTHCAREAPIS-AUDIT-USERID” : “1234”,
+“X-MS-HEALTHCAREAPIS-AUDIT-USERLOCATION” : “XXXX”,
+“X-MS-HEALTHCAREAPIS-AUDIT-XYZ” : “1234” }
+```
+ 
+As with any HTTP header the same header name may be repeated with different values. Example:
+
+* X-MS-HEALTHCAREAPIS-AUDIT-USERLOCATION: HospitalA
+* X-MS-HEALTHCAREAPIS-AUDIT-USERLOCATION: Emergency
+
+When added to the log the values with be combined a comma delimited list. Example:
+
+{ “X-MS-HEALTHCAREAPIS-AUDIT-USERLOCATION” : “HospitalA, Emergency” }
+ 
+A maximum of 10 unique headers may be added (repetitions of the same header with different values would only be counted as one).
+ 
+The total maximum length of the value for any one header is 2048 characters.
+
 If you are using Firely C# client API library, then the code looks something like this:
 
 ```C#
