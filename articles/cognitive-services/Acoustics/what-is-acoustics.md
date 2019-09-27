@@ -55,7 +55,7 @@ The Project Acoustics editor plugin is available for the following platforms:
 ## Download
 * [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Project Acoustics Unreal & Wwise plugins and samples](https://www.microsoft.com/download/details.aspx?id=58090)
-  * For Xbox binaries and support, contact us via the Sign Up form below
+  * For Xbox binaries and other support, contact us via the forum: (https://github.com/microsoft/ProjectAcoustics/issues)
 
 ## Contact us
 * [Project Acoustics discussion and issue reporting](https://github.com/microsoft/ProjectAcoustics/issues)
