@@ -38,14 +38,14 @@
     #   href: article-template.md
     # - name: With SQL on-demand
     #   href: article-template.md
-  - name: Tutorials
-    items:
+- name: Tutorials
+  items:
   # - name: BI Professional
   #   href: article-template.md
   - name: Data Scientist
     items:
-     - name: Predict food inspection results
-       href: tutorial-predict-food-inspection-results.md 
+    - name: Predict food inspection results
+      href: tutorial-predict-food-inspection-results.md 
     # - name: Analyze website logs
     #   href: article-template.md
     # - name: use Tensorflow for deep learning
@@ -54,8 +54,8 @@
     #   href: article-template.md
   - name: Data Engineer
     items:
-    - name: Data Preparation
-      href: article-template.md
+    # - name: Data Preparation
+    #   href: article-template.md
   # - name: Data Analyst
   #   href: article-template.md
   # - name: IT Administrator
@@ -444,7 +444,7 @@
     #   href: article-template.md
   - name: Load data
     items:
-    - name: Into the Data warehouse
+    - name: Into the data warehouse
       items:
       - name: T-SQL
         items:
@@ -480,7 +480,7 @@
       #   href: article-template.md
       # - name: Best practices
       #   href: article-template.md
-    - name: Into the Data Lake
+    - name: Into the data lake
       items:
 #       - name: Data Flow and Data Ingest
 #         href: article-template.md
@@ -488,18 +488,18 @@
 #         href: article-template.md
 #       - name: Best practices
 #         href: article-template.md
-  - name: Transform & Analyze data
+  - name: Transform & analyze data
     items:
     - name: SQL Analytics
       items:
-#       - name: Overview
-#         href: article-template.md
+      # - name: Overview
+      #   href: article-template.md
       - name: Connect
         items:
-#         - name: Query with TSQL
-#           href: article-template.md
-#         - name: Query from notebook
-#           href: article-template.md
+        # - name: Query from SQL Script
+        #   href: article-template.md
+        # - name: Query from notebook
+        #   href: article-template.md
       - name: Power BI
         items:
 #         - name: Overview
