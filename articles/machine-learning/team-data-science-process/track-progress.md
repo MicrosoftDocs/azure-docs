@@ -23,7 +23,7 @@ If you're using Azure DevOps, you can build dashboards to track the activities a
 For instructions on how to create and customize dashboards and widgets in Azure DevOps, see the following quickstarts:
 
 - [Add and manage dashboards](/azure/devops/report/dashboards/dashboards)
-- [Add widgets to a dashboard](/azure/devops/report/dashboards/add-widget-to-dashboard).
+- [Add widgets to a dashboard](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
 ## Example dashboard
 
@@ -35,7 +35,7 @@ Here is a simple example dashboard that tracks the sprint activities of an Agile
 
 - Below the query results is a **cumulative flow diagram** (CFD) that shows the number of Closed and Active work items.
 
-- At upper right is a **burndown chart** that shows work left to complete against remaining time in the sprint
+- At upper right is a **burndown chart** that shows work still to complete against remaining time in the sprint
 
 - Below that is a **burnup chart** that shows completed work against the total amount of work in the sprint.
 
