@@ -11,7 +11,7 @@ ms.author: robinsh
 
 # Azure IoT Device SDKs Platform Support
 
-Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python, and Microsoft performs testing to ensure their operation on a variety of popular platforms. A platform is typically defined by a combination of operating system, microprocessor architecture, compiler or framework version, and transport layer security (TLS) library.
+Microsoft strives to continually expand the universe of Azure IoT Hub capable devices. Microsoft publishes open source device SDKs on GitHub to help connect devices to Azure IoT Hub and the Device Provisioning Service. The device SDKs are available for C, .NET (C#), Java, Node.js, and Python. Microsoft tests each SDK to ensure that it runs on the supported configurations detailed for it in the [Microsoft SDKs and device platform support](#microsoft-sdks-and-device-platform-support) section.
 
 In addition to the device SDKs, Microsoft provides several other avenues to empower customers and developers to connect their devices to Azure IoT:
 
