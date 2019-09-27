@@ -330,6 +330,63 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
+## Automate with ARM Templates
+
+[ARM Templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) are declarative JSON files used to automate the deployment and configuration of Azure resources. The ARM templates uses two properties on the *Microsoft.Web/sites/slots* and *Microsoft.Web/sites* resources to perform the swap:
+
+- `buildVersion`: this is a string property which represents the current version of the app deployed in the slot. For example: “v1“, "1.0.0.1", "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: this is a string property that specifies what `buildVersion` the current slot should have. If the targetBuildVersion is different from the current buildVersion, then this will trigger the swap operation by finding a slot that that has the expected build version and then swapping the site from that slot into the current slot.
+
+TODO: Do they have to set those two properties? Are they set already?
+
+### Example ARM Template
+
+Assuming you have two slots already created, the following ARM Template will update the buildVersion of the staging slot and set the targetBuildVersion on the production slot. This will swap the two slots.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "sites_SwapAPIDemo_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('sites_SwapAPIDemo_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('sites_SwapAPIDemo_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('sites_SwapAPIDemo_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+This ARM template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
+
 ---
 <!-- ======== Azure CLI =========== -->
 
