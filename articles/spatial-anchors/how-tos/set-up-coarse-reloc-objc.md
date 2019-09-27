@@ -39,7 +39,7 @@ ASAFusedLocationProvider *sensorProvider;
 sensorProvider = [[ASAFusedLocationProvider alloc] init];
 
 // Allow GPS
-ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 
 // Allow WiFi scanning

@@ -38,7 +38,7 @@ To complete this guide, make sure you have:
 FusedLocationProvider sensorProvider = new FusedLocationProvider();
 
 // Allow GPS
-SessionSensorCapabilities sensors = sensorProvider.getSensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 
 // Allow WiFi scanning

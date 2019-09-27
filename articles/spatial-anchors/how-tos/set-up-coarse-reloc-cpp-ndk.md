@@ -39,7 +39,7 @@ std::shared_ptr<FusedLocationProvider> sensorProvider;
 sensorProvider = std::make_shared<FusedLocationProvider>();
 
 // Allow GPS
-const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 
 // Allow WiFi scanning
