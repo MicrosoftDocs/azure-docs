@@ -95,5 +95,5 @@ For information on samples for other languages:
 
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
-* JavaScript/Node.js: [Azure Storage samples using JavaScript]](storage-samples-javascript.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

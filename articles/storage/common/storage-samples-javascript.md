@@ -36,7 +36,7 @@ The following tables provide an overview of our samples repository and the scena
 | Page Blob | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L129) |
 | SAS | [Shared Access Signature in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L257) |
 | Service Properties | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L308) |
-| Set Cors rules | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L134) |
+| Set Cors rules | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Snapshot Blob | [Getting Started with Azure Blob Service in JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
 ## File samples
