@@ -36,13 +36,15 @@
   - name: 10 - Govern VMs
     href: tutorial-govern-resources.md
     displayName: scope policy RBAC lock tag
-  - name: 11 - Monitor and update VMs
-    href: tutorial-monitoring.md
-  - name: 12 - Manage VM security
+  - name: 11 - Track and update VMs
+    href: tutorial-config-management.md
+  - name: 12 - Monitor VMs 
+    href: tutorial-monitor.md   
+  - name: 13 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Install a SQL\IIS\.NET stack
+  - name: 14 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 14 - Secure web server with SSL
+  - name: 15 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
