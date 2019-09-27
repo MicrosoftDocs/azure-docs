@@ -131,7 +131,7 @@ In most cases, you should have CDN enabled. However, if you are anticipating max
 
 ### Considerations
 
-* The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
+* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
 * If you need the ability to test your content with or without CDN, you can create another Streaming Endpoint that isn't CDN enabled.
 
 ### Detailed explanation of how caching works
