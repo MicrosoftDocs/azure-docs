@@ -1,6 +1,6 @@
 ---
 title: Solutions using globally distributed analytics in Azure Cosmos DB.
-description: Learn about the solutions using globally distributed analytics in Azure Cosmos DB.
+description: Learn about the solutions that can be built using the globally distributed analytics in Azure Cosmos DB.
 author: rimman
 ms.topic: conceptual
 ms.service: cosmos-db
@@ -9,10 +9,9 @@ ms.author: rimman
 ms.reviewer: sngun
 ---
 
-
 # Solutions using globally distributed analytics in Azure Cosmos DB
 
-This article describes the Solutions where Azure Cosmos DB's globally distributed analytics can be used. 
+This article describes the solutions that can be built using the globally distributed analytics in Azure Cosmos DB.
 
 ## Retail and consumer goods
 
