@@ -188,7 +188,7 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
   <tr>
    <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
    <td><a href="scenario-web-app-call-api-overview.md">Web App that calls Web APIs</a></td>
-   <td><a href="v2-oauth2-auth-code-flow">Authorization Code</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
    <td>Work or School accounts and Personal accounts, B2C</td>
  </tr>
 
