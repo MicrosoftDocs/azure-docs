@@ -145,7 +145,7 @@ The following configuration is an example [virtual host configured for SSL](http
 
 ### NGINX
 
-The following configuration is an example [NGINX server block](http://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
+The following configuration is an example [NGINX server block](https://nginx.org/docs/http/configuring_https_servers.html) with SSL configuration:
 
 ![NGINX with SSL](media/self-signed-certificates/nginx-ssl.png)
 

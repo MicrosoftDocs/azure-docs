@@ -19,7 +19,7 @@
     displayName: scenarios
     href: ./concepts/cross-tenant-management-experience.md
   - name: Managed services offers in Azure Marketplace
-    displayName: managed services offer, azure marketplace
+    displayName: azure marketplace, marketplace, managed service, private, plan
     href: ./concepts/managed-services-offers.md
   - name: Recommended security practices
     displayName: mfa, authentication, secure, group
@@ -27,6 +27,9 @@
   - name: Cloud Solution Provider program considerations
     displayName: csp, aobo, partner
     href: ./concepts/cloud-solution-provider.md
+  - name: Azure Lighthouse in enterprise scenarios
+    displayName: corporation, IT, consolidate
+    href: ./concepts/enterprise.md
 - name: How-to guides
   items:
   - name: Onboard a customer to Azure delegated resource management
@@ -43,6 +46,10 @@
     href: ./how-to/view-manage-service-providers.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services
   - name: Azure SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
   - name: Azure SDK for .NET (NuGet)

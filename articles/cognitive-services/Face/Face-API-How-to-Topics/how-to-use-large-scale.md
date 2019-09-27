@@ -28,7 +28,7 @@ The samples are written in C# by using the Azure Cognitive Services Face API cli
 
 When you use the Face API client library, the subscription key and subscription endpoint are passed in through the constructor of the FaceClient class. For example:
 
-```CSharp
+```csharp
 string SubscriptionKey = "<Subscription Key>";
 // Use your own subscription endpoint corresponding to the subscription key.
 string SubscriptionEndpoint = "https://westus.api.cognitive.microsoft.com";
@@ -70,7 +70,7 @@ Add all of the faces and persons from the PersonGroup to the new LargePersonGrou
 The preceding table is a comparison of list-level operations between FaceList and LargeFaceList. As is shown, LargeFaceList comes with new operations, Train and Get Training Status, when compared with FaceList. Training the LargeFaceList is a precondition of the 
 [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) operation. Training isn't required for FaceList. The following snippet is a helper function to wait for the training of a LargeFaceList:
 
-```CSharp
+```csharp
 /// <summary>
 /// Helper function to train LargeFaceList and wait for finish.
 /// </summary>
@@ -120,7 +120,7 @@ private static async Task TrainLargeFaceList(
 
 Previously, a typical use of FaceList with added faces and FindSimilar looked like the following:
 
-```CSharp
+```csharp
 // Create a FaceList.
 const string FaceListId = "myfacelistid_001";
 const string FaceListName = "MyFaceListDisplayName";
@@ -153,7 +153,7 @@ using (Stream stream = File.OpenRead(QueryImagePath))
 
 When migrating it to LargeFaceList, it becomes the following:
 
-```CSharp
+```csharp
 // Create a LargeFaceList.
 const string LargeFaceListId = "mylargefacelistid_001";
 const string LargeFaceListName = "MyLargeFaceListDisplayName";
@@ -231,7 +231,7 @@ If a relatively long latency is acceptable, it isn't necessary to trigger the Tr
 
 Suppose there's a `TrainLargePersonGroup` function similar to `TrainLargeFaceList`. A typical implementation of the standalone training on a LargePersonGroup by invoking the [`Timer`](https://msdn.microsoft.com/library/system.timers.timer(v=vs.110).aspx) class in `System.Timers` is:
 
-```CSharp
+```csharp
 private static void Main()
 {
     // Create a LargePersonGroup.

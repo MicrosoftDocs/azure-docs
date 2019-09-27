@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Grant access to an ASP.NET Core web API from a single-page application using Azure Active Directory B2C
 
-This tutorial shows you how to call an Azure Active Directory (Azure AD) B2C-protected ASP.NET Core web API resource from a single-page application.
+This tutorial shows you how to call an Azure Active Directory B2C (Azure AD B2C)-protected ASP.NET Core web API resource from a single-page application.
 
 In this tutorial, you learn how to:
 
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
 1. Enter a name for the application. For example, *webapi1*.

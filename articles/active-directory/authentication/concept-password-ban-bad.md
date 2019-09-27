@@ -118,9 +118,9 @@ Fuzzy matching is used on the normalized password to identify if it contains a p
 
 Example: assume that the password “abcdef” is banned, and a user tries to change their password to one of the following:
 
-‘abcdeg’    *(last character changed from ‘f’ to ‘g’)*
-‘abcdefg’   *’(g’ appended to end)*
-‘abcde’     *(trailing ‘f’ was deleted from end)*
+‘abcdeg’    *(last character changed from ‘f’ to ‘g’)*
+‘abcdefg’   *’(g’ appended to end)*
+‘abcde’     *(trailing ‘f’ was deleted from end)*
 
 Each of the above passwords does not specifically match the banned password "abcdef". However, since each example is within an edit distance of 1 of the banned term ‘abcdef’, they are all considered as a  match to “abcdef”.
 

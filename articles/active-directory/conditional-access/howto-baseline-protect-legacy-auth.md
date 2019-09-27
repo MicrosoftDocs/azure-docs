@@ -34,7 +34,7 @@ Before you can block legacy authentication in your directory, you need to first 
 
 1. Navigate to the **Azure portal** > **Azure Active Directory** > **Sign-ins**.
 1. Add the Client App column if it is not shown by clicking on **Columns** > **Client App**.
-1. Filter by **Client App** > **Other Clients** and click **Apply**.
+1. **Add filters** > **Client App** > select all of the options for **Other clients** and click **Apply**.
 
 Filtering will only show you sign-in attempts that were made by legacy authentication protocols. Clicking on each individual sign-in attempt will show you additional details. The **Client App** field under the **Basic Info** tab will indicate which legacy authentication protocol was used.
 
@@ -103,11 +103,11 @@ The policy **Baseline policy: Block legacy authentication (preview)** comes pre-
 
 To enable this policy and protect your organization:
 
-1. Sign in to the **Azure portal** as Global Administrator, Security Administrator, or Conditional Access Administrator.
+1. Sign in to the **Azure portal** as Global Administrator, Security Administrator, or Conditional Access Administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Block legacy authentication (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Click **Save**.
+1. Click **Save**.
 
 ## Next steps
 

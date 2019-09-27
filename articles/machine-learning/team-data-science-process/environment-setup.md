@@ -32,4 +32,3 @@ Learn how to create:
 - [Windows DSVM](../data-science-virtual-machine/provision-vm.md)
 - [Ubuntu DSVM](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
 - [CentOS DSVM](../data-science-virtual-machine/linux-dsvm-intro.md)
-- [Deep Learning VM](../data-science-virtual-machine/provision-deep-learning-dsvm.md)

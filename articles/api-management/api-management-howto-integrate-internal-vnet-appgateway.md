@@ -11,7 +11,6 @@ ms.assetid: a8c982b2-bca5-4312-9367-4a0bbc1082b1
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
@@ -81,6 +80,9 @@ In this guide we will also expose the **developer portal** to external audiences
 
 > [!WARNING]
 > If you use Azure AD or third party authentication, please enable [cookie-based session affinity](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) feature in Application Gateway.
+
+> [!WARNING]
+> To prevent Application Gateway WAF from breaking the download of OpenAPI specification in the developer portal, you need to disable the firewall rule `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`.
 
 ## Create a resource group for Resource Manager
 

@@ -16,7 +16,7 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
 
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. This URL includes the function key, which is passed to the `code` query parameter.
+1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function. 
 
     ![Azure local output](./media/functions-run-function-test-local-vs-code/functions-vscode-f5.png)
 

@@ -3,15 +3,14 @@ documentType: LandingData
 title: Bing Autosuggest Documentation
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
   description: Learn how to use Bing Autosuggest API to obtain suggested queries based on a partial query. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/25/2019
   ms.author: aahi

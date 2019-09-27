@@ -7,7 +7,6 @@ ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Quickstart: Create a policy assignment to identify non-compliant resources
 
@@ -77,7 +76,7 @@ disks* policy definition.
 
 1. Click **Assign**.
 
-You’re now ready to identify non-compliant resources to understand the compliance state of your
+You're now ready to identify non-compliant resources to understand the compliance state of your
 environment.
 
 ## Identify non-compliant resources
@@ -92,7 +91,7 @@ under **Non-compliant resources**.
 
 When a condition is evaluated against your existing resources and found true, then those resources
 are marked as non-compliant with the policy. The following table shows how different policy effects
-work with the condition evaluation for the resulting compliance state. Although you don’t see the
+work with the condition evaluation for the resulting compliance state. Although you don't see the
 evaluation logic in the Azure portal, the compliance state results are shown. The compliance state
 result is either compliant or non-compliant.
 

@@ -32,7 +32,7 @@ This tutorial requires the following prerequisites.
 
 ### Create a workspace
 
-Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace#portal) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
+Follow the [instructions](https://docs.microsoft.com/azure/machine-learning/service/how-to-manage-workspace) to create a workspace through the Azure portal, if you don't already have one. After creation, make note of your workspace name, resource group name, and subscription ID.
 
 ### Create a Python environment
 
@@ -1260,7 +1260,7 @@ weather_df.head(10)
 
 Again call `pandas.Series.dt.normalize` on the `datetime` field in the weather data so it matches the time key in `taxi_holidays_df`. Delete the unneeded columns, and filter out records where the temperature is `NaN`.
 
-Next group the weather data so that you have daily aggregated weather values. Define a dict `aggregations` to define how to aggregate each field at a daily level. For `snowDepth` and `temperature` take the mean and for `precipTime` and `precipDepth` take the daily maximum. Use the `groupby()` function along with the aggregations to group the data. Preview the data to ensure there is one record per day.
+Next group the weather data so that you have daily aggregated weather values. Define a dict named `aggregations` to define how to aggregate each field at a daily level. For `snowDepth` and `temperature` take the mean and for `precipTime` and `precipDepth` take the daily maximum. Use the `groupby()` function along with the aggregations to group the data. Preview the data to ensure there is one record per day.
 
 ```python
 weather_df["datetime"] = weather_df["datetime"].dt.normalize()

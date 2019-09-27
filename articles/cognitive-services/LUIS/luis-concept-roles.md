@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/03/2019
 ms.author: diberry
 ---
 # Entity roles for contextual subtypes
@@ -87,7 +87,7 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 ## Entity roles versus collaborator roles
 
-Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-collaborator.md) roles apply to levels of authoring access. 
+Entity roles apply to the data model of the LUIS app. [Collaborator or contributor](luis-concept-keys.md#contributions-from-other-authors) roles apply to levels of authoring access. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 

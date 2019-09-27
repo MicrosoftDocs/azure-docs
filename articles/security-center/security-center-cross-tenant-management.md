@@ -3,18 +3,16 @@ title: Cross-tenant management in Azure Security Center | Microsoft Docs
 description: " Learn how to enable data collection in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
-
 ms.assetid: 7d51291a-4b00-4e68-b872-0808b60e6d9c
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
-ms.author: v-mohabe
+ms.date: 08/11/2019
+ms.author: memildin
 
 ---
 
@@ -25,9 +23,7 @@ Cross-tenant management enables you to view and manage the security posture of m
 
 - Service providers can manage the security posture of resources, for multiple customers, from within their own tenant.
 
-- Security teams of organizations with multiple tenants can view and manage their security posture from a single location
-
-  ![Cross-tenants management](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
+- Security teams of organizations with multiple tenants can view and manage their security posture from a single location.
 
 ## Set up cross-tenant management
 
@@ -46,22 +42,13 @@ From the top menu bar, click the filter icon, and select the subscriptions, from
 
 The views and actions are basically the same. Here are some examples:
 
-- **Manage security policies**: From one view, manage the security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenant's directories (Doug.Lora, Microsoft, SSO, Wilde Company), and each tenant has subscriptions. The selected subscriptions from the different tenants are listed in this Policy Management list.
-
-     ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
-
-- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall security posture of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them, as seen in the following image.
-
-     ![Secure score](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
-
-- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time (as seen in the image below). You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
-
-  ![Cross-tenant management of recommendations](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
+- **Manage security policies**: From one view, manage the security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data.
+- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall security posture of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them.
+- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time. You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
 - **Manage Alerts**: Detect [alerts](security-center-alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](security-center-managing-and-responding-alerts.md).
 
 - **Manage advanced cloud defense features and more**: Manage the various threat detection and protection services, such as [just-in-time (JIT) VM access](security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [adaptive application controls](security-center-adaptive-application.md), and more.
-
+ 
 ## Next steps
 This article explains how cross-tenant management works in Security Center. To learn more about Security Center, see the following:
 

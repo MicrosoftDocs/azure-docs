@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/30/2019
+ms.date: 08/28/2019
 ms.author: aahi
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
-# Quickstart: Using Java to call the Text Analytics Cognitive Service
+# Quickstart: Use Java to call the Azure Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Java.
@@ -32,10 +32,9 @@ You must also have the [endpoint and access key](../../cognitive-services-apis-c
 
 The Language Detection API detects the language of a text document, using the [Detect Language method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class named `DetectLanguage.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -86,75 +85,78 @@ class Documents {
 }
 
 public class DetectLanguage {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-    static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-    static String host = "https://westus.api.cognitive.microsoft.com";
-
-	static String path = "/text/analytics/v2.1/languages";
-    
-	public static String GetLanguage (Documents documents) throws Exception {
-		String text = new Gson().toJson(documents);
-		byte[] encoded_text = text.getBytes("UTF-8");
-
-		URL url = new URL(host+path);
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("POST");
-		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
-		connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-		wr.write(encoded_text, 0, encoded_text.length);
-		wr.flush();
-		wr.close();
-
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
-
-		return response.toString();
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
     }
 
-	public static String prettify(String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+    static String path = "/text/analytics/v2.1/languages";
+    
+    public static String GetLanguage (Documents documents) throws Exception {
+        String text = new Gson().toJson(documents);
+        byte[] encoded_text = text.getBytes("UTF-8");
 
-	public static void main (String[] args) {
-		try {
-			Documents documents = new Documents ();
-			documents.add ("1", "This is a document written in English.");
-			documents.add ("2", "Este es un document escrito en Español.");
-			documents.add ("3", "这是一个用中文写的文件");
+        URL url = new URL(endpoint+path);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "text/json");
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
+        connection.setDoOutput(true);
 
-			String response = GetLanguage (documents);
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+        wr.write(encoded_text, 0, encoded_text.length);
+        wr.flush();
+        wr.close();
+
+        StringBuilder response = new StringBuilder ();
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null) {
+            response.append(line);
+        }
+        in.close();
+
+        return response.toString();
+    }
+
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+    public static void main (String[] args) {
+        try {
+            Initialize();
+
+            Documents documents = new Documents ();
+            documents.add ("1", "This is a document written in English.");
+            documents.add ("2", "Este es un document escrito en Español.");
+            documents.add ("3", "这是一个用中文写的文件");
+
+            String response = GetLanguage (documents);
+            System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+            System.out.println (e);
+        }
+    }
 }
 ```
 
@@ -208,10 +210,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class  in it named `GetSentiment.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -252,85 +253,88 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetSentiment {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-	static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-	static String host = "https://westus.api.cognitive.microsoft.com";
-
-	static String path = "/text/analytics/v2.1/sentiment";
-    
-	public static String getTheSentiment (Documents documents) throws Exception {
-		String text = new Gson().toJson(documents);
-		byte[] encoded_text = text.getBytes("UTF-8");
-
-		URL url = new URL(host+path);
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("POST");
-		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
-		connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-		wr.write(encoded_text, 0, encoded_text.length);
-		wr.flush();
-		wr.close();
-
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
-
-		return response.toString();
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
     }
 
-	public static String prettify(String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+    static String path = "/text/analytics/v2.1/sentiment";
+    
+    public static String getTheSentiment (Documents documents) throws Exception {
+        String text = new Gson().toJson(documents);
+        byte[] encoded_text = text.getBytes("UTF-8");
 
-	public static void main (String[] args) {
-		try {
-			Documents documents = new Documents ();
-			documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-			documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
+        URL url = new URL(endpoint+path);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "text/json");
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
+        connection.setDoOutput(true);
 
-			String response = getTheSentiment (documents);
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+        wr.write(encoded_text, 0, encoded_text.length);
+        wr.flush();
+        wr.close();
+
+        StringBuilder response = new StringBuilder ();
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null) {
+            response.append(line);
+        }
+        in.close();
+
+        return response.toString();
+    }
+
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+    public static void main (String[] args) {
+        try {
+            Initialize();
+
+            Documents documents = new Documents ();
+            documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+            documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
+
+            String response = getTheSentiment (documents);
+            System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+            System.out.println (e);
+        }
+    }
 }
 ```
 
@@ -361,10 +365,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). The following example extracts Key phrases for both English and Spanish documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it called `GetKeyPhrases.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -405,86 +408,89 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetKeyPhrases {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-	static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-	static String host = "https://westus.api.cognitive.microsoft.com";
-
-	static String path = "/text/analytics/v2.1/keyPhrases";
-    
-	public static String GetKeyPhrases (Documents documents) throws Exception {
-		String text = new Gson().toJson(documents);
-		byte[] encoded_text = text.getBytes("UTF-8");
-
-		URL url = new URL(host+path);
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("POST");
-		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
-		connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-		wr.write(encoded_text, 0, encoded_text.length);
-		wr.flush();
-		wr.close();
-
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
-
-		return response.toString();
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
     }
 
-	public static String prettify(String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+    static String path = "/text/analytics/v2.1/keyPhrases";
+    
+    public static String GetKeyPhrases (Documents documents) throws Exception {
+        String text = new Gson().toJson(documents);
+        byte[] encoded_text = text.getBytes("UTF-8");
 
-	public static void main (String[] args) {
-		try {
-			Documents documents = new Documents ();
-			documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
-			documents.add ("2", "es", "Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.");
-			documents.add ("3", "en", "The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I've ever seen.");
+        URL url = new URL(endpoint+path);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "text/json");
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
+        connection.setDoOutput(true);
 
-			String response = GetKeyPhrases (documents);
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+        wr.write(encoded_text, 0, encoded_text.length);
+        wr.flush();
+        wr.close();
+
+        StringBuilder response = new StringBuilder ();
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null) {
+            response.append(line);
+        }
+        in.close();
+
+        return response.toString();
+    }
+
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+    public static void main (String[] args) {
+        try {
+            Initialize();
+
+            Documents documents = new Documents ();
+            documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
+            documents.add ("2", "es", "Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.");
+            documents.add ("3", "en", "The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I've ever seen.");
+
+            String response = GetKeyPhrases (documents);
+            System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+            System.out.println (e);
+        }
+    }
 }
 ```
 
@@ -533,10 +539,9 @@ A successful response is returned in JSON, as shown in the following example:
 
 The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
 
+1. Create environment variables `TEXT_ANALYTICS_SUBSCRIPTION_KEY` and `TEXT_ANALYTICS_ENDPOINT` for your resource's Azure endpoint and subscription key. If you created these environment variables after you began editing the application, you will need to close and reopen the editor, IDE, or shell you are using to access the environment variables.
 1. Create a new Java project in your favorite IDE (or new folder on your desktop). Create a class in it named `GetEntities.java`.
 1. Add the code provided below to your class.
-1. Replace the `accessKey` value with the key from your Text Analytics subscription in [Azure](https://ms.portal.azure.com).
-1. Replace the location in `host` (currently `westus`) to the region you signed up for.
 1. Make sure you have the [Gson](https://github.com/google/gson) library installed.
 1. Run the program in your IDE or use the command line to run (instructions in the code comments).
 
@@ -577,84 +582,87 @@ class Document {
 }
 
 class Documents {
-	public List<Document> documents;
+    public List<Document> documents;
 
-	public Documents() {
-		this.documents = new ArrayList<Document>();
-	}
-	public void add(String id, String language, String text) {
-	    this.documents.add (new Document (id, language, text));
-	}
+    public Documents() {
+        this.documents = new ArrayList<Document>();
+    }
+    public void add(String id, String language, String text) {
+        this.documents.add (new Document (id, language, text));
+    }
 }
 
 public class GetEntities {
+    static String subscription_key_var;
+    static String subscription_key;
+    static String endpoint_var;
+    static String endpoint;
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+    public static void Initialize () throws Exception {
+        subscription_key_var = "TEXT_ANALYTICS_SUBSCRIPTION_KEY";
+        subscription_key = System.getenv(subscription_key_var);
+        if (null == subscription_key) {
+            throw new Exception ("Please set/export an environment variable named " + subscription_key_var);
+        }
 
-// Replace the accessKey string value with your valid access key.
-	static String accessKey = "enter key here";
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-	static String host = "https://westus.api.cognitive.microsoft.com";
-
-	static String path = "/text/analytics/v2.1/entities";
-    
-	public static String GetEntities (Documents documents) throws Exception {
-		String text = new Gson().toJson(documents);
-		byte[] encoded_text = text.getBytes("UTF-8");
-
-		URL url = new URL(host+path);
-		HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-		connection.setRequestMethod("POST");
-		connection.setRequestProperty("Content-Type", "text/json");
-		connection.setRequestProperty("Ocp-Apim-Subscription-Key", accessKey);
-		connection.setDoOutput(true);
-
-        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-		wr.write(encoded_text, 0, encoded_text.length);
-		wr.flush();
-		wr.close();
-
-		StringBuilder response = new StringBuilder ();
-		BufferedReader in = new BufferedReader(
-		new InputStreamReader(connection.getInputStream()));
-		String line;
-		while ((line = in.readLine()) != null) {
-			response.append(line);
-		}
-		in.close();
-
-		return response.toString();
+        endpoint_var = "TEXT_ANALYTICS_ENDPOINT";
+        endpoint = System.getenv(endpoint_var);
+        if (null == endpoint) {
+            throw new Exception ("Please set/export an environment variable named " + endpoint_var);
+        }
     }
 
-	public static String prettify(String json_text) {
-		JsonParser parser = new JsonParser();
-		JsonObject json = parser.parse(json_text).getAsJsonObject();
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		return gson.toJson(json);
-	}
+    static String path = "/text/analytics/v2.1/entities";
+    
+    public static String GetEntities (Documents documents) throws Exception {
+        String text = new Gson().toJson(documents);
+        byte[] encoded_text = text.getBytes("UTF-8");
 
-	public static void main (String[] args) {
-		try {
-			Documents documents = new Documents ();
-			documents.add ("1", "en", "Microsoft is an It company.");
+        URL url = new URL(endpoint+path);
+        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+        connection.setRequestMethod("POST");
+        connection.setRequestProperty("Content-Type", "text/json");
+        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscription_key);
+        connection.setDoOutput(true);
 
-			String response = GetEntities (documents);
-			System.out.println (prettify (response));
-		}
-		catch (Exception e) {
-			System.out.println (e);
-		}
-	}
+        DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+        wr.write(encoded_text, 0, encoded_text.length);
+        wr.flush();
+        wr.close();
+
+        StringBuilder response = new StringBuilder ();
+        BufferedReader in = new BufferedReader(
+        new InputStreamReader(connection.getInputStream()));
+        String line;
+        while ((line = in.readLine()) != null) {
+            response.append(line);
+        }
+        in.close();
+
+        return response.toString();
+    }
+
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonObject json = parser.parse(json_text).getAsJsonObject();
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+
+    public static void main (String[] args) {
+        try {
+            Initialize();
+
+            Documents documents = new Documents ();
+            documents.add ("1", "en", "Microsoft is an It company.");
+
+            String response = GetEntities (documents);
+            System.out.println (prettify (response));
+        }
+        catch (Exception e) {
+            System.out.println (e);
+        }
+    }
 }
 ```
 
