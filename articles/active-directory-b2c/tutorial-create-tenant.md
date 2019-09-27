@@ -22,6 +22,8 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create an Azure AD B2C tenant
 > * Link your tenant to your subscription
+> * Switch to the directory containing your Azure AD B2C tenant
+> * Add the Azure AD B2C resource as a *Favorite* in the Azure portal
 
 You learn how to register an application in the next tutorial.
 
@@ -72,6 +74,21 @@ If at first you don't see your new Azure B2C tenant in the list, refresh your br
 
 ![B2C tenant-containing directory selected in Azure portal](media/tutorial-create-tenant/portal-07-select-tenant-directory.png)
 
+## Add Azure AD B2C as a favorite (optional)
+
+This optional step makes it easier to select your Azure AD B2C tenant in the following and all subsequent tutorials.
+
+Instead of searching for "Azure AD B2C" in **All services** every time you want to work with your tenant, you can instead favorite the resource. Then, you can select it from the left-hand **Favorites** menu to quickly browse to your Azure AD B2C tenant.
+
+You only need to perform this operation once. Before performing these steps, make sure you've switched to the directory containing your Azure AD B2C tenant as described in the previous section, [Select your B2C tenant directory](#select-your-b2c-tenant-directory).
+
+1. Select **All services** in the left menu of the [Azure portal](https://portal.azure.com)
+1. Enter *Azure AD B2C* in the search text box
+1. Select the **star** to add Azure AD B2C to your favorites
+1. *Azure AD B2C* now appears in the **Favorites** left-hand menu. You can then select and drag it higher in the list, if you like, as the following image shows:
+
+![Steps to add Azure AD B2C as a favorite in the Azure portal](media/tutorial-create-tenant/portal-08-favorite-b2c.png)
+
 ## Next steps
 
 In this article, you learned how to:
@@ -79,6 +96,8 @@ In this article, you learned how to:
 > [!div class="checklist"]
 > * Create an Azure AD B2C tenant
 > * Link your tenant to your subscription
+> * Switch to the directory containing your Azure AD B2C tenant
+> * Add the Azure AD B2C resource as a *Favorite* in the Azure portal
 
 Next, learn how to register a web application in your new tenant.
 
