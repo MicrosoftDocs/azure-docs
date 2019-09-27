@@ -13,7 +13,7 @@ ms.date: 10/01/2019
 
 ## Using custom HTTP headers in calling the APIs
 
-A caller of the Azure FHIR API may want to include additional information in the logs which comes from the calling system.  An example would be when the user of the API is authenticated by an external system which then forwards the call to the FHIR API.  Once at the FHIR API layer, the information about the original user has been lost due to the call being forwarded.  It may be necessary to log and retain this user information for auditing or management purposes.  The calling system can provide user identify, caller location or other necessary information in the HTTP headers, which will be carried along as the call is forwarded.
+A caller of the Azure FHIR API may want to include additional information in the logs, which comes from the calling system.  An example would be when the user of the API is authenticated by an external system, which then forwards the call to the FHIR API.  Once at the FHIR API layer, the information about the original user has been lost due to the call being forwarded.  It may be necessary to log and retain this user information for auditing or management purposes.  The calling system can provide user identify, caller location or other necessary information in the HTTP headers, which will be carried along as the call is forwarded.
 
 You can see a diagram of the data flow below.
 
