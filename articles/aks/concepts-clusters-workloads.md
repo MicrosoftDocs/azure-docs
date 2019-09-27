@@ -72,15 +72,15 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 ### Resource reservations
 
-Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepency between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for your deployed pods.
+Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepency between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for user deployed pods.
 
 To find a node's allocatable resources run:
 ```kubectl
-kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+kubectl describe node [NODE_NAME]
 
 ```
 
-To maintain node performance and functionality, the following compute resources are reserved on each node. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
+To maintain node performance and functionality, resources are reserved on each node by AKS. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
 
 >[!NOTE]
 > Using add-ons such as OMS will consume additional node resources.
