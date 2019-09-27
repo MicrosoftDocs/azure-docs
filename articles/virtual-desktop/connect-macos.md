@@ -1,6 +1,6 @@
 ---
 title: Connect to Windows Virtual Desktop from macOS  - Azure
-description: How to connect to the Windows Virtual Desktop from macOS.
+description: How to connect to Windows Virtual Desktop using the macOS client.
 services: virtual-desktop
 author: heidilohr
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
 ---
-# Connect from macOS
+# Connect with the macOS client
 
 > Applies to: macOS 10.12 or later
 
@@ -39,6 +39,6 @@ After you've signed in, you should see a list of available resources.
 
 Once you've subscribed to a feed, the feed's content will update automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
-## Client documentation
+## Next steps
 
 To learn more about the macOS client, check out the [Get started with the macOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) documentation.
