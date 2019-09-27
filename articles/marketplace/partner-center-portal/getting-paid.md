@@ -9,33 +9,33 @@ ms.topic: article
 ms.date: 09/24/2019
 ---
 # Getting paid
-Here’s some important info about receiving payment for your apps, add-ons, and advertising earnings.
+Here’s some important info about receiving payment for your offers, add-ons, and advertising earnings.
 
 > [!IMPORTANT]
-> Before you can receive money from app sales in the Microsoft Store, you need to [set up your payout account and fill out the necessary tax forms](setting-up-your-payout-account-and-tax-forms.md).
+> Before you can receive money from offer sales in the commercial marketplace, you need to [set up your payout account and fill out the necessary tax forms](setting-up-your-payout-account-and-tax-forms.md).
 
 ## Store fee
 
-When you [sign up for a developer account](https://go.microsoft.com/fwlink/p/?LinkID=615100), you accept the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). This agreement explains the relationship between you and Microsoft as it pertains to selling apps in the Microsoft Store, including the Store fee that Microsoft charges for every sale made.
+When you [sign up for a developer account](https://go.microsoft.com/fwlink/p/?LinkID=615100), you accept the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). This agreement explains the relationship between you and Microsoft as it pertains to selling offer in the commercial marketplace, including the Store fee that Microsoft charges for every sale made.
 
 Fees are officially defined in the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560). Always review that document if you have any questions.
 
-The Store fee is applied to all app sales collected by the Microsoft Store, including add-ons.
+The Store fee is applied to all offer sales collected by the commercial marketplace, including add-ons.
 
 ## Price tiers
 
-The price tier(s) that you select sets the sales price in all the countries where you choose to distribute your app. You can also use additional pricing features such as choosing different prices for different markets.
+The price tier(s) that you select sets the sales price in all the countries where you choose to distribute your offer. You can also use additional pricing features such as choosing different prices for different markets.
 
-You can offer your app for free, or you can pick a price that customers must pay to acquire your app. Price tiers start at .99 USD, with additional increments (1.09 USD, 1.19 USD, and so on). The increments between price tiers increase as the price gets higher.
+You can offer your app for free, or you can pick a price that customers must pay to acquire your offer. Price tiers start at .99 USD, with additional increments (1.09 USD, 1.19 USD, and so on). The increments between price tiers increase as the price gets higher.
 
 > [!NOTE] 
-> These price tiers also apply to any add-ons that you offer from within your app.
+> These price tiers also apply to any add-ons that you offer from within your offer.
 
-Each price tier has a corresponding value in each of the currencies offered by the Store. We use these values to help you sell your apps at a comparable price point worldwide. However, due to changes in foreign exchange rates, the exact sales amount may vary slightly from one currency to another.
+Each price tier has a corresponding value in each of the currencies offered by the Store. We use these values to help you sell your offer at a comparable price point worldwide. However, due to changes in foreign exchange rates, the exact sales amount may vary slightly from one currency to another.
 
 You also have the option to enter a free-form price of your choosing in a specific market’s local currency. When you do this, the price will not be adjusted (even if conversion rates change) unless you submit an update with a new price. 
 
-Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid apps](tax-details-for-paid-transactions.md) for more info.
+Keep in mind that the price you select may include sales or value-added tax that your customers must pay. See [Tax details for paid offer](tax-details-for-paid-transactions.md) for more info.
 
 
 ## Payout reporting

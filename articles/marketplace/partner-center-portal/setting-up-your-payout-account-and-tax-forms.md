@@ -1,5 +1,5 @@
 ---
-Description: In order to receive money from app sales in the Microsoft Store, you need to set up your payout account and fill out the necessary tax forms.
+Description: In order to receive money from offer sales in the commercial marketplace, you need to set up your payout account and fill out the necessary tax forms.
 title: Set up your payout account and tax forms
 ms.date: 09/24/2019
 ms.topic: article
@@ -10,26 +10,26 @@ ms.service: marketplace
 ---
 # Set up your payout account and tax forms
 
-In order to receive money from app sales in the Microsoft Store, you need to set up your payout account and fill out the necessary tax forms in [Partner Center](https://partner.microsoft.com/dashboard).
+In order to receive money from offer sales in the commercial marketplace, you need to set up your payout account and fill out the necessary tax forms in [Partner Center](https://partner.microsoft.com/dashboard).
 
-If you only plan to list free apps (and don't plan to offer in-app purchases or use Microsoft Advertising), you don't need to set up a payout account or fill out any tax forms. If you change your mind later and decide you do want to sell apps (or add-ons), you can set up your payout account and fill out tax forms at that time. You won't be able to submit any paid apps or add-ons until your payout account and tax profile have been completed.
+If you only plan to list free offers (and don't plan to offer in-app purchases or use Microsoft Advertising), you don't need to set up a payout account or fill out any tax forms. If you change your mind later and decide you do want to sell offers (or add-ons), you can set up your payout account and fill out tax forms at that time. You won't be able to submit any paid offers or add-ons until your payout account and tax profile have been completed.
 
 > [!NOTE]
-> In certain markets, developers can only submit free apps. If your account is registered in one of these markets, you will not have the option to set up a payout account.
+> In certain markets, publishers can only submit free offer. If your account is registered in one of these markets, you will not have the option to set up a payout account.
 
-After you have set up your account, there are two things you need to do before you can sell apps (or add-ons) in the Microsoft Store:
+After you have set up your account, there are two things you need to do before you can sell offer (or add-ons) in the commercial marketplace:
 
 - [Fill out your tax forms](#tax-forms)
 - [Set up your payout account](#payout-account)
 
 > [!NOTE]
-> For details about how and when you will be paid for the money your apps make, see [Getting paid](getting-paid.md).
+> For details about how and when you will be paid for the money your offer make, see [Getting paid](getting-paid.md).
 
 ## Tax forms
 
 ### Filling out your tax forms
 
-First, you'll need to create a tax profile and assign it to the programs you participate in. You can create your *tax profile* for the Microsoft Store by completing the following steps:
+First, you'll need to create a tax profile and assign it to the programs you participate in. You can create your *tax profile* for the commercial marketplace by completing the following steps:
 
 - Specify your country of residence and citizenship.
 - Fill out the appropriate tax forms.
@@ -37,7 +37,7 @@ First, you'll need to create a tax profile and assign it to the programs you par
 You can complete and submit your tax forms electronically in Partner Center; in most cases, you don't need to print and mail any forms.
 
 > [!IMPORTANT]
-> Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your apps. See the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) to find out for which countries Microsoft remits sales and use tax on your behalf. In other countries, depending on where you are registered, you may need to remit sales and use tax for your app sales directly to the local taxing authority. In addition, the app sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your Microsoft Store developer activities.
+> Different countries and regions have different tax requirements. The exact amount that you must pay in taxes depends on the countries and regions where you sell your offer. See the [Microsoft Azure Marketplace Publisher Agreement](https://go.microsoft.com/fwlink/p/?LinkID=699560) to find out for which countries Microsoft remits sales and use tax on your behalf. In other countries, depending on where you are registered, you may need to remit sales and use tax for your offer sales directly to the local taxing authority. In addition, the app sales proceeds you receive may be taxable as income. We strongly encourage you to contact the relevant authority for your country or region that can best help you determine the right tax info for your commercial marketplace activities.
 
 1. In [Partner Center](https://partner.microsoft.com/dashboard), select the **Account settings** icon in the top right corner, then select **Developer settings**.
 2. In the left navigation menu, select **Payout and tax**, then select **Payout and tax assignments**.
@@ -51,15 +51,15 @@ You can complete and submit your tax forms electronically in Partner Center; in 
 7. Depending on your selections in step 6, you will be prompted to provide tax information required for your country.
 
 > [!NOTE]
-> Regardless of your country of residence or citizenship, you must fill out United States tax forms to sell any apps or add-ons through the Microsoft Store. Developers who satisfy certain United States residency requirements must fill out an IRS W-9 form. Other developers outside the United States must fill out an IRS W-8 form. You can fill out these forms online as you complete your tax profile.
+> Regardless of your country of residence or citizenship, you must fill out United States tax forms to sell any offer or add-ons through the commercial marketplace. Publishers who satisfy certain United States residency requirements must fill out an IRS W-9 form. Other publishers outside the United States must fill out an IRS W-8 form. You can fill out these forms online as you complete your tax profile.
 
 ### Withholding rates
 
-The info you submit in your tax forms determines the appropriate tax withholding rate. The withholding rate applies only to sales that you make into the United States; sales made into non-US locations are not subject to withholding. The withholding rates vary, but for most developers registering outside the United States, the default rate is 30%. You have the option of reducing this rate if your country has agreed to an income tax treaty with the United States.
+The info you submit in your tax forms determines the appropriate tax withholding rate. The withholding rate applies only to sales that you make into the United States; sales made into non-US locations are not subject to withholding. The withholding rates vary, but for most publishers registering outside the United States, the default rate is 30%. You have the option of reducing this rate if your country has agreed to an income tax treaty with the United States.
 
 ### Tax treaty benefits
 
-If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country to country, and may allow you to reduce the amount of taxes that the Microsoft Store withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
+If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country to country, and may allow you to reduce the amount of taxes that the commercial marketplace withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
 
 > [!NOTE]
 > A United States Individual Taxpayer Identification Number (or ITIN) is not required to receive payments from Microsoft or to claim tax treaty benefits.
@@ -121,7 +121,7 @@ You can edit existing payment profiles if you need to make changes or correct an
 3. Your payment profiles will be listed along with their status. Find the profile you wish to edit and click **Edit** at the far right
 
 > [!IMPORTANT]
-> Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one. See [Getting paid](getting-paid-apps.md) for more info.
+> Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we did when you first set up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one. See [Getting paid](getting-paid.md) for more info.
 
 ### PayPal info
 
