@@ -39,7 +39,7 @@ The following supported built-in mathematical functions perform a calculation, u
   
 All mathematical functions, except for RAND, are deterministic functions. This means they return the same results each time they are called with a specific set of input values.
 
-## See Also
+## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)

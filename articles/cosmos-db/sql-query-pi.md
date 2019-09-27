@@ -17,7 +17,7 @@ ms.custom: query-reference
 PI ()  
 ```  
    
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -35,7 +35,7 @@ SELECT PI() AS pi
 [{"pi": 3.1415926535897931}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

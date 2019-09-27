@@ -17,7 +17,7 @@ ms.custom: query-reference
 GetCurrentTimestamp ()  
 ```  
   
-## Return Types
+## Return types
   
   Returns a numeric value, the current number of milliseconds that have elapsed since the Unix epoch i.e. the number of milliseconds that have elapsed since 00:00:00 Thursday, 1 January 1970.
 
@@ -43,7 +43,7 @@ SELECT GetCurrentTimestamp() AS currentUtcTimestamp
 }]  
 ```
 
-## See Also
+## Next steps
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

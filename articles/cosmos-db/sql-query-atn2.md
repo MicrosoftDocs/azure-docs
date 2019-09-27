@@ -22,7 +22,7 @@ ATN2(<numeric_expr>, <numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -40,7 +40,7 @@ SELECT ATN2(35.175643, 129.44) AS atn2
 [{"atn2": 1.3054517947300646}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

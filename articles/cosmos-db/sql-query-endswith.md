@@ -25,7 +25,7 @@ ENDSWITH(<str_expr1>, <str_expr2>)
 *str_expr2*  
    Is a string expression to be compared to the end of *str_expr1*.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -43,7 +43,7 @@ SELECT ENDSWITH("abc", "b") AS e1, ENDSWITH("abc", "bc") AS e2
 [{"e1": false, "e2": true}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

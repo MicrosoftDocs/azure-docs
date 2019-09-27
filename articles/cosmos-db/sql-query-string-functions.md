@@ -24,7 +24,7 @@ The following scalar functions perform an operation on a string input value and 
 |[TRIM](sql-query-trim.md)|[UPPER](sql-query-upper.md)||
   
 
-## See Also
+## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)

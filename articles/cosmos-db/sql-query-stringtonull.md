@@ -22,7 +22,7 @@ StringToNull(<str_expr>)
 *str_expr*  
    Is a string expression to be parsed as a null expression.
   
-## Return Types
+## Return types
   
   Returns a null expression or undefined.  
   
@@ -79,7 +79,7 @@ SELECT
 [{}]
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

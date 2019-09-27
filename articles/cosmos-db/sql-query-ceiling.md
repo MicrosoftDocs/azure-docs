@@ -22,7 +22,7 @@ CEILING (<numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -40,7 +40,7 @@ SELECT CEILING(123.45) AS c1, CEILING(-123.45) AS c2, CEILING(0.0) AS c3
 [{c1: 124, c2: -123, c3: 0}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

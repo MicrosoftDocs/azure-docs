@@ -28,7 +28,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
 *str_expr3*  
    Is the string expression to replace ocurrences of *str_expr2* in *str_expr1*.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -46,7 +46,7 @@ SELECT REPLACE("This is a Test", "Test", "desk") AS replace
 [{"replace": "This is a desk"}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

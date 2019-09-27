@@ -22,7 +22,7 @@ ARRAY_LENGTH(<arr_expr>)
 *arr_expr*  
    Is an array expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -41,7 +41,7 @@ SELECT ARRAY_LENGTH(["apples", "strawberries", "bananas"]) AS len
 ```  
   
 
-## See Also
+## Next steps
 
 - [Array functions Azure Cosmos DB](sql-query-array-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

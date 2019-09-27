@@ -25,7 +25,7 @@ POWER (<numeric_expr1>, <numeric_expr2>)
 *numeric_expr2*  
    Is the power to which to raise *numeric_expr1*.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -43,7 +43,7 @@ SELECT POWER(2, 3) AS pow1, POWER(2.5, 3) AS pow2
 [{pow1: 8, pow2: 15.625}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

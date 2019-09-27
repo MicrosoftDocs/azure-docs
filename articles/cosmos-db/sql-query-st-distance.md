@@ -22,7 +22,7 @@ ST_DISTANCE (<spatial_expr>, <spatial_expr>)
 *spatial_expr*  
    Is any valid GeoJSON Point, Polygon, or LineString object expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression containing the distance. This is expressed in meters for the default reference system.  
   
@@ -44,7 +44,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 }]  
 ```  
 
-## See Also
+## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -22,7 +22,7 @@ IS_NULL(<expr>)
 *expr*  
    Is any expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -47,7 +47,7 @@ SELECT
 [{"isNull1":false,"isNull2":false,"isNull3":false,"isNull4":true,"isNull5":false,"isNull6":false,"isNull7":false}]
 ```  
 
-## See Also
+## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

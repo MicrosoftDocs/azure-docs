@@ -25,7 +25,7 @@ LOG (<numeric_expr> [, <base>])
 *base*  
    Optional numeric argument that sets the base for the logarithm.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -63,7 +63,7 @@ SELECT EXP(LOG(10)) AS expLog
 [{expLog: 10.000000000000002}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

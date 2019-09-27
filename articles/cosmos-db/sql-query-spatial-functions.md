@@ -18,7 +18,7 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 |[ST_ISVALIDDETAILED](sql-query-st-isvaliddetailed.md)|[ST_WITHIN](sql-query-st-within.md)||||
   
 
-## See Also
+## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)

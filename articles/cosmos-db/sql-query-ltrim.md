@@ -22,7 +22,7 @@ LTRIM(<str_expr>)
 *str_expr*  
    Is a string expression.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -40,7 +40,7 @@ SELECT LTRIM("  abc") AS l1, LTRIM("abc") AS l2, LTRIM("abc   ") AS l3
 [{"l1": "abc", "l2": "abc", "l3": "abc   "}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

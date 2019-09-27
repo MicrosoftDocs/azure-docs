@@ -22,7 +22,7 @@ ATAN(<numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -41,7 +41,7 @@ SELECT ATAN(-45.01) AS atan
 ```  
   
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -22,7 +22,7 @@ ROUND(<numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -51,7 +51,7 @@ SELECT ROUND(2.4) AS r1, ROUND(2.6) AS r2, ROUND(2.5) AS r3, ROUND(-2.4) AS r4, 
 [{r1: 2, r2: 3, r3: 3, r4: -2, r5: -3}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

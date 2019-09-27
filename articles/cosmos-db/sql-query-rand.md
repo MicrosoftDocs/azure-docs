@@ -17,7 +17,7 @@ ms.custom: query-reference
 RAND ()  
 ```  
 
-## Return Types
+## Return types
 
   Returns a numeric expression.
 
@@ -39,7 +39,7 @@ SELECT RAND() AS rand
 [{"rand": 0.87860053195618093}]  
 ``` 
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

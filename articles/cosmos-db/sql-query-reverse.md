@@ -22,7 +22,7 @@ REVERSE(<str_expr>)
 *str_expr*  
    Is a string expression.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -40,7 +40,7 @@ SELECT REVERSE("Abc") AS reverse
 [{"reverse": "cbA"}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

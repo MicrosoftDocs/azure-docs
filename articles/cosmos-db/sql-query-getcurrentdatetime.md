@@ -17,7 +17,7 @@ ms.custom: query-reference
 GetCurrentDateTime ()
 ```
   
-## Return Types
+## Return types
   
   Returns the current UTC date and time ISO 8601 string value in the format `YYYY-MM-DDThh:mm:ss.sssZ` where:
   
@@ -57,7 +57,7 @@ SELECT GetCurrentDateTime() AS currentUtcDateTime
 }]  
 ```  
 
-## See Also
+## Next steps
 
 - [Date and time functions Azure Cosmos DB](sql-query-date-time-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

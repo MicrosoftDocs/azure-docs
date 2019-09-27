@@ -22,7 +22,7 @@ IS_NUMBER(<expr>)
 *expr*  
    Is any expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -47,7 +47,7 @@ SELECT
 [{"isNum1":false,"isNum2":true,"isNum3":false,"isNum4":false,"isNum5":false,"isNum6":false,"isNum7":false}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

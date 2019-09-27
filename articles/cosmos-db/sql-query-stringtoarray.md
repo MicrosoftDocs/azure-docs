@@ -22,7 +22,7 @@ StringToArray(<str_expr>)
 *str_expr*  
    Is a string expression to be parsed as a JSON Array expression. Note that nested string values must be written with double quotes to be valid. For details on the JSON format, see [json.org](https://json.org/)
   
-## Return Types
+## Return types
   
   Returns an array expression or undefined. 
   
@@ -83,7 +83,7 @@ Here is the result set.
 [{}]
 ```
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -25,7 +25,7 @@ STARTSWITH(<str_expr1>, <str_expr2>)
 *str_expr2*  
    Is a string expression to be compared to the beginning of *str_expr1*.
 
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -43,7 +43,7 @@ SELECT STARTSWITH("abc", "b") AS s1, STARTSWITH("abc", "a") AS s2
 [{"s1": false, "s2": true}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

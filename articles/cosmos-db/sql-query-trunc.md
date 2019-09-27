@@ -22,7 +22,7 @@ TRUNC(<numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -40,7 +40,7 @@ SELECT TRUNC(2.4) AS t1, TRUNC(2.6) AS t2, TRUNC(2.5) AS t3, TRUNC(-2.4) AS t4, 
 [{t1: 2, t2: 2, t3: 2, t4: -2, t5: -2}]  
 ```
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -22,7 +22,7 @@ IS_DEFINED(<expr>)
 *expr*  
    Is any expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -40,7 +40,7 @@ SELECT IS_DEFINED({ "a" : 5 }.a) AS isDefined1, IS_DEFINED({ "a" : 5 }.b) AS isD
 [{"isDefined1":true,"isDefined2":false}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

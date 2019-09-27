@@ -22,7 +22,7 @@ IS_OBJECT(<expr>)
 *expr*  
    Is any expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -47,7 +47,7 @@ SELECT
 [{"isObj1":false,"isObj2":false,"isObj3":false,"isObj4":false,"isObj5":true,"isObj6":false,"isObj7":false}]
 ```  
 
-## See Also
+## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

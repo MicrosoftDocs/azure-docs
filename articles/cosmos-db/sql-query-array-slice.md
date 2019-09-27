@@ -28,7 +28,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
 *num_expr*
    Optional numeric expression that sets the maximum number of elements in the resulting array.    
 
-## Return Types
+## Return types
   
   Returns an array expression.  
   
@@ -62,7 +62,7 @@ SELECT
 }]  
 ```  
 
-## See Also
+## Next steps
 
 - [Array functions Azure Cosmos DB](sql-query-array-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

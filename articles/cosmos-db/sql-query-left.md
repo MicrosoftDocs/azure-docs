@@ -25,7 +25,7 @@ LEFT(<str_expr>, <num_expr>)
 *num_expr*  
    Is a numeric expression which specifies the number of characters.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -43,7 +43,7 @@ SELECT LEFT("abc", 1) AS l1, LEFT("abc", 2) AS l2
 [{"l1": "a", "l2": "ab"}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

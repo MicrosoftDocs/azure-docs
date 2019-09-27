@@ -25,7 +25,7 @@ CONTAINS(<str_expr1>, <str_expr2>)
 *str_expr2*  
    Is the string expression to find.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -43,7 +43,7 @@ SELECT CONTAINS("abc", "ab") AS c1, CONTAINS("abc", "d") AS c2
 [{"c1": true, "c2": false}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

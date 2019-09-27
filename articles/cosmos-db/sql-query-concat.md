@@ -22,7 +22,7 @@ CONCAT(<str_expr1>, <str_expr2> [, <str_exprN>])
 *str_expr*  
    Is a string expression to concatenate to the other values. The `CONCAT` function requires at least two *str_expr* arguments.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -41,7 +41,7 @@ SELECT CONCAT("abc", "def") AS concat
 ```  
   
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

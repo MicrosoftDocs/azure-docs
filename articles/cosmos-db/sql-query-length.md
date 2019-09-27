@@ -22,7 +22,7 @@ LENGTH(<str_expr>)
 *str_expr*  
    Is the string expression to be evaluated.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -40,7 +40,7 @@ SELECT LENGTH("abc") AS len
 [{"len": 3}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

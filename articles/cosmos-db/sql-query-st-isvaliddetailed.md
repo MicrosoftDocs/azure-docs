@@ -22,7 +22,7 @@ ST_ISVALIDDETAILED(<spatial_expr>)
 *spatial_expr*  
    Is a GeoJSON point or polygon expression.  
   
-## Return Types
+## Return types
   
   Returns a JSON value containing a Boolean value if the specified GeoJSON point or polygon expression is valid, and if invalid, additionally the reason as a string value.  
   
@@ -48,7 +48,7 @@ SELECT ST_ISVALIDDETAILED({
 }]  
 ```  
 
-## See Also
+## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

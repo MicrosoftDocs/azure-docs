@@ -22,7 +22,7 @@ ARRAY_CONCAT (<arr_expr1>, <arr_expr2> [, <arr_exprN>])
 *arr_expr*  
    Is an array expression to concatenate to the other values. The `ARRAY_CONCAT` function requires at least two *arr_expr* arguments.  
   
-## Return Types
+## Return types
   
   Returns an array expression.  
   
@@ -41,7 +41,7 @@ SELECT ARRAY_CONCAT(["apples", "strawberries"], ["bananas"]) AS arrayConcat
 ```  
   
 
-## See Also
+## Next steps
 
 - [Array functions Azure Cosmos DB](sql-query-array-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

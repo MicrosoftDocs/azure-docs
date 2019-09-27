@@ -22,7 +22,7 @@ IS_BOOL(<expr>)
 *expr*  
    Is any expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean expression.  
   
@@ -47,7 +47,7 @@ SELECT
 [{"isBool1":true,"isBool2":false,"isBool3":false,"isBool4":false,"isBool5":false,"isBool6":false,"isBool7":false}]
 ```  
 
-## See Also
+## Next steps
 
 - [Type checking functions Azure Cosmos DB](sql-query-type-checking-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -17,7 +17,7 @@ The following scalar functions allow you to get the current UTC date and time in
 |[GetCurrentDateTime](sql-query-getcurrentdatetime.md)|[GetCurrentTimestamp](sql-query-getcurrenttimestamp.md)||
 
 
-## See Also
+## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)

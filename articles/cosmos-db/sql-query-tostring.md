@@ -22,7 +22,7 @@ ToString(<expr>)
 *expr*  
    Is any scalar expression.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -89,7 +89,7 @@ Here is the result set.
 {"nutrientID":"309","nutritionVal":"null"}]
 ``` 
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

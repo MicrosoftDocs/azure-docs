@@ -22,7 +22,7 @@ EXP (<numeric_expr>)
 *numeric_expr*  
    Is a numeric expression.  
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -60,7 +60,7 @@ SELECT EXP(LOG(20)) AS exp1, LOG(EXP(20)) AS exp2
 [{exp1: 19.999999999999996, exp2: 20}]  
 ```  
 
-## See Also
+## Next steps
 
 - [Mathematical functions Azure Cosmos DB](sql-query-mathematical-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

@@ -21,7 +21,7 @@ The following functions support type checking against input values, and each ret
 |[IS_PRIMITIVE](sql-query-is-primitive.md)|[IS_STRING](sql-query-is-string.md)||  
   
 
-## See Also
+## Next steps
 
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
 - [Introduction to Azure Cosmos DB](introduction.md)

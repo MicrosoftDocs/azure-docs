@@ -22,7 +22,7 @@ RTRIM(<str_expr>)
 *str_expr*  
    Is any valid string expression.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -40,7 +40,7 @@ SELECT RTRIM("  abc") AS r1, RTRIM("abc") AS r2, RTRIM("abc   ") AS r3
 [{"r1": "   abc", "r2": "abc", "r3": "abc"}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

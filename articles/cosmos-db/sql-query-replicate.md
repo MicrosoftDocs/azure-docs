@@ -25,7 +25,7 @@ REPLICATE(<str_expr>, <num_expr>)
 *num_expr*  
    Is a numeric expression. If *num_expr* is negative or non-finite, the result is undefined.
   
-## Return Types
+## Return types
   
   Returns a string expression.
   
@@ -46,7 +46,7 @@ SELECT REPLICATE("a", 3) AS replicate
 [{"replicate": "aaa"}]
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

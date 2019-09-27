@@ -28,7 +28,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
 *bool_expr*  
    Is a boolean expression. If it evaluates to 'true' and if the specified search value is an object, the command checks for a partial match (the search object is a subset of one of the objects). If it evaluates to 'false', the command checks for a full match of all objects within the array. The default value if not specified is false. 
   
-## Return Types
+## Return types
   
   Returns a Boolean value.  
   
@@ -68,7 +68,7 @@ SELECT
 ```  
   
 
-## See Also
+## Next steps
 
 - [Array functions Azure Cosmos DB](sql-query-array-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

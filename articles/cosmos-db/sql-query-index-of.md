@@ -28,7 +28,7 @@ INDEX_OF(<str_expr1>, <str_expr2> [, <numeric_expr>])
 *numeric_expr*
    Optional numeric expression that sets the position the search will start. The first position in *str_expr1* is 0. 
   
-## Return Types
+## Return types
   
   Returns a numeric expression.  
   
@@ -46,7 +46,7 @@ SELECT INDEX_OF("abc", "ab") AS i1, INDEX_OF("abc", "b") AS i2, INDEX_OF("abc", 
 [{"i1": 0, "i2": 1, "i3": -1}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

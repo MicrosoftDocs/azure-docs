@@ -22,7 +22,7 @@ StringToNumber(<str_expr>)
 *str_expr*  
    Is a string expression to be parsed as a JSON Number expression. Numbers in JSON must be an integer or a floating point. For details on the JSON format, see [json.org](https://json.org/)  
   
-## Return Types
+## Return types
   
   Returns a Number expression or undefined.  
   
@@ -77,7 +77,7 @@ SELECT
 {{}}
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

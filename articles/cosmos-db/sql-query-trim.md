@@ -22,7 +22,7 @@ TRIM(<str_expr>)
 *str_expr*  
    Is a string expression.  
   
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -40,7 +40,7 @@ SELECT TRIM("   abc") AS t1, TRIM("   abc   ") AS t2, TRIM("abc   ") AS t3, TRIM
 [{"t1": "abc", "t2": "abc", "t3": "abc", "t4": "abc"}]  
 ``` 
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

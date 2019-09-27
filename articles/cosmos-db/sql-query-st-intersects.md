@@ -22,7 +22,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
 *spatial_expr*  
    Is a GeoJSON Point, Polygon, or LineString object expression.  
   
-## Return Types
+## Return types
   
   Returns a Boolean value.  
   
@@ -45,7 +45,7 @@ WHERE ST_INTERSECTS(a.location, {
 [{ "id": "IntersectingPolygon" }]  
 ```  
 
-## See Also
+## Next steps
 
 - [Spatial functions Azure Cosmos DB](sql-query-spatial-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)

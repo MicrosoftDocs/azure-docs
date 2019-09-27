@@ -28,7 +28,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
 *num_expr2*  
    Is a numeric expression to denote the maximum number of characters of *str_expr* to be returned. A value of 0 or less results in empty string.
 
-## Return Types
+## Return types
   
   Returns a string expression.  
   
@@ -46,7 +46,7 @@ SELECT SUBSTRING("abc", 1, 1) AS substring
 [{"substring": "b"}]  
 ```  
 
-## See Also
+## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)
 - [System functions Azure Cosmos DB](sql-query-system-functions.md)
