@@ -64,6 +64,8 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
 * [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)](how-to-create-portal-experiments.md)
 
+<a id="estimators"></a>
+
 ### Estimators
 
 Estimators make it easy to train models using popular ML frameworks. If you're using **Scikit-learn**, **PyTorch**, **TensorFlow**, or **Chainer**, you should consider using an estimator for training. There is also a generic estimator that can be used with frameworks that do not already have a dedicated estimator class. You don't have to worry about defining a run configuration when using estimators.
