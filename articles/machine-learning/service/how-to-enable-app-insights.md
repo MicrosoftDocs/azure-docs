@@ -33,9 +33,9 @@ In this article, you learn how to collect data from and monitor models deployed 
 
 The input and response to the service - corresponding to the inputs to the ML model and its prediction - are logged to the Azure Application Insights traces under the message `"model_data_collection"`. You can query Azure Application Insights directly to access this data, or setup a [continuous export](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) to a storage account for longer retention or further processing. Model data can then be used in the Azure ML service to setup labelling, retraining, explainability, data analysis, or other use. 
 
-## Use the Azure Portal or Studio UI to configure
+## Use the Azure Portal to configure
 
-You can enable and disable Azure Application Insights in the Azure portal or new Studio UI. 
+You can enable and disable Azure Application Insights in the Azure portal. 
 
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 
