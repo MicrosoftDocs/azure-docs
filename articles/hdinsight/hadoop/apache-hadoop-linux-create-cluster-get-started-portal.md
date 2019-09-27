@@ -41,7 +41,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
     |Resource group     | Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. |
     |Cluster name   | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters including letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
     |Location    | Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. |
-    |Cluster type| Select **Select cluster type**. Then select **Hadoop** as the cluster type.<br/> <img src="./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-select-cluster-type.png" alt = "Select HDInsight cluster type" /> |
+    |Cluster type| Select **Select cluster type**. Then select **Hadoop** as the cluster type.|
     |Version|The default version for the cluster type will be specified. Select from the drop-down list if you wish to specify a different version.|
     |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
@@ -49,7 +49,7 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
     ![HDInsight Linux get started provide cluster basic values](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-hadoop.png "Provide basic values for creating an HDInsight cluster")
 
-    Select the **Storage** tab to advance to the storage settings.
+    Select the **Next: Storage >>** to advance to the storage settings.
 
 1. From the **Storage** tab, provide the following values:
 
@@ -66,18 +66,18 @@ In this section, you create a Hadoop cluster in HDInsight using the Azure portal
 
 1. From the **Review + create** tab, verify the values you selected in the earlier steps.
 
-    ![HDInsight Linux get started cluster summary](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-review-create.png "HDInsight Linux get started cluster summary")
+    ![HDInsight Linux get started cluster summary](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png "HDInsight Linux get started cluster summary")
 
 1. Select **Create**. It takes about 20 minutes to create a cluster.
 
-1. Once the cluster is created, you see the cluster overview page in the Azure portal.
+Once the cluster is created, you see the cluster overview page in the Azure portal.
 
-    ![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "HDInsight cluster properties")
+![HDInsight Linux get started cluster settings](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "HDInsight cluster properties")
 
-    Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
+Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
 
-    > [!NOTE]  
-    > For other cluster creation methods and understanding the properties used in this quickstart, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
+> [!NOTE]  
+> For other cluster creation methods and understanding the properties used in this quickstart, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Run Apache Hive queries
 
