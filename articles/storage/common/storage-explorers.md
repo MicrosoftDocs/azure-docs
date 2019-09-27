@@ -1,18 +1,21 @@
 ---
-title: Tools for working with Azure Storage
-description: A list of tools that allow you to view and interact with your Azure Storage data.
+title: Client tools for working with Azure Storage
+description: A list of client tools that enable you to view and interact with your Azure Storage data.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
 ---
 
-# Azure Storage Client Tools
+# Client tools for working with Azure Storage
+
+Microsoft provides several graphical user interface (GUI) tools for working with the data in your Azure Storage account.
+
 Users of Azure Storage frequently want to be able to view/interact with their data using an Azure Storage client tool. In the tables below, we list a number of tools that allow you to do this. We put an "X" in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the tools is free or not. "Trial" indicates that there is a free trial, but the full product is not free. "Y/N" indicates that a version is available for free, while a different version is available for purchase.
 
 We've only provided a snapshot of the available Azure Storage client tools. These tools may continue to evolve and grow in functionality. If there are corrections or updates, please leave a comment to let us know. The same is true if you know of tools that ought to be here - we'd be happy to add them.
