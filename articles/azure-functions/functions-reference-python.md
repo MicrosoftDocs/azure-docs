@@ -85,7 +85,7 @@ You can change the default behavior of a function by optionally specifying the `
 The folder structure for a Python Functions project looks like the following example:
 
 ```
- FunctionApp
+ __app__
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
@@ -98,6 +98,7 @@ The folder structure for a Python Functions project looks like the following exa
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
+ tests
 ```
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
