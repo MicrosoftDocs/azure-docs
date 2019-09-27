@@ -1,27 +1,3 @@
----
-title: "Quickstart: Get intent, Java - LUIS"
-titleSuffix: Azure Cognitive Services
-description: In this Java quickstart, use an available public LUIS app to determine a user's intention from conversational text.    
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 09/04/2019
-ms.author: diberry
-#Customer intent: As a developer new to LUIS, I want to query the endpoint of a published model using Java. 
----
-
-# Quickstart: Get intent using Java
-
-In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
-
-<a name="create-luis-subscription-key"></a>
-
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
@@ -54,14 +30,3 @@ You can use Java to access the same results you saw in the browser window in the
 
     ![Console window displays JSON result from LUIS](./media/luis-get-started-java-get-intent/console-turn-on.png)
     
-## LUIS keys
-
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
-
-## Clean up resources
-
-Delete the Java file/project folder.
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Add utterances](luis-get-started-java-add-utterance.md)

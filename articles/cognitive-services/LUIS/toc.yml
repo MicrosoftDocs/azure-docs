@@ -33,17 +33,7 @@
   - name: Use REST APIs
     items:
     - name: Get intent
-      items:
-      - name: C#
-        href: luis-get-started-cs-get-intent.md
-      - name: Go
-        href: luis-get-started-go-get-intent.md
-      - name: Java
-        href: luis-get-started-java-get-intent.md
-      - name: Node.js
-        href: luis-get-started-node-get-intent.md
-      - name: Python
-        href: luis-get-started-python-get-intent.md
+      href: luis-get-started-get-intent.md
     - name: Change model
       items:
       - name: C#
