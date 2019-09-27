@@ -13,7 +13,7 @@
 - name: Release notes
   items:
   - name: Recent release
-    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?context=/azure/arcadia/context/context
+    href: ../sql-data-warehouse/release-notes-10-0-10106-0.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
 - name: Quickstarts
   items:
   - name: Create a workspace
@@ -60,62 +60,62 @@
   #   href: article-template.md
   # - name: IT Administrator
   #   href: article-template.md
-  - name: Concepts
+- name: Concepts
+  items:
+  - name: Workspace
     items:
-    - name: Workspace
+    # - name: Overview
+    #   href: article-template.md
+  - name: Pool
+    items:
+    # - name: SQL Analytics pool
+    #   href: article-template.md
+    # - name: SQL Analytics on-demand
+    #   href: article-template.md
+    # - name: Spark pool template
+    #   href: article-template.md
+  - name: Pipeline and activity
+    href: ../data-factory/concepts-pipelines-activities.md
+  - name: Execution and trigger
+    href: ../data-factory/concepts-pipeline-execution-triggers.md
+  - name: Linked service
+    href: ../data-factory/concepts-linked-services.md
+  - name: Integration runtime
+    href: ../data-factory/concepts-integration-runtime.md
+  - name: Metadata management
+    items:
+    # - name: Overview
+    #   href: article-template.md
+    - name: Storage objects
       items:
-      # - name: Overview
+      # - name: Objects
       #   href: article-template.md
-    - name: Pool
+      # - name: Database
+      #   href: article-template.md
+      # - name: Tables
+      #   href: article-template.md
+      # - name: Views
+      #   href: article-template.md
+    - name: Arcadia metadata sync
       items:
-      # - name: SQL Analytics pool
+      # - name: Arcadia metadata
       #   href: article-template.md
-      # - name: SQL Analytics on-demand
+      # - name: Sync with SQL Analytics on-demand
       #   href: article-template.md
-      # - name: Spark pool template
+      # - name: Sync with SQL Analytics pool metadata
       #   href: article-template.md
-    - name: Pipeline and activity
-      href: ../data-factory/concepts-pipelines-activities.md
-    - name: Execution and trigger
-      href: ../data-factory/concepts-pipeline-execution-triggers.md
-    - name: Linked service
-      href: ../data-factory/concepts-linked-services.md
-    - name: Integration runtime
-      href: ../data-factory/concepts-integration-runtime.md
-    - name: Metadata management
+    - name: Code artifacts
       items:
-      # - name: Overview
+      # - name: Notebooks
       #   href: article-template.md
-      - name: Storage objects
-        items:
-        # - name: Objects
-        #   href: article-template.md
-        # - name: Database
-        #   href: article-template.md
-        # - name: Tables
-        #   href: article-template.md
-        # - name: Views
-        #   href: article-template.md
-      - name: Arcadia metadata sync
-        items:
-        # - name: Arcadia metadata
-        #   href: article-template.md
-        # - name: Sync with SQL Analytics on-demand
-        #   href: article-template.md
-        # - name: Sync with SQL Analytics pool metadata
-        #   href: article-template.md
-      - name: Code artifacts
-        items:
-        # - name: Notebooks
-        #   href: article-template.md
-        # - name: SQL script
-        #   href: article-template.md
-        # - name: Mapping Data Flow
-        #   href: article-template.md
-      - name: Maintenance schedule
-        href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
-      # - name: Backup and restore  
+      # - name: SQL script
       #   href: article-template.md
+      # - name: Mapping Data Flow
+      #   href: article-template.md
+    - name: Maintenance schedule
+      href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json
+    # - name: Backup and restore  
+    #   href: article-template.md
   - name: Monitoring 
     items:
     - name: Standard monitoring
