@@ -79,7 +79,7 @@ When creating a Live Event, you can specify the following options:
 ### Naming rules
 
 * Max live event name is 32 characters.
-* The acceptable characters should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
