@@ -1,6 +1,6 @@
 ---
 title: Connect to Windows Virtual Desktop Preview from Windows 10 or Windows 7 - Azure
-description: How to connect to the Windows Virtual Desktop Preview from Windows 10 or Windows 7.
+description: How to connect to Windows Virtual Desktop using the Windows Desktop client.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,9 +11,9 @@ ms.author: helohr
 ---
 # Connect with the Windows Desktop client
 
-> Applies to: Windows 7 and Windows 10.
+> Applies to: Windows 7 and Windows 10
 
-A downloadable client is available that provides access to Windows Virtual Desktop resources from devices running Windows 7 and Windows 10.
+You can access Windows Virtual Desktop resources on devices with Windows 7 or Windows 10 using the Windows Desktop client.
 
 > [!IMPORTANT]
 > Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
@@ -36,7 +36,7 @@ Get the list of managed resources available to you by subscribing to the feed pr
 
 To subscribe to a feed:
 
-1. Start the client from the All Apps List, look for **Remote Desktop**.
+1. Open the Windows Desktop client.
 2. Select **Subscribe** on the main page to connect to the service and retrieve your resources.
 3. Sign in with your user account when prompted.
 
@@ -50,6 +50,6 @@ You can launch resources by one of two methods.
 
 Once subscribed to a feed, the content of the feed is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
-## Client documentation
+## Next steps
 
 To learn more about how to use the Windows Desktop client, check out [Get started with the Windows Desktop client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

@@ -1,6 +1,6 @@
 ---
 title: Connect to Windows Virtual Desktop from Android  - Azure
-description: How to connect to Windows Virtual Desktop from Android.
+description: How to connect to Windows Virtual Desktop using the Android client.
 services: virtual-desktop
 author: heidilohr
 
