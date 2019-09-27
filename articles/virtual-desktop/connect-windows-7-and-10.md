@@ -16,13 +16,15 @@ ms.author: helohr
 A downloadable client is available that provides access to Windows Virtual Desktop resources from devices running Windows 7 and Windows 10.
 
 > [!IMPORTANT]
-> Don't use **RemoteApp and Desktop Connections (RADC)** or **Remote Desktop Connection (MSTSC)** to access Windows Virtual Desktop resources because Windows Virtual Desktop doesn't support either client.
+> Windows Virtual Desktop doesn't support the RemoteApp and Desktop Connections (RADC) client or the Remote Desktop Connection (MSTSC) client.
 
 ## Install the Windows Desktop client
 
-You can currently download the client for Windows 64-bit. We'll update this list as the client becomes available for more versions of Windows.
+These are the clients you can currently download:
 
-- [Windows 64-bit client](https://go.microsoft.com/fwlink/?linkid=2068602)
+- [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+We'll update this list as the client becomes available for more versions of Windows.
 
 You can install the client for the current user, which doesn't require admin rights, or your admin can install and configure the client so that all users on the device can access it.
 
@@ -36,9 +38,9 @@ To subscribe to a feed:
 
 1. Start the client from the All Apps List, look for **Remote Desktop**.
 2. Select **Subscribe** on the main page to connect to the service and retrieve your resources.
-3. **Sign in** with your user account when prompted.
+3. Sign in with your user account when prompted.
 
-After successfully authenticating, you should now see a list of resources available to you.
+After you successfully sign in, you should see a list of the resources you can access.
 
 You can launch resources by one of two methods.
 
