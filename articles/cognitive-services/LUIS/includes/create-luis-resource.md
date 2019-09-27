@@ -27,8 +27,6 @@ ms.author: dapine
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page
 1. Collect configured `endpoint` and an API key:
 
-<!-- V3FIX -->
-
     |Resource Tab in Portal|Setting|Value|
     |--|--|--|
     |**Overview**|Endpoint|Copy the endpoint. It looks similar to `https://luis.cognitiveservices.azure.com/luis/v2.0`|

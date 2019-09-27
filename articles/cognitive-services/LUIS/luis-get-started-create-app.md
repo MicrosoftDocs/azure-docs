@@ -101,9 +101,7 @@ Select **Test** again to collapse the test pane.
 
     #### [V2 prediction endpoint](#tab/V2)
 
-    ```text
-    https://\<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/\<appID>?verbose=true&subscription-key=\<YOUR_KEY>&**q=\<user-utterance-text>**
-    ```
+    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?verbose=true&subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
 
     The browser displays the **V2 API** version of the JSON response of your HTTP endpoint.
 

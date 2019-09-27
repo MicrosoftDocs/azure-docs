@@ -86,9 +86,11 @@ Copy one of the URLs above (either V2 or V3) and substitute your key for the val
 
     * * *
 
-1. Add the **verbose** flag to the end of the querystring to **show all intents**:
+1. To see all the intents add the appropriate query string paramater. 
 
     #### [V2 prediction endpoint](#tab/V2)
+
+    Add `verbose=true` to the end of the querystring to **show all intents**:
 
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
@@ -129,6 +131,12 @@ Copy one of the URLs above (either V2 or V3) and substitute your key for the val
 
     #### [V3 prediction endpoint](#tab/V3)
 
+    Add `show-all-intents=true` to the end of the querystring to **show all intents**:
+
+    `
+    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
+    `
+
     ```JSON
     {
         "query": "turn on all lights",
@@ -138,28 +146,18 @@ Copy one of the URLs above (either V2 or V3) and substitute your key for the val
             "intents": {
                 "HomeAutomation.TurnOn": {
                     "score": 0.5375382
+                },
+                "HomeAutomation.TurnOff": {
+                     "score": 0.0207554
+                },
+                "None": {
+                     "score": 0.08687421
                 }
             },
             "entities": {
                 "HomeAutomation.Operation": [
                     "on"
-                ],
-                "$instance": {
-                    "HomeAutomation.Operation": [
-                        {
-                            "type": "HomeAutomation.Operation",
-                            "text": "on",
-                            "startIndex": 5,
-                            "length": 2,
-                            "score": 0.724984169,
-                            "modelTypeId": -1,
-                            "modelType": "Unknown",
-                            "recognitionSources": [
-                                "model"
-                            ]
-                        }
-                    ]
-                }
+                ]
             }
         }
     }
