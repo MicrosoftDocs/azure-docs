@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/26/2019
 ms.author: juliako
 ---
 
@@ -30,16 +30,16 @@ Multiple advancements announced at IBC 2019:
  
 * Animated character recognition  (public preview)
 
-    Ability to detect group ad recognize characters in animated content, via integration with custom vision.
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
 * Multi-language identification (public preview)
 
-    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. 
+    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * Named entity extraction for People and Location
 
-    NLP extraction of people and locations from speech  and visual text. 
+    Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
 * Editorial shot type classification
 
-    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc.
+    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Topic inferencing enhancement - now covering level 2
     
     The topic inferencing model now support deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
