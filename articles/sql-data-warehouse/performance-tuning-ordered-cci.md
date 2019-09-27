@@ -21,7 +21,7 @@ By default, for each Azure Data Warehouse table created without an index option,
 
 When creating an ordered CCI, the Azure SQL Data Warehouse engine sorts the data in memory by the order key(s) before the index builder compresses it into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in data warehouse tables, this scenario doesn't happen often.  
 
-To check the segment ranges for a column, run this command with your table name and column name:
+To check the segment ranges for a column, run the following command with your table name and column name:
 
 ```sql
 SELECT o.name, pnp.index_id, pnp.rows, pnp.data_compression_desc, pnp.pdw_node_id, 
