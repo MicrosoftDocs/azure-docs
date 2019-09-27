@@ -36,7 +36,7 @@ Activity logging is automatically enabled for every Resource Manager resource. E
 Sign in to the [Azure portal](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) before you continue.
 
 1. In the portal, click **Resource groups**.
-2. Select **\<resource-group-name>** where your load balancer resides.
+2. Select **\<resource-group-name>** where your load balancer is.
 3. Select your load balancer.
 4. Select **Monitoring** > **Diagnostic settings**.
 5. In the **Diagnostics settings** pane, under **Diagnostics settings**, select **+ Add diagnostic setting**.
@@ -47,7 +47,7 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
    * **Send to Log Analytics**
 
 ### Archive to a storage account
-You will need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
 1. Select the checkbox next to **Archive to a storage account**.
 2. Select **Configure** to open the **Select a storage account** pane.
@@ -56,7 +56,7 @@ You will need a storage account already created for this process.  To create a s
 5. Select OK.
 
 ### Stream to an event hub
-You will need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
 1. Select the checkbox next to **Stream to an event hub**
 2. Select **Configure** to open the **Select event hub** pane.
@@ -66,10 +66,10 @@ You will need an event hub already created for this process.  To create an event
 6. Select OK.
 
 ### Send to Log Analytics
-You will need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
 1. Select the checkbox next to **Send to Log Analytics**.
-2. Select the **Subscription** where your Log Analytics workspace resides in the pull-down box.
+2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
 3. Select the **Log Analytics Workspace** in the pull-down box.
 
 8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
@@ -106,7 +106,7 @@ This log is only generated if you've enabled it on a per load balancer basis. Th
 }
 ```
 
-The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was due to TCP port exhaustion caused by source IP NAT limits (SNAT).
+The JSON output shows the *eventname* property, which will describe the reason for the load balancer created an alert. In this case, the alert generated was because of TCP port exhaustion caused by source IP NAT limits (SNAT).
 
 ### Health probe log
 
@@ -146,7 +146,7 @@ This log is only generated if you've enabled it on a per load balancer basis as 
 }
 ```
 
-The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic due to failed probe responses.
+The JSON output shows in the properties field the basic information for the probe health status. The *dipDownCount* property shows the total number of instances on the back-end, which are not receiving network traffic because of failed probe responses.
 
 ### View and analyze the audit log
 
@@ -157,7 +157,7 @@ You can view and analyze audit log data using any of the following methods:
 
 ### View and analyze the health probe and event log
 
-Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel,  , or any other data visualization tool.
+Connect to your storage account and retrieve the JSON log entries for event and health probe logs. Once you download the JSON files, you can convert them to CSV and view in Excel, Power BI, or any other data visualization tool.
 
 > [!TIP]
 > If you are familiar with Visual Studio and basic concepts of changing values for constants and variables in C#, you can use the [log converter tools](https://github.com/Azure-Samples/networking-dotnet-log-converter) available from GitHub.
