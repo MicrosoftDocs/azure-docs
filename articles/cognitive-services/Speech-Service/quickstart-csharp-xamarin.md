@@ -47,7 +47,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag (between `<StackLayout>` and `</StackLayout>`):
 
-   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/MainPage.xaml#StackPanel)]
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/MainPage.xaml)]
 
 1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
 
