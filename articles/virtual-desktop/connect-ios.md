@@ -1,6 +1,6 @@
 ---
 title: Connect to Windows Virtual Desktop from iOS  - Azure
-description: How to connect to the Windows Virtual Desktop from iOS.
+description: How to connect to Windows Virtual Desktop using the iOS client.
 services: virtual-desktop
 author: heidilohr
 
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
 ---
-# Connect from iOS
+# Connect with the iOS client
 
 > Applies to: iOS 8.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
@@ -47,6 +47,6 @@ After this, the Connection Center should display the remote resources.
 
 Once subscribed to a feed, the feed's content will update automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
 
-## Client documentation
+## Next steps
 
 To learn more about how to use the iOS Beta client, check out the [Get started with the iOS client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) documentation.
