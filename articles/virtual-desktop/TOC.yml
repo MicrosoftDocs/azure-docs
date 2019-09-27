@@ -24,10 +24,12 @@
   items:
   - name: Connect to Windows Virtual Desktop resources
     items:
-      - name: Connect from Windows 10 or Windows 7
+      - name: Connect with the Windows Desktop client
         href: connect-windows-7-and-10.md
-      - name: Connect from a web browser
+      - name: Connect with the web client
         href: connect-web.md
+      - name: Connect with the Android client
+        href: connect-android.md
       - name: Connect with the macOS client
         href: connect-macos.md
       - name: Connect with the iOS client
@@ -72,6 +74,8 @@
     href: partners.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: Data locations
+    href: data-locations.md
 - name: Troubleshoot
   items:
   - name: Troubleshooting overview, feedback, and support
