@@ -74,8 +74,13 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 You don't need to manage the core Kubernetes components on each node, such as the *kubelet*, *kube-proxy*, and *kube-dns*, but they do consume some of the available compute resources. To maintain node performance and functionality, the following compute resources are reserved on each node:
 
-- **CPU** - 60 ms
-- **Memory** - 20% up to 4 GiB
+- **CPU** - dependent on cluster configuration and node type
+
+| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kubelet (millicores)|60|100|140|180|260|420|740|
+
+- **Memory** - 20% of available memory, up to 4 GiB max
 
 These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
 
