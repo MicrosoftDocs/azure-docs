@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
@@ -85,7 +85,7 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 ## Prediction endpoint request
 
-#### [V2 prediction endpoint reqeust](#tab/V2)
+<!-- V3FIX -->
 
 1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
@@ -125,9 +125,7 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
     [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
-#### [V3 prediction endpoint reqeust](#tab/V3)
 
-* * * 
 
 
 ## Clean up resources

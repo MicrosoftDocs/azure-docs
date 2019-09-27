@@ -31,6 +31,8 @@ The format of the V3 URL for a **GET** endpoint (by slots) request is:
 https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slots/{slotName}/predict?query={user-utterance}&subscription-key={your-key}
 ```
 
+Learn more about the [V3 prediction request](luis-migration-api-v3.md).
+
 * * *
 
 
@@ -40,7 +42,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slot
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
 
-    #### [V2 prediction endpoint request](#tab/V2)
+    #### [V2 prediction endpoint response](#tab/V2)
 
     ```JSON
     {
@@ -61,7 +63,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slot
     }
     ```
 
-    #### [V3 prediction endpoint request](#tab/V3)
+    #### [V3 prediction endpoint response](#tab/V3)
 
     ```JSON
     {
@@ -83,11 +85,13 @@ https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slot
     }
     ```
 
+    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
     * * *
 
 1. Add the **verbose** flag to the end of the querystring to **show all intents**:
 
-    #### [V2 prediction endpoint request](#tab/V2)
+    #### [V2 prediction endpoint](#tab/V2)
 
     ```text
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
@@ -126,7 +130,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slot
     }
     ```
 
-    #### [V3 prediction endpoint request](#tab/V3)
+    #### [V3 prediction endpoint](#tab/V3)
 
     ```JSON
     {
@@ -163,5 +167,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slot
         }
     }
     ```
+
+    Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
     * * * 
