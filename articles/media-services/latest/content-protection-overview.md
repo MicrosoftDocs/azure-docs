@@ -255,4 +255,4 @@ Check out the [Azure Media Services community](media-services-community.md) arti
 * [Design multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
 * [Storage side encryption](storage-account-concept.md#storage-side-encryption)
 * [Frequently asked questions](frequently-asked-questions.md)
-
+* [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
