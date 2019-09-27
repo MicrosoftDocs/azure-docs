@@ -41,4 +41,4 @@ Here are some possible error codes you could receive when using low-priority VMs
 
 ## Next steps
 
-For more information, see [Low-priority Virtual Machines](low-priority-vms.md).
+For more information, see [Low-priority Virtual Machines](./linux/low-priority-vms.md).
