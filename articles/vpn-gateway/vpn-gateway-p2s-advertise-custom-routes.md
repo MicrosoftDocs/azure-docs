@@ -17,7 +17,7 @@ You may want to advertise custom routes to all of your point-to-site VPN clients
 
 ## To advertise custom routes
 
-To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Conotoso storage account tables](https://contoso.table.core.windows.net).
+To advertise custom routes, use the `Set-AzVirtualNetworkGateway cmdlet`. The following example shows you how to advertise the IP for the [Contoso storage account tables](https://contoso.table.core.windows.net).
 
 1. Ping *contoso.table.core.windows.net* and note the IP address. For example:
 
