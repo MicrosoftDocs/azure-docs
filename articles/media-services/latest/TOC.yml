@@ -128,7 +128,7 @@
       displayName: vanity, ingest 
     - name: Recommended live encoders
       href: recommended-on-premises-live-encoders.md
-    - name: Using a cloud DVR
+    - name: Time-shifting and live-to-VOD
       displayName: archive
       href: live-event-cloud-dvr.md
     - name: Feature comparison
