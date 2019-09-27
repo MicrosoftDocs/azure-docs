@@ -29,12 +29,11 @@ ms.date: 09/09/2019
 
 ## Get started
 
-
 1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
 [![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 

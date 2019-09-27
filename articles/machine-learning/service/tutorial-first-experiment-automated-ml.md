@@ -55,7 +55,7 @@ You complete the following experiment set-up and run steps in the workspace land
 
 1. Select **Get started**.
 
-1. In the left pane, select **Automated ML** under the **Authoring** section.
+1. In the left pane, select **Automated ML** under the **Author** section.
 
    Since this is your first automated ML experiment, you'll see the Getting started screen.
 
@@ -136,10 +136,10 @@ You complete the following experiment set-up and run steps in the workspace land
 
 ##  Explore iteration results
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete, and orders them by metric score. By default, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete. By default, the iterations are ordered by metric score. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
 While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
-   
+
 The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
 
 ![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
