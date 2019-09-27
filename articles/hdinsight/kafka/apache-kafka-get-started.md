@@ -45,7 +45,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
     |Resource group     | Create a resource group or select an existing resource group.  A resource group is a container of Azure components.  In this case, the resource group contains the HDInsight cluster and the dependent Azure Storage account. |
     |Cluster name   | Enter a name for the Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters including letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
     |Location    | Select an Azure location where you want to create your cluster.  Choose a location closer to you for better performance. |
-    |Cluster type| Select **Select cluster type**. Then select **Kafka** as the cluster type.<br/> <img src="./media/apache-kafka-get-started/azure-portal-select-cluster-type.png" alt = "Select HDInsight cluster type" /> |
+    |Cluster type| Select **Select cluster type**. Then select **Kafka** as the cluster type.|
     |Version|The default version for the cluster type will be specified. Select from the drop-down list if you wish to specify a different version.|
     |Cluster login username and password    | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
     |Secure Shell (SSH) username | The default username is **sshuser**.  You can provide another name for the SSH username. |
@@ -57,7 +57,7 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
     For high availability of data, select a region (location) that contains __three fault domains__. For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) document.
 
-    Select the **Storage** tab to advance to the storage settings.
+    Select the **Next: Storage >>** tab to advance to the storage settings.
 
 1. From the **Storage** tab, provide the following values:
 
@@ -76,21 +76,21 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 
    If you would like to connect your cluster to a virtual network, select a virtual network from the **Virtual network** dropdown.
 
-   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-security-networking-kafka-vn.png)
+   ![Add cluster to a virtual network](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
 
     Select the **Configuration + pricing** tab.
 
 1. To guarantee availability of Apache Kafka on HDInsight, the __number of nodes__ entry for **Worker node** must be set to 3 or greater. The default value is 4.
 
-    The **Standrd disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
+    The **Standard disks per worker node** entry configures the scalability of Apache Kafka on HDInsight. Apache Kafka on HDInsight uses the local disk of the virtual machines in the cluster to store data. Apache Kafka is I/O heavy, so [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) are used to provide high throughput and more storage per node. The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). The type of disk depends on the VM size used by the worker nodes (Apache Kafka brokers). Premium disks are used automatically with DS and GS series VMs. All other VM types use standard.
 
-   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/azure-portal-configuration-pricing-kafka.png)
+   ![Set the Apache Kafka cluster size](./media/apache-kafka-get-started/azure-portal-cluster-configuration-pricing-kafka.png)
 
     Select the **Review + create** tab.
 
 1. Review the configuration for the cluster. Change any settings that are incorrect. Finally, select **Create** to create the cluster.
 
-    ![kafka cluster configuration summary](./media/apache-kafka-get-started/azure-portal-review-create-kafka.png)
+    ![kafka cluster configuration summary](./media/apache-kafka-get-started/azure-portal-cluster-review-create-kafka.png)
 
     It can take up to 20 minutes to create the cluster.
 
