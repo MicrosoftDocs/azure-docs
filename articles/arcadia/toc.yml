@@ -868,7 +868,7 @@
       - name: Self-hosted integration runtime
         href: ../data-factory/create-self-hosted-integration-runtime.md?toc=/azure/arcadia/toc.json
     - name: Run SSIS packages in Azure
-      href: ../data-factory/how-to-invoke-ssis-package-ssdt.md?toc=/azure/arcadia/toc.json
+      items:
       - name: Run SSIS packages with Execute SSIS Package activity
         href: ../data-factory/how-to-invoke-ssis-package-ssis-activity.md?toc=/azure/arcadia/toc.json
       - name: Run SSIS packages with Stored Procedure activity
