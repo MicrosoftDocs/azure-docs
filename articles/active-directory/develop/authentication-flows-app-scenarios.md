@@ -210,14 +210,14 @@ Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flo
  </tr>
 
   <tr>
-   <td><a href="scenario-desktop-overview.md"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
-   <td><a href="v2-oauth2-device-code.md#command-line-tool-without-web-browser">Device code</a></td>
+   <td><a href="scenario-desktop-overview.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="v2-oauth2-device-code.md">Device code</a></td>
    <td>Work or School accounts*</td>
  </tr>
 
  <tr>
    <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
-   <td rowspan="2"><a href="sscenario-mobile-overview.md">Mobile app that calls web APIs</a></td>
+   <td rowspan="2"><a href="scenario-mobile-overview.md">Mobile app that calls web APIs</a></td>
    <td>Interactive (<a href="v2-oauth2-auth-code-flow.md">Authorization Code</a> with PKCE)</td>
    <td>Work or School accounts and Personal accounts, B2C</td>
  </tr>
