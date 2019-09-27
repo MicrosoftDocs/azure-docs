@@ -34,7 +34,7 @@ From the Azure portal, open your cache instance and click **Storage targets** on
 
 ## Add a new Azure Blob storage target
 
-A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud filesystem format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
+A new Blob storage target needs an empty Blob container or a container that is populated with data in the Azure HPC Cache cloud file system format. Read more about pre-loading a Blob container in [Move data to Azure Blob storage](hpc-cache-ingest.md).
 
 To define an Azure Blob container, enter this information.
 
@@ -49,7 +49,7 @@ To define an Azure Blob container, enter this information.
   You will need to authorize the cache instance to access the storage account as described in [Add the access roles](#add-the-access-control-roles-to-your-account).
 * **Storage container** - Select the Blob container for this target.
 
-* **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
+* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
 When finished, click **OK** to add the storage target.
 
@@ -104,7 +104,7 @@ Create all of the paths from one storage target.
 
 Fill in these values for each namespace path: 
 
-* **Virtual namespace path** - Set the client-facing filepath for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
+* **Virtual namespace path** - Set the client-facing file path for this storage target. Read [Configure aggregated namespace](hpc-cache-namespace.md) to learn more about the virtual namespace feature.
 
 <!--  The virtual path should start with a slash ``/``. -->
 
