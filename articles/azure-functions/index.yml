@@ -96,6 +96,7 @@ landingContent:
         links:
           - text: Event-driven triggers
             url: functions-triggers-bindings.md
+          - text: functions-networking-options.md  
       - linkListType: tutorial
         links:
           - text: Integrate with Logic Apps
@@ -120,8 +121,6 @@ landingContent:
             url: functions-deployment-slots.md
           - text: Automate resource deployment
             url: functions-infrastructure-as-code.md
-          - text: Functions in Kubernetes
-            url: functions-kubernetes-keda.md
       - linkListType: how-to-guide
         links:
           - text: Set up continuous deployment
@@ -151,18 +150,10 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Premium hosting plan 
+            url: functions-premium-plan.md
           - text: Durable Functions
             url: durable/durable-functions-overview.md
-      - linkListType: quickstart
-        links:
-          - text: Create a durable function (C#)
-            url: /durable/durable-functions-create-first-csharp.md
-          - text: Create a durable function (JavaScript)
-            url: /durable/quickstart-js-vscode.md
-      - linkListType: concept
-        links:
-          - text: Durable Functions types and features
-            url: durable/durable-functions-types-features-overview.md
       - linkListType: learn
         links:
           - text: Create a long-running serverless workflow
