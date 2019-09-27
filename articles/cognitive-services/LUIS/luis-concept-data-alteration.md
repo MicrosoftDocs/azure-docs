@@ -67,7 +67,7 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
 * * * 
 
 ### List of allowed words
-The Bing spell check API used in LUIS does not support a list (also called a whitelist) of words to ignore during the spell check alterations. If you need to allow a list of words or acronyms, process the utterance in the client application before sending the utterance to LUIS for intent prediction.
+The Bing spell check API used in LUIS does not support a list of words to ignore during the spell check alterations. If you need to allow a list of words or acronyms, process the utterance in the client application before sending the utterance to LUIS for intent prediction.
 
 ## Change time zone of prebuilt datetimeV2 entity
 When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md) entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 

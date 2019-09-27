@@ -41,7 +41,7 @@ It is important to author LUIS apps in [regions](luis-reference-regions.md#publi
 
 An authoring key is created automatically when you create a LUIS account and it is free. When you begin with LUIS, you have one starter key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The purpose of the authoring key is to provide authentication to manage your LUIS app or to test prediction endpoint queries. 
 
-Creating authoring keys in the Azure portal allows you to control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors). You need permission at the Azure subscription level to add contributors.. 
+Creating authoring keys in the Azure portal allows you to control permissions to the authoring resource by assigning people to [the contributor role](#contributions-from-other-authors). You need permission at the Azure subscription level to add contributors. 
 
 To find the authoring Key, sign in to [LUIS](luis-reference-regions.md#luis-website) and click on the account name in the upper-right navigation bar to open **Account Settings**.
 
