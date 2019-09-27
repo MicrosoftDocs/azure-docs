@@ -76,7 +76,7 @@ In the extracted sample folder, open the file **digital-twins-samples-csharp\dig
     - The **getAvailableAndFreshSpaces.cs** file gets the results of a custom function called a user-defined function.
     - The **createEndpoints.cs** file creates endpoints to interact with other services.
 
-* The simulation sample **device-connectivity** simulates sensor data and sends it to the IoT hub that's provisioned for your Digital Twins instance. You'll use this sample in [the next tutorial after you provision your spatial graph](tutorial-facilities-udf.md#simulate). The sensor and device identifiers that you use to configure this sample should be the same as what you'll use to provision your graph.
+* The simulation sample **device-connectivity** simulates sensor data and sends it to the IoT hub that's provisioned for your Digital Twins instance. You'll use this sample in [the next tutorial after you provision your spatial graph](tutorial-facilities-udf.md#simulate-sensor-data). The sensor and device identifiers that you use to configure this sample should be the same as what you'll use to provision your graph.
 
 ### Configure the provisioning sample
 

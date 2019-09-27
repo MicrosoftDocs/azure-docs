@@ -2,16 +2,17 @@
 title: include file
 description: include file
 services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: include
 ms.date: 10/18/2018
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: include file
 ---
 
 ## Create a Recovery Services vault
+
 A Recovery Services vault is an entity that stores the backups and recovery points created over time. The Recovery Services vault also contains the backup policies that are associated with the protected virtual machines.
 
 To create a Recovery Services vault:
@@ -27,7 +28,7 @@ To create a Recovery Services vault:
     ![Enter and choose Recovery Services vaults](./media/backup-create-rs-vault/all-services.png)
 
     The list of Recovery Services vaults in the subscription appears.
-    
+
 4. On the **Recovery Services vaults** dashboard, select **Add**.
 
     ![Add a Recovery Services vault](./media/backup-create-rs-vault/add-button-create-vault.png)
