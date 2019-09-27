@@ -35,11 +35,11 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
-    + Introduce FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
+    + Introduced FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
       + Override Column Purpose for Featurization with given column and feature type
       + Override transformer parameters
     + Added deprecation message for explain_model() and retrieve_model_explanations()
-    + Adding Prophet as a trainable pipeline (preview only)
+    + Added Prophet as a trainable pipeline (preview only)
     + Added support for automatic detection of target lags, rolling window size and maximal horizon. If one of target_lags, target_rolling_window_size or max_horizon is set to 'auto', the heuristics will be applied to estimate the value of corresponding parameter based on training data.
     + Fixed forecasting in the case when data set contains one grain column, this grain is of a numeric type and there is a gap between train and test set
     + Fixed the error message about the duplicated index in the remote run in forecasting tasks
@@ -58,7 +58,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-pipeline-core**
     + Added notebook to describe Module, ModuleVersion and ModuleStep
   + **azureml-pipeline-steps**
-    + Introducing RScriptStep to support R script run via AML pipeline
+    + Added RScriptStep to support R script run via AML pipeline
     + Fixed metadata parameters parsing in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
   + **azureml-train-automl**
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
