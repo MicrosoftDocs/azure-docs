@@ -385,7 +385,6 @@ The following ARM template will update the `buildVersion` of the staging slot an
 
 This ARM template is idempotent, meaning that it can be executed repeatedly and produce the same state of the slots. After the first execution, `targetBuildVersion` will match the current `buildVersion`, so a swap will not be triggered.
 
----
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
