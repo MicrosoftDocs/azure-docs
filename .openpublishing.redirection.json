@@ -5407,7 +5407,7 @@
     },
     {
       "source_path": "articles/azure-functions/create-visual-studio-code.md",
-      "redirect_url": "/azure/azure-functions/functions-create-first-function-visual-studio-code",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
       "redirect_document_id": false
     },
     {
