@@ -778,29 +778,33 @@
   items:
   - name: Glossary of terms
     href: sql-database-glossary-terms.md
-  - name: Build your skills with Microsoft Learn
-    href: /learn/browse/?products=azure-sql-database
-  - name: SQL Server Blog
-    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
-  - name: Microsoft Azure Blog
-    href: https://azure.microsoft.com/blog/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Public data sets
-    href: sql-database-public-data-sets.md  
-  - name: Troubleshoot connectivity
-    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/sql-database/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/sql-azure
-  - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?service=sql-database
   - name: Architecture center
     href: /azure/architecture/
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-sql-database
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+  - name: Microsoft Azure Blog
+    href: https://azure.microsoft.com/blog/
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Public data sets
+    href: sql-database-public-data-sets.md  
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: SQL Server Blog
+    href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/sql-azure
+  - name: Troubleshooting
+    items:
+    - name: Azure SQL Database Import/Export Service Hangs
+      href: azure-sql-database-hangs-importing-exporting.md
+    - name: Troubleshooting connectivity issues with Microsoft Azure SQL Database
+      href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+  - name: Videos
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
