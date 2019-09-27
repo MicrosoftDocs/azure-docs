@@ -4,18 +4,26 @@
   items:
   - name: About Peering Service
     href: peering-service-about.md
-- name: Get Started
-  items:
-  - name: Onboarding Peering Service
-    href: peering-service-onboarding-peering-service.md
-- name: Quick Start
+- name: How-to-guide
   items:
   - name: Create Peering Service
     items:
-      - name: Azure portal
+      - name: Onboarding Peering Service
+        href: peering-service-onboarding-peering-service.md
+      - name: Create Peering Service - Azure Portal
         href: peering-service-azure-portal.md
-      - name: Azure PowerShell
+      - name: Create Peering Service - Azure PowerShell
         href: peering-service-powershell.md
+      - name: Measure Connection Telemetry - Azure Portal
+        href: peering-service-measure-connection-telemetry.md
+- name: Concepts
+  items:
+    - name: Connections
+      href: peering-service-connection.md
+    - name: Connection Telemetry
+      href: peering-service-connection-telemetry.md
+    - name: Route Monitoring
+      href: peering-service-route-monitoring.md   
 - name: Resources
   items:
   - name: Location and Partners

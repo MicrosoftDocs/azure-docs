@@ -15,7 +15,8 @@ ms.author: v-meravi
 # Microsoft Azure Peering Service (MAPS) Overview
 ## What is Peering Service? 
 
-Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a networking service that aims at improving the customer’s internet experience. It provides better accessibility to Microsoft SAAS services such as Office 365 and Azure. Microsoft has partnered with Internet Service Providers and Internet Exchange Partners to provide reliable internet connectivity by meeting the technical requirements as listed below:
+Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a networking service that aims at improving customer’s internet access to Microsoft SAAS services such as Office 365, Dynamics 365 and Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable internet connectivity by meeting the technical requirements such as
+
 - Local redundancy
 - Geo redundancy
 - Shortest network path
@@ -24,22 +25,31 @@ By selecting MAPS, an end user is selecting a Service Provider [SP], which is we
 
 ![optimal internet](./media/peering-service-about/peering-service-optimal-internet-connectivity-final.png)
 
-Customers can on-board MAPS into Azure portal, optionally. By registering into the Azure portal, customers can get Internet telemetry, BGP route monitoring and alerts against leaks and hijacks.
+Customers can opt for internet telemetry metrics such as BGP route monitoring and alerts against leaks and hijacks by registering Peering Service in the Azure Portal.
+
+> [!Note]
+> To procure MAPS service, customer is not required to register or perform any other process. They must talk with the MAPS certified Service Providers to render the service. However, to opt for telemetry metrics, customer must register the MAPS service in the Azure Portal. To know how to register Peering Service please refer here.
+>
 
 ## What MAPS isn't about?
-**Not a private connectivity product.**
+**Not a private connectivity product like ExpressRoute or a VPN product.**
 
-It is an IP service that follows the rules of the Internet routing. 
+- It’s an IP service that follows the rules of the Internet routing. 
+- It’s a value-added service intended to offer optimized and reliable routing to public IPs or SaaS traffic such as Office 365, Dynamics 365 or any SaaS traffic running on Azure.
 
-**Not an Express Route or a VPN product.**
-
-It is a value-added service intended to offer optimized and reliable routing to public IPs or SaaS traffic such as Office.
+> [!Note]
+> For more information about ExpressRoute please refer here.
+>
 
 ## Background
 
-Microsoft Global Network has edge locations around the world where it can connect to an end user via its Service Provider (SP). In the Networking traffic, the link connecting the end-user and SP is referred as Last-Mile and the link connecting the data center and edge site [POP] is referred as First-Mile. In this networking traffic background, there are considerable factors to focus on providing optimal internet routing.
+Office 365, Dynamics 365 or any SaaS services can be hosted in any Microsoft DC and can be accessed from any geographic locations. Microsoft Global Network has edge locations around the world where it can connect to an end user via its Service Provider (SP). In the Networking traffic, the link connecting the end user and SP is referred as Last-Mile and the link connecting the data center and edge site Point of Preference [POP] is referred as First-Mile. Microsoft intends to solve the First-Mile problem by routing the networking traffic to the nearest Edge (POP) through Service Providers.
 
-![first mile ](./media/peering-service-about/peering-service-background1.png)
+![first mile ](./media/peering-service-about/peering-service-background-final.png)
+
+> [!Note]
+> For more information about the Microsoft Global Network refer here.
+>
 
 ### Prime Focus 
 
@@ -57,40 +67,48 @@ Microsoft came up with ‘Peering Service/MAPS’ concept to eliminate mid-mile 
  -	Route analytics and statistics. Events for route leak/hijack detection or non-optimal routing. 
 
 ## Why Peering Service?
-From a business perspective, it is recommended for a large-scale enterprise to opt for a redefined technique to get well connected with Microsoft network. Microsoft offers such well-provisioned networks through Peering Services by partnering with respective SPs.  
 
-### Nearest MS [POP]
+From a business perspective, it’s recommended for a large-scale enterprise to opt for a redefined technique to get well connected with Microsoft network. Microsoft offers such well-provisioned networks through Peering Services by partnering with respective SPs. Some of the key characteristics of the Peering Service are discussed as below:
 
-The service provider will provide connectivity to Microsoft Cloud at a location nearest to user. Service Provider [SP] will route user traffic to Microsoft Edge, closest to user. Similarly, on traffic towards the user, Microsoft will route traffic to the edge location closest to the user and SP will deliver the traffic to the user.
+**1. Robust, Reliable Peering**
+- **Local Redundancy**
+   - Microsoft and carriers interconnect with the edge locations. In each location, interconnection must support failover across two routers.
+   - Ideally, each peering location is provisioned with two redundant peering links.
 
-![nearest pop](./media/peering-service-about/peering-service-Behind-the-Scene.png)
+- **Geo Redundancy**
+    - Replicates the instances of peering connectivity in different geographic locations. This supports the failover across multiple locations.
+    - Microsoft peers with career at multiple metro locations so that, if one of the Microsoft-Partner nodes shut down, the traffic routes to Microsoft via alternate sites.
 
-High availability (port redundant), high throughput, geo-redundant connectivity is maintained with Microsoft Global Network. These features are automated by a software controller automated by Microsoft.  
+- **Shortest Routing Path**
+    - Assures to use the shortest routing path by choosing the nearest Edge POP.
+    - Ensures MAPS partner is one hop away from Microsoft.
+    - Microsoft routes traffic in its global network using SDN based routing policies for optimal performance.
+ 
+![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
 
-### Cold-Potato Routing
+- **High Capacity**
+   - High availability (port redundant), high throughput, geo-redundant connectivity is maintained with Microsoft Global Network.
+   - Capable to transmit maximum amount of data from one point to another over a network. Highly efficient in data transfer rate.
+   - Microsoft will provide higher preference to the traffic of MAPS enabled routes on its network.
 
-On-boarding MAPS through SPs, networking traffic is guaranteed to use cold-potato routing technique. This helps the networking traffic to stay in the Microsoft network as much as possible. Otherwise, traffic can be routed via hot potato, by dropping off the traffic to the nearest edge point.
+**2. Optimal Routing**
+-  **Cold- potato**
+    - Cold-potato routing technique offers control over the networking traffic by ensuring the networking packets are routed within the Microsoft network as much as possible.
+    - Ideally, in the return path, probability of networking packets to drop off to the nearest ISP is more which is referred as Hot- potato routing.
+    - By on-boarding MAPS through SPs, networking traffic is guaranteed to use cold-potato routing technique to provide better accessibility to Microsoft network.
+ 
+![first mile ](./media/peering-service-about/peering-service-cold-potato.png)
 
-![cold hot potato](./media/peering-service-about/peering-service-cold-hot-potato.png)
+**3. Monitoring platform**
+    - Network monitoring technology is offered to analyze the routing techniques. Monitoring platform provides the following capabilities:
+           - Route Anomalies
+           - Latency deviation
+           - BGP session availability
+    - MAPS RADAR service performs the validation by motoring real time internet routes. On detection of any failovers,customer is notified via e-mails.
+ 
+**4. Secured Peering**
 
-## What is Peering Service having to offer?
-
-![peering service process flow](./media/peering-service-about/peering-service-process-flow.png)
-
-| **Technical Requirements |  Telemetry**|
-|-----------|-------------------------------|
-| **Local Redundancy**|**Latency optimization**|
-Microsoft and carriers interconnect with the edge locations. In each location, interconnection must support fail over across two routers. Ideally, each peering location is provisioned with two redundant peering links.![Local redundancy](./media/peering-service-about/peering-service-local-redundancy.png)|Round-trip time taken from the client to reach the server is optimized by connecting the end users to the nearest possible Microsoft Edge.|
-| **Geo Redundancy**|**Route Analytics**|
-Replicates the instances of peering connectivity in different geographical locations. This supports fail over across multiple locations. Microsoft peers with career at multiple metro locations so that, if one of the Microsoft-Partner nodes goes down, the traffic routes to Microsoft via alternate sites.![Geo redundancy](./media/peering-service-about/peering-service-geo-redundancy.png)|Network monitoring technology is offered to analyze the routing techniques.|
-| **Shortest Routing Path**|**1-hop connectivity**|
-Assures to use the shortest routing path by choosing the nearest edge MS POP.![Shortest routing path](./media/peering-service-about/peering-service-shortest-path.png)|Last mile connectivity is provided to the end customer.|
-
-
-
-
-
-
-
-
-
+**5. Internet performance insights**
+- **Latency optimization**
+       - Round-trip time taken from the client to reach the server is optimized by connecting the end users to the nearest possible Microsoft Edge.
+       - By using the latency optimization technique, you can the access the Microsoft network quickly than expected.
