@@ -28,7 +28,7 @@ Get started with the Personalizer client library for Node.js. Follow these steps
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of [Node.js](https://nodejs.org).
+* The current version of [Node.js](https://nodejs.org) and NPM.
 
 ## Using this quickstart
 

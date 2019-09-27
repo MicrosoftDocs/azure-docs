@@ -98,7 +98,7 @@ Create a new Python application in your preferred editor or IDE named `sample.py
 
 ## Add the dependencies
 
-From the project directory, open the **sample.py** file in your preferred editor or IDE. Replace the existingcode with the following:
+From the project directory, open the **sample.py** file in your preferred editor or IDE. Add the following:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
