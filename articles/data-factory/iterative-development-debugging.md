@@ -13,6 +13,7 @@ ms.author: daperlov
 manager: craigg
 ---
 # Iterative development and debugging with Azure Data Factory
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 Azure Data Factory lets you iteratively develop and debug Data Factory pipelines.
 
