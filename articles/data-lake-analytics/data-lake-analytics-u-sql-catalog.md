@@ -1,5 +1,5 @@
 ---
-title: Get started with the U-SQL catalog in Azure Data Lake Analytics
+title: Use the U-SQL catalog in Azure Data Lake Analytics
 description: Learn how to use the U-SQL catalog to share code and data.
 services: data-lake-analytics
 ms.service: data-lake-analytics
