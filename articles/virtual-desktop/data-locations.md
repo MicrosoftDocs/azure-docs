@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 09/27/2019
 ms.author: helohr
 ---
 # Data locations for Windows Virtual Desktop
