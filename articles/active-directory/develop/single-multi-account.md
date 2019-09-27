@@ -161,6 +161,9 @@ app.acquireToken(getActivity(), scopes, new AuthenticationCallback()
 
 ...
 
+// Get the default authority
+String authority = app.getConfiguration().getDefaultAuthority().getAuthorityURL().toString();
+
 // Get a list of accounts on the device
 List<IAccount> accounts = app.getAccounts();
 
@@ -168,7 +171,7 @@ List<IAccount> accounts = app.getAccounts();
 IAccount selectedAccount = accounts.get(0);
 
 // Get a token without prompting the user
-app.acquireTokenSilentAsync(scopes, selectedAccount, new SilentAuthenticationCallback()
+app.acquireTokenSilentAsync(scopes, selectedAccount, authority, new SilentAuthenticationCallback()
 {
 
         @Override
