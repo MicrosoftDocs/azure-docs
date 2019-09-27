@@ -48,6 +48,13 @@ A sample use case for the ReliableConcurrentQueue is the [Message Queue](https:/
 ## Code Snippets
 Let us look at a few code snippets and their expected outputs. Exception handling is ignored in this section.
 
+### Instantiation
+Creating an instance of a Reliable Concurrent Queue is similar to any other Reliable Collection.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
+
 ### EnqueueAsync
 Here are a few code snippets for using EnqueueAsync followed by their expected outputs.
 
