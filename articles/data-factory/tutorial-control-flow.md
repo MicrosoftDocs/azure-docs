@@ -10,14 +10,15 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 02/20/2019
+ms.date: 9/27/2019
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
 
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation in an email. That information could include the amount of data written. If the copy activity fails, it sends details of copy failure, such as the error message, in a failure email. Throughout the tutorial, you see how to pass parameters.
 
-A high-level overview of the scenario:
+This graphic provides an overview of the scenario:
+
 ![Overview](media/tutorial-control-flow/overview.png)
 
 This tutorial shows you how to do the following tasks:
@@ -32,7 +33,7 @@ This tutorial shows you how to do the following tasks:
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
-This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory, refer to **Quickstarts** in the table of contents.
+This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [Azure Data Factory Documentation](../data-factory/).
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -46,13 +47,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 For a list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores and computes can be in other regions. The stores include Azure Storage and Azure SQL Database. The computes include HDInsight, which Data Factory uses.
 
-Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assign application to **Contributor** role by following instructions in the same article. You'll need the following values for later parts of this tutorial: **Application (client) ID**, authentication key, and **Directory (tenant) ID**.
+Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assign application to **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
 
 ### Create blob table
 
 1. Open a plain text editor. Copy the following text and save it locally as *input.txt*.
 
-   ```txt
+   ```
    Ethel|Berg
    Tamika|Walsh
    ```
@@ -189,13 +190,13 @@ Create a C# .NET console application.
    }
    ```
 
-1. Add the following line to the `Main` method that creates an *Azure Storage linked service*:
+1. Add the following line to the `Main` method that creates an Azure Storage linked service:
 
    ```csharp
    client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLinkedServiceName, StorageLinkedServiceDefinition(client));
    ```
 
-For more information about supported properties and details, see [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties).
+For more information about supported properties and details, see [Linked service properties](connector-azure-blob-storage.md#linked-service-properties).
 
 ## Create datasets
 
@@ -296,11 +297,11 @@ In your C# project, create a class named `EmailRequest`. This class defines what
 
 ## Create email workflow endpoints
 
-To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic Apps workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ### Success email workflow
 
-In the [Azure portal](https://portal.azure.com), create a Logic App workflow named *CopySuccessEmail*. Define the workflow trigger as `When an HTTP request is received`. For your request trigger, fill in the `Request Body JSON Schema` with the following JSON:
+In the [Azure portal](https://portal.azure.com), create a Logic Apps workflow named *CopySuccessEmail*. Define the workflow trigger as `When an HTTP request is received`. For your request trigger, fill in the `Request Body JSON Schema` with the following JSON:
 
 ```json
 {
@@ -328,19 +329,19 @@ Your workflow looks something like the following example:
 
 This JSON content aligns with the `EmailRequest` class you created in the previous section.
 
-Add an action of `Office 365 Outlook – Send an email`. For the **Send an email** action, customize how you wish to format the email, using the properties passed in the request **Body** JSON schema. Here is an example:
+Add an action of `Office 365 Outlook – Send an email`. For the **Send an email** action, customize how you wish to format the email, using the properties passed in the request **Body** JSON schema. Here's an example:
 
-![Logic App designer - send email action](media/tutorial-control-flow/customize-send-email-action.png)
+![Logic app designer - send email action](media/tutorial-control-flow/customize-send-email-action.png)
 
-Copy and save the **HTTP POST URL** for your success email workflow.
+After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 
 ## Fail email workflow
 
 Clone **CopySuccessEmail** as another Logic Apps workflow named *CopyFailEmail*. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
-![Logic App designer - fail email workflow](media/tutorial-control-flow/fail-email-workflow.png)
+![Logic app designer - fail email workflow](media/tutorial-control-flow/fail-email-workflow.png)
 
-Copy and save the **HTTP POST URL** for your failure email workflow.
+After you save the workflow, copy and save the **HTTP POST URL** value from the trigger.
 
 You should now have two workflow URLs, like the following examples:
 
@@ -354,16 +355,16 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## Create a pipeline
 
-Go back to your project in Visual Studio. We'll add the code to the `Main` method that creates a pipeline with a copy activity and `DependsOn` property. In this tutorial, the pipeline contains one activity: copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. If the copy activity succeeds or fails, it calls different email tasks.
+Go back to your project in Visual Studio. We'll add the code that creates a pipeline with a copy activity and `DependsOn` property. In this tutorial, the pipeline contains one activity, copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. If the copy activity succeeds or fails, it calls different email tasks.
 
 In this pipeline, you use the following features:
 
 * Parameters
-* Web Activity
+* Web activity
 * Activity dependency
 * Using output from an activity as an input to another activity
 
-1. Add this code to your project. The next sections explain in more detail.
+1. Add this method to your project. The next sections explain in more detail.
 
     ```csharp
     static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
@@ -437,7 +438,7 @@ In this pipeline, you use the following features:
             }
     ```
 
-1. Add the following code to the `Main` method that creates the pipeline:
+1. Add the following line to the `Main` method that creates the pipeline:
 
    ```csharp
    client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
@@ -460,9 +461,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
     },
 ```
 
-### Web Activity
+### Web activity
 
-The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. You create two web activities: one that calls to the `CopySuccessEmail` workflow and one that calls the `CopyFailWorkFlow`.
+The Web activity allows a call to any REST endpoint. For more information about the activity, see [Web activity in Azure Data Factory](control-flow-web-activity.md). This pipeline uses a web activity to call the Logic Apps email workflow. You create two web activities: one that calls to the `CopySuccessEmail` workflow and one that calls the `CopyFailWorkFlow`.
 
 ```csharp
         new WebActivity
@@ -482,14 +483,14 @@ The Web Activity allows a call to any REST endpoint. For more information about 
         }
 ```
 
-In the `Url` property, paste the **HTTP POST URL** endpoints from your Logic App workflows. In the `Body` property, pass an instance of the `EmailRequest` class. The email request contains the following properties:
+In the `Url` property, paste the **HTTP POST URL** endpoints from your Logic Apps workflows. In the `Body` property, pass an instance of the `EmailRequest` class. The email request contains the following properties:
 
 * Message. Passes value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of `dataWritten`. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
 * Data Factory Name. Passes value of `@{pipeline().DataFactory}` This system variable allows you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
 * Pipeline Name. Passes value of `@{pipeline().Pipeline}`. This system variable allows you to access the corresponding pipeline name.
 * Receiver. Passes value of `"\@pipeline().parameters.receiver"`. Accesses the pipeline parameters.
 
-This code creates a new Activity Dependency, depending on the previous copy activity.
+This code creates a new Activity Dependency that depends on the previous copy activity.
 
 ## Create a pipeline run
 
@@ -511,7 +512,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 ## Main class
 
-Your final `Main` method should look like this. Build and run your program to trigger a pipeline run!
+Your final `Main` method should look like this.
 
 ```csharp
 // Authenticate and create a data factory management client
@@ -540,6 +541,8 @@ Dictionary<string, object> arguments = new Dictionary<string, object>
 CreateRunResponse runResponse = client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, arguments).Result.Body;
 Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
+
+Build and run your program to trigger a pipeline run!
 
 ## Monitor a pipeline run
 
@@ -587,7 +590,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 
 Build and start the application, then verify the pipeline execution.
 
-The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
+The application displays the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage explorer to check the blob is copied to *outputBlobPath* from *inputBlobPath* as you specified in variables.
 
 Your output should resemble the following sample:
 
