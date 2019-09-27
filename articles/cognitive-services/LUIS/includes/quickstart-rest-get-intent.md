@@ -18,48 +18,45 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 
 The format of the V2 URL for a **GET** endpoint request is:
 
-```JSON
-https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={your-key}&q={user-utterance}
-```
+`
+https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key={your-key}&q=turn on all lights
+`
 
 #### [V3 prediction endpoint request](#tab/V3)
 
 
 The format of the V3 URL for a **GET** endpoint (by slots) request is:
 
-```JSON
-https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appID}/slots/{slotName}/predict?query={user-utterance}&subscription-key={your-key}
-```
+`
+https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
+`
 
-Learn more about the [V3 prediction request](luis-migration-api-v3.md).
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 * * *
 
-
-1. The endpoint of the public IoT app is in this format: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}`
-
-    Copy the URL and substitute your key for the value of `{your-key}`.
+Copy one of the URLs above (either V2 or V3) and substitute your key for the value of `{your-key}`.
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
 
     #### [V2 prediction endpoint response](#tab/V2)
 
-    ```JSON
+    ```json
     {
-      "query": "turn on all lights",
-      "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOn",
-        "score": 0.5375382
-      },
-      "entities": [
-        {
-          "entity": "on",
-          "type": "HomeAutomation.Operation",
-          "startIndex": 5,
-          "endIndex": 6,
-          "score": 0.724984169
-        }
-      ]
+        "query": "turn on all lights",
+        "topScoringIntent": {
+            "intent": "HomeAutomation.TurnOn",
+            "score": 0.5375382
+        },
+        "entities": [
+            {
+                "entity": "on",
+                "type": "HomeAutomation.Operation",
+                "startIndex": 5,
+                "endIndex": 6,
+                "score": 0.724984169
+            }
+        ]
     }
     ```
 
@@ -93,40 +90,40 @@ Learn more about the [V3 prediction request](luis-migration-api-v3.md).
 
     #### [V2 prediction endpoint](#tab/V2)
 
-    ```text
+    `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
-    ```
+    `
 
     ```json
     {
-      "query": "turn on all lights",
-      "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOn",
-        "score": 0.5375382
-      },
-      "intents": [
-        {
-          "intent": "HomeAutomation.TurnOn",
-          "score": 0.5375382
+        "query": "turn on all lights",
+        "topScoringIntent": {
+            "intent": "HomeAutomation.TurnOn",
+            "score": 0.5375382
         },
-        {
-          "intent": "None",
-          "score": 0.08687421
-        },
-        {
-          "intent": "HomeAutomation.TurnOff",
-          "score": 0.0207554
-        }
-      ],
-      "entities": [
-        {
-          "entity": "on",
-          "type": "HomeAutomation.Operation",
-          "startIndex": 5,
-          "endIndex": 6,
-          "score": 0.724984169
-        }
-      ]
+        "intents": [
+            {
+                "intent": "HomeAutomation.TurnOn",
+                "score": 0.5375382
+            },
+            {
+                "intent": "None",
+                "score": 0.08687421
+            },
+            {
+                "intent": "HomeAutomation.TurnOff",
+                "score": 0.0207554
+            }
+        ],
+        "entities": [
+            {
+                "entity": "on",
+                "type": "HomeAutomation.Operation",
+                "startIndex": 5,
+                "endIndex": 6,
+                "score": 0.724984169
+            }
+        ]
     }
     ```
 
