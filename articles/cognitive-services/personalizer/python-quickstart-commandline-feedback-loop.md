@@ -66,7 +66,7 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Change the model update frequency
 
-In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
