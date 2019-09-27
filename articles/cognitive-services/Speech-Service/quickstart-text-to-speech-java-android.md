@@ -35,17 +35,18 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
-* Click the TextView element. Change its ID attribute in the upper-right corner to `outputMessage`, and drag it to the lower screen. Delete it's text.
+1. Click the TextView element. Change its ID attribute in the upper-right corner to `outputMessage`, and drag it to the lower screen. Delete it's text.
 
-* From the Palette in the upper left of the `activity_main.xml` window, drag a button into the empty space above the text.
+1. From the Palette in the upper left of the `activity_main.xml` window, drag a button into the empty space above the text.
 
-* In the button's attributes on the right, in the value for the `onClick` attribute, enter `onSpeechButtonClicked`. We'll write a method with this name to handle the button event.  Change its ID attribute in the upper-right corner to `button`.
+1. In the button's attributes on the right, in the value for the `onClick` attribute, enter `onSpeechButtonClicked`. We'll write a method with this name to handle the button event.  Change its ID attribute in the upper-right corner to `button`.
 
-* Drag a Plain Text into the space above the button; change its ID attribute to `speakText`, and change the text attribute to `Hi there!`.
+1. Drag a Plain Text into the space above the button; change its ID attribute to `speakText`, and change the text attribute to `Hi there!`.
 
-* Use the magic wand icon at the top of the designer to infer layout constraints.
+1. Use the magic wand icon at the top of the designer to infer layout constraints.
 
-  ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
+
+    ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
 The text and graphical representation of your UI should now look like this:
 
