@@ -16,7 +16,7 @@ ms.author: yulili
 
 Quickstarts are also available for [speech recognition](quickstart-swift-macos.md).
 
-In this article, you learn how to create a macOS app in Swift using the Cognitive Services Speech SDK to synthesize speech from text and play it with the default aduio output.
+In this article, you learn how to create a macOS app in Swift using the Cognitive Services Speech SDK to synthesize speech from text and play it with the default audio output.
 
 ## Prerequisites
 
