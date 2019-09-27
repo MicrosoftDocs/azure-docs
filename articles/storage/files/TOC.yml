@@ -279,7 +279,7 @@
     - name: Microsoft.Azure.Storage.File (version 11.x)
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.File/
     - name: Azure.Storage.File (version 12.x - preview)
-      href: https://www.nuget.org/packages/Azure.Storage.File/
+      href: https://www.nuget.org/packages/Azure.Storage.Files/
     - name: Azure Configuration Manager
       href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
     - name: Azure Storage Data Movement Library

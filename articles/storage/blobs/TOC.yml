@@ -528,7 +528,7 @@
       - name: Microsoft.Azure.Storage.Blob (version 11.x)
         href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/
       - name: Azure.Storage.Blob (version 12.x - preview)
-        href: https://www.nuget.org/packages/Azure.Storage.Blob/
+        href: https://www.nuget.org/packages/Azure.Storage.Blobs/
       - name: Azure Configuration Manager
         href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
       - name: Azure Storage Data Movement Library

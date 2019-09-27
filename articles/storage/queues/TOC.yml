@@ -266,7 +266,7 @@
     - name: Microsoft.Azure.Storage.Queue (version 11.x)
       href: https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/
     - name: Azure.Storage.Queue (version 12.x - preview)
-      href: https://www.nuget.org/packages/Azure.Storage.Queue/
+      href: https://www.nuget.org/packages/Azure.Storage.Queues/
     - name: Azure Configuration Manager
       href: https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/
     - name: Azure Storage Data Movement Library
