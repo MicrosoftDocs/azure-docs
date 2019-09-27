@@ -249,6 +249,7 @@ Here's some ways to move your data over.
   - [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
   - [Copy data to or from Azure Data Lake Storage Gen2 using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
   - [Copy data from or to Azure File Storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-file-storage)
+  - [Copy data to and from Azure Table storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-table-storage)
 
 ---
 
