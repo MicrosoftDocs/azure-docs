@@ -168,6 +168,24 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> If you wish to enable an AKS cluster to include a [Calico network policy][calico-network-policies] you can use the following command.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane. The network security group is automatically associated with the virtual NICs on your nodes. The route table is automatically associated with the virtual network subnet. Network security group rules and route tables and are automatically updated as you create and expose services.
 
 ## Next steps
