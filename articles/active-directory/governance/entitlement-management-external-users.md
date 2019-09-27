@@ -33,9 +33,9 @@ Azure AD entitlement management utilizes [Azure AD business-to-business (B2B)](.
 
 This article describes the settings you can specify to manage access for external users.
 
-## How entitlement management can help manage access for external users
+## How entitlement management can help
 
-When using the Azure AD B2B invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
+When using the [Azure AD B2B](../b2b/what-is-b2b.md) invite experience, you must already know the email addresses of the external guest users you want to bring into your resource directory and work with. This works great when you're working on a smaller or short-term project and you already know all the participants, but this is harder to manage if you have lots of users you want to work with or if the participants change over time.  For example, you might be working with another organization and have one point of contact with that organization, but over time additional users from that organization will also need access.
 
 With entitlement management, you can define a policy that allows users from organizations you specify to be able to request an access package. You can specify whether approval is required and an expiration date for the access. If approval is required, you can also designate one or more users from the external organization as approvers that you previously invited - since they are likely to know which external users from their organization need access. Once you have configured the access package, you can send a link to the access package to your contact person (sponsor) at the external organization. That contact can share with other users in the external organization, and they can use this link to request the access package. Users from that organization who have already been invited into your directory can also use that link.
 
