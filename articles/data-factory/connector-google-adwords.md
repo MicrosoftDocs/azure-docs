@@ -18,6 +18,9 @@ ms.author: jingwang
 ---
 # Copy data from Google AdWords using Azure Data Factory (Preview)
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Google AdWords. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
