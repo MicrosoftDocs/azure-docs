@@ -390,12 +390,12 @@
     #     href: article-template.md
     # - name: Manage network policies
     #   href: article-template.md
-    - name: Manage private endpoints
-      items:
-      # - name: Enable encryption - portal
-      #   href: article-template.md
-      # - name: Enable encryption - TSQL
-      #   href: article-template.md
+    # - name: Manage private endpoints
+    #   href: article-template.md
+    # - name: Enable encryption - portal
+    #   href: article-template.md
+    # - name: Enable encryption - TSQL
+    #   href: article-template.md
   - name: Manage and monitor
     items:
     # - name: Cost monitoring and budgeting
@@ -455,11 +455,11 @@
         - name: Azure Data Lake Storage
           href: ../sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store.md?toc=/azure/arcadia/toc.json
         - name: Azure Databricks
-          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json?toc=/azure/arcadia/toc.json
+          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/arcadia/toc.json
         - name: Data Factory
           items:
           - name: SQL Analytics pool
-            href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json?toc=/azure/arcadia/toc.json
+            href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/arcadia/toc.json
           # - name: SQL on demand
           #   href: article-template.md
         - name: SSIS
@@ -530,14 +530,14 @@
 #         href: article-template.md
     - name: Spark
       items:
-#       - name: Use Apache Spark to read and write data
-#         href: article-template.md
-#       - name: Use Apache Spark to explore data
-#         href: article-template.md
-#       - name: Use Apache Spark to query and aggregate data
-#         href: article-template.md
-#       - name: Analyze application insights and telemetry logs
-#         href: article-template.md
+      # - name: Use Apache Spark to read and write data
+      #   href: article-template.md
+      # - name: Use Apache Spark to explore data
+      #   href: article-template.md
+      # - name: Use Apache Spark to query and aggregate data
+      #   href: article-template.md
+      # - name: Analyze application insights and telemetry logs
+      #   href: article-template.md
     - name: Data Flow and Data Ingest
       items:
       - name: Aggregate
@@ -867,14 +867,8 @@
         href: ../data-factory/create-azure-integration-runtime.md?toc=/azure/arcadia/toc.json
       - name: Self-hosted integration runtime
         href: ../data-factory/create-self-hosted-integration-runtime.md?toc=/azure/arcadia/toc.json
-      - name: Azure-SSIS integration runtime
-        href: ../data-factory/create-azure-ssis-integration-runtime.md?toc=/azure/arcadia/toc.json
-      - name: Shared self-hosted integration runtime
-        href: ../data-factory/create-shared-self-hosted-integration-runtime-powershell.md?toc=/azure/arcadia/toc.json
     - name: Run SSIS packages in Azure
-      items:
-      - name: Run SSIS packages in Azure from SSDT
-        href: ../data-factory/how-to-invoke-ssis-package-ssdt.md?toc=/azure/arcadia/toc.json
+      href: ../data-factory/how-to-invoke-ssis-package-ssdt.md?toc=/azure/arcadia/toc.json
       - name: Run SSIS packages with Execute SSIS Package activity
         href: ../data-factory/how-to-invoke-ssis-package-ssis-activity.md?toc=/azure/arcadia/toc.json
       - name: Run SSIS packages with Stored Procedure activity
@@ -970,7 +964,7 @@
   - name: T-SQL
     items:
     - name: Full reference
-      href: https://docs.microsoft.com/sql/t-sql/language-reference/
+      href: /sql/t-sql/language-reference/
     - name: SQL DW language elements
       href: ../sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements.md?toc=/azure/arcadia/toc.json
     - name: SQL DW statements
