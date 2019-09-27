@@ -166,19 +166,83 @@ For more information, read [Daemon application that calls web APIs](scenario-dae
 
 Scenarios that involve acquiring tokens also map to OAuth 2.0 authentication flows described in details in [Microsoft identity platform protocols](active-directory-v2-protocols.md)
 
-|Scenario | Detailed Scenario walk-through | OAuth 2.0 Flow/Grant | Audience |
-|--|--|--|--|
-| [![Single Page App](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | [Single-page app](scenario-spa-overview.md) | [Implicit](v2-oauth2-implicit-grant-flow.md) | Work or  School accounts and Personal accounts, B2C
-| [![Web App that signs-in users](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | [Web App that signs in users](scenario-web-app-sign-user-overview.md) | [Authorization Code](v2-oauth2-auth-code-flow.md) | Work or  School accounts and Personal accounts, B2C |
-| [![Web App that calls Web APIs](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | [Web App that calls web APIs](scenario-web-app-call-api-overview.md) | [Authorization Code](v2-oauth2-auth-code-flow.md) | Work or  School accounts and Personal accounts, B2C |
-| [![Desktop app that calls web APIs](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) | [Desktop app that calls web APIs](scenario-desktop-overview.md)| Interactive ([Authorization Code](v2-oauth2-auth-code-flow.md) with PKCE) | Work or School accounts and Personal accounts, B2C |
-| | | Integrated Windows | Work or School accounts |
-| | | [Resource Owner Password](v2-oauth-ropc.md)  | Work or School accounts, B2C |
-| ![Device code flow](media/scenarios/device-code-flow-app.svg)| [Desktop app that calls web APIs](scenario-desktop-overview.md) | [Device Code](v2-oauth2-device-code.md)  | Work or School accounts* |
-| [![Mobile app that calls web APIs](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobile app that calls web APIs](scenario-mobile-overview.md) | Interactive  ([Authorization Code](v2-oauth2-auth-code-flow.md) with PKCE)  |   Work or School accounts and Personal accounts, B2C
-| | | Resource Owner Password  | Work or School accounts, B2C |
-| [![Daemon app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon app](scenario-daemon-overview.md) | [Client credentials](v2-oauth2-client-creds-grant-flow.md)  |   App only permissions (no user) only on AAD Organizations
-| [![Web API that calls web APIs](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | [Web API that calls web APIs](scenario-web-api-call-api-overview.md)| [On Behalf Of](v2-oauth2-on-behalf-of-flow.md) | Work or School accounts and Personal accounts |
+<table>
+ <thead>
+  <tr><th>Scenario</th> <th>Detailed Scenario walk-through</th> <th>OAuth 2.0 Flow/Grant</th> <th>Audience</th></tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a href="scenario-spa-overview"><img alt="Single Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview">Single-page app</a></td>
+   <td><a href="v2-oauth2-implicit-grant-flow">Implicit</a></td>
+   <td>Work or School accounts and Personal accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-sign-user-overview"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
+   <td><a href="scenario-web-app-sign-user-overview">Web App that signs-in users</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Authorization Code</a></td>
+   <td>Work or School accounts and Personal accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-call-api-overview"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview">Web App that calls Web APIs</a></td>
+   <td><a href="v2-oauth2-auth-code-flow">Authorization Code</a></td>
+   <td>Work or School accounts and Personal accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td rowspan="3"><a href="scenario-desktop-overview"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="4"><a href="scenario-desktop-overview">Desktop app that calls web APIs</a></td>
+   <td>Interactive (<a href="v2-oauth2-auth-code-flow">Authorization Code</a> with PKCE)</td>
+   <td>Work or School accounts and Personal accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td>Integrated Windows Auth</td>
+   <td>Work or School accounts</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc">Resource Owner Password</a></td>
+   <td>Work or School accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-desktop-overview"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="v2-oauth2-device-code">Device code</a></td>
+   <td>Work or School accounts*</td>
+ </tr>
+
+ <tr>
+   <td rowspan="2"><a href="scenario-web-app-call-api-overview"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
+   <td rowspan="2"><a href="scenario-web-app-call-api-overview">Mobile app that calls web APIs</a></td>
+   <td>Interactive (<a href="v2-oauth2-auth-code-flow">Authorization Code</a> with PKCE)</td>
+   <td>Work or School accounts and Personal accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc">Resource Owner Password</a></td>
+   <td>Work or School accounts, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-daemon-overview"><img alt="Daemon app that calls Web APIs" src="media/scenarios/daemon-app.svg"></a></td>
+   <td><a href=scenario-daemon-overview">Daemon app that calls Web APIs</a></td>
+   <td><a href="v2-oauth2-client-creds-grant-flow">Client credentials</a></td>
+   <td>App only permissions (no user) only on AAD Organizations</td>
+ </tr>
+
+  <tr>
+   <td><a href=scenario-web-api-call-api-overview"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
+   <td><a href=scenario-web-api-call-api-overview">Web API that calls web APIs</a></td>
+   <td><a href="v2-oauth2-on-behalf-of-flow">On Behalf Of</a></td>
+   <td>Work or School accounts and Personal accounts</td>
+ </tr>
+
+ </tbody>
+</table>
 
 ## Scenarios and supported platforms and languages
 
