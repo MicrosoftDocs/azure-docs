@@ -109,7 +109,7 @@ When you identify pending charges, you can understand the charges by analyzing t
 
 3. Select a billing profile. Depending on your access, you may have to select a billing account. From the billing account, select **Billing profiles** then select a billing profile.
 
-4. Select **All subscriptions** one the left side of the page.
+4. Select **All subscriptions** on the left side of the page.
 
 5. The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
