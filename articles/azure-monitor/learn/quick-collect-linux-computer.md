@@ -16,7 +16,7 @@ ms.author: magoedte
 ms.custom: mvc, seo-javascript-september2019
 ---
 
-# Collect data from a Linux computer in a hybrid environment with Azure Monitor
+# Quickstart: Collect data from a Linux computer in a hybrid environment with Azure Monitor
 
 [Azure Monitor](../overview.md) can collect data directly from your physical or virtual Linux computers in your environment into a Log Analytics workspace for detailed analysis and correlation. Installing the [Log Analytics agent](../platform/log-analytics-agent.md) allows Azure Monitor to collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Linux server with a few easy steps. For information about Azure Linux VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
