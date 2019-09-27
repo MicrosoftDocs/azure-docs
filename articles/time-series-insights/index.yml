@@ -62,6 +62,8 @@ landingContent:
             url: time-series-insights-how-to-add-an-event-source-eventhub.md
           - text: Connect to IoT Hub
             url: time-series-insights-how-to-add-an-event-source-iothub.md
+          - text: Plan your environment
+            url: time-series-insights-update-plan.md
           - text: Data storage and ingress
             url: time-series-insights-update-storage-ingress.md
       - linkListType: how-to-guide

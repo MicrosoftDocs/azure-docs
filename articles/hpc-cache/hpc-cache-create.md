@@ -4,7 +4,7 @@ description: How to create an Azure HPC Cache instance
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
 ---
 
@@ -18,18 +18,20 @@ Use the Azure portal to create your cache.
 
 ![screenshot of project details page in Azure portal](media/hpc-cache-create-basics.png)
 
-In **Project Details**, select the subscription and resource group that will host the Azure HPC Cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
+In **Project Details**, select the subscription and resource group that will host the cache. Make sure the subscription is on the [preview access](hpc-cache-prereqs.md#azure-subscription) list.
 
 In **Service Details**, set the cache name and these other attributes:
 
 * Location - Select one of the [supported regions](hpc-cache-overview.md#region-availability).
 * Virtual network - You can select an existing one or create a new virtual network.
-* Subnet - Choose or create a subnet with at least 64 IP addresses (/24) that will be used only for the Azure HPC Cache.
+* Subnet - Choose or create a subnet with at least 64 IP addresses (/24) that will be used only for this Azure HPC Cache instance.
 
 ## Set cache capacity
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-On the **Cache** page, you must set the capacity of your Azure HPC Cache. This value determines how much data your cache can hold and how quickly it can service client requests. After the public preview period, capacity will also affect the cache's cost.
+On the **Cache** page, you must set the capacity of your cache. This value determines how much data your cache can hold and how quickly it can service client requests. 
+
+After the public preview period, capacity also will affect the cache's cost.
 
 Cache capacity is measured in input/output operations per second (IOPS). Choose the capacity by setting these two values:
 
@@ -38,9 +40,9 @@ Cache capacity is measured in input/output operations per second (IOPS). Choose 
 
 Choose one of the available throughput values and cache storage sizes. The IOPS capacity is calculated and shown below the value selectors.
 
-Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. If a file isn't in the cache, or it is marked as stale, the service will use some throughput to fetch it from backend storage. The value you choose sets the maximum throughput for the entire cache, and not all of it is available for client requests.
+Keep in mind that the actual data transfer rate depends on workload, network speeds, and the type of storage targets. The value you choose sets the maximum throughput for the entire cache, and not all of it is available for client requests. For example, if a client requests a file that isn't already stored in the cache, or if the file is marked as stale, your cache uses some of its throughput to fetch it from backend storage.
 
-For cache storage, Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. The cache contents are continuously assessed and files are moved to long-term storage when they are less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files with additional space for metadata and other overhead.
+Azure HPC Cache manages which files are cached and preloaded to maximize cache hit rates. The cache contents are continuously assessed and files are moved to long-term storage when they are less frequently accessed. Choose a cache storage size that can comfortably hold the active set of working files with additional space for metadata and other overhead.
 
 ![screenshot of cache sizing page](media/hpc-cache-create-iops.png)
 
@@ -58,7 +60,7 @@ You can define up to ten different storage targets.
 
 Step-by-step instructions to add a storage target are included in [Add storage targets](hpc-cache-add-storage.md). The procedure is different for Blob storage or for NFS exports.
 
-Here are some tips: 
+Here are some tips:
 
 * For both types of storage, you must specify how to find the back-end storage system (either an NFS address or a Blob container name) and the client-facing namespace path.
 
@@ -68,7 +70,7 @@ Here are some tips:
 
 ## Add resource tags (optional)
 
-The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?linkid=873112) to your Azure HPC Cache. 
+The **Tags** page lets you add [resource tags](https://go.microsoft.com/fwlink/?linkid=873112) to your Azure HPC Cache instance.
 
 ## Finish creating the cache
 
