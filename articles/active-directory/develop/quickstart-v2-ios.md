@@ -95,7 +95,7 @@ In a terminal window, navigate to the folder with the downloaded code sample and
 >    ```
 > 1. Open the project settings. In the **Identity** section, enter the **Bundle Identifier** that you entered into the portal.
 > 1. For iOS only, right-click **Info.plist** and select **Open As** > **Source Code**.
-> 1. For iOS only, under the dict root node, replace `Enter_the_bundle_Id_Here`with the ***Bundle Id*** that you entered in the portal.
+> 1. For iOS only, under the dict root node, replace `CFBundleURLSchemes` with the ***Bundle Id*** that you entered in the portal.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
