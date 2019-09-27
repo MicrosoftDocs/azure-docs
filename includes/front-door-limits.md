@@ -19,7 +19,7 @@
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | Custom web application firewall rules per policy | 10 |
-| Web application firewall policy per resource | 100 |
+| Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
 | Web application firewall IP address ranges per match condition | 600 |
 | Web application firewall string match values per match condition | 10 |
