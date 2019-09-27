@@ -27,7 +27,7 @@ This article describes the different authorization agents that the Microsoft Aut
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand  the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
-MSAL supports authorization using a `WebView`, or the system browser.  The below image shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
+MSAL supports authorization using a `WebView`, or the system browser.  The image below shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
 
 ![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -35,7 +35,7 @@ MSAL supports authorization using a `WebView`, or the system browser.  The below
 
 By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
-If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users will not have SSO experience across the device or between native apps and web apps.
+If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a Single Sign On (SSO) experience across the device or between native apps and web apps.
 
 If the application uses MSAL with Microsoft Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign in with one of the apps.
 
@@ -49,7 +49,7 @@ To use the in-app WebView, put the following line in the app configuration JSON 
 
 When using the in-app `WebView`, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user can't have a SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
 
-However, `WebView` does provide the capability to customize the look and feel for sign in UI. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
+However, `WebView` does provide the capability to customize the look and feel for sign-in UI. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
 
 ## Default browser plus custom tabs
 
