@@ -226,7 +226,7 @@ To enable API server authorized IP ranges, you provide a list of authorized IP a
 
 Use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. Add the public IP address of your own Azure firewall obtained in the previous step, such as *20.42.25.196/32*.
 
-The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.0/16* and *168.10.0.0/18*:
+The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.0/16* (Subnet range) and *168.10.0.0/18* (Service IP range):
 
 ```azurecli-interactive
 az aks update \
