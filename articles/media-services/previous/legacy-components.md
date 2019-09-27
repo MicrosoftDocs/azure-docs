@@ -22,12 +22,14 @@ Over time, there have been steady improvements and enhancements to Media Service
 
 ## Legacy components and migration guidance
 
-### Media processors
-
 We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on November 30, 2019.
 
 * [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
 * [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
+
+We are also announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2*. The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [[Azure Media Indexer 2 (preview)](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2019.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+
+* [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## Next steps
 

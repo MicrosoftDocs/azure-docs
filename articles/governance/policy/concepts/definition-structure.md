@@ -17,7 +17,7 @@ you can specify that only certain types of virtual machines are allowed. Or, you
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
 applied to a resource group, it's applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+The schema used by Azure Policy can be found here: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 

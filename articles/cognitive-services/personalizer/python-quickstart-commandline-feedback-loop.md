@@ -125,6 +125,12 @@ The following code in the `main` method of the program loops through a cycle of 
 
 Take a closer look at the rank and reward calls in the following sections.
 
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+
+* get_user_preference
+* get_user_timeofday
+* get_actions
+
 ## Request a rank
 
 To complete the rank request, the program asks the user's preferences to create a `currentContent` of the content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the actions, currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 

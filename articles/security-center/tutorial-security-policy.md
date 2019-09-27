@@ -3,10 +3,8 @@ title: Working with security policies | Microsoft Docs
 description: This article describes how to work with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
+ms.date: 07/18/2019
+ms.author: memildin
 ---
 
 # Working with security policies

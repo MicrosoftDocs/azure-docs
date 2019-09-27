@@ -141,6 +141,11 @@ The following looping code loops through a cycle of asking the user their prefer
 
 Take a closer look at the rank and reward calls in the following sections.
 
+Add the following methods, which [get the content choices](#get-content-choices-represented-as-actions), before running the code file:
+
+* getActionsList
+* getContextFeaturesList
+
 ## Request a rank
 
 To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-features.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 

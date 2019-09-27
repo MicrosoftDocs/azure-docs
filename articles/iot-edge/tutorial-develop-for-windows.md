@@ -52,6 +52,7 @@ A development machine:
 
 * Windows 10 with 1809 update or newer.
 * You can use your own computer or a virtual machine, depending on your development preferences.
+  * Make sure that your development machine supports nested virtualization. This capability is necessary for running a container engine, which you install in the next section.
 * Install [Git](https://git-scm.com/). 
 
 An Azure IoT Edge device on Windows:

@@ -31,6 +31,8 @@ To install the Python package for Azure Data Explorer (Kusto), open a command pr
 
 ```
 pip install azure-mgmt-kusto
+pip install adal
+pip install msrestazure
 ```
 
 ## Create the Azure Data Explorer cluster
@@ -40,10 +42,19 @@ pip install azure-mgmt-kusto
     ```Python
     from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from adal import AuthenticationContext
+    from msrestazure.azure_active_directory import AdalAuthentication
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
+    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
+                                         resource="https://management.core.windows.net/",
+                                         client_id=client_id,
+                                         client_secret=client_secret)
+
     location = 'Central US'
     sku = 'D13_v2'
     capacity = 5

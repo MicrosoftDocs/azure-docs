@@ -48,12 +48,12 @@ Some of the things you can do with the activity log include:
 
 You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
 
-[Azure Diagnostic Logs](../articles/azure-monitor/platform/diagnostic-logs-overview.md) are logs emitted by your VM that provide rich, frequent data about its operation. Diagnostic logs differ from the activity log by providing insight about operations that were performed within the VM.
+[Azure Resource Logs](../articles/azure-monitor/platform/resource-logs-overview.md) are logs emitted by your VM that provide rich, frequent data about its operation. Resource logs differ from the activity log by providing insight about operations that were performed within the VM.
 
 Some of the things you can do with diagnostics logs include:
 
 - [Save them to a storage account](../articles/azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using Resource Diagnostic Settings.
-- [Stream them to Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+- [Stream them to Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 - Analyze them with [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## Advanced monitoring

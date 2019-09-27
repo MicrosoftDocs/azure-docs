@@ -35,7 +35,7 @@ landingContent:
             url: dns-getstarted-portal.md     
       - linkListType: tutorial
         links:
-          - text: Host you domain in Azure DNS
+          - text: Host your domain in Azure DNS
             url: dns-delegate-domain-azure-dns.md
 
   # Card

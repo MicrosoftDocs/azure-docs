@@ -1,5 +1,5 @@
 ---
-title: Run U-SQL and debug locally in Azure Data Lake Tools for Visual Studio Code
+title: Debug U-SQL jobs - Azure Data Lake Tools for Visual Studio Code
 description: Learn how to use Azure Data Lake Tools for Visual Studio Code to run and debug U-SQL jobs locally.
 services: data-lake-analytics
 ms.service: data-lake-analytics
