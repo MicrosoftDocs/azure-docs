@@ -28875,6 +28875,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/postgresql/concepts-service-tiers.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
