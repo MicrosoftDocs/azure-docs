@@ -43,7 +43,7 @@ FusedLocationProvider sensorProvider;
 sensorProvider = m_asaFactory.CreateFusedLocationProvider();
 
 // Allow GPS
-SessionSensorCapabilities sensors = sensorProvider.Sensors()
+LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
 sensors.GeoLocationEnabled(true);
 
 // Allow WiFi scanning

@@ -141,7 +141,7 @@ sensorProvider.Sensors.GeoLocationEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
 sensors.geoLocationEnabled = true;
 ```
 
@@ -155,21 +155,21 @@ sensors.geoLocationEnabled = true
 # [Java](#tab/java)
 
 ```java
-SessionSensorCapabilities sensors = sensorProvider.getSensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setGeoLocationEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->GeoLocationEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-SessionSensorCapabilities sensors = sensorProvider.Sensors()
+LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
 sensors.GeoLocationEnabled(true);
 ```
 
@@ -326,7 +326,7 @@ sensorProvider.Sensors.WifiEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
 sensors.wifiEnabled = true;
 ```
 
@@ -340,21 +340,21 @@ sensors.wifiEnabled = true
 # [Java](#tab/java)
 
 ```java
-SessionSensorCapabilities sensors = sensorProvider.getSensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setWifiEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->WifiEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-SessionSensorCapabilities sensors = sensorProvider.Sensors()
+LocationProviderSensorCapabilities sensors = sensorProvider.Sensors()
 sensors.WifiEnabled(true);
 ```
 
@@ -384,7 +384,7 @@ sensorProvider.Sensors.BluetoothEnabled = true;
 # [ObjC](#tab/objc)
 
 ```objc
-ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
 sensors.bluetoothEnabled = true;
 ```
 
@@ -398,21 +398,21 @@ sensors.bluetoothEnabled = true
 # [Java](#tab/java)
 
 ```java
-SessionSensorCapabilities sensors = sensorProvider.getSensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setBluetoothEnabled(true);
 ```
 
 # [C++ NDK](#tab/cpp)
 
 ```cpp
-const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->BluetoothEnabled(true);
 ```
 
 # [C++ WinRT](#tab/cppwinrt)
 
 ```cpp
-SessionSensorCapabilities sensors = sensorProvider.Sensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.Sensors();
 sensors.BluetoothEnabled(true);
 ```
 
@@ -440,7 +440,7 @@ sensorProvider.Sensors.KnownBeaconProximityUuids = new[]
 ```objc
 NSArray *uuids = @[@"22e38f1a-c1b3-452b-b5ce-fdb0f39535c1", @"a63819b9-8b7b-436d-88ec-ea5d8db2acb0"];
 
-ASASessionSensorCapabilities *sensors = locationProvider.sensors;
+ASALocationProviderSensorCapabilities *sensors = locationProvider.sensors;
 sensors.knownBeaconProximityUuids = uuids;
 ```
 
@@ -462,7 +462,7 @@ String uuids[] = new String[2];
 uuids[0] = "22e38f1a-c1b3-452b-b5ce-fdb0f39535c1";
 uuids[1] = "a63819b9-8b7b-436d-88ec-ea5d8db2acb0";
 
-SessionSensorCapabilities sensors = sensorProvider.getSensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.getSensors();
 sensors.setKnownBeaconProximityUuids(uuids);
 ```
 
@@ -473,7 +473,7 @@ std::vector<std::string> uuids;
 uuids.push_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
 uuids.push_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
 
-const std::shared_ptr<SessionSensorCapabilities>& sensors = sensorProvider->Sensors();
+const std::shared_ptr<LocationProviderSensorCapabilities>& sensors = sensorProvider->Sensors();
 sensors->KnownBeaconProximityUuids(uuids);
 ```
 
@@ -484,7 +484,7 @@ std::vector<winrt::hstring> uuids;
 uuids.emplace_back("22e38f1a-c1b3-452b-b5ce-fdb0f39535c1");
 uuids.emplace_back("a63819b9-8b7b-436d-88ec-ea5d8db2acb0");
 
-SessionSensorCapabilities sensors = sensorProvider.Sensors();
+LocationProviderSensorCapabilities sensors = sensorProvider.Sensors();
 sensors.KnownBeaconProximityUuids(uuids);
 ```
 
