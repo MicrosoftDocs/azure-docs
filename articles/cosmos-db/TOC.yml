@@ -227,6 +227,10 @@
       items:
       - name: Introduction
         href: spark-api-introduction.md
+      - name: Analytics usecases
+        href: analytics-usecases.md
+      - name: Analytics - solution architectures
+        href: globally-distributed-analytics-use-cases.md
       - name: Lambda architecture
         href: lambda-architecture.md 
     - name: Built-in Jupyter notebooks
