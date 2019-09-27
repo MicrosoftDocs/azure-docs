@@ -63,6 +63,11 @@ ms.custom: "include file"
 
 **Data ingestion rate**
 
+
+Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion volume rate limit for data sent from Azure resources via Diagnostic Settings is around 6 GB/min per workspace, but can vary between data types depending on the log length and its compression ratio. This limit doesn’t apply to data that is sent from agents or Data Collector API. If you send data at a higher volume rate to a single workspace, some data is dropped, and an event is sent to the Operation table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
+To be notified on such an event in your workspace, create a log alert rule using the following query with alert logic base on number of results grater than zero.
+
+
 Azure Monitor is a high scale data service that serves thousands of customers sending terabytes of data each month at a growing pace. The default ingestion rate threshold is set to **500 MB/min** per workspace. If you send data at a higher rate to a single workspace, some data is dropped, and an event is sent to the *Operation* table in your workspace every 6 hours while the threshold continues to be exceeded. If your ingestion volume continues to exceed the rate limit or you are expecting to reach it sometime soon, you can request an increase to your workspace by opening a support request.
  
 To be notified on such an event in your workspace, create a [log alert rule](../articles/azure-monitor/platform/alerts-log.md) using the following query with alert logic base on number of results grater than zero.
