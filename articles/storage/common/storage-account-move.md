@@ -6,7 +6,7 @@ author: normesta
 ms.service: storage
 ms.subservice: common
 ms.topic: article
-ms.date: 09/13/2019
+ms.date: 09/27/2019
 ms.author: normesta 
 ms.reviewer: dineshm
 ---
