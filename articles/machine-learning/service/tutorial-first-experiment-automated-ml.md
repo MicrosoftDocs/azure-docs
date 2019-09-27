@@ -47,7 +47,7 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
+You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The workspace landing page is not supported on Internet Explorer browsers.
 
 1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
 
@@ -96,23 +96,21 @@ You complete the following experiment set-up and run steps in the workspace land
        
     1. Verify that the **Settings and preview** form is populated as follows and select **Next**.
         
-        Field|Value for tutorial
-        ---|---
-        File format| Delimited
-        Delimiter| Comma
-        Encoding| UTF-8
-        Column headers| All files have same headers
-        Skip rows | None
+        Field|Description| Value for tutorial
+        ---|---|---
+        File format|Defines the layout and type of data stored in a file.| Delimited
+        Delimiter|One or more characters for specifying the boundary between&nbsp; separate, independent regions in plain text or other data streams. |Comma
+        Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
+        Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
+        Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
     
-    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Done**, to complete the file upload and creation of the dataset for your experiment.
-
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
 
-1. Expand **Advanced Settings** and populate the fields as follows.
+1. Expand **Advanced Settings** and populate the fields as follows. These settings are to better control the training job. Otherwise, defaults are applied based on experiment selection and data.
 
    >[!NOTE]
    > In this tutorial, you won't set a metric score or max cores per iterations threshold. Nor will you block algorithms from being tested.
@@ -197,6 +195,7 @@ In this automated machine learning tutorial, you used the workspace landing page
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](concept-automated-ml.md).
++ For more information on classification metrics and charts see the [Understand automated machine learning results](how-to-understand-automated-ml.md#classification) article.
 
 >[!NOTE]
 > This Bank Marketing dataset is made available under the [Creative Commons (CCO: Public Domain) License](https://creativecommons.org/publicdomain/zero/1.0/). Any rights in individual contents of the database are licensed under the [Database Contents License](https://creativecommons.org/publicdomain/zero/1.0/) and available on [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). This dataset was originally available within the [UCI Machine Learning Database](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
