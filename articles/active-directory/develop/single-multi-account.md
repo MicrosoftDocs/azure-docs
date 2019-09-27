@@ -4,7 +4,7 @@ description: An overview of single and multiple account public client apps.
 services: active-directory
 documentationcenter: ''
 author: shoatman
-manager: nadima
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
@@ -107,7 +107,7 @@ if (app.signOut())
 
 ## Multiple account public client application
 
-The `MultipleAccountPublicClientApplication` class allows you to create an MSAL-based app that allows multiple accounts to be signed in at a time. The `MultipleAccountPublicClientApplication` allows you to get, add and remove accounts as follows:
+The `MultipleAccountPublicClientApplication` class is used to create MSAL-based apps that allow multiple accounts to be signed in at the same time. It allows you to get, add and remove accounts as follows:
 
 ### Add an account
 
@@ -115,7 +115,7 @@ Use one or more accounts in your application by calling `acquireToken` one or mo
 
 ### Get accounts
 
-- Call `getAccount` to get a specific account
+- Call `getAccount` to get a specific account.
 - Call `getAccounts`to get a list of accounts currently known to the app.
 
 Your app won't be able to enumerate all Microsoft identity platform accounts on the device known to the broker app. It can only enumerate accounts that have been used by your app.  Accounts that have been removed from the device won't be returned by these functions.
@@ -128,7 +128,7 @@ If your app is configured to use a broker, and a broker is installed on the devi
 
 ## Multiple account scenario
 
-The following pseudo code shows you how to create a multiple account app instance, list accounts on the device, and acquire tokens.
+The following pseudo code shows how to create a multiple account app, list accounts on the device, and acquire tokens.
 
 ```java
 // Construct Multiple Account Public Client Application
@@ -160,7 +160,6 @@ app.acquireToken(getActivity(), scopes, new AuthenticationCallback()
  });
 
 ...
-...
 
 // Get a list of accounts on the device
 List<IAccount> accounts = app.getAccounts();
@@ -183,5 +182,4 @@ app.acquireTokenSilentAsync(scopes, selectedAccount, new SilentAuthenticationCal
         {
         }
 });
-
 ```
