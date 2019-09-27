@@ -109,7 +109,7 @@ With Storage Explorer, you can copy a manged disk within or across regions. To c
 
 ## Create a snapshot
 
-1. From the **Disks** dropdown on the left, select the resource group that contains the disk you want to copy.
+1. From the **Disks** dropdown on the left, select the resource group that contains the disk you want to snapshot.
 
     ![Select resource group 1](media/disks-upload-vhd-to-managed-disk-storage-explorer/select-rg1.png)
 
