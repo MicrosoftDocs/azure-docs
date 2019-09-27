@@ -21,6 +21,8 @@ ms.author: jingwang
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Current version](connector-azure-sql-data-warehouse.md)
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to copy data to and from Azure SQL Data Warehouse. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities

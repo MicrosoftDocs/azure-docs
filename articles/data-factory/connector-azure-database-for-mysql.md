@@ -18,6 +18,8 @@ ms.author: jingwang
 ---
 # Copy data to and from Azure Database for MySQL using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Azure Database for MySQL. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 This connector is specialized for [Azure Database for MySQL service](../mysql/overview.md). To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).

@@ -18,6 +18,8 @@ ms.author: jingwang
 ---
 # Copy data from or to Azure File Storage by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to copy data to and from Azure File Storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
