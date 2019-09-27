@@ -356,7 +356,7 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
 ```
 ## say-as element  
 
-An optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text. 
+`say-as` is an optional element that indicates the content type (such as number or date) of the element's text. This provides guidance to the speech synthesis engine about how to pronounce the text. 
 
 **Syntax**
 
@@ -366,11 +366,11 @@ An optional element that indicates the content type (such as number or date) of 
 
 **Attributes**
 
-| Attribute | Description | 
-|-----------|-------------|
-| interpret-as | **Required.** Indicates the content type of element's text. For a list of types, see the table below. | 
-| format | **Optional.** Provides additional information about the precise formatting of the element's text for content types that may have ambiguous formats. SSML defines formats for content types that use them (see table below). |
-| detail | **Optional.** Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. |
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| interpret-as | Indicates the content type of element's text. For a list of types, see the table below. | Required |
+| format | Provides additional information about the precise formatting of the element's text for content types that may have ambiguous formats. SSML defines formats for content types that use them (see table below). | Optional |
+| detail | Indicates the level of detail to be spoken. For example, this attribute might request that the speech synthesis engine pronounce punctuation marks. There are no standard values defined for `detail`. | Optional |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -397,9 +397,8 @@ The `say-as` element may contain only text.
 The speech synthesis engine speaks the following example as "Your first request was for one room on October nineteenth twenty ten with early arrival at twelve thirty five P M."
  
 ```XML
-<speak version="1.0"
- xmlns="https://www.w3.org/2001/10/synthesis"
- xml:lang="en-US">
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
     <p>
     Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
     on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
