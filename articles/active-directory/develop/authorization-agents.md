@@ -27,7 +27,7 @@ This article describes the different authorization agents that the Microsoft Aut
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand  the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
-MSAL supports authorization using a `WebView`, or the system browser.  The following image shows how it looks using the `WebView`, and the system browser with and without CustomTabs:
+MSAL supports authorization using a `WebView`, or the system browser.  The image below shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
 
 ![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -35,9 +35,9 @@ MSAL supports authorization using a `WebView`, or the system browser.  The follo
 
 By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
-If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users can have a SSO experience from a single application but not across the device or between native apps and web apps.
+If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a Single Sign On (SSO) experience across the device or between native apps and web apps.
 
-If the application uses MSAL with Microsoft Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign in with one of the apps.
+If the application uses MSAL with Microsoft Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign-in with one of the apps.
 
 ## WebView
 
@@ -49,7 +49,7 @@ To use the in-app WebView, put the following line in the app configuration JSON 
 
 When using the in-app `WebView`, the user signs in directly to the app. The tokens are kept inside the sandbox of the app and aren't available outside the app's cookie jar. As a result, the user can't have a SSO experience across applications unless the apps integrate with the Authenticator or Company Portal.
 
-Additionally, the `WebView` affords apps more sign in look and feel customization. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
+However, `WebView` does provide the capability to customize the look and feel for sign-in UI. See [Android WebViews](https://developer.android.com/reference/android/webkit/WebView) for more about how to do this customization.
 
 ## Default browser plus custom tabs
 
@@ -72,11 +72,11 @@ If there are no browser packages on the device, MSAL uses the in-app `WebView`.
 The order of browsers in the browser list is determined by the operating system. It is in order from most preferred to least. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure a SSO experience.
 
 > [!NOTE]
-> MSAL no longer always prefers Chrome if another browser is set as default. For example, on a device which has both Chrome and another browser pre-installed, MSAL will use the browser the user as set as the default.
+> MSAL no longer always prefers Chrome if another browser is set as default. For example, on a device which has both Chrome and another browser pre-installed, MSAL will use the browser the user has set as the default.
 
 ### Tested Browsers
 
-The following browsers have been tested to see if they correctly redirect to the custom point specified by `"redirect_uri"` in your configuration file:
+The following browsers have been tested to see if they correctly redirect to the `"redirect_uri"` specified in the configuration file:
 
 | | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|

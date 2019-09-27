@@ -4,7 +4,7 @@ description: An overview of single and multiple account public client apps.
 services: active-directory
 documentationcenter: ''
 author: shoatman
-manager: nadima
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
@@ -54,10 +54,12 @@ The following pseudo code illustrates using `SingleAccountPublicClientApplicatio
 // Construct Single Account Public Client Application
 ISingleAccountPublicClientApplication app = PublicClientApplication.createSingleAccountPublicClientApplication(getApplicationContext(), R.raw.msal_config);
 
-// UI Thread
 String[] scopes = {"User.Read"};
 IAccount mAccount = null;
-app.signIn(getActivity(), scopes new AuthenticationCallback()
+
+// Acquire a token interactively
+// The user will get a UI prompt before getting the token.
+app.signIn(getActivity(), scopes, new AuthenticationCallback()
 {
 
         @Override
@@ -103,13 +105,17 @@ if (app.signOut())
 }
 ```
 
+## Multiple account public client application
+
+The `MultipleAccountPublicClientApplication` class is used to create MSAL-based apps that allow multiple accounts to be signed in at the same time. It allows you to get, add, and remove accounts as follows:
+
 ### Add an account
 
 Use one or more accounts in your application by calling `acquireToken` one or more times.  
 
 ### Get accounts
 
-- Call `getAccount` to get a specific account
+- Call `getAccount` to get a specific account.
 - Call `getAccounts`to get a list of accounts currently known to the app.
 
 Your app won't be able to enumerate all Microsoft identity platform accounts on the device known to the broker app. It can only enumerate accounts that have been used by your app.  Accounts that have been removed from the device won't be returned by these functions.
@@ -119,3 +125,64 @@ Your app won't be able to enumerate all Microsoft identity platform accounts on 
 Remove an account by calling `removeAccount` with an account identifier.
 
 If your app is configured to use a broker, and a broker is installed on the device, the account won't be removed from the broker when you call `removeAccount`.  Only tokens associated with your client are removed.
+
+## Multiple account scenario
+
+The following pseudo code shows how to create a multiple account app, list accounts on the device, and acquire tokens.
+
+```java
+// Construct Multiple Account Public Client Application
+IMultipleAccountPublicClientApplication app = PublicClientApplication.createMultipleAccountPublicClientApplication(getApplicationContext(), R.raw.msal_config);
+
+String[] scopes = {"User.Read"};
+IAccount mAccount = null;
+
+// Acquire a token interactively
+// The user will be required to interact with a UI to obtain a token
+app.acquireToken(getActivity(), scopes, new AuthenticationCallback()
+ {
+
+        @Override
+        public void onSuccess(IAuthenticationResult authenticationResult) 
+        {
+            mAccount = authenticationResult.getAccount();
+        }
+
+        @Override
+        public void onError(MsalException exception)
+        {
+        }
+
+        @Override
+        public void onCancel()
+        {
+        }
+ });
+
+...
+
+// Get the default authority
+String authority = app.getConfiguration().getDefaultAuthority().getAuthorityURL().toString();
+
+// Get a list of accounts on the device
+List<IAccount> accounts = app.getAccounts();
+
+// Pick an account to obtain a token from without prompting the user to sign in
+IAccount selectedAccount = accounts.get(0);
+
+// Get a token without prompting the user
+app.acquireTokenSilentAsync(scopes, selectedAccount, authority, new SilentAuthenticationCallback()
+{
+
+        @Override
+        public void onSuccess(IAuthenticationResult authenticationResult) 
+        {
+            mAccount = authenticationResult.getAccount();
+        }
+
+        @Override
+        public void onError(MsalException exception)
+        {
+        }
+});
+```

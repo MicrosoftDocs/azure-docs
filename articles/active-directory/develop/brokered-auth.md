@@ -77,7 +77,7 @@ If Intune Company Portal is installed and is operating as the active broker, and
 
 You must register a redirect URI that is compatible with the broker. The redirect URI for the broker needs to include your app's package name, as well as the base64 encoded representation of your app's signature.
 
-The format of the redirect URI is: `msauth://\<yourpackagename\>/\<base64urlencodedsignature\>`
+The format of the redirect URI is: `msauth://<yourpackagename>/<base64urlencodedsignature>`
 
 Generate your Base64 url encoded signature using your app's signing keys. Here are some example  commands that use your debug signing keys:
 
@@ -93,7 +93,7 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore |
 keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.keystore | openssl sha1 -binary | openssl base64
 ```
 
-See [Sign your app](https://developer.android.com/studio/publish/app-signing) for information about signing your API.
+See [Sign your app](https://developer.android.com/studio/publish/app-signing) for information about signing your app.
 
 > [!IMPORTANT]
 > Use your production signing key for the production version of your app.
@@ -110,7 +110,7 @@ To use a broker in your app, you must attest that you've configured your broker 
 > [!TIP]
 > The new Azure portal app registration UI helps you generate the broker redirect URI. If you registered your app using the older experience, or did so using the Microsoft app registration portal, you may need to generate the redirect URI and update the list of redirect URIs in the portal manually.
 
-### Broker related exceptions
+### Broker-related exceptions
 
 MSAL communicates with the broker in two ways:
 
