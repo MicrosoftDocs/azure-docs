@@ -22,7 +22,7 @@ The following table provides a comparison of ultra disks, premium solid-state-dr
 |---------|---------|---------|---------|---------|
 |Disk type   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |IO-intensive workloads such as SAP HANA, top tier databases (for example, SQL, Oracle), and other transaction-heavy workloads.   |Production and performance sensitive workloads   |Web servers, lightly used enterprise applications and dev/test   |Backup, non-critical, infrequent access   |
-|Disk size   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
+|Max disk size   |65,536 gibibyte (GiB)    |32,767 GiB    |32,767 GiB   |32,767 GiB   |
 |Max throughput   |2,000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |Max IOPS   |160,000    |20,000   |6,000   |2,000   |
 
