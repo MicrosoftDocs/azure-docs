@@ -8,10 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-#Customer intent: 
-
+#Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 ---
 
 # Quickstart: Personalize client library for Python
@@ -30,9 +29,19 @@ Get started with the Personalizer client library for Python. Follow these steps 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## Setting up
+## Using this quickstart
 
-### Create a Personalizer Azure resource
+
+There are several steps to use this quickstart:
+
+* In the Azure portal, create a Personalizer resource
+* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
+* In a code editor, create a code file and edit the code file
+* In the command line or terminal, install the SDK from the command line
+* In the command line or terminal, run the code file
+
+
+## Create a Personalizer Azure resource
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Personalizer using the [Azure portal](https://portal.azure.com/) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. Please refer to [How to create a Cognitive Services resource using the Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) for more details. You can also:
 
@@ -47,7 +56,7 @@ After you get a key from your trial subscription or resource, create two [enviro
 In the Azure portal, both the key and endpoint values are available from the **Quick start** page.
 
 
-### Install the Python library for Personalizer
+## Install the Python library for Personalizer
 
 Install the Personalizer client library for Python with the following command:
 
@@ -57,9 +66,9 @@ pip install azure-cognitiveservices-personalizer
 
 If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
-### Change the model update frequency
+## Change the model update frequency
 
-In the Personalizer resource in the Azure portal, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
+In the Azure portal, in the Personalizer resource on the **Settings** page, change the **Model update frequency** to 10 seconds. This will train the service rapidly, allowing you to see how the top action changes for each iteration.
 
 ![Change model update frequency](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -89,7 +98,7 @@ Create a new Python application in your preferred editor or IDE named `sample.py
 
 ## Add the dependencies
 
-From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
+From the project directory, open the **sample.py** file in your preferred editor or IDE. Add the following:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
