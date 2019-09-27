@@ -85,26 +85,21 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using add-ons such as OMS will consume additional node resources.
 
-- **CPU** - reserved CPU is dependent on node type and cluster configuration which may incur higher CPU consumption by AKS
+- **CPU** - reserved CPU is dependent on node type and cluster configuration which may cause less allocatable CPU due to running additional features
 
 | CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet (millicores)|60|100|140|180|260|420|740|
+|Kubelet reservation (millicores)|60|100|140|180|260|420|740|
 
-- **Memory** - 20% of available memory, up to 4 GiB max
+- **Memory** - reservation of memory follows a progressive rate
+  - 25% of the first 4 GB of memory
+  - 20% of the next 4 GB of memory (up to 8 GB)
+  - 10% of the next 8 GB of memory (up to 16 GB)
+  - 6% of the next 112 GB of memory (up to 128 GB)
+  - 2% of any memory above 128 GB
 
 These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
 
-For example:
-
-- **Standard DS2 v2** node size contains 2 vCPU and 7 GiB memory
-    - 20% of 7 GiB memory = 1.4 GiB
-    - A total of *(7 - 1.4) = 5.6 GiB* memory is available for the node
-    
-- **Standard E4s v3** node size contains 4 vCPU and 32 GiB memory
-    - 20% of 32 GiB memory = 6.4 GiB, but AKS only reserves a maximum of 4 GiB
-    - A total of *(32 - 4) = 28 GiB* is available for the node
-    
 The underlying node OS also requires some amount of CPU and memory resources to complete its own core functions.
 
 For associated best practices, see [Best practices for basic scheduler features in AKS][operator-best-practices-scheduler].
