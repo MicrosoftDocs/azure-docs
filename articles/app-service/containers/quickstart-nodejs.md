@@ -163,22 +163,14 @@ When prompted, choose to enable logging and restart the application. Once the ap
 
 ![Enable Logging and Restart](./media/quickstart-nodejs/enable-restart.png)
 
-After a few seconds, you'll see a message indicating that you're connected to the log-streaming service.
+After a few seconds, you'll see a message indicating that you're connected to the log-streaming service. Refresh the page a few times to see more activity.
 
-```bash
-Connecting to log-streaming service...
-2017-12-21 17:33:51.428 INFO  - Container practical-mustache_2 for site practical-mustache initialized successfully.
-2017-12-21 17:33:56.500 INFO  - Container logs
-```
-
-Refresh the page a few times in the browser to see log output.
-
-```bash
-2017-12-21 17:35:17.774 INFO  - Container logs
-2017-12-21T17:35:14.955412230Z GET / 304 141.798 ms - -
-2017-12-21T17:35:15.248930479Z GET /stylesheets/style.css 304 3.180 ms - -
-2017-12-21T17:35:15.378623115Z GET /favicon.ico 404 53.839 ms - 995
-```
+    ```bash
+    2019-09-20 20:37:39.574 INFO  - Initiating warmup request to container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node
+    2019-09-20 20:37:55.011 INFO  - Waiting for response to warmup request for container msdocs-vscode-node_2_00ac292a. Elapsed time = 15.4373071 sec
+    2019-09-20 20:38:08.233 INFO  - Container msdocs-vscode-node_2_00ac292a for site msdocs-vscode-node initialized successfully and is ready to serve requests.
+    2019-09-20T20:38:21  Startup Request, url: /Default.cshtml, method: GET, type: request, pid: 61,1,7, SCM_SKIP_SSL_VALIDATION: 0, SCM_BIN_PATH: /opt/Kudu/bin, ScmType: None
+    ```
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)

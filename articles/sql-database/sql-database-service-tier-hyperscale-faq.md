@@ -356,6 +356,12 @@ We create 2 replicas for Hyperscale databases by default. If you want to adjust 
 
 You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
 
+### How do I validate if I have successfully connected to secondary compute node using SSMS / other client tools?
+
+You can execute the following T-SQL query using SSMS / other client tools:
+`SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
+The result is `READ_ONLY` if you your connection is pointing to the read-only secondary node or `READ_WRITE` if your connection is pointing to the primary node.
+
 ### Can I create a dedicated endpoint for the read-scale replica
 
 No. You can only connect to read-scale replica by specifying `ApplicationIntent=ReadOnly`.
