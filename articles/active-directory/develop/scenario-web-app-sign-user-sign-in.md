@@ -103,7 +103,7 @@ def index():
 
 ---
 
-### login action of the controller
+### `Login` action of the controller
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -320,7 +320,7 @@ In the Python quickstart, the sign-out button is located in the [templates/index
 
 ---
 
-### Signout action of the controller
+### `Signout` action of the controller
 
 # [ASP.NET Core](#tab/aspnetcore)
 
