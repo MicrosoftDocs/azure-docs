@@ -136,9 +136,6 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 
 ### Swap with preview (multi-phase swap)
 
-> [!NOTE]
-> Swap with preview isn't supported in web apps on Linux.
-
 Before you swap into production as the target slot, validate that the app runs with the swapped settings. The source slot is also warmed up before the swap completion, which is desirable for mission-critical applications.
 
 When you perform a swap with preview, App Service performs the same [swap operation](#AboutConfiguration) but pauses after the first step. You can then verify the result on the staging slot before completing the swap. 
