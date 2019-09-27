@@ -295,7 +295,7 @@
         - name: Version 11.x and earlier
           href: https://github.com/Azure/azure-storage-net
       - name: Data Movement library
-        href: /dotnet/api/microsoft.azure.storage.datamovement
+        href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
         href: /dotnet/api/overview/azure/storage/management
     - name: Java
