@@ -24,6 +24,8 @@ The result is:
     [4]
 ```
 
+## Operations
+
 The following supported built-in mathematical functions perform a calculation, usually based on input arguments, and return a numeric expression.
   
 ||||  

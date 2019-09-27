@@ -303,7 +303,7 @@
               displayName: string functions, string, system functions, built-in functions
               href: sql-query-string-functions.md
             - name: CONCAT
-              displayName: CONCAT, concatanate, built-in functions
+              displayName: CONCAT, concatenate, built-in functions
               href: sql-query-concat.md
             - name: CONTAINS
               displayName: CONTAINS, built-in functions

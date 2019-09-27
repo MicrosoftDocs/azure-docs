@@ -26,7 +26,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    Is the string expression to be found.  
   
 *str_expr3*  
-   Is the string expression to replace ocurrences of *str_expr2* in *str_expr1*.  
+   Is the string expression to replace occurrences of *str_expr2* in *str_expr1*.  
   
 ## Return types
   

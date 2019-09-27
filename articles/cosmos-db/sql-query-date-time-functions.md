@@ -10,6 +10,10 @@ ms.custom: query-reference
 ---
 # Date and time functions (Azure Cosmos DB)
 
+The date and time functions let you perform DateTime and timestamp operations in Azure Cosmos DB.
+
+## Operations
+
 The following scalar functions allow you to get the current UTC date and time in two forms; a numeric timestamp whose value is the Unix epoch in milliseconds or as a string which conforms to the ISO 8601 format:
 
 |||

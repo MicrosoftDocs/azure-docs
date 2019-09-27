@@ -10,6 +10,10 @@ ms.custom: query-reference
 ---
 # String functions (Azure Cosmos DB)
 
+The string functions let you perform operations on strings in Azure Cosmos DB.
+
+## Operations
+
 The following scalar functions perform an operation on a string input value and return a string, numeric, or Boolean value:
   
 ||||  

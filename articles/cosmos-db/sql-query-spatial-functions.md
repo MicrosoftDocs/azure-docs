@@ -10,7 +10,11 @@ ms.custom: query-reference
 ---
 # Spatial functions (Azure Cosmos DB)
 
-Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
+Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
+
+## Operations
+
+The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
 |||||
 |-|-|-|-|
