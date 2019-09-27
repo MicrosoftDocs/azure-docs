@@ -16,9 +16,9 @@ ms.author: danlep
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services. Configure an authentication method suitable for your environment:
 
 * [Grant access using the AKS service principal](#grant-aks-access-to-acr) - this method is most common
-* [Grant access by configuring a Kubernetes secret](#access-with-kubernetes-secret).
+* [Grant access by configuring a Kubernetes secret](#access-with-kubernetes-secret)
 
-This article assumes that you've already created an AKS cluster and you are able to access the cluster with the `kubectl` command-line client. If instead you want to create a cluster and configure access to a container registry at cluster creation time, see [Tutorial: Deploy an AKS cluster](../aks/tutorial-kubernetes-deploy-cluster.md) or [Authenticate with Azure Container Registry from Azure Kubernetes Service (preview)](../aks/cluster-container-registry-integration.md).
+This article assumes that you've already created an AKS cluster and you are able to access the cluster with the `kubectl` command-line client. If instead you want to create a cluster and configure access to a container registry at cluster creation time, see [Tutorial: Deploy an AKS cluster](../aks/tutorial-kubernetes-deploy-cluster.md) or [Authenticate with Azure Container Registry from Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
 
 
 ## Grant AKS access to ACR
