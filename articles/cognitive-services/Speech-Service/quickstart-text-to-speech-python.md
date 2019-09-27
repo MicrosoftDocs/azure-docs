@@ -48,7 +48,7 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.7.0`. Note that this tutorial will not work with Cognitive Services Speech SDK versions earlier than `1.7.0`.
+Note that this tutorial will not work with version of the SDK earlier than 1.7.0.
 
 This command installs the Python package from [PyPI](https://pypi.org/) for the Speech SDK:
 
