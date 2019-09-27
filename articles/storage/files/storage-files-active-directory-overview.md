@@ -87,7 +87,29 @@ When an identity associated with an application running on a VM attempts to acce
 
 ![Screenshot showing diagram of Azure AD authentication over SMB](media/storage-files-active-directory-overview/azure-active-directory-over-smb-for-files-overview.png)
 
-### Enable Azure AD Domain Service authentication for SMB access
+### Enable identity-based authentication
+
+You can enable identity-based authentication with either Azure AD DS (GA) or AD DS (preview) for Azure Files on your new and existing storage accounts. Only one domain service can be used for file access authentication on the storage account, which applies to all file shares in the account. Detailed step by step guidance on setting up you file shares for authentication with Azure AD DS (GA) in our article [Enable Azure Active Directory Domain Services authentication over SMB for Azure Files](storage-files-active-directory-enable.md) and guidance for AD DS (preview) in our other article <link here>.
+
+### Configure share-level permissions for Azure Files
+
+Once either Azure AD DS (GA) or AD DS (preview) authentication is enabled, you can use built-in RBAC roles or configure custom roles for Azure AD identities and assign access rights to any file shares in your storage accounts. the assigned permission allows the granted identity to get access to the share only, nothing else, not even the root directory. You still need to separately configure directory or file-level permissions for Azure Files.
+
+### Configure directory or file-level permissions for Azure Files
+
+Azure Files enforces standard NTfS file permissions at both the directory and file level, including the root directory. Configuration of directory or file-level permissions is supported over both SMB and REST. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows [icacls](https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/icacls), or the [Set-ACL](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-acl?view=powershell-6) command.
+
+### Use the storage account key for superuser permissions
+
+A user possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions bypass all access control restrictions.
+
+> [!IMPORTANT]
+> Our recommended security best practice is to avoid sharing your storage account keys, and leverage identity-based authentication whenever possible.
+
+### Preserve directory and file ACLs when importing data to Azure file shares
+
+Azure Files supports preserving directory or file level ACLs when copying data to Azure file shares. You can copy ACLs on a directory or file to Azure Files using either Azure File Sync or common file movement toolsets. For example, you can use [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data as well as ACLs to an Azure file share. ACLs are preserved by default, you are not required to enable identity-based authentication on your storage account to preserve ACLs.
+
 You can enable Azure AD Domain Service authentication for Azure Files on your new and existing storage accounts created after September 24, 2018. 
 
 Before enabling this feature, verify that Azure AD Domain Services has been deployed for the primary Azure AD tenant with which your storage account is associated. If you have not yet set up Azure AD Domain Services, follow the step-by-step guidance provided in [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
@@ -99,18 +121,6 @@ Once Azure AD Domain Service authentication has been enabled, you can configure 
 
 When an application running on a domain-joined VM tries to mount an Azure file share or access a directory or file, the application's Azure AD credentials are verified to ensure the proper share-level permissions and NTFS permissions. For information about configuring share-level permissions, see [Enable Azure Active Directory Domain Service authentication over SMB](storage-files-active-directory-enable.md).
 
-### Configure directory- or file-level permissions for Azure Files 
-Azure Files enforces standard NTFS file permissions at the directory and file level, including at the root directory. Configuration of directory- or file-level permissions is supported over SMB only. Mount the target file share from your VM and configure permissions using Windows File Explorer, Windows
-[icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
-
-### Use the storage account key for superuser permissions 
-A user possessing the storage account key can access Azure Files with superuser permissions. Superuser permissions surpass all access control restrictions configured at the share level with RBAC and enforced by Azure AD. Superuser permissions are required to mount an Azure file share. 
-
-> [!IMPORTANT]
-> As part of best practices for security, avoid sharing your storage account keys, and leverage Azure AD permissions whenever possible.
-
-### Preserve directory and file ACLs for data import to Azure file shares
-Azure Files now supports preserving directory or file ACLs when you copy data to Azure file shares. You can copy the ACLs on a directory or file to Azure Files. For example, you can use [robocopy](https://docs.microsoft.com/windows-server/administration/windows-commands/robocopy) with flag `/copy:s` to copy both data and ACLs to an Azure file share. ACL preservation is on by default and you don't need to explicitly enable Azure AD Domain Service authentication feature on your storage account. 
 
 ## Pricing
 There is no additional service charge to enable Azure AD authentication over SMB on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) pages.
