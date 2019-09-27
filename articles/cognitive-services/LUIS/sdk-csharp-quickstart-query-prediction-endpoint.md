@@ -8,7 +8,7 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 

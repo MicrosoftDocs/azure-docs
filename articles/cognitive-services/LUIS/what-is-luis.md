@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 06/11/2019
+ms.date: 09/27/2019
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
