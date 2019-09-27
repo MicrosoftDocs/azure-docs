@@ -1,4 +1,14 @@
-
+---
+title: Get intent with REST call in C#
+titleSuffix: Azure Cognitive Services
+services: cognitive-services
+author: diberry
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: include 
+ms.date: 09/27/2019
+ms.author: diberry
+---
 
 ## Prerequisites
 
@@ -12,10 +22,6 @@
 ## Get LUIS key
 
 [!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
-
-## Get intent with browser
-
-[!INCLUDE [Use authoring key for endpoint](quickstart-rest-get-intent.md)]
 
 ## Get intent programmatically
 

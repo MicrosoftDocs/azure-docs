@@ -12,6 +12,8 @@
   items:
   - name: Build prebuilt domain app
     href: luis-get-started-create-app.md
+  - name: Use browser to get prediction
+    href: luis-get-started-get-intent-from-browser.md
   - name: Use LUIS portal
     items: 
     - name: 1. Create an app
@@ -33,7 +35,7 @@
   - name: Use REST APIs
     items:
     - name: Get intent
-      href: luis-get-started-get-intent.md
+      href: luis-get-started-get-intent-from-rest.md
     - name: Change model
       items:
       - name: C#

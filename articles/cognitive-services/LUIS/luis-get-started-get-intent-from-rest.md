@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Get intent - LUIS"
+title: "Quickstart: Get intent with REST APIs - LUIS"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
+description: In this REST API quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -12,15 +12,14 @@ ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-#Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
+#Customer intent: As an API developer familiar with REST but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
 ---
 
-# Quickstart: Get intent
+# Quickstart: Get intent with REST APIs
 
 [!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 <a name="create-luis-subscription-key"></a>
-
 
 ::: zone pivot="programming-language-csharp"
 
