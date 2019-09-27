@@ -200,7 +200,8 @@ If you have any problems, see [Troubleshoot swaps](#troubleshoot-swaps).
 <a name="Warm-up"></a>
 
 ## Specify custom warm-up
-When you're using [auto swap](#Auto-Swap), some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
+
+Some apps might require custom warm-up actions before the swap. The `applicationInitialization` configuration element in web.config lets you specify custom initialization actions. The [swap operation](#AboutConfiguration) waits for this custom warm-up to finish before swapping with the target slot. Here's a sample web.config fragment.
 
     <system.webServer>
         <applicationInitialization>
