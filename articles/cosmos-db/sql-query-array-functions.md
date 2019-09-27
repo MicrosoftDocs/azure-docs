@@ -12,7 +12,7 @@ ms.custom: query-reference
 
 The array functions let you perform operations on arrays in Azure Cosmos DB.
 
-## Operations
+## Functions
 
 The following scalar functions perform an operation on an array input value and return numeric, boolean or array value:
   

@@ -12,7 +12,7 @@ ms.custom: query-reference
 
 The type-checking functions let you check the type of an expression within a SQL query. You can use type-checking functions to determine the types of properties within items on the fly, when they're variable or unknown. 
 
-## Operations
+## Functions
 
 Here’s a table of supported built-in type-checking functions:
 

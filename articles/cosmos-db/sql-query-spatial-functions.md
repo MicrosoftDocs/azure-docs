@@ -12,7 +12,7 @@ ms.custom: query-reference
 
 Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in functions for geospatial querying. 
 
-## Operations
+## Functions
 
 The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
