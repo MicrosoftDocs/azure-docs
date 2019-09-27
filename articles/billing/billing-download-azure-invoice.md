@@ -80,7 +80,7 @@ If you don't see an invoice for the last billing period, see [Why don't I see an
 
 ## Get your invoice in email (.pdf)
 
-You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see the next section, [Get your Microsoft Customer Agreement invoices in email](#get-your-Microsoft-Customer-Agreement-invoices-in-email).
+You can opt in and configure additional recipients to receive your Azure invoice in an email. This feature may not be available for certain subscriptions such as support offers, Enterprise Agreements, or Azure in Open. If you have a Microsoft Customer agreement, see the next section, [Get your Microsoft Customer Agreement invoices in email](#MCA-email).
 
 ### Get your subscription's invoices in email
 
@@ -104,6 +104,7 @@ To opt out of getting your invoice by email, follow the preceding steps and clic
 
  ![Screenshot that shows the opt-out flow](./media/billing-download-azure-invoice-daily-usage-date/InvoiceArticleStep4.PNG)
 
+<a name = "MCA-email"></a>
 ### Get your Microsoft Customer Agreement invoices in email
 
 If you have a Microsoft Customer Agreement, you can opt in to get your invoice in an email. All billing profile Owners, Contributors, Readers, and Invoice managers will get the invoice by email. Readers can't update the email invoice preference.
