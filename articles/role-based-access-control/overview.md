@@ -78,7 +78,7 @@ Azure has data operations that enable you to grant access to data within an obje
 
 *Scope* is the set of resources that the access applies to. When you assign a role, you can further limit the actions allowed by defining a scope. This is helpful if you want to make someone a [Website Contributor](built-in-roles.md#website-contributor), but only for one resource group.
 
-In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/index.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
+In Azure, you can specify a scope at multiple levels: [management group](../governance/management-groups/overview.md), subscription, resource group, or resource. Scopes are structured in a parent-child relationship.
 
 ![Scope for a role assignment](./media/overview/rbac-scope.png)
 
