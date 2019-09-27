@@ -75,13 +75,13 @@
     # - name: Spark pool template
     #   href: article-template.md
   - name: Pipeline and activity
-    href: ../data-factory/concepts-pipelines-activities.md
+    href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Execution and trigger
-    href: ../data-factory/concepts-pipeline-execution-triggers.md
+    href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Linked service
-    href: ../data-factory/concepts-linked-services.md
+    href: ../data-factory/concepts-linked-services.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Integration runtime
-    href: ../data-factory/concepts-integration-runtime.md
+    href: ../data-factory/concepts-integration-runtime.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Metadata management
     items:
     # - name: Overview
