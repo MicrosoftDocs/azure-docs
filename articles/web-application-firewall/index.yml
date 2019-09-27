@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Web Application Firewall documentation
-summary: Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. You can deploy WAF with Azure Application Gateway or WAF with Azure Azure Front Door Service. 
+summary: Web Application Firewall (WAF) provides centralized protection of your web applications from common exploits and vulnerabilities. You can deploy WAF on Azure Application Gateway or WAF on Azure Front Door Service. 
 
 metadata:
   title: Web Application Firewall documentation
