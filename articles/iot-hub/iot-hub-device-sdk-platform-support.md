@@ -85,9 +85,9 @@ The [Azure IoT Hub Java device SDK](https://github.com/Azure/azure-iot-sdk-java)
 | Linux               | Java 8       |
 | Windows 10 family   | Java 8       |
 
-## Partner supported semiconductor development kits
+## Partner supported development kits
 
-Microsoft works with various partners to provide semiconductor development kits for several other microprocessor architectures. These partners have ported the Azure IoT C SDK to their platform. Partners create and maintain the platform abstraction layer (PAL) of the SDK. Microsoft works with these partners to provide extended support.
+Microsoft works with various partners to provide development kits for several microprocessor architectures. These partners have ported the Azure IoT C SDK to their platform. Partners create and maintain the platform abstraction layer (PAL) of the SDK. Microsoft works with these partners to provide extended support.
 
 | Partner             | Devices                            | Link                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
