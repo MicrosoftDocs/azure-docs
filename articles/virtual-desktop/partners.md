@@ -21,7 +21,7 @@ Citrix is a Windows Virtual Desktop value-added services partner that offers ent
 
 Citrix extends the value of Windows Virtual Desktop with robust enterprise tools to improve user density and performance, provision workloads on demand, and simplify image and application management.  IT can optimize costs with intelligent scaling tools, while delivering an incredible end-user experience that has been field-tested against the toughest of applications across industries.
 
-- [Go to the partner website.](https://www.citrix.com/global-partners/microsoft/windows-virtual-desktop.html)
+- [Go to the partner website.](https://more.citrix.com/wvd)
 
 
 ## VMware
@@ -30,7 +30,7 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure.
 
-Customers will receive all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
+As an approved provider, VMware Horizon Cloud on Microsoft Azure customers will receive all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)
 - [Go to the partner website.](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)
