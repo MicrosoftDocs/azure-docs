@@ -85,7 +85,7 @@ To maintain node performance and functionality, resources are reserved on each n
 >[!NOTE]
 > Using add-ons such as OMS will consume additional node resources.
 
-- **CPU** - dependent on node type
+- **CPU** - reserved CPU is dependent on node type and cluster configuration which may incur higher CPU consumption by AKS
 
 | CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
 |---|---|---|---|---|---|---|---|
