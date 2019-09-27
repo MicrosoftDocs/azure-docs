@@ -36,7 +36,7 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 ### Limitations
 
 * The streaming endpoint name has a max value of 24 characters.
-* The acceptable characters should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## Types  
 
