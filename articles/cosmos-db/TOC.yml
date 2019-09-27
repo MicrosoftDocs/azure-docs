@@ -51,7 +51,9 @@
       href: import-data.md
     - name: 3 - Query data
       href: tutorial-query-sql-api.md
-    - name: 4 - Distribute data globally
+    - name: 4 - Create a notebook
+      href: create-notebook-visualize-data.md
+    - name: 5 - Distribute data globally
       href: tutorial-global-distribution-sql-api.md
   - name: Samples
     items:
@@ -227,7 +229,7 @@
         href: spark-api-introduction.md
       - name: Lambda architecture
         href: lambda-architecture.md 
-    - name: Built-in analytics with Jupyter notebooks
+    - name: Built-in Jupyter notebooks
       items:
       - name: Jupyter notebooks overview
         href: cosmosdb-jupyter-notebooks.md
@@ -691,6 +693,8 @@
       items:
       - name: Enable notebooks
         href: enable-notebooks.md
+      - name: Use built-in notebook commands
+        href: use-notebook-features-and-commands.md        
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
