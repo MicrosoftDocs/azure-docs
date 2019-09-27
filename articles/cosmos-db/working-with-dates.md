@@ -14,7 +14,7 @@ In addition to the basic types, many applications need the DateTime type to repr
 
 ## Storing DateTimes
 
-Azure Cosmos DB supports JSON types- string, number, boolean, null, array, object. It does not directly support a DateTime type. So, in Azure Cosmos DB, dates must be stored as strings. Currently, Azure Cosmos DB doesn't support localization of dates. The recommended format for DateTime strings in Azure Cosmos DB is `YYYY-MM-DDThh:mm:ss.sssZ` which follows the ISO 8601 UTC standard. It is recommended to store all dates as UTC. Converting the date strings in this format will allow sorting dates lexicographically. If non-UTC dates are stored, the logic must be handled at the client-side. To convert a  local DateTime to UTC, the offset must be known/stored as a property in the JSON and the client can use the offset to compute UTC.
+Azure Cosmos DB supports JSON types such as - string, number, boolean, null, array, object. It does not directly support a DateTime type. Currently, Azure Cosmos DB doesn't support localization of dates. So, you need to store DateTimes as strings. The recommended format for DateTime strings in Azure Cosmos DB is `YYYY-MM-DDThh:mm:ss.sssZ` which follows the ISO 8601 UTC standard. It is recommended to store all dates in Azure Cosmos DB as UTC. Converting the date strings to this format will allow sorting dates lexicographically. If non-UTC dates are stored, the logic must be handled at the client-side. To convert a  local DateTime to UTC, the offset must be known/stored as a property in the JSON and the client can use the offset to compute UTC DateTime value.
 
 Most applications can use the default string representation for DateTime for the following reasons:
 
