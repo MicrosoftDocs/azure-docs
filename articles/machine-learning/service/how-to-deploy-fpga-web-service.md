@@ -320,9 +320,9 @@ To deploy your model as a high-scale production web service, use Azure Kubernete
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
 
-# Specify the Standard_PB6s Azure VM
+# Specify the Standard_PB6s Azure VM and location
 prov_config = AksCompute.provisioning_configuration(vm_size="Standard_PB6s",
-                                                    agent_count=1)
+                                                    agent_count=1, location = "YOUR_SERVICE_LOCATION")
 
 aks_name = 'my-aks-cluster'
 # Create the cluster
