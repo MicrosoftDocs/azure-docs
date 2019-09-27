@@ -46,38 +46,41 @@ Sign in to the [Azure portal](https://portal.azure.com). If you don't already ha
    * **Stream to an event hub**
    * **Send to Log Analytics**
 
-### Archive to a storage account
-You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
+    ### Archive to a storage account
+    You'll need a storage account already created for this process.  To create a storage account, see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
-1. Select the checkbox next to **Archive to a storage account**.
-2. Select **Configure** to open the **Select a storage account** pane.
-3. Select the **Subscription** where your storage account was created in the pull-down box.
-4. Select the name of your storage account under **Storage account** in the pull-down box. 
-5. Select OK.
+    1. Select the checkbox next to **Archive to a storage account**.
+    2. Select **Configure** to open the **Select a storage account** pane.
+    3. Select the **Subscription** where your storage account was created in the pull-down box.
+    4. Select the name of your storage account under **Storage account** in the pull-down box. 
+    5. Select OK.
 
-### Stream to an event hub
-You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+    ### Stream to an event hub
+    You'll need an event hub already created for this process.  To create an event hub, see [Quickstart: Create an event hub using Azure portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
-1. Select the checkbox next to **Stream to an event hub**
-2. Select **Configure** to open the **Select event hub** pane.
-3. Select the **Subscription** where your event hub was created in the pull-down box.
-4. **Select event hub namespace** in the pull-down box.
-5. **Select event hub policy name** in the pull-down box.
-6. Select OK.
+    1. Select the checkbox next to **Stream to an event hub**
+    2. Select **Configure** to open the **Select event hub** pane.
+    3. Select the **Subscription** where your event hub was created in the pull-down box.
+    4. **Select event hub namespace** in the pull-down box.
+    5. **Select event hub policy name** in the pull-down box.
+    6. Select OK.
 
-### Send to Log Analytics
-You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+    ### Send to Log Analytics
+    You'll need to already have a log analytics workspace created and configured for this process.  To create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-1. Select the checkbox next to **Send to Log Analytics**.
-2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
-3. Select the **Log Analytics Workspace** in the pull-down box.
+    1. Select the checkbox next to **Send to Log Analytics**.
+    2. Select the **Subscription** where your Log Analytics workspace is in the pull-down box.
+    3. Select the **Log Analytics Workspace** in the pull-down box.
+
 
 8. Beneath the **LOG** section in the **Diagnostics settings** pane, select the check box next to both:
    * **LoadBalancerAlertEvent**
    * **LoadBalancerProbeHealthStatus**
 
-9. Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
+9.  Beneath the **METRIC** section in the **Diagnostics settings** pane, select the check box next to:
    * **AllMetrics**
+
+11. Verify everything looks correct and click **Save** at the top of the create **Diagnostic settings** pane.
 
 ## Activity log
 
