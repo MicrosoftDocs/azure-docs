@@ -168,9 +168,9 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 
 ## Register datasets
 
-To complete the creation process, register your datasets with workspace:
+To complete the creation process, register your datasets with a workspace.
 
-Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets to your workspace so they can be shared with others and reused across various experiments.
+Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -183,7 +183,8 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ## Version datasets
 
-You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning:
+You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider for versioning are: 
+
 * When new data is available for retraining.
 * When you are applying different data preparation or feature engineering approaches.
 
