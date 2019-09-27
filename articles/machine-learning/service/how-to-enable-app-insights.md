@@ -71,7 +71,7 @@ You can enable and disable Azure Application Insights in the Azure portal or new
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace.
 
     ```python
-    from azureml.core.web service import Webservice
+    from azureml.core.webservice import Webservice
     aks_service= Webservice(ws, "my-service-name")
     ```
 2. Update your service and enable Azure Application Insights. 
