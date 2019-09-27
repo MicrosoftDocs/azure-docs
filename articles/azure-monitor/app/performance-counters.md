@@ -142,9 +142,9 @@ Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a s
 
 ## Performance counters in ASP.NET Core applications
 
-Support for [performance counters](https://azure.microsoft.com/documentation/articles/app-insights-web-monitor-performance/) in ASP.NET Core is limited:
+Support for performance counters in ASP.NET Core is limited:
 
-* SDK versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
+* [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
 * SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
 * For applications targeting the .NET Framework, all versions of the SDK support performance counters.
 * SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
