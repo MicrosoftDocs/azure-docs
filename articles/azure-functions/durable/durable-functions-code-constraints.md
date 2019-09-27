@@ -42,7 +42,7 @@ The following table shows examples of APIs that you should avoid because they ar
 | Environment variables | Don't use environment variables in orchestrator functions. Their values can change over time, resulting in nondeterministic runtime behavior. | Environment variables must be referenced only from within client functions or activity functions. |
 | Infinite loops | Avoid infinite loops in orchestrator functions. Because the Durable Task Framework saves execution history as the orchestration function progresses, an infinite loop can cause an orchestrator instance to run out of memory. | For infinite loop scenarios, use APIs like [**ContinueAsNew**](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) in .NET or **continueAsNew** in JavaScript to restart the function execution and to discard previous execution history. |
 
-While applying these constraints might seem difficult at first, in practice they're easy to follow.
+Although applying these constraints might seem difficult at first, in practice they're easy to follow.
 
 The Durable Task Framework attempts to detect violations of the preceding rules. If it finds a violation, the framework throws a **NonDeterministicOrchestrationException** exception. However, this detection behavior won't catch all violations, and you shouldn't depend on it.
 
