@@ -410,7 +410,7 @@ If you are using the Microsoft Edge/IE browser, you can see at most 100 reposito
 
 ### Why is Azure portal unable to send request for fetching repositories or tags?
 
-The browser might be unable to send the request for fetching repositories or tags to the server. There could be various reasons, including but not limited to:
+The browser might not be able to send the request for fetching repositories or tags to the server. There could be various reasons, including but not limited to:
 
 * Lack of network connectivity
 * Firewall
