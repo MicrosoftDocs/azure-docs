@@ -12,9 +12,9 @@ ms.author: heidist
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
-+ **Free** is a multi-tenant shared service that comes with your Azure subscription.
++ **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
-+ **Basic** provides dedicated computing resources for production workloads at a smaller scale.
++ **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
 + **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
 

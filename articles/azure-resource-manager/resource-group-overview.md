@@ -54,7 +54,7 @@ With Resource Manager, you can:
 
 ## Understand scope
 
-Azure provides four levels of scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
+Azure provides four levels of scope: [management groups](../governance/management-groups/overview.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
