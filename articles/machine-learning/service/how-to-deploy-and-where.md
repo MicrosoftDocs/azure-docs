@@ -463,7 +463,9 @@ def run(request):
 
 The inference configuration describes how to configure the model to make predictions. This configuration isn't part of your entry script. It references your entry script and is used to locate all the resources required by the deployment. It's used later, when you deploy the model.
 
-Inference configuration can use Azure Machine Learning environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
+Inference configuration can use Azure Machine Learning Environments to define the software dependencies needed for your deployment. Environments allow you to create, manage, and reuse the software dependencies required for training and deployment. When using an environment, model files and your provided source directory are mounted directly onto your running container - they are not copied into the container image or into your container registry.
+
+The following example demonstrates loading an environment from your workspace and then using it with the inference configuration:
 
 ```python
 from azureml.core import Environment
