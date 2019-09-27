@@ -48,8 +48,6 @@ The *Deallocate* policy moves your evicted VMs to the stopped-deallocated state 
 
 If you would like your VMs in your low-priority scale set to be deleted when they are evicted, you can set the eviction policy to *delete*. With the eviction policy set to delete, you can create new VMs by increasing the scale set instance count property. The evicted VMs are deleted together with their underlying disks, and therefore you will not be charged for the storage. You can also use the auto-scaling feature of scale sets to automatically try and compensate for evicted VMs, however, there is no guarantee that the allocation will succeed. It is recommended you only use the auto-scale feature on low-priority scale sets when you set the eviction policy to delete to avoid the cost of your disks and hitting quota limits. 
 
-> [!NOTE]
-> During preview, you will be able to set your eviction policy by using the [Azure portal](#use-the-azure-portal) and [Azure Resource Manager templates](#use-azure-resource-manager-templates). 
 
 ## Deploying low-priority VMs on scale sets
 
@@ -61,12 +59,15 @@ To deploy low-priority VMs on scale sets, you can set the new *Priority* flag to
 
 ## Use the Azure portal
 
-The process to create a scale set that uses low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag and the eviction policy:
+The process to create a scale set that uses low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag, and the eviction policy:
 ![Create a scale set with low-priority VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+
+> [!NOTE]
+> If you want to set a max price per instance, use a the CLI, PowerShell or template methods.
 
 ## Use the Azure CLI
 
-The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
+The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority low', and add `--max-billing`. In this example, we use `-1` for `--max-billing` so the instance won't be evicted based on price.
 
 ```azurecli
 az vmss create \
@@ -76,13 +77,14 @@ az vmss create \
     --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
-    --priority Low
+    --priority Low \
+	--max-billing -1 
 ```
 
 ## Use Azure PowerShell
 
 The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-powershell.md).
-Just add the '-Priority' parameter to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) and set it to *Low* as shown in the example below:
+Just add '-Priority low', and supply a `-max-price` to the [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig).
 
 ```powershell
 $vmssConfig = New-AzVmssConfig `
@@ -90,7 +92,8 @@ $vmssConfig = New-AzVmssConfig `
     -SkuCapacity 2 `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
-    -Priority "Low"
+    -Priority "Low" `
+	-
 ```
 
 ## Use Azure Resource Manager Templates
