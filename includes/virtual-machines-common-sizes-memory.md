@@ -141,12 +141,14 @@ The Mv2-series features high throughput, low latency, directly mapped local NVMe
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
 | Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
+| Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
 Mv2-series VM’s feature Intel® Hyper-Threading Technology  
 
 <sup>1</sup> These large VMs require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
 
-<sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see the following section for how to find and select a SUSE Linux image.
+<sup>2</sup> Mv2-series VMs are generation 2 only. To learn more about generation 2 VMs, see [Support for generation 2 VMs on Azure](../articles/virtual-machines/windows/generation-2.md).
 
 #### Find a SUSE image
 
