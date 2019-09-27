@@ -191,10 +191,14 @@
         href: add-output-binding-storage-queue-vs-code.md
       - name: Storage - Visual Studio
         href: add-output-binding-storage-queue-vs.md
-    - name: Test functions
-      href: functions-test-a-function.md
-    - name: Debug local PowerShell functions
-      href: functions-debug-powershell-local.md
+    - name: Debug and test
+      items:
+        - name: Test functions
+          href: functions-test-a-function.md
+        - name: Debug local PowerShell functions
+          href: functions-debug-powershell-local.md
+        - name: Debug Event Grid trigger locally
+          href: functions-debug-event-grid-trigger-local.md
     - name: Dependency injection
       href: functions-dotnet-dependency-injection.md
     - name: Manage connections
@@ -204,8 +208,6 @@
       href: functions-bindings-error-pages.md
     - name: Manually run a non HTTP-triggered function
       href: functions-manually-run-non-http.md
-    - name: Debug Event Grid trigger locally
-      href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
     items:
     - name: Continuous deployment
