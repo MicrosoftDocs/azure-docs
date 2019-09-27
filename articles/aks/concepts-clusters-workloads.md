@@ -89,7 +89,7 @@ To maintain node performance and functionality, resources are reserved on each n
 
 | CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet reservation (millicores)|60|100|140|180|260|420|740|
+|Kube-reserved (millicores)|60|100|140|180|260|420|740|
 
 - **Memory** - reservation of memory follows a progressive rate
   - 25% of the first 4 GB of memory
