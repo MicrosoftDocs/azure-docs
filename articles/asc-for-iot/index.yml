@@ -34,13 +34,7 @@ landingContent:
           - text: Azure Security Center for IoT Agents
             url: security-agent-architecture.md
           - text: Edge security module
-            url: security-edge-architecture.md
-      - linkListType: video
-        links:
-          - text: What is Azure Security Center for IoT?
-            url: https://youtu.be/pq5uSp9u_x0
-          - text: Understanding Azure Security Center for IoT 
-            url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+            url: security-edge-architecture.md   
   - title: Onboard Azure Security Center for IoT into IoT Hub      
     linkLists:
       - linkListType: get-started
@@ -97,6 +91,12 @@ landingContent:
             url: azure-iot-security-local-configuration-csharp.md
   - title: Azure Security Center for IoT solution resources
     linkLists:
+      - linkListType: video
+        links:
+          - text: What is Azure Security Center for IoT?
+            url: https://youtu.be/pq5uSp9u_x0
+          - text: Understanding Azure Security Center for IoT 
+            url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
       - linkListType: reference
         links:
           - text: Frequently asked questions
