@@ -31,13 +31,15 @@ Get started with the Personalizer client library for Python. Follow these steps 
 
 ## Using this quickstart
 
+
 There are several steps to use this quickstart:
 
 * In the Azure portal, create a Personalizer resource
-* In the Azure portal, for the Personalizer resource, change the model update frequency
+* In the Azure portal, for the Personalizer resource, on the **Settings** page, change the model update frequency
 * In a code editor, create a code file and edit the code file
 * In the command line or terminal, install the SDK from the command line
 * In the command line or terminal, run the code file
+
 
 ## Create a Personalizer Azure resource
 
