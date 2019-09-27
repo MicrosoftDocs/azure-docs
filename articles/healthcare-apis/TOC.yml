@@ -25,7 +25,7 @@
     href: configure-cross-origin-resource-sharing.md
   - name: Configure Cosmos DB
     href: configure-cosmos-db.md
-  - name: Using Custom HTTP headers
+  - name: Using Custom HTTP headers to add data to Audit Logs
     href: using-custom-headers.md
 - name: Tutorials
   expanded: false
