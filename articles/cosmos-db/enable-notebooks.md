@@ -63,3 +63,4 @@ You can also select **New Notebook** to create a new notebook or upload an exist
 ## Next steps
 
 - Learn about the benefits of [Azure Cosmos DB Jupyter notebooks](cosmosdb-jupyter-notebooks.md)
+- Learn about [how to use notebook features and commands](use-notebook-features-and-commands.md)

@@ -20,7 +20,7 @@ This reference provides information about the [prebuilt domains](luis-how-to-use
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
-# Supported Domains across Cultures
+## Supported Domains across Cultures
 
 The table below summarizes the currently supported domains. Support for English is usually more complete than others. 
 
@@ -44,7 +44,7 @@ Prebuilt domains are **not supported** in:
 * Hindi
 * Spanish Mexican
 
-# Description for LUIS Prebuilt Domains
+## Description for LUIS Prebuilt Domains
 ## **Calendar**
 Calendar is anything about personal meetings and appointments, NOT public event (for example, world cup schedules, seattle event calendar) or generic calendar (for example, what day is it today, what does fall begin, when is Labor Day).
 ### **Intents**
