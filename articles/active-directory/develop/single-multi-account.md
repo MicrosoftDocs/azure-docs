@@ -54,10 +54,12 @@ The following pseudo code illustrates using `SingleAccountPublicClientApplicatio
 // Construct Single Account Public Client Application
 ISingleAccountPublicClientApplication app = PublicClientApplication.createSingleAccountPublicClientApplication(getApplicationContext(), R.raw.msal_config);
 
-// UI Thread
 String[] scopes = {"User.Read"};
 IAccount mAccount = null;
-app.signIn(getActivity(), scopes new AuthenticationCallback()
+
+// Acquire a token interactively
+// The user will get a UI prompt before getting the token.
+app.signIn(getActivity(), scopes, new AuthenticationCallback()
 {
 
         @Override
@@ -103,6 +105,10 @@ if (app.signOut())
 }
 ```
 
+## Multiple account public client application
+
+The `MultipleAccountPublicClientApplication` class allows you to create an MSAL-based app that allows multiple accounts to be signed in at a time. The `MultipleAccountPublicClientApplication` allows you to get, add and remove accounts as follows:
+
 ### Add an account
 
 Use one or more accounts in your application by calling `acquireToken` one or more times.  
@@ -119,3 +125,63 @@ Your app won't be able to enumerate all Microsoft identity platform accounts on 
 Remove an account by calling `removeAccount` with an account identifier.
 
 If your app is configured to use a broker, and a broker is installed on the device, the account won't be removed from the broker when you call `removeAccount`.  Only tokens associated with your client are removed.
+
+## Multiple account scenario
+
+The following pseudo code shows you how to create a multiple account app instance, list accounts on the device, and acquire tokens.
+
+```java
+// Construct Multiple Account Public Client Application
+IMultipleAccountPublicClientApplication app = PublicClientApplication.createMultipleAccountPublicClientApplication(getApplicationContext(), R.raw.msal_config);
+
+String[] scopes = {"User.Read"};
+IAccount mAccount = null;
+
+// Acquire a token interactively
+// The user will be required to interact with a UI to obtain a token
+app.acquireToken(getActivity(), scopes, new AuthenticationCallback()
+ {
+
+        @Override
+        public void onSuccess(IAuthenticationResult authenticationResult) 
+        {
+            mAccount = authenticationResult.getAccount();
+        }
+
+        @Override
+        public void onError(MsalException exception)
+        {
+        }
+
+        @Override
+        public void onCancel()
+        {
+        }
+ });
+
+...
+...
+
+// Get a list of accounts on the device
+List<IAccount> accounts = app.getAccounts();
+
+// Pick an account to obtain a token from without prompting the user to sign in
+IAccount selectedAccount = accounts.get(0);
+
+// Get a token without prompting the user
+app.acquireTokenSilentAsync(scopes, selectedAccount, new SilentAuthenticationCallback()
+{
+
+        @Override
+        public void onSuccess(IAuthenticationResult authenticationResult) 
+        {
+            mAccount = authenticationResult.getAccount();
+        }
+
+        @Override
+        public void onError(MsalException exception)
+        {
+        }
+});
+
+```
