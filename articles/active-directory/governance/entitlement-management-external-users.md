@@ -51,7 +51,7 @@ The following diagram and steps provides an overview of how external users are g
 
 1. You create an access package in your directory that includes a policy [For users not in your directory](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory).
 
-1. You send a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) to your contact at the external organization that they can share with external users to request the access package.
+1. You send a [My Access portal link](entitlement-management-access-package-edit.md#copy-my-access-portal-link) to your contact at the external organization that they can share with their users to request the access package.
 
 1. An external user (**Requestor A** in this example) uses the My Access portal link to [request access](entitlement-management-request-access.md) to the access package.
 
@@ -61,7 +61,7 @@ The following diagram and steps provides an overview of how external users are g
 
 1. Using the B2B invite process, a guest user account is created in your directory (**Requestor A (Guest)** in this example). If an [allow list or a deny list](../b2b/allow-deny-list.md) is defined, those setting will be applied.
 
-1. The guest user is assigned access to all of the resources in the access package. It can take up some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When are changes applied](entitlement-management-access-package-edit.md#when-are-changes-applied).
+1. The guest user is assigned access to all of the resources in the access package. It can take some time for changes to be made in Azure AD and to other Microsoft Online Services or connected SaaS applications. For more information, see [When are changes applied](entitlement-management-access-package-edit.md#when-are-changes-applied).
 
 1. The external user receives an email indicating that their access was [delivered](entitlement-management-process.md).
 
