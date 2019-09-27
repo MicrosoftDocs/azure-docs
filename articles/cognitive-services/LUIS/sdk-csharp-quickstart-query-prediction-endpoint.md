@@ -18,9 +18,6 @@ Use the .NET SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azur
 
 This quickstart sends a user utterance, such as `turn on the bedroom light`, to a public Language Understanding application, then receives the prediction and displays the top-scoring intent `HomeAutomation.TurnOn` and the entity `HomeAutomation.Room` found within the utterance. 
 
-If desired, choose a different version of the prediction SDK:<br/>
-[!INCLUDE [Selector](./includes/prediction-api-version-selector.md)]
-
 ## Prerequisites
 
 * [Visual Studio Community 2017 edition](https://visualstudio.microsoft.com/vs/community/)
