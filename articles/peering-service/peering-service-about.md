@@ -15,7 +15,7 @@ ms.author: v-meravi
 # Microsoft Azure Peering Service (MAPS) Overview
 ## What is Peering Service? 
 
-Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a networking service that aims at improving customer’s internet access to Microsoft SAAS services such as Office 365, Dynamics 365 and Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable internet connectivity by meeting the technical requirements such as
+Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a networking service that aims at improving customer’s internet access to Microsoft SAAS services such as Office 365, Dynamics 365, and Azure. Microsoft has partnered with Internet Service Providers [ISP] and Internet Exchange Providers [IXP] to provide reliable internet connectivity by meeting the technical requirements such as
 
 - Local redundancy
 - Geo redundancy
@@ -25,10 +25,10 @@ By selecting MAPS, an end user is selecting a Service Provider [SP], which is we
 
 ![optimal internet](./media/peering-service-about/peering-service-optimal-internet-connectivity-final.png)
 
-Customers can opt for internet telemetry metrics such as BGP route monitoring and alerts against leaks and hijacks by registering Peering Service in the Azure Portal.
+Customers can opt for internet telemetry metrics such as BGP route monitoring and alerts against leaks, hijacks by registering Peering Service in the Azure portal.
 
 > [!Note]
-> To procure MAPS service, customer is not required to register or perform any other process. They must talk with the MAPS certified Service Providers to render the service. However, to opt for telemetry metrics, customer must register the MAPS service in the Azure Portal. To know how to register Peering Service please refer here.
+> To procure MAPS service,customer is not required to register or perform any other process. They must talk with the MAPS certified Service Providers to render the service. However, to opt for telemetry metrics, customer must register the MAPS service in the Azure portal. To know how to register Peering Service please refer here.
 >
 
 ## What MAPS isn't about?
@@ -43,7 +43,7 @@ Customers can opt for internet telemetry metrics such as BGP route monitoring an
 
 ## Background
 
-Office 365, Dynamics 365 or any SaaS services can be hosted in any Microsoft DC and can be accessed from any geographic locations. Microsoft Global Network has edge locations around the world where it can connect to an end user via its Service Provider (SP). In the Networking traffic, the link connecting the end user and SP is referred as Last-Mile and the link connecting the data center and edge site Point of Preference [POP] is referred as First-Mile. Microsoft intends to solve the First-Mile problem by routing the networking traffic to the nearest Edge (POP) through Service Providers.
+Office 365, Dynamics 365, or any SaaS services can be hosted in any Microsoft DC and can be accessed from any geographic locations. Microsoft Global Network has edge locations around the world where it can connect to an end user via its Service Provider (SP). In the Networking traffic, the link connecting the end user and SP is referred as Last-Mile and the link connecting the data center and edge site Point of Preference [POP] is referred as First-Mile. Microsoft intends to solve the First-Mile problem by routing the networking traffic to the nearest Microsoft Edge (POP) through Service Providers.
 
 ![first mile ](./media/peering-service-about/peering-service-background-final.png)
 
@@ -76,13 +76,13 @@ From a business perspective, it’s recommended for a large-scale enterprise to 
    - Ideally, each peering location is provisioned with two redundant peering links.
 
 - **Geo Redundancy**
-    - Replicates the instances of peering connectivity in different geographic locations. This supports the failover across multiple locations.
+    - Replicates the instances of peering connectivity in different geographic locations. This Geo Redundancy supports the failover across multiple locations.
     - Microsoft peers with career at multiple metro locations so that, if one of the Microsoft-Partner nodes shut down, the traffic routes to Microsoft via alternate sites.
 
 - **Shortest Routing Path**
-    - Assures to use the shortest routing path by choosing the nearest Edge POP.
+    - Assures to use the shortest routing path by choosing the nearest Microsoft Edge POP.
     - Ensures MAPS partner is one hop away from Microsoft.
-    - Microsoft routes traffic in its global network using SDN based routing policies for optimal performance.
+    - Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance.
  
 ![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
 
@@ -94,7 +94,7 @@ From a business perspective, it’s recommended for a large-scale enterprise to 
 **2. Optimal Routing**
 -  **Cold- potato**
     - Cold-potato routing technique offers control over the networking traffic by ensuring the networking packets are routed within the Microsoft network as much as possible.
-    - Ideally, in the return path, probability of networking packets to drop off to the nearest ISP is more which is referred as Hot- potato routing.
+    - Ideally, in the return path, probability of networking packets to drop off to the nearest ISP is more, which is referred as Hot- potato routing.
     - By on-boarding MAPS through SPs, networking traffic is guaranteed to use cold-potato routing technique to provide better accessibility to Microsoft network.
  
 ![first mile ](./media/peering-service-about/peering-service-cold-potato.png)
@@ -104,11 +104,11 @@ From a business perspective, it’s recommended for a large-scale enterprise to 
            - Route Anomalies
            - Latency deviation
            - BGP session availability
-    - MAPS RADAR service performs the validation by motoring real time internet routes. On detection of any failovers,customer is notified via e-mails.
+    - MAPS RADAR service performs the validation by motoring real-time internet routes. On detection of any failovers,customer is notified via e-mails.
  
 **4. Secured Peering**
 
 **5. Internet performance insights**
 - **Latency optimization**
        - Round-trip time taken from the client to reach the server is optimized by connecting the end users to the nearest possible Microsoft Edge.
-       - By using the latency optimization technique, you can the access the Microsoft network quickly than expected.
+       - By using the latency optimization technique, you can access the Microsoft network quickly than expected.
