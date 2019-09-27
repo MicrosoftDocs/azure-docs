@@ -65,7 +65,7 @@ DRM systems like PlayReady, Widevine, and FairPlay all provide an additional lev
 
 ### How to show a video only to users who have a specific permission, without using Azure AD?
 
-You don't have to use any specific token provider (such as Azure AD). You can create your own JWT provider (so-called STS, Secure Token Service), using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
+You don't have to use any specific token provider (such as Azure AD). You can create your own [JWT](https://jwt.io/) provider (so-called STS, Secure Token Service), using asymmetric key encryption. In your custom STS, you can add claims based on your business logic.
 
 Make sure the issuer, audience and claims all match up exactly between what is in JWT and the ContentKeyPolicyRestriction used in ContentKeyPolicy.
 
