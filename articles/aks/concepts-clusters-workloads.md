@@ -72,10 +72,26 @@ If you need to use a different host OS, container runtime, or include custom pac
 
 ### Resource reservations
 
-You don't need to manage the core Kubernetes components on each node, such as the *kubelet*, *kube-proxy*, and *kube-dns*, but they do consume some of the available compute resources. To maintain node performance and functionality, the following compute resources are reserved on each node:
+Node resources are utilized by AKS to make the node function as part of your cluster. This can create a discrepency between your node's total resources and the resources allocatable when used in AKS. This is important to note when setting requests and limits for your deployed pods.
 
-- **CPU** - 60 ms
-- **Memory** - 20% up to 4 GiB
+To find a node's allocatable resources run:
+```kubectl
+kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+
+```
+
+To maintain node performance and functionality, the following compute resources are reserved on each node. As a node grows larger in resources, the resource reservation grows due to a higher amount of user deployed pods needing management.
+
+>[!NOTE]
+> Using add-ons such as OMS will consume additional node resources.
+
+- **CPU** - dependent on node type
+
+| CPU cores on host | 1	| 2	| 4	| 8	| 16 | 32|64|
+|---|---|---|---|---|---|---|---|
+|Kubelet (millicores)|60|100|140|180|260|420|740|
+
+- **Memory** - 20% of available memory, up to 4 GiB max
 
 These reservations mean that the amount of available CPU and memory for your applications may appear less than the node itself contains. If there are resource constraints due to the number of applications that you run, these reservations ensure CPU and memory remains available for the core Kubernetes components. The resource reservations can't be changed.
 

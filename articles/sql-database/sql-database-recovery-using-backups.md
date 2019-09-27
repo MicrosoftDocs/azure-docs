@@ -75,30 +75,60 @@ You generally restore a database to an earlier point for recovery purposes. You 
 - **Data recovery**
 
   If you plan to retrieve data from the restored database to recover from a user or application error, you need to write and execute a  data recovery script that extracts data from the restored database and applies to the original database. Although the restore operation may take a long time to complete, the restoring database is visible in the database list throughout the restore process. If you delete the database during the restore, the restore operation will be canceled and you will not be charged for the database that did not complete the restore.
+  
+### Point-in-time restore using Azure portal
 
-To recover a single, pooled, or instance database to a point in time using Azure portal, open the page for your database and click **Restore** on the toolbar. Choose backup source and select the point in time backup point from which a new database will be created.
+Recovery of a single SQL database or instance database to a point in time is performed from the overview blade of the database you wish to restore in Azure portal.
 
-![point-in-time-restore](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+#### Single Azure SQL Database
 
-> [!IMPORTANT]
+To recover a single or pooled database to a point in time using Azure portal, open the database overview page and click **Restore** on the toolbar. Choose backup source and select the point in time backup point from which a new database will be created. 
+
+  ![point-in-time-restore-single-sql-database](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+
+#### Managed instance database
+
+To recover managed instance database to a point in time using Azure portal, open the database overview page and click **Restore** on the toolbar. Choose the point in time backup point from which a new database will be created. 
+
+  ![point-in-time-restore-managed-instance-database](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+
+> [!TIP]
 > To programmatically restore a database from a backup, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## Deleted database restore
 
-You can restore a deleted database to the deletion time or an earlier point in time on the same SQL Database server using  Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). You can [restore deleted database on Managed Instance using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+You can restore a deleted database to the deletion time or an earlier point in time on the same SQL Database server or the same managed instance through Azure portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase), or the [REST (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Restoring a deleted database is performed through creating a new database from the backup.
+
+> [!IMPORTANT]
+> If you delete an Azure SQL Database server or managed instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server or for restoring a deleted managed instance.
+
+### Deleted database restore using Azure portal
+
+Restoring deleted databases from Azure portal is performed from the server and instance resource.
+
+#### Single Azure SQL Database
+
+To recover a single or pooled deleted database using Azure portal, open the server overview page and click **Deleted databases** on the navigation menu. Select a deleted database you wish to restore and type in name for the new database that will be created with data restored from the backup.
+
+  ![deleted-database-restore](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+
+#### Managed instance database
+
+At this time option to restore deleted database for managed instance is not available at Azure portal. You can use PowerShell to restore deleted database on a managed instance, see [Restore deleted database on Managed Instance using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance).
+
+### Deleted database restore using PowerShell
+
+Use the sample scripts provided below to restore deleted database for Azure SQL Database and managed instance using PowerShell.
+
+#### Single Azure SQL Database
+
+For a sample PowerShell script showing how to restore a deleted Azure SQL database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### Managed instance database
+
+For a sample PowerShell script showing how to restore a deleted instance database, see [Restore deleted database on Managed Instance using PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
-> For a sample PowerShell script showing how to restore a deleted database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
-> [!IMPORTANT]
-> If you delete an Azure SQL Database server instance, all its databases are also deleted and cannot be recovered. There is currently no support for restoring a deleted server.
-
-### Deleted database restore using the Azure portal
-
-To recover a deleted database using Azure portal, open the server overview page and click **Deleted databases** on the navigation menu.
-
-![deleted-database-restore](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
-
-> [!IMPORTANT]
 > To programmatically restore a deleted database, see [Programmatically performing recovery using automated backups](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## Geo-restore
@@ -122,7 +152,7 @@ To geo-restore single Azure SQL Database from Azure portal in the region and ser
 3. Under Use existing data click on **Backup**
 4. Select a backup from the drop-down list of available geo-restore backups
 
-![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+    ![geo-restore single Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 Complete the process of creating a new database. Once the single Azure SQL Database is created, it will contain restored geo-restore backup.
 
@@ -135,7 +165,7 @@ To geo-restore managed instance database from Azure portal to an existing manage
 3. Under Use existing data select option **Backup**
 4. Select a backup from the drop-down list of available geo-restore backups
 
-![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+    ![geo-restore managed instance database](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
 Complete the process of creating a new database. Once the instance database is created, it will contain restored geo-restore backup.
 
@@ -166,6 +196,8 @@ As previously discussed, in addition to Azure portal, database recovery can be p
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Arguments for the commands in the Az module and in AzureRm modules are to a great extent identical.
 
+#### Single Azure SQL Database
+
 - To restore a standalone or pooled database, see [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet | Description |
@@ -177,6 +209,8 @@ As previously discussed, in addition to Azure portal, database recovery can be p
 
   > [!TIP]
   > For a sample PowerShell script showing how to perform a point-in-time restore of a database, see [Restore a SQL database using PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### Managed instance database
 
 - To restore a Managed Instance database, see [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
@@ -197,8 +231,13 @@ To restore a single or pooled database using the REST API:
 
 ### Azure CLI
 
-- To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
-- To restore a managed instance using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
+#### Single Azure SQL Database
+
+To restore a single or pooled database using Azure CLI, see [az sql db restore](/cli/azure/sql/db#az-sql-db-restore).
+
+#### Managed instance database
+
+To restore a managed instance database using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## Summary
 
