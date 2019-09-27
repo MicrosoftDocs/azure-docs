@@ -34,9 +34,9 @@ With *kubenet*, only the nodes receive an IP address in the virtual network subn
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
-Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.  [Calico network policies][calico-network-policies] are supported with kubenet.
+Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.  You can also use [Calico network policies][calico-network-policies], as they are supported with kubenet.
 
-With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.  [Calico network policies][calico-network-policies] are also supported with *Azure CNI*.
+With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.  You can also use [Calico network policies][calico-network-policies], as they are also supported with *Azure CNI*.
 
 ### IP address availability and exhaustion
 
