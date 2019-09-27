@@ -246,14 +246,14 @@ List of MSAL Exceptions
 |Exception  | Description  |
 |---------|---------|
 | `MsalException`     | Default checked exception thrown by MSAL.  |
-| `MsalClientException`     | Exception thrown if the error is client side. |
-| `MsalArgumentException`     | Exception thrown if one or more inputs arguments are invalid. |
-| `MsalClientException`     | Exception thrown if the error is client side. |
-| `MsalServiceException`     | Exception thrown if the error is from the server side. |
-| `MsalUserCancelException`     | Exception thrown if the user cancelled the flow.  |
-| `MsalUiRequiredException`     | Exception thrown to indicate that the token cannot be refreshed silently.  |
-| `MsalDeclinedScopeException`     | Exception thrown to indicate that one or more requested scopes have been declined by the server.  |
-| `MsalIntuneAppProtectionPolicyRequiredException`     | Exception thrown to indicated the resource has MAMCA protection policy enabled. |
+| `MsalClientException`     | Thrown if the error is client side. |
+| `MsalArgumentException`     | Thrown if one or more inputs arguments are invalid. |
+| `MsalClientException`     | Thrown if the error is client side. |
+| `MsalServiceException`     | Thrown if the error is server side. |
+| `MsalUserCancelException`     | Thrown if the user canceled the authentication flow.  |
+| `MsalUiRequiredException`     | Thrown if the token can't be refreshed silently.  |
+| `MsalDeclinedScopeException`     | Thrown if one or more requested scopes were declined by the server.  |
+| `MsalIntuneAppProtectionPolicyRequiredException` | Thrown if the resource has MAMCA protection policy enabled. |
 
 ### ADALError to MsalException ErrorCode
 

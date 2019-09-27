@@ -107,7 +107,7 @@ if (app.signOut())
 
 ## Multiple account public client application
 
-The `MultipleAccountPublicClientApplication` class is used to create MSAL-based apps that allow multiple accounts to be signed in at the same time. It allows you to get, add and remove accounts as follows:
+The `MultipleAccountPublicClientApplication` class is used to create MSAL-based apps that allow multiple accounts to be signed in at the same time. It allows you to get, add, and remove accounts as follows:
 
 ### Add an account
 

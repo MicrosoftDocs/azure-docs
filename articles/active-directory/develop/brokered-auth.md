@@ -110,7 +110,7 @@ To use a broker in your app, you must attest that you've configured your broker 
 > [!TIP]
 > The new Azure portal app registration UI helps you generate the broker redirect URI. If you registered your app using the older experience, or did so using the Microsoft app registration portal, you may need to generate the redirect URI and update the list of redirect URIs in the portal manually.
 
-### Broker related exceptions
+### Broker-related exceptions
 
 MSAL communicates with the broker in two ways:
 

@@ -35,7 +35,7 @@ We recommend that you use libraries written by protocol domain experts who follo
 The Microsoft identity platform endpoint works with two types of libraries:
 
 * **Client libraries**: Native clients and servers use client libraries to acquire access tokens for calling a resource such as Microsoft Graph.
-* **Server middleware libraries**: Web apps use server middleware libraries for user sign in. Web APIs use server middleware libraries to validate tokens that are sent by native clients or by other servers.
+* **Server middleware libraries**: Web apps use server middleware libraries for user sign-in. Web APIs use server middleware libraries to validate tokens that are sent by native clients or by other servers.
 
 ## Library support
 
