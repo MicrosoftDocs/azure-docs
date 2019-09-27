@@ -9,7 +9,7 @@ ms.date: 09/07/2019
 ms.author: victorh
 ---
 
-# Tutorial: Create a WAF policy for Azure Front Door using the Azure portal
+# Tutorial: Create a Web Application Firewall policy on Azure Front Door using the Azure portal
 
 This tutorial show you how to create a basic Azure Web Application Firewall (WAF) policy and apply it to a front-end host at Azure Front Door.
 
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](../../frontdoor/quickstart-create-front-door.md). 
 
-## Create a WAF policy
+## Create a Web Application Firewall policy
 
 First, create a basic WAF policy with managed Default Rule Set (DRS) by using the portal. 
 
@@ -50,7 +50,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
     > If the frontend host is associated to a WAF policy, it is shown as grayed out. You must first remove the frontend host from the associated policy, and then re-associate the frontend host to a new WAF policy.
 1. Select **Review + create**, then select **Create**.
 
-## Configure WAF rules (optional)
+## Configure Web Application Firewall rules (optional)
 
 ### Change mode
 

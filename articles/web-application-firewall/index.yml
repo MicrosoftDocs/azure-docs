@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 08/15/2019
+  ms.date: 09/28/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -25,9 +25,9 @@ landingContent:
         links:
           - text: What is Web Application Firewall?
             url: overview.md
-          - text: Web Application Firewall with Application Gateway
+          - text: Web Application Firewall on Application Gateway
             url: ./ag/ag-overview.md
-          - text: Web Application Firewall with Front Door
+          - text: Web Application Firewall on Front Door
             url: ./afds/afds-overview.md            
 
   # Card
@@ -35,9 +35,9 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Web Application Firewall with Application Gateway
+          - text: Web Application Firewall on Application Gateway
             url: ./ag/application-gateway-web-application-firewall-portal.md
-          - text: Web Application Firewall with Front Door
+          - text: Web Application Firewall on Front Door
             url: ./afds/waf-front-door-create-portal.md
 
   # Card
