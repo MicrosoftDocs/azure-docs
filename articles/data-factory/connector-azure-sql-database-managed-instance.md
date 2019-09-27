@@ -18,6 +18,8 @@ ms.author: jingwang
 ---
 # Copy data to and from Azure SQL Database Managed Instance by using Azure Data Factory
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Database Managed Instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 ## Supported capabilities

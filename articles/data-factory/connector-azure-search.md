@@ -22,6 +22,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-search-connector.md)
 > * [Current version](connector-azure-search.md)
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data into Azure Search index. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
