@@ -58,7 +58,7 @@ conceptualContent:
           text: Ink Recognizer (Preview)
         - url: ../media-services/video-indexer/index.yml
           itemType: overview
-          text: Video Indexer   
+          text: Video Indexer
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
       links: 
@@ -86,12 +86,12 @@ conceptualContent:
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
-        - url: ./speech/home.md          
+        - url: ./speech/home.md
           itemType: overview
-          text: Bing Speech (Retiring)   
+          text: Bing Speech (Retiring)
         - url: ./translator-speech/overview.md
           itemType: overview
-          text: Translator Speech (Retiring)           
+          text: Translator Speech (Retiring)
     - title: Decision 
       summary: Build apps that surface recommendations for informed and efficient decision-making.
       links: 
@@ -103,7 +103,7 @@ conceptualContent:
           text: Content Moderator
         - url: ./personalizer/index.yml
           itemType: overview
-          text: Personalizer (Preview) 
+          text: Personalizer (Preview)
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
       links: 
@@ -118,43 +118,46 @@ conceptualContent:
           text: Entity Search
         - url: ./bing-image-search/index.yml
           itemType: overview
-          text: Image Search     
+          text: Image Search
         - url: ./bing-local-business-search/index.yml
           itemType: overview
           text: Local Business Search (Preview)
         - url: ./bing-news-search/index.yml
           itemType: overview
-          text: News Search     
+          text: News Search
         - url: ./bing-spell-check/index.yml
           itemType: overview
-          text: Spell Check    
+          text: Spell Check
         - url: ./Bing-Video-Search/index.yml
           itemType: overview
-          text: Video Search    
+          text: Video Search
         - url: ./bing-visual-search/index.yml
           itemType: overview
-          text: Visual Search  
+          text: Visual Search
         - url: ./bing-web-search/index.yml
           itemType: overview
-          text: Web Search   
+          text: Web Search
     - title: Cognitive Service Containers
-      summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers..
+      summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
       links: 
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: Cognitive Service Containers
         - url: ./containers/container-reuse-recipe.md
-          itemType: overview
+          itemType: learn
           text: Create containers for reuse
         - url: ./containers/azure-container-instance-recipe.md
           itemType: how-to-guide
           text: Deploy and run container on Azure Container Instance
         - url: ./containers/azure-kubernetes-recipe.md
-          itemType: how-to-guide
+          itemType: deploy
           text: Deploy to Azure Kubernetes Service
         - url: ./containers/docker-compose-recipe.md
-          itemType: how-to-guide
+          itemType: get-started
           text: Use Docker Compose to deploy multiple containers
+        - url: ./containers/container-faq.md
+          itemType: reference
+          text: Cognitive Services containers FAQ
 
 additionalContent:
   sections:
@@ -171,7 +174,7 @@ additionalContent:
             url: https://docs.microsoft.com/rest/api/cognitiveservices/
       - title: SDKs
         links:
-          - text: .Net
+          - text: .NET
             url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
           - text: Go
             url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices

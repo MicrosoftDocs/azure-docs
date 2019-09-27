@@ -161,15 +161,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 
 ## Create an Azure AD B2C application
 
-Communication with Azure AD B2C occurs through an application that you create in your Azure AD B2C tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select **Add**.
-1. Enter a name for the application, for example *testapp1*.
-1. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
-1. Click **Create**.
+[!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 ## Update and test the relying party file
 

@@ -83,6 +83,17 @@ The Azure virtual machines you create for Windows Virtual Desktop must be:
 >[!NOTE]
 >If you need an Azure subscription, you can [sign up for a one-month free trial](https://azure.microsoft.com/free/). If you're using the free trial version of Azure, you should use Azure AD Domain Services to keep your Windows Server Active Directory in sync with Azure Active Directory.
 
+The Azure virtual machines you create for Windows Virtual Desktop must have outbound TCP 443 access to the following URLs:
+* *.wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Opening these URLs is essential for a reliable Windows Virtual Desktop deployment. Blocking access to these URLs is unsupported and will affect service functionality. These URLs only correspond to Windows Virtual Desktop sites and resources, and do not include URLS for other services like Azure AD.
+
 Windows Virtual Desktop comprises the Windows desktops and apps you deliver to users and the management solution, which is hosted as a service on Azure by Microsoft. During public preview, desktops and apps can be deployed on virtual machines (VMs) in any Azure region, and the management solution and data for these VMs will reside in the United States (US East 2 region). This may result in data transfer to the United States while you test the service during public preview. We'll start to scale out the management solution and data localization to all Azure regions starting at general availability.
 
 For optimal performance, make sure your network meets the following requirements:

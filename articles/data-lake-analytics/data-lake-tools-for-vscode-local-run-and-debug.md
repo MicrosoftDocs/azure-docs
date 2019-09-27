@@ -45,7 +45,7 @@ For the first-time user, use **ADL: Download Local Run Package** to download l
 2. Select **Accept** to accept the Microsoft Software License Terms for the first time. 
 
    ![Accept the Microsoft Software License Terms](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. For other options, you can use the default values. 
+3. The cmd console opens. For first-time users, you need to enter **3**, and then locate the local folder path for your data input and output. If you are unsuccessful defining the path with backslashes, try forward slashes. For other options, you can use the default values.
 
    ![Data Lake Tools for Visual Studio Code local run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Select Ctrl+Shift+P to open the command palette, enter **ADL: Submit Job**, and then select **Local** to submit the job to your local account.
