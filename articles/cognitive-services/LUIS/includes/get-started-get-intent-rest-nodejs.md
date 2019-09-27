@@ -48,7 +48,7 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 
@@ -57,4 +57,4 @@ When you are finished with this quickstart, close the Visual Studio project and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Node.js](luis-get-started-node-add-utterance.md)
+> [Add utterances and train with Node.js](../luis-get-started-node-add-utterance.md)

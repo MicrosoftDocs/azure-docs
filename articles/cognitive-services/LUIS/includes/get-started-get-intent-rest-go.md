@@ -68,7 +68,7 @@ You can use Go to access the same results you saw in the browser window in the p
 
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 
@@ -77,4 +77,4 @@ When you are finished with this quickstart, close the Visual Studio project and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Go](luis-get-started-go-add-utterance.md)
+> [Add utterances and train with Go](../luis-get-started-go-add-utterance.md)
