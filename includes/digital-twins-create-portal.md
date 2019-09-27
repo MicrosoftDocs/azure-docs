@@ -5,7 +5,7 @@
  author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 08/16/2019
+ ms.date: 09/24/2019
  ms.author: dkshir
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@
 
 1. From the left pane, select **Create a resource**. Search for **digital twins**, and select **Digital Twins**. Select **Create** to start the deployment process.
 
-   ![Selections for creating a new Digital Twins instance](./media/create-digital-twins-portal/create-digital-twins.png)
+   [![Selections for creating a new Digital Twins instance](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
 
 1. In the **Digital Twins** pane, enter the following information:
    * **Resource Name**: Create a unique name for your Digital Twins instance.
@@ -22,7 +22,7 @@
    * **Resource group**: Select or create a [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for the Digital Twins instance.
    * **Location**: Select the closest location to your devices.
 
-     ![Digital Twins pane with entered information](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     [![Digital Twins pane with entered information](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 
 1. Review your Digital Twins information, and then select **Create**. Your Digital Twins instance might take a few minutes to be created. You can monitor the progress in the **Notifications** pane.
 
@@ -32,4 +32,4 @@
 
     Modify the **Management API** URL to this format `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Your application will use the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You'll need this in the next section.
 
-    ![Management API](./media/create-digital-twins-portal/digital-twins-management-api.png)
+    [![Management API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

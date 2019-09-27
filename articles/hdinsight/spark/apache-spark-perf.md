@@ -55,7 +55,7 @@ When you create a new Spark cluster, you have the option to select Azure Blob St
 | Store Type | File System | Speed | Transient | Use Cases |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:**//url/ | **Standard** | Yes | Transient cluster |
-| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Faster** | Yes | Transient cluster |
+| Azure Data Lake Storage Gen 2| **abfs:**//url/ | **Faster** | Yes | Transient cluster |
 | Azure Data Lake Storage Gen 1| **adl:**//url/ | **Faster** | Yes | Transient cluster |
 | Local HDFS | **hdfs:**//url/ | **Fastest** | No | Interactive 24/7 cluster |
 

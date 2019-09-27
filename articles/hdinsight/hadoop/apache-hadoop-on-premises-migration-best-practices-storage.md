@@ -104,7 +104,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
 
 For more information, see the following articles:
 

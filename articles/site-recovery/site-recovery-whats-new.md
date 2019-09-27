@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/18/2019
 ms.author: raynew
 ---
 # What's new in Site Recovery
@@ -105,7 +105,7 @@ New features for Azure VM disaster recovery are summarized in the table.
 
 ### General
 
-Site Recovery now supports used of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
+Site Recovery now supports the use of general purpose v2 storage accounts for cache storage or target storage. Previously only v1 was supported.
 
 ### VMware to Azure disaster recovery
 

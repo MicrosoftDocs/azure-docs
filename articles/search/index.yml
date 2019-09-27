@@ -7,7 +7,6 @@ metadata:
   description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: cognitive-search
   ms.topic: landing-page # Required
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
