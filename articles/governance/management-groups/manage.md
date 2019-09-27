@@ -279,7 +279,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## Move management groups in the hierarchy  
 
-When you move a parent management group, the hierarchy under that group moves with it. For the access you need to move management groups, see [Management group access](index.md#management-group-access).
+When you move a parent management group, the hierarchy under that group moves with it. For the access you need to move management groups, see [Management group access](overview.md#management-group-access).
 
 ### Move management groups in the portal
 
