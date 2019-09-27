@@ -24,8 +24,6 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Machine translation concepts
-            url: translator-info-overview.md
           - text: Translator Text API
             url: translator-info-overview.md
           - text: Custom Translator
