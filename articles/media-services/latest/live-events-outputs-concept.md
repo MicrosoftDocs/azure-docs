@@ -83,6 +83,9 @@ When creating a Live Event, you can specify the following options:
 
 Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
 
+> [!TIP]
+> To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens “-“ (4). The string will be unique across all live events and its length is guaranteed to be 32.
+
 ## Live Event ingest URLs
 
 Once the Live Event is created, you can get ingest URLs that you will provide to the live on-premises encoder. The live encoder uses these URLs to input a live stream. For more information, see [Recommended on-premises live encoders](recommended-on-premises-live-encoders.md). 
