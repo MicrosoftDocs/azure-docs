@@ -24,8 +24,6 @@
     items: 
     - name: Create and manage app
       href: sdk-csharp-quickstart-authoring-app.md
-    - name: Query prediction endpoint V3
-      href: sdk-csharp-quickstart-query-prediction-endpoint-v3.md
     - name: Query prediction endpoint V2
       href: sdk-csharp-quickstart-query-prediction-endpoint.md
   - name: Use Python SDK
@@ -406,8 +404,6 @@
   items:
   - name: Azure Bot Service
     href: https://dev.botframework.com/
-  - name: Bot Builder 3.x SDK C#
-    href: https://github.com/Microsoft/BotBuilder
   - name: Bot Builder 4.x SDK C#
     href: https://github.com/Microsoft/botbuilder-dotnet
   - name: QnA maker
