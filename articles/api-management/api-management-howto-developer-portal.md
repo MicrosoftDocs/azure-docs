@@ -83,11 +83,11 @@ You can do so in both portal versions - managed and self-hosted. The new develop
 
 We're still working on aligning this process with the API Management DevOps resource kit.
 
-### How can I configure my API Management service in VNET to support the new developer portal?
+### What do I need to configure for the new portal to work in my API Management service in VNET?
 
-While the new developer portal is in preview, you need to allow connectivity to Azure storage services in the West US region in order to make the managed portal work in an API Management service in VNET. More information is provided in the [storage documentation](../storage/common/storage-network-security#available-virtual-network-regions).
+While the new developer portal is in preview, you need to allow connectivity to Azure storage services in the West US region in order to make the managed portal work in an API Management service in VNET. More information is provided in the [storage documentation](../storage/common/storage-network-security.md#available-virtual-network-regions).
 
-Allowing connectivity as per instructions above will no longer be necessary after the new portal becomes generally available.
+The above setup will no longer be necessary after the new portal becomes generally available.
 
 The self-hosted version of the portal may require additional connectivity configuration, depending on your setup.
 
