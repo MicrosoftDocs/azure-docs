@@ -50,6 +50,10 @@
     - name: Classification (Bank data)
       displayName: automl, automated, auto ml, portal, ui
       href: tutorial-first-experiment-automated-ml.md
+  - name: Machine Learning CLI
+    items:
+    - name: Train and deploy a model
+      href: tutorial-train-deploy-model-cli.md
 - name: Samples
   items:
   - name: Notebooks
