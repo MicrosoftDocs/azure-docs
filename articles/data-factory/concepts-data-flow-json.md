@@ -46,7 +46,7 @@ If this expression were entered for a column named "complexColumn" then it would
 }
 ```
 
-#### Sample manual DSL
+#### Sample manual script for complete hierarchical definition
 ```
 @(
 	title=Title,
