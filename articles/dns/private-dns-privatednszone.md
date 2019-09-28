@@ -16,7 +16,7 @@ Azure Private DNS provides a reliable, secure DNS service to manage and resolve 
 The records contained in a private DNS zone are not resolvable from internet. DNS resolution against a private DNS zone works only from virtual networks that have been link to it.
 
 You can link a private DNS zone to one or more virtual networks by creating [virtual network links](./private-dns-virtualnetworklinks.md).
-You can also enable [auto-registration](./private-dns-autoregistration) feature to automatically manage the life cycle of the DNS records for the virtual machines deployed in a virtual network.
+You can also enable [auto-registration](./private-dns-autoregistration.md) feature to automatically manage the life cycle of the DNS records for the virtual machines deployed in a virtual network.
 
 ## Limits
 
