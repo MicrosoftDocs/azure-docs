@@ -62,7 +62,7 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
   >
   > The SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
   >
-  > * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
+  > * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
   > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
   > * **Fingerprint**: MD5
   >
@@ -72,8 +72,6 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
   > which might cause the connection to fail. Instead, make sure that you ***copy the key*** from 
   > your SSH private key file, and ***paste*** that key into the connection details. 
   > For more information, see the [Connect to SFTP with SSH](#connect) section later this article.
-  >
-  > If you have a private key that is in PuTTY format, first [convert the key to the OpenSSH format](#convert-to-openssh).
 
 * Basic knowledge about [how to create logic apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
