@@ -188,6 +188,8 @@ Find the provisioning configurations of the file and uncomment the **Manual prov
    #     registration_id: "{registration_id}"
 ```
 
+To paste in nano editor press Shift + Insert.
+
 Save and close the file.
 
    `CTRL + X`, `Y`, `Enter`
