@@ -18,7 +18,7 @@ keyPhrase extracts a variety of key phrases from an utterance. You do not need t
 
 ## Resolution for prebuilt keyPhrase entity
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.keyPhrase** entity.
 
@@ -45,6 +45,80 @@ The following example shows the resolution of the **builtin.keyPhrase** entity.
   ]
 }
 ```
+#### [V3 prediction endpoint response](#tab/V3)
+
+The following JSON is with the `verbose` parameter set to `false`:
+
+```json
+{
+    "query": "where is the educational requirements form for the development and engineering group",
+    "prediction": {
+        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
+        "topIntent": "GetJobInformation",
+        "intents": {
+            "GetJobInformation": {
+                "score": 0.157861546
+            }
+        },
+        "entities": {
+            "keyPhrase": [
+                "educational requirements",
+                "development"
+            ]
+        }
+    }
+}
+```
+
+The following JSON is with the `verbose` parameter set to `true`:
+
+```json
+{
+    "query": "where is the educational requirements form for the development and engineering group",
+    "prediction": {
+        "normalizedQuery": "where is the educational requirements form for the development and engineering group",
+        "topIntent": "GetJobInformation",
+        "intents": {
+            "GetJobInformation": {
+                "score": 0.157861546
+            }
+        },
+        "entities": {
+            "keyPhrase": [
+                "educational requirements",
+                "development"
+            ],
+            "$instance": {
+                "keyPhrase": [
+                    {
+                        "type": "builtin.keyPhrase",
+                        "text": "educational requirements",
+                        "startIndex": 13,
+                        "length": 24,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    },
+                    {
+                        "type": "builtin.keyPhrase",
+                        "text": "development",
+                        "startIndex": 51,
+                        "length": 11,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
+```
+* * * 
 
 ## Next steps
 
