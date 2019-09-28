@@ -11,7 +11,7 @@ ms.author: rohink
 
 # Migrating legacy Azure DNS private zones to new resource model
 
-We shipped a new API/resource model for Azure DNS private zones as part of the preview refresh release. Preview refresh provides new functionality and removes several limitations and restrictions of the initial public preview. However, these benefits aren't available on the private DNS zones that have been created using legacy API. To get the benefits of the new release, you must migrate your legacy private DNS zone resources to new resource model. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction for migrating your Azure DNS private zones to new resource model.
+Current release of Azure DNS private zones provides new functionality and removes several limitations and restrictions of the initial public preview. However, these benefits aren't available on the private DNS zones that have been created using preview API. To get the benefits of the new release, you must migrate your legacy private DNS zone resources to new resource model. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction for migrating your Azure DNS private zones to new resource model.
 
 ## Prerequisites
 
