@@ -444,11 +444,27 @@ plt.show()
 ```
 
 
-This chart shows the success of the current learning policy for the duration of the test.
+This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to one hundred precent minus the exploration. The default setting of exploration is 20%. 
 
-The 80% success indicates a near perfect prediction, which isn't realistic for all Personalizer loops. The other 20% of the time, the loop is exploring by sending back results to the Rank call that are not determined by the currently trained model. 
+`100-20=80`
+
+This exploration setting is found in the Azure portal, for the Personalizer resource, on the **Settings** page. 
 
 In order to find a better learning policy, based on your data to the Rank API, run an [offline evaluation](how-to-offline-evaluation.md) in the portal for your Personalizer loop.
+
+## Run an offline evaluation
+
+1. In the Azure portal, open the Personalizer resource's **Evaluations** page.
+1. Select **Create Evaluation**.
+1. Enter the required data of evaluation name, and date range for the loop evaluation. The date range should include only the days you are focusing on for your evaluation. 
+    ![In the Azure portal, open the Personalizer resource's Evaluations page. Select Create Evaluation. Enter the evaluation name and date range.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
+
+    The purpose of running this offline evaluation is to determine if there is a better learning loop for the features and actions used in this loop. To find that better learning loop, make sure **Optimization policy** is turned on.
+
+1. Select **OK** to begin the evaluation. 
+1. This **Evaluations** page lists the new evaluation and its current status. Depending on how much data you have, this evaluation can take some time. You can come back to this page after a few minutes to see the results. 
+
+## Review evaluation results
 
 ## Clean up resources
 
