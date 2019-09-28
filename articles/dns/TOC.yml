@@ -49,7 +49,7 @@
       href: private-dns-privatednszone.md
     - name: Virtual network links
       href: private-dns-virtualnetworklinks.md
-    - name: Auto-registration
+    - name: Autoregistration
       href: private-dns-autoregistration.md
     - name: Private DNS scenarios
       href: private-dns-scenarios.md

@@ -28,7 +28,7 @@ No. Private zones work along with virtual networks. You use them to manage domai
 
 ## Can the same private zone be used for several virtual networks for resolution?
 
-Yes. You can link a private DNS zone with thousands of virtual networks. For more information refer to [Azure DNS Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
+Yes. You can link a private DNS zone with thousands of virtual networks. For more information, see [Azure DNS Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
 
 ## Can a virtual network that belongs to a different subscription be linked to a private zone?
 
@@ -65,15 +65,15 @@ For guidance on how to change this suffix refer to [Use dynamic DNS to register 
 
 ## What are the usage limits for Azure DNS Private zones?
 
-Please refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 
-If your existing private DNS zone were create using preview API you must migrate these zones to new resource model before these can show up in the new portal experience. See below for instructions on how to migrate to new resource model.
+If your existing private DNS zone were create using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API will not show up in new portal experience. See below for instructions on how to migrate to new resource model.
 
 ## How do I migrate my existing private DNS zones to the new model?
 
-We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
+We strongly recommend that you migrate to the new resource model as soon as possible. Legacy resource model will be supported, however, further features will not be developed on top of this model. In future, we intend to deprecate it in favor of new resource model. For guidance on how to migrate your existing private DNS zones to new resource model see[migration guide for Azure DNS private zones](private-dns-migration-guide.md).
 
 ## Next steps
 
