@@ -169,15 +169,21 @@ Unfortunately, other object-based spatializer plug-ins aren't currently supporte
 
     ![The Unreal editor shows Acoustics component usage in an empty actor](media/acoustics-component-usage.png)
 
-   1. Add an Acoustics audio component to the actor. This component adds Project Acoustics functionality to the Wwise audio component.
-    a. The **Play on Start** box is selected by default. This setting triggers an associated Wwise event at level startup.
-    b. Use the **Show Acoustics Parameters** checkbox to print on-screen debug information about the source.  
-    ![The Unreal editor Acoustics panel on sound source with debug values enabled](media/debug-values.png)
-    a. Assign a Wwise event per the usual Wwise workflow.
-    b. Make sure that **Use Spatial Audio** is turned off. If you use Project Acoustics for a particular audio component, you can't simultaneously use Wwise's Spatial Audio engine for acoustics.
+       
+        <sup>1</sup> Add an Acoustics audio component to the actor. This component adds Project Acoustics functionality to the Wwise audio component.
+        
+        <sup>2</sup> The **Play on Start** box is selected by default. This setting triggers an associated Wwise event at level startup.</li>
+         
+        <sup>3</sup> Use the **Show Acoustics Parameters** checkbox to print on-screen debug information about the source.
 
+           ![The Unreal editor Acoustics panel on sound source with debug values enabled](media/debug-values.png)
+
+        <sup>4</sup> Assign a Wwise event per the usual Wwise workflow.
+       
+        <sup>5</sup> Make sure that **Use Spatial Audio** is turned off. If you use Project Acoustics for a particular audio component, you can't simultaneously use Wwise's Spatial Audio engine for acoustics.</li>
+       
 You're all set. Move around the scene and explore the acoustic effects!
 
 ## Next steps
-* [Project Acoustics Unreal/Wwise Design Tutorial](unreal-workflow.md) tutorial for Project Acoustics in Unreal/Wwise
-* [Learn how to do bakes](unreal-baking.md) for your game scenes 
+* Try the [Project Acoustics Unreal/Wwise Design Tutorial](unreal-workflow.md).
+* Learn [how to do bakes](unreal-baking.md) for your game scenes.

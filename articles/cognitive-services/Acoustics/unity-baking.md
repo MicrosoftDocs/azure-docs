@@ -226,11 +226,11 @@ Install and configure Docker on the PC that will process the simulation:
 ### Run the local bake
 1. Select the **Prepare Local Bake** button on the **Bake** tab. Then, select a folder location to save the input files and execution scripts to. You can then run the bake on any machine as long as it meets the minimum hardware requirements, and you install Docker by copying the folder to that machine.
 2. To launch the simulation, run the *runlocalbake.bat* script on Windows or the *runlocalbake.sh* script on MacOS. This script fetches the Project Acoustics Docker image with the toolset necessary for simulation processing and starts the simulation.
-3. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, share this file to assist with diagnosis.
+3. After the simulation has finished, copy the resulting *.ace* file back to your Unity project. To make sure that Unity recognizes it as a binary file, append ".bytes" to the file extension (for example, "Scene1.ace.bytes"). The detailed logs for the simulation are stored in *AcousticsLog.txt.* If you run into any issues, inspect this file to help diagnose the problem.
 
 ## <a name="Data-Files"></a> Data files added by the bake process
 
-The following four data files are created during the bake process. One contains the simulation results and ships with your title. The others store Unity Editor-related data.
+The following four data files are created during the bake process. One contains the simulation results and ships with your title. The others store Unity editor-related data.
 
 Simulation result:
 * *Assets/AcousticsData/Acoustics\_[SceneName].ace.bytes*: This file is the runtime lookup table. It contains the simulation results and voxelized acoustic scene elements. You can change the name and location of this file on the **Probes** tab.
@@ -239,7 +239,7 @@ Simulation result:
 
 Editor data files:
 * *Assets/Editor/[SceneName]\_AcousticsParameters.asset*: This file stores the data that you enter in fields in the Acoustics UI. You can't change the name and location of this file.
-* *Assets/AcousticsData/Editor/Acoustics_[SceneName].Fox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate**  button on the **Probes** tab. You can change the name and location of this file on the **Probes** tab.
+* *Assets/AcousticsData/Editor/Acoustics_[SceneName].vox*: This file stores the voxelized acoustics geometry and the material properties that are computed when you select the **Calculate**  button on the **Probes** tab. You can change the name and location of this file on the **Probes** tab.
 * *Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml*: This file stores simulation parameters that are computed when you select **Calculate**. You can change the name and location of this file on the **Probes** tab.
 
 ## Set up the acoustics lookup table
@@ -247,7 +247,7 @@ Drag the **Project Acoustics** prefab from the project panel into your scene:
 
 ![The Acoustics prefab in Unity](media/acoustics-prefab.png)
 
-Select the **ProjectAcoustics** game object, and go to its inspector panel. Specify the location of your bake result (the.ace file, in *Assets/AcousticsData*): Drag it into the Acoustics Manager script or select the circle button next to the text box.
+Select the **ProjectAcoustics** game object, and go to its inspector panel. Specify the location of your bake result (the .ace file, in *Assets/AcousticsData*): Drag it into the Acoustics Manager script or select the circle button next to the text box.
 
 [The Acoustics Manager prefab in Unity](media/acoustics-manager.png)
 

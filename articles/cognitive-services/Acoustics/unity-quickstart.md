@@ -72,7 +72,7 @@ The *AcousticsAdjust* script is attached to the sound sources in the sample scen
 The following sections explore some of the effects that you can create by using the available controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unity-workflow.md).
 
 ### Modify distance-based attenuation
-The audio DSP in the **Project Acoustics** Unity spatializer plug-in respects the per-source distance-based attenuation that's built into the Unity Editor. The controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources under **3D Sound Settings**:
+The audio digital signal processing in the **Project Acoustics** Unity spatializer plug-in respects the per-source distance-based attenuation that's built into the Unity editor. The controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources under **3D Sound Settings**:
 
 ![Unity distance attenuation options panel](media/distance-attenuation.png)
 
