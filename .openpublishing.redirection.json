@@ -1226,11 +1226,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/governance/management-groups/overview.md",
-      "redirect_url": "/azure/governance/management-groups/index",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
       "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
       "redirect_document_id": true
@@ -5403,6 +5398,31 @@
     {
       "source_path": "articles/azure-functions/functions-create-vnet-old.md",
       "redirect_url": "/azure/azure-functions/functions-create-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
       "redirect_document_id": false
     },
     {
@@ -28880,6 +28900,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/postgresql/concepts-service-tiers.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -42037,8 +42062,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-accelerators/iot-accelerators-architecture-overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/reference-architectures/iot/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/use-osba-pcf-app.md",
+      "redirect_url": "/azure/cloudfoundry",
       "redirect_document_id": false
     }
   ]

@@ -12,9 +12,9 @@ ms.author: v-erkell
 
 Azure HPC Cache (preview) allows clients to access a variety of storage systems through a virtual namespace that hides the details of the back-end storage system.
 
-When you add a storage target, you set the client-facing filepath. Client machines mount this filepath and can make file read requests to the cache instead of mounting the storage system directly.
+When you add a storage target, you set the client-facing file path. Client machines mount this file path and can make file read requests to the cache instead of mounting the storage system directly.
 
-Because Azure HPC Cache manages this virtual filesystem, you can change the storage target without changing the client-facing path. For example, you could replace a hardware storage system with cloud storage without needing to rewrite client-facing procedures.
+Because Azure HPC Cache manages this virtual file system, you can change the storage target without changing the client-facing path. For example, you could replace a hardware storage system with cloud storage without needing to rewrite client-facing procedures.
 
 ## Aggregated namespace example
 
@@ -37,7 +37,7 @@ The data to be analyzed has been copied to an Azure Blob storage container named
 
 To allow easy access through the cache, consider creating storage targets with these virtual namespace paths:
 
-| Back-end storage system <br/> (NFS filepath or Blob container) | Virtual namespace path |
+| Back-end storage system <br/> (NFS file path or Blob container) | Virtual namespace path |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -45,15 +45,15 @@ To allow easy access through the cache, consider creating storage targets with t
 
 An NFS storage target can have multiple virtual namespace paths, as long as each one references a unique export path.
 
-Since the NFS source paths are subdirectories of the same export, you will need to define multiple namespace paths from the same storage target.
+Because the NFS source paths are subdirectories of the same export, you will need to define multiple namespace paths from the same storage target.
 
 | Storage target hostname  | NFS export path      | Subdirectory path | Namespace path    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *IP address or hostname* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP address or hostname* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-A client application can mount the cache and easily access the aggregated namespace filepaths ``/source``, ``/templates/sku798``, and ``/templates/sku980``.
+A client application can mount the cache and easily access the aggregated namespace file paths ``/source``, ``/templates/sku798``, and ``/templates/sku980``.
 
 ## Next steps
 
-After you have decided how to set up your virtual filesystem, [create storage targets](hpc-cache-add-storage.md) to map your back-end storage to your client-facing virtual filepaths.
+After you have decided how to set up your virtual file system, [create storage targets](hpc-cache-add-storage.md) to map your back-end storage to your client-facing virtual file paths.

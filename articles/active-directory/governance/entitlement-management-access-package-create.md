@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -77,7 +77,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 On the **Resource roles** tab, you select the resources to include in the access package.  Users who request and receive the access package will receive all the resource roles in the access package.
 
-1. Click the resource type you want to add (**Groups**, **Applications**, or **SharePoint sites**).
+1. Click the resource type you want to add (**Groups and Teams**, **Applications**, or **SharePoint sites**).
 
 1. In the Select pane that appears, select one or more resources from the list.
 
