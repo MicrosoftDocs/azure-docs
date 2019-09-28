@@ -83,6 +83,14 @@ You can do so in both portal versions - managed and self-hosted. The new develop
 
 We're still working on aligning this process with the API Management DevOps resource kit.
 
+### How can I configure my API Management service in VNET to support the new developer portal?
+
+While the new developer portal is in preview, you need to allow connectivity to Azure storage services in the West US region in order to make the managed portal work in an API Management service in VNET. More information is provided in the [storage documentation](../storage/common/storage-network-security#available-virtual-network-regions).
+
+Allowing connectivity as per instructions above will no longer be necessary after the new portal becomes generally available.
+
+The self-hosted version of the portal may require additional connectivity configuration, depending on your setup.
+
 ### How can I select a *layout* when creating a new *page*?
 
 A *layout* gets applied to a page by matching its URL template to the *page's* URL. For example, *layout* with a URL template of `/wiki/*` will be applied to every *page* with the `/wiki/` segment: `/wiki/getting-started`, `/wiki/styles`, and so on.
