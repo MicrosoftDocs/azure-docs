@@ -25,7 +25,7 @@ You can copy or back up your deployed Azure Stream Analytics jobs using Visual S
 
 ## Visual Studio Code 
 
-1. Click the **Azure** icon on Visual Studio Code Activity Bar and then expand **Stream Analytics** node. Your jobs should appear under your subscriptions.
+1. Click the **Azure** icon on the Visual Studio Code Activity Bar and then expand **Stream Analytics** node. Your jobs should appear under your subscriptions.
 
    ![Open Stream Analytics Explorer](./media/vscode-explore-jobs/open-explorer.png)
 
@@ -33,7 +33,7 @@ You can copy or back up your deployed Azure Stream Analytics jobs using Visual S
 
     ![Export ASA job in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
-The project is exported to the folder you select and added to your current workspace.
+    The project is exported to the folder you select and added to your current workspace.
 
     ![Export ASA job in Visual Studio Code](./media/stream-analytics-manage-job/copy-backup-stream-analytics-jobs.png)
 
@@ -46,7 +46,7 @@ The project is exported to the folder you select and added to your current works
 
 1. Follow the [export a deployed Azure Stream Analytics job to a project instructions](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project). 
 
-2. Open \*.asaql file in the Query Editor, select **Submit To Azure** in the script editor and follow the instructions to publish the job to another region or backup using a new name. 
+2. Open the \*.asaql file in the Query Editor, select **Submit To Azure** in the script editor and follow the instructions to publish the job to another region or backup using a new name. 
 
 
 ## Next steps

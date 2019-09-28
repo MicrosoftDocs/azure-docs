@@ -97,7 +97,7 @@
       href: stream-analytics-power-bi-dashboard.md
     - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
-    - name: Copy or backup a job
+    - name: Copy or back up a job
       href: copy-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
