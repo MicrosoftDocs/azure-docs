@@ -17,11 +17,11 @@ ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
 
-#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Windows virtual machines.
+#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
-# Tutorial: Monitor changes and update a Windows virtual machine in Azure
+# Tutorial: Monitor changes and update a Linux virtual machine in Azure
 
-Azure [Change Tracking](../../automation/change-tracking.md) allows you to easily identify changes and [Update Management](../../automation/automation-update-management.md) allows you to manage operating system updates for your Azure Windows VMs.
+Azure [Change Tracking](../../automation/change-tracking.md) allows you to easily identify changes and [Update Management](../../automation/automation-update-management.md) allows you to manage operating system updates for your Azure Linux VMs.
 
 In this tutorial, you learn how to:
 
