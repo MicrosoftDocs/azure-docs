@@ -34,19 +34,7 @@ In this tutorial, you learn how to:
 
 ## Add a web API application
 
-Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-1. Select **Applications**, and then select **Add**.
-1. Enter a name for the application. For example, *webapi1*.
-1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
-1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In this tutorial, the sample runs locally and listens at `https://localhost:5000`.
-1. For **App ID URI**, enter an API endpoint identifier to the URI shown. For the tutorial, enter `api`, so that the full URI is similar to `https://contosotenant.onmicrosoft.com/api`.
-1. Click **Create**.
-1. Select the *webapi1* application to open its properties page.
-1. Record the **Application ID** shown on the properties page. You need this ID in a later step when you configure the web application.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## Configure scopes
 
