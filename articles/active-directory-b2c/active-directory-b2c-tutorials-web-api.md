@@ -60,7 +60,7 @@ To call a protected web API from an application, you need to grant your applicat
 2. Select **API access**, and then select **Add**.
 3. In the **Select API** dropdown, select *webapi1*.
 1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-5. Click **OK**.
+5. Select **OK**.
 
 Your application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the application. The application obtains an authorization grant from Azure AD B2C to access the protected web API.
 

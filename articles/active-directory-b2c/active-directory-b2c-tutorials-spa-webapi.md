@@ -67,7 +67,7 @@ In the prerequisite tutorial, you created a web application named *webapp1*. In 
 1. Select **API access**, and then select **Add**.
 1. In the **Select API** dropdown, select *webapi1*.
 1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-1. Click **OK**.
+1. Select **OK**.
 
 Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an authorization grant from Azure AD B2C to access the protected web API.
 
