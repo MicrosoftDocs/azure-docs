@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 # List entity 
@@ -55,6 +55,10 @@ In the previous utterance, the word `paris` is mapped to the paris item as part 
 ]
 ```
 
+|Data object|Entity name|Value|
+|--|--|--|
+|List Entity|`Cities`|`paris`|
+
 Another example utterance, using a synonym for Paris:
 
 `book 2 tickets to roissy`
@@ -77,7 +81,7 @@ Another example utterance, using a synonym for Paris:
 
 |Data object|Entity name|Value|
 |--|--|--|
-|Simple Entity|`Customer`|`bob jones`|
+|List Entity|`Cities`|`roissy`|
 
 ## Next steps
 

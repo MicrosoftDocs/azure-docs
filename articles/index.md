@@ -1908,6 +1908,15 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
+                                    <h3>Windows Virtual Desktop</h3>
+                                    <ul>
+                                        <li>
+                                            <a href="/azure/virtual-desktop/">
+                                                <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                <p>Windows Virtual Desktop</p>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
                             </li>
                         </ul>
@@ -6330,6 +6339,30 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure SignalR Service</h3>
                                                     <p>Add real-time web functionalities easily</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#windowsvirtualdesktop">Windows Virtual Desktop</a>
+                        <ul id="windowsvirtualdesktop" class="cardsA">
+                            <li>
+                                <a href="/azure/virtual-desktop">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Windows Virtual Desktop</h3>
+                                                    <p>Deliver a virtual desktop experience to any device at cloud scale</p>
                                                 </div>
                                             </div>
                                         </div>
