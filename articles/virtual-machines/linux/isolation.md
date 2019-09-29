@@ -22,7 +22,6 @@ ms.author: ayshak
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation-migration.md)]
 
-# Draft (Formatting getting fixed)
 ## Retiring D15_v2/DS15_v2 isolation on January 1, 2020
 We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After <b>January 1, 2020</b>, the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
 
