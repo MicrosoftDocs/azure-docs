@@ -27,15 +27,15 @@ For this article, you need a free LUIS account, created on the LUIS portal at [h
 ## Create a new app
 You can create and manage your applications on **My Apps**. 
 
-2. Select **Create new app**.
+1. Select **Create new app**.
 
     [![Screenshot of app list](media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](media/luis-quickstart-new-app/app-list.png)
 
-3. In the dialog box, name your application "Home Automation".
+1. In the dialog box, name your application "Home Automation".
 
     [![Screenshot of Create new app pop-up dialog](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the Home Automation app. 
+1. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the Home Automation app. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 

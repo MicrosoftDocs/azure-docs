@@ -200,7 +200,7 @@ A public app is published in all regions so that a user with a region-based LUIS
 
 ## Transfer of ownership
 
-**For [authoring resource migrated](luis-migration-authoring.md) apps**: 
+**For [authoring resource migrated](luis-migration-authoring.md) apps**: As the owner of the resource, you can add a `contributor`.
 
 **For apps that have not migrated yet**: Export your app as a JSON file. Another LUIS user can import the app, thereby becoming the app owner. The new app will have a different app ID.  
 

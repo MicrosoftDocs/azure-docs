@@ -87,43 +87,43 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 <!-- V3FIX -->
 
-1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
+The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
-    ```Is there a form named hrf-234098```
+```Is there a form named hrf-234098```
 
-    The browser shows the response, which is the same JSON your client application will receive:
+The browser shows the response, which is the same JSON your client application will receive:
 
-    ```JSON
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
+This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
 
-    [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
 
 
 
