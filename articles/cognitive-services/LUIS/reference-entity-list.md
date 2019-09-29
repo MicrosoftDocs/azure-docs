@@ -105,36 +105,6 @@ This is the JSON if `verbose=true` is set in the query string:
 |--|--|--|
 |List Entity|`Cities`|`paris`|
 
-Another example utterance, using a synonym for Paris:
-
-`book 2 tickets to roissy`
-
-#### [V2 prediction endpoint response](#tab/V2)
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-
-#### [V3 prediction endpoint response](#tab/V3)
-
-* * * 
-
-|Data object|Entity name|Value|
-|--|--|--|
-|List Entity|`Cities`|`roissy`|
 
 ## Next steps
 
