@@ -20,6 +20,8 @@ This reference provides information about the [prebuilt domains](luis-how-to-use
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
+## Custom domains per language
+
 The table below summarizes the currently supported domains. Support for English is usually more complete than others. 
 
 | Entity Type       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
