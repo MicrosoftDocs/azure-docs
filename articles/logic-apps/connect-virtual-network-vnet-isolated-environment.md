@@ -68,7 +68,7 @@ This article shows how to complete these tasks:
 
 ## Check network ports
 
-When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port that you use on your FTP system is available, for example, port 21 for sending commands. To make sure that your ISE stays accessible and can work correctly, open the the ports specified by the table below. Otherwise, if any required ports are unavailable, your ISE stops working.
+When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port that you use on your FTP system is available, for example, port 21 for sending commands. To make sure that your ISE stays accessible and can work correctly, open the ports specified by the table below. Otherwise, if any required ports are unavailable, your ISE stops working.
 
 > [!IMPORTANT]
 > Source ports are ephemeral, so make sure that you set them to `*` for all rules.
