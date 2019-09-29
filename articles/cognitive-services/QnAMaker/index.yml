@@ -44,7 +44,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: "Quickstart: Create a new knowledge base"
-            url: how-to/create-knowledge-base.md
+            url: quickstarts/create-publish-knowledge-base.md
           - text: "Quickstart: Add questions and answer"
             url: quickstarts/add-question-metadata-portal.md
       - linkListType: how-to-guide

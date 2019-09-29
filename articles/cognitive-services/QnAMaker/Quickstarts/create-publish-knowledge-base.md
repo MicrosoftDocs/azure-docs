@@ -115,7 +115,7 @@ Clean up the QnA Maker and Bot framework resources in the Azure portal.
 
 ## Next steps
 
-For cost savings measures, you can [share](set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
+For cost savings measures, you can [share](../how-to/set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
 
 > [!div class="nextstepaction"]
-> [Create a knowledge base](../How-To/create-knowledge-base.md)
+> [Add questions and answer with QnA Maker portal](add-question-metadata-portal.md)
