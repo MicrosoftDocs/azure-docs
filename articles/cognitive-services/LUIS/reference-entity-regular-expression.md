@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
 # Regular expression entity 
@@ -42,6 +42,8 @@ This regex expression also matches any words that end with these numbers, such a
 
 When using `kb[0-9]{6}`, as the regular expression entity definition, the following JSON response is an example utterance with the returned regular expression entities for the query `When was kb123456 published?`:
 
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```JSON
 {
   "query": "when was kb123456 published?",
@@ -69,6 +71,11 @@ When using `kb[0-9]{6}`, as the regular expression entity definition, the follow
   ]
 }
 ```
+
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+* * * 
 
 ## Next steps
 

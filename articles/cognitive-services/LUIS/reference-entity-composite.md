@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
 # Composite entity 
@@ -34,6 +34,8 @@ Consider a composite entity of prebuilt `number` and `Location::ToLocation` with
 Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
+
+#### [V2 prediction endpoint response](#tab/V2)
 
 Composite entities are returned in a `compositeEntities` array and all entities within the composite are also returned in the `entities` array:
 
@@ -81,6 +83,11 @@ Composite entities are returned in a `compositeEntities` array and all entities 
     }
 ]
 ```    
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+* * * 
+
 
 |Data object|Entity name|Value|
 |--|--|--|
