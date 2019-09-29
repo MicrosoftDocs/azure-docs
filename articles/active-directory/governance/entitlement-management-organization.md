@@ -1,5 +1,5 @@
 ---
-title: Add a connected organization in Azure AD entitlement management? (Preview) - Azure Active Directory
+title: Add a connected organization in Azure AD entitlement management (Preview) - Azure Active Directory
 description: Learn how to allow people outside your organization to request access packages so that you can collaborate on projects.
 services: active-directory
 documentationCenter: ''
@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 ---
 
-# Add a connected organization in Azure AD entitlement management? (Preview)
+# Add a connected organization in Azure AD entitlement management (Preview)
 
 Azure AD entitlement management enables you to collaborate with people outside your organization. If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. A connected organization is an external Azure AD directory or domain that you define in entitlement management.
 
