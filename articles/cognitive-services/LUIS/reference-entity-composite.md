@@ -31,7 +31,7 @@ Consider a composite entity of prebuilt `number` and `Location::ToLocation` with
 
 `book 2 tickets to cairo`
 
-Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
+Notice that `2`, the number, and `cairo`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
 
 ![Composite Entity](./media/luis-concept-data-extraction/composite-entity.png)
 
@@ -169,7 +169,7 @@ This is the JSON if `verbose=true` is set in the query string:
 |Data object|Entity name|Value|
 |--|--|--|
 |Prebuilt Entity - number|"builtin.number"|"2"|
-|Prebuilt Entity - GeographyV2|"Location::ToLocation"|"paris"|
+|Prebuilt Entity - GeographyV2|"Location::ToLocation"|"cairo"|
 
 ## Next steps
 
