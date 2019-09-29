@@ -1,5 +1,5 @@
 ---
-title: Keyphrase Prebuilt entity - LUIS
+title: Keyphrase prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains keyphrase prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: diberry
 ---
 
 # keyPhrase prebuilt entity for a LUIS app
-keyPhrase extracts a variety of key phrases from an utterance. You do not need to add example utterances containing keyPhrase to the application. keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [text analytics](../text-analytics/overview.md) features. 
+The keyPhrase entity extracts a variety of key phrases from an utterance. You don't need to add example utterances containing keyPhrase to the application. The keyPhrase entity is supported in [many cultures](luis-language-support.md#languages-supported) as part of the [text analytics](../text-analytics/overview.md) features. 
 
 ## Resolution for prebuilt keyPhrase entity
 
