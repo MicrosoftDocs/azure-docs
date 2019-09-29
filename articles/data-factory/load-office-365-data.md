@@ -20,7 +20,7 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 ## Create a data factory
 
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
    
    ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -55,55 +55,48 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 1. Go to the pipeline > **Source tab**, click **+ New** to create a source dataset. 
 
-2. In the New Dataset window, select **Office 365**, and then select **Finish**.
-
-    ![New Office 365 dataset](./media/load-office-365-data/new-office-365-dataset.png)
+2. In the New Dataset window, select **Office 365**, and then select **Continue**.
  
-3. You see a new tab opened for Office 365 dataset. On the **General tab** at the bottom of the Properties window, enter "SourceOffice365Dataset" for Name.
+3. You are now in the copy activity configuration tab. Click on the **Edit** button next to the Office 365 dataset to continue the data configuration.
 
-    ![Config Office 365 dataset general](./media/load-office-365-data/config-office-365-dataset-general.png)
- 
-4. Go to the **Connection tab** of the Properties window. Next to the Linked service text box, click **+ New**.
- 
-    ![Config Office 365 dataset connection](./media/load-office-365-data/config-office-365-dataset-connection.png)
+    ![Config Office 365 dataset general](./media/load-office-365-data/transition_to_edit_dataset.png)
 
-5. In the New Linked Service window, enter "Office365LinkedService" as name, enter the service principal ID and service principal key, then select Save to deploy the linked service.
+4. You see a new tab opened for Office 365 dataset. In the **General tab** at the bottom of the Properties window, enter "SourceOffice365Dataset" for Name.
+ 
+5. Go to the **Connection tab** of the Properties window. Next to the Linked service text box, click **+ New**.
+
+6. In the New Linked Service window, enter "Office365LinkedService" as name, enter the service principal ID and service principal key, then test connection and select **Create** to deploy the linked service.
 
     ![New Office 365 linked service](./media/load-office-365-data/new-office-365-linked-service.png)
  
-6. After the linked service is created, you are back in the dataset settings. Next to "Table", choose the down-arrow to expand the list of available Office 365 datasets, and choose "BasicDataSet_v0.Contact_v0" from the drop-down list:
+7. After the linked service is created, you are back in the dataset settings. Next to **Table**, choose the down-arrow to expand the list of available Office 365 datasets, and choose "BasicDataSet_v0.Contact_v0" from the drop-down list:
 
-    ![Config Office 365 dataset table](./media/load-office-365-data/config-office-365-dataset-table.png)
- 
-7. Go to the **Schema tab** of the Properties window and select **Import Schema**.  Notice that the schema and sample values for Contact dataset is displayed.
+    ![Config Office 365 dataset table](./media/load-office-365-data/edit_dataset.png)
 
-    ![Config Office 365 dataset schema](./media/load-office-365-data/config-office-365-dataset-schema.png)
+8. Now go back to the **pipeline** > **Source tab** to continue configure additional properties for Office 365 data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Office 365.  See Office 365 dataset properties (link to https://docs.microsoft.com/en-us/azure/data-factory/connector-office-365#dataset-properties) section for how you configure these settings.
 
-8. Now, go back to the pipeline > Source tab, confirm that SourceBlobDataset is selected.
- 
+9. You are required to choose one of the date filters and provide the start time and end time values.
+
+10. Click on the **Import Schema** tab to import the schema for Message dataset.
+
+    ![Config Office 365 dataset schema](./media/load-office-365-data/edit_source_properties.png)
+
 ### Configure sink
 
 1. Go to the pipeline > **Sink tab**, and select **+ New** to create a sink dataset.
  
-2. In the New Dataset window, notice that only the supported destination are selected when copying from Office 365. Select **Azure Blob Storage**, and then select **Finish**.  In this tutorial, you copy Office 365 data into an Azure Blob Storage.
+2. In the New Dataset window, notice that only the supported destinations are selected when copying from Office 365. Select **Azure Blob Storage**, select Binary format, and then select **Continue**.  In this tutorial, you copy Office 365 data into an Azure Blob Storage.
 
-    ![New Blob dataset](./media/load-office-365-data/new-blob-dataset.png)
+3. Click on **Edit** button next to the Azure Blob Storage dataset to continue the data configuration.
 
 4. On the **General tab** of the Properties window, in Name, enter "OutputBlobDataset".
 
 5. Go to the **Connection tab** of the Properties window. Next to the Linked service text box, select **+ New**.
 
-    ![Config Blob dataset connection](./media/load-office-365-data/config-blob-dataset-connection.png) 
-
 6. In the New Linked Service window, enter "AzureStorageLinkedService" as name, select "Service Principal" from the dropdown list of authentication methods, fill in the Service Endpoint, Tenant Service principal ID, and Service principal key, then select Save to deploy the linked service.  Refer [here](connector-azure-blob-storage.md#service-principal-authentication) for how to set up service principal authentication for Azure Blob Storage.
 
-    ![New Blob linked service](./media/load-office-365-data/new-blob-linked-service.png)
+    ![New Blob linked service](./media/load-office-365-data/configure_blob_linked_service.png)
 
-7. After the linked service is created, you are back in the dataset settings. Next to File path, select **Browse** to choose the output folder where the Office 365 data will be extracted to.  Under "File Format Settings", next to File Format, choose "**JSON format**", and next to File Pattern, choose "**Set of objects**".
-
-    ![Config Blob dataset path and format](./media/load-office-365-data/config-blob-dataset-path-and-format.png) 
-
-8. Go back to the pipeline > Sink tab, confirm that OutputBlobDataset is selected.
 
 ## Validate the pipeline
 
@@ -125,11 +118,11 @@ Select **Trigger** on the toolbar, and then select **Trigger Now**. On the Pipel
 
 Go to the **Monitor tab** on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions column** to view activity details and to rerun the pipeline.
 
-![Monitor pipeline](./media/load-office-365-data/pipeline-monitoring.png) 
+![Monitor pipeline](./media/load-office-365-data/pipeline_status.png) 
 
 To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the Actions column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details link (eyeglasses icon)** in the Actions column.
 
-![Monitor activity](./media/load-office-365-data/activity-monitoring.png) 
+![Monitor activity](./media/load-office-365-data/activity_status.png) 
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "**In Progress**", and only when you click into "Details" link under Actions will you see the status as "**RequesetingConsent**".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
