@@ -18,18 +18,20 @@ The change feed records all changes that occur to the blobs and the blob metadat
 
 Log files are are stored as blobs in your account. These logs are durable, immutable, and read only, and you can store them for any period of time based on your requirements. The cost to store these logs is standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace, and you can distribute these logs to one or more consumers of your application for parallel processing. Also, analytic applications can consume them directly which lets you process logs in batch-mode, at low cost, and without having to write a custom application.
+You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace, and you can distribute these logs to one or more consumers of your application for parallel processing. Also, analytic applications can consume logs directly which lets you process them in batch-mode, at low cost, and without having to write a custom application.
 
 ## Scenarios
 
 Here's some examples of actions that applications can take based on objects that have changed.  
 
-- Execute a custom application-level process or action based on objects or metadata is changed.
-- Stream or batch processing for IoT or to perform analytics.
-- Move data by synchronizing with a cache, search engine, or data warehouse, or by archiving data to cold storage.
-- Audit or analyze changes over any period of time.
-- Perform zero down-time migrations to another storage account.
-- Implement lambda pipelines on Azure or custom solutions.
+> [!div class="checklist"]
+> * Execute a custom application-level process or action based on objects or metadata is changed.
+> * Stream or batch processing for IoT or to perform analytics.
+> * Move data by synchronizing with a cache, search engine, or data warehouse, or by archiving data to cold storage.
+> * Audit or analyze changes over any period of time.
+> * Perform zero down-time migrations to another storage account.
+> * Audit or analyze changes over any period of time.
+> * Implement lambda pipelines on Azure or custom solutions.
 
 ## Change feed versus events
 
