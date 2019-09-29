@@ -42,6 +42,8 @@
       href: entitlement-management-access-package-edit.md
     - name: Create a catalog
       href: entitlement-management-catalog-create.md
+    - name: Add a connected organization
+      href: entitlement-management-organization.md
     - name: Request access
       href: entitlement-management-request-access.md
     - name: Approve requests

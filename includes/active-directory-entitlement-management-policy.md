@@ -49,56 +49,11 @@ Follow these steps if you want your policy to be for users not in your directory
 
     ![Access package - Policy- Select directories](./media/active-directory-entitlement-management-policy/policy-select-directories.png)
 
-1. If the organization you want to collaborate with is not in the list, you can add it as a [connected organization](#policy-add-a-connected-organization) as described in the next section.
+1. If the organization you want to collaborate with is not in the list, you can add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
 1. Once you have added all your connected organizations you'd like to include in the policy, click **Select**.
 
 1. Skip down to the [Policy: Request](#policy-request) section.
-
-### Policy: Add a connected organization
-
-If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. Follow these steps to add an external Azure AD directory or a domain as a connected organization.
-
-1. In the **Users who can request access** section, click **Specific connected organizations** and then click **Add organizations**.
-
-1. In the Add organizations pane, click **Add connected organization**.
-
-    This opens a new page where you can add a connected organization.
-
-1. On the **Basics** tab, enter a display name and description for the organization.
-
-    ![Access package - Policy - Add connected organization - Basics tab](./media/active-directory-entitlement-management-policy/organization-basics.png)
-
-1. On the **Directories** tab, click **Add connected organization**.
-
-1. Enter a domain name to search for the Azure AD directory or domain.
-
-1. Verify it is the correct organization by the provided directory name and initial domain.
-
-    > [!NOTE]
-    > All users from the organization will be able to request this access package. This includes users from all subdomains associated with the organization, not just the domain used in the search.
-
-1. Click **Add** to add the organization.
-
-1. Once you have added all the Azure AD directories and domains you'd like to include in the policy, click **Select**.
-
-    ![Access package - Policy - Add connected organization - Select directories + domains](./media/active-directory-entitlement-management-policy/organization-select-directories-domains.png)
-
-    The organization appears in the list of connected organizations.
-
-    ![Access package - Policy - Add connected organization - Directories tab](./media/active-directory-entitlement-management-policy/organization-directories.png)
-
-1. On the **Sponsors** tab, add optional sponsors for this connected organization.
-
-    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../articles/active-directory/b2b/add-users-administrator.md).
-
-    ![Access package - Policy - Add connected organization - Sponsors tab](./media/active-directory-entitlement-management-policy/organization-sponsors.png)
-
-1. On the **Review + create** tab, review your organization settings and then click **Create**.
-
-    ![Access package - Policy - Add connected organization - Review + create tab](./media/active-directory-entitlement-management-policy/organization-review-create.png)
-
-1. Skip down to the [Policy: Expiration](#policy-expiration) section.
 
 ### Policy: Any user
 
