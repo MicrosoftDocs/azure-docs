@@ -14,7 +14,7 @@ You can use Azure Stream Analytics tools for Visual Studio Code to test your Str
 
 Use this [quickstart](quick-create-vs-code.md) to learn how to create a Stream Analytics job using Visual Studio Code.
 
-## Presequisites
+## Prerequisites
 * Install [.NET core SDK](https://dotnet.microsoft.com/download).
 * Restart Visual Studio Code.
  
