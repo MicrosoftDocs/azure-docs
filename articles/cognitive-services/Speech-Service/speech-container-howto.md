@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/26/2019
 ms.author: dapine
 ---
 
@@ -265,7 +265,9 @@ The container provides REST endpoint APIs that can be found [here](https://docs.
 
 ## Troubleshooting
 
-When you run the container, the container uses **stdout** and **stderr** to output information that is helpful to troubleshoot issues that happen while starting or running the container.
+If you run the container with an output [mount](speech-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

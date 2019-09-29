@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
 ---
 
@@ -55,7 +55,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     using Newtonsoft.Json.Linq;
     ```
 
-2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. It will be appended to your service endpoint later to create the API request URl.
+2. Create variables for your subscription key and your endpoint. Replace the endpoint below with the one generated for your Ink Recognizer resource. Append it to the Ink recognizer URI to connect to the API.
 
     ```csharp
     // Replace the subscriptionKey string with your valid subscription key.
@@ -65,7 +65,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
 
     // URI information for ink recognition:
-    const string endpoint = "https://api.cognitive.microsoft.com";
+    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

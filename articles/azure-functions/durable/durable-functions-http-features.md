@@ -200,7 +200,7 @@ The built-in support for calling HTTP APIs is a convenience feature and is not a
 If any of these limitations may impact your use-case, consider instead using activity functions and language-specific HTTP client libraries to make outbound HTTP calls.
 
 > [!NOTE]
-> If you are a .NET developer, you might be wondering why this feature uses `DurableHttpRequest` and `DurableHttpResponse` types instead of the built-in .NET `HttpRequestMessage` and `HttpResponseMessage`. This design choice was intentional. The primary reason is that a custom types help ensure that users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Durable-specific types also make it possible to simplify the API design and more easily light up special features, such as [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling).
+> If you are a .NET developer, you might be wondering why this feature uses `DurableHttpRequest` and `DurableHttpResponse` types instead of the built-in .NET `HttpRequestMessage` and `HttpResponseMessage`. This design choice was intentional. The primary reason is that custom types help ensure that users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Durable-specific types also make it possible to simplify the API design and more easily light up special features, such as [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling).
 
 ## Next steps
 

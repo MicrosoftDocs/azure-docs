@@ -19,6 +19,10 @@ In this Quickstart, you will learn how to create a VM on an Azure Virtual Networ
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+> [!NOTE]
+> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -198,6 +202,7 @@ After you've created **myVm*, connect to it from the internet as follows:
 ## Access the SQL database server privately from the VM
 
 1. In the Remote Desktop of *myVM*, open PowerShell.
+
 2. Enter `nslookup myserver.database.windows.net`. 
 
     You'll receive a message similar to this:

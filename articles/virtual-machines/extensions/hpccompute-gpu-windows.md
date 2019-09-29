@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # NVIDIA GPU Driver Extension for Windows
