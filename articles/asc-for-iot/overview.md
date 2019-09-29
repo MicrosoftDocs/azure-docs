@@ -26,7 +26,7 @@ Unify security management and enable end-to-end threat detection and analysis ac
 
 Choose from our seamless agentless solution or take advantage of agent-based comprehensive security, Azure Security Center for IoT provides threat prevention and analysis for every device, IoT Edge and IoT Hub, across your IoT assets.
 
-As billions of new devices are connected to the internet, and integrated into our daily lives and our businesses; your security operations teams need to ensure that their security strategies evolve quickly enough to cover these new attack surfaces. Like any other system, securing your IoT solution needs protection at every stage of your implementation. 
+As billions of new devices are connected to the internet, and integrated into our daily lives and our businesses, your security operations teams must ensure their security strategies evolve quickly enough to cover each new attack surface. Like any other system, to comprehensively secure your IoT solution, it requires  protection at every stage of implementation. 
 
 Azure Security Center for IoT simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. 
 
