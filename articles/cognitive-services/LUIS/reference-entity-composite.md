@@ -29,7 +29,7 @@ A composite entity is made up of other entities, such as prebuilt entities, simp
 
 Consider a composite entity of prebuilt `number` and `Location::ToLocation` with the following utterance:
 
-`book 2 tickets to paris`
+`book 2 tickets to cairo`
 
 Notice that `2`, the number, and `paris`, the ToLocation have words between them that are not part of any of the entities. The green underline, used in a labeled utterance in the [LUIS](luis-reference-regions.md) website, indicates a composite entity.
 
@@ -40,51 +40,128 @@ Notice that `2`, the number, and `paris`, the ToLocation have words between them
 Composite entities are returned in a `compositeEntities` array and all entities within the composite are also returned in the `entities` array:
 
 ```JSON
-
-"entities": [
+  "entities": [
     {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
+      "entity": "2 tickets to cairo",
+      "type": "ticketinfo",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.9214487
     },
     {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
+      "entity": "cairo",
+      "type": "builtin.geographyV2.city",
+      "startIndex": 18,
+      "endIndex": 22
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
         "subtype": "integer",
         "value": "2"
+      }
     }
-    },
+  ],
+  "compositeEntities": [
     {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
+      "parentType": "ticketinfo",
+      "value": "2 tickets to cairo",
+      "children": [
         {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
+          "type": "builtin.number",
+          "value": "2"
         },
         {
-        "type": "builtin.number",
-        "value": "2"
+          "type": "builtin.geographyV2.city",
+          "value": "cairo"
         }
-    ]
+      ]
     }
-]
+  ]
 ```    
 
 #### [V3 prediction endpoint response](#tab/V3)
+
+This is the JSON if `verbose=false` is set in the query string:
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ]
+        }
+    ]
+}
+```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 5,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2.city",
+                        "text": "cairo",
+                        "startIndex": 18,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "$instance": {
+        "ticketinfo": [
+            {
+                "type": "ticketinfo",
+                "text": "2 tickets to cairo",
+                "startIndex": 5,
+                "length": 18,
+                "score": 0.9214487,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
 
 * * * 
 
