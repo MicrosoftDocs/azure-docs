@@ -1,4 +1,3 @@
-
 ---
 title: Set up a Linux shell scripting lab with Azure Lab Services | Microsoft Docs
 description: Learn how to set up a lab to teach shell scripting on Linux. 
@@ -17,6 +16,7 @@ ms.date: 09/30/2019
 ms.author: spelluru
 
 ---
+
 # Set up a lab to teach shell scripting on Linux
 This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach allows Ruby to pass data around and bash commands to interact with the shell. 
 
