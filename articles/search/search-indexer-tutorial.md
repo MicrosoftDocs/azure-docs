@@ -226,7 +226,7 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 + Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
 
-+ Resource limits. Recall that the shared (free) service has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
++ Resource limits. Recall that the Free tier has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
 
 ## Search the index 
 
