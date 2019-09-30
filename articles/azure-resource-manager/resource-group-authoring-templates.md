@@ -91,7 +91,7 @@ Objects start with a left brace and end with a right brace. Arrays start with a 
 
 Secure strings and secure objects can't be read after resource deployment.
 
-For samples of formatting data types, see [Parameter type formats](#resource-manager-parameter-files.md#parameter-type-formats).
+For samples of formatting data types, see [Parameter type formats](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## Variables
 
