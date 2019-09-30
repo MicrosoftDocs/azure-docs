@@ -2,7 +2,7 @@
 title: 'Understand security best practices - Azure Digital Twins | Microsoft Docs'
 description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
 author: kingdomofends
-manager: alinast
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual

@@ -1,13 +1,13 @@
 ---
 title: 'Understand role-based access control - Azure Digital Twins | Microsoft Docs'
 description: Learn about role-based access control and managing permissions in Azure Digital Twins.
-author: lyrana
-manager: alinast
+author: kingdomofends
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: lyhughes
+ms.author: v-adgera
 ---
 
 # Role-based access control in Azure Digital Twins

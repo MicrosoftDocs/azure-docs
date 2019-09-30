@@ -1,13 +1,13 @@
 ---
 title: 'Create and manage role assignments in Azure Digital Twins | Microsoft Docs'
 description: Create and manage role assignments in Azure Digital Twins.
-author: lyrana
-manager: alinast
+author: kingdomofends
+manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: lyhughes
+ms.author: v-adgera
 ms.custom: seodec18
 ---
 

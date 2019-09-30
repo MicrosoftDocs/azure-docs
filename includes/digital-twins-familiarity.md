@@ -3,6 +3,7 @@
  description: include file
  services: digital-twins
  author: kingdomofends
+ manager: philmea
  ms.service: digital-twins
  ms.topic: include
  ms.date: 08/12/2019
