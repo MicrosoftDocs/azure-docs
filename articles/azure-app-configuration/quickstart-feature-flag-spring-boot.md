@@ -79,8 +79,8 @@ You use the [Spring Initializr](https://start.spring.io/) to create a new Spring
     </dependency>
     ```
 
-[!Note]
-There is a non-web Feature Management Library that doesn't have a dependency on spring-web. See the additional [Docs](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences. Also, when not using App Configuration see [Feature Flag Declaration](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
+> [!Note]
+> There is a non-web Feature Management Library that doesn't have a dependency on spring-web. See the additional [Docs](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) for differences. Also, when not using App Configuration see [Feature Flag Declaration](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management#feature-flag-declaration).
 
 ## Connect to an App Configuration store
 
