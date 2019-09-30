@@ -38,7 +38,7 @@ In this example, you set an environment variable for a container. The article as
     </CodePackage>
     ```
 
-Environment variables can be overridden in the application manifest.
+   Environment variables can be overridden in the application manifest.
 
 3. To override the environment variables in the application manifest, use the `EnvironmentOverrides` element.
 
