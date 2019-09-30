@@ -734,8 +734,9 @@
       - name: Salesforce Marketing Cloud
         href: ../data-factory/connector-salesforce-marketing-cloud.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
       - name: SAP Business Warehouse Open Hub
-        href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
         items:
+        - name: SAP Business Warehouse Open Hub
+          href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
         - name: Load SAP BW data
           href: ../data-factory/load-sap-bw-data.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
       - name: SAP Business Warehouse.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.jsonX
