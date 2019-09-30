@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
 ---
-# Introduction
+# Tutorial: Create an end-to-end data pipeline to derive sales insights
 
 In this tutorial you will build an end-to-end data pipeline, which performs extract, transform, and load operations. The pipeline will use Apache Spark and Apache Hive clusters running on Azure HDInsight for querying and manipulating the data. Other technologies used include Data Lake Storage Gen2 for data storage, and Power BI for visualization.
 
@@ -21,7 +21,7 @@ This data pipeline combines the data from all of the different stores, removes a
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-Download [Power BI Desktop](https://www.microsoft.com/en-us/download/details.aspx?id=45331) to visualize business insights at the end of this tutorial.
+Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331) to visualize business insights at the end of this tutorial.
 
 ## Create resources
 
@@ -118,7 +118,7 @@ The default password used for ssh access to the clusters is `Thisisapassword1`. 
 
 ### Create an Azure Data Factory
 
-Azure Data Factory is a tool that helps automate Azure Pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate these processes. For more information on Azure Data Factory, see Read more about it [Azure Data Factory Documentation](https://azure.microsoft.com/en-us/services/data-factory/). 
+Azure Data Factory is a tool that helps automate Azure Pipelines. It's not the only way to accomplish these tasks, but it's a great way to automate these processes. For more information on Azure Data Factory, see Read more about it [Azure Data Factory Documentation](https://azure.microsoft.com/services/data-factory/). 
 
 This Azure Data Factory will have one pipeline with two activities: 
 
@@ -133,7 +133,7 @@ To set up your Azure Data Factory pipeline, run the script `adf.sh`:
 This script does the following things:
 
 1. Creates a service principal with `Storage Blob Data Contributor` permissions on the Data Lake Storage Gen2 storage account.
-1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 FileSystem REST API](https://docs.microsoft.com/en-us/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Obtains an authentication token to authorize POST requests to the [Data Lake Storage Gen2 FileSystem REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Fills in the actual name of your Data Lake Storage Gen2 storage account in the `sparktransform.py` and `query.hql` files.
 1. Obtains storage keys for the Data Lake Storage Gen2 and Blob Storage account.
 1. Creates another resource deployment to create an Azure Data Factory pipeline, with its associated linked services and activities. It passes the storage keys as parameters to the template file so that the linked services can access the storage accounts correctly.
@@ -155,18 +155,18 @@ The first activity in the ADF pipeline you have created moves the data from blob
 
 To trigger the pipelines, you can either:
 
-1.  Run the following commands to trigger the ADF pipelines in PowerShell. 
+1. Run the following commands to trigger the ADF pipelines in PowerShell. 
 
     ```powershell
     Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "CopyPipeline_k8z" 
     Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "sparkTransformPipeline"
     ```
 
-1. You can also open the Data Factory, select Author & Monitor, and trigger the copy pipeline, then the spark pipeline from the portal. See [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) for information on triggering pipelines through the portal.
+1. You can also open the Data Factory, select Author & Monitor, and trigger the copy pipeline, then the spark pipeline from the portal. See [Create on-demand Apache Hadoop clusters in HDInsight using Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) for information on triggering pipelines through the portal.
 
 To verify that the pipelines have executed, you can do either of the following steps:
 
-1. Navigate to the **Monitor** section in your Azure Data Factory through the portal. 
+1. Navigate to the **Monitor** section in your Azure Data Factory through the portal.
 2. Go to your Data Lake Storage Gen 2 storage account storage explorer, go to the `files` FileSystem, and navigate to the `transformed` folder and check its contents to see if the pipeline succeeded.
 
 For other ways to transform data using HDInsight check out this article on using [Jupyter notebook](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-load-data-run-query)
@@ -201,9 +201,10 @@ This script will create a managed table on the Interactive Query cluster that yo
 1. Paste the URI for your cluster there. It should be in the format `https://<LLAP CLUSTER NAME>.azurehdinsight.net` Type `default` for the database.
 1. Enter the username and password that you use to access the cluster.
 
-Once the data is loaded, you can experiment with the dashboard you would like to create. Here is an example dashboard with the given data.
+Once the data is loaded, you can experiment with the dashboard you would like to create. See the following links for getting started with Power BI dashboards:
 
-![Sales insights Power BI dashboard](./media/hdinsight-sales-insights-etl/dashboard.png)
+* [Introduction to dashboards for Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
+* [Tutorial: Get started with the Power BI service](https://docs.microsoft.com/power-bi/service-get-started)
 
 ## Clean up resources
 
