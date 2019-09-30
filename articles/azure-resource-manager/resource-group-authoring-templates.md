@@ -83,7 +83,7 @@ For examples of how to use parameters, see [Parameters in Azure Resource Manager
 
 ### Data types
 
-Integer types can range from -2147483648 to 2147483647. However, resource types might apply a lower limit for an integer property.
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](resource-manager-parameter-files.md). Resource types apply their own limits for integer properties.
 
 When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
 
