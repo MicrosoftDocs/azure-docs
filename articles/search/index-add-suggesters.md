@@ -1,7 +1,7 @@
 ---
 title: Add typeahead queries to an index - Azure Search
 description: Enable type-ahead query actions in Azure Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
-ms.date: 05/02/2019
+ms.date: 09/30/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -23,17 +23,17 @@ translation.priority.mt:
 ---
 # Add suggesters to an index for typeahead in Azure Search
 
-A **suggester** is a construct in an [Azure Search index](search-what-is-an-index.md) that supports a "search-as-you-type" experience. It contains a list of fields for which you want to enable typeahead query inputs. Within an index, the same suggester supports either or both of these two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
+In Azure Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). A suggester contains a list of fields for which you want to enable typeahead query inputs. Within an index, a single suggester construct supports two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
 
-The following screenshot illustrates both typeahead features. In this Xbox search page, the autocomplete items take you to a new search results page for that query, whereas the suggestions are actual results that take you to a page for that particular game. You can limit autocomplete to one item in a search bar or provide a list like the one shown here. For suggestions, you can surface any part of a document that best describes the result.
+The following screenshot from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md)  sample illustrates both typeahead features. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", with autocomplete finishing with "in", with "twin" as the result. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, it's the hotel name.
 
-![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual comparison of autocomplete and suggested queries")
+![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
 To implement these behaviors in Azure Search, there is an index and query component. 
 
-+ The index component is a suggester. You can use the portal, REST API, or .NET SDK to create a suggester. 
++ In the index, add a suggester. You can use the portal, REST API, or .NET SDK to create a suggester. 
 
-+ The query component is an action specified on the query request (either a suggestion or autocomplete action). 
++ In the query, specify an action specified on the query request (either a suggestion or autocomplete action). 
 
 Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
