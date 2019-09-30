@@ -31,6 +31,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [AutoML] Supported featurization customization for column purpose and transformer parameters (preview only)
   + [AutoML] Supported raw explanations when user enables model explanation during training (preview only)
   + [AutoML] Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
+  + [Data Drift] Packages moved from azureml-contrib-datadrift to azureml-datadrift
 
 + **Breaking changes**
   + [Reference upcoming breaking changes and old API support drop date]
