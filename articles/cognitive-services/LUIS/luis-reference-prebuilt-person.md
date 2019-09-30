@@ -18,7 +18,7 @@ The prebuilt personName entity detects people names. Because this entity is alre
 
 ## Resolution for personName entity
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.personName** entity.
 
@@ -39,8 +39,8 @@ The following example shows the resolution of the **builtin.personName** entity.
   ]
 }
 ```
+#### [V3 prediction endpoint response](#tab/V3)
 
-### Preview API version 3.x
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -98,6 +98,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [email](luis-reference-prebuilt-email.md), [number](luis-reference-prebuilt-number.md), and [ordinal](luis-reference-prebuilt-ordinal.md) entities. 
