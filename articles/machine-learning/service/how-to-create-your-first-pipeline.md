@@ -445,6 +445,35 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
+
+## Pitfalls and debugging 
+
+This section provides an overview of common pitfalls when building pipelines, and different strategies for debugging your code that's running in a pipeline. Use the following tips when you're having trouble getting a pipeline to run as expected. 
+
+### Testing scripts locally
+
+One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug. Pipelines cannot be run locally, but smoke-testing your underlying scripts is an easy way to make sure that your scripts are doing what you expect, without waiting for the full pipeline run duration. Some development work is required to do this:
+
+* if your data is in a cloud datastore, you will need to download data and make it available to your script. Using a small sample of your data is a good way to cut down on runtime and quickly get feedback on script behavior
+* if you are attempting to simulate an intermediate pipeline step, you may need to manually build the object types that the particular script is expecting from the prior step
+* you will also need to define your own environment, and replicate the dependencies defined in your remote compute environment
+
+Once you have a script setup to run outside of the remote environment, it is much easier to do debugging tasks like:
+
+* attaching a custom debug configuration
+* pausing execution and inspecting object-state
+* catching type or logical errors that won't be exposed until runtime
+
+### Debugging scripts from remote context
+
+Testing scripts locally is a great way to debug major code fragments and complex logic, but at some point you will likely need to debug scripts during the actual pipeline run itself, especially when diagnosing behavior that occurs between pipeline steps. We recommend liberal use of `print()` statements in your script so that you can see object state and expected values during remote execution, similar to how you would debug Javascript code.
+
+The log file `70_driver_log.txt` contains: 
+
+* all printed statements during your script's execution
+* the stack trace for the script 
+
+To find this log file in the portal, navigate to the pipeline parent run, click on the run ID for the specific step, then navigate to the **Logs** tab. Other logs include information about your environment image build process and step preparation scripts.
  
 
 ## Next steps
