@@ -190,7 +190,7 @@ Stopping and starting a VM logs an event in its activity log. Navigate back to t
 
 The chart shows changes that have occurred over time. After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. Each row of bar graphs represents a different trackable Change type. These types are Linux daemons, files, and software. The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
 
-# Next steps
+## Next steps
 
 In this tutorial, you configured and reviewed Change Tracking and Update Management for your VM. You learned how to:
 

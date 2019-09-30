@@ -61,7 +61,7 @@ It takes a few minutes for the resources and VM to be created.
 Update Management allows you to manage updates and patches for your Azure Windows VMs. 
 Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM.
 
-For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
+For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/).
 
 ### Enable Update management
 
