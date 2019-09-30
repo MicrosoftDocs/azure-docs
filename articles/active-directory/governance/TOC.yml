@@ -21,6 +21,8 @@
   items:
   - name: Entitlement management
     items:
+    - name: Roles
+      href: entitlement-management-roles.md
     - name: Request process and emails
       href: entitlement-management-process.md
   - name: Access reviews
@@ -48,7 +50,7 @@
       href: entitlement-management-request-access.md
     - name: Approve requests
       href: entitlement-management-request-approve.md
-    - name: Delegate tasks
+    - name: Delegate to others
       href: entitlement-management-delegate.md
     - name: View reports and logs
       href: entitlement-management-reports.md
