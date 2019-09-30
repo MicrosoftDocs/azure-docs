@@ -35,21 +35,23 @@
     href: tutorial-backup-vms.md
   - name: 10 - Govern VMs
     href: tutorial-govern-resources.md
-  - name: 11 - Monitor and update VMs
-    href: tutorial-monitoring.md
-  - name: 12 - Manage VM security
+  - name: 11 - Track and update VMs
+    href: tutorial-config-management.md
+  - name: 12 - Monitor VMs 
+    href: tutorial-monitor.md
+  - name: 13 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Deploy Jenkins
+  - name: 14 - Deploy Jenkins
     href: tutorial-jenkins-github-docker-cicd.md
-  - name: 14 - CI/CD with Azure Pipelines
+  - name: 15 - CI/CD with Azure Pipelines
     href: tutorial-build-deploy-jenkins.md
-  - name: 15a - Create LAMP stack
+  - name: 16a - Create LAMP stack
     href: tutorial-lamp-stack.md
-  - name: 15b - Create LEMP stack
+  - name: 16b - Create LEMP stack
     href: tutorial-lemp-stack.md
-  - name: 15c - Create MEAN stack
+  - name: 16c - Create MEAN stack
     href: tutorial-mean-stack.md
-  - name: 16 - Secure web server with SSL
+  - name: 17 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:

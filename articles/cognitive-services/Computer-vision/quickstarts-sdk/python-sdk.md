@@ -59,7 +59,7 @@ Then, create variables for your resource's Azure endpoint and key.
 You can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-computervision
 ```
 
 ## Object model
