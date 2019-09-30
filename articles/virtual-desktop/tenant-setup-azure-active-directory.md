@@ -1,6 +1,6 @@
 ---
-title: Create a tenant in Windows Virtual Desktop Preview - Azure
-description: Describes how to set up Windows Virtual Desktop Preview tenants in Azure Active Directory.
+title: Create a tenant in Windows Virtual Desktop - Azure
+description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
 ---
-# Tutorial: Create a tenant in Windows Virtual Desktop Preview
+# Tutorial: Create a tenant in Windows Virtual Desktop
 
-Creating a tenant in Windows Virtual Desktop Preview is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create app groups, assign users, and make connections through the service.
+Creating a tenant in Windows Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Windows Virtual Desktop service. Each host pool also consists of one or more app groups that are used to publish remote desktop and remote application resources to users. With a tenant, you can build host pools, create app groups, assign users, and make connections through the service.
 
 In this tutorial, learn how to:
 
@@ -102,7 +102,7 @@ To find your Azure subscription ID:
 3. Look for **Subscription ID**, and then hover over the value until a clipboard icon appears. Select the clipboard icon and paste it in a handy location so you can use it later as the **AzureSubscriptionId** value.
    ![A screenshot of the Azure subscription properties. The mouse is hovering over the clipboard icon for "Subscription ID" to copy and paste.](media/tenant-subscription-id.png)
 
-## Create a Windows Virtual Desktop Preview tenant
+## Create a Windows Virtual Desktop tenant
 
 Now that you've granted the Windows Virtual Desktop service permissions to query Azure Active Directory and assigned the TenantCreator role to a user account, you can create a Windows Virtual Desktop tenant.
 

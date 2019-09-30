@@ -1,5 +1,5 @@
 ---
-title: Move Azure Public IP to another Azure region using the Azure portal  
+title: Move Azure Public IP to another Azure region using the Azure portal
 description: Use Azure Resource Manager template to move Azure Public IP from one Azure region to another using the Azure portal.
 author: asudbring
 ms.service: virtual-network
@@ -22,7 +22,7 @@ Azure Public IPs are region specific and can't be moved from one region to anoth
 - Azure Public IPs can't be moved between regions.  You'll have to associate the new public ip to resources in the target region.
 
 - To export a public IP configuration and deploy a template to create a public IP in another region, you'll need the Network Contributor role or higher.
-   
+
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups (NSGs), and virtual networks.
 
 - Verify that your Azure subscription allows you to create public IPs in the target region that's used. Contact support to enable the required quota.
@@ -35,13 +35,13 @@ The following steps show how to prepare the public IP for the configuration move
 
 ### Export the template and deploy from a script
 
-1. Login to the [Azure portal](http://portal.azure.com) > **Resource Groups**.
+1. Login to the [Azure portal](https://portal.azure.com) > **Resource Groups**.
 2. Locate the Resource Group that contains the source public IP and click on it.
 3. Select > **Settings** > **Export template**.
 4. Choose **Deploy** in the **Export template** blade.
 5. Click **TEMPLATE** > **Edit parameters** to open the **parameters.json** file in the online editor.
 8. To edit the parameter of the public IP name, change the property under **parameters** > **value** from the source public IP name to the name of your target public IP, ensure the name is in quotes:
-    
+
     ```json
             {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -56,7 +56,7 @@ The following steps show how to prepare the public IP for the configuration move
     ```
 8.  Click **Save** in the editor.
 
-9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor. 
+9.  Click **TEMPLATE** > **Edit template** to open the **template.json** file in the online editor.
 
 10. To edit the target region where the public IP will be moved, change the **location** property under **resources**:
 
@@ -81,11 +81,11 @@ The following steps show how to prepare the public IP for the configuration move
                 "ipTags": []
                }
                }
-             ]             
+             ]
     ```
-  
+
 11. To obtain region location codes, see [Azure Locations](https://azure.microsoft.com/global-infrastructure/locations/).  The code for a region is the region name with no spaces, **Central US** = **centralus**.
-    
+
 12. You can also change other parameters in the template if you choose, and are optional depending on your requirements:
 
     * **Sku** - You can change the sku of the public IP in the configuration from standard to basic or basic to standard by altering the **sku** > **name** property in the **template.json** file:
@@ -126,17 +126,17 @@ The following steps show how to prepare the public IP for the configuration move
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
                 "ipTags": []
-        
+
         ```
 
         For more information on the allocation methods and the idle timeout values, see [Create, change, or delete a public IP address](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address).
 
- 
+
 13. Click **Save** in the online editor.
 
 14. Click **BASICS** > **Subscription** to choose the subscription where the target public IP will be deployed.
 
-15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name isn't the same as the source resource group of the existing source public IP. 
+15. Click **BASICS** > **Resource group** to choose the resource group where the target public IP will be deployed.  You can click **Create new** to create a new resource group for the target public IP.  Ensure the name isn't the same as the source resource group of the existing source public IP.
 
 16. Verify **BASICS** > **Location** is set to the target location where you wish for the public IP to be deployed.
 
@@ -146,7 +146,7 @@ The following steps show how to prepare the public IP for the configuration move
 
 19. Click the **Purchase** button to deploy the target public IP.
 
-## Discard 
+## Discard
 
 If you wish to discard the target public IP, delete the resource group that contains the target public IP.  To do so, select the resource group from your dashboard in the portal and select **Delete** at the top of the overview page.
 

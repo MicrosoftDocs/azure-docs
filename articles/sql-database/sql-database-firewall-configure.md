@@ -32,7 +32,7 @@ Connection attempts from the internet and Azure must pass through the firewall b
 
 ### Server-level IP firewall rules
 
-  These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same SQL Database server. The rules are stored in the *master* database.
+  These rules enable clients to access your entire Azure SQL server, that is, all the databases within the same SQL Database server. The rules are stored in the *master* database. You can have a maximum of 128 server-level IP firewall rules for an Azure SQL Server.
   
   You can configure server-level IP firewall rules by using the Azure portal, PowerShell, or Transact-SQL statements.
   - To use the portal or PowerShell, you must be the subscription owner or a subscription contributor.
