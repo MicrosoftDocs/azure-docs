@@ -90,8 +90,6 @@
        href: ./ag/web-application-firewall-troubleshoot.md
      - name: Log analytics
        href: ./ag/log-analytics.md
-  - name: Front Door
-
 - name: Reference
   items:
   - name: CRS rules
