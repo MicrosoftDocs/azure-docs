@@ -61,8 +61,9 @@ The system receives the rank of the coffee choices, then compares that predictio
 ## Prerequisites
 
 * An [Azure Notebook](https://notebooks.azure.com/) account. 
+* An [Azure Personalizer resource](https://azure.microsoft.com/try/cognitive-services/). 
+    * If you have already used the Personalizer resource, make sure to clear the data in the Azure portal for the resource. 
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project. 
-
 
 File descriptions:
 
