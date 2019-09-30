@@ -66,6 +66,8 @@
   items:
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
+  - name: Bandwidth recommendations for remote sessions
+    href: bandwidth-recommendations.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
   - name: Host pool load-balancing methods
