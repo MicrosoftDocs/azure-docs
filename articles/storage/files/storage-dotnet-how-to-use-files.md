@@ -17,7 +17,7 @@ ms.subservice: files
 This tutorial demonstrates the basics of using .NET to develop applications that use [Azure Files](storage-files-introduction.md) to store file data. This tutorial creates a simple console application to do basic actions with .NET and Azure Files:
 
 * Get the contents of a file.
-* Set the quota (maximum size) for the file share.
+* Set the maximum size or *quota* for the file share.
 * Create a shared access signature (SAS key) for a file that uses a shared access policy defined on the share.
 * Copy a file to another file in the same storage account.
 * Copy a file to a blob in the same storage account.
@@ -29,19 +29,19 @@ To learn more about Azure Files, see [Introduction to Azure Files](storage-files
 
 ## Understanding the .NET APIs
 
-Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, these approaches are abstracted by the `System.IO` and `WindowsAzure.Storage` APIs.
+Azure Files provides two broad approaches to client applications: Server Message Block (SMB) and REST. Within .NET, the `System.IO` and `WindowsAzure.Storage` APIs abstract these approaches.
 
 API | When to use | Notes
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files via SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | Coding file I/O with Azure Files over SMB is generally the same as coding I/O with any network file share or local storage device. F or an introduction to a number of features in .NET, including file I/O. see the [Console Application](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) tutorial.
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Your application: <ul><li>Can't access Azure Files via SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the usage of `Microsoft.Azure.Storage.File` for file I/O using REST instead of SMB and management of the file share.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Your application: <ul><li>Needs to read/write files by using SMB</li><li>Is running on a device that has access over port 445 to your Azure Files account</li><li>Doesn't need to manage any of the administrative settings of the file share</li></ul> | Coding file I/O with Azure Files over SMB is generally the same as coding I/O with any network file share or local storage device. For an introduction to a number of features in .NET, including file I/O, see the [Console Application](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) tutorial.
+[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Your application: <ul><li>Can't access Azure Files by using SMB on port 445 because of firewall or ISP constraints</li><li>Requires administrative functionality, such as the ability to set a file share's quota or create a shared access signature</li></ul> | This article demonstrates the usage of `Microsoft.Azure.Storage.File` for file I/O using REST instead of SMB and management of the file share.
 
 ## Create the console application and obtain the assembly
 
 In Visual Studio, create a new Windows console application. The following steps show you how to create a console application in Visual Studio 2019. The steps are similar in other versions of Visual Studio.
 
 1. Start Visual Studio and select **Create a new project**.
-1. In **Create a new project**, choose **Console App *.NET Framework)** for C#, and then select **Next**.
+1. In **Create a new project**, choose **Console App (.NET Framework)** for C#, and then select **Next**.
 1. In **Configure your new project**, enter a name for the app, and select **Create**.
 
 You can add all the code examples in this tutorial to the `Main()` method of your console application's `Program.cs` file.
@@ -50,17 +50,17 @@ You can use the Azure Storage client library in any type of .NET application. Th
 
 ## Use NuGet to install the required packages
 
-Reference these packages in your project to complete this tutorial:
+Refer to these packages in your project to complete this tutorial:
 
 * [Microsoft Azure Storage common library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
   
   This package provides programmatic access to common resources in your storage account.
 * [Microsoft Azure Storage Blob library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
 
-  This package provides programmatic access to Blob resources in your storage account.
+  This package provides programmatic access to blob resources in your storage account.
 * [Microsoft Azure Storage File library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
 
-  This package provides programmatic access to File resources in your storage account.
+  This package provides programmatic access to file resources in your storage account.
 * [Microsoft Azure Configuration Manager library for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 
   This package provides a class for parsing a connection string in a configuration file, wherever your application runs.
@@ -71,7 +71,7 @@ You can use NuGet to obtain both packages. Follow these steps:
 1. In **NuGet Package Manager**, select **Browse**. Search for and choose **Microsoft.Azure.Storage.Blob**, and then select **Install**.
 
    This step installs the package and its dependencies.
-1. Search for an install these packages:
+1. Search for and install these packages:
 
    * **Microsoft.Azure.Storage.Common**
    * **Microsoft.Azure.Storage.File**
@@ -79,7 +79,7 @@ You can use NuGet to obtain both packages. Follow these steps:
 
 ## Save your storage account credentials to the App.config file
 
-Next, save your credentials in your project's `App.config` file. In **Solution Explorer**, double-click the `App.config` and edit the file so that it appears similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
+Next, save your credentials in your project's `App.config` file. In **Solution Explorer**, double-click `App.config` and edit the file so that it appears similar to the following example. Replace `myaccount` with your storage account name and `mykey` with your storage account key.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -111,7 +111,7 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 
 ## Access the file share programmatically
 
-Next, add the following code to the `Main()` method (after the code shown above) to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents to the console window.
+Next, add the following content to the `Main()` method, after the code shown above, to retrieve the connection string. This code gets a reference to the file we created earlier and outputs its contents.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -221,7 +221,7 @@ if (share.Exists())
     permissions.SharedAccessPolicies.Add(policyName, sharedPolicy);
     share.SetPermissions(permissions);
 
-    // Generate a SAS for a file in the share and associate this access policy with it.
+    // Generate an SAS for a file in the share and associate this access policy with it.
     CloudFileDirectory rootDir = share.GetRootDirectoryReference();
     CloudFileDirectory sampleDir = rootDir.GetDirectoryReference("CustomLogs");
     CloudFile file = sampleDir.GetFileReference("Log1.txt");
@@ -241,12 +241,11 @@ For more information about creating and using shared access signatures, see [How
 
 Beginning with version 5.x of the Azure Storage Client Library, you can copy a file to another file, a file to a blob, or a blob to a file. In the next sections, we demonstrate how to do these copy operations programmatically.
 
-You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+You can also use AzCopy to copy one file to another or to copy a blob to a file or the other way around. See [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > If you are copying a blob to a file, or a file to a blob, you must use a shared access signature (SAS) to authorize access to the source object, even if you are copying within the same storage account.
-> 
-> 
+>
 
 ### Copy a file to another file
 
@@ -296,7 +295,7 @@ if (share.Exists())
 
 ### Copy a file to a blob
 
-The following example creates a file and copies it to a blob within the same storage account. The example creates a SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
+The following example creates a file and copies it to a blob within the same storage account. The example creates an SAS for the source file, which the service uses to authorize access to the source file during the copy operation.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -320,8 +319,8 @@ CloudBlobContainer container = blobClient.GetContainerReference("sample-containe
 container.CreateIfNotExists();
 CloudBlockBlob destBlob = container.GetBlockBlobReference("sample-blob.txt");
 
-// Create a SAS for the file that's valid for 24 hours.
-// Note that when you are copying a file to a blob, or a blob to a file, you must use a SAS
+// Create an SAS for the file that's valid for 24 hours.
+// Note that when you are copying a file to a blob, or a blob to a file, you must use an SAS
 // to authorize access to the source object, even if you are copying within the same
 // storage account.
 string fileSas = sourceFile.GetSharedAccessSignature(new SharedAccessFilePolicy()
@@ -342,7 +341,7 @@ Console.WriteLine("Source file contents: {0}", sourceFile.DownloadText());
 Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 ```
 
-You can copy a blob to a file in the same way. If the source object is a blob, then create a SAS to authorize access to that blob during the copy operation.
+You can copy a blob to a file in the same way. If the source object is a blob, then create an SAS to authorize access to that blob during the copy operation.
 
 ## Share snapshots
 
@@ -423,7 +422,7 @@ CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTim
 
 Azure Storage Analytics now supports metrics for Azure Files. With metrics data, you can trace requests and diagnose issues.
 
-You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation via the REST API, or one of its analogs in the Storage Client Library.
+You can enable metrics for Azure Files from the [Azure portal](https://portal.azure.com). You can also enable metrics programmatically by calling the Set File Service Properties operation by using the REST API, or one of its analogs in the Storage Client Library.
 
 The following code example shows how to use the Storage Client Library for .NET to enable metrics for Azure Files.
 
@@ -434,7 +433,7 @@ using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-While Azure Blobs, Azure Table, and Azure Queues use the shared `ServiceProperties` type in the `Microsoft.Azure.Storage.Shared.Protocol` namespace, Azure Files uses its own type, the `FileServiceProperties` type in the `Microsoft.Azure.Storage.File.Protocol` namespace. Both namespaces must be referenced from your code, however, for the following code to compile.
+While Azure Blobs, Azure Table, and Azure Queues use the shared `ServiceProperties` type in the `Microsoft.Azure.Storage.Shared.Protocol` namespace, Azure Files uses its own type, the `FileServiceProperties` type in the `Microsoft.Azure.Storage.File.Protocol` namespace. You must reference both namespaces from your code, however, for the following code to compile.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -477,7 +476,7 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Also, you can refer to [Azure Files Troubleshooting Article](storage-troubleshoot-windows-file-connection-problems.md) for troubleshooting guidance.
+Also, you can refer to [Troubleshoot Azure Files problems in Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
 ## Next steps
 
@@ -486,13 +485,13 @@ For more information about Azure Files, see the following resources.
 ### Conceptual articles and videos
 
 * [Azure Files: a frictionless cloud SMB file system for Windows and Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
-* [How to use Azure Files with Linux](storage-how-to-use-files-linux.md)
+* [Use Azure Files with Linux](storage-how-to-use-files-linux.md)
 
 ### Tooling support for File storage
 
-* [How to use AzCopy with Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+* [Get started with AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Using the Azure CLI with Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Troubleshooting Azure Files problems](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Troubleshoot Azure Files problems in Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### Reference
 
@@ -503,5 +502,5 @@ For more information about Azure Files, see the following resources.
 
 * [Azure Files is now generally available](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
 * [Inside Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introducing Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+* [Introducing Microsoft Azure Files Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Persisting connections to Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)
