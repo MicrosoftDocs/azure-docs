@@ -66,7 +66,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
     * CDN
     * Azure Front Door
-    * Multi-factor Authentication
+    * Multi-factor Authentication Server (legacy)
     * Traffic Manager
 
 ### Public peering
@@ -80,7 +80,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
   **The following services are NOT supported**:
     * CDN
     * Azure Front Door
-    * Multi-factor Authentication
+    * Multi-factor Authentication Server (legacy)
     * Traffic Manager
 
 ### Is Dynamics 365 supported on ExpressRoute?
