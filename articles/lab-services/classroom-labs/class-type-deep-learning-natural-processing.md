@@ -16,15 +16,10 @@ ms.date: 09/30/2019
 ms.author: spelluru
 
 ---
-# Set up a lab focused on deep learning using Azure Lab Services
-This article shows you how to set up a lab focused on deep learning using Azure Lab Services. Natural language processing (NLP) is a form of artificial intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  
+# Set up a lab focused on deep learning in natural language processing using Azure Lab Services
+This article shows you how to set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. Natural language processing (NLP) is a form of artificial intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities.  
 
 Students taking an NLP class get a Linux virtual machine (VM) to learn how to apply neural network algorithms to develop deep learning models that are used for analyzing written human language. 
-
-This article contains the following sections:
-1.	Lab configuration
-2.	Template VM image configuration
-3.	Pricing
 
 ## Lab configuration
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you have an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing lab account. See the following tutorial for creating a new lab account: [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).
