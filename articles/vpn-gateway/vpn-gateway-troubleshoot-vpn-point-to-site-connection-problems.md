@@ -246,8 +246,6 @@ To resolve this problem, re-download and redeploy the Point to Site package on a
 
 The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
-## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
-
 ## VPN client cannot access network file shares
 
 ### Symptom
