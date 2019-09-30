@@ -12,7 +12,6 @@
     items:
     - name: Web Application Firewall on Azure Front Door
       href: ./afds/afds-overview.md
-- name: Quickstarts
 - name: Tutorials
   items:
   - name: Application Gateway
@@ -25,12 +24,16 @@
       href: ./afds/waf-front-door-create-portal.md
 - name: Samples
   items:
+  - name: Azure PowerShell
+    href: ./ag/powershell-samples.md
   - name: Resource Manager templates
-    href: resource-manager-template-samples.md  
+    href: ./ag/resource-manager-template-samples.md  
 - name: Concepts
   items:
   - name: Application Gateway
     items:
+    - name: Custom rules overview
+      href: ./ag/custom-waf-rules-overview.md
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
   - name: Front Door
@@ -58,7 +61,11 @@
        - name: Azure PowerShell
          href: ./ag/application-gateway-customize-waf-rules-powershell.md
        - name: Azure CLI
-         href: ./ag/application-gateway-customize-waf-rules-cli.md    
+         href: ./ag/application-gateway-customize-waf-rules-cli.md
+     - name: Configure WAF v2 custom rule - PowerShell
+       href: ./ag/configure-waf-custom-rules.md
+     - name: Custom rule examples
+       href: ./ag/create-custom-waf-rules.md
      - name: Troubleshoot WAF
        href: ./ag/web-application-firewall-troubleshoot.md
   - name: Front Door
@@ -83,8 +90,6 @@
        href: ./ag/web-application-firewall-troubleshoot.md
      - name: Log analytics
        href: ./ag/log-analytics.md
-  - name: Front Door
-
 - name: Reference
   items:
   - name: CRS rules
