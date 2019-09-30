@@ -114,8 +114,8 @@
       #   href: article-template.md
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
-    # - name: Backup and restore  
-    #   href: article-template.md
+    - name: Backup and restore  
+      href: ../sql-data-warehouse/backup-and-restore.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Monitoring 
     items:
     - name: Standard monitoring
