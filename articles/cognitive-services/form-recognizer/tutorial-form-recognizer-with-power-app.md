@@ -44,7 +44,7 @@ You use this container to upload sample data that is required to train the model
 
 ## Create a Form Recognizer resource
 
-[!INCLUDE [create resource](../includes/create-resource.md)]
+[!INCLUDE [create resource](./includes/create-resource.md)]
 
 ## Create an account and subscribe to resources
 
