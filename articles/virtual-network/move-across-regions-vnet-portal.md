@@ -1,6 +1,6 @@
 ---
-title: Move Azure Virtual Network to another Azure region using the Azure portal.
-description: Use Azure Resource Manager template to move Azure Virtual Network from one Azure region to another using the Azure portal.
+title: Move an Azure virtual network to another Azure region using the Azure portal.
+description: Move an Azure virtual network from one Azure region to another by using a Resource Manager template and the Azure portal.
 author: asudbring
 ms.service: virtual-network
 ms.topic: article
@@ -8,9 +8,9 @@ ms.date: 08/26/2019
 ms.author: allensu
 ---
 
-# Move Azure Virtual Network to another region by using the Azure portal
+# Move an Azure virtual network to another region by using the Azure portal
 
-There are various scenarios for moving an existing Azure virtual network from one region to another. For example, you might want to create a virtual network with the same configuration for testing and availability of your existing virtual network. Or you might want to move a production virtual network to another region as part of disaster recovery planning.
+There are various scenarios for moving an existing Azure virtual network from one region to another. For example, you might want to create a virtual network with the same configuration for testing and availability as your existing virtual network. Or you might want to move a production virtual network to another region as part of your disaster recovery planning.
 
 You can use an Azure Resource Manager template to complete the move of the virtual network to another region. You do this by exporting the virtual network to a template, modifying the parameters to match the destination region, and then deploying the template to the new region. For more information about Resource Manager templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
@@ -21,7 +21,7 @@ You can use an Azure Resource Manager template to complete the move of the virtu
 
 - To export a virtual network and deploy a template to create a virtual network in another region, you need to have the Network Contributor role or higher.
 
-- Virtual network peerings won't be re-created, and they will fail if they're still present in the template. Before you export the template, you have to remove any virtual network peers. You can then reestablish them after the virtual network move.
+- Virtual network peerings won't be re-created, and they'll fail if they're still present in the template. Before you export the template, you have to remove any virtual network peers. You can then reestablish them after the virtual network move.
 
 - Identify the source networking layout and all the resources that you're currently using. This layout includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
@@ -39,7 +39,7 @@ To export the virtual network and deploy the target virtual network by using the
 1. Locate the resource group that contains the source virtual network, and then select it.
 1. Select **Settings** > **Export template**.
 1. In the **Export template** pane, select **Deploy**.
-1. To open the *parameters.json* file in the online editor, select **Template** > **Edit parameters**.
+1. To open the *parameters.json* file in your online editor, select **Template** > **Edit parameters**.
 1. To edit the parameter of the virtual network name, change the **value** property under **parameters**:
 
     ```json
@@ -135,7 +135,7 @@ To export the virtual network and deploy the target virtual network by using the
                 ]
         ```
 
-        To change the address prefix in the *template.json* file, edit it in two places: in the preceding section and in the following **type** section. Change the **addressPrefix** property in the following code to match the **addressPrefix** property in the code in the preceding section.
+        To change the address prefix in the *template.json* file, edit it in two places: in the code in the preceding section and in the **type** section of the following code. Change the **addressPrefix** property in the following code to match the **addressPrefix** property in the code in the preceding section.
 
         ```json
          "type": "Microsoft.Network/virtualNetworks/subnets",
@@ -195,7 +195,7 @@ To discard the target virtual network, you delete the resource group that contai
 
 ## Clean up
 
-To commit the changes and complete the virtual network move, delete the source virtual network or resource group. To do so:
+To commit the changes and complete the virtual network move, you delete the source virtual network or resource group. To do so:
 1. On the Azure portal dashboard, select the virtual network or resource group.
 1. At the top of each pane, select **Delete**.
 
