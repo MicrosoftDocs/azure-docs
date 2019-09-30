@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 09/30/2019
 ms.author: helohr
 ---
 # Bandwidth recommendations for remote sessions
@@ -27,7 +27,7 @@ The following table lists the minimum requirements for a smooth user experience.
 |Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5 Mbps               |
 |Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15 Mbps              |
 
-Keep in mind that the stress your network is under depends on both your app workload's output frame rate and your display resolution will put more stress on your network. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
+Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
 Other scenarios can have their bandwidth requirements change depending on how you use them, such as:
 
@@ -44,6 +44,6 @@ Different display resolutions require different available bandwidths. The follow
 |Typical display resolutions at 30 fps    |Recommended bandwidth|
 |-----------------------------------------|---------------------|
 |About 1024 × 768 px​                      |1.5 Mbps             |
-|About 1280 × 720 px                      |3.0 Mbps             |
-|About 1920 × 1080 px                     |5.0 Mbps             |
+|About 1280 × 720 px                      |3 Mbps               |
+|About 1920 × 1080 px                     |5 Mbps               |
 |About 3840 × 2160 px (4K)                |15 Mbps              |
