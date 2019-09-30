@@ -32,7 +32,7 @@
   items:
   - name: Application Gateway
     items:
-    - name: Custom rules overview.md
+    - name: Custom rules overview
       href: ./ag/custom-waf-rules-overview.md
     - name: Request size limits and exclusion lists
       href: ./ag/application-gateway-waf-configuration.md
@@ -62,7 +62,7 @@
          href: ./ag/application-gateway-customize-waf-rules-powershell.md
        - name: Azure CLI
          href: ./ag/application-gateway-customize-waf-rules-cli.md
-     - name: Configure WAF v2 on Application Gateway custom rule - PowerShell
+     - name: Configure WAF v2 custom rule - PowerShell
        href: ./ag/configure-waf-custom-rules.md
      - name: Custom rule examples
        href: ./ag/create-custom-waf-rules.md
