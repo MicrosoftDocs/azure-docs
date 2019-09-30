@@ -98,3 +98,5 @@ Now that you have an IoT Edge device provisioned with the runtime installed, you
 If you are having problems with the IoT Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
 
 To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
+
+If you'd like to open up ports to access the VM through SSH or other inbound connections, refer to the Azure Virtual Machine documentation on [opening up ports and endpoints to a Linux VM](../virtual-machines/linux/nsg-quickstart.md)

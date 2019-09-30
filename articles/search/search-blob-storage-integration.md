@@ -6,7 +6,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/01/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 ms.custom: seodec2018
 ---

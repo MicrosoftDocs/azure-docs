@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/22/2019
+ms.date: 09/12/2019
 ms.author: magoedte
 ---
 
@@ -31,49 +31,52 @@ For information about configuring Azure Monitor for VMs, see [Enable Azure Monit
 
 This section outlines the default health criteria to monitor Azure Windows and Linux VMs. All health criteria are pre-configured to send an alert when they detect an unhealthy condition.
 
-### Windows VMs
+| Monitor name | Frequency (min) | Lookback Duration (min) | Operator | Threshold | Alert on state | Severity | Workload category | 
+|--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
+| Logical Disk Online | 5 | 15 | <> | 1 (true) | Critical | Sev1 | Linux | 
+| Logical Disk Free Space | 5 | 15 | < | 200 MB (warning)<br> 100 MB (critical) | Warning | Sev1<br> Sev2 | Linux | 
+| Logical Disk % Free Inodes | 5 | 15 | < | 5% | Critical | Sev1 | Linux | 
+| Logical Disk % Free Space | 5 | 15 | < | 5% | Critical | Sev1 | Linux | 
+| Network Adapter Status | 5 | 15 | <> | 1 (true) | Warning | Sev2 | Linux | 
+| Operating System Available Megabytes Memory | 5 | 10 | < | 2.5 MB | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Read | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Transfer | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Avg. Disk sec/Write | 5 | 25 | > | 0.05s | Critical | Sev1 | Linux | 
+| Disk Status | 5 | 25 | <> | 1 (true) | Critical | Sev1 | Linux | 
+| Operating System Total Percent Processor Time | 5 | 10 | >= | 95% | Critical | Sev1 | Linux | 
+| Total CPU Utilization Percentage | 5 | 10 | >= | 95% | Critical | Sev1 | Windows | 
+| File system error or corruption | 60 | 60 | <> | 4 | Critical | Sev1 | Windows | 
+| Average Logical Disk Seconds Per Read | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Logical Disk Seconds Per Transfer | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Logical Disk Seconds Per Write (Logical Disk) | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Current Disk Queue Length (Logical Disk) | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| Logical Disk Free Space (MB) | 15 | 60 | > | 500 MB warning<br> 300 MB critical | Critical | Sev1<br> Sev2 | Windows | 
+| Logical Disk Free Space (%) | 15 | 60 | > | 10% warning<br> 5% critical | Critical | Sev1<br> Sev2 | Windows |
+| Logical Disk Percent Idle Time | 15 | 360 | <= | 20% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Read | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Total | 5 | 60 | >= | 75% | Warning | Sev2 | Windows | 
+| Percent Bandwidth Used Write | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| DHCP Client Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| DNS Client Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Event Log Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Firewall Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| RPC Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Server Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Windows Remote Management Service Health | 5 | 12 | <> | 4 (running) | Critical | Sev1 | Windows | 
+| Available Megabytes of Memory | 5 | 10 | < | 100 MB | Critical | Sev1 | Windows | 
+| Free System Page Table Entries | 5 | 10 | <= | 5000 | Critical | Sev1 | Windows | 
+| Memory Pages Per Second | 5 | 10 | >= | 5000/s | Warning | Sev1 | Windows | 
+| Percentage of Committed Memory in Use | 5 | 10 | > | 80% | Critical | Sev1 | Windows | 
+| Average Disk Seconds Per Transfer | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Average Disk Seconds Per Write | 1 | 15 | > | 0.04s | Warning | Sev2 | Windows | 
+| Current Disk Queue Length | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| Disk Percent Idle Time | 5 | 60 | >= | 20% | Warning | Sev2 | Windows | 
 
-- Available Megabytes of Memory
-- Average Disk Seconds Per Write (Logical Disk)
-- Average Disk Seconds Per Write (Disk)
-- Average Logical Disk Seconds Per Read
-- Average Logical Disk Seconds Per Transfer
-- Average Disk Seconds Per Read
-- Average Disk Seconds Per Transfer
-- Current Disk Queue Length (Logical Disk)
-- Current Disk Queue Length (Disk)
-- Disk Percent Idle Time
-- File system error or corruption
-- Logical Disk Free Space (%) Low
-- Logical Disk Free Space (MB) Low
-- Logical Disk Percent Idle Time
-- Memory Pages Per Second
-- Percent Bandwidth Used Read
-- Percent Bandwidth Used Total
-- Percent Bandwidth Used Write
-- Percentage of Committed Memory in Use
-- Disk Percent Idle Time
-- DHCP Client Service Health
-- DNS Client Service Health
-- RPC Service Health
-- Server Service Health
-- Total CPU Utilization Percentage
-- Windows Event Log Service Health
-- Windows Firewall Service Health
-- Windows Remote Management Service Health
+>[!NOTE]
+>Lookback Duration represents how often the look back window checks the metric values, such as over the last five minutes.  
 
-### Linux VMs
-
-- Disk Avg. Disk sec/Transfer
-- Disk Avg. Disk sec/Read
-- Disk Avg. Disk sec/Write
-- Disk Health
-- Logical Disk Free Space
-- Logical Disk % Free Space
-- Logical Disk % Free Inodes
-- Network Adapter Health
-- Total Percent Processor Time
-- Operating System Available Megabytes of Memory
+>[!NOTE]
+>Frequency represents how often the metric alert checks if the conditions are met, such as every one minute.  It is the rate at which health criterion is executed, and lookback is the duration over which health criterion is evaluated. For example, health criterion is evaluating if the condition **CPU utilization** is greater than 95 percent with a frequency of 5 minutes and remains greater than 95% for 15 minutes (3 consecutive evaluation cycles), then the state is updated to critical severity if it wasn't already.
 
 ## Sign in to the Azure portal
 
@@ -87,11 +90,13 @@ Before you use the health feature for a single VM or group of VMs, it's importan
 
 To view the health of an Azure VM, select **Insights (preview)** in the left pane of the VM. On the VM insights page, the **Health** tab is open by default and shows the health view of the VM.
 
-![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
+![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health-01.png)
 
-In the **Health** tab, under **Guest VM health**, the table shows the health state of the VM and the total number of VM health alerts raised by an unhealthy component.
+In the **Guest VM health** section, the table shows the health rollup of performance components monitored by health criteria for the VM, and the total number of VM health alerts raised by unhealthy components. These components include **CPU**, **Memory**, **Disk**, and **Network**. Expand the chevron next to Guest VM health to view the health its components.
 
-For more information, see [Alerts](#alerts).
+![Azure Monitor for VMs component health status of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health-02.png)
+
+Selecting the state next to the component will open the Health Diagnostics experience in the context of the selected component. It shows the composition of the state of that component, describing what health criteria are used to compute its health. For more information, see [Health Diagnostics and working with health criteria](#health-diagnostics). For more information about alerts, see [Alerts](#alerts).
 
 The health states defined for a VM are described in the following table:
 
@@ -151,13 +156,19 @@ For example, to review all VMs that run Red Hat Enterprise Linux release 7.5, se
 
 ![Example rollup of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-01.png)
 
+You click **Show Health** check box and the health state is returned for the filtered results in the table.  
+
+![Example health state of Red Hat Linux VMs](./media/vminsights-health/vminsights-rollup-vm-rehl-02.png)
+
+For any one of the items in the list, you can click the corresponding health state to launch Health Diagnostics, which shows how health is evaluated for the selected VM. 
+
 In the **Virtual Machines** page, if you select the name of a VM under the column **VM Name**, you're directed to the **VM instance** page. This page provides more details of the alerts and health criteria issues that are affecting the selected VM. Filter the health state details by selecting **Health State** icon in the upper-left corner of the page to see which components are unhealthy. You can also view VM Health alerts raised by an unhealthy component categorized by alert severity.
 
 From the **VM list** view, select the name of a VM to open the **Health** page for that VM, similarly as if you selected **Insights (preview)** from the VM directly.
 
 ![VM insights of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-The **Insights (preview)** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
+The **Virtual Machines (preview) in Azure Monitor** page shows a rollup health status for the VM and alerts. This health status is categorized by severity, which represents VM health alerts raised when the health state changed from healthy to unhealthy, based on criteria. Selecting **VMs in critical condition** opens a page with a list of one or more VMs in a critical health state.
 
 Selecting the health status for one of the VMs shows the **Health Diagnostics** view of the VM. In this view, you can determine which health criteria is reflecting a health-state issue. When the **Health Diagnostics** page opens, it shows all the VM components and their associated health criteria with the current health state.
 
@@ -272,7 +283,7 @@ To see an updated health state, you can refresh the Health Diagnostics page by s
 
 Azure Monitor for VMs health integrates with [Azure Alerts](../../azure-monitor/platform/alerts-overview.md). It raises an alert when predefined criteria, when detected, change from a healthy state to an unhealthy state. Alerts are categorized by severity, from Sev 0 through Sev 4, with Sev 0 as the highest level.
 
-Alerts aren't associated with an action group to notify you when the alert has been triggered. The subscription owner must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
+Alerts aren't associated with an action group to notify you when the alert has been triggered. A user with Owner role at the subscription scope must configure notifications by following the steps in the [Configure alerts](#configure-alerts) section.
 
 The total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the **Alerts** section. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.
 

@@ -1,7 +1,7 @@
 ---
 title: Tune hyperparameters for your model
-titleSuffix: Azure Machine Learning service
-description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing runs. 
+titleSuffix: Azure Machine Learning
+description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning. You will learn how to define the parameter search space, specify a primary metric to optimize, and early terminate poorly performing runs. 
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley 
@@ -14,9 +14,9 @@ ms.custom: seodec18
 
 ---
 
-# Tune hyperparameters for your model with Azure Machine Learning service
+# Tune hyperparameters for your model with Azure Machine Learning
 
-Efficiently tune hyperparameters for your model using Azure Machine Learning service.  Hyperparameter tuning includes the following steps:
+Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
 * Define the parameter search space
 * Specify a primary metric to optimize  
@@ -41,7 +41,8 @@ Automatically tune hyperparameters by exploring the range of values defined for 
 
 ### Types of hyperparameters
 
-Each hyperparameter can either be discrete or continuous.
+Each hyperparameter can either be discrete or continuous and has a distribution of values described by a
+[parameter expression](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### Discrete hyperparameters 
 
@@ -90,7 +91,7 @@ This code defines a search space with two parameters - `learning_rate` and `keep
 
 ### Sampling the hyperparameter space
 
-You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning service supports random sampling, grid sampling, and Bayesian sampling.
+You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning supports random sampling, grid sampling, and Bayesian sampling.
 
 #### Random sampling
 
@@ -125,7 +126,7 @@ param_sampling = GridParameterSampling( {
 
 When you use Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence, since the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice` and `uniform` distributions over the search space. 
+Bayesian sampling only supports `choice`, `uniform`, and `quniform` distributions over the search space.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -175,14 +176,14 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 ## Specify early termination policy
 
-Terminate poorly performing runs automatically with an [early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
+Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 When using an early termination policy, you can configure the following parameters that control when a policy is applied:
 
 * `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. It is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
-Azure Machine Learning service supports the following Early Termination Policies.
+Azure Machine Learning supports the following Early Termination Policies.
 
 ### Bandit policy
 
@@ -230,7 +231,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
 
 ### No termination policy
 
@@ -242,7 +243,7 @@ policy=None
 
 ### Default policy
 
-If no policy is specified, the hyperparameter tuning service will let all training runs run to completion.
+If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
 
 >[!NOTE] 
 >If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
@@ -271,7 +272,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-This code configures the hyperparameter tuning experiment to use a maximum of 20 total runs, running 4 configurations at a time.
+This code configures the hyperparameter tuning experiment to use a maximum of 20 total runs, running four configurations at a time.
 
 ## Configure experiment
 
@@ -300,7 +301,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](concept-azure-machine-learning-architecture.md))
+`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](concept-azure-machine-learning-architecture.md))
 
 ## Visualize experiment
 
@@ -321,11 +322,9 @@ You can also visualize the performance of each of the runs as training progresse
 
 Additionally, you can visually identify the correlation between performance and values of individual hyperparameters using a Parallel Coordinates Plot. 
 
-![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
+[![hyperparameter tuning parallel coordinates](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)](media/how-to-tune-hyperparameters/hyperparameter-tuning-parallel-coordinates-expanded.png)
 
 You can visualize all your hyperparameter tuning runs in the Azure web portal as well. For more information on how to view an experiment in the web portal, see [how to track experiments](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
-
-![hyperparameter tuning portal](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 
 ## Find the best model
 

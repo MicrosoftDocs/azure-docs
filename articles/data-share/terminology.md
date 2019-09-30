@@ -1,6 +1,6 @@
 ---
-title: Azure Data Share Preview Terminology 
-description: Azure Data Share Preview Terminology
+title: Azure Data Share Preview terminology 
+description: Azure Data Share Preview terminology
 author: joannapea
 
 ms.service: data-share
@@ -12,13 +12,13 @@ ms.author: joanpo
 
 Azure Data Share Preview introduces some new terminology related to data sharing. This article explains some frequently used terms that you may see used throughout the service. 
 
-## Data Provider
+## Data provider
 
-A Data Provider is the organization that is sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider may want to share include raw data, such as point of sales or time series data. A data provider may also want to share pre-processed, curated data that already contains analytics and insights. 
+A Data provider is the organization that is sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider may want to share include raw data, such as point of sales or time series data. A data provider may also want to share pre-processed, curated data that already contains analytics and insights. 
 
-## Data Consumer 
+## Data consumer 
 
-A Data Consumer is the organization that is receiving data from a data provider. The data consumer may be wanting to join the shared data with their own data to derive insights. In some cases, the data consumer may be receiving data that has already been processed. 
+A Data consumer is the organization that is receiving data from a data provider. The data consumer may be wanting to join the shared data with their own data to derive insights. In some cases, the data consumer may be receiving data that has already been processed. 
 
 ## Data Share
 
@@ -48,7 +48,9 @@ A data consumer has the option to opt-in to this snapshot schedule to receive in
 
 A data provider can invite multiple recipients to their data share. They can do so by adding recipients to the data share. Invitations can also be added after a data share has been created. 
 
-A data provider can delete an invitation after it has been sent. Note that if a data provider deletes an invitation after it has been accepted, the data consumer can still have an active share subscription. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+
+Invitations can be resent up to 5 times a day. 
 
 ## Recipient
 

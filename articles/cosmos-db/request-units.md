@@ -4,7 +4,7 @@ description: Learn about how to specify and estimate Request Unit requirements i
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: rimman
 
 ---

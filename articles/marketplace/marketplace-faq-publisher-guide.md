@@ -1,21 +1,21 @@
 ---
-title: Azure Marketplace FAQ 
-description: Answers to common questions about the Microsoft Azure Marketplace
+title: Microsoft Commercial Marketplace FAQ 
+description: Answers to common questions about the Azure Marketplace and Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 07/11/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
 ---
 
-# Marketplace FAQs
+# Microsoft Commercial Marketplace FAQs
 
-Answers to common questions about the Microsoft Azure Marketplace.
+Answers to common questions about the Azure Marketplace and Microsoft AppSource.
 
 ## FAQ for customers
 
-### What you need to know about Azure Marketplace
+### What you need to know about Azure Marketplace and Microsoft AppSource
 
 **What is Azure Marketplace?**
 
@@ -240,9 +240,34 @@ Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/)
 
 Customers must directly contact the publisher for any technical issues relating to their Marketplace service or purchase. Publisher contact information and/or a link to the support website can be found on their solution details page on Azure Marketplace.
 
+**How are license additions handled when increased mid-term?**
+
+Licenses added to an existing subscription are pro-rated for the remainder of the subscription duration.
+
+**How are license removals handled when mid-term?**
+
+Licenses that are cancelled will be subject to the refund policy found in this FAQ.  All licenses that are cancelled are immediately removed from your account and will no longer be available for use.
+
+**Are refunds supported for consumption-based offers?**
+
+Any charges based on consumption – whether it’s hourly VMs or custom meters – are not refundable through cancellation. Once the consumption has taken place, the charges are processed by Microsoft’s commerce platform, and any quality of service disputes where a refund is requested would be handled outside Microsoft systems between the publisher and the customer directly. Offers that support a flat rate plus metered billing follows the standard refund policy for the flat rate charges.
+
+**Is it possible to change plans mid-term?**
+
+No, it is not possible to transition between monthly and annual.
+
+**Can a customer purchase two plans from the same offer?**
+
+Yes, it is possible for a customer to own two plans from the same offer simultaneously.
+
+**Do refund and plan change policies differ by storefront?**
+
+No, the business policies are consistent across Azure Marketplace and Microsoft AppSource. If resold by a partner in the Cloud Solution Provide program, the partner may enforce a different policy for their customers.
+
+
 ## FAQ for publishers
 
-### What you need to know about Azure Marketplace
+### What you need to know about Azure Marketplace and Microsoft AppSource
 
 **What is Azure Marketplace?**
 
@@ -258,7 +283,7 @@ Azure Marketplace is designed for IT professionals and cloud developers, interes
 
 **Why should I publish my application on Azure Marketplace and how does it benefit me?**
 
-Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure's network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world's leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](gtm-your-marketplace-benefits.md#go-to-market-gtm-benefits-in-the-marketplace) to help boost awareness of their offers in Azure's marketplace.
+Azure Marketplace provides a market for Microsoft Partners to promote and sell products and services to Azure customers. Publishers, instantly gain access to 140 global markets, our 300,000+ partners, and Azure's network of enterprise customers.  The marketplace includes more than 90% of Fortune 500 companies and many of the world's leading developers. New partners in Azure Marketplace are automatically offered a set of [no-cost Go-To-Market benefits](gtm-your-marketplace-benefits.md#list-trial-and-consulting-benefits) to help boost awareness of their offers in Azure's marketplace.
 
 **What is the differentiating factor between Azure Marketplace and AppSource?**
 

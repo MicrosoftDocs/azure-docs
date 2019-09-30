@@ -132,13 +132,13 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
    telcodatagen.exe 1000 0.2 2
    ```
 
-    The parameters are: 
+   The parameters are: 
 
-    * Number of CDRs per hour. 
-    * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
-    * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
+   * Number of CDRs per hour. 
+   * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+   * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
 
-    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
+   After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
 
 Some of the key fields that you will be using in this real-time fraud detection application are the following:
 

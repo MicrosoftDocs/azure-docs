@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Recognize, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
 	>[!NOTE]
 	>You will get the **Service Provider metadata file** from the **Configure Recognize Single Sign-On** section of the tutorial.

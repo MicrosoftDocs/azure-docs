@@ -11,6 +11,7 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/16/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: URL Preview query in C#
@@ -21,7 +22,7 @@ The following C# example creates a Url Preview for the SwiftKey Web site: https:
 
 You will need [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Code scenario
 

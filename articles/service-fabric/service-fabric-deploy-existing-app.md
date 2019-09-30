@@ -3,7 +3,7 @@ title: Deploy an existing executable to Azure Service Fabric | Microsoft Docs
 description: Learn how to package an existing application as a guest executable, so it can be deployed to a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Package and deploy an existing executable to Service Fabric

@@ -25,7 +25,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[AC4S Consulting, Inc.](https://ac4s.com)|
 |[Accelera Solutions Inc](http://www.accelerasolutions.com/)|
 |[Accenture Federal Services LLC](https://www.accenture.com/us-en/afs-industry-index)|
-|[Access Interactive Inc.](http://www.access-interactive.com/)|
+|[Access Interactive Inc.](https://www.access-interactive.com/)|
 |[ActioNet](https://www.actionet.com/)|
 |[Adoxio Business Solutions Limited](https://www.adoxio.com)|
 |[Affigent](http://www.affigent.com/)|
@@ -56,7 +56,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Avtex Solutions](https://www.avtex.com)|
 |[BAE Systems Inc. and Affiliates](https://www.baesystems.com)|
 |[BEMO Corp](https://www.bemopro.com/)|
-|[Bio Automation Support](http://www.stacsdna.com/)|
+|[Bio Automation Support](https://www.stacsdna.com/)|
 |[Blackwood Associates, Inc. (dba BAI Federal)](https://www.blackwoodassociates.com/)|
 |[Blue Source Group, Inc.](https://www.blackwoodassociates.com/)|
 |[Blueforce Development Corporation](https://www.blueforcedev.com/)|
@@ -78,7 +78,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
 |[Ciracom Inc.](https://ciracom.com)|
-|[ClearShark](http://clearshark.com/)|
+|[ClearShark](https://clearshark.com/)|
 |[CNSS - Cherokee Nation System Solutions LLC](http://cherokee-cnt.com/Pages/home.aspx)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Competitive Innovations, LLC](https://www.cillc.com)|
@@ -110,12 +110,12 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Diffeo, Inc.](https://diffeo.com)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
-|[Domino Systems Inc.](https://www.dominosys.com)|
+|Domino Systems Inc.|
 |[Doublehorn, LLC](https://doublehorn.com/)|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
 |[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
 |[Dynamics Intelligence Inc.](https://www.dynamicsintelligence.us)|
-|[eFibernet Inc.](https://www.efibernet.com)|
+|eFibernet Inc.|
 |[eMazzanti Technologies](https://www.emazzanti.net/)|
 |[Enabling Technologies Corp.](https://www.enablingtechcorp.com/)|
 |[Ensono](https://www.ensono.com)|
@@ -138,7 +138,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Global Tech Inc.](https://www.eglobaltech.com)|
 |[Globalscape, Inc.](https://www.globalscape.com)|
 |[GovPlace](https://www.govplace.com/)|
-|[Gravity Pro Consulting](https://www.gravitypro.com/)|
+|Gravity Pro Consulting|
 |[Green House Data](https://www.greenhousedata.com/)|
 |[Hanu Software Solutions Inc.](https://hanusoftware.com/contact)|
 |[Harmonia Holdings Group LLC](https://www.harmonia.com)|
@@ -147,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Hiscomp](http://www.hiscompllc.com/)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[I10 Inc](http://i10agile.com/)|
-|[I2, Inc](https://www.i2-inc.com/)|
+|I2, Inc|
 |[i3 Business Solutions, LLC](https://www.i3businesssolutions.com/)|
 |[i3 LLC](http://i3llc.net/)|
 |[IBM Corporation](https://www.ibm.com/industries/federal)|
@@ -246,7 +246,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Redapt Attunix](https://www.redapt.com)|
 |[Redhorse Corporation](https://www.redhorsecorp.com)|
 |[Regan Technologies Corporation](https://www.regantech.com/)|
-|[Reperi LLC](https://www.reperi.com)|
+|Reperi LLC|
 |[Revenue Solutions, Inc](https://www.revenuesolutionsinc.com)|
 |[RMON Networks Inc.](https://rmonnetworks.com/)|
 |[rmsource, Inc.](https://www.rmsource.com)|
@@ -278,7 +278,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Summit 7 Systems, Inc.](https://summit7systems.com/)|
 |[Surveillance and Cyber Security Solutions, LLC](https://www.scssllc.com)|
 |[SWC Technology Partners](https://www.swc.com)|
-|[Sybatech, Inc](https://www.sybatech.com)|
+|[Sybatech, Inc](https://www.linkedin.com/company/sybatech-inc-)|
 |[Synergy Technical, LLC](https://www.syntechva.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
 |[Systems Engineering Inc](https://www.seisystems.com)|
@@ -290,7 +290,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Thundercat Technology](https://www.thundercattech.com/)|
 |[TIC Business Consultants, Ltd.](https://www.ticbiz.com/)|
 |[Tier1, Inc.](https://www.tier1inc.com)|
-|[Tierpoint](https://www.tieroint.com/)|
+|[Tierpoint](https://www.tierpoint.com/)|
 |[Tilson Technology Group, Inc](https://tilsontech.com)|
 |[TKC Global](http://www.tkcglobal.com/)|
 |[Transformyx](https://www.transformyx.com/)|
@@ -298,7 +298,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[Trigent Solutions Inc.](http://trigentsolutions.com/)|
 |[Triple Point Security Incorporated](https://www.triplepointsecurity.com)|
 |[U2Cloud LLC](https://www.u2cloud.com)|
-|[UDRI - SSG](https://ssg.udri.udayton.edu/)|
+|[UDRI - SSG](https://www.udayton.edu/udri/_resources/docs/ssg_v8.pdf)|
 |[Unisys Corp / Blue Bell](https://www.unisys.com)|
 |[United Data Technologies, Inc.](https://udtonline.com)|
 |[Universal EVoIP Transitions](https://universalevoiptransitions.com/contact)|
@@ -329,7 +329,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 
 |Partner Name|
 |----------------------------|
-|[Arrow Enterprise Computing Solutions, Inc.](http://ecs.arrow.com/)|
+|[Arrow Enterprise Computing Solutions, Inc.](https://www.arrow.com/ecs/)|
 |[Crayon Software Experts LCC](https://www.crayon.com/en-US)|
 |[Ingram Micro Inc.](https://usa.ingrammicro.com/)|
 |[Insight Public Sector Inc](https://www.ips.insight.com/en_US/public-sector.html)|

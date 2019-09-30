@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Build a single-page Bing Video Search app"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explains how to use the Bing Video Search API in a single-page Web application.
 services: cognitive-services
 author: aahill

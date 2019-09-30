@@ -1,15 +1,13 @@
 ---
-title: 'Tutorial: Index data from Azure SQL databases in a C# example code - Azure Search'
+title: 'C# Tutorial: Index data from Azure SQL databases - Azure Search'
 description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
@@ -228,7 +226,7 @@ Your code runs locally in Visual Studio, connecting to your search service on Az
 
 + Database connection information in **appsettings.json**. It should be the ADO.NET connection string obtained from the portal, modified to include a username and password that are valid for your database. The user account must have permission to retrieve data.
 
-+ Resource limits. Recall that the shared (free) service has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
++ Resource limits. Recall that the Free tier has limits of 3 indexes, indexers, and data sources. A service at the maximum limit cannot create new objects.
 
 ## Search the index 
 

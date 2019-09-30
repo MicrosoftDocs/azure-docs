@@ -10,7 +10,6 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/25/2019
 ---
 
@@ -23,7 +22,7 @@ Azure SQL Database enables you to configure your databases, instances, and pools
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Single Database and Elastic pools
+## [Single Database and Elastic pools](#tab/single-database)
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database.
 
@@ -35,6 +34,8 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |**Configure geo-replication and failover**||
 | [Configure and failover a single database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for a single Azure SQL database and fails it over to the secondary replica. |
 | [Configure and failover a pooled database using active geo-replication](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| This PowerShell script configures active geo-replication for an Azure SQL database in a SQL elastic pool, and fails it over to the secondary replica. |
+|**Configure a failover group**||
+| [Configure a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script creates a database, and a failover group, adds the database to the failover group and tests failover to the secondary server. | 
 |**Scale a single database and an elastic pool**||
 | [Scale a single database](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL database, scales it to a higher compute size and creates an alert rule on one of the performance metrics. |
 | [Scale an elastic pool](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | This PowerShell script monitors the performance metrics of an Azure SQL Database elastic pool, scales it to a higher compute size, and creates an alert rule on one of the performance metrics. |
@@ -52,7 +53,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 
 Learn more about the [Single Database Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## Managed Instance
+## [Managed Instance](#tab/managed-instance)
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database - Managed Instance.
 
@@ -67,6 +68,8 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |||
 
 Learn more about the [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+
+---
 
 ## Additional resources
 

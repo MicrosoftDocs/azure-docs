@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Analyze text content in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable materials using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3

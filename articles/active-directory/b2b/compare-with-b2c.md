@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 07/22/2019
 
 ms.author: mimart
 author: msmimart
@@ -33,7 +33,7 @@ B2B collaboration capabilities |	 Azure AD B2C stand-alone offering
 Intended for: Organizations that want to be able to authenticate users from a partner organization, regardless of identity provider. | Intended for: Inviting customers of your mobile and web apps, whether individuals, institutional or organizational customers into your Azure AD.
 Identities supported: Employees with work or school accounts, partners with work or school accounts, or any email address. Soon to support direct federation.  | Identities supported: Consumer users with local application accounts (any email address or user name) or any supported social identity with direct federation.
 External users are managed in the same directory as employees, but annotated specially. They can be managed the same way as employees, they can be added to the same groups, and so on  | External users are managed in the application directory. They're managed separately from the organization’s employee and partner directory (if any).
-Single sign-on (SSO) to all Azure AD-connected apps is supported. For example, you can provide access to Office 365 or on-premises apps, and to other SaaS apps such as Salesforce or Workday.  |  SSO to customer owned apps within the Azure AD B2C tenants is supported. SSO to Office 365 or to other Microsoft and non-Microsoft SaaS apps is not supported.
+Single sign-on (SSO) to all Azure AD-connected apps is supported. For example, you can provide access to Office 365 or on-premises apps, and to other SaaS apps such as Salesforce or Workday.  |  SSO to customer owned apps within the Azure AD B2C tenants is supported. SSO to Office 365 or to other Microsoft SaaS apps is not supported.
 Partner lifecycle: Managed by the host/inviting organization.  | Customer lifecycle: Self-serve or managed by the application.
 Security policy and compliance: Managed by the host/inviting organization (for example, with [Conditional Access policies](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Security policy and compliance: Managed by the application.
 Branding: Host/inviting organization’s brand is used.  |	Branding: Managed by application. Typically tends to be product branded, with the organization fading into the background.

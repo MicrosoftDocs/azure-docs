@@ -3,6 +3,7 @@ title: Lock an image in Azure Container Registry
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article

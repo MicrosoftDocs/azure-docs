@@ -13,23 +13,32 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/24/2019
+ms.date: 08/26/2019
 ms.author: b-juche
 ---
 # Solution architectures using Azure NetApp Files
 This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  
 
-## Solutions for Oracle database
+## Azure Kubernetes Service (AKS) solutions
+
+* [Azure NetApp Files integration with AKS](https://github.com/andyzhangx/demo/tree/master/linux/nfs)
+
+## Oracle database solutions
 
 * [Oracle on Azure deployment best practice guide using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 
-## Solutions for SAP applications
+## SAP application solutions 
 
 * [SAP applications on Microsoft Azure using Azure NetApp Files](https://www.netapp.com/us/media/tr-4746.pdf)
 * [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
 * [Azure Virtual Machines high availability for SAP NetWeaver on Red Hat Enterprise Linux with Azure NetApp Files for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files)
 
-## Talon solutions 
+## Talon solutions
 
-[Globally distributed enterprise file sharing with Azure NetApp Files and Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)
+* [Globally distributed enterprise file sharing with Azure NetApp Files and Talon FAST™](https://www.talonstorage.com/products/azure-netapp-files)
+
+## Windows Virtual Desktop/VDI solutions
+
+* [Create an FSLogix profile container for a host pool using Azure NetApp Files](https://docs.microsoft.com/azure/virtual-desktop/create-fslogix-profile-container)
+

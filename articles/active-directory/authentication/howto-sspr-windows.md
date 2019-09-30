@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 07/17/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -154,3 +154,5 @@ Your users will find guidance for using this feature in [Reset your work or scho
 ## Next steps
 
 [Plan authentication methods to allow](concept-authentication-methods.md)
+
+[Configure Windows 10](https://docs.microsoft.com/windows/configuration/)

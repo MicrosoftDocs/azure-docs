@@ -1,6 +1,6 @@
 ---
-title: Change, train app, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: Change, train app, Python - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this Python quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/29/2019
+ms.date: 09/04/2019
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using Python. 
 ---

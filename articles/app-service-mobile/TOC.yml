@@ -145,7 +145,7 @@
   - name: Scale
     items:
     - name: Scale-up an app
-      href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      href: ../app-service/manage-scale-up.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: App Service Environment
       href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
       items:

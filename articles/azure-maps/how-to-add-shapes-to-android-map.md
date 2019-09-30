@@ -77,6 +77,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
     
     ```Java
     package com.example.myapplication;
+
     import android.app.Activity;
     import android.os.Bundle;
     import com.mapbox.geojson.LineString;
@@ -91,8 +92,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
     import com.microsoft.azure.maps.mapcontrol.MapControl;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeColor;
     import static com.microsoft.azure.maps.mapcontrol.options.LineLayerOptions.strokeWidth;
-    
-    
+        
     public class MainActivity extends AppCompatActivity {
     
         static{
@@ -128,8 +128,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(5f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -166,8 +165,7 @@ You can add a line to the map using a **Line Layer**, follow the steps below to 
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -302,8 +300,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
                 map.layers.add(new LineLayer(dataSource,
                     strokeColor("blue"),
                     strokeWidth(2f)));
-            });
-    
+            });    
         }
     
         @Override
@@ -340,8 +337,7 @@ The **Polygon Layer** enables you to render the area of the polygon to the map. 
         protected void onSaveInstanceState(Bundle outState) {
             super.onSaveInstanceState(outState);
             mapControl.onSaveInstanceState(outState);
-        }
-    
+        }    
     }
     ```
 
@@ -354,7 +350,13 @@ If you run your application now, you should see a polygon on the map as seen bel
 
 ## Next steps
 
-See the following article to learn more about ways to set map styles
+To add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Add a tile layer](how-to-add-tile-layer-android-map.md)
+
+> [!div class="nextstepaction"]
+> [Display feature information](display-feature-information-android.md)

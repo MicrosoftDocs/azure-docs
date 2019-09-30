@@ -1,5 +1,5 @@
 ---
-title: Swagger documentation - Speech Services
+title: Swagger documentation - Speech Service
 titleSuffix: Azure Cognitive Services
 description: The Swagger documentation can be used to auto-generate SDKs for a number of programming languages. All operations in our service are supported by Swagger
 services: cognitive-services
