@@ -78,7 +78,7 @@
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Execution and trigger
     href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
-  - name: Linked service
+  - name: Linked services
     href: ../data-factory/concepts-linked-services.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Integration runtime
     href: ../data-factory/concepts-integration-runtime.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
@@ -114,8 +114,8 @@
       #   href: article-template.md
     - name: Maintenance schedule
       href: ../sql-data-warehouse/maintenance-scheduling.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
-    # - name: Backup and restore  
-    #   href: article-template.md
+    - name: Backup and restore  
+      href: ../sql-data-warehouse/backup-and-restore.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Monitoring 
     items:
     - name: Standard monitoring
@@ -734,8 +734,9 @@
       - name: Salesforce Marketing Cloud
         href: ../data-factory/connector-salesforce-marketing-cloud.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
       - name: SAP Business Warehouse Open Hub
-        href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
         items:
+        - name: SAP Business Warehouse Open Hub
+          href: ../data-factory/connector-sap-business-warehouse-open-hub.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
         - name: Load SAP BW data
           href: ../data-factory/load-sap-bw-data.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
       - name: SAP Business Warehouse.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.jsonX
