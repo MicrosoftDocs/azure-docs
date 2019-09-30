@@ -1,5 +1,5 @@
 ---
-title: Suspended domains | Microsoft Docs
+title: Suspended domains in Azure AD Domain Services | Microsoft Docs
 description: Learn about the different health states for an Azure AD DS managed domain and how to restore a suspended domain.
 services: active-directory-ds
 author: iainfoulds
