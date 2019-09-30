@@ -30,11 +30,28 @@ Through the Postman client, solutions developers can specify the kind of HTTP re
 
 Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant flow.
 
-1. Follow the steps in [our quickstart](./quickstart-view-occupancy-dotnet.md) to create an Azure AD application. Or, create a [native app using the legacy AAD blade](./how-to-use-legacy-aad.md).
+1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for:
+    
+    1. `Azure Digital Twins`. Select the **Azure Digital Twins** API.
 
-1. Under **API permissions**, select **Add a permission**. Then, **Azure Digital Twins** under **APIs my organization uses**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead. Then, select **Delegated Permissions**, **Read** > **Read.Write**, and **Add permission**.
+        [![Search API or Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    1. Alternatively, search for `Azure Smart Spaces Service`. Select the **Azure Smart Spaces Service** API.
+
+        [![Search API for Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
+
+    > [!IMPORTANT]
+    > * External accounts should search `Azure Digital Twins`.
+    > * Test and preview accounts search `Azure Smart Spaces Service`.
+
+1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
+
+    [![Add API permissions](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+
+1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
+
+    [![Add API permissions](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+
 
 1. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 

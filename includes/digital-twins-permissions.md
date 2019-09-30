@@ -34,16 +34,17 @@
 
 1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for:
     
-    1. **Azure Digital Twins**. Select the **Azure Digital Twins** API.
+    1. `Azure Digital Twins`. Select the **Azure Digital Twins** API.
 
         [![Search API or Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    1. Alternatively, search for **Azure Smart Spaces**. Select the **Azure Smart Spaces Service** API.
+    1. Alternatively, search for `Azure Smart Spaces Service`. Select the **Azure Smart Spaces Service** API.
 
         [![Search API for Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
-    > [!NOTE]
-    > The exact name that will appear when searched may vary depending on which Azure tenant you belong to.
+    > [!IMPORTANT]
+    > * External accounts should search `Azure Digital Twins`
+    > * Test and preview accounts search 
 
 1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 
