@@ -22,16 +22,16 @@ The following table lists the minimum requirements for a smooth user experience.
 
 |Workload        |Sample applications                                                                                           |Recommended bandwidth|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5 Mbps             |
-|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3 Mbps               |
-|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5 Mbps               |
-|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15 Mbps              |
+|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5&nbsp;Mbps             |
+|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3&nbsp;Mbps               |
+|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5&nbsp;Mbps               |
+|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15&nbsp;Mbps              |
 
 Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
 Other scenarios can have their bandwidth requirements change depending on how you use them, such as:
 
-- Using voice or video conferencing
+- Voice or video conferencing
 - Real-time communication
 - Streaming 4K video
 
@@ -39,11 +39,11 @@ Make sure to load test these scenarios in your deployment using simulation tools
 
 ## Display resolutions
 
-Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a framerate of 30 fps. Keep in mind that scenarios involving a frame rate under 30 fps, such as reading static text, require less available bandwidth. 
+Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a frame rate of 30 frames per second (fps). Keep in mind that scenarios involving a frame rate under 30 fps, such as reading static text, require less available bandwidth. 
 
 |Typical display resolutions at 30 fps    |Recommended bandwidth|
 |-----------------------------------------|---------------------|
-|About 1024 × 768 px​                      |1.5 Mbps             |
+|About 1024 × 768 px                      |1.5 Mbps             |
 |About 1280 × 720 px                      |3 Mbps               |
 |About 1920 × 1080 px                     |5 Mbps               |
 |About 3840 × 2160 px (4K)                |15 Mbps              |
