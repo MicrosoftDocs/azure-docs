@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dapine
 ---
 
@@ -156,7 +156,10 @@ The `POST /translate` method supports the following languages conversions, movin
 
 ## Query the container's translate endpoint
 
-The container provides REST-based translate endpoint API. An example usage of this endpoint is as follows:
+The container provides a REST-based translate endpoint API. Several example usages of this endpoint are as follows:
+
+# [cURL](#tab/curl)
+
 
 ```curl
 curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-CN"
@@ -165,6 +168,88 @@ curl -X POST "http://localhost:5000/translate?api-version=3.0&from=en-US&to=zh-C
 
 > [!TIP]
 > If you attempt this cURL POST before the container is ready, you'll end up getting a "Service is temporarily unavailable" response. Simply wait until the container is ready, then try again.
+
+# [Swagger](#tab/Swagger)
+
+Navigate to the swagger page, http://localhost:5000/swagger/index.html
+
+1. Select **POST /translate**
+1. Select **Try it out**
+1. Enter the **From** parameter as `en-US`
+1. Enter the **To** parameter as `de-DE`
+1. Enter the **api-version** parameter as `3.0`
+1. Under **texts**, replace `string` with the following JSON
+    ```
+    [
+        {
+            "text": "hello, how are you"
+        }
+    ]
+    ```
+1. Select **Execute**, the resulting translations are output in the **Response Body**. You should expect something similar to the following:
+    ```
+    "translations": [
+      {
+          "text": "hallo, wie geht es dir",
+          "to": "de-DE"
+      }
+    ]
+    ```
+
+# [.NET Core](#tab/netcore)
+
+Launch Visual Studio, and create a new console application. Edit the `*.csproj` file to add the `<LangVersion>7.1</LangVersion>` node - this specifies C# 7.1. Add the [Newtoonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) NuGet package, version 11.0.2.
+
+In the `Program.cs` replace all the existing code with the following:
+
+```csharp
+using Newtonsoft.Json;
+using System;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace TranslateContainer
+{
+    class Program
+    {
+        const string ApiHostEndpoint = "http://localhost:5000";
+        const string TranslateApi = "/translate?api-version=3.0&from=en-US&to=de-DE";
+
+        static async Task Main(string[] args)
+        {
+            var textToTranslate = "Sunny day in Seattle";
+            var result = await TranslateTextAsync(textToTranslate);
+
+            Console.WriteLine(result);
+            Console.ReadLine();
+        }
+
+        static async Task<string> TranslateTextAsync(string textToTranslate)
+        {
+            var body = new object[] { new { Text = textToTranslate } };
+            var requestBody = JsonConvert.SerializeObject(body);
+
+            var client = new HttpClient();
+            using (var request =
+                new HttpRequestMessage
+                {
+                    Method = HttpMethod.Post,
+                    RequestUri = new Uri($"{ApiHostEndpoint}{TranslateApi}"),
+                    Content = new StringContent(requestBody, Encoding.UTF8, "application/json")
+                })
+            {
+                // Send the request and await a response.
+                var response = await client.SendAsync(request);
+
+                return await response.Content.ReadAsStringAsync();
+            }
+        }
+    }
+}
+```
+
+***
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
@@ -193,6 +278,6 @@ For more information about these options, see [Configure containers](translator-
 In this article, you learned concepts and workflow for downloading, installing, and running Translator Text containers. In summary:
 
 * Translator Text provides 1 Linux container for Docker, encapsulating 4 different language pairs.
-* Container images are downloaded from the Container Preview Registry.
+* Container images are downloaded from the "Container Preview" registry.
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in Translator Text containers by specifying the host URI of the container.
