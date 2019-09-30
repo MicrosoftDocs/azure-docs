@@ -22,6 +22,8 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 In Azure Data Factory, you can use the Copy activity to copy data among data stores located on-premises and in the cloud. After you copy the data, you can use other activities to further transform and analyze it. You can also use the Copy activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![The role of the Copy activity](media/copy-activity-overview/copy-activity.png)
