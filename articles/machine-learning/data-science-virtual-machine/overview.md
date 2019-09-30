@@ -60,8 +60,8 @@ You can use the DSVM to evaluate or learn tools like these, with minimal setup e
 
 Because you can set up the DSVM quickly, you can apply it in other short-term usage scenarios. These scenarios include replicating published experiments, executing demos, and following walkthroughs in online sessions and conference tutorials.
 
-### Deep learning
-In the DSVM, your training models can use deep learning algorithms on hardware that's based on graphics processing units (GPUs). By taking advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you use GPU-based hardware in the cloud according to your needs. You can switch to a GPU-based VM when you're training large models, or when you need high-speed computations while keeping the same OS disk.  
+### Deep learning with GPUs
+In the DSVM, your training models can use deep learning algorithms on hardware that's based on graphics processing units (GPUs). By taking advantage of the VM scaling capabilities of the Azure platform, the DSVM helps you use GPU-based hardware in the cloud according to your needs. You can switch to a GPU-based VM when you're training large models, or when you need high-speed computations while keeping the same OS disk. You can choose any of the N series GPU enabled virtual machine SKUs with DSVM. Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 The Windows Server 2016 edition of the DSVM comes pre-installed with GPU drivers, frameworks, and GPU versions of deep learning frameworks. On the Linux edition, deep learning on GPUs is enabled on both the CentOS and Ubuntu DSVMs. 
 

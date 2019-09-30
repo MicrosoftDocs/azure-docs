@@ -182,8 +182,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Authorization/*/Delete | Delete roles, policy assignments, policy definitions and policy set definitions |
 > | Microsoft.Authorization/*/Write | Create roles, role assignments, policy assignments, policy definitions and policy set definitions |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
-> | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
+> | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint assignments |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint assignments |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |

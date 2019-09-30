@@ -42057,6 +42057,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/windows/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
