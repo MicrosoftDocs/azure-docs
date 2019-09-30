@@ -22,16 +22,24 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 ## Download AzCopy
 
-First, download the AzCopy V10 executable file to any directory on your computer.
+First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
 
 - [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
-AzCopy V10 is just an executable file, so there's nothing to install.
+These files are compressed as a zip file (Windows and Mac) or a tar file (Linux).
+
+You can use these commands to download and decompress the tar file on Linux.
+
+```bash
+wget -O azcopy.tar.gz https://aka.ms/downloadazcopy-v10-linux
+tar -xf azcopy.tar.gz
+```
 
 > [!NOTE]
 > If you want to copy data to and from your [Azure Table storage](https://docs.microsoft.com/azure/storage/tables/table-storage-overview) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+
 
 ## Run AzCopy
 
