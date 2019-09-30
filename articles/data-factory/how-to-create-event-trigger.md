@@ -14,6 +14,7 @@ ms.date: 10/18/2018
 ---
 
 # Create a trigger that runs a pipeline in response to an event
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 This article describes the event-based triggers that you can create in your Data Factory pipelines.
 

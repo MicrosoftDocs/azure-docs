@@ -14,6 +14,7 @@ ms.author: jingwang
 ---
 
 # JSON format in Azure Data Factory
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 Follow this article when you want to **parse the JSON files or write the data into JSON format**. 
 
