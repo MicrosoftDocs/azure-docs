@@ -43,7 +43,8 @@ To complete the procedure in this article, you need a Facebook account that has 
 1. In the left-hand navigation under **Facebook Login**, select **Settings**.
 1. In the **Valid OAuth redirect URIs** field, enter `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`. Remember to replace `<app-name>` with the name of your Azure App Service app.
 1. Select **Save Changes**.
-1. In the left-hand navigation, select **Settings** > **Basic**. In the **App Secret** field, select **Show**. Copy the values of **App ID** and **App Secret**. You use them later to configure your App Service app in Azure.
+1. In the left pane, select **Settings** > **Basic**. 
+1. In the **App Secret** field, select **Show**. Copy the values of **App ID** and **App Secret**. You use them later to configure your App Service app in Azure.
 
    > [!IMPORTANT]
    > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.

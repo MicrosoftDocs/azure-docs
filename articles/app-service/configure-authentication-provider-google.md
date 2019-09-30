@@ -28,13 +28,13 @@ To complete the procedure in this topic, you must have a Google account that has
 
 ## <a name="register"> </a>Register your application with Google
 
-1. Follow the Google documentation at [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) to create a client ID and client secret, with the following information (no need to make any code changes):
+1. Follow the Google documentation at [Google Sign-In for server-side apps](https://developers.google.com/identity/sign-in/web/server-side-flow) to create a client ID and client secret. There's no need to make any code changes. Just use the following information:
     - For **Authorized JavaScript Origins**, use `https://<app-name>.azurewebsites.net` with the name of your app in *\<app-name>*.
     - For **Authorized Redirect URI**, use `https://<app-name>.azurewebsites.net/.auth/login/google/callback`.
-1. Once the client ID and client secrets are created, copy their values.
+1. Copy the App ID and the App secret values.
 
     > [!IMPORTANT]
-    > The client secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
+    > The App secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
 
 ## <a name="secrets"> </a>Add Google information to your application
 
