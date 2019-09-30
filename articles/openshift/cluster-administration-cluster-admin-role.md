@@ -15,9 +15,11 @@ ms.date: 09/25/2019
 
 As an ARO (Azure Red Hat OpenShift) cluster administrator of an OpenShift cluster, your account has increased permissions and access to all user-created projects.
 
-When your account has the osa-customer-admins authorization role bound to it, can automatically manage a project
+When your account has the osa-customer-admins authorization role bound to it, it can automatically manage a project.
 
-    Note: osa-customer-admin clusterrole is not the same as cluster-admin clusterrole
+```
+Note: osa-customer-admin clusterrole is not the same as cluster-admin clusterrole
+```
 
 For example, you can execute actions associated with a set of verbs (`create`) to operate on a set of resource names (`templates`). To view the details of these roles and their sets of verbs and resources, run the following command:
 

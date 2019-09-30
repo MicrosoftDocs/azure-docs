@@ -1,5 +1,5 @@
 ---
-title: Managing Security Context Constraints in Azure Red Hat OpenShift | Microsoft Docs
+title: Managing security context constraints in Azure Red Hat OpenShift | Microsoft Docs
 description:  Azure Red Hat OpenShift cluster administrator managing security context constraints
 services: container-service
 author: troy0820
@@ -12,9 +12,9 @@ ms.date: 09/25/2019
 ---
 # Overview 
 
-Security context constraints allow administrators to control permissions for pods. To learn more about this API type, see the security context constraints (SCCs) architecture documentation. You can manage SCCs in your instance as normal API objects using the CLI.
+Security context constraints allow administrators to control permissions for pods. To learn more about this API type, see the [security context constraints](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html) (SCCs) architecture documentation. You can manage SCCs in your instance as normal API objects using the CLI.
 
-# Listing Security Context Constraints
+## Listing security context constraints
 
 To get a current list of SCCs 
 
@@ -31,7 +31,7 @@ privileged         true      [*]       RunAsAny    RunAsAny           RunAsAny  
 restricted         false     []        MustRunAs   MustRunAsRange     MustRunAs   RunAsAny    <none>     false            [configMap downwardAPI emptyDir persistentVolumeClaim secret]
 ```
 
-# Examining a Security Context Constraints Object
+## Examining a security context constraints object
 
 To examine a particular SCC, use `oc get`, `oc describe`, or `oc edit`.  For example, to examine the **restricted** SCC:
 ```bash
