@@ -377,7 +377,7 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## Create knowledge base with multi-turn prompts with the Create API
 
-You can create a knowledge case with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
+You can create a knowledge base with multi-turn prompts using the [QnA Maker Create API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). The prompts are adding in the `context` property's `prompts` array. 
 
 
 ## Add or delete multi-turn prompts with the Update API
