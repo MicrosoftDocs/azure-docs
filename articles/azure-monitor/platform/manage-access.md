@@ -1,6 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
-description: You can manage access to data stored in a Log Analytics workspaces in Azure Monitor using resource, workspace, or table-level permissions. This article details how to .
+description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete these .
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -221,7 +221,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 
-    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provide the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read` that exist for example, with the Reader or Contributor role.
+    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read` that exist for example, with the Reader or Contributor role.
 
 4. To grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace, perform the following:
 
