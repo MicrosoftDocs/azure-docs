@@ -160,7 +160,7 @@ Next, type the following command, and then press the ENTER key.
 azcopy login --service-principal --application-id <application-id> --tenant-id=<tenant-id>
 ```
 
-Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal.
+Replace the `<application-id>` placeholder with the application ID of your service principal's app registration. Replace the `<tenant-id>` placeholder with the tenant ID of the organization to which the storage account belongs. To find the tenant ID, select **Azure Active Directory > Properties > Directory ID** in the Azure portal. 
 
 ##### Using a certificate
 
