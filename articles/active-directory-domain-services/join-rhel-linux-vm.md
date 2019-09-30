@@ -224,7 +224,7 @@ If your VM can't successfully complete the domain-join process, make sure that t
 Now check if you can query user AD information using `getent`
 
 ```console
-   sudo getent passwd contosoadmin
+sudo getent passwd contosoadmin
 ```
 
 ## Allow password authentication for SSH
