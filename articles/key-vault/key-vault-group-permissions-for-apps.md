@@ -23,7 +23,6 @@ If you are unable to give your application access to your key vault with a manag
 - [Keys access control](about-keys-secrets-and-certificates.md#key-access-control)
 - [Secrets access control](about-keys-secrets-and-certificates.md#secret-access-control)
 - [Certificates access control](about-keys-secrets-and-certificates.md#certificate-access-control)
-- 
 
 ## Prerequisites
 
@@ -33,7 +32,6 @@ If you are unable to give your application access to your key vault with a manag
    - [Create a key vault with the Azure portal](quick-create-portal.md).
 - An existing application to which to grant key vault access.
 - The [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](https://portal.azure.com).
-- 
 
 ## Grant a single application access to your key vault
 
@@ -84,7 +82,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 A Key Vault access control policy can provide authentication for up to 1024 applications. This is done through the use of an Active Directory group. For more information, see [Manage app and resource access using Azure Active Directory groups](../active-directory/fundamentals/active-directory-manage-groups.md).
 
 
-## Addition prerequisites
+### Addition prerequisites
 
 In addition to the [prerequisites above](#prerequisites), you will need permissions to create/edit groups in your Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
@@ -128,7 +126,7 @@ In the JSON block for each service principal, you will find an `objectId`.
 With Azure PowerShell, you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, and provide a search string to the  `–SearchString` parameter.
 
 ```powershell
-$spn = Get-AzureADServicePrincipal –SearchString "<search-string>" 
+Get-AzureADServicePrincipal –SearchString "<search-string>" 
 ```
 
 In the output, the objectId is listed as `Id`:
@@ -169,7 +167,6 @@ With Azure PowerShell, this is done by passing the Id to the [Set-AzKeyVaultAcce
 
 ```azurepowershell
 Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -ObjectId <groupId> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete 
-
 ```
 
 ## Next steps
