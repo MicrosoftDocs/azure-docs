@@ -56,12 +56,14 @@ landingContent:
             url: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: Data movement
     linkLists:
-      - linkListType: overview
+      - linkListType: concept
         links:
           - text: Copy activity overview
             url: /azure/data-factory/copy-activity-overview
           - text: Copy performance tuning
             url: /azure/data-factory/copy-activity-performance
+      - linkListType: overview
+        links:
           - text: Data lake and data warehouse migration
             url: /azure/data-factory/data-migration-guidance-overview
       - linkListType: tutorial
@@ -110,6 +112,8 @@ landingContent:
         links:
           - text: Running SSIS packages in Azure
             url: /azure/data-factory/tutorial-deploy-ssis-packages-azure
+      - linkListType: how-to-guide
+        links:
           - text: Provision SSIS Integration Runtime
             url: /azure/data-factory/create-azure-ssis-integration-runtime
           - text: Join SSIS IR to a virtual network
