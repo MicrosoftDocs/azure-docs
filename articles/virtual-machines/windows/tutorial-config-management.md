@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Monitor and update Windows virtual machines in Azure | Microsoft Docs
-description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Windows virtual machine
+title: Tutorial - Manage Windows virtual machine configuration in Azure | Microsoft Docs
+description: In this tutorial, you learn how to identify changes and manage package updates on a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -17,25 +17,18 @@ ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 
-#Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Windows virtual machines.
+#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Windows virtual machines.
 ---
 
-# Tutorial: Monitor and update a Windows virtual machine in Azure
+# Tutorial: Monitor changes and update a Windows virtual machine in Azure
 
-Azure monitoring uses agents to collect boot and performance data from Azure VMs, store this data in Azure storage, and make it accessible through portal, the Azure PowerShell module, and the Azure CLI. Update management allows you to manage updates and patches for your Azure Windows VMs.
+Azure [Change Tracking](../../automation/change-tracking.md) allows you to easily identify changes and [Update Management](../../automation/automation-update-management.md) allows you to manage operating system updates for your Azure Windows VMs.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Enable boot diagnostics on a VM
-> * View boot diagnostics
-> * View VM host metrics
-> * Install the diagnostics extension
-> * View VM metrics
-> * Create an alert
 > * Manage Windows updates
 > * Monitor changes and inventory
-> * Set up advanced monitoring
 
 ## Launch Azure Cloud Shell
 
@@ -63,63 +56,12 @@ New-AzVm `
 
 It takes a few minutes for the resources and VM to be created.
 
-## View boot diagnostics
-
-As Windows virtual machines boot up, the boot diagnostic agent captures screen output that can be used for troubleshooting purpose. This capability is enabled by default. The captured screenshots are stored in an Azure storage account, which is also created by default.
-
-You can get the boot diagnostic data with the [Get-​Azure​Rm​VM​Boot​Diagnostics​Data](https://docs.microsoft.com/powershell/module/az.compute/get-azvmbootdiagnosticsdata) command. In the following example, boot diagnostics are downloaded to the root of the *c:\* drive.
-
-```powershell
-Get-AzVMBootDiagnosticsData -ResourceGroupName "myResourceGroupMonitor" -Name "myVM" -Windows -LocalPath "c:\"
-```
-
-## View host metrics
-
-A Windows VM has a dedicated Host VM in Azure that it interacts with. Metrics are automatically collected for the Host and can be viewed in the Azure portal.
-
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. Click **Metrics** on the VM blade, and then select any of the Host metrics under **Available metrics** to see how the Host VM is performing.
-
-    ![View host metrics](./media/tutorial-monitoring/tutorial-monitor-host-metrics.png)
-
-## Install diagnostics extension
-
-The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
-
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. Click **Diagnosis settings**. The list shows that *Boot diagnostics* are already enabled from the previous section. Click the check box for *Basic metrics*.
-3. Click the **Enable guest-level monitoring** button.
-
-    ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
-
-## View VM metrics
-
-You can view the VM metrics in the same way that you viewed the host VM metrics:
-
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. To see how the VM is performing, click **Metrics** on the VM blade, and then select any of the diagnostics metrics under **Available metrics**.
-
-    ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
-
-## Create alerts
-
-You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
-
-The following example creates an alert for average CPU usage.
-
-1. In the Azure portal, click **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. Click **Alert rules** on the VM blade, then click **Add metric alert** across the top of the alerts blade.
-3. Provide a **Name** for your alert, such as *myAlertRule*
-4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
-5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
-6. Click the **OK** button.
-
 ## Manage Windows updates
 
-Update management allows you to manage updates and patches for your Azure Windows VMs.
+Update Management allows you to manage updates and patches for your Azure Windows VMs. 
 Directly from your VM, you can quickly assess the status of available updates, schedule installation of required updates, and review deployment results to verify updates were applied successfully to the VM.
 
-For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/)
+For pricing information, see [Automation pricing for Update management](https://azure.microsoft.com/pricing/details/automation/).
 
 ### Enable Update management
 
@@ -252,49 +194,16 @@ Stopping and starting a VM logs an event in its activity log. Navigate back to t
 
 The chart shows changes that have occurred over time. After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. Each row of bar graphs represents a different trackable Change type. These types are Linux daemons, files, Windows Registry keys, software, and Windows services. The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
 
-## Advanced monitoring
-
-You can do more advanced monitoring of your VM by using the solutions like Update Management and Change and Inventory provided by [Azure Automation](../../automation/automation-intro.md).
-
-When you have access to the Log Analytics workspace, you can find the workspace key and workspace identifier on by selecting **Advanced settings** under **SETTINGS**. Use the [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) command to add the Microsoft Monitoring agent extension to the VM. Update the variable values in the below sample to reflect you Log Analytics workspace key and workspace Id.
-
-```powershell
-$workspaceId = "<Replace with your workspace Id>"
-$key = "<Replace with your primary key>"
-
-Set-AzVMExtension -ResourceGroupName "myResourceGroupMonitor" `
-  -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
-  -VMName "myVM" `
-  -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
-  -ExtensionType "MicrosoftMonitoringAgent" `
-  -TypeHandlerVersion 1.0 `
-  -Settings @{"workspaceId" = $workspaceId} `
-  -ProtectedSettings @{"workspaceKey" = $key} `
-  -Location "East US"
-```
-
-After a few minutes, you should see the new VM in the Log Analytics workspace.
-
-![Log Analytics workspace blade](./media/tutorial-monitoring/tutorial-monitor-oms.png)
-
 ## Next steps
 
-In this tutorial, you configured and reviewed VMs with Azure Security Center. You learned how to:
+In this tutorial, you configured and reviewed Change Tracking and Update Management for your VM. You learned how to:
 
 > [!div class="checklist"]
-> * Create a virtual network
 > * Create a resource group and VM
-> * Enable boot diagnostics on the VM
-> * View boot diagnostics
-> * View host metrics
-> * Install the diagnostics extension
-> * View VM metrics
-> * Create an alert
 > * Manage Windows updates
 > * Monitor changes and inventory
-> * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure security center.
+Advance to the next tutorial to learn about monitoring your VM.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](../../security/fundamentals/overview.md)
+> [Monitor ](tutorial-monitor.md)

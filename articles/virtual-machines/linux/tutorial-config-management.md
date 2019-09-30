@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Monitor and update Linux virtual machines in Azure | Microsoft Docs
-description: In this tutorial, you learn how to monitor boot diagnostics and performance metrics, and manage package updates on a Linux virtual machine
+title: Tutorial -  Manage Linux virtual machine configuration in Azure | Microsoft Docs
+description: In this tutorial, you learn how to identify changes and manage package updates on a Linux virtual machine
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: cynthn
+author: mgoedtel
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,26 +13,25 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/26/2019
-ms.author: cynthn
+ms.date: 09/27/2019
+ms.author: magoedte
 ms.custom: mvc
 
-#Customer intent: As an IT administrator, I want to learn about monitoring and update management so that I can review the health status, perform troubleshooting, and install updates on Linux virtual machines.
+#Customer intent: As an IT administrator, I want to learn about tracking configuration changes and perform software updates so that I can review changes made and install updates on Linux virtual machines.
 ---
-# Tutorial: Monitor and update a Linux virtual machine in Azure
+# Tutorial: Monitor changes and update a Linux virtual machine in Azure
 
-To ensure your virtual machines (VMs) in Azure are running correctly, you can review boot diagnostics, performance metrics and manage package updates. In this tutorial, you learn how to:
+Azure [Change Tracking](../../automation/change-tracking.md) allows you to easily identify changes and [Update Management](../../automation/automation-update-management.md) allows you to manage operating system updates for your Azure Linux VMs.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Enable boot diagnostics on the VM
-> * View boot diagnostics
-> * View host metrics
-> * Enable diagnostics extension on the VM
-> * View VM metrics
-> * Create alerts based on diagnostic metrics
-> * Manage package updates
+> * Manage Windows updates
 > * Monitor changes and inventory
-> * Set up advanced monitoring
+
+## Launch Azure Cloud Shell
+
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -56,98 +55,6 @@ az vm create \
   --admin-username azureuser \
   --generate-ssh-keys
 ```
-
-## Enable boot diagnostics
-
-As Linux VMs boot, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
-
-Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In this example, a random string is used to create a unique storage account name.
-
-```azurecli-interactive
-storageacct=mydiagdata$RANDOM
-
-az storage account create \
-  --resource-group myResourceGroupMonitor \
-  --name $storageacct \
-  --sku Standard_LRS \
-  --location eastus
-```
-
-When enabling boot diagnostics, the URI to the blob storage container is needed. The following command queries the storage account to return this URI. The URI value is stored in a variable names *bloburi*, which is used in the next step.
-
-```azurecli-interactive
-bloburi=$(az storage account show --resource-group myResourceGroupMonitor --name $storageacct --query 'primaryEndpoints.blob' -o tsv)
-```
-
-Now enable boot diagnostics with [az vm boot-diagnostics enable](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-enable). The `--storage` value is the blob URI collected in the previous step.
-
-```azurecli-interactive
-az vm boot-diagnostics enable \
-  --resource-group myResourceGroupMonitor \
-  --name myVM \
-  --storage $bloburi
-```
-
-## View boot diagnostics
-
-When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#az-vm-deallocate) command as follows:
-
-```azurecli-interactive
-az vm deallocate --resource-group myResourceGroupMonitor --name myVM
-```
-
-Now start the VM with the [az vm start]( /cli/azure/vm#az-vm-stop) command as follows:
-
-```azurecli-interactive
-az vm start --resource-group myResourceGroupMonitor --name myVM
-```
-
-You can get the boot diagnostic data for *myVM* with the [az vm boot-diagnostics get-boot-log](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics#az-vm-boot-diagnostics-get-boot-log) command as follows:
-
-```azurecli-interactive
-az vm boot-diagnostics get-boot-log --resource-group myResourceGroupMonitor --name myVM
-```
-
-## View host metrics
-
-A Linux VM has a dedicated host in Azure that it interacts with. Metrics are automatically collected for the host and can be viewed in the Azure portal as follows:
-
-1. In the Azure portal, select **Resource Groups**, choose **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-1. To see how the host VM is performing, select  **Metrics** on the VM window, then choose any of the *[Host]* metrics under **Available metrics**.
-
-    ![View host metrics](./media/tutorial-monitoring/monitor-host-metrics.png)
-
-## Install diagnostics extension
-
-The basic host metrics are available, but to see more granular and VM-specific metrics, you need to install the Azure diagnostics extension on the VM. The Azure diagnostics extension allows additional monitoring and diagnostics data to be retrieved from the VM. You can view these performance metrics and create alerts based on how the VM performs. The diagnostic extension is installed through the Azure portal as follows:
-
-1. In the Azure portal, choose **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-1. Select **Diagnosis settings**. In the *Pick a storage account* drop-down menu, if not already selected, choose the *mydiagdata[1234]* account created in the previous section.
-1. Select the **Enable guest-level monitoring** button.
-
-    ![View diagnostic metrics](./media/tutorial-monitoring/enable-diagnostics-extension.png)
-
-## View VM metrics
-
-You can view the VM metrics in the same way that you viewed the host VM metrics:
-
-1. In the Azure portal, choose **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-1. To see how the VM is performing, select **Metrics** on the VM window, and then select any of the *[Guest]* diagnostics metrics under **Available metrics**.
-
-    ![View VM metrics](./media/tutorial-monitoring/monitor-vm-metrics.png)
-
-## Create alerts
-
-You can create alerts based on specific performance metrics. Alerts can be used to notify you when average CPU usage exceeds a certain threshold or available free disk space drops below a certain amount, for example. Alerts are displayed in the Azure portal or can be sent via email. You can also trigger Azure Automation runbooks or Azure Logic Apps in response to alerts being generated.
-
-The following example creates an alert for average CPU usage.
-
-1. In the Azure portal, select **Resource Groups**, select **myResourceGroupMonitor**, and then select **myVM** in the resource list.
-2. Select **Alerts (classic)**, then choose to **Add metric alert (classic)** across the top of the alerts window.
-3. Provide a **Name** for your alert, such as *myAlertRule*
-4. To trigger an alert when CPU percentage exceeds 1.0 for five minutes, leave all the other defaults selected.
-5. Optionally, check the box for *Email owners, contributors, and readers* to send email notification. The default action is to present a notification in the portal.
-6. Select the **OK** button.
 
 ## Manage software updates
 
@@ -283,30 +190,16 @@ Stopping and starting a VM logs an event in its activity log. Navigate back to t
 
 The chart shows changes that have occurred over time. After you have added an Activity Log connection, the line graph at the top displays Azure Activity Log events. Each row of bar graphs represents a different trackable Change type. These types are Linux daemons, files, and software. The change tab shows the details for the changes shown in the visualization in descending order of time that the change occurred (most recent first).
 
-## Advanced monitoring
-
-You can do more advanced monitoring of your VM by using a solution like [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), which monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including their different processes and interconnected dependencies on other resources and external processes. Configuration management of your Azure VMs is delivered with the [Azure Automation](../../automation/automation-intro.md) Change Tracking and Inventory solution to easily identify changes in your environment. Managing update compliance is provided with the Azure Automation Update Management solution.   
-
-From the Log Analytics workspace the VM is connected to, you can also retrieve, consolidate, and analyze collected data with the [rich query language](../../azure-monitor/log-query/log-query-overview.md). 
-
-![Log Analytics workspace](./media/tutorial-monitoring/tutorial-monitor-oms.png)
-
 ## Next steps
 
-In this tutorial, you configured, reviewed, and managed updates for a VM. You learned how to:
+In this tutorial, you configured and reviewed Change Tracking and Update Management for your VM. You learned how to:
 
 > [!div class="checklist"]
-> * Enable boot diagnostics on the VM
-> * View boot diagnostics
-> * View host metrics
-> * Enable diagnostics extension on the VM
-> * View VM metrics
-> * Create alerts based on diagnostic metrics
-> * Manage package updates
+> * Create a resource group and VM
+> * Manage Linux updates
 > * Monitor changes and inventory
-> * Set up advanced monitoring
 
-Advance to the next tutorial to learn about Azure Security Center.
+Advance to the next tutorial to learn about monitoring your VM.
 
 > [!div class="nextstepaction"]
-> [Manage VM security](../../security/fundamentals/overview.md)
+> [Monitor ](tutorial-monitor.md)
