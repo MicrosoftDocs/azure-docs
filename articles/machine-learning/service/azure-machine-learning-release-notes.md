@@ -20,7 +20,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ## 2019-09-30
 
-### Azure Machine Learning SDK for Python v1.0.63
+### Azure Machine Learning SDK for Python v1.0.65
 
 + **New features**
   + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
@@ -32,9 +32,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + [AutoML] Supported raw explanations when user enables model explanation during training (preview only)
   + [AutoML] Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
   + [Data Drift] Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
-
-+ **Breaking changes**
-  + [Reference upcoming breaking changes and old API support drop date]
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
