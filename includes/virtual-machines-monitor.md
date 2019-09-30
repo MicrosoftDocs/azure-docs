@@ -2,11 +2,11 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/25/2019
+ms.date: 09/30/2019
 ms.author: cynthn
 ---
 
-With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utiliztion, memory utilization, and network traffic collected by the host hypervisor. Additional metric and log data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs from the guest operating system.
+With the significant growth of VMs hosted in Azure, it's important to identify performance and health issues that impact applications and infrastructure services they support. Basic monitoring is delivered by default with Azure by the metric types CPU usage, disk utilization, memory utilization, and network traffic collected by the host hypervisor. Additional metric and log data can be collected using [extensions](../articles/virtual-machines/windows/extensions-features.md) to configure diagnostics on your VMs from the guest operating system.
 
 To detect and help diagnose performance and health issues with the guest operating system, .NET based or Java web application components running inside the VM, Azure Monitor delivers centralized monitoring with comprehensive features such as Azure Monitor for VMs and Application Insights.
 
@@ -24,7 +24,7 @@ You can set up and monitor the collection of [diagnostics data](https://docs.mic
 
 - **Enable the collection of guest OS diagnostics data.** When you create a VM, you have the opportunity on the settings screen to enable guest OS diagnostics. When you do enable the collection of diagnostics data, the [IaaSDiagnostics extension for Linux](../articles/virtual-machines/linux/diagnostic-extension.md) or the [IaaSDiagnostics extension for Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) is added to the VM, which enables you to collect additional disk, CPU, and memory data.
 
-    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure [Azure Monitor Logs](../articles/azure-monitor/platform/data-platform-logs.md) to store the data and set up alerts to let you know when performance isn't quite right.
+    Using the collected diagnostics data, you can configure autoscaling for your VMs. You can also configure [Azure Monitor Logs](../articles/azure-monitor/platform/data-platform-logs.md) to store the data and set up alerts to let you know when performance isn't right.
 
 ## Alerts
 
@@ -45,8 +45,8 @@ The [Azure Activity Log](../articles/azure-monitor/platform/activity-logs-overvi
 Some of the things you can do with the activity log include:
 
 - Create an [alert on an Activity Log event](../articles/azure-monitor/platform/activity-logs-overview.md).
-- [Stream it to an Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
-- Analyze it in PowerBI using the [PowerBI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+- [Stream it to an Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as Power BI.
+- Analyze it in Power BI using the [Power BI content pack](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Save it to a storage account](../articles/azure-monitor/platform/archive-activity-log.md) for archival or manual inspection. You can specify the retention time (in days) using the Log Profile.
 
 You can also access activity log data by using [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), the [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), or [Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/).
@@ -56,12 +56,12 @@ You can also access activity log data by using [Azure PowerShell](https://docs.m
 Some of the things you can do with diagnostics logs include:
 
 - [Save them to a storage account](../articles/azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using Resource Diagnostic Settings.
-- [Stream them to Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+- [Stream them to Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as Power BI.
 - Analyze them with [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## Advanced monitoring
 
-For visibility of the application or service supported by the Azure VM and VM scale sets, identification of issues with the guest OS or workload running in the VM to understand if it is impacting availability or performance of the application, or is an issue with the application, enable both [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md).
+For visibility of the application or service supported by the Azure VM and virtual machine scale sets, identification of issues with the guest OS or workload running in the VM to understand if it is impacting availability or performance of the application, or is an issue with the application, enable both [Azure Monitor for VMs](../articles/azure-monitor/insights/vminsights-overview.md) and [Application Insights](../articles/azure-monitor/app/app-insights-overview.md).
 
 Azure Monitor for VMs monitors your Azure virtual machines (VM) at scale by analyzing the performance and health of your Windows and Linux VMs, including the different processes and interconnected dependencies on other resources and external processes it discovers. It includes several trend performance charts to help during investigation of problems and assess capacity of your VMs. The dependency map shows monitored and unmonitored machines, failed and active network connections between processes and these machines, and shows trend charts with standard network connection metrics. Combined with Application Insights, you monitor your application and capture telemetry such as HTTP requests, exceptions, etc. so you can correlate issues between the VMs and your application. Configure [Azure Monitor alerts](../articles/azure-monitor/platform/alerts-overview.md) to alert you on important conditions detected from monitoring data collected by Azure Monitor for VMs.
 
