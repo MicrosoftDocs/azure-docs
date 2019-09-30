@@ -39,6 +39,7 @@ Below are the various exceptions/errors that are surfaced through the Azure Reso
 | Bad Request | 40000 | SubCode=40000. Partitioning cannot be changed for Queue. | Partitioning cannot be changed for entity. | Create a new entity and enable partitions. | 
 | Bad Request | none | The namespace *'namespace name'* does not exist. | The namespace does not exist within your Azure subscription. | To resolve this error, please try the below <ul> <li> Ensure that the Azure Subscription is correct. </li> <li> Ensure the namespace exists. </li> <li> Verify the namespace name is correct (no spelling errors or null strings). </li> </ul> | 
 | Bad Request | 40400 | SubCode=40400. The auto forwarding destination entity does not exist. | The destination for the autoforwarding destination entity doesn't exist. | The destination entity (queue or topic), must exist before the source is created. Retry after creating the destination entity. |
+| Bad Request | 40000 | SubCode=40000. The supplied lock time exceed the allowed maximum of '5' minutes. | The time for which a message can be locked must be between 1 minute (minimum) and 5 minutes (maximum). | Ensure that the supplied lock time is between 1 min and 5 mins. |
 
 
 ## Error code: 429
