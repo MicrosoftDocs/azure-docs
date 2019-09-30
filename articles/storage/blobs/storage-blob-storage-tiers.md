@@ -38,14 +38,6 @@ Object storage data tiering to hot, cool, or archive is only supported in Blob s
 
 Blob storage and GPv2 accounts expose the **Access Tier** attribute at the account level. This attribute allows you to specify the default access tier as hot or cool for any blob in the storage account that doesn't have an explicit tier set at the object level. For objects with the tier set at the object level, the account tier will not apply. The archive tier can be applied only at the object level. You can switch between these access tiers at any time.
 
-## Premium performance block blob storage
-
-Premium performance block blob storage makes frequently accessed data available via high-performance hardware. Data in this performance tier is stored on solid-state drives (SSDs), which are optimized for low and consistent latency. SSDs provide higher transactional rates and throughput compared to traditional hard drives.
-
-Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions, such as capturing telemetry data, messaging, and data transformation. Data that involves end users, such as interactive video editing, static web content, and online transactions are also good candidates.
-
-Premium performance block blob storage is available only via the block blob storage account type, and does not currently support tiering to hot, cool, or archive access tiers.
-
 ## Hot access tier
 
 The hot access tier has higher storage costs than cool and archive tiers, but the lowest access costs. Example usage scenarios for the hot access tier include:
@@ -72,11 +64,6 @@ Example usage scenarios for the archive access tier include:
 - Long-term backup, secondary backup, and archival datasets
 - Original (raw) data that must be preserved, even after it has been processed into final usable form. (*For example*, Raw media files after transcoding into other formats)
 - Compliance and archival data that needs to be stored for a long time and is hardly ever accessed. (*For example*, security camera footage, old X-Rays/MRIs for healthcare organizations, audio recordings, and transcripts of customer calls for financial services)
-
-### Blob rehydration
-
-[!INCLUDE [storage-blob-rehydrate-include](../../../includes/storage-blob-rehydrate-include.md)]
-See [Rehydrate blob data from the archive tier](storage-blob-rehydration.md) to learn more.  
 
 ## Account-level tiering
 
@@ -239,16 +226,12 @@ Data storage along with other limits are set at the account level and not per ac
 
 ## Next steps
 
-### Evaluate hot, cool, and archive in GPv2 and Blob storage accounts
+Evaluate hot, cool, and archive in GPv2 and Blob storage accounts
 
-[Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
-
-[Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)
-
-[Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
-
-[Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
-
-[Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
-
-[Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
+- [Check availability of hot, cool, and archive by region](https://azure.microsoft.com/regions/#services)
+- [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)
+- [Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
+- [Determine if premium performance would benefit your app](storage-blob-performance-tiers.md)
+- [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
+- [Check hot, cool, and archive pricing in Blob storage and GPv2 accounts by region](https://azure.microsoft.com/pricing/details/storage/)
+- [Check data transfers pricing](https://azure.microsoft.com/pricing/details/data-transfers/)
