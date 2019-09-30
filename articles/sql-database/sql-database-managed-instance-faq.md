@@ -38,7 +38,7 @@ For new and preview features see [release notes](/azure/sql-database/sql-databas
 
 ## How much time takes to create or update instance, or to restore a database?
 
-Expected time to create new managed instance or chenge service tier (vCores, storage) depend on several factors. Take a look at the [Management operations](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+Expected time to create new managed instance or change service tier (vCores, storage) depend on several factors. Take a look at the [Management operations](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
 
 ## Can a managed instance have the same name as on-premises SQL Server?
 
@@ -126,7 +126,8 @@ To mitigate any networking risks, customers are recommended to apply a set of se
 Managed instance case studies:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)
   
 To get a better understanding of the benefits, costs, and risks associated with deploying Azure SQL Database managed instance, there's also a Forrester’s study: [Total Economic Impact of MI](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
