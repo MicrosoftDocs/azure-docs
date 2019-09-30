@@ -34,6 +34,24 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
+## Editions
+
+Azure Machine Learning offers two editions that are tailored for your machine learning needs –  Enterprise and Basic make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic edition is available in general availability (GA). Currently, the Enterprise edition is available in a free public preview. Customers are be responsible for costs incurred on underlying compute during this time. Please refer the Virtual Machines pricing page for compute prices. 
+
+LINKS TO ACOM and PRICING PAGE
+
+Upgrading: 
+
+To upgrade from the Basic SKU to the Enterprise SKU, visit the Azure portal and you can either: 
+
+- Go to your list of workspaces and specify the workspace that you wish to upgrade by selecting ‘Upgrade’ to begin the process.  
+
+- In the Azure portal, create a new workspace and specify the ‘Workspace Type’ as ‘Enterprise’.   
+
+We currently do not support upgrading your workspace to the Enterprise SKU from the SDK or CLI.  
+
+You are not be able to downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
+
 ## What can I do with Azure Machine Learning?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
