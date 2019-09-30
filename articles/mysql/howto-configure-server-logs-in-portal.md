@@ -75,7 +75,6 @@ Once logging begins, you can view a list of available slow query logs and downlo
 
 1. Access the slow query logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
 
-
 ## Next steps
 - See [access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.
 - Learn more about [slow query logs](concepts-server-logs.md) in Azure Database for MySQL.
