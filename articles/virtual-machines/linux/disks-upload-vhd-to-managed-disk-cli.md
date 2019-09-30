@@ -24,6 +24,8 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 - A vhd file, stored locally
+- If you intend to upload a vhd from on-pem: A vhd that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
+- Or, a managed disk in Azure, if you intend to perform a copy action.
 
 ## Create an empty managed disk
 
@@ -80,6 +82,31 @@ After the upload is complete, and you no longer need to write any more data to t
 
 ```azurecli-interactive
 az disk revoke-access -n mydiskname -g resourcegroupname
+```
+
+Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or cross-region (to another region).
+
+The follow script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
+
+> [!IMPORTANT]
+> You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you do not do this. The following script already does this for you.
+
+Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
+
+```bash
+sourceDiskSizeBytes= $(az disk show -g <sourceResourceGroupHere> -n <sourceDiskNameHere> --query '[uniqueId]' -o tsv)
+
+az disk create -n <targetResourceGroupHere> -n <targetDiskNameHere> -l <yourTargetLocationHere> --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+
+targetSASURI = $(az disk grant-access -n <targetDiskNameHere> -g <targetResourceGroupHere>  --access-level Write --duration-in-seconds 86400 -o tsv)
+
+sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g <sourceResourceGroupNameHere> --duration-in-seconds 86400 --query [acessSas] -o tsv)
+
+.\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
+
+az disk revoke-access -n <sourceDiskNameHere> -g <sourceResourceGroupHere>
+
+az disk revoke-access -n <targetDiskNameHere> -g <targetResourceGroupHere>
 ```
 
 ## Next steps

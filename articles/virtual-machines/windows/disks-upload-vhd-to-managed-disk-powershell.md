@@ -22,7 +22,8 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 - Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
-- A vhd file, stored locally.
+- If you intend to upload a vhd from on-pem: A vhd that [has been prepared for Azure](prepare-for-upload-vhd-image.md), stored locally.
+- Or, a managed disk in Azure, if you intend to perform a copy action.
 
 ## Create an empty managed disk
 
@@ -77,6 +78,36 @@ After the upload is complete, and you no longer need to write any more data to t
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+```
+
+## Copy a managed disk
+
+Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or cross-region (to another region).
+
+The follow script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
+
+> [!IMPORTANT]
+> You need to add an offset of 512 when you're providing the disk size in bytes of a managed disk from Azure. This is because Azure omits the footer when returning the disk size. The copy will fail if you do not do this. The following script already does this for you.
+
+Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
+
+```powershell
+$sourceDisk = Get-AzDisk -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere>
+
+# Adding the sizeInBytes with the 512 offset, and the -Upload flag
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType <yourOSTypeHere> -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location <yourTargetLocationHere> -CreateOption 'Upload'
+
+$targetDisk = New-AzDisk -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> -Disk $targetDiskconfig
+
+$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere> -DurationInSecond 86400 -Access 'Read'
+
+$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> -DurationInSecond 86400 -Access 'Write'
+
+azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
+
+Revoke-AzDiskAccess -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere>
+
+Revoke-AzDiskAccess -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> 
 ```
 
 ## Next steps
