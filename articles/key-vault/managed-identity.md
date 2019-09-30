@@ -12,9 +12,9 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 #Customer intent: As someone new to Key Vault, I'm trying to learn basic concepts that can help me understand Key Vault documentation.
 ---
-# Use an App Service managed identity to access Azure Key Vault 
+# Provide Key Vault authentication with an App Service managed identity 
 
-This article shows you how to create a managed identity for App Service applications and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). 
+This article shows you how to create a managed identity for App Service applications and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
 
 A managed identity from Azure Active Directory allows your app to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -29,6 +29,7 @@ To complete this guide, you must have the following resources.
    - [Create a key vault with Azure PowerShell](quick-create-powershell.md)
    - [Create a key vault with the Azure portal](quick-create-portal.md).
 - An existing App Service application to which to grant key vault access. You can quickly create one by following the steps in the [App Service documentation](../app-service/overview.md)/
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview). Alternatively, you can use the [Azure portal](http://portal.azure.com).
 
 
 ## Adding a system-assigned identity 
