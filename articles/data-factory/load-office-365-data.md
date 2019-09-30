@@ -28,7 +28,7 @@ This article shows you how to use the Data Factory _load data from Office 365 in
       
    ![New data factory page](./media/load-office-365-data/new-azure-data-factory.png)
  
-    * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name \"LoadFromOffice365Demo\" is not available," enter a different name for the data factory. For example, you could use the name _**yourname**_**LoadFromOffice365Demo**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+    * **Name**: Enter a globally unique name for your Azure data factory. If you receive the error "Data factory name *LoadFromOffice365Demo* is not available", enter a different name for the data factory. For example, you could use the name _**yourname**_**LoadFromOffice365Demo**. Try creating the data factory again. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
     * **Subscription**: Select your Azure subscription in which to create the data factory. 
     * **Resource Group**: Select an existing resource group from the drop-down list, or select the **Create new** option and enter the name of a resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
     * **Version**: Select **V2**.
@@ -69,11 +69,11 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
     ![New Office 365 linked service](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. After the linked service is created, you are back in the dataset settings. Next to **Table**, choose the down-arrow to expand the list of available Office 365 datasets, and choose "BasicDataSet_v0.Contact_v0" from the drop-down list:
+7. After the linked service is created, you are back in the dataset settings. Next to **Table**, choose the down-arrow to expand the list of available Office 365 datasets, and choose "BasicDataSet_v0.Message_v0" from the drop-down list:
 
     ![Config Office 365 dataset table](./media/load-office-365-data/edit_dataset.png)
 
-8. Now go back to the **pipeline** > **Source tab** to continue configure additional properties for Office 365 data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Office 365.  See Office 365 dataset properties (link to https://docs.microsoft.com/en-us/azure/data-factory/connector-office-365#dataset-properties) section for how you configure these settings.
+8. Now go back to the **pipeline** > **Source tab** to continue configuring additional properties for Office 365 data extraction.  User scope and user scope filter are optional predicates that you can define to restrict the data you want to extract out of Office 365. See [Office 365 dataset properties](https://docs.microsoft.com/en-us/azure/data-factory/connector-office-365#dataset-properties) section for how you configure these settings.
 
 9. You are required to choose one of the date filters and provide the start time and end time values.
 
@@ -93,7 +93,7 @@ This article shows you how to use the Data Factory _load data from Office 365 in
 
 5. Go to the **Connection tab** of the Properties window. Next to the Linked service text box, select **+ New**.
 
-6. In the New Linked Service window, enter "AzureStorageLinkedService" as name, select "Service Principal" from the dropdown list of authentication methods, fill in the Service Endpoint, Tenant Service principal ID, and Service principal key, then select Save to deploy the linked service.  Refer [here](connector-azure-blob-storage.md#service-principal-authentication) for how to set up service principal authentication for Azure Blob Storage.
+6. In the New Linked Service window, enter "AzureStorageLinkedService" as name, select "Service Principal" from the dropdown list of authentication methods, fill in the Service Endpoint, Tenant, Service principal ID, and Service principal key, then select Save to deploy the linked service.  Refer [here](connector-azure-blob-storage.md#service-principal-authentication) for how to set up service principal authentication for Azure Blob Storage.
 
     ![New Blob linked service](./media/load-office-365-data/configure_blob_linked_service.png)
 
@@ -112,15 +112,15 @@ In the top toolbar, select **Publish All**. This action publishes entities (data
 
 ## Trigger the pipeline manually
 
-Select **Trigger** on the toolbar, and then select **Trigger Now**. On the Pipeline Run page, select **Finish**. 
+Select **Add Trigger** on the toolbar, and then select **Trigger Now**. On the Pipeline Run page, select **Finish**. 
 
 ## Monitor the pipeline
 
-Go to the **Monitor tab** on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions column** to view activity details and to rerun the pipeline.
+Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions** column to view activity details and to rerun the pipeline.
 
 ![Monitor pipeline](./media/load-office-365-data/pipeline_status.png) 
 
-To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the Actions column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details link (eyeglasses icon)** in the Actions column.
+To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the Actions column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the Actions column.
 
 ![Monitor activity](./media/load-office-365-data/activity_status.png) 
 
@@ -133,7 +133,7 @@ _Status as extracting data:_
 
 ![Activity execution details - extract data](./media/load-office-365-data/activity-details-extract-data.png) 
 
-Once the consent is provided, data extraction will continue and, after some time, the pipeline run will show as completed.
+Once the consent is provided, data extraction will continue and, after some time, the pipeline run will show as succeeded.
 
 ![Monitor pipeline - succeeded](./media/load-office-365-data/pipeline-monitoring-succeeded.png) 
 
