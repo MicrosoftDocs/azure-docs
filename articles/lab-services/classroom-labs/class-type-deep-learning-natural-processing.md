@@ -24,7 +24,7 @@ Students taking an NLP class get a Linux virtual machine (VM) to learn how to ap
 ## Lab configuration
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you have an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing lab account. See the following tutorial for creating a new lab account: [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).
  
-    After you create the lab account, enable following settings in the lab account: 
+After you create the lab account, enable following settings in the lab account: 
 
 | Lab account setting | Instructions |
 | ----------- | ------------ |  
