@@ -28,7 +28,9 @@ The following AI and Cognitive Services are generally available in Azure Governm
 - Speech
 - Translator Text
 - Language Understanding
+- QnA Maker
 - Azure Bot Service
+
 
 > [!IMPORTANT]
 > Billing for Computer Vision, Face, Translator Text, Content Moderator, and Language Understanding will begin on 11/1/2018.
@@ -129,6 +131,16 @@ Variations in Azure Government:
 
 For more information, see [global Azure documentation](../cognitive-services/luis/what-is-luis.md) for Language Understanding.
 
+### QnA Maker
+
+Variations in Azure Government:
+
+- Endpoint: https://virginia.api.cognitive.microsoft.us/qnamaker/v4.0
+- QnA Maker portal: https://qnamaker.azure.us
+- Available SKUs: S0
+
+For more information, see [global Azure documentation](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/QnAMaker/Overview/overview.md) for QnA Maker.
+
 ## Azure Bot Service
 
 Variations in Azure Government:
@@ -158,7 +170,6 @@ Some Bot Service features available in the public cloud are not yet available in
 Commonly used services in bot applications that are currently unavailable in Azure Government:
 - Application Insights
 - Azure Search
-- QnA Maker Cognitive Service
 - Speech Services Cognitive Service
 
 For more information, see [global Azure documentation](https://aka.ms/botdocs/) for Bot Service.
