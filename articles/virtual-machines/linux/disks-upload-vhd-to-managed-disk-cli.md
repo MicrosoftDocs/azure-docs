@@ -80,7 +80,7 @@ If your SAS expires during upload, and you haven't called `revoke-access` yet, y
 
 After the upload is complete, and you no longer need to write any more data to the disk, revoke the SAS. Revoking the SAS will change the state of the managed disk and allow you to attach the disk to a VM.
 
-```azurecli-interactive
+```bash
 az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
