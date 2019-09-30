@@ -213,7 +213,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions on the workspace: `Microsoft.OperationalInsights/workspaces/read` and `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. With these permissions, users cannot perform any workspace-level queries. They can only enumerate the workspace and use it as a destination for diagnostic settings or agent configuration.
 
-    * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read` and `Microsoft.Insights/diagnosticSettings/write`. If they are already assigned the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role or has `Reader` or `*/read` permissions on this resource, it is sufficient.
+    * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read` and `Microsoft.Insights/diagnosticSettings/write`. If they are already assigned the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, assigned the Reader role, or granted `*/read` permissions on this resource, it is sufficient.
 
 3. To grant a user access to log data from their resources without being able to read security events and send data, perform the following:
 
@@ -238,7 +238,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – required to be able to use Update Management solution
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – required to be able to use Update Management solution
 
-    * Grant users the following permissions to their resources: `*/read`, Reader role, or `Microsoft.Insights/logs/*/read`. 
+    * Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`. 
 
 ## Table level RBAC
 
