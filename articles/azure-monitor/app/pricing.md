@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dalek
 
 ---
@@ -166,7 +166,7 @@ Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/prici
 
 ## Data transfer charges using Application Insights
 
-Sending data to Application Insights might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/en-us/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Application Insights log data ingestion. Consequently controlling costs for Log Analytics needs to focus on your ingested data volume, and we have guidance to help understand that [here](https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing#managing-your-data-volume).   
+Sending data to Application Insights might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Application Insights log data ingestion. Consequently controlling costs for Log Analytics needs to focus on your ingested data volume, and we have guidance to help understand that [here](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
 
 ## Limits summary
 
