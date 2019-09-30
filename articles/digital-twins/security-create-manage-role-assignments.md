@@ -15,9 +15,6 @@ ms.custom: seodec18
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
 
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Role assignments overview
 
 Each role assignment conforms to the following definition:
@@ -78,16 +75,16 @@ Your application ID is supplied to you in Azure Active Directory. To learn more 
 
 Once you have the application ID, execute one of the following commands. In Azure CLI:
 
-```Azure CLI
+```azurecli
 az login
 az ad sp show --id <ApplicationId>
 ```
 
 In Powershell:
 
-```Shell
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 A user with the **Admin** role can then assign the Space Administrator role to a user by making an authenticated HTTP POST request to the URL:
