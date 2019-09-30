@@ -5401,6 +5401,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-functions/tutorial-vs-code-serverless-python.md",
       "redirect_url": "/azure/python/tutorial-vs-code-serverless-python-01",
       "redirect_document_id": false
@@ -28875,6 +28900,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/postgresql/concepts-service-tiers.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -42024,6 +42054,16 @@
     {
       "source_path": "articles/sql-database/sql-database-managed-instance-pools.md",
       "redirect_url": "/azure/sql-database/sql-database-instance-pools",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/windows/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-monitor",
       "redirect_document_id": false
     },
     {

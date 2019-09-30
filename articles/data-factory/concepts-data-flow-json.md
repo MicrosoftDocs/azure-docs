@@ -140,7 +140,7 @@ File3.json
 { "json": "record 3" }
 ```
 
-# Higher order functions
+## Higher order functions
 ## filter
 Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item.
 
