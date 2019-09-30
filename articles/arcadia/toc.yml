@@ -78,7 +78,7 @@
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Execution and trigger
     href: ../data-factory/concepts-pipeline-execution-triggers.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
-  - name: Linked service
+  - name: Linked services
     href: ../data-factory/concepts-linked-services.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
   - name: Integration runtime
     href: ../data-factory/concepts-integration-runtime.md?toc=/azure/arcadia/toc.json&bc=/azure/arcadia/breadcrumb/toc.json
