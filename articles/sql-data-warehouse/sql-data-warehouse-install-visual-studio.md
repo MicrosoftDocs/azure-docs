@@ -27,8 +27,8 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing yo
 > [!NOTE]
 > Currently Visual Studio SSDT Database Projects is in preview. To receive periodic updates on this feature, please vote on [UserVoice].
 
-## Install Visual Studio 2019
-See [Download Visual Studio 2019][] to download and install Visual Studio. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
+## Install Visual Studio 2019 Preview
+See [Download Visual Studio 2019 Preview][] to download and install Visual Studio. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
 
 ## Reporting issues with SSDT Visual Studio 2019 (preview)
 
@@ -46,7 +46,7 @@ Now that you have the latest version of SSDT, you're ready to [connect][connect]
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Download Visual Studio 2019]: https://visualstudio.microsoft.com/vs/preview/
+[Download Visual Studio 2019 Preview]: https://visualstudio.microsoft.com/vs/preview/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

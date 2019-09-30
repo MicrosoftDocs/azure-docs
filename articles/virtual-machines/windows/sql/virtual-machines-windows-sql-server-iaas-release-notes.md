@@ -8,7 +8,7 @@ manager: craigg
 tags: azure-service-management
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
@@ -17,6 +17,16 @@ ms.date: 08/01/2019
 # Release notes for SQL Server on Azure Virtual Machines
 
 Azure allows you to deploy a virtual machine (VM) with an image of SQL Server built in. This article summarizes the new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/). The article also lists notable content updates that are not directly related to the release but published in the same time frame. For improvements to other Azure services, see [Service updates](https://azure.microsoft.com/updates).
+
+## August 2019
+
+### Service improvements
+
+| Service improvements | Details |
+| --- | --- |
+| **Azure dedicated host** | You can run your SQL Server VM on an [Azure Dedicated Host](virtual-machines-windows-sql-dedicated-host.md). |
+| &nbsp; | &nbsp; |
+
 
 ## July 2019
 

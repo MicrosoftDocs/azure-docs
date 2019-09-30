@@ -2,7 +2,7 @@
 title: API version management for .NET SDK and REST APIs - Azure Search
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet

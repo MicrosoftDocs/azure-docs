@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/27/2019
 ms.author: jingwang
 
 ---
@@ -26,6 +26,11 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Supported capabilities
+
+This Azure Table storage connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from any supported source data store to Table storage. You also can copy data from Table storage to any supported sink data store. For a list of data stores that are supported as sources or sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
@@ -218,10 +223,8 @@ To copy data to and from Azure Table, set the type property of the dataset to **
 
 For schema-free data stores such as Azure Table, Data Factory infers the schema in one of the following ways:
 
-* If you specify the structure of data by using the **structure** property in the dataset definition, Data Factory honors this structure as the schema. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
-* If you don't specify the structure of data by using the **structure** property in the dataset definition, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema, some columns are missed in the result of the copy operation.
-
-For schema-free data sources, the best practice is to specify the structure of data by using the **structure** property.
+* If you specify the column mapping in copy activity, Data Factory use the source side column list to retrieve data. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
+* If you don't specify the column mapping in copy activity, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema (e.g. some columns have null value), some columns are missed in the result of the copy operation.
 
 ## Copy activity properties
 
@@ -338,6 +341,10 @@ When you move data to and from Azure Table, the following [mappings defined by A
 | Edm.Int32 |Int32 |A 32-bit integer. |
 | Edm.Int64 |Int64 |A 64-bit integer. |
 | Edm.String |String |A UTF-16-encoded value. String values can be up to 64 KB. |
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

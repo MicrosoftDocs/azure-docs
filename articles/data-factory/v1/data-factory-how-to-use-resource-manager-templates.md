@@ -3,21 +3,16 @@ title: Use Resource Manager templates in Data Factory | Microsoft Docs
 description: Learn how to create and use Azure Resource Manager templates to create Data Factory entities.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-editor: ''
-
-ms.assetid: 37724021-f55f-4e85-9206-6d4a48bda3d8
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Use templates to create Azure Data Factory entities
 > [!NOTE]
 > This article applies to version 1 of Data Factory. 
@@ -32,7 +27,7 @@ In this case, a task needs to be repeated within the same environment, but with 
 Furthermore, as the organization wants to deploy these 10 data factories multiple times across different environments, templates can use this **reusability** by utilizing separate parameter files for development, test, and production environments.
 
 ## Templating with Azure Resource Manager
-[Azure Resource Manager templates](../../azure-resource-manager/resource-group-overview.md#template-deployment) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn more about the Resource Manager Templates in general.
+[Azure Resource Manager templates](../../azure-resource-manager/template-deployment-overview.md) are a great way to achieve templating in Azure Data Factory. Resource Manager templates define the infrastructure and configuration of your Azure solution through a JSON file. Because Azure Resource Manager templates work with all/most Azure services, it can be widely used to easily manage all resources of your Azure assets. See [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to learn more about the Resource Manager Templates in general.
 
 ## Tutorials
 See the following tutorials for step-by-step instructions to create Data Factory entities by using Resource Manager templates:

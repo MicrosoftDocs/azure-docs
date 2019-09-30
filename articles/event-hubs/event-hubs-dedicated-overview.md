@@ -36,7 +36,7 @@ Dedicated Event Hubs offers three compelling benefits for customers who need ent
 A Dedicated cluster guarantees capacity at full scale, and can ingress up to gigabytes of streaming data with fully durable storage and sub-second latency to accommodate any burst in traffic. 
 
 #### Inclusive and exclusive access to features 
-The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like BYOK. The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
+The Dedicated offering includes features like Capture at no additional cost, as well as exclusive access to upcoming features like Bring Your Own Key (BYOK). The service also manages load balancing, OS updates, security patches and partitioning for the customer, so that you can spend less time on infrastructure maintenance and more time on building client-side features.  
 
 #### Cost Savings
 At high ingress volumes (>100 TUs), a cluster costs significantly less per hour than purchasing a comparable quantity of throughput units in the Standard offering.

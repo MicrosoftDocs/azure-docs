@@ -6,6 +6,9 @@
   - name: What is Personalizer?
     href: what-is-personalizer.md
     displayName: loop, context, feature, action, rank, reward, developer, use case
+  - name: What's new
+    href: whats-new.md  
+    displayName: release notes, service updates, videos
 - name: Quickstarts
   items:
   - name: Using C#
@@ -53,14 +56,6 @@
       href: concept-feature-evaluation.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md 
-- name: Demonstrations
-  items: 
-  - name: News content website
-    href: https://personalizerdemo-staging.azurewebsites.net/
-  - name: Shopping content website
-    href: http://personalizer-traveldemo.azurewebsites.net/
-  - name: Sample code for demonstrations
-    href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/demos
 - name: How-to guides
   items:
   - name: Create and configure Personalizer
@@ -80,8 +75,8 @@
     items:
     - name: .NET
       items: 
-      - name: .NET SDK Reference 
-        href: https://go.microsoft.com/fwlink/?linkid=2092353
+      - name: Reference 
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
       - name: NuGet package
         href: https://go.microsoft.com/fwlink/?linkid=2092272
     - name: Go

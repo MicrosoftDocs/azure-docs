@@ -13,7 +13,6 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
@@ -99,7 +98,7 @@ For more information on features available in Kudu, see
 #### Scale the app
 In Azure App Service, for increased performance and throughput,  you can adjust the scale at which you are running your application. Scaling up an app involves two related actions: changing your App Service plan to a higher pricing tier, and configuring certain settings after you have switched to the higher pricing tier.
 
-For more information on scaling, see [Scale an app in Azure App Service](web-sites-scale.md).
+For more information on scaling, see [Scale an app in Azure App Service](manage-scale-up.md).
 
 Additionally, you can choose to run your application on more than one instance . This not only provides you with more processing capability, but also gives you some amount of fault tolerance. If the process goes down on one instance, the other instance will still continue serving requests.
 

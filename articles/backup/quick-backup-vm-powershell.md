@@ -140,7 +140,7 @@ Run an ad hoc backup job as follows:
     ```
     Output is similar to the following example, which shows the job as **InProgress**:
 
-    ```
+    ```output
     WorkloadName   Operation         Status       StartTime              EndTime                JobID
     ------------   ---------         ------       ---------              -------                -----
     myvm           Backup            InProgress   9/18/2017 9:38:02 PM                          9f9e8f14

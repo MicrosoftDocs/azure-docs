@@ -2,7 +2,7 @@
 title: Upgrade to the Azure Search .NET SDK version 5 - Azure Search
 description: Migrate code to the Azure Search .NET SDK version 5 from older versions. Learn what is new and which code changes are required.
 author: brjohnstmsft
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: dotnet

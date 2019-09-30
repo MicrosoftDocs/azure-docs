@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 08/26/2019
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ This article explains how to create and configure an event hub in Azure Event Hu
 1. After you create an event hub, select it in the list of event hubs.
 1. On the menu, under **Entities**, select **Event Hubs**.
 1. Select the name of the event hub to configure it.
-1. Under **Entities**, select **Consumer groups**, and then select **Consumer Group**.
+1. Under **Overview**, select **Consumer groups**, and then select **Consumer Group**.
 
     [![Create a consumer group](media/send-events/consumer-group.png)](media/send-events/consumer-group.png#lightbox)
 
@@ -63,9 +63,9 @@ The Time Series Insights update uses instances to add contextual data to incomin
 
 1. In the search bar, search for **Event Hubs**. In the returned list, select **Event Hubs**.
 
-1. Select your event hub.
+1. Select your event hub instance.
 
-1. Go to **Shared Access Policies** > **RootManageSharedAccessKey**. Copy the value for **Connection string-primary key**.
+1. Go to **Shared Access Policies** > **MySendPolicy**. Copy the value for **Connection string-primary key**.
 
     [![Copy the value for the primary key connection string](media/send-events/sample-code-connection-string.png)](media/send-events/sample-code-connection-string.png#lightbox)
 

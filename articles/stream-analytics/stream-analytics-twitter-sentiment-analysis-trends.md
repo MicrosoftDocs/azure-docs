@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 07/9/2019
+ms.date: 07/09/2019
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics

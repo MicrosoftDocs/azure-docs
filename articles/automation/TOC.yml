@@ -22,6 +22,11 @@
       href: how-to/move-account.md
     - name: Automate onboarding of Automation Services
       href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
+    - name: Supported Regions for Log Analytics Workspace Mappings
+      href: how-to/region-mappings.md
+    - name: Manage Azure Automation data
+      href: automation-managing-data.md
+      displayName: backup
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
@@ -39,16 +44,10 @@
     items:
     - name: Create a runbook
       href: automation-quickstart-create-runbook.md
-  - name: Onboarding
-    items:
-    - name: Onboard multiple VMs from the portal
-      href: automation-onboard-solutions-from-browse.md
-    - name: Onboard from an Azure VM
-      href: automation-onboard-solutions-from-vm.md
-    - name: Onboard from Automation account
-      href: automation-onboard-solutions-from-automation-account.md
   - name: How-to Guides
     items:
+    - name: Start/stop VMs during off-hours
+      href: automation-solution-vm-management.md
     - name: Manage runbooks
       href: manage-runbooks.md
     - name: Create runbooks
@@ -86,8 +85,6 @@
         href: automation-child-runbooks.md
       - name: Pass a JSON object to an Azure Automation runbook
         href: automation-pass-json-string.md
-      - name: Start/stop VMs during off-hours
-        href: automation-solution-vm-management.md
     - name: Monitor runbooks
       items:
       - name: Runbook output
@@ -98,15 +95,6 @@
         displayName: fair share, activity log
       - name: Error handling in graphical runbooks
         href: automation-runbook-graphical-error-handling.md
-      - name: Source control integration
-        href: source-control-integration.md
-        displayName: github, vsts, azure devops, personal access token
-      - name: Source control integration - legacy
-        href: automation-source-control-integration-legacy.md
-        displayname: github
-      - name: Manage Azure Automation data
-        href: automation-managing-data.md
-        displayName: backup
     - name: Hybrid Runbook Worker
       items:
       - name: Deploy Windows Hybrid Runbook Worker
@@ -120,6 +108,19 @@
       - name: Track updated files with watcher tasks
         href: automation-watchers-tutorial.md
         displayName: hybrid runbook worker, hybrid worker, trigger
+    - name: Source Control Integration
+      items:
+      - name: Source control integration
+        href: source-control-integration.md
+        displayName: github, vsts, azure devops, personal access token
+      - name: Source control integration - legacy
+        href: automation-source-control-integration-legacy.md
+        displayname: github
+      - name: Source control integration with GitHub Enterprise
+        href: automation-scenario-source-control-integration-with-github-ent.md
+        displayName: CI, runbooks
+      - name: Source control integration with Azure DevOps
+        href: automation-scenario-source-control-integration-with-VSTS.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot Hybrid Runbook Worker
@@ -235,7 +236,7 @@
     - name: Getting Started
       href: automation-dsc-getting-started.md
       displayName: DSC
-    - name: Manage a Linux configuration
+    - name: Manage the configuration of a machine
       href: automation-quickstart-dsc-configuration.md
       displayName: DSC, state configuration, config, node configuration, node
   - name: Onboarding
@@ -297,7 +298,7 @@
       href: automation-connections.md
     - name: Credentials
       href: automation-credentials.md
-    - name: Integration modules
+    - name: Modules
       href: automation-integration-modules.md
     - name: Schedules
       href: automation-schedules.md
@@ -321,16 +322,13 @@
       displayName: Monitor, Azure Monitor
     - name: Create Amazon Web Service VM
       href: automation-scenario-aws-deployment.md
-    - name: Source control integration with GitHub Enterprise
-      href: automation-scenario-source-control-integration-with-github-ent.md
-      displayName: CI, runbooks
-    - name: Source control integration with Azure DevOps
-      href: automation-scenario-source-control-integration-with-VSTS.md
       displayName: VSTS, CI, runbooks
     - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
       href: automation-deploy-template-runbook.md
     - name: Integrate Azure Automation with Event Grid and Microsoft Teams
       href: ../event-grid/ensure-tags-exists-on-new-virtual-machines.md?toc=%2fazure%2fautomation%2ftoc.json
+    - name: Create and schedule Azure Automation runbook that starts/stops Azure-SSIS IR
+      href: ../data-factory/how-to-schedule-azure-ssis-integration-runtime.md#create-and-schedule-azure-automation-runbook-that-startsstops-azure-ssis-ir
 - name: Monitor
   items:
   - name: Forward Azure Automation job data to Log Analytics
@@ -346,14 +344,10 @@
   items:
   - name: Azure PowerShell
     href: /powershell/module/azurerm.automation
-  - name: Azure PowerShell (Classic)
-    href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST
     href: /rest/api/automation
-  - name: REST (Classic)
-    href: https://msdn.microsoft.com/library/azure/mt163781
 - name: Resources
   items:
   - name: Automation introduction video

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -37,7 +37,24 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ## Upcoming changes
 
-August 2019: Enforce POST semantics according to URL parsing rules - duplicate parameters will trigger an error, quotes across parameters will no longer be ignored, and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+September 2019: Additional enforcement of POST semantics according to URL parsing rules - duplicate parameters will trigger an error and [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignored.
+
+## August 2019
+
+### POST form semantics will be enforced more strictly - spaces and quotes will be ignored
+
+**Effective date**: September 2, 2019
+
+**Endpoints impacted**: Both v1.0 and v2.0
+
+**Protocol impacted**: Anywhere POST is used ([client credentials](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [authorization code redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow), and [refresh token redemption](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token))
+
+Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards.  Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests. 
+
+Example:
+
+Today, `?e=    "f"&g=h` is parsed identically as `?e=f&g=h` - so `e` == `f`.  With this change, it would now be parsed so that `e` == `    "f"` - this is unlikely to be a valid argument, and the request would now fail. 
+
 
 ## July 2019
 

@@ -67,6 +67,8 @@ Special Character | Description
 Space | A space character is typically treated as a literal character.
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
 
+Match conditions and features that support regular expressions accept patterns defined by Perl Compatible Regular Expressions (PCRE).
+
 ## Next steps
 
 - [Rules engine match conditions](cdn-verizon-premium-rules-engine-reference-match-conditions.md)

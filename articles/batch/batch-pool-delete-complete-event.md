@@ -7,7 +7,6 @@ manager: gwallace
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
@@ -31,9 +30,9 @@ ms.author: lahugh
 
 |Element|Type|Notes|
 |-------------|----------|-----------|
-|id|String|The id of the pool.|
-|startTime|DateTime|The time the pool delete started.|
-|endTime|DateTime|The time the pool delete completed.|
+|`id`|String|The ID of the pool.|
+|`startTime`|DateTime|The time the pool delete started.|
+|`endTime`|DateTime|The time the pool delete completed.|
 
 ## Remarks
 For more information about states and error codes for pool resize operation, see [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

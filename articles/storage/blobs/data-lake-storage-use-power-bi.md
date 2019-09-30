@@ -23,7 +23,7 @@ Before you begin this tutorial, you must have the following:
 > * A storage account that has a hierarchical namespace. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
 > This article assumes that you've created an account named `myadlsg2`.
 > * A sample data file named `Drivers.txt` located in your storage account.
-> You can download this sample from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceDataDrivers.txt), and then upload that file to your storage account.
+> You can download this sample from [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt), and then upload that file to your storage account.
 > * **Power BI Desktop**. You can download this from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=45331). 
 
 ## Create a report in Power BI Desktop
@@ -34,7 +34,7 @@ Before you begin this tutorial, you must have the following:
 
     ![Get data page](media/data-lake-storage-use-power-bi/get-data-page.png)
 
-4. In the **Azure Data Lake Storage Gen2** dialog box, you can provide the URL to your Azure Data Lake Storage Gen2 account, filesystem or subfolder using the file system endpoint format. URLs for Data Lake Storage Gen2 have the following pattern  `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` and then click **OK**.
+4. In the **Azure Data Lake Storage Gen2** dialog box, you can provide the URL to your Azure Data Lake Storage Gen2 account, filesystem or subfolder using the container endpoint format. URLs for Data Lake Storage Gen2 have the following pattern  `https://<accountname>.dfs.core.windows.net/<filesystemname>/<subfolder>` and then click **OK**.
 
     ![URL](media/data-lake-storage-use-power-bi/adls-url.png)
 

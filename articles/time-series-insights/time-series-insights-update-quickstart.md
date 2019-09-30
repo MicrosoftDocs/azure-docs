@@ -10,7 +10,7 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 07/29/2019
+ms.date: 09/23/2019
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment

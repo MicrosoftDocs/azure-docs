@@ -9,13 +9,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/28/2019
 ms.author: banders
 
 ---
 # Azure spending limit
 
-The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure trial or offers that include credits over multiple months have the spending limit turned on by default. The spending limit is $0. It can’t be changed. The spending limit isn’t available for subscriptions under some plans such commitment plans and plans with pay-as-you-go pricing. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
+The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure trial or offers that include credits over multiple months have the spending limit turned on by default. The spending limit is $0 and it can’t be changed. For example, you can't change the spending limit to $100. However, you can remove the spending limit. So, you either have no limit, or you have a limit of zero that prevents you from most kinds of spending. The spending limit isn’t available for subscriptions under some plans such commitment plans and plans with pay-as-you-go pricing. See the [full list of Azure offers and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
 ## Reaching a spending limit
 
@@ -25,7 +25,7 @@ For example, when you spend all the credit included with your subscription, Azur
 
 At the beginning of the next billing period, if your subscription offer includes credits over multiple months, your subscription is re-enabled automatically. Then you can redeploy your Azure resources and have full access to your storage accounts and databases.
 
-Azure sends email notifications when you reach the spending limit for your subscription. Sign-in to the [Account Center](https://account.windowsazure.com/Subscriptions) to see notifications about subscriptions that have reached the spending limit.
+Azure sends email notifications when you reach the spending limit for your subscription. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions) to see notifications about subscriptions that have reached the spending limit.
 
 If you have a free trial subscription and reach the spending limit, you can upgrade to a plan with [pay-as-you-go](billing-upgrade-azure-subscription.md) pricing to remove the spending limit and automatically enable the subscription.
 
@@ -37,8 +37,8 @@ You can remove the spending limit at any time as long as there's a valid payment
 
 To remove your spending limit, follow these steps:
 
-1. Sign-in to the [Account Center](https://account.windowsazure.com/Subscriptions).
-1. Select a subscription. If the subscription is disabled due to the spending limit being reached, click the notification: **Subscription reached the Spending Limit and has been disabled to prevent charges.** Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
+1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
+1. Select a subscription. If the subscription is disabled because the spending limit is reached, click the notification: **Subscription reached the Spending Limit and has been disabled to prevent charges.** Otherwise, click **Remove spending limit** in the **SUBSCRIPTION STATUS** area.
 1. Select an option that is appropriate for you.
 
 ![Selecting an option for remove spending limit](./media/billing-spending-limit/remove-spending-limit.PNG)
@@ -60,7 +60,7 @@ The spending limit could prevent you from deploying or using certain third-party
 
 This feature is available only when the spending limit has been removed indefinitely. Change it to turn on automatically at the start of the next billing period.
 
-1. Sign-in to the [Account Center](https://account.windowsazure.com/Subscriptions).
+1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
 1. Click the yellow banner to change the spending limit option.
 1. Choose **Turn on spending limit in the next billing period \<start date of billing period\>**
 

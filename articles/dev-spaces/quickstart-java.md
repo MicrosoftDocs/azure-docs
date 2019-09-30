@@ -19,6 +19,10 @@ In this guide, you will learn how to:
 - Iteratively develop code in containers using Visual Studio Code.
 - Debug the code in your dev space from Visual Studio Code.
 
+Azure Dev Spaces also allows you debug and iterate using:
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio Code](quickstart-netcore.md)
+- [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## Prerequisites
 
@@ -34,7 +38,7 @@ You need to create an AKS cluster in a [supported region][supported-regions]. Th
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster

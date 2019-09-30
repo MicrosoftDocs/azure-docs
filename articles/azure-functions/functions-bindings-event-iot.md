@@ -8,7 +8,6 @@ manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe

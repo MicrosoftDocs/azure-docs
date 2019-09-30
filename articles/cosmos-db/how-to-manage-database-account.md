@@ -3,7 +3,7 @@ title: Learn how to manage database accounts in Azure Cosmos DB
 description: Learn how to manage database accounts in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
 ---
@@ -161,10 +161,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-portal"></a>Azure portal
 
-Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions. 
-
-> [!NOTE]
-> After you enable multi-region writes, you cannot disable it. 
+Open the **Replicate Data Globally** tab and select **Enable** to enable multi-region writes. After you enable multi-region writes, all the read regions that you currently have on the account will become read and write regions. You can also disable multi-region writes when needed.
 
 ![Azure Cosmos account configures multi-master screenshot](./media/how-to-manage-database-account/single-to-multi-master.png)
 
@@ -177,6 +174,8 @@ $resourceGroupName = 'myResourceGroup'
 $accountName = 'myaccountname'
 az cosmosdb update --name $accountName --resource-group $resourceGroupName --enable-multiple-write-locations true
 ```
+
+To create an Azure Cosmos account without multi-region writes, you can set the `--enable-multiple-write-locations` parameter to false.
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 

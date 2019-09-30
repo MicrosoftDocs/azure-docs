@@ -21,6 +21,10 @@ Each IoT hub is provisioned with a certain number of units in a specific tier. T
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
+### IoT Plug and Play
+
+During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your message quota.
+
 ## Operation throttles
 
 Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).

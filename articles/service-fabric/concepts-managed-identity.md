@@ -58,9 +58,8 @@ The list of supported scenarios for the preview release is as follows:
 
 The following scenarios are not supported or not recommended; note these actions may not be blocked, but can lead to outages in your applications:
 
-   - Remove or change the identities assigned to an application;if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state which is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
+   - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state which is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
 
-   - It is not recommended to mix system-assigned and user-assigned identities in the same application.
 >
 > [!NOTE]
 >

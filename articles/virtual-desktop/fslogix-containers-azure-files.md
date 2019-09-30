@@ -12,9 +12,7 @@ ms.author: helohr
 
 # FSLogix profile containers and Azure files
 
-The Windows Virtual Desktop Preview service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
-
-In this article, we'll describe FSLogix profile containers used with Azure Files. The information is in the context of Windows Virtual Desktop, which was [announced on 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+The Windows Virtual Desktop service recommends FSLogix profile containers as a user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. It stores a complete user profile in a single container. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile. This article describes how FSLogix profile containers used with Azure Files function in Windows Virtual Desktop.
 
 ## User profiles
 
@@ -51,7 +49,7 @@ The following table shows benefits and limitations of previous user profile tech
 
 #### Performance
 
-UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D was the solution the RDS team recommended for Windows Virtual Desktop during the preview of the service.  
+UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) to address performance requirements. UPD uses Server Message Block (SMB) protocol. It copies the profile to the VM in which the user is being logged. UPD with S2D is the solution we recommend for Windows Virtual Desktop.  
 
 #### Cost
 
@@ -77,12 +75,12 @@ FSLogix profile containers' performance and features take advantage of the cloud
 
 ## Best practices for Windows Virtual Desktop
 
-Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop Preview?](overview.md).
+Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop?](overview.md).
 
 To ensure your Windows Virtual Desktop environment follows best practices:
 
 - Azure Files storage account must be in the same region as the session host VMs.
-- Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.fslogix.com/display/20170529/Requirements+-+Profile+Containers).
+- Azure Files permissions should match permissions described in [Requirements - Profile Containers](https://docs.microsoft.com/fslogix/overview#requirements).
 - Each host pool must be built of the same type and size VM based on the same master image.
 - Each host pool VM must be in the same resource group to aid management, scaling and updating.
 - For optimal performance, the storage solution and the FSLogix profile container should be in the same data center location.
@@ -94,7 +92,7 @@ Use the following guides to set up a Windows Virtual Desktop environment.
 
 - To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 - To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md).
-- To set up fully managed file shares in the cloud, see [Set up Azure Files share](/articles/storage/files/storage-files-active-directory-enable.md).
-- To configure FSLogix profile containers, see [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
+- To set up fully managed file shares in the cloud, see [Set up Azure Files share](/azure/storage/files/storage-files-active-directory-enable).
+- To configure FSLogix profile containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
 - To assign users to a host pool, see [Manage app groups for Windows Virtual Desktop](manage-app-groups.md).
 - To access your Windows Virtual Desktop resources from a web browser, see [Connect to Windows Virtual Desktop](connect-web.md).
