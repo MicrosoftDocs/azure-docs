@@ -185,8 +185,8 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
 
