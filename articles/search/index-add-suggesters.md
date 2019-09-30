@@ -23,9 +23,11 @@ translation.priority.mt:
 ---
 # Add suggesters to an index for typeahead in Azure Search
 
-In Azure Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). A suggester contains a list of fields for which you want to enable typeahead query inputs. Within an index, a single suggester construct supports two typeahead variants: *autocomplete* completes the term or phrase you are typing, *suggestions* provides a short list of results. 
+In Azure Search, "search-as-you-type" or typeahead functionality is based on a **suggester** construct that you add to a [search index](search-what-is-an-index.md). It's a list of one or more fields for which you want typeahead enabled.
 
-The following screenshot from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md)  sample illustrates both typeahead features. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", with autocomplete finishing with "in", with "twin" as the result. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, it's the hotel name.
+A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of results. A single suggester construct supports both variants. 
+
+The following screenshot from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md)  sample illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", with autocomplete finishing with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggester contains the hotel name field.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
@@ -130,7 +132,7 @@ For an example demonstrating both requests, see [Example for adding autocomplete
 
 The [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) sample contains both C# and Java code, and demonstrates a suggester construction, suggested queries, autocomplete, and facet navigation. 
 
-It uses a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run it. No subscription or sign in necessary.
+It uses a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run it. No subscription or sign-in necessary.
 
 ## Next steps
 
