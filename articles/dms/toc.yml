@@ -52,6 +52,7 @@
     href: how-to-migrate-ssis-packages-managed-instance.md
 
 - name: Resources
+  expanded: true
   items:
   - name: Database migration scenario status
     href: resource-scenario-status.md

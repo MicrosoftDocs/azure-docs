@@ -85,7 +85,7 @@ Create an ASP.NET Core web app by following these steps:
 
    [!INCLUDE [app-service-plan](../../includes/app-service-plan.md)]
 
-1. For to **Hosting Plan**, select **New**.
+1. For the **Hosting Plan**, select **New**.
 
 1. In the **Configure Hosting Plan** dialog, enter the values from the following table, and then select **OK**.
 

@@ -161,3 +161,45 @@ Refer to [upstream OpenShift docs](https://docs.openshift.com/container-platform
 Azure Red Hat OpenShift supports VNET peering and allows the customer to provide a VNET to peer with and a VNET CIDR in which the OpenShift network will operate.
 
 The VNET created by ARO will be protected and will not accept configuration changes. The VNET that is peered is controlled by the customer and resides in their subscription.
+
+## Does the cluster reside in a customer subscription? 
+
+The Azure Managed Application lives in a locked Resource Group with the customer subscription. Customer can view objects in that RG but not modify.
+
+## Is the SDN module configurable?
+
+SDN is openshift-ovs-networkpolicy and is not configurable.
+
+## Which UNIX rights (in IaaS) are available for Masters/Infra/App Nodes?
+
+Not applicable to this offering. Node access is forbidden.
+
+## Which OCP rights do we have? Cluster-admin? Project-admin?
+
+For details, see the Azure Red Hat OpenShift [cluster administration overview](https://docs.openshift.com/aro/admin_guide/index.html).
+
+## Which kind of federation with LDAP?
+
+This would be achieved via Azure AD integration. 
+
+## Is there any element in ARO shared with other customers? Or is everything independent?
+
+Each Azure Red Hat OpenShift cluster is dedicated to a given customer and lives within the customer's subscription. 
+
+## Can we choose any persistent storage solution. OCS? 
+
+Two storage classes are available to select from: Azure Disk and Azure File.
+
+## How is a cluster updated (including majors and minors due to vulnerabilities)?
+
+See [What is the general upgrade process?](https://docs.microsoft.com/azure/openshift/openshift-faq#what-is-the-general-upgrade-process)
+
+## What Azure Load balancer is used by ARO?  Is it Standard or Basic and is it configurable?
+
+ARO uses Standard Azure Load Balancer, and it is not configurable.
+
+## Can ARO use NetApp-based storage?
+
+At the moment the only supported storage options are Azure Disk and Azure File storage classes. 
+
+

@@ -42,10 +42,12 @@
           href: tutorial-python-windows-virtual-machine.md
   - name: Storage Account Keys
     items:
-      - name: Managed storage account keys using Azure CLI
+      - name: Manage storage account keys with Azure CLI
         href: key-vault-ovw-storage-keys.md
-      - name: Managed storage account keys using PowerShell
+      - name: Manage storage account keys with PowerShell
         href: key-vault-overview-storage-keys-powershell.md
+      - name: Fetch shared access signature tokens in code
+        href: storage-keys-sas-tokens-code.md
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
