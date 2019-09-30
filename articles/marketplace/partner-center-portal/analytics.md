@@ -21,7 +21,6 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
 |[Customers](#customer-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
 |[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
-|[Ratings and reviews](#ratings-and-reviews)| Information about ratings and reviews your customers leave for the offers they've acquired.
 
 ## Summary dashboard
 
@@ -240,13 +239,13 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |
 | Customer City| Customer| The city name provided by the customer. City could be different than the city in a customer’s Azure Subscription.||
 | Customer Communication Language  | Customer| The language preferred by the customer for communication.||
-| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the city in a customer’s Azure Subscription.|  |
+| Customer Company Name | Customer, Order | The company name provided by the customer. Name could be different than the name in a customer’s Azure Subscription.|  |
 | Customer Country | Customer, Order | The country name provided by the customer. Country could be different than the country in a customer’s Azure Subscription.|  |
 | Customer Email| Customer| The e-mail address provided by the end customer. Email could be different than the e-mail address in a customer’s Azure Subscription.||
 | Customer First Name| Customer| The name provided by the customer. Name could be different than the name provided in a customer’s Azure Subscription.| |
 | Customer ID | Customer, Order | The unique identifier assigned to a customer. A customer may have zero or more Azure Marketplace Subscriptions.|  |
 | Customer Postal Code  | Customer| The postal code provided by the customer. Code could be different than the postal code provided in a customer’s Azure Subscription.| |
-| Customer State| Customer| The state (address) provided by the customer. State could be different than the last name provided in a customer’s Azure Subscription.| |
+| Customer State| Customer| The state (address) provided by the customer. State could be different than the state provided in a customer’s Azure Subscription.| |
 | Date Acquired| Customer| The first date the customer purchased any offer published by you.| |
 | Date Lost| Customer| The last date the customer canceled the last of all offers previously purchased.||
 | Is New Customer  | Order| The value will identify a new customer acquiring one or more of your offers for the first time (or not). Value will be “Yes” if within the same calendar month for “Date Acquired”. Value will be “No” if the customer has purchased any of your offers prior to the calendar month reported. |
@@ -281,38 +280,3 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Provider Name| Customer| The name of the provider involved in the relationship between Microsoft and end customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP.|
 | SKU| Order| SKU name as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.||
 | Trial End Date| Order| The date the trial period for this order will end or has ended.||
-
-## Ratings and reviews
-
-As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
-
-> [!NOTE]
-> Customers can make changes only to the ratings and reviews they own.
-
-The **Ratings & review dashboard** displays the trends and insights of customer activities. It provides graphical representations of:
-
-- Ratings & reviews  
-- Review comments
-
-### Marketplace storefront tabs
-
-Publishers can view their offer metrics separately in the AppSource & Azure Marketplace tabs. To view specific offer metrics, select **Offer** from the dropdown:
-
-![Partner Center analyze offer dropdown](./media/analyze-offer-dropdown.png)
-
-### Ratings and reviews summary
-
-The ratings & reviews summary section displays the metrics below for a selected date range:
-
-- **Average rating:** Weighted average star rating of all the ratings submitted by customers for the selected offer.
-- **Rating breakdown:** Breakdown of star rating by the count of customers who submitted ratings. The bar chart is stacked with actual and revised ratings (updated rating count).
-- **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
-- **Ratings with reviews:** Count of reviews submitted.
-
-![Partner Center analyze ratings and reviews summary](./media/analyze-ratings-summary.png)
-
-### Review comments
-
-Reviews are displayed in chronological order for when they were posted. The default view displays all reviews. You can filter through the reviews by star rating using the **Filter** in the dropdown menu. You can also search for keywords that appear in the review.  
-
-![Partner Center analyze review comments](./media/analyze-reviews.png)

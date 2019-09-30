@@ -178,7 +178,7 @@ multi-factor authentication enabled.
 
 Systems used for administration of a cloud service will have highly privileged access to that
 service. Their compromise would have significant impact, including the means to bypass security
-controls and steal or manipulate large volumes of data. The methods used by the service provider’s
+controls and steal or manipulate large volumes of data. The methods used by the service provider's
 administrators to manage the operational service should be designed to mitigate any risk of
 exploitation that could undermine the security of the service. If this principle isn't implemented,
 an attacker may have the means to bypass security controls and steal or manipulate large volumes of

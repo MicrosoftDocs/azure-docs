@@ -37,7 +37,7 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 * If using C#, Visual Studio must be version 2013 or higher.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your storage account. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 * An existing HDInsight cluster to add a Shared Access Signature to. If not, you can use Azure PowerShell to create a cluster and add a Shared Access Signature during cluster creation.
 

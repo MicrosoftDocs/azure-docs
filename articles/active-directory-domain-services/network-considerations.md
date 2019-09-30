@@ -32,7 +32,7 @@ As you design the virtual network for Azure AD DS, the following considerations 
     * To minimize latency, keep your core applications close to, or in the same region as, the virtual network subnet for your Azure AD DS managed domain. You can use virtual network peering or virtual private network (VPN) connections between Azure virtual networks.
 * The virtual network can't rely on DNS services other than those provided by Azure AD DS.
     * Azure AD DS provides its own DNS service. The virtual network must be configured to use these DNS service addresses. Name resolution for additional namespaces can be accomplished using conditional forwarders.
-    * You can't use custom DNS server settings to direct queries other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
+    * You can't use custom DNS server settings to direct queries from other DNS servers, including on VMs. Resources in the virtual network must use the DNS service provided by Azure AD DS.
 
 > [!IMPORTANT]
 > You can't move Azure AD DS to a different virtual network after you've enabled the service.
@@ -42,7 +42,7 @@ An Azure AD DS managed domain connects to a subnet in an Azure virtual network. 
 * Azure AD DS must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
 * A network security group is created during the deployment of an Azure AD DS managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
-* Azure AD DS requires between five and seven IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
+* Azure AD DS requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
     * Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
 
 The following example diagram outlines a valid design where Azure AD DS has its own subnet, there's a gateway subnet for external connectivity, and application workloads are in a connected subnet within the virtual network:

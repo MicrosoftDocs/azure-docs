@@ -1,7 +1,7 @@
 ---
 title: Create workspaces with Azure CLI
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Azure CLI to create a new Azure Machine Learning service workspace.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Azure CLI to create a new Azure Machine Learning workspace.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,13 +12,13 @@ author: Blackmist
 ms.date: 08/30/2019
 ---
 
-# Create a workspace for Azure Machine Learning service with Azure CLI
+# Create a workspace for Azure Machine Learning with Azure CLI
 
-In this article, you learn how to create an Azure Machine Learning service workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning service resources.
+In this article, you learn how to create an Azure Machine Learning workspace using the Azure CLI. The Azure CLI provides commands for managing Azure resources. The machine learning extension to the CLI provides commands for working with Azure Machine Learning resources.
 
 ## Prerequisites
 
-* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
+* An **Azure subscription**. If you do not have one, try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
 
 * To use the CLI commands in this document from your **local environment**, you need the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -49,7 +49,7 @@ az extension add -n azure-cli-ml
 
 ## Create a workspace
 
-The Azure Machine Learning service workspace relies on the following Azure services or entities:
+The Azure Machine Learning workspace relies on the following Azure services or entities:
 
 > [!IMPORTANT]
 > If you do not specify an existing Azure service, one will be created automatically during workspace creation. You must always specify a resource group.
@@ -64,10 +64,10 @@ The Azure Machine Learning service workspace relies on the following Azure servi
 
 ### Create a resource group
 
-The Azure Machine Learning service workspace must be created inside a resource group. You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
+The Azure Machine Learning workspace must be created inside a resource group. You can use an existing resource group or create a new one. To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
 > [!TIP]
-> You should select a region where the Azure Machine Learning service is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> You should select a region where Azure Machine Learning is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -166,7 +166,7 @@ To create a workspace that uses existing resources, you must provide the ID for 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"`
 
     > [!IMPORTANT]
-    > The container registry must have the the [admin account](/azure/container-registry/container-registry-authentication#admin-account) enabled before it can be used with an Azure Machine Learning service workspace.
+    > The container registry must have the the [admin account](/azure/container-registry/container-registry-authentication#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 Once you have the IDs for the resource(s) that you want to use with the workspace, use the base `az workspace create -w <workspace-name> -g <resource-group-name>` command and add the parameter(s) and ID(s) for the existing resources. For example, the following command creates a workspace that uses an existing container registry:
 
@@ -298,7 +298,7 @@ To share a workspace with another user on your subscription, use the following c
 az ml workspace share -w <workspace-name> -g <resource-group-name> --user <user> --role <role>
 ```
 
-For more information on roles-based access control (RBAC) with Azure Machine Learning service, see [Manage users and roles](how-to-assign-roles.md).
+For more information on roles-based access control (RBAC) with Azure Machine Learning, see [Manage users and roles](how-to-assign-roles.md).
 
 For more information, see the [az ml workspace share](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-share) documentation.
 

@@ -261,4 +261,4 @@ You might also want to delete the GitHub repository and the Azure DevOps project
 In this tutorial, you create an Azure DevOps pipeline to deploy an Azure Resource Manager template. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Use safe deployment practices](./deployment-manager-tutorial.md)

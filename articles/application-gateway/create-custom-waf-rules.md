@@ -175,7 +175,7 @@ Corresponding CRS rule:
 
 ## Example 3
 
-For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures  both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are blocked.
+For this example, you want to block User-Agent *evilbot*, and traffic in the range 192.168.5.0/24. To accomplish this, you can create two separate match conditions, and put them both in the same rule. This ensures that if both *evilbot* in the User-Agent header **and** IP addresses from the range 192.168.5.0/24 are matched, then the request is blocked.
 
 Logic: p **and** q
 

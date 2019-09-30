@@ -23,10 +23,11 @@ This article outlines how to copy data to and from Azure Data Lake Storage Gen2.
 
 This Azure Data Lake Storage Gen2 connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source or sink matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, with this connector you can:
 
@@ -586,6 +587,17 @@ Here's an example of JSON configuration (see `preserve`):
 
 Learn more about [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in the mapping data flow feature.
 
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 ## Next steps
 
 For a list of data stores supported as sources and sinks by the copy activity in Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

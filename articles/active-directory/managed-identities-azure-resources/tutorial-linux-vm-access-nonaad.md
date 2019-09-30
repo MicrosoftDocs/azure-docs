@@ -106,7 +106,7 @@ Once you’ve retrieved the secret from the Key Vault, you can use it to authent
 In this tutorial, you learned how to use a Linux VM system-assigned managed identity to access Azure Key Vault.  To learn more about Azure Key Vault see:
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-whatis)
+>[Azure Key Vault](/azure/key-vault/key-vault-overview)
 
 
 

@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in Fo
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Foodee tenant](https://Foodee.com/pricing/)
+* [A Foodee tenant](https://www.food.ee/about/)
 * A user account in Foodee  with Admin permissions.
 
 ## Assigning users to Foodee 

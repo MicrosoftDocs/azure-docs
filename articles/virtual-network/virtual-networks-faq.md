@@ -196,9 +196,9 @@ Yes. You must connect a virtual machine scale set to a VNet.
 ### Is there a complete list of Azure services that can I deploy resources from into a VNet?
 Yes, For details, see [Virtual network integration for Azure services](virtual-network-for-azure-services.md).
 
-### Which Azure PaaS resources can I restrict access to from a VNet?
+### How can I restrict access to Azure PaaS resources from a VNet?
 
-Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to only resources in a VNet through the use of virtual network service endpoints. For details, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md).
+Resources deployed through some Azure PaaS services (such as Azure Storage and Azure SQL Database), can restrict network access to VNet through the use of virtual network service endpoints or Azure Private Link. For details, see [Virtual network service endpoints overview](virtual-network-service-endpoints-overview.md), [Azure Private Link overview](../private-link/private-link-overview.md)
 
 ### Can I move my services in and out of VNets?
 No. You cannot move services in and out of VNets. To move a resource to another VNet, you have to delete and redeploy the resource.

@@ -4,7 +4,7 @@ description: Managed services offers allow service providers to sell resource ma
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 07/11/2019
+ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -15,9 +15,9 @@ This article describes the new **Managed Services** offer type in [Azure Marketp
 
 ## Understand managed services offers
 
-Managed services offers streamline the process of onboarding customers for Azure delegated resource management. Once a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded so that specified users in your organization can perform administration tasks for the customer from within your organization's tenant.
+Managed services offers streamline the process of onboarding customers for Azure delegated resource management. When a customer purchases an offer in Azure Marketplace, they'll be able to specify which subscriptions and/or resource groups should be onboarded. Note that the subscription must first be authorized for onboarding by manually registering the **Microsoft.ManagedServices** resource provider.
 
-After that, no further action is required by either the customer or the service provider to get the customer onboarded. This is because when you define the offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/), you create a manifest that specifies the Azure AD users, groups, and service principles that will have access to customer resources using Azure delegated resource management. along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
+After that, users in your organization will be able to perform administration tasks for those resources from within your organization's tenant, according to the access you defined when creating the offer in the [Cloud Partner Portal](https://cloudpartner.azure.com/). This is done through a manifest that specifies the Azure AD users, groups, and service principals that will have access to customer resources using Azure delegated resource management, along with roles that define their level of access. By assigning permissions to an Azure AD group rather than a series of individual user or application accounts, you can add or remove individual users when your access requirements change.
 
 ## Public and private offers
 

@@ -30,6 +30,9 @@ The read replica feature uses asynchronous replication. The feature isn't meant 
 ## Cross-region replication
 You can create a read replica in a different region from your master server. Cross-region replication can be helpful for scenarios like disaster recovery planning or bringing data closer to your users.
 
+> [!NOTE]
+> Cross region replication is in preview.
+
 You can have a master server in any [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  A master server can have a replica in its paired region or the universal replica regions. The picture below shows which replica regions are available depending on your master region.
 
 [ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
@@ -150,4 +153,4 @@ The [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variable
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-cli.md)
+- Learn how to [create and manage read replicas using the Azure CLI and REST API](howto-read-replicas-cli.md)

@@ -100,6 +100,8 @@
     href: acs-aks-migration.md
   - name: Supported Kubernetes version
     href: supported-kubernetes-versions.md
+  - name: Security Hardening in host OS
+    href: security-hardened-vm-host-image.md
 - name: How-to guides
   items:
   - name: Cluster operations
@@ -116,7 +118,7 @@
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
-    - name: Create an ACR with an AKS cluster (preview)
+    - name: Integrate ACR with an AKS cluster
       href: cluster-container-registry-integration.md
     - name: Create virtual nodes
       items:
@@ -149,6 +151,8 @@
       href: azure-files-volume.md
     - name: NFS Server - Static
       href: azure-nfs-volume.md
+    - name: Azure NetApp Files
+      href: azure-netapp-files.md      
   - name: Configure networking
     items:
     - name: Create or use existing virtual network
@@ -199,7 +203,7 @@
       href: ../governance/policy/concepts/rego-for-aks.md?toc=/azure/aks/toc.json
     - name: Update cluster service principal credentials
       href: update-credentials.md
-    - name: Restrict and control cluster egress traffic (preview)
+    - name: Restrict and control cluster egress traffic
       href: limit-egress-traffic.md
     - name: Enable Azure Active Directory integration
       items:

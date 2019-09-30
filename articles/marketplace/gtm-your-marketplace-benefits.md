@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 09/10/2019
 ms.author: v-qiwe
 
 ---
@@ -70,7 +70,7 @@ All partners who have a live offer get to work with a dedicated engagement manag
 
 Detailed descriptions for all these benefits can be found in the [Marketplace Rewards program deck](https://aka.ms/marketplacerewards).
 
-In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/en-us/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
+In addition to the rewards benefits, business applications partners with Dynamics offers published to Microsoft AppSource have supplementary programming available to them through [ISV Connect](https://partner.microsoft.com/solutions/business-applications/isv-overview). This includes technical, marketing, and sales support that is specialized for the needs of business applications partners.
 
 ## Marketplace Rewards requirements and restrictions
 
@@ -97,9 +97,9 @@ Transactions that are proven to be fraudulent will not count towards a publisher
 
 ## Next steps
 
-If you created your offer in Cloud Partner Portal, sign in to create or configure your offer.
+If you created your offer in [Cloud Partner Portal](https://cloudpartner.azure.com), sign in to create or configure your offer.
 
-If you created your offer in Partner Center, sign in to create or configure your offer.
+If you created your offer in [Partner Center](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview), sign in to create or configure your offer.
 
 Review the [self-serve resources available to you](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
