@@ -69,7 +69,7 @@ In the dialogs that follow, make the following selections:
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-## Building and Running the Sample
+## Build and run the sample
 
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Choose either the iOS simulator or an iOS device connected to your development machine as the destination for the app from the list in the **Product** > **Destination** menu.
