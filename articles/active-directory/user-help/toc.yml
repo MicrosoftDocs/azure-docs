@@ -54,18 +54,18 @@
     href: user-help-auth-app-backup-recovery.md
   - name: FAQ
     href: user-help-auth-app-faq.md
-- name: My Profile (preview) portal help
+- name: My Account portal help
   items:
   - name: Overview
-    href: myprofile-portal-overview.md
+    href: my-account-portal-overview.md
   - name: Manage your security info
     href: user-help-security-info-overview.md
   - name: Manage your organizations
-    href: myprofile-portal-organizations-page.md
+    href: my-account-portal-organizations-page.md
   - name: Manage your connected devices
-    href: myprofile-portal-devices-page.md
+    href: my-account-portal-devices-page.md
   - name: View your privacy-related info
-    href: myprofile-portal-privacy-page.md
+    href: my-account-portal-privacy-page.md
 - name: Security info (preview) help
   items:
   - name: Overview
