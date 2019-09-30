@@ -16,6 +16,8 @@ ms.date: 01/10/2018
 # Execute Pipeline activity in Azure Data Factory
 The Execute Pipeline activity allows a Data Factory pipeline to invoke another pipeline.
 
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+
 ## Syntax
 
 ```json
