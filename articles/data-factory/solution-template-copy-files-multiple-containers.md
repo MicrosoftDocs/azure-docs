@@ -14,6 +14,7 @@ ms.topic: conceptual
 ms.date: 11/1/2018
 ---
 # Copy files from multiple containers with Azure Data Factory
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 This article describes a solution template that you can use to copy files from multiple containers between file stores. For example, you can use it to migrate your data lake from AWS S3 to Azure Data Lake Store. Or, you could use the template to replicate everything from one Azure Blob storage account to another.
 

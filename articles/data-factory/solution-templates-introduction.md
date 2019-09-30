@@ -13,6 +13,7 @@ ms.author: daperlov
 manager: craigg
 ---
 # Templates
+[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
 
 Templates are predefined Azure Data Factory pipelines that allow you to get started quickly with Data Factory. Templates are useful when you're new to Data Factory and want to get started quickly. These templates reduce the development time for building data integration projects thereby improving developer productivity.
 
