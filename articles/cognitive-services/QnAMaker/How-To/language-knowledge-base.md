@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 09/12/2019
 ms.author: diberry
 ---
 # Language support of knowledge base content for QnA Maker
@@ -23,19 +23,11 @@ The language is automatically recognized from the content of the data sources be
 
     ![Select Azure Search resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-1. Select the **testkb** index. This Azure Search index is always the first one created and it contains the saved content of all the knowledge bases in that service. 
+1. Select **Indexes**, then select the **testkb** index. This is the first Azure Search index created and it contains the saved content of all the knowledge bases in that service. 
 
-    ![Select the Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
+1. Select **Fields** to see the fields in the index.
 
-1. Select **Fields** section showing the _testkb_ details.
-
-    ![Select Fields](../media/qnamaker-how-to-language-kb/selectfields.png)
-
-1. Check the box for **Analyzer** to see language details.
-
-    ![Select Analyzer](../media/qnamaker-how-to-language-kb/select-analyzer.png)
-
-1. You should find that the _Analyzer_ is set to a specific language. This language was automatically detected during the knowledge base creation step from the imported files and URLs. This language cannot be changed once the resource is created.
+1. The _Analyzer_ column of the `questions` and `answer` fields is set to a specific language. This language was automatically detected during the knowledge base creation step from the imported files and URLs. This language cannot be changed once the resource is created.
 
     ![Selected Analyzer](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 

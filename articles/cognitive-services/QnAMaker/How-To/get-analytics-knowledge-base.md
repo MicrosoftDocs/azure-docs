@@ -9,7 +9,7 @@ displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 09/12/2019
 ms.author: diberry
 ---
 
@@ -21,9 +21,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
     ![Select your application insights resource](../media/qnamaker-how-to-analytics-kb/resources-created.png)
 
-2. Select **Analytics**. A new window opens where you can query QnA Maker telemetry.
-
-    ![Select Analytics](../media/qnamaker-how-to-analytics-kb/analytics.png)
+2. Select **Log (Analytics)**. A new window opens where you can query QnA Maker telemetry.
 
 3. Paste in the following query and run it.
 
@@ -43,7 +41,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 
     Select **Run** to run the query.
 
-    ![Run query](../media/qnamaker-how-to-analytics-kb/run-query.png)
+    [![Run query to determine questions, answers, and score from users](../media/qnamaker-how-to-analytics-kb/run-query.png)](../media/qnamaker-how-to-analytics-kb/run-query.png#lightbox)
 
 ## Run queries for other analytics on your QnA Maker knowledge base
 

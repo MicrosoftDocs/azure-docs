@@ -52,5 +52,5 @@ Build your rules using the expression builder. Your expressions will return a bo
 * `position` is the ordinal position of columns in your data flow
 
 ## Next steps
-* Learn more about the ADF Mapping Data Flow [expression language](http://aka.ms/dataflowexpressions) for data transformations
+* Learn more about the ADF Mapping Data Flow [expression language](https://aka.ms/dataflowexpressions) for data transformations
 * Use column patterns in the [Sink transformation](data-flow-sink.md) and [Select transformation](data-flow-select.md) with rule-based mapping

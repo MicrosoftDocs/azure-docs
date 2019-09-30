@@ -181,7 +181,7 @@ To request the ability to create Hyperscale databases in regions not listed:
 
 2. Click on [**New support request**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/whitelist-request-screen-1.png)
+    ![Azure Help and Support Blade](media/sql-database-service-tier-hyperscale/request-screen-1.png)
 
 3. For **Issue Type**, select **Service and subscription limits (quotas)**
 
@@ -193,13 +193,13 @@ To request the ability to create Hyperscale databases in regions not listed:
 
 1. Click **Provide Details**
 
-    ![Problem details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-2.png)
+    ![Problem details](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
 8. Choose **SQL Database quota type**: **Other quota request**
 
 9. Fill in the following template:
 
-    ![Quota details](media/sql-database-service-tier-hyperscale/whitelist-request-screen-3.png)
+    ![Quota details](media/sql-database-service-tier-hyperscale/request-screen-3.png)
 
     In the template, provide the following information
 

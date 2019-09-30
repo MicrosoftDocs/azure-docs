@@ -3,7 +3,7 @@ title: Azure AD roles security wizard in PIM - Azure Active Directory | Microsof
 description: Describes the security wizard that you can use to convert permanent privileged Azure AD role assignments to eligible using Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 editor: ''
 
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---

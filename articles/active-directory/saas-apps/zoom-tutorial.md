@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/23/2019
+ms.date: 09/03/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -41,7 +41,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Zoom supports **SP** initiated SSO
+* Zoom supports **SP** initiated SSO and 
+* Zoom supports [**Automated** user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial).
 
 ## Adding Zoom from the gallery
 
@@ -86,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `<companyname>.zoom.us`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/en-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -100,7 +101,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 > To learn how to configure Role in Azure AD, see [Configure the role claim issued in the SAML token for enterprise applications](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 > [!NOTE]
-> Zoom might expect a group claim in the SAML payload. If you have created any groups, contact the [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so they can configure the group information on their end. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so they can configure the Object ID on their end. To get the Object ID, see [Configuring Zoom with Azure](https://support.zoom.us/hc/en-us/articles/115005887566).
+> Zoom might expect a group claim in the SAML payload. If you have created any groups, contact the [Zoom Client support team](https://support.zoom.us/hc/) with the group information so they can configure the group information on their end. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/) so they can configure the Object ID on their end. To get the Object ID, see [Configuring Zoom with Azure](https://support.zoom.us/hc/articles/115005887566).
 
 ### Create an Azure AD test user
 
@@ -171,30 +172,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Zoom test user
 
-In order to enable Azure AD users to sign in to Zoom, they must be provisioned into Zoom. In the case of Zoom, provisioning is a manual task.
-
-### To provision a user account, perform the following steps:
-
-1. Sign in to your **Zoom** company site as an administrator.
-
-2. Click the **Account Management** tab, and then click **User Management**.
-
-3. In the User Management section, click **Add users**.
-
-    ![User management](./media/zoom-tutorial/ic784703.png "User management")
-
-4. On the **Add users** page, perform the following steps:
-
-    ![Add users](./media/zoom-tutorial/ic784704.png "Add users")
-
-    a. As **User Type**, select **Basic**.
-
-    b. In the **Emails** textbox, type the email address of a valid Azure AD account you want to provision.
-
-    c. Click **Add**.
+The objective of this section is to create a user called B.Simon in Zoom. Zoom supports automatic user provisioning, which is by default enabled. You can find more details [here](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial) on how to configure automatic user provisioning.
 
 > [!NOTE]
-> You can use any other Zoom user account creation tools or APIs provided by Zoom to provision Azure Active Directory user accounts.
+> If you need to create a user manually, you need to contact [Zoom Client support team](https://support.zoom.us/hc/)
 
 ## Test SSO 
 

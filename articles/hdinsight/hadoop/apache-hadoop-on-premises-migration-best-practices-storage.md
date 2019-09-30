@@ -1,15 +1,15 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
+title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 09/04/2019
 ms.author: hrasheed
 ---
-# Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage best practices
+# Migrate on-premises Apache Hadoop clusters to Azure HDInsight
 
 This article gives recommendations for data storage in Azure HDInsight systems. It's part of a series that provides best practices to assist with migrating on-premises Apache Hadoop systems to Azure HDInsight.
 
@@ -104,7 +104,7 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
-- `abfs[s]://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
+- `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
 
 For more information, see the following articles:
 

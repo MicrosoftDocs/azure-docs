@@ -3,7 +3,7 @@ title: Common interfaces - IoT Plug and Play Preview | Microsoft Docs
 description: Description of common interfaces for IoT Plug and Play developers
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/16/2019
+ms.date: 09/08/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
@@ -33,11 +33,11 @@ All IoT Plug and Play devices are expected to implement some common interfaces. 
 You can use the Azure IoT extension for Azure CLI to retrieve the common interfaces from the public model repository.
 
 ```cmd/sh
-az iot pnp interface show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp interface show --interface {InterfaceID}
 ```
 
 ```cmd/sh
-az iot pnp model show --interface {InterfaceID} --login {ModelRepoConnectionString}
+az iot pnp capability-model show --model {ModelID}
 ```
 
 ### VS Code

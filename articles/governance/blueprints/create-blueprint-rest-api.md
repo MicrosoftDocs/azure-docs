@@ -25,8 +25,6 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## Getting started with REST API
 
 If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)

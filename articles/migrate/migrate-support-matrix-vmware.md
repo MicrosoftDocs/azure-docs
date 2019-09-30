@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -30,8 +30,7 @@ The table summarizes supported scenarios for VMware VMs.
 **Support** | **Details**
 --- | ---
 **Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-**VMware limitations**  | Assess up to 35,000 VMware VMs in a single project. You can create multiple projects in an Azure subscription.
-**Project limits** | A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
+**VMware limitations**  | Assess up to 35,000 VMware VMs in a single project. You can create multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 **Geography** | You can create an Azure Migrate project in a number of geographies. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
 **Geography** | **Metadata storage location**
@@ -39,10 +38,13 @@ The table summarizes supported scenarios for VMware VMs.
 Azure Government | US Gov Virginia
 Asia Pacific | East Asia or Southeast Asia
 Australia | Australia East or Australia Southeast
+Brazil | Brazil South
 Canada | Canada Central or Canada East
 Europe | North Europe or West Europe
+France | France Central
 India | Central India or South India
 Japan |  Japan East or Japan West
+Korea | Korea Central or Korea South
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
@@ -65,14 +67,15 @@ For assessment, you need a read-only account for the vCenter Server.
 
 ## Assessment-appliance requirements
 
-The Azure Migrate appliance for VMware is deployed using an OVA template imported into vCenter Server.
+Azure Migrate runs a lightweight appliance to discover VMware VMs, and send VM metadata and performance data to Azure Migrate. Appliance for VMware is deployed using an OVA template imported into vCenter Server. The following table summarizes the appliance requirements.
 
 **Support** | **Details**
 --- | ---
-**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
-**ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
-**Azure Migrate project** | An appliance can be associated with a single project.
-**vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
+**Appliance deployment** | You deploy the appliance as a VMware VM. You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, around 80 GB of disk storage, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.<br/> The appliance VM must be deployed on an ESXi host running version 5.5 or later.
+**Azure Migrate project** | An appliance can be associated with a single project. <br/> Any number of appliances can be associated with a single project.<br/> You can assess up to 35,000 VMs in a project.
+**Discovery** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to a single vCenter Server.
+**Assessment group** | You can add up to 35,000 machines in a single group.
+**Assessment** | You can assess up to 35,000 VMs in a single assessment.
 
 
 ## Assessment-URL access requirements
@@ -102,6 +105,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 
+## Migration - limitations
+You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10. For VMware agentless migration, you can run up to 100 replications simultaneously.
 
 ## Agentless migration-VMware server requirements
 
