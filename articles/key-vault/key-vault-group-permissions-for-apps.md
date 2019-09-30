@@ -92,7 +92,7 @@ If you intend to use PowerShell, you will also need the [Azure AD PowerShell mod
 
 ### Create an Azure Active Directory group
 
-Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup](powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
+Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup]/(powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
 
 
 ```azurecli
@@ -162,16 +162,20 @@ Lastly, give the AD group permissions to your key vault.
 With the Azure CLI, this is done by passing the ApplicationId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
 ```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <ApplicationID-of-your-service-principal> --secret-permissions get list set delete --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy -n <your-unique-keyvault-name> ---object-id <groupID> --secret-permissions get list set delete --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
 ```
 
 With Azure PowerShell, this is done by passing the Id to the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. 
 
 ```azurepowershell
-Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <groupId>
+Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -ObjectId <groupId> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete 
 
 ```
 
 ## Next steps
 
-Learn more about how to [Secure your key vault](key-vault-secure-your-key-vault.md).
+- Learn how to [Provide Key Vault authentication with an App Service managed identity](managed-identity.md)
+- Learn how to [Secure your key vault](key-vault-secure-your-key-vault.md).
+- See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
+- Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
+- Review [Azure Key Vault best practices](key-vault-best-practices.md)
