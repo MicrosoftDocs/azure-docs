@@ -29,10 +29,10 @@ Before you get started, here's a list of prerequisites:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Note that this tutorial will not work with version of the SDK earlier than 1.7.0.
-
 The Cognitive Services Speech SDK for macOS is distributed as a framework bundle.
 It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
+
+[!NOTE] This tutorial will not work with versions of the SDK earlier than 1.7.0.
 
 ## Create an Xcode project
 
