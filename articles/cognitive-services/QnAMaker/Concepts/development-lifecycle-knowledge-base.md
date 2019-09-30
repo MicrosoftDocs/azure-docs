@@ -59,11 +59,11 @@ Based on what you learn from your analytics, make appropriate [updates to your k
 
 ## Version Control of a knowledge base
 
-Version control is not provided by QnA Maker. You need to export your knowledge base from the **Settings** page and use your own version control methodology.
+Version control is not provided by QnA Maker. You need to export your knowledge base from the **Settings** page and use your own methodology and tools.
 
-You can managed in the QnA Maker portal by exporting the knowledge base from the **Settings** page. This allows you to store the knowledge base, in TSV or XLS format, in your current version control system.
+Exporting the knowledge base to TSV or XLS format is completed from the **Settings** page. 
 
-When you need to go back to a version, from the **Settings** page, import the TSV or XLS file. This will replace questions and answers currently in the knowledge base with the contents of the TSV file.   
+When you need to go back to a specific version, you need to import that file from your local system. From the **Settings** page, import the TSV or XLS file. This will replace questions and answers currently in the knowledge base with the contents of the imported file.   
 
 ## Next steps
 
