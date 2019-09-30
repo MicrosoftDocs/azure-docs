@@ -35,7 +35,7 @@ To implement these behaviors in Azure Search, there is an index and query compon
 
 + In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester. 
 
-+ In the query request, call the appropriate API: [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions), [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete), [Suggest method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggestasync?view=azure-dotnet), or [Autocomplete method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocompleteasync?view=azure-dotnet).
++ In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
 Search-as-you-type support is enabled on a per-field basis. You can implement both typeahead behaviors within the same search solution if you want an experience similar to the one indicated in the screenshot. Both requests target the *documents* collection of specific index and responses are returned after a user has provided at least a three character input string.
 
@@ -109,19 +109,21 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 By default, for both autocomplete and suggestions, query execution occurs as soon as the first two characters are received. To meet the performance expectations inherent in typeahead experiences, partial as well as whole terms must be analyzed and indexed, which increases the complexity and volume of both processes. 
 
-The constraint of using only named analyzers on sourceFields exists as a way to limit unforeseen complications during analysis phases of indexing and querying. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
+The constraint of using only named analyzers on `sourceFields` exists as a way to limit unforeseen complications during the analysis phase of both indexing and querying. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
 
 > [!NOTE] 
 >  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have suggesters, while the other can be set up with a custom analyzer configuration.
 
-## How to use a suggester
+<a name="how-to-use-a-suggester"></a>
+
+## How to use a suggester 
 
 After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
 
 + [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
 + [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
 + [SuggestWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [AutocompleteWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 A suggester is referenced on the request along with the operation. For example, on a GET REST call, specify either `suggest` or `autocomplete` on the documents collection. For REST, after a suggester is created, use the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) or the [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in your query logic.
 
