@@ -19,7 +19,7 @@ ms.custom: fasttrack-edit
 
 ---
 
-# Configure your App Service app to use Azure Active Directory sign-in
+# Configure your App Service app to authenticate with Azure Active Directory
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
@@ -39,7 +39,7 @@ Follow these best practices when setting up your app and authentication:
 1. In the [Azure portal], go to your App Service app.
 1. Select **Settings > Authentication / Authorization** in the left pane, and make sure that **App Service Authentication** is **On**.
 1. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
-1. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration.
+1. Select **OK** to register the App Service app in Azure Active Directory. A new app registration is created.
 
    If you want to choose an existing app registration instead:
 
@@ -47,7 +47,7 @@ Follow these best practices when setting up your app and authentication:
    1. Select the app registration and then select **OK**.
    1. Then click **OK** on the Azure Active Directory settings page.
 
-   By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+   By default, App Service provides authentication but doesn't restrict authorized access to your site content and APIs. You must authorize users in your app code.
 1. (Optional) To restrict app access only to users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. By setting this functionality, your app requires all requests to be authenticated. It also redirects all unauthenticated to Azure Active Directory for authentication.
 
     > [!CAUTION]
@@ -70,7 +70,7 @@ You'll need the following information when you configure your App Service app:
 - Client secret (optional)
 - Application ID URI
 
-Perform the following:
+Perform the following steps:
 
 1. Sign in to the [Azure portal] and go to your App Service app. Note your app's **URL**. You'll use it to configure your Azure Active Directory app registration.
 1. Select **Azure Active Directory** > **App registrations** > **New registration**.
@@ -114,7 +114,7 @@ You're now ready to use Azure Active Directory for authentication in your App Se
 
 ## Configure a native client application
 
-You can register native clients to allow sign-ins using a client library such as the **Active Directory Authentication Library**.
+You can register native clients to allow authentication using a client library such as the **Active Directory Authentication Library**.
 
 1. In the [Azure portal], select **Active Directory** > **App registrations** > **New registration**.
 1. In the **Register an application** page, enter a **Name** for your app registration.
