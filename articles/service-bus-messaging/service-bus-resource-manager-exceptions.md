@@ -34,9 +34,9 @@ Below are the various exceptions/errors that are surfaced through the Azure Reso
 | Error code | Error SubCode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Bad Request | 40000 | SubCode=40000. The property *'property name'* cannot be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier. | On Azure Service Bus Basic Tier, the below properties cannot be set or updated - <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress </li> <li> ForwardTo </li> <li> Topics </li> </ul> | Consider upgrading from Basic to Standard or Premium tier to leverage this functionality. |
-| Bad Request | 40000 | SubCode=40000. The value for the 'requiresDuplicateDetection' property of an existing Queue cannot be changed. | Duplicate detection must be enabled/disabled at the time of entity creation. Once created, the duplicate detection configuration parameter cannot be changed. | To enable duplicate detection on a previously created queue/subscription, you can create a new queue with duplicate detection and then forward from the original queue to the new queue. |
+| Bad Request | 40000 | SubCode=40000. The value for the 'requiresDuplicateDetection' property of an existing Queue(or Topic) cannot be changed. | Duplicate detection must be enabled/disabled at the time of entity creation. Once created, the duplicate detection configuration parameter cannot be changed. | To enable duplicate detection on a previously created queue/topic, you can create a new queue/topic with duplicate detection and then forward from the original queue to the new queue/topic. |
 | Bad Request | 40000 | SubCode=40000. The specified value 16384 is invalid. The property 'MaxSizeInMegabytes', must be one of the following values: 1024;2048;3072;4096;5120. | The MaxSizeInMegabytes value is invalid. | Ensure that the MaxSizeInMegabytes is one of the following - 1024, 2048, 3072, 4096, 5120. |
-| Bad Request | 40000 | SubCode=40000. Partitioning cannot be changed for Queue. | Partitioning cannot be changed for entity. | Create a new entity and enable partitions. | 
+| Bad Request | 40000 | SubCode=40000. Partitioning cannot be changed for Queue/Topic. | Partitioning cannot be changed for entity. | Create a new entity (queue or topic) and enable partitions. | 
 | Bad Request | none | The namespace *'namespace name'* does not exist. | The namespace does not exist within your Azure subscription. | To resolve this error, please try the below <ul> <li> Ensure that the Azure Subscription is correct. </li> <li> Ensure the namespace exists. </li> <li> Verify the namespace name is correct (no spelling errors or null strings). </li> </ul> | 
 | Bad Request | 40400 | SubCode=40400. The auto forwarding destination entity does not exist. | The destination for the autoforwarding destination entity doesn't exist. | The destination entity (queue or topic), must exist before the source is created. Retry after creating the destination entity. |
 | Bad Request | 40000 | SubCode=40000. The supplied lock time exceed the allowed maximum of '5' minutes. | The time for which a message can be locked must be between 1 minute (minimum) and 5 minutes (maximum). | Ensure that the supplied lock time is between 1 min and 5 mins. |
@@ -46,6 +46,8 @@ Below are the various exceptions/errors that are surfaced through the Azure Reso
 
 
 ## Error code: 429
+
+"Error code 429", as it does in HTTP, indicates "too many requests". It implies that the specific resource (namespace) is being throttled because of too many requests (or due to conflicting operations) on that resource.
 
 | Error code | Error SubCode | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
