@@ -213,6 +213,7 @@ After you've created **myVm*, connect to it from the internet as follows:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
+    ```
 3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 4. In **Connect to server**, enter or select this information:
