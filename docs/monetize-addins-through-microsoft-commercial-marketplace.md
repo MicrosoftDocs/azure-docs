@@ -29,6 +29,7 @@ Your offer must also use the **SaaS fulfillment APIs** to integrate with Commerc
 
 ## Customer experience
 <!--Diagram goes here-->
+![Customer flow](images/monetization-customer-flow-diagram.png)
 
 A customer discovers your SaaS service, listed in AppSource and purchases licenses from here, providing their payment detials to Microsoft. The customer is then redirected to your website where they finish setting up their account, at which point the licenses are provisioned and they are billed. Your customer is then able to dowload your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify whether the cusotmer has a license.
 
@@ -38,6 +39,7 @@ You are able to submit your SaaS offer as a private plan - this will make your o
 
 ## Submitting your offer + add-in
 <!--Diagram goes here-->
+![Submission flow](images/monetization-submission-diagram.png)
 
 You should submit your add-in first, with test accounts (admin + non-admin) first. Once your add-in has been approved, you should then submit your SaaS offer.
 
