@@ -63,7 +63,9 @@ Here are other key differences between the SFTP-SSH connector and the SFTP conne
   > The SFTP-SSH connector supports *only* these private key formats, algorithms, and fingerprints:
   >
   > * **Private key formats**: RSA (Rivest Shamir Adleman) and DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats. If your private key is in PuTTY (.ppk) file format, first [convert the key to the OpenSSH (.pem) file format](#convert-to-openssh).
+  >
   > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  >
   > * **Fingerprint**: MD5
   >
   > After you add the SFTP-SSH trigger or action you want to your logic app, 
@@ -97,7 +99,9 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 ### Unix-based OS
 
-1. If you haven't done so already, [download the latest PuTTY Generator (puttygen.exe) tool](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html), and install the tool on your system.
+1. If the PuTTY tools aren't already installed on your system, do that now, for example:
+
+   `sudo apt-get install -y putty`
 
 1. Run this command, which creates a file that you can use with the SFTP-SSH connector:
 
