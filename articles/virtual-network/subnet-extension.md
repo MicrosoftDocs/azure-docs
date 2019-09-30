@@ -23,7 +23,7 @@ Workload migration to the public cloud requires careful planning and coordinatio
 
 Migrations can get a bit challenging when the above requirement is coupled with an additional requirement to keep some applications on-premises. In such as a situation, you'll have to split the applications between Azure and on-premises, without renumbering the IP addresses on either side. Additionally, you'll have to allow the applications to communicate as if they are in the same network.
 
-One solution to the above problem is subnet extension. Sunbet extension allows you to extend your on-premised network into Azure, that is, making them appear as one network.
+One solution to the above problem is subnet extension. Extending a network allows applications to talk over the same broadcast domain when they exist at different physical locations, removing the need to rearchitect your network topology. 
 
 While extending your network isn't a good practice in general, below use cases can make it necessary.
 
