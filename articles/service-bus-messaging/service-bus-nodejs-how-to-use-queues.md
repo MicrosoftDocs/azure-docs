@@ -18,7 +18,7 @@ ms.author: aschhab
 ms.custom: seo-javascript-september2019
 
 ---
-# How to use Service Bus queues with Node.js and the azure-sb package
+# Use Service Bus queues in Azure with Node.js and the azure-sb package
 > [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
