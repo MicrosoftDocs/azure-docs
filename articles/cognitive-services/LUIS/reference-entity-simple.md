@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
 # Simple entity 
@@ -29,6 +29,8 @@ In the previous utterance, `Bob Jones` is labeled as a simple `Customer` entity.
 
 The data returned from the endpoint includes the entity name, the discovered text from the utterance, the location of the discovered text, and the score:
 
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```JSON
 "entities": [
   {
@@ -40,6 +42,45 @@ The data returned from the endpoint includes the entity name, the discovered tex
   }
 ]
 ```
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+This is the JSON if `verbose=false` is set in the query string:
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ]
+}```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "Customer": [
+        "Bob Jones"
+    ],
+    "$instance": {
+        "Customer": [
+            {
+                "type": "Customer",
+                "text": "Bob Jones",
+                "startIndex": 0,
+                "length": 9,
+                "score": 0.9339134,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |Data object|Entity name|Value|
 |--|--|--|
