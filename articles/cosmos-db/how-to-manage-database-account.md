@@ -20,21 +20,10 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Create an account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount' # must be lower case and < 31 characters
-
-# Create a Cosmos account for SQL API
-az cosmosdb create \
-    -n $accountName \
-    -g $resourceGroupName \
-    --default-consistency-level Session \
-    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
-    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
-```
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/sql/create.sh?range=18-24)]
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
+
 ```azurepowershell-interactive
 # Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
