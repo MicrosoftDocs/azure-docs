@@ -29,7 +29,7 @@ In **Service Details**, set the cache name and these other attributes:
 ## Set cache capacity
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-On the **Cache** page, you must set the capacity of your cache. This value determines how much data your cache can hold and how quickly it can service client requests.
+On the **Cache** page, you must set the capacity of your cache. The values set here determine how much data your cache can hold and how quickly it can service client requests.
 
 After the public preview period, capacity also will affect the cache's cost.
 
