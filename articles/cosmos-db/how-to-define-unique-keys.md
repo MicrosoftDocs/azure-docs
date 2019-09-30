@@ -32,41 +32,7 @@ This article presents the different ways to define [unique keys](unique-keys.md)
 
 ## Use Powershell
 
-```azurepowershell-interactive
-# Generate a random 10 character alphanumeric string to ensure unique resource names
-$uniqueId=$(-join ((97..122) + (48..57) | Get-Random -Count 15 | % {[char]$_}))
-
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$containerName = "container1"
-$containerResourceName = $accountName + "/sql/" + $databaseName + "/" + $containerName
-$containerResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers"
-
-# Create container with default index policy and unique key policy
-$containerProperties = @{
-    "resource"=@{
-        "id"=$containerName;
-        "partitionKey"=@{
-            "paths"=@("/myPartitionKey");
-            "kind"="Hash"
-        };
-        "uniqueKeyPolicy"= @{
-            "uniqueKeys"= @(@{
-                "paths"= @(
-                    "/myUniqueKey1";
-                    "/myUniqueKey2"
-                )
-            })
-        }
-    };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType $containerResourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerResourceName -PropertyObject $containerProperties
-```
+To create a container with unique keys see, [Create an Azure Cosmos container with unique key and TTL](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## Use the .NET SDK V2
 

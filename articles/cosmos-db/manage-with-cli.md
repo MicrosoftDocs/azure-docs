@@ -35,6 +35,154 @@ az cosmosdb create \
     --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
 ```
 
+## Add or remove regions
+
+Create an Azure Cosmos account with two regions, add a region, and remove a region.
+
+> [!NOTE]
+> You cannot simultaneously add or remove regions `locations` and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation than any other change to the account resource.
+> [!NOTE]
+> This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Modify failover priority](#modify-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
+
+```azurecli-interactive
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount' # must be lower case and <31 characters
+
+# Create an account with 2 regions
+az cosmosdb create --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
+
+# Add a region
+az cosmosdb update --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False \
+    --locations regionName= "South Central US" failoverPriority=2 isZoneRedundant=False
+
+# Remove a region
+az cosmosdb update --name $accountName --resource-group $resourceGroupName \
+    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
+    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
+```
+
+## Enable multiple write regions
+
+Enable multi-master for a Cosmos account
+
+```azurecli-interactive
+# Update an Azure Cosmos account from single to multi-master
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+az cosmosdb update --ids $accountId --enable-multiple-write-locations true
+```
+
+## Set failover priority
+
+Set the failover priority for an Azure Cosmos account configured for automatic failover
+
+```azurecli-interactive
+# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+# Make South Central US the next region to fail over to instead of East US 2
+az cosmosdb failover-priority-change --ids $accountId \
+    --failover-policies 'West US 2'=0 'South Central US'=1 'East US 2'=2
+```
+
+## Enable automatic failover
+
+```azurecli-interactive
+# Enable automatic failover on an existing account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+az cosmosdb update --ids $accountId --enable-automatic-failover true
+```
+
+## Trigger manual failover
+
+> [!CAUTION]
+> Changing region with priority = 0 will trigger a manual failover for an Azure Cosmos account. Any other priority change will not trigger a failover.
+
+```azurecli-interactive
+# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+
+# Get the account resource id for an existing account
+accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
+
+# Trigger a manual failover to promote East US 2 as new write region
+az cosmosdb failover-priority-change --ids $accountId \
+    --failover-policies 'East US 2'=0 'South Central US'=1 'West US 2'=2
+```
+
+## <a id="list-account-keys"></a> List all account keys
+
+Get all keys for a Cosmos account.
+
+```azurecli-interactive
+# List all account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb keys list \
+   -n $accountName \
+   -g $resourceGroupName
+```
+
+## List read-only account keys
+
+Get read-only keys for a Cosmos account.
+
+```azurecli-interactive
+# List read-only account keys
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb list-read-only-keys \
+   -n $accountName \
+   -g $resourceGroupName
+```
+
+## List connection strings
+
+Get the connection strings for a Cosmos account.
+
+```azurecli-interactive
+# List connection strings
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+
+az cosmosdb list-connection-strings \
+    -n $accountName \
+    -g $resourceGroupName
+```
+
+## Regenerate account key
+
+Regenerate a new key for a Cosmos account.
+
+```azurecli-interactive
+# Regenerate secondary account keys
+# key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
+az cosmosdb regenerate-key \
+    -n $accountName \
+    -g $resourceGroupName \
+    --key-kind secondary
+```
+
 ## Create a database
 
 Create a Cosmos database.
@@ -107,6 +255,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+## Create a container with TTL
+
+Create a Cosmos container with TTL enabled.
+
+```azurecli-interactive
+# Create an Azure Cosmos container with TTL of one day
+resourceGroupName = 'myResourceGroup'
+accountName = 'mycosmosaccount'
+databaseName = 'database1'
+containerName = 'container1'
+
+az cosmosdb sql container update \
+    -g $resourceGroupName \
+    -a $accountName \
+    -d $databaseName \
+    -n $containerName \
+    --ttl = 86400
 ```
 
 ## Create a container with a custom index policy
@@ -184,61 +351,6 @@ az cosmosdb sql container throughput update \
     -d $databaseName \
     -n $containerName \
     --throughput $newRU
-```
-
-## <a id="list-account-keys"></a> List all account keys
-
-Get all keys for a Cosmos account.
-
-```azurecli-interactive
-# List all account keys
-resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount'
-
-az cosmosdb keys list \
-   -n $accountName \
-   -g $resourceGroupName
-```
-
-## List read-only account keys
-
-Get read-only keys for a Cosmos account.
-
-```azurecli-interactive
-# List read-only account keys
-resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount'
-
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
-```
-
-## List connection strings
-
-Get the connection strings for a Cosmos account.
-
-```azurecli-interactive
-# List connection strings
-resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount'
-
-az cosmosdb list-connection-strings \
-    -n $accountName \
-    -g $resourceGroupName
-```
-
-## Regenerate account key
-
-Regenerate a new key for a Cosmos account.
-
-```azurecli-interactive
-# Regenerate secondary account keys
-# key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
-    -n $accountName \
-    -g $resourceGroupName \
-    --key-kind secondary
 ```
 
 ## Next steps

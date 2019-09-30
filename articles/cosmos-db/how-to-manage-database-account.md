@@ -20,48 +20,11 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Create an account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount' # must be lower case and < 31 characters
-
-# Create a Cosmos account for SQL API
-az cosmosdb create \
-    -n $accountName \
-    -g $resourceGroupName \
-    --default-consistency-level Session \
-    --locations regionName='West US 2' failoverPriority=0 isZoneRedundant=False \
-    --locations regionName='East US 2' failoverPriority=1 isZoneRedundant=False
-```
+Please see [Create an Azure Cosmos DB account with Azure CLI](manage-with-cli.md#create-an-azure-cosmos-db-account)
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
-```azurepowershell-interactive
-# Create an Azure Cosmos account for Core (SQL) API
-$resourceGroupName = "myResourceGroup"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-$accountName = "mycosmosaccount" # must be lower case and < 31 characters
 
-$locations = @(
-    @{ "locationName"="West US"; "failoverPriority"=0 },
-    @{ "locationName"="East US"; "failoverPriority"=1 }
-)
-
-$consistencyPolicy = @{
-    "defaultConsistencyLevel"="BoundedStaleness";
-    "maxIntervalInSeconds"=300;
-    "maxStalenessPrefix"=100000
-}
-
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy
-}
-
-New-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Please see [Create an Azure Cosmos DB account with Powershell](manage-with-powershell.md#create-account)
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager template
 
@@ -89,87 +52,11 @@ In a multi-region write mode, you can add or remove any region, if you have at l
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount' # must be lower case and <31 characters
-
-# Create an account with 2 regions
-az cosmosdb create --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
-
-# Add a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False \
-    --locations regionName= "South Central US" failoverPriority=2 isZoneRedundant=False
-
-# Remove a region
-az cosmosdb update --name $accountName --resource-group $resourceGroupName \
-    --locations regionName= "West US 2" failoverPriority=0 isZoneRedundant=False \
-    --locations regionName= "East US 2" failoverPriority=1 isZoneRedundant=False
-```
+Please see [Add or remove regions with Azure CLI](manage-with-cli.md#add-or-remove-regions)
 
 ### <a id="add-remove-regions-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Create an account with 2 regions
-$resourceGroupName = "myResourceGroup"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-$accountName = "mycosmosaccount" # must be lower case and < 31 characters
-
-$locations = @(
-    @{ "locationName"="West US 2"; "failoverPriority"=0, "isZoneRedundant"=false },
-    @{ "locationName"="East US 2"; "failoverPriority"=1, "isZoneRedundant"=false }
-)
-$consistencyPolicy = @{ "defaultConsistencyLevel"="Session" }
-$CosmosDBProperties = @{
-    "databaseAccountOfferType"="Standard";
-    "locations"=$locations;
-    "consistencyPolicy"=$consistencyPolicy
-}
-New-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Add a region
-$account = Get-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$locations = @(
-    @{ "locationName"="West US 2"; "failoverPriority"=0, "isZoneRedundant"=false },
-    @{ "locationName"="East US 2"; "failoverPriority"=1, "isZoneRedundant"=false },
-    @{ "locationName"="South Central US"; "failoverPriority"=2, "isZoneRedundant"=false }
-)
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-
-# Azure Resource Manager does not wait on the resource update
-Write-Host "Confirm region added before continuing..."
-
-# Remove a region
-$account = Get-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$locations = @(
-    @{ "locationName"="West US 2"; "failoverPriority"=0, "isZoneRedundant"=false },
-    @{ "locationName"="East US 2"; "failoverPriority"=1, "isZoneRedundant"=false }
-)
-
-$account.Properties.locations = $locations
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Please see [Add or remove regions with Powershell](manage-with-powershell.md#update-account)
 
 ## <a id="configure-multiple-write-regions"></a>Configure multiple write-regions
 
@@ -181,36 +68,11 @@ Open the **Replicate Data Globally** tab and select **Enable** to enable multi-r
 
 ### <a id="configure-multiple-write-regions-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Update an Azure Cosmos account from single to multi-master
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
-
-# Get the account resource id for an existing account
-accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
-
-az cosmosdb update --ids $accountId --enable-multiple-write-locations true
-```
+Please see [Enable multiple-write regions with Azure CLI](manage-with-cli.md#enable-multiple-write-regions)
 
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Update an Azure Cosmos account from single to multi-master
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-
-$account = Get-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$account.Properties.enableMultipleWriteLocations = "true"
-$CosmosDBProperties = $account.Properties
-
-Set-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Please see [Enable multiple-write regions with Powershell](manage-with-powershell.md#multi-master)
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
@@ -290,35 +152,11 @@ The Automatic failover option allows Azure Cosmos DB to failover to the region w
 
 ### <a id="enable-automatic-failover-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Enable automatic failover on an existing account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
-
-# Get the account resource id for an existing account
-accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
-
-az cosmosdb update --ids $accountId --enable-automatic-failover true
-```
+Please see [Enable automatic failover with Azure CLI](manage-with-cli.md#enable-automatic-failover)
 
 ### <a id="enable-automatic-failover-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-
-$account = Get-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName
-
-$account.Properties.enableAutomaticFailover="true";
-$CosmosDBProperties = $account.Properties;
-
-Set-AzResource -ResourceType $resourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $accountName -PropertyObject $CosmosDBProperties
-```
+Please see [Enable automatic failover with Powershell](manage-with-powershell.md#enable-automatic-failover)
 
 ## Set failover priorities for your Azure Cosmos account
 
@@ -345,41 +183,11 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
-
-# Get the account resource id for an existing account
-accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
-
-# Make South Central US the next region to fail over to instead of East US 2
-az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'West US 2'=0 'South Central US'=1 'East US 2'=2
-```
+Please see [Set failover priority with Azure CLI](manage-with-cli.md#set-failover-priority)
 
 ### <a id="set-failover-priorities-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Assume account currently has regions with priority: West US = 0, East US = 1, South Central US = 2
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-
-$failoverRegions = @(
-    @{ "locationName"="West US 2"; "failoverPriority"=0 },
-    @{ "locationName"="South Central US"; "failoverPriority"=1 },
-    @{ "locationName"="East US 2"; "failoverPriority"=2 }
-)
-
-$failoverPolicies = @{
-    "failoverPolicies"= $failoverRegions
-}
-
-Invoke-AzResourceAction -Action failoverPriorityChange `
-    -ResourceType $resourceType -ApiVersion "2015-04-08" `
-    -ResourceGroupName $resourceGroupName -Name $accountName -Parameters $failoverPolicies
-```
+Please see [Set failover priority with Powershell](manage-with-powershell.md#modify-failover-priority)
 
 ## <a id="manual-failover"></a>Perform manual failover on an Azure Cosmos account
 
@@ -407,42 +215,11 @@ The process for performing a manual failover involves changing the account's wri
 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
-```azurecli-interactive
-# Assume region order is initially 'West US 2'=0 'East US 2'=1 'South Central US'=2 for account
-resourceGroupName = 'myResourceGroup'
-accountName = 'mycosmosaccount'
-
-# Get the account resource id for an existing account
-accountId=$(az cosmosdb show -g $resourceGroupName -n $accountName --query id -o tsv)
-
-# Trigger a manual failover to promote East US 2 as new write region
-az cosmosdb failover-priority-change --ids $accountId \
-    --failover-policies 'East US 2'=0 'South Central US'=1 'West US 2'=2
-```
+Please see [Trigger manual failover with Azure CLI](manage-with-cli.md#trigger-manual-failover)
 
 ### <a id="enable-manual-failover-via-ps"></a>Azure PowerShell
 
-```azurepowershell-interactive
-# Assume account currently has regions with priority: West US = 0, East US = 1, South Central US = 2
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$resourceType = "Microsoft.DocumentDb/databaseAccounts"
-
-$failoverRegions = @(
-    @{ "locationName"="East US 2"; "failoverPriority"=0 },
-    @{ "locationName"="South Central US"; "failoverPriority"=1 },
-    @{ "locationName"="West US 2"; "failoverPriority"=2 }
-)
-
-$failoverPolicies = @{
-    "failoverPolicies"= $failoverRegions
-}
-# Trigger a manual failover to promote East US 2 as new write region
-Invoke-AzResourceAction -Action failoverPriorityChange `
-    -ResourceType $resourceType -ApiVersion "2015-04-08" `
-    -ResourceGroupName $resourceGroupName -Name $accountName `
-    -Parameters $failoverPolicies
-```
+Please see [Trigger manual failover with Powershell](manage-with-powershell.md#trigger-manual-failover)
 
 ## Next steps
 

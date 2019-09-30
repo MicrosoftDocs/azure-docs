@@ -29,41 +29,12 @@ This article explains how to provision throughput on a database in Azure Cosmos 
 
 ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
-## Provision throughput using Azure CLI
+## Provision throughput using Azure CLI or PowerShell
 
-```azcli-interactive
-# Create a database and provision throughput of 400 RU/s
-resourceGroupName='MyResourceGroup'
-accountName='mycosmosaccount'
-databaseName='database1'
-throughput=400
+To create a database with shared throughput see,
 
-az cosmosdb sql database create \
-    -a $accountName \
-    -g $resourceGroupName \
-    -n $databaseName \
-    --throughput $throughput
-```
-
-## Provision throughput using PowerShell
-
-```azurepowershell-interactive
-# Create a database and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$databaseResourceType = "Microsoft.DocumentDb/databaseAccounts/apis/databases"
-$databaseResourceName = $accountName + "/sql/" + $databaseName
-
-$databaseProperties = @{
-    "resource"=@{ "id"=$databaseName };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType $databaseResourceType `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $databaseProperties
-```
+* [Create a database using Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Create a database using Powershell](manage-with-powershell.md#create-db-ru)
 
 ## Provision throughput using .NET SDK
 
