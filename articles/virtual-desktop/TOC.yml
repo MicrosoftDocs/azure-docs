@@ -38,6 +38,8 @@
     href: create-host-pools-arm-template.md
   - name: Create a host pool with PowerShell
     href: create-host-pools-powershell.md
+  - name: Deploy a Windows 7 virtual machine on Windows Virtual Desktop
+    href: deploy-windows-7-virtual-machine.md
   - name: Apply Windows license to Windows Virtual Desktop session hosts
     href: apply-windows-license.md
   - name: Create a profile container for a host pool using a file share
@@ -86,6 +88,8 @@
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
+  - name: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
+    href: troubleshoot-windows-7-vm.md
   - name: Remote Desktop client connections
     href: troubleshoot-client-connection.md
   - name: Windows Virtual Desktop PowerShell
