@@ -29,7 +29,7 @@ New-AzResourceGroup `
 ```
 
 ## Create a Virtual Network
-In this section, you create a virtual network and a subnet. Next, you associate the subnet your Virtual Network.
+In this section, you create a virtual network and a subnet. Next, you associate the subnet to your Virtual Network.
 
 ### Create a Virtual Network
 
