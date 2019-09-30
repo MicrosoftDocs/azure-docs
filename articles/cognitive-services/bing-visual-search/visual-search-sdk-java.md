@@ -26,7 +26,7 @@ Use the Bing Visual Search client library for Java to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* The [Gradle build tool](https://gradle.org/install/), or another dependency manager
 
 ## Setting up
 
