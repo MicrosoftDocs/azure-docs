@@ -58,7 +58,7 @@ Previously, the **objectIdType** attribute was introduced.
 
 Azure Digital Twins supports full *CREATE*, *READ*, and *DELETE* operations for role assignments. *UPDATE* operations are handled by adding role assignments, removing role assignments, or modifying the [Spatial Intelligence Graph](./concepts-objectmodel-spatialgraph.md) nodes that role assignments give access to.
 
-![Role assignment endpoints][1]
+[![Role assignment endpoints](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 The supplied Swagger reference documentation contains further information about all available API endpoints, request operations, and definitions.
 
@@ -66,21 +66,26 @@ The supplied Swagger reference documentation contains further information about 
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### Grant permissions to your service principal
 
 Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
 
-1. Logging in to your Azure instance through PowerShell.
+1. Logging in to your Azure instance through Azure CLI or PowerShell.
 1. Acquiring your service principal information.
 1. Assigning the desired role to your service principal.
 
 Your application ID is supplied to you in Azure Active Directory. To learn more about configuring and provisioning an Azure Digital Twins in Active Directory, read through the [Quickstart](./quickstart-view-occupancy-dotnet.md).
 
-Once you have the application ID, execute the following PowerShell commands:
+Once you have the application ID, execute one of the following commands. In Azure CLI:
 
-```shell
+```Azure CLI
+az login
+az ad sp show --id <ApplicationId>
+```
+
+In Powershell:
+
+```Shell
 Login-AzAccount
 Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
@@ -103,11 +108,9 @@ With the following JSON body:
 }
 ```
 
-<div id="all"></div>
-
 ### Retrieve all roles
 
-![System roles][2]
+[![System roles](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 To list all available roles (role definitions), make an authenticated HTTP GET request to:
 
@@ -147,8 +150,6 @@ A successful request will return a JSON array with entries for each role that ma
     }
 ]
 ```
-
-<div id="check"></div>
 
 ### Check a specific role assignment
 
@@ -205,7 +206,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | The **id** of the role assignment to remove |
 
-A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check) whether the role assignment still holds.
+A successful DELETE request will return a 204 response status. Verify the removal of the role assignment by [checking](#check-a-specific-role-assignment) whether the role assignment still holds.
 
 ### Create a role assignment
 
@@ -277,7 +278,3 @@ The following examples demonstrate how to configure your JSON body in several co
 - To review Azure Digital Twins role-based-access-control, read [Role-base-access-control](./security-authenticating-apis.md).
 
 - To learn about Azure Digital Twins API authentication, read [API authentication](./security-authenticating-apis.md).
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png
