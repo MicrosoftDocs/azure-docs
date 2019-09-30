@@ -20,7 +20,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 
 ### <a id="create-database-account-via-cli"></a>Azure CLI
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/sql/create.sh?range=18-24)]
+[!code-azurecli-interactive[main](../../cli_scripts/cosmosdb/sql/create.sh?range=18-24)]
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 
