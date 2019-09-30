@@ -236,5 +236,5 @@ In this tutorial, you created a custom VM image. You learned how to:
 Advance to the next tutorial to learn about how to identify changes and manage package updates on a Linux virtual machine.
 
 > [!div class="nextstepaction"]
-> [Monitor virtual machines](tutorial-config-management.md)
+> [Manage virtual machines](tutorial-config-management.md)
 
