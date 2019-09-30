@@ -1,12 +1,12 @@
 ---
 title: Log alerts in Azure Monitor
 description: Trigger emails, notifications, call websites URLs (webhooks), or automation when the analytic query conditions you specify are met for Azure Alerts.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
 ---
 # Log alerts in Azure Monitor
