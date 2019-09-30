@@ -128,7 +128,7 @@ landingContent:
             url: /azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components
   - title: Security
     linkLists:
-      - linkListType: concepts
+      - linkListType: concept
         links:
           - text: Data movement security considerations
             url: /azure/data-factory/data-movement-security-considerations
