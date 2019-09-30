@@ -24,14 +24,19 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **New features**
   + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
-  + [AutoML] Added the ONNX conversion support for the ADB and HDI
+  
++ **azureml-train-automl**
+  + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**  
-  + [AutoML] Supported BERT and BiLSTM as text featurizer (preview only)
-  + [AutoML] Supported featurization customization for column purpose and transformer parameters (preview only)
-  + [AutoML] Supported raw explanations when user enables model explanation during training (preview only)
-  + [AutoML] Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
-  + [Data Drift] Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
++ **azureml-train-automl**
+  + Supported BERT and BiLSTM as text featurizer (preview only)
+  + Supported featurization customization for column purpose and transformer parameters (preview only)
+  + Supported raw explanations when user enables model explanation during training (preview only)
+  + Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
+  
++ **azureml-contrib-datadrift**
+  + Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
@@ -47,7 +52,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-core**
     + Added ability to retrieve SAS URL to model in storage through the model object. Ex: model.get_sas_url()
     + Introduce `run.get_details()['datasets']` to get datasets associated with the submitted run
-    + Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files.
+    + Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files. To learn about this tabular data in JSON Lines files on TabularDataset, please visit https://aka.ms/azureml-data for documentation.
     + Added additional VM size fields (OS Disk, number of GPUs) to the supported_vmsizes () function
     + Added additional fields to the list_nodes () function to show the run, the private and the public IP, the port etc.
     + Ability to specify a new field during cluster provisioning --remotelogin_port_public_access which can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service will smartly open or close the port depending on whether you are deploying the cluster inside a VNet.
