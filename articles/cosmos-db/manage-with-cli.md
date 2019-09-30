@@ -42,7 +42,7 @@ Create an Azure Cosmos account with two regions, add a region, and remove a regi
 > [!NOTE]
 > You cannot simultaneously add or remove regions `locations` and change other properties for an Azure Cosmos account. Modifying regions must be performed as a separate operation than any other change to the account resource.
 > [!NOTE]
-> This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Modify failover priority](#modify-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
+> This command allows you to add and remove regions but does not allow you to modify failover priorities or trigger a manual failover. See [Set failover priority](#set-failover-priority) and [Trigger manual failover](#trigger-manual-failover).
 
 ```azurecli-interactive
 resourceGroupName = 'myResourceGroup'
