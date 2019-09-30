@@ -70,7 +70,7 @@ The supplied Swagger reference documentation contains further information about 
 
 Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
 
-1. Logging in to your Azure instance through Azure CLI or PowerShell.
+1. Logging in to your Azure instance through [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Acquiring your service principal information.
 1. Assigning the desired role to your service principal.
 
