@@ -43,17 +43,17 @@ Environment variables can be overridden in the application manifest.
 3. To override the environment variables in the application manifest, use the `EnvironmentOverrides` element.
 
     ```xml
-    <ServiceManifestImport>
-            <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
-            <EnvironmentOverrides CodePackageRef="MyCode">
-                    <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
-            </EnvironmentOverrides>
-    </ServiceManifestImport>
+      <ServiceManifestImport>
+        <ServiceManifestVersion="1.0.0" />
+        <EnvironmentOverrides CodePackageRef="MyCode">
+          <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
+        </EnvironmentOverrides>
+      </ServiceManifestImport>
     ```
 
 ## Specifying environment variables dynamically using Docker Compose
 
-Service Fabric supports the possibility of [Using Docker Compose for Deployment](service-fabric-docker-compose.md#supported-compose-directives). Compose files can source environment variables from the shell. This behavior can be used to substitute desired environment values dynamically:
+Service Fabric supports the ability to [Use Docker Compose for Deployment](service-fabric-docker-compose.md#supported-compose-directives). Compose files can source environment variables from the shell. This behavior can be used to substitute desired environment values dynamically:
 
 ```yml
 environment:
