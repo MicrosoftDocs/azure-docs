@@ -292,11 +292,11 @@ The IP addresses that Azure Logic Apps uses for incoming and outgoing calls depe
 
 * For logic apps that run in an integration service environment (ISE), make sure that you [open these ports](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Logic apps can't directly access Azure storage accounts that have [firewall rules](https://docs.microsoft.com/azure/storage/common/storage-network-security) and exist in the same region. However, logic apps can access Azure storage accounts that exist in a different region because a public IP address is used for communicating across regions. Or, you can use either option here:
+* Logic apps can't directly access Azure storage accounts that have [firewall rules](../storage/common/storage-network-security.md) and exist in the same region. However, logic apps can access Azure storage accounts that exist in a different region because a public IP address is used for communicating across regions. Just make sure that you permit the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound). Or, you can use either more advanced options here:
 
   * Create an [integration service environment](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), which can connect to resources in an Azure virtual network.
 
-  * If you already use API Management, you can use this service for this scenario. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
+  * If you use a dedicated tier for API Management, you can front the Storage API by using API Management and permitting the latter's IP addresses through the firewall. Basically, add the Azure virtual network that's used by API Management to the storage account's  firewall setting. You can then use either the API Management action or the HTTP action to call the Azure Storage APIs. However, if you choose this option, you have to handle the authencation process yourself. For more info, see [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 * For custom connectors, [Azure Government](../azure-government/documentation-government-overview.md), and [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), fixed or reserved IP addresses aren't available.
 
