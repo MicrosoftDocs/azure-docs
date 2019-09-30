@@ -368,7 +368,7 @@ The project contains a file named `dev.properties` that is used to pass paramete
 | `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
 | `kafka.topic` | The Kafka topic that the topologies use. |
 | `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
-| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Storage Gen2, use a value of `abfs:///`. For Azure Data Lake Storage Gen1, use a value of `adl:///`. |
+| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb://`. For Azure Data Lake Storage Gen2, use a value of `abfs://`. For Azure Data Lake Storage Gen1, use a value of `adl://`. |
 
 ## Create the clusters
 

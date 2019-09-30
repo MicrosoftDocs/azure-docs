@@ -141,3 +141,14 @@ landingContent:
             url: luis-concept-entity-types.md#types-of-entities
           - text: Prebuilt domains
             url: luis-reference-prebuilt-domains.md
+
+  - title: Help and feedback
+    linkLists: 
+      - linkListType: reference
+        links: 
+          - text: Troubleshooting
+            url: troubleshooting.md
+          - text: Ask questions on Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/LUIS
+          - text: Influence service with UserVoice
+            url: https://cognitive.uservoice.com/forums/551524-luis

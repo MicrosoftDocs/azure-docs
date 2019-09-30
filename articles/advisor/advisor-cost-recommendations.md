@@ -16,9 +16,9 @@ Advisor helps you optimize and reduce your overall Azure spend by identifying id
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
-Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 7 days and then identifies low-utilization virtual machines. Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% or if the current workload can be accommodated by a smaller virtual machine size.
+Although certain application scenarios can result in low utilization by design, you can often save money by managing the size and number of your virtual machines. Advisor monitors your virtual machine usage for 7 days and then identifies low-utilization virtual machines.  Virtual machines are considered low-utilization if their CPU utilization is 5% or less and their network utilization is less than 2% and have threshold memory pressure numbers or if the current workload can be accommodated by a smaller virtual machine size.
 
-Advisor shows you the estimated cost of continuing to run your virtual machine, so that you can choose to shut it down or resize it.
+The recommended actions are shut-down or resize, specific to resource being recommended for. Advisor shows you the estimated cost savings for either recommended actions - resize or shut-down. Also, for resize recommended action, Advisor provides current and target SKU information. 
 
 If you want to be more aggressive at identifying underutilized virtual machines, you can adjust the CPU utilization rule on a per subscription basis.
 

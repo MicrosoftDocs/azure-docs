@@ -3,7 +3,7 @@ title: Azure Monitor virtual machine extension for Windows | Microsoft Docs
 description: Deploy the Log Analytics agent on Windows virtual machine using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
-ms.author: roiyz
+ms.author: akjosh
 
 ---
 # Azure Monitor virtual machine extension for Windows
