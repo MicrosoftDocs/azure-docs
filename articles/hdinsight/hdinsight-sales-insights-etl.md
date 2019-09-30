@@ -34,7 +34,7 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 1. In the **Select environment** drop-down menu, choose **Bash**.
 1. Sign in to your Azure account and set the subscription. 
 1. Set up the resource group for the project.
-   1. Choose a unique resource group name.
+   1. Choose a unique name for the resource group.
    1. Run the following code snippet in Cloud Shell to set variables that will be used in later steps:
 
        ```azurecli-interactive 
@@ -62,7 +62,7 @@ Download [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=4
 
 ### Deploy Azure resources needed for the pipeline 
 
-1. Add execute permissions for the script `chmod +x scripts/*.sh`.
+1. Add execute permissions for the `chmod +x scripts/*.sh` script.
 1. Use the command `./scripts/resources.sh <RESOURCE_GROUP_NAME> <LOCATION>` to run the script to deploy the following resources in Azure:
 
    1. An Azure Blob storage account. This account will hold the company sales data.
@@ -94,14 +94,14 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 
 ### Verify deployment and collect resource information
 
-1. If you want to check the status of your deployment, go to the resource group on the Azure portal. Select **Deployments** under **Settings**. Select the name of your deployment, `ResourcesDeployment`. Here you can see the resources that have successfully deployed and those that are still in progress.
+1. If you want to check the status of your deployment, go to the resource group on the Azure portal. Select **Deployments** under **Settings**. Select the name of your deployment, `ResourcesDeployment`. Here you can see the resources that have successfully deployed and the resources that are still in progress.
 1. After the deployment has finished, go the Azure portal > **Resource groups** > <RESOURCE_GROUP_NAME>.
 1. Locate the new Azure storage account that was created for storing the sales files. The name of the storage account begins with `blob` and then contains a random string. Do the following:
    1. Make a note of the storage account name for later use.
    1. Select the name of the Blob storage account.
    1. On the left side of the portal under **Settings**, select **Access keys**.
    1. Copy the string in the **Key1** box and save it for later use.
-1. Locate the Data Lake Storage Gen2 account that was created as storage for the HDInsight clusters. This account is located in the same resource group as the Blob storage account, but begins with `adlsgen2`.
+1. Locate the Data Lake Storage Gen2 account that was created as storage for the HDInsight clusters. This account is located in the same resource group as the Blob storage account, but begins with `adlsgen2`. Do the following:
    1. Make a note of the name of the Data Lake Storage Gen2  account.
    1. Select the name of the Data Lake Storage Gen2 account.
    1. On the left side of the portal, under **Settings**, select **Access keys**.
@@ -127,8 +127,8 @@ This data factory will have one pipeline with two activities:
 
 To set up your Azure Data Factory pipeline, run the `adf.sh` script:
 
-1. Add execute permissions on the file by using: `chmod +x adf.sh`
-1. Run the script by using: `./adf.sh` 
+1. Use `chmod +x adf.sh` to add execute permissions on the file.
+1. Use `./adf.sh` to run the script. 
 
 This script does the following things:
 
@@ -173,7 +173,7 @@ For other ways to transform data by using HDInsight, see [this article on using 
 
 ### Create a table on the Interactive Query cluster to view data on Power BI
 
-1. Copy the query.hql file to the LLAP cluster by using SCP:
+1. Copy the `query.hql` file to the LLAP cluster by using SCP:
 
     ```
     scp scripts/query.hql sshuser@<clustername>-ssh.azurehdinsight.net:/home/sshuser/
@@ -198,7 +198,7 @@ This script will create a managed table on the Interactive Query cluster that yo
 1. Open Power BI Desktop.
 1. Select **Get Data**.
 1. Search for **HDInsight Interactive Query cluster**.
-1. Paste the URI for your cluster there. It should be in this format: `https://<LLAP CLUSTER NAME>.azurehdinsight.net` 
+1. Paste the URI for your cluster there. It should be in `https://<LLAP CLUSTER NAME>.azurehdinsight.net` format.
 
    Enter `default` for the database.
 1. Enter the username and password that you use to access the cluster.
