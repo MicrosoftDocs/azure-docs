@@ -5,7 +5,7 @@
  author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 09/24/2019
+ ms.date: 09/30/2019
  ms.author: dkshir
  ms.custom: include file
 ---
@@ -43,8 +43,8 @@
         [![Search API for Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > * External accounts should search `Azure Digital Twins`
-    > * Test and preview accounts search 
+    > * External accounts should search `Azure Digital Twins`.
+    > * Test and preview accounts search `Azure Smart Spaces Service`.
 
 1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 

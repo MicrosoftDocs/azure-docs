@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
 ---
 
@@ -63,6 +63,9 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
 1. Copy and keep the **Application ID** of your Azure Active Directory app. It's used in the steps that follow.
 
+   [![Azure Active Directory application ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+
+
 ## Obtain an OAuth 2.0 token
 
 [!INCLUDE [digital-twins-management-api](../../includes/digital-twins-management-api.md)]
@@ -86,7 +89,7 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL | Use the **Authorization URL** from step 2 |
+    | Auth URL | Use the **Authorization URL** from **step 2** |
     | Client ID | Use the **Application ID** for the Azure Active Directory app that was created or reused from the previous section |
     | Scope | Leave blank |
     | State | Leave blank |
@@ -103,8 +106,6 @@ Set up and configure Postman to obtain an Azure Active Directory token. Afterwar
     > * Close Postman, and reopen it and try again.
   
 1. Scroll down, and select **Use Token**.
-
-<div id="multi"></div>
 
 ## Make a multipart POST request
 
