@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: rboucher
+ms.author: robb
 ms.subservice: alerts
 ---
 # Alerts on activity log 

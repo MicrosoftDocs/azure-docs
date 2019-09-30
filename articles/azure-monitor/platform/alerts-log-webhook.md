@@ -6,7 +6,7 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yanivlavi
+ms.author: yalavi
 ms.subservice: alerts
 ---
 

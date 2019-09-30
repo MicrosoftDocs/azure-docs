@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/7/2019
-ms.author: yanivlavi
+ms.author: yalavi
 ms.subservice: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring

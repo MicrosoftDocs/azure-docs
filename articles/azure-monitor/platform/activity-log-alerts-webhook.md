@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/31/2017
-ms.author: rboucher
+ms.author: robb
 ms.subservice: alerts
 ---
 # Webhooks for Azure activity log alerts

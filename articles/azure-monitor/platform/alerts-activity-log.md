@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: rboucher
+ms.author: robb
 ---
 # Create, view, and manage activity log alerts by using Azure Monitor  
 
