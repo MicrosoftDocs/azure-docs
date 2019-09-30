@@ -8,14 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 09/25/2019
+ms.date: 10/04/2019
 ms.author: diberry
-#Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can run each cell, view the output, then finally see the overall prediction success of Personalizer over a duration of many requests.
+#Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
 
 # Tutorial: Use Personalizer in Azure Notebook
 
-This tutorial runs a Personalizer loop in an Azure Notebook. The loop suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is stored in a coffee dataset.
+This tutorial runs a Personalizer loop in an Azure Notebook, demonstrating the end to end life cycle of a Personalizer loop. 
+
+The loop suggests which type of coffee a customer should order. The users and their preferences are stored in a user dataset. Information about the coffee is stored in a coffee dataset.
 
 ## Users and coffee
 
@@ -37,12 +39,9 @@ The code for this tutorial is available in the [Personalizer Samples GitHub repo
 
 ## How the simulation works
 
-At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by the reward score of 1). After some requests, the system improves to an accuracy rate of between 70%-80% for the next set of suggestions.  
-You may wander how long does it take for a Personalizer loop to reach that 70%-80% success rate. That depends on several factors:
+At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30% (indicated by the reward score of 1). After some requests, the system improves.
 
-* the quantity and quality of the information sent to Personalizer
-* how often the loop retrains
-* the learning policy
+After the initial 10,000 requests, run an offline evaluation. This allows Personalizer to review the data and suggest a better learning policy. Apply the new learning policy and run the notebook again with 2,000 requests. The loop will perform better.
 
 ## Rank and reward calls
 
@@ -62,7 +61,7 @@ The system receives the rank of the coffee choices, then compares that predictio
 
 * An [Azure Notebook](https://notebooks.azure.com/) account. 
 * An [Azure Personalizer resource](https://azure.microsoft.com/try/cognitive-services/). 
-    * If you have already used the Personalizer resource, make sure to clear the data in the Azure portal for the resource. 
+    * If you have already used the Personalizer resource, make sure to [clear the data]() in the Azure portal for the resource. 
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project. 
 
 File descriptions:
@@ -81,7 +80,7 @@ In the Azure portal, configure your [Personalizer resource](https://ms.portal.az
 |update model frequency|15 seconds|
 |reward wait time|15 seconds|
 
-These values have a very short duration in order to show changes in this tutorial. These values shouldn't be used in a production scenario without validating they achieve your goal with your Personalzier loop. 
+These values have a very short duration in order to show changes in this tutorial. These values shouldn't be used in a production scenario without validating they achieve your goal with your Personalizer loop. 
 
 ## Set up the Azure Notebook
 
@@ -122,7 +121,7 @@ When the function, `get_last_updated`, is called, the function prints out the la
 The function uses a GET REST API to [get model properties](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties). 
 
 ```python
-# model's last modified date
+# ititialize variable for model's last modified date
 modelLastModified = ""
 ```
 
@@ -196,7 +195,9 @@ get_last_updated(modelLastModified)
 
 ### Generate a unique event ID
 
-This function generates a unique ID for each rank call. The ID is used again with the reward call. The cell has no output. The function does output the unique ID when called.
+This function generates a unique ID for each rank call. The ID is used to identify the rank and reward call information. This value could come from a business process such as a web view ID or transaction ID.
+
+The cell has no output. The function does output the unique ID when called.
 
 ```python
 def add_event_id(rankjsonobj):
@@ -246,7 +247,7 @@ The list of 4 users and their preferences - only some preferences are shown for 
 
 ```python
 def add_random_user_and_contextfeatures(namesoption, weatheropt, timeofdayopt, rankjsonobj):   
-    name = namesopt[random.randint(0,3)]
+    name = namesoption[random.randint(0,3)]
     weather = weatheropt[random.randint(0,2)]
     timeofday = timeofdayopt[random.randint(0,2)]
     rankjsonobj['contextFeatures'] = [{'timeofday': timeofday, 'weather': weather, 'name': name}]
@@ -333,13 +334,13 @@ An example of the JSON sent to the Rank API follows. The list of coffee is not c
 }
 ```
 
-Then displays the JSON sent to the Rank API:
+Then display the JSON sent to the Rank API:
 
 ```console
 To:  {'contextFeatures': [{'timeofday': 'Morning', 'weather': 'Sunny', 'name': 'Bob'}], 'actions': [{'id': 'Cappucino', 'features': [{'type': 'hot', 'origin': 'kenya', 'organic': 'yes', 'roast': 'dark'}]}, {'id': 'Cold brew', 'features': [{'type': 'cold', 'origin': 'brazil', 'organic': 'yes', 'roast': 'light'}]}, {'id': 'Iced mocha', 'features': [{'type': 'cold', 'origin': 'ethiopia', 'organic': 'no', 'roast': 'light'}]}, {'id': 'Latte', 'features': [{'type': 'hot', 'origin': 'brazil', 'organic': 'no', 'roast': 'dark'}]}], 'excludedActions': [], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'deferActivation': False}
 ```
 
-Then displays the results from the Rank API:
+Then display the results from the Rank API:
 
 ```
 From:  {'ranking': [{'id': 'Latte', 'probability': 0.85}, {'id': 'Iced mocha', 'probability': 0.05}, {'id': 'Cappucino', 'probability': 0.05}, {'id': 'Cold brew', 'probability': 0.05}], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'rewardActionId': 'Latte'}
@@ -351,101 +352,126 @@ Finally, each loop shows the random selection of user, weather, time of day, and
 1 Alice Rainy Morning Latte 1
 ```
 
-```python
-# default JSON to send to Rank API
-rankjsonobj = rankactionsjsonobj
-
-# loop max and iterator
-i = 1
-num_requests = 4000
-
-# check last mod date N% of time - currently 10%
-lastModCheck = int(num_requests * .10)
-
-# default reward value - assumes failed prediction
-reward = 0
-
-# collect results to aggregate in graph
-recommendations = 0
-rewards = []
-count = []
-    
-# default list of user, weather, time of day
-namesopt = ['Alice', 'Bob', 'Cathy', 'Dave']
-weatheropt = ['Sunny', 'Rainy', 'Snowy']
-timeofdayopt = ['Morning', 'Afternoon', 'Evening']
-
-while(i <= num_requests):
-      
-    # create unique id to associate with an event
-    eventid = add_event_id(rankjsonobj)
-    
-    # generate a random sample
-    [name, weather, timeofday] = add_random_user_and_contextfeatures(namesopt, weatheropt, timeofdayopt, rankjsonobj)
-    
-    # add action features to rank
-    add_action_features(rankjsonobj) 
-        
-    # show JSON to send to Rank
-    print('To: ', rankjsonobj)    
-        
-    # choose an action - get prediction from Personalizer
-    response = requests.post(personalization_rank_url, headers = headers, params = None, json = rankjsonobj)
-    
-    # show Rank prediction 
-    print ('From: ',response.json())    
-        
-    # compare personalization service recommendation with the simulated data to generate a reward value
-    prediction = json.dumps(response.json()["rewardActionId"]).replace('"','')
-    reward = get_reward_from_simulated_data(name, weather, timeofday, prediction)
-    
-    # show result for iteration
-    print(f'   {i} {name} {weather} {timeofday} {prediction} {reward}')
-    
-    # send the reward to the service 
-    response = requests.post(personalization_reward_url + eventid + "/reward", headers = headers, params= None, json = { "value" : reward })
-    
-    # for every N rank requests, compute total correct recommendations 
-    recommendations = recommendations + reward
-    
-    # every N iteration, get last updated model date and time
-    if(i % lastModCheck == 0):
-        
-        print("**** 10% of loop found")
-        
-        get_last_updated(modelLastModified) 
-
-        rewards.append(recommendations)
-        count.append(i)
-        recommendations = 0
-               
-    # aggregate so chart is easier to read
-    if(i % 10 == 0):
-        rewards.append(recommendations)
-        count.append(i)
-        recommendations = 0
-        
-    i = i + 1
-```
-
 The function uses:
 
 * Rank: a POST REST API to [get rank](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank). 
 * Reward: a POST REST API to [report reward](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward).
 
-### Chart results to see improvement with Personalizer
+```python
+def iterations(n, modelCheck, jsonFormat):
+
+    i = 1
+    
+    # default reward value - assumes failed prediction
+    reward = 0
+
+    # Print out dateTime
+    currentDateTime()
+
+    # collect results to aggregate in graph
+    recommendations = 0
+    rewards = []
+    count = []
+
+    # default list of user, weather, time of day
+    namesopt = ['Alice', 'Bob', 'Cathy', 'Dave']
+    weatheropt = ['Sunny', 'Rainy', 'Snowy']
+    timeofdayopt = ['Morning', 'Afternoon', 'Evening']
+    
+    
+    while(i <= n):
+
+        # create unique id to associate with an event
+        eventid = add_event_id(jsonFormat)
+
+        # generate a random sample
+        [name, weather, timeofday] = add_random_user_and_contextfeatures(namesopt, weatheropt, timeofdayopt, jsonFormat)
+
+        # add action features to rank
+        add_action_features(jsonFormat) 
+
+        # show JSON to send to Rank
+        print('To: ', jsonFormat)    
+
+        # choose an action - get prediction from Personalizer
+        response = requests.post(personalization_rank_url, headers = headers, params = None, json = jsonFormat)
+
+        # show Rank prediction 
+        print ('From: ',response.json())    
+
+        # compare personalization service recommendation with the simulated data to generate a reward value
+        prediction = json.dumps(response.json()["rewardActionId"]).replace('"','')
+        reward = get_reward_from_simulated_data(name, weather, timeofday, prediction)
+
+        # show result for iteration
+        print(f'   {i} {name} {weather} {timeofday} {prediction} {reward}')
+
+        # send the reward to the service 
+        response = requests.post(personalization_reward_url + eventid + "/reward", headers = headers, params= None, json = { "value" : reward })
+
+        # for every N rank requests, compute total correct recommendations 
+        recommendations = recommendations + reward
+
+        # every N iteration, get last updated model date and time
+        if(i % modelCheck == 0):
+
+            print("**** 10% of loop found")
+
+            get_last_updated(modelLastModified) 
+
+        # aggregate so chart is easier to read
+        if(i % 10 == 0):
+            rewards.append(recommendations)
+            count.append(i)
+            recommendations = 0
+
+        i = i + 1
+        
+    # Print out dateTime
+    currentDateTime()
+```
+
+## Run for 10,000 iterations
+Run the Personalizer loop for 10,000 iterations
+
+```python
+# max iterations
+num_requests = 200
+
+# check last mod date N% of time - currently 10%
+lastModCheck = int(num_requests * .10)
+
+jsonTemplate = rankactionsjsonobj
+
+# main iterations
+[count, rewards] = iterations(num_requests, lastModCheck, jsonTemplate)
+```
+
+
+
+## Chart results to see improvement with Personalizer
 
 Create a chart from the `count` and `rewards`.
 
 ```python
-plt.plot(count, rewards)
-plt.xlabel("Batch of rank events")
-plt.ylabel("Correct recommendations per batch")
-plt.show()
+def createChart(x, y):
+    plt.plot(x, y)
+    plt.xlabel("Batch of rank events")
+    plt.ylabel("Correct recommendations per batch")
+    plt.show()
 ```
 
+## Run chart for 10,000 rank requests
 
-This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to one hundred precent minus the exploration. The default setting of exploration is 20%. 
+Run the `createChart` function.
+
+```python
+createChart(count,rewards)
+```
+
+## Reading the chart
+
+This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to one hundred percent minus the exploration. The default setting of exploration is 20%. 
 
 `100-20=80`
 
@@ -464,8 +490,38 @@ In order to find a better learning policy, based on your data to the Rank API, r
 
 1. Select **OK** to begin the evaluation. 
 1. This **Evaluations** page lists the new evaluation and its current status. Depending on how much data you have, this evaluation can take some time. You can come back to this page after a few minutes to see the results. 
+1. When the evaulation is completed, select the evaluation then select **Comparison of different learning policies**. This shows the available learning policies and how they would behave with the data. 
+1. Select the top-most learning policy in the table and select **Apply**. This applies the _best_ learning policy to your model and retrains. 
 
-## Review evaluation results
+## Validate new learning policy by running experiment for 2,000 iterations
+
+Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. 
+
+```python
+# max iterations
+num_requests = 2000
+
+# check last mod date N% of time - currently 10%
+lastModCheck2 = int(num_requests * .10)
+
+jsonTemplate2 = rankactionsjsonobj
+
+# main iterations
+[count2, rewards2] = iterations(num_requests, lastModCheck2, jsonTemplate)
+```
+
+
+## Run chart for 2,000 rank requests
+
+Run the `createChart` function.
+
+```python
+createChart(count2,rewards2)
+```
+
+## Review the second chart
+
+The second chart should show a visible increase in Rank predictions aligning with user preferences. 
 
 ## Clean up resources
 
