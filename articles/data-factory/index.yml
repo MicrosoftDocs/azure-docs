@@ -31,7 +31,7 @@ landingContent:
           - text: Understanding pricing through examples
             url: /azure/data-factory/pricing-concepts
           - text: Recent feature updates
-            url: https://azure.microsoft.com/en-us/updates/?tag=data-factory
+            url: https://azure.microsoft.com/updates/?tag=data-factory
           - text: ADF Blog
             url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
           - text: Request a feature
@@ -56,14 +56,12 @@ landingContent:
             url: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
   - title: Data movement
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Copy activity overview
             url: /azure/data-factory/copy-activity-overview
           - text: Copy performance tuning
             url: /azure/data-factory/copy-activity-performance
-      - linkListType: overview
-        links:
           - text: Data lake and data warehouse migration
             url: /azure/data-factory/data-migration-guidance-overview
       - linkListType: tutorial
@@ -112,8 +110,6 @@ landingContent:
         links:
           - text: Running SSIS packages in Azure
             url: /azure/data-factory/tutorial-deploy-ssis-packages-azure
-      - linkListType: how-to-guide
-        links:
           - text: Provision SSIS Integration Runtime
             url: /azure/data-factory/create-azure-ssis-integration-runtime
           - text: Join SSIS IR to a virtual network
