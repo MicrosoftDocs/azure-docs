@@ -67,7 +67,7 @@ If some of your SAP systems rely on [HANA Large Instances](https://docs.microsof
 
 To determine whether your HANA Large Instances unit is deployed in a Revision 4 stamp or row, check the article [Azure HANA Large Instances control through Azure portal](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit). In the attributes overview of your HANA Large Instances unit, you can also determine the name of the proximity placement group because it was created when your HANA Large Instances unit was deployed. The name that appears in the attributes overview is the name of the proximity placement group that you should deploy your application layer VMs into.
 
-As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) are grouped in a single resource group, as described [here](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
+As compared to SAP systems that use only Azure virtual machines, when you use HANA Large Instances, you have less flexibility in deciding how many [Azure resource groups](https://docs.microsoft.com/azure/azure-resource-manager/manage-resources-portal) to use. All the HANA Large Instances units of a [HANA Large Instances tenant](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-know-terms) are grouped in a single resource group, as described [this article](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#display-of-hana-large-instance-units-in-the-azure-portal). Unless you deploy into different tenants to separate, for example, production and non-production systems or other systems, all your HANA Large Instances units will be deployed in one HANA Large Instances tenant. This tenant has a one-to-one relationship with a resource group. But a separate proximity placement group will be defined for each of the single units.
 
 As a result, the relationships among Azure resource groups and proximity placement groups for a single tenant will be as shown here:
 
@@ -76,7 +76,7 @@ As a result, the relationships among Azure resource groups and proximity placeme
 ## Example of deployment with proximity placement groups
 Following are some PowerShell commands that you can use to deploy your VMs with Azure proximity placement groups.
 
-The first step, after you sign in with your [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), is to check whether you're in the Azure subscription that you want to use for the deployment:
+The first step, after you sign in to [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/), is to check whether you're in the Azure subscription that you want to use for the deployment:
 
 <pre><code>
 Get-AzureRmContext
