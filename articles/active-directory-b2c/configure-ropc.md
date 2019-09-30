@@ -49,11 +49,7 @@ The following flows are not supported:
 
 ## Register an application
 
-1. In the B2C settings, select **Applications**, and then select **Add**.
-2. Enter a name for the application, such as *ROPC_Auth_app*.
-3. Select **No** for **Web App/Web API**, and then select **Yes** for **Native client**.
-4. Leave all other values as they are, and then select **Create**.
-5. Select the new application, and note the Application ID for later use.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## Test the user flow
 
