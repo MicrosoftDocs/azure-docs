@@ -31,7 +31,7 @@ Users who are invited to your lab get immediate access to the resources you give
 Keep your budget in check by controlling exactly how many hours your lab users can use the virtual machines. Set up schedules in the lab to allow users to use the virtual machines only during designated time slots or set up reoccurring auto-shutdown and start times. Keep track of individual users’ usage and set limits.
 
 ## Example class types
-You can set up labs for several types of classes with Azure Lab Services. See the [Class types](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services. 
+You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services. 
 
 ## Next steps
 Get started with setting up a lab account that's required to create a classroom lab using Azure Lab Services:
