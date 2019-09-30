@@ -4,7 +4,7 @@ description: Learn how you can use Azure Cosmos DB to store and query massive am
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ---

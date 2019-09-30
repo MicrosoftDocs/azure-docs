@@ -4,7 +4,7 @@ description: Learn about the feature support that Azure Cosmos DB's API for Mong
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ---
