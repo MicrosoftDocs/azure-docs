@@ -27,7 +27,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 ## Create an empty managed disk
 
-To upload your vhd to Azure, you'll need to create an empty managed disk that is specifically configured for this upload process. Before you create one, there's some additional information you should know about these disks.
+To upload your vhd to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
@@ -38,7 +38,7 @@ While in either of these states, the managed disk will be billed at [standard HD
 
 Before you can create an empty standard HDD for uploading, you'll need to have the file size of the vhd you want to upload, in bytes. To get that, you can use either `wc -c <yourFileName>.vhd` or `ls -al <yourFileName>.vhd`. This value is used when specifying the **--upload-size-bytes** parameter.
 
-Create an empty standard HDD for uploading by specifying the both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
+Create an empty standard HDD for uploading by specifying both the **-–for-upload** parameter and the **--upload-size-bytes** parameter in a [disk create](/cli/azure/disk#az-disk-create) cmdlet:
 
 ```azurecli-interactive
 az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --upload-size-bytes 34359738880 --sku standard_lrs
@@ -46,7 +46,7 @@ az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --uplo
 
 If you would like to upload either a premium SSD or a standard SSD, replace **standard_lrs** with either **premium_LRS** or **standardssd_lrs**. Ultra SSD is not yet supported.
 
-You have now created an empty managed disk which is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
+You have now created an empty managed disk that is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
 To generate a writable SAS of your empty managed disk, use the following command:
 
