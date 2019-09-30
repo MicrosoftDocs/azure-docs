@@ -13,7 +13,7 @@ ms.service: virtual-machines-windows
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 12/05/2018
+ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
 
