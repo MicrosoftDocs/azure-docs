@@ -32,7 +32,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../governance/management-groups/index.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -137,6 +137,18 @@ Customer Agreement billing scopes support the following roles:
 Azure subscriptions are nested under invoice sections, like how they are under EA enrollment accounts. Billing users have access to cost data for the subscriptions and resource groups that are under their respective scopes. However, they don't have access to see or manage resources in the Azure portal. Billing users can view costs by navigating to **Cost Management + Billing** in the Azure portal list of services. Then, filter costs to the specific subscriptions and resource groups they need to report on.
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
+
+## AWS scopes
+
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
+
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
+
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
+
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
 ## Cloud Solution Provider (CSP) scopes
 

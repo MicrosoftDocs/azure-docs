@@ -4,7 +4,7 @@ description: Learn about the preview support for the HC-series VM size in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -27,7 +27,7 @@ The above topology carries over to the HC-series hypervisor configuration as wel
 
 The VM has no knowledge that pCores 0-1 and 24-25 weren't given to it. Thus, it exposes each vNUMA as if it natively had 22 cores.
 
-Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM. More on Intel Xeon SP architecture at: https://bit.ly/2RCYkiE
+Intel Xeon Platinum, Gold, and Silver CPUs also introduce an on-die 2D mesh network for communication within and external to the CPU socket. We strongly recommend process pinning for optimal performance and consistency. Process pinning will work on HC-series VMs because the underlying silicon is exposed as-is to the guest VM. To learn more, see [Intel Xeon SP architecture](https://bit.ly/2RCYkiE).
 
 The following diagram shows the segregation of cores reserved for Azure Hypervisor and the HC-series VM.
 

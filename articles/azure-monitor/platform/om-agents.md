@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 08/13/2019
 ms.author: magoedte
 ---
 # Connect Operations Manager to Azure Monitor
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-To maintain your existing investment in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
+To maintain your existing investment in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Azure Monitor, you can integrate Operations Manager with your Log Analytics workspace. This allows you to leverage the opportunities of logs in Azure Monitor while continuing to use Operations Manager to:
 
 * Monitor the health of your IT services with Operations Manager
 * Maintain integration with your ITSM solutions supporting incident and problem management
@@ -41,8 +41,8 @@ Before starting, review the following requirements.
 * Azure Monitor only supports System Center Operations Manager 2016 or later, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * Integrating System Center Operations Manager 2016 with US Government cloud requires an updated Advisor management pack included with Update Rollup 2 or later. System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](../../azure-monitor/platform/manage-access.md?toc=/azure/azure-monitor/toc.json).   
-* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](../../azure-monitor/platform/manage-access.md#manage-accounts-and-users).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](design-logs-deployment.md). 
+* You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](manage-access.md#manage-access-using-azure-permissions).
 
 * Supported Regions - Only the following Azure regions are supported by System Center Operations Manager to connect to a Log Analytics workspace:
     - West Central US
@@ -59,12 +59,12 @@ Before starting, review the following requirements.
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
 >A new management pack has been released for the following versions of Operations Manager:
->  
->* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
->* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
->* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
->
->This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
+> - For System Center Operations Manager 2019, management pack is provided with the Operations Manager build.
+>- Operations Manager 1801 management pack is also applicable for Operations Manager 1807.
+>- For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173).
+>- For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172).  
+>- For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171).  
+
 
 ### Network
 
@@ -137,7 +137,7 @@ After configuring integration with your Log Analytics workspace, it only establi
 1. Open the Operations Manager console and select the **Administration** workspace.
 1. Expand the Operations Management Suite node and click **Connection**.
 1. Click the **Add a Computer/Group** link under the Actions heading on the right-side of the pane.
-1. In the **Computer Search** dialog box, you can search for computers or groups monitored by Operations Manager. Select computers or groups to onboard to Azure Monitor, click **Add**, and then click **OK**.
+1. In the **Computer Search** dialog box, you can search for computers or groups monitored by Operations Manager. Select computers or groups including the Operations Manager Management Server to onboard to Azure Monitor, click **Add**, and then click **OK**.
 
 You can view computers and groups configured to collect data from the Managed Computers node under Operations Management Suite in the **Administration** workspace of the Operations console. From here, you can add or remove computers and groups as necessary.
 
@@ -174,7 +174,7 @@ After configuration is completed, the Operations Manager management group establ
 * **Microsoft.SystemCenter.Advisor.MPUpdate** - Updates the base Azure Monitor management packs. Runs every 12 hours by default.
 * **Microsoft.SystemCenter.Advisor.Core.GetIntelligencePacksRule** - Updates solution management packs enabled in your workspace. Runs every five (5) minutes by default.
 
-You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with Azure Monitorto determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
+You can override these two rules to either prevent automatic download by disabling them, or modify the frequency for how often the management server synchronizes with Azure Monitor to determine if a new management pack is available and should be downloaded. Follow the steps [How to Override a Rule or Monitor](https://technet.microsoft.com/library/hh212869.aspx) to modify the **Frequency** parameter with a value in seconds to change the synchronization schedule, or modify the **Enabled** parameter to disable the rules. Target the overrides to all objects of class Operations Manager Management Group.
 
 To continue following your existing change control process for controlling management pack releases in your production management group, you can disable the rules and enable them during specific times when updates are allowed. If you have a development or QA management group in your environment and it has connectivity to the Internet, you can configure that management group with a Log Analytics workspace to support this scenario. This allows you to review and evaluate the iterative releases of the Azure Monitor management packs before releasing them into your production management group.
 

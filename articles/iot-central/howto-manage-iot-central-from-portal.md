@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
 ---
@@ -14,7 +14,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-selector-manage](../../includes/iot-central-selector-manage.md)]
 
-Instead of creating and managing IoT Central applications from the IoT Central [Application Manager](https://aka.ms/iotcentral) page, you can use the [Azure portal](https://portal.azure.com) to manage your applications.
+Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use the [Azure portal](https://portal.azure.com) to manage your applications.
 
 ## Create IoT Central applications
 
@@ -34,7 +34,10 @@ Now, select **Create**.
 
 ![Management portal: IoT Central resource](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-Fill in all the fields in the form. This form is similar to the form you fill out to create applications on the IoT Central [Application Manager](https://aka.ms/iotcentral) page. For more information, see the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart.
+Fill in all the fields in the form. This form is similar to the form you fill out to create applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. For more information, see the [Create an IoT Central application](quick-deploy-iot-central.md) quickstart.
+
+> [!NOTE]
+> The **Preview application** template is currently only available in the **North Europe** and **Central US** regions.
 
 ![Management portal: create IoT Central resource](media/howto-manage-iot-central-from-portal/image1a.png)  
 

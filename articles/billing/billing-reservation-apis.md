@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/25/2019
+ms.date: 08/02/2019
 ms.author: banders
 
 ---
@@ -80,7 +80,7 @@ If you find that your organization's reservations are being under-used:
 - Make sure the virtual machines that your organization creates match the VM size that's on the reservation.
 - Make sure instance size flexibility is on. For more information, see [Manage reservations - Change optimize setting for Reserved VM Instances](billing-manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 - Change the scope of reservation to shared so that it applies more broadly. For more information, see [Manage reservations - Change the scope for a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
-- Exchange the unused quantity. For more information, see [Manage reservations - Cancellations and exchanges](billing-manage-reserved-vm-instance.md#cancellations-and-exchanges).
+- Exchange the unused quantity. For more information, see [Manage reservations](billing-manage-reserved-vm-instance.md).
 
 ## Give access to reservations
 
@@ -100,7 +100,7 @@ To merge two reservations into one reservation, use the API [Reservation - Merge
 
 ## Change scope for a reservation
 
-The scope of a reservation can be single subscription or all subscriptions in your billing context. If you set the scope to single subscription, the reservation is matched to running resources in the selected subscription. If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription you used to buy the reservation. For more information, see [Manage Reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+The scope of a reservation can be single subscription, single resource group or all subscriptions in your billing context. If you set the scope to single subscription or single resource group, the reservation is matched to running resources in the selected subscription. If you delete or move the subscription or the resource group, the reservation will not be utilized.  If you set the scope to shared, Azure matches the reservation to resources that run in all the subscriptions within the billing context. The billing context is dependent on the subscription you used to buy the reservation. You can select the scope at purchase or change it anytime after purchase. For more information, see [Manage Reservations - Change the scope](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 To change the scope programmatically, use the API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 

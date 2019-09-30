@@ -3,7 +3,7 @@ title: Understanding device template versioning for your Azure IoT Central apps 
 description: Iterate over your device templates by creating new versions and without impacting your live connected devices
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 03/26/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: peterpr
 ---
 
 # Create a new device template version
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
 
@@ -43,7 +45,7 @@ The following list describes the user actions that could require a new version:
 
 What happens to rules and device dashboards when there is a version change?
 
-**Rules** could contain conditions that are dependent on properties. If you have removed one or more of these properties, these rules could be broken in your new device template version. You can go to these specific rules and update the conditions to fix the rules. Rules for your previous version should work with no impact.
+**Rules** on the previous version of the device template continue to work unchanged. Rules are not automatically migrated to the new device template version. You can create rules on the new template version as usual. For more information, see the [Create a telemetry rule and set up notifications in your Azure IoT Central application](howto-create-telemetry-rules.md) how-to article.
 
 **Device dashboards** can contain several types of tiles. Some of the tiles may contain settings and properties. When a property or setting used in a tile is removed, the tile is fully or partially broken. You can go to the tile and fix the issue either by removing the tile or updating the contents of the tile.
 

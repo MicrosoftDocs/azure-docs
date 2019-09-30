@@ -4,7 +4,7 @@ description: Understand how indexing works in Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 09/10/2019
 ms.author: thweiss
 ---
 
@@ -20,6 +20,7 @@ Every time an item is stored in a container, its content is projected as a JSON 
 
 As an example, consider this item:
 
+```json
     {
         "locations": [
             { "country": "Germany", "city": "Berlin" },
@@ -31,6 +32,7 @@ As an example, consider this item:
             { "city": "Athens" }
         ]
     }
+```
 
 It would be represented by the following tree:
 
@@ -57,25 +59,34 @@ When an item is written, Azure Cosmos DB effectively indexes each property's pat
 
 ## Index kinds
 
-Azure Cosmos DB currently supports two kinds of indexes:
+Azure Cosmos DB currently supports three kinds of indexes:
 
 The **range** index kind is used for:
 
-- Equality queries: 
+- Equality queries:
 
-   ```sql SELECT * FROM container c WHERE c.property = 'value'```
+    ```sql
+   SELECT * FROM container c WHERE c.property = 'value'
+   ```
 
-- Range queries: 
+- Range queries:
 
-   ```sql SELECT * FROM container c WHERE c.property > 'value'``` (works for `>`, `<`, `>=`, `<=`, `!=`)
+   ```sql
+   SELECT * FROM container c WHERE c.property > 'value'
+   ```
+  (works for `>`, `<`, `>=`, `<=`, `!=`)
 
 - `ORDER BY` queries:
 
-   ```sql SELECT * FROM container c ORDER BY c.property```
+   ```sql 
+   SELECT * FROM container c ORDER BY c.property
+   ```
 
-- `JOIN` queries: 
+- `JOIN` queries:
 
-   ```sql SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'```
+   ```sql
+   SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
+   ```
 
 Range indexes can be used on scalar values (string or number).
 
@@ -83,19 +94,37 @@ The **spatial** index kind is used for:
 
 - Geospatial distance queries: 
 
-   ```sql SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40```
+   ```sql
+   SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
+   ```
 
 - Geospatial within queries: 
 
-   ```sql SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })```
+   ```sql
+   SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
+   ```
 
-Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
+Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings, Polygons, and MultiPolygons are currently supported.
 
 The **composite** index kind is used for:
 
-- `ORDER BY` queries on multiple properties: 
+- `ORDER BY` queries on multiple properties:
 
-   ```sql SELECT * FROM container c ORDER BY c.firstName, c.lastName```
+```sql
+ SELECT * FROM container c ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter and `ORDER BY`. These queries can utilize a composite index if the filter property is added to the `ORDER BY` clause.
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
+```
+
+- Queries with a filter on two or more properties where at least one property is an equality filter
+
+```sql
+ SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
+```
 
 ## Querying with indexes
 
@@ -106,7 +135,7 @@ For example, consider the following query: `SELECT location FROM location IN com
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, a multi `ORDER BY` query *always* needs a composite index.
+> An `ORDER BY` clause that orders by a single property *always* needs a range index and will fail if the path it references doesn't have one. Similarly, an `ORDER BY` query which orders by multiple properties *always* needs a composite index.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
+ms.date: 09/22/2019
 ---
 
 # Mapping data flows performance and tuning guide
@@ -85,6 +85,13 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Inside of the Data Flow designer, use the Data Preview tab on transformations to view the results of your transformation logic.
 * Unit test your data flows from the pipeline designer by placing a Data Flow activity on the pipeline design canvas and use the "Debug" button to test.
 * Testing in debug mode will work against a live warmed cluster environment without the need to wait for a just-in-time cluster spin-up.
+* During Data Preview debugging inside of the Data Flow designer experience, you can limit the amount of data that you test with for each source by setting the row limit from the Debug Settings link on the Data Flow designer UI. Please note that you must turn on Debug Mode first.
+
+![Debug Settings](media/data-flow/debug-settings.png "Debug Settings")
+
+* When testing your data flows from a pipeline debug execution, you can limit the number of rows used for testing by setting the sampling size on each of your sources. Be sure to disable sampling when scheduling your pipelines on a regular operationalized schedule.
+
+![Row Sampling](media/data-flow/source1.png "Row Sampling")
 
 ### Disable indexes on write
 * Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
@@ -112,6 +119,10 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * You can control how many partitions that ADF will use. On each Source & Sink transformation, as well as each individual transformation, you can set a partitioning scheme. For smaller files, you may find selecting "Single Partition" can sometimes work better and faster than asking Spark to partition your small files.
 * If you do not have enough information about your source data, you can choose "Round Robin" partitioning and set the number of partitions.
 * If you explore your data and find that you have columns that can be good hash keys, use the Hash partitioning option.
+* When debugging in data preview and pipeline debug, note that the limit and sampling sizes for file-based source datasets only apply to the number of rows returned, not the number of rows read. This is important to note because it can effect the performance of your debug executions and possibly cause the flow to fail.
+* Remember that debug clusters are small single-node clusters by default, so use temporary small files for debugging. Go to Debug Settings and point to a small subset of your data using a temporary file.
+
+![Debug Settings](media/data-flow/debugsettings3.png "Debug Settings")
 
 ### File naming options
 
@@ -124,13 +135,17 @@ Clicking that icon will display the execution plan and subsequent performance pr
 
 ### Looping through file lists
 
-In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow that to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
+In most instances, Data Flows in ADF will execute better from a pipeline that allows the Data Flow Source transformation to iterate over multiple files. In other words, it is preferred to use wildcards or file lists inside of your Source in Data Flow than to iterate over a large list of files using ForEach in the pipeline, calling an Execute Data Flow on each iteration. The Data Flow process will execute faster by allowing the looping to occur inside the Data Flow.
 
 For example, if I have a list of data files from July 2019 that I wish to process in a folder in Blob Storage, it would be more performant to call an Execute Data Flow activity one time from your pipeline and use a wildcard in your Source like this:
 
 ```DateFiles/*_201907*.txt```
 
 This will perform better than a Lookup against the Blob Store in a pipeline that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+### Increase the size of your debug cluster
+
+By default, turning on debug will use the default Azure Integration runtime that is created automatically for each data factory. This default Azure IR is set for 8 cores, 4 for a driver node and 4 for a worker node, using General Compute properties. As you test with larger data, you can increase the size of your debug cluster by creating a new Azure IR with larger configurations and choose this new Azure IR when you switch on debug. This will instruct ADF to use this Azure IR for data preview and pipeline debug with data flows.
 
 ## Next steps
 

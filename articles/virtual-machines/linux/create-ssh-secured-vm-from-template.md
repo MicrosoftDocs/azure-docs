@@ -4,7 +4,7 @@ description: How to use the Azure CLI to create a Linux VM from a Resource Manag
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

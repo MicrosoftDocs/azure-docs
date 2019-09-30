@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Deploy and explore a multitenant SaaS app that uses the database-per-tenant pattern with SQL Database

@@ -3,7 +3,7 @@ title: Certificate creation methods
 description: Ways to create a certificate in Key Vault.
 services: key-vault
 author: msmbaldwin
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
@@ -79,7 +79,7 @@ Certificate creation can be completed manually or using a “Self” issuer. Key
 |Provider|Certificate type|  
 |--------------|----------------------|  
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert|
-|GlobalCert|Key Vault offers OV or EV SSL certificates with Globaltrust |
+|GlobalSign|Key Vault offers OV or EV SSL certificates with GlobalSign|
 
  A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
 

@@ -31,42 +31,25 @@ Sign in to the [Azure portal](https://portal.azure.com).
 For this quickstart, you'll need two instances of a web application deployed in two different Azure regions (*East US* and *West Europe*). Each will serve as primary and failover endpoints for Traffic Manager.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Web** > **Web App**.
-2. In **Web App**, enter, or select these settings:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | App name | Enter a unique name for your web app.  |
-    | Subscription | Select the subscription you want the web app applied to. |
-    | Resource Group | Select **Create new**, and enter *myResourceGroupTM1*. |
-    | OS | Select **Windows** as your operating system. |
-    | Publish | Select **Code** as the format you want to publish to. |
+1. In **Create a Web App**, type or select the following values in the **Basics** tab:
 
-3. Select **App Service plan/Location**.
-4. In **App Service plan**, select **Create new**.
-5. In **New App Service Plan**, enter, or select these settings:
+   - **Subscription** > **Resource Group**: Select **Create new** and then type **myResourceGroupTM1**.
+   - **Instance Details** > **Name**: Type *myWebAppEastUS*.
+   - **Instance Details** > **Publish**: Select **Code**.
+   - **Instance Details** > **Runtime stack**: Select **ASP.NET V4.7**
+   - **Instance Details** > **Operating System**: Select **Windows**.
+   - **Instance Details** > **Region**:  Select **East US**.
+   - **App Service Plan** > **Windows Plan (East US)**: Select **Create new** and then type **myAppServicePlanEastUS**
+   - **App Service Plan** > **Sku and size**: Select **Standard S1**.
+   
+3. Select the **Monitoring** tab, or select **Next:Monitoring**.  Under **Monitoring**, set **Application Insights** > **Enable Application Insights** to **No**.
 
-    | Setting | Value |
-    | ------- | ----- |
-    | App Service plan | Enter *myAppServicePlanEastUS*. |
-    | Location | East US |
-    | Pricing tier | S1 Standard |
+4. Select **Review and create**
 
-6. Select **OK**.
+5. Review the settings, and then click **Create**.  When the Web App successfully deploys, it creates a default web site.
 
-7. In **Web App**, select **Create**. When the Web App successfully deploys, it creates a default web site.
-
-8. To create a second website in a different Azure region, repeat steps 1-7 with these settings:
-
-    | Setting | Value |
-    | --------| ----- |
-    | Name | Enter a unique name for your web app. |
-    | Subscription | Select the subscription you want the web app applied to. |
-    | Resource group | Select **Create new**, and then enter *myResourceGroupTM2*. |
-    | OS | Select **Windows** as your operating system. |
-    | Publish | Select **Code** as the format you want to publish to. |
-    | App Service plan/Location | Enter *myAppServicePlanWestEurope*. |
-    | Location | West Europe |
-    | Pricing tier | S1 Standard |
+6. Follow the steps to create a second Web App named *myWebAppWestEurope*, with a **Resource Group** name of *myResourceGroupTM2*, a **Region** of *West Europe*, a **App Service Plan** name of **myAppServicePlanWestEurope**, and all the other settings the same as *myWebAppEastUS*.
 
 ## Create a Traffic Manager profile
 

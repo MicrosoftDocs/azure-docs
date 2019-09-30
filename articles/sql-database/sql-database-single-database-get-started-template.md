@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 06/28/2019
 ---
 

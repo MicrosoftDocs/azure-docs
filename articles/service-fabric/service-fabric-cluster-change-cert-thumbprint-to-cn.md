@@ -3,9 +3,9 @@ title: Update an Azure Service Fabric cluster to use certificate common name | M
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
+
 
 ms.assetid: 
 ms.service: service-fabric
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/01/2019
-ms.author: aljo
+ms.date: 09/06/2019
+ms.author: atsenthi
 
 ---
 # Change cluster from certificate thumbprint to common name
@@ -64,7 +64,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
     -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint

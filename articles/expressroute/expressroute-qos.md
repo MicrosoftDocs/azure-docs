@@ -25,7 +25,7 @@ The following table provides a list of DSCP markings used by Microsoft Teams and
 
 | **Traffic Class** | **Treatment (DSCP Marking)** | **Microsoft Teams and Skype for Business Workloads** |
 | --- | --- | --- |
-| **Voice** |EF (46) |Skype / Lync voice |
+| **Voice** |EF (46) |Skype / Microsoft Teams / Lync voice |
 | **Interactive** |AF41 (34) |Video, VBSS |
 | |AF21 (18) |App sharing | 
 | **Default** |AF11 (10) |File transfer |

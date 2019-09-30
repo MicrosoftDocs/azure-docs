@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/2/2019
+ms.date: 05/02/2019
 ---
 
 # Compatibility level for Azure Stream Analytics jobs
@@ -79,6 +79,18 @@ The upsert behavior is *insert or replace*.
 **Previous levels:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
+
+### Long when writing to SQL output
+
+**Previous levels:** Values were truncated based on the target type.
+
+**1.2 level:** Values that do not fit into the target type are handled according to the output error policy.
+
+### Record and array serialization when writing to SQL output
+
+**Previous levels:** Records were written as "Record" and arrays were written as "Array".
+
+**1.2 level:** Records and arrays are serialized in JSON format.
 
 ### Strict validation of prefix of functions
 

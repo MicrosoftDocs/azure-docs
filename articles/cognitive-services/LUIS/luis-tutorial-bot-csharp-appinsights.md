@@ -1,5 +1,5 @@
 ---
-title: Application Insights, C# 
+title: "Tutorial: Application Insights, C# - LUIS"
 titleSuffix: Azure Cognitive Services
 description: This tutorial adds bot and Language Understanding information to Application Insights telemetry data storage.
 services: cognitive-services
@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 06/16/2019
+ms.date: 09/06/2019
 ms.author: diberry
 ---
 
-# Add LUIS results to Application Insights from a Bot in C#
+# Tutorial: Add LUIS results to Application Insights from a Bot in C#
 
 This tutorial adds bot and Language Understanding information to [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetry data storage. Once you have that data, you can query it with the Kusto language or Power BI to analyze, aggregate, and report on intents, and entities of the utterance in real-time. This analysis helps you determine if you should add or edit the intents and entities of your LUIS app.
 
@@ -155,7 +155,7 @@ In order to add data to application insights, you need the instrumentation key.
 1. In Visual Studio, build and run the bot. 
 1. Start the bot emulator and open the bot. This [step](luis-csharp-tutorial-bf-v4.md#use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
-1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md#ask-bot-a-question-for-the-book-flight-intent) is provided in the previous tutorial.
+1. Ask the bot a question. This [step](luis-csharp-tutorial-bf-v4.md##use-the-bot-emulator-to-test-the-bot) is provided in the previous tutorial.
 
 ## View LUIS entries in Application Insights
 
@@ -168,7 +168,7 @@ Open Application Insights to see the LUIS entries. It can take a few minutes for
     ![Review LUIS custom properties stored in Application Insights](./media/luis-tutorial-appinsights/application-insights-luis-trace-custom-properties-csharp.png)
 
 ## Query Application Insights for intent, score, and utterance
-Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/application-insights/app-insights-analytics#query-data-in-analytics) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 
+Application Insights gives you the power to query the data with the [Kusto](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#what-language-do-log-queries-use) language, as well as export it to [Power BI](https://powerbi.microsoft.com). 
 
 1. Select **Log (Analytics)**. A new window opens with a query window at the top and a data table window below that. If you have used databases before, this arrangement is familiar. The query represents your previous filtered data. The **CustomDimensions** column has the bot and LUIS information.
 1. To pull out the top intent, score, and utterance, add the following just above the last line (the `|top...` line) in the query window:

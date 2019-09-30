@@ -8,9 +8,8 @@ ms.custom:
 ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
-ms.author: jovanpop-msft
+ms.author: jovanpop
 ms.reviewer: sstein
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell with Azure Resource Manager template to create a managed instance in Azure SQL Database

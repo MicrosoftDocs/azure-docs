@@ -10,11 +10,11 @@ tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/17/2018
+ms.date: 07/29/2019
 ms.author: sedusch
 
 ---
@@ -26,6 +26,7 @@ ms.author: sedusch
 [2562184]:https://launchpad.support.sap.com/#/notes/2562184
 [2628497]:https://launchpad.support.sap.com/#/notes/2628497
 [2445033]:https://launchpad.support.sap.com/#/notes/2445033
+[2815988]:https://launchpad.support.sap.com/#/notes/2815988
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 [dbms-guide]:dbms-guide.md
@@ -62,8 +63,8 @@ Also read the [SAP Help Portal for SAP LaMa](https://help.sap.com/viewer/p/SAP_L
 * Use separate subnet and don't use dynamic IP addresses to prevent IP address "stealing" when deploying new VMs and SAP instances are unprepared  
   If you use dynamic IP address allocation in the subnet, which is also used by SAP LaMa, preparing an SAP system with SAP LaMa might fail. If an SAP system is unprepared, the IP addresses are not reserved and might get allocated to other virtual machines.
 
-* If you log on to managed hosts, make sure to not block file systems from being unmounted  
-  If you log on to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
+* If you sign in to managed hosts, make sure to not block file systems from being unmounted  
+  If you sign in to a Linux virtual machines and change the working directory to a directory in a mount point, for example /usr/sap/AH1/ASCS00/exe, the volume cannot be unmounted and a relocate or unprepare fails.
 
 ## Set up Azure connector for SAP LaMa
 
@@ -222,7 +223,7 @@ The templates have the following parameters:
 
 In the examples below, we assume that you install SAP HANA with system ID HN1 and the SAP NetWeaver system with system ID AH1. The virtual hostnames are hn1-db for the HANA instance, ah1-db for the HANA tenant used by the SAP NetWeaver system, ah1-ascs for the SAP NetWeaver ASCS and ah1-di-0 for the first SAP NetWeaver application server.
 
-#### Install SAP NetWeaver ASCS for SAP HANA
+#### Install SAP NetWeaver ASCS for SAP HANA using Azure Managed Disks
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
@@ -247,6 +248,94 @@ Add the following profile parameter to the SAP Host Agent profile, which is loca
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
 ```
+
+#### Install SAP NetWeaver ASCS for SAP HANA on Azure NetAppFiles (ANF) BETA
+
+> [!NOTE]
+> This functionality is nor GA yet. For more information refer to SAP Note [2815988] (only visible to preview customers).
+Open an SAP incident on component BC-VCM-LVM-HYPERV and request to join the LaMa storage adapter for Azure NetApp Files preview
+
+ANF provides NFS for Azure. In the context of SAP LaMa this simplifies the creation of the ABAP Central Services (ASCS) instances and the subsequent installation of application servers. Previously the ASCS instance had to act as NFS server as well and the parameter acosprep/nfs_paths had to be added to the host_profile of the SAP Hostagent.
+
+#### ANF is currently available in these regions:
+
+Australia East, Central US, East US, East US 2, North Europe, South Central US, West Europe and West US 2.
+
+#### Network Requirements
+
+ANF requires a delegated subnet which must be part of the same VNET as the SAP servers. Here’s an example for such a configuration.
+This screen shows the creation of the VNET and the first subnet:
+
+![SAP LaMa create virtual network for Azure ANF ](media/lama/sap-lama-createvn-50.png)
+
+The next step creates the delegated subnet for Microsoft.NetApp/volumes.
+
+![SAP LaMa add delegated subnet ](media/lama/sap-lama-addsubnet-50.png)
+
+![SAP LaMa list of subnets ](media/lama/sap-lama-subnets.png)
+
+Now a NetApp account needs to be created within the Azure portal:
+
+![SAP LaMa create NetApp account ](media/lama/sap-lama-create-netappaccount-50.png)
+
+![SAP LaMa NetApp account created ](media/lama/sap-lama-netappaccount.png)
+
+Within the NetApp account the capacity pool specifies the size and type of disks for each pool:
+
+![SAP LaMa create NetApp capacity pool ](media/lama/sap-lama-capacitypool-50.png)
+
+![SAP LaMa NetApp capacity pool created ](media/lama/sap-lama-capacitypool-list.png)
+
+The NFS volumes can now be defined. Since there will be volumes for multiple systems in one pool, a self-explaining naming scheme should be chosen. Adding the SID helps to group related volumes together. For the ASCS and the AS instance the following mounts are needed: /sapmnt/\<SID\>, /usr/sap/\<SID\> and /home/\<sid\>adm. Optional /usr/sap/trans for the central transport directory which is at least used by all systems of one landscape.
+
+> [!NOTE]
+> During the BETA phase the name of the volumes must be unique within the subscription.
+
+![SAP LaMa create a volume 1 ](media/lama/sap-lama-createvolume-80.png)
+
+![SAP LaMa create a volume 2 ](media/lama/sap-lama-createvolume2-80.png)
+
+![SAP LaMa create a volume 3 ](media/lama/sap-lama-createvolume3-80.png)
+
+These steps need to be repeated for the other volumes as well.
+
+![SAP LaMa list of created volumes ](media/lama/sap-lama-volumes.png)
+
+Now these volumes need to be mounted to the systems where the initial installation with the SAP SWPM will be performed.
+
+First the mount points need to be created. In this case the SID is AN1 so the following commands need to be executed:
+
+```bash
+mkdir -p /home/an1adm
+mkdir -p /sapmnt/AN1
+mkdir -p /usr/sap/AN1
+mkdir -p /usr/sap/trans
+```
+Next the ANF volumes will be mounted with the following commands:
+
+```bash
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-home-sidadm /home/an1adm
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-sapmnt-sid /sapmnt/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/an1-usr-sap-sid /usr/sap/AN1
+# sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 9.9.9.132:/global-usr-sap-trans /usr/sap/trans
+```
+The mount commands can also be derived from the portal. The local mount points need to adjusted.
+
+Use the df -h command to verify.
+
+![SAP LaMa mount points OS level ](media/lama/sap-lama-mounts.png)
+
+Now the installation with SWPM must be performed.
+
+The same steps must be performed for at least one AS instance.
+
+After the successful installation the system must be discovered within SAP LaMa.
+
+The mount points should look like this for the ASCS and the AS instance:
+
+![SAP LaMa mount points in LaMa ](media/lama/sap-lama-ascs.png)
+(This is an example. The IP addresses and export path are different from the ones used before)
+
 
 #### Install SAP HANA
 

@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: rkarlin 
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/17/2019
 ---
 
 # Query data in Azure Data Lake using Azure Data Explorer (Preview)
@@ -26,6 +26,9 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
 
 ## Create an external table
 
+ > [!NOTE]
+ > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are json, csv, tsv and txt.
+
 1. Use the `.create external table` command to create an external table in Azure Data Explorer. Additional external table commands such as `.show`, `.drop`, and `.alter` are documented in [External table commands](/azure/kusto/management/externaltables).
 
     ```Kusto
@@ -37,16 +40,44 @@ Azure Data Explorer integrates with Azure Blob Storage and Azure Data Lake Stora
     dataformat=csv (h@'http://storageaccount.blob.core.windows.net/container1;secretKey') 
     with (compressed = true)  
     ```
-
-    This query creates daily partitions *container1/yyyy/MM/dd/all_exported_blobs.csv*. Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, such as the one above, will have better performance than those queries with monthly partitioned tables.
-
+    
     > [!NOTE]
-    > Currently supported storage accounts are Azure Blob Storage or Azure Data Lake Storage Gen2. Currently supported data formats are csv, tsv and txt.
+    > * Increased performance is expected with more granular partitioning. For example, queries over external tables with daily partitions, will have better performance than those queries with monthly partitioned tables.
+    > * When you define an external table with partitions, the storage structure is expected to be identical.
+For example, if the table is defined with a DateTime partition in yyyy/MM/dd format (default), the URI storage file path should be *container1/yyyy/MM/dd/all_exported_blobs*. 
+    > * If the external table is partitioned by a datetime column, always include a time filter for a closed range in your query (for example, the query - `ArchivedProducts | where Timestamp between (ago(1h) .. 10m)` - should perform better than this (opened range) one - `ArchivedProducts | where Timestamp > ago(1h)` ). 
 
 1. The external table is visible in the left pane of the Web UI
 
     ![external table in web UI](media/data-lake-query-data/external-tables-web-ui.png)
+
+### Create an external table with json format
+
+You can create an external table with json format. For more information see [External table commands](/azure/kusto/management/externaltables)
+
+1. Use the `.create external table` command to create a table named *ExternalTableJson*:
+
+    ```kusto
+    .create external table ExternalTableJson (rownumber:int, rowguid:guid) 
+    kind=blob
+    dataformat=json
+    ( 
+       h@'http://storageaccount.blob.core.windows.net/container1;secretKey'
+    )
+    with 
+    (
+       docstring = "Docs",
+       folder = "ExternalTables",
+       namePrefix="Prefix"
+    ) 
+    ```
  
+1. Json format necessitates a second step of creating mapping to columns as shown below. In the following query, create a specific json mapping named *mappingName*:
+
+    ```kusto
+    .create external table ExternalTableJson json mapping "mappingName" '[{ "column" : "rownumber", "datatype" : "int", "path" : "$.rownumber"},{ "column" : "rowguid", "path" : "$.rowguid" }]' 
+    ```
+
 ### External table permissions
  
 * The database user can create an external table. The table creator automatically becomes the table administrator.
@@ -63,6 +94,14 @@ external_table("ArchivedProducts") | take 100
 
 > [!TIP]
 > Intellisense isn't currently supported on external table queries.
+
+### Query an external table with json format
+
+To query an external table with json format, use the `external_table()` function, and provide both table name and mapping name as the function arguments. In the query below, if *mappingName* is not specified, a mapping that you previously created will be used.
+
+```kusto
+external_table(‘ExternalTableJson’, ‘mappingName’)
+```
 
 ## Query external and ingested data together
 
@@ -146,7 +185,7 @@ The *TaxiRides* sample data set contains New York City taxi data from [NYC Taxi 
     partition by bin(pickup_datetime, 1d)
     dataformat=csv
     ( 
-    h@'https://externalkustosamples.blob.core.windows.net/taxiridesbyday?st=2019-06-18T14%3A59%3A00Z&se=2029-06-19T14%3A59%3A00Z&sp=rl&sv=2016-05-31&sr=c&sig=yEaO%2BrzFHzAq7lvd4d9PeQ%2BTi3AWnho8Rn8hGU0X30M%3D'
+        h@'http://storageaccount.blob.core.windows.net/container1;secretKey''
     )
     ```
 1. The resulting table was created in the *help* cluster:

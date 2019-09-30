@@ -18,7 +18,7 @@ ms.author: pepogors
 
 # Azure Service Fabric security 
 
-For more information about [Azure Security Best Practices](https://docs.microsoft.com/azure/security/), review [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+For more information about [Azure Security Best Practices](https://docs.microsoft.com/azure/security/), review [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## Key Vault
 

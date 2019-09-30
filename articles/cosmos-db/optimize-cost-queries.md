@@ -4,7 +4,7 @@ description: Learn how to evaluate request unit charges for a query and optimize
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
 ---
 

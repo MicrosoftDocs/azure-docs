@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/27/2019
+ms.date: 07/11/2019
 ms.author: juliako
 ---
 
@@ -28,9 +28,15 @@ When you create a Media Services account, a **default** Streaming Endpoint is cr
 
 ## Naming convention
 
-For the default endpoint: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+The host name format of the streaming URL is: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, where 
+`servicename` = the streaming endpoint name or the live event name. 
 
-For any additional endpoints: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+When using the default streaming endpoint, `servicename` is omitted so the URL is: `{accountname}-{regionname}.streaming.azure.net`. 
+
+### Limitations
+
+* The streaming endpoint name has a max value of 24 characters.
+* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## Types  
 
@@ -52,19 +58,17 @@ For SLA information, see [Pricing and SLA](https://azure.microsoft.com/pricing/d
 
 Feature|Standard|Premium
 ---|---|---
-Free first 15 days <sup>1</sup>| Yes |No
 Throughput |Up to 600 Mbps and can provide a much higher effective throughput when a CDN is used.|200 Mbps per streaming unit (SU). Can provide a much higher effective throughput when a CDN is used.
 CDN|Azure CDN, third party CDN, or no CDN.|Azure CDN, third party CDN, or no CDN.
 Billing is prorated| Daily|Daily
 Dynamic encryption|Yes|Yes
 Dynamic packaging|Yes|Yes
 Scale|Auto scales up to the targeted throughput.|Additional SUs
-IP filtering/G20/Custom host  <sup>2</sup>|Yes|Yes
+IP filtering/G20/Custom host  <sup>1</sup>|Yes|Yes
 Progressive download|Yes|Yes
 Recommended usage |Recommended for the vast majority of streaming scenarios.|Professional usage.
 
-<sup>1</sup> The free trial only applies to newly created media services accounts and the default Streaming Endpoint.<br/>
-<sup>2</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
+<sup>1</sup> Only used directly on the Streaming Endpoint when the CDN is not enabled on the endpoint.<br/>
 
 ## Properties 
 
@@ -127,7 +131,7 @@ In most cases, you should have CDN enabled. However, if you are anticipating max
 
 ### Considerations
 
-* The Streaming Endpoint `hostname` and the streaming URL remains the same whether or not you enable CDN.
+* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
 * If you need the ability to test your content with or without CDN, you can create another Streaming Endpoint that isn't CDN enabled.
 
 ### Detailed explanation of how caching works

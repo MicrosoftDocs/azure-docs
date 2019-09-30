@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
-ms.author: zchia
+ms.author: jeedes
 ---
 
 # Tutorial: Configure 4me for automatic user provisioning

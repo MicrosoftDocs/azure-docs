@@ -1,5 +1,6 @@
 ---
 title: "Quickstart: Recognize digital ink with the Ink Recognizer REST API and Java"
+titleSuffix: Azure Cognitive Services
 description: Use the Ink Recognizer API to start recognizing digital ink strokes.
 services: cognitive-services
 author: aahill
@@ -7,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 09/23/2019
 ms.author: aahi
 ---
 
@@ -52,7 +53,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     import java.nio.file.Paths;
     ```
 
-2. Create variables for your subscription key and your endpoint. Below is the URI you can use for ink recognition. It will be appended to your service endpoint later to create the API request URL.
+2. Create variables for your subscription key and your endpoint. Replace the endpoint below with the one generated for your Ink Recognizer resource. Append it to the Ink recognizer URI to connect to the API.
 
     ```java
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -60,7 +61,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     // Replace the dataPath string with a path to the JSON formatted ink stroke data file.
     static final String dataPath = "PATH_TO_INK_STROKE_DATA";
     
-    static final String endpoint = "https://api.cognitive.microsoft.com";
+    static final String endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
     static final String inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
     ```
 

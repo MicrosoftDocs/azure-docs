@@ -4,16 +4,16 @@ description: Know the terms of SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/20/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -37,7 +37,10 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **SKU category**: For HANA Large Instance, the following two categories of SKUs are offered:
     - **Type I class**: S72, S72m, S96, S144, S144m, S192, S192m, and S192xm
     - **Type II class**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm, and S960m
-
+- **Stamp**: Defines the Microsoft internal deployment size of HANA Large Instances. Before HANA Large Instance units can get deployed, a HANA Large Instance stamp consisting out of compute, network, and storage racks need to be deployed in a datacenter location. Such a deployment is called a HANA Large instance stamp or from Revision 4 (see below) on we use the alternate of term of **Large Instance Row**
+- **Revision**: There are two different stamp revisions for HANA Large Instance stamps. These differ in architecture and proximity to Azure virtual machine hosts
+	- "Revision 3" (Rev 3): is the original design that got deployed from mid of the year 2016
+	- "Revision 4" (Rev 4): is a new design that can provide closer proximity to Azure virtual machine hosts and with that lower network latency between Azure VMs and HANA Large Instance units 
 
 A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information. 
 

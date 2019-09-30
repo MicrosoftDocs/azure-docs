@@ -207,12 +207,14 @@ Example edgeAgent logs:
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-### Root cause
+**Root cause**
+
 A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. The agent attempts to connect over AMQP (port 5671) first. If the connection fails, it tries WebSockets (port 443).
 
 The IoT Edge runtime sets up a network for each of the modules to communicate on. On Linux, this network is a bridge network. On Windows, it uses NAT. This issue is more common on Windows devices using Windows containers that use the NAT network. 
 
-### Resolution
+**Resolution**
+
 Ensure that there is a route to the internet for the IP addresses assigned to this bridge/NAT network. Sometimes a VPN configuration on the host overrides the IoT Edge network. 
 
 ## IoT Edge hub fails to start
@@ -226,19 +228,23 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-### Root cause
+**Root cause**
+
 Some other process on the host machine has bound port 443. The IoT Edge hub maps ports 5671 and 443 for use in gateway scenarios. This port mapping fails if another process has already bound this port. 
 
-### Resolution
+**Resolution**
+
 Find and stop the process that is using port 443. This process is usually a web server.
 
 ## IoT Edge agent can't access a module's image (403)
 A container fails to run, and the edgeAgent logs show a 403 error. 
 
-### Root cause
+**Root cause**
+
 The Iot Edge agent doesn't have permissions to access a module's image. 
 
-### Resolution
+**Resolution**
+
 Make sure that your registry credentials are correctly specified in your deployment manifest
 
 ## IoT Edge security daemon fails with an invalid hostname
@@ -249,10 +255,12 @@ The command `sudo journalctl -u iotedge` fails and prints the following message:
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-### Root cause
+**Root cause**
+
 The IoT Edge runtime can only support hostnames that are shorter than 64 characters. Physical machines usually don't have long hostnames, but the issue is more common on a virtual machine. The automatically generated hostnames for Windows virtual machines hosted in Azure, in particular, tend to be long. 
 
-### Resolution
+**Resolution**
+
 When you see this error, you can resolve it by configuring the DNS name of your virtual machine, and then setting the DNS name as the hostname in the setup command.
 
 1. In the Azure portal, navigate to the overview page of your virtual machine. 
@@ -279,10 +287,12 @@ When you see this error, you can resolve it by configuring the DNS name of your 
 ## Stability issues on resource constrained devices 
 You may encounter stability problems on constrained devices like the Raspberry Pi, especially when used as a gateway. Symptoms include out of memory exceptions in the edge hub module, downstream devices cannot connect or the device stops sending telemetry messages after a few hours.
 
-### Root cause
+**Root cause**
+
 The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. This optimization is not ideal for constrained edge devices and can cause stability problems.
 
-### Resolution
+**Resolution**
+
 For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. There are two ways to do this:
 
 In the UI: 
@@ -311,10 +321,12 @@ In the deployment manifest:
 ## Can't get the IoT Edge daemon logs on Windows
 If you get an EventLogException when using `Get-WinEvent` on Windows, check your registry entries.
 
-### Root cause
+**Root cause**
+
 The `Get-WinEvent` PowerShell command relies on a registry entry to be present to find logs by a specific `ProviderName`.
 
-### Resolution
+**Resolution**
+
 Set a registry entry for the IoT Edge daemon. Create a **iotedge.reg** file with the following content, and import in to the Windows Registry by double-clicking it or using the `reg import iotedge.reg` command:
 
 ```
@@ -334,10 +346,14 @@ A custom IoT Edge module fails to send a message to the edgeHub with a 404 `Modu
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-### Root cause
+**Root cause**
+
 The IoT Edge daemon enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
 
-### Resolution
+**Resolution**
+
+As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
 
@@ -356,10 +372,12 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 
 The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
 
-### Potential root cause
+**Root cause**
+
 By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
-### Resolution
+**Resolution**
+
 
 **Option 1: Set DNS server in container engine settings**
 

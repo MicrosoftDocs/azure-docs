@@ -4,11 +4,11 @@ description: Storing and using Service Fabric Mesh Secrets.
 services: service-fabric-mesh
 keywords: secrets
 author: v-steg
-ms.author: v-steg
+ms.author: jeconnoc
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeanpaul.connock
+manager: jeconnoc
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.
 ---
 

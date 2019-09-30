@@ -23,11 +23,11 @@
     href: azure-netapp-files-metrics.md
   - name: Performance
     items:
-    - name: Performance benchmarks for Azure NetApp Files
-      href: azure-netapp-files-performance-benchmarks.md
     - name: Performance considerations for Azure NetApp Files
       href: azure-netapp-files-performance-considerations.md    
-    - name: Benchmark testing for volume performance and metrics using Azure NetApp Files
+    - name: Performance benchmark test results for Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
+    - name: Performance benchmark test recommendations for Azure NetApp Files
       href: azure-netapp-files-performance-metrics-volumes.md 
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
@@ -47,8 +47,10 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
-  - name: Create a volume for Azure NetApp Files
+  - name: Create an NFS volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
+  - name: Create an SMB volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes-smb.md
   - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
@@ -63,7 +65,7 @@
     items:
     - name: REST
       href: azure-netapp-files-develop-with-rest-api.md
-    - name: Azure NetApp Files SDKs 
+    - name: Azure NetApp Files SDKs and CLI tools
       href: azure-netapp-files-sdk-cli.md
     - name: Troubleshoot Azure NetApp Files Resource Provider errors
       href: azure-netapp-files-troubleshoot-resource-provider-errors.md

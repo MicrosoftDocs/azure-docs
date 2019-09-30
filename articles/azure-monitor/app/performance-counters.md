@@ -24,17 +24,16 @@ The Metrics pane shows the default set of performance counters.
 ![Performance counters reported in Application Insights](./media/performance-counters/performance-counters.png)
 
 The current default counters that are configured to be collected for ASP.NET/ASP.NET Core web applications are:
-
-         - % Process\\Processor Time
-         - % Process\\Processor Time Normalized
-         - Memory\\Available Bytes
-         - ASP.NET Requests/Sec
-         - .NET CLR Exceptions Thrown / sec
-         - ASP.NET ApplicationsRequest Execution Time
-         - Process\\Private Bytes
-         - Process\\IO Data Bytes/sec
-         - ASP.NET Applications\\Requests In Application Queue
-         - Processor(_Total)\\% Processor Time
+- % Process\\Processor Time
+- % Process\\Processor Time Normalized
+- Memory\\Available Bytes
+- ASP.NET Requests/Sec
+- .NET CLR Exceptions Thrown / sec
+- ASP.NET ApplicationsRequest Execution Time
+- Process\\Private Bytes
+- Process\\IO Data Bytes/sec
+- ASP.NET Applications\\Requests In Application Queue
+- Processor(_Total)\\% Processor Time
 
 ## Add counters
 
@@ -50,16 +49,15 @@ If the performance counter you want isn't included in the list of metrics, you c
    * If you added Application Insights to your app during development, edit ApplicationInsights.config in your project, and then redeploy it to your servers.
 3. Edit the performance collector directive:
 
-```XML
+    ```XML
 
-    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
-      <Counters>
-        <Add PerformanceCounter="\Objects\Processes"/>
-        <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
-      </Counters>
-    </Add>
-
-```
+        <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.PerformanceCollectorModule, Microsoft.AI.PerfCounterCollector">
+          <Counters>
+            <Add PerformanceCounter="\Objects\Processes"/>
+            <Add PerformanceCounter="\Sales(photo)\# Items Sold" ReportAs="Photo sales"/>
+          </Counters>
+        </Add>
+    ```
 
 > [!NOTE]
 > ASP.NET Core applications do not have `ApplicationInsights.config`, and hence the above method is not valid for ASP.NET Core Applications.
@@ -76,8 +74,7 @@ If you specify an instance, it will be collected as a dimension "CounterInstance
 To collect system performance counters and send them to Application Insights, you can adapt the snippet below:
 
 
-``` C#
-
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Process([replace-with-application-process-name])\Page Faults/sec", "PageFaultsPerfSec")));
@@ -86,7 +83,7 @@ To collect system performance counters and send them to Application Insights, yo
 
 Or you can do the same thing with custom metrics you created:
 
-``` C#
+```csharp
     var perfCollectorModule = new PerformanceCollectorModule();
     perfCollectorModule.Counters.Add(new PerformanceCounterCollectionRequest(
       @"\Sales(photo)\# Items Sold", "Photo sales"));
@@ -145,11 +142,12 @@ Both ASP.NET and ASP.NET Core applications deployed to Azure Web Apps run in a s
 
 ## Performance counters in ASP.NET Core applications
 
-* [ASP.NET Core SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) version 2.4.1 and above collects performance counters if the application is running in Azure Web App (Windows)
+Support for performance counters in ASP.NET Core is limited:
 
-* SDK version 2.7.0-beta3 and above collects performance counters if the application is running in Windows, and targeting `NETSTANDARD2.0` or higher.
-* For applications targeting the .NET Framework, performance counters are supported in all versions of SDK.
-* This article will be updated when performance counter support in non-Windows is added.
+* [SDK](https://nuget.org/packages/Microsoft.ApplicationInsights.AspNetCore) versions 2.4.1 and later collect performance counters if the application is running in Azure Web Apps (Windows).
+* SDK versions 2.7.1 and later collect performance counters if the application is running in Windows and targets `NETSTANDARD2.0` or later.
+* For applications targeting the .NET Framework, all versions of the SDK support performance counters.
+* SDK Versions 2.8.0 and later support cpu/memory counter in Linux. No other counter is supported in Linux. The recommended way to get system counters in Linux (and other non-Windows environments) is by using [EventCounters](eventcounters.md)
 
 ## Alerts
 Like other metrics, you can [set an alert](../../azure-monitor/app/alerts.md) to warn you if a performance counter goes outside a limit you specify. Open the Alerts pane and click Add Alert.

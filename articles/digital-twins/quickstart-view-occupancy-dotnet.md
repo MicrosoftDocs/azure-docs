@@ -8,7 +8,7 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 06/26/2019
+ms.date: 08/16/2019
 ms.author: alinast
 # As a developer new to Azure Digital Twins, I need to see how to send motion and carbon dioxide telemetry to a space in Azure Digital Twins and how to find available rooms with fresh air by using a back-end application. 
 ---
@@ -68,6 +68,7 @@ This step provisions your Digital Twins spatial graph with:
 The spatial graph is provisioned by using the [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) file.
 
 1. Run `dotnet run ProvisionSample`.
+
     >[!NOTE]
     >The Device Login Azure CLI tool is used to authenticate the user to Azure AD. The user must enter a given code to authenticate by using [the Microsoft login](https://microsoft.com/devicelogin) page. After code is entered, follow the steps to authenticate. The user must authenticate when the tool is running.
 
@@ -77,11 +78,11 @@ The spatial graph is provisioned by using the [provisionSample.yaml](https://git
 
 1. The provisioning step might take a few minutes. It also provisions an IoT Hub within your Digital Twins instance. It loops through until the IoT Hub shows Status=`Running`.
 
-    ![Provision sample][4]
+    [![Provision sample](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. At the end of the execution, copy the `ConnectionString` of the device for use in the device simulator sample. Copy only the string outlined in this image.
 
-    ![Provision sample][1]
+    [![Copy the connection string](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
     > You can view and modify your spatial graph using the [Azure Digital Twins Graph Viewer](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -96,7 +97,7 @@ Build and run the sensor simulator application by following these steps.
 1. Edit [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) to update **DeviceConnectionString** with the previous `ConnectionString`.
 1. Run `dotnet run` to start sending sensor data. You see it sent to Digital Twins as shown in the following image.
 
-     ![Device Connectivity][2]
+     [![Device Connectivity](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Let this simulator run so that you can view results side by side with the next step action. This window shows you the simulated sensor data sent to Digital Twins. The next step queries in real time to find available rooms with fresh air.
 
@@ -116,7 +117,7 @@ The sensor sample simulates random data values for two sensors. They're motion a
    - Available rooms with fresh air.
    - Occupied or poor air quality of the room.
 
-     ![Get available spaces with fresh air][3]
+     [![Get available spaces with fresh air](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command:
 
@@ -158,9 +159,3 @@ This quickstart used a simple scenario to show how to find rooms with good worki
 
 >[!div class="nextstepaction"]
 >[Tutorial: Deploy Azure Digital Twins and configure a spatial graph](tutorial-facilities-setup.md)
-
-<!-- Images -->
-[1]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png
-[2]: media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png
-[3]: media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png
-[4]: media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png

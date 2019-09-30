@@ -1,7 +1,7 @@
 ---
-title: Migrate from Bing Speech to Azure Speech Services
+title: Migrate from Bing Speech to Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to migrate from an existing Bing Speech subscription to the Azure Speech Services.
+description: Learn how to migrate from an existing Bing Speech subscription to the Speech Service from Azure Cognitive Services.
 services: cognitive-services
 author: wsturman
 manager: nitinme
@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
-ms.author: gracez
+ms.author: nitinme
 
 # Customer intent: As a developer currently using the deprecated Bing Speech, I want to learn the differences between Bing Speech and the Speech Service, so that I can migrate my application to the Speech Service.
 ---

@@ -9,13 +9,13 @@ ms.date: 05/01/2019
 ms.author: evanhi
 ---
 
-# Tutorial: Create custom provider and deploy custom resources
+# Quickstart: Create custom provider and deploy custom resources
 
-In this tutorial, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+In this quickstart, you create your own resource provider and deploy custom resource types for that resource provider. For more information about custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you need to call REST operations. There are [different ways of sending REST requests](/rest/api/azure/). If you don't already have a tool for REST operations, install [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
+To complete the steps in this quickstart, you need to call REST operations. There are [different ways of sending REST requests](/rest/api/azure/). If you don't already have a tool for REST operations, install [ARMClient](https://github.com/projectkudu/ARMClient). It's an open-source command-line tool that simplifies invoking the Azure Resource Manager API.
 
 ## Deploy custom provider
 
@@ -117,7 +117,7 @@ You receive the response:
 
 ## Create resource type
 
-To create the custom resource type, you can deploy the resource in a template. This approach is shown in the template you deployed in this tutorial. You can also send a PUT request for the resource type.
+To create the custom resource type, you can deploy the resource in a template. This approach is shown in the template you deployed in this quickstart. You can also send a PUT request for the resource type.
 
 ```
 PUT https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.CustomProviders/resourceProviders/<provider-name>/users/<resource-name>?api-version=2018-09-01-preview

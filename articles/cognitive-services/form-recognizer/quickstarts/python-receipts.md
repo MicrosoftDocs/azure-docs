@@ -10,7 +10,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-#Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a pre-built Form Recognizer model to extract my receipt data.
+#Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
 
 # Quickstart: Extract receipt data using the Form Recognizer REST API with Python
@@ -33,7 +33,7 @@ To complete this quickstart, you must have:
 
 To start analyzing a receipt, you call the **Analyze Receipt** API using the Python script below. Before you run the script, make these changes:
 
-1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
+1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<your receipt URL>` with the URL address of a receipt image.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 

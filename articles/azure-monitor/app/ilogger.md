@@ -216,6 +216,10 @@ You can still use the old provider. (It will be removed only in a major version 
 
 ## Console application
 
+> [!NOTE]
+> There is a new beta Application Insights SDK called [Microsoft.ApplicationInsights.WorkerService](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) which can used to enable Application Insights (ILogger and other Application Insights telemetry) for any Console Applications. It is recommended to use this package and associated instructions from [here](../../azure-monitor/app/worker-service.md).
+The following example will be deprecated once stable version of this new package is released.
+
 The following code shows a sample console application that's configured to send ILogger traces to Application Insights.
 
 Packages installed:
@@ -283,7 +287,7 @@ Install this additional package:
 <PackageReference Include="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel" Version="2.9.1" />
 ```
 
-The following section shows how to override the default TelemetryConfiguration by using the **services.Configure<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
+The following section shows how to override the default TelemetryConfiguration by using the **services.Configure\<TelemetryConfiguration>()** method. This example sets up `ServerTelemetryChannel` and sampling. It adds a custom ITelemetryInitializer to the TelemetryConfiguration.
 
 ```csharp
     // Create the DI container.

@@ -16,21 +16,27 @@ ms.collection: M365-identity-device-management
 ---
 
 # Add your non-Microsoft accounts
+
 Add your non-Microsoft accounts, such as for Google, Facebook, or GitHub to the Microsoft Authenticator app for two-factor verification. The Microsoft Authenticator app works with any app that uses two-factor verification and any account that supports the time-based one-time password (TOTP) standards.
 
 >[!Important]
 >Before you can add your account, you must download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Download and install the app](user-help-auth-app-download-install.md) article.
 
 ## Add personal accounts
+
 Generally, for all your personal accounts, you must:
 
 1. Sign in to your account, and then turn on two-factor verification using either your device or your computer.
 
 2. Add the account to the Microsoft Authenticator app. You might be asked to scan a QR code as part of this process.
 
+    >[!Note]
+    >If this is the first time you're setting up the Microsoft Authenticator app, you might receive a prompt asking whether to allow the app to access your camera (iOS) or to allow the app to take pictures and record video (Android). You must select **Allow** so the authenticator app can access your camera to take a picture of the QR code in the next step. If you don't allow the camera, you can still set up the authenticator app, but you'll need to add the code information manually. For information about how to add the code manually, see see [Manually add an account to the app](user-help-auth-app-add-account-manual.md).
+
 We're providing the process here for your Facebook, Google, GitHub, and Amazon accounts, but this process is the same for any other app, such as Instagram, Netflix, or Adobe.
 
 ## Add your Google account
+
 Add your Google account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
@@ -66,6 +72,7 @@ Add your Google account by turning on two-factor verification and then adding th
     >For more information about two-factor verification and your Google account, see [Turn on 2-Step Verification](https://support.google.com/accounts/answer/185839) and [Learn more about 2-Step Verification](https://www.google.com/landing/2step/help.html).
 
 ## Add your Facebook account
+
 Add your Facebook account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
@@ -105,6 +112,7 @@ Add your Facebook account by turning on two-factor verification and then adding 
     >For more information about two-factor verification and your Facebook account, see [What is two-factor authentication and how does it work?](https://www.facebook.com/help/148233965247823).
 
 ## Add your GitHub account
+
 Add your GitHub account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
@@ -133,7 +141,7 @@ Add your GitHub account by turning on two-factor verification and then adding th
 
 5. Enter an **Account name** (for example, GitHub) and type the **Secret key** from Step 4, and then select **Finish**.
 
-4. On the **Two-factor authenticator** page on your computer, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
+6. On the **Two-factor authenticator** page on your computer, type the six-digit verification code provided in the app for your GitHub account, and then select **Enable**.
 
     The **Accounts** page of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
@@ -141,6 +149,7 @@ Add your GitHub account by turning on two-factor verification and then adding th
     >For more information about two-factor verification and your GitHub account, see [About two-factor authentication](https://help.github.com/articles/about-two-factor-authentication/).
 
 ## Add your Amazon account
+
 Add your Amazon account by turning on two-factor verification and then adding the account to the app.
 
 ### Turn on two-factor verification
@@ -164,23 +173,22 @@ Add your Amazon account by turning on two-factor verification and then adding th
     >[!Note]
     >If your camera isn't working properly, you can enter the QR code and URL manually.
 
-5. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
+7. Review the **Accounts** page of the Microsoft Authenticator app on your device, to make sure your account information is right and that there's an associated six-digit verification code.
 
     For additional security, the verification code changes every 30 seconds preventing someone from using a code multiple times.
 
-6. On the **Choose how you'll receive codes** page on your computer, type the six-digit verification code provided in the app for your Amazon account, and then select **Verify code and continue**.
+8. On the **Choose how you'll receive codes** page on your computer, type the six-digit verification code provided in the app for your Amazon account, and then select **Verify code and continue**.
 
-7. Complete the rest of the sign-up process, including adding a backup verification method such as a text message, and then select **Send code**.
+9. Complete the rest of the sign-up process, including adding a backup verification method such as a text message, and then select **Send code**.
 
-8. On the **Add a backup verification method** page on your computer, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
+10. On the **Add a backup verification method** page on your computer, type the six-digit verification code provided by your backup verification method for your Amazon account, and then select **Verify code and continue**.
 
-9. On the Almost done page, decide whether to make your computer a trusted device, and then select **Got it. Turn on Two-Step Verification**.
+11. On the **Almost done** page, decide whether to make your computer a trusted device, and then select **Got it. Turn on Two-Step Verification**.
 
     The **Advanced Security Settings** page appears, showing your updated two-factor verification details.
 
     >[!NOTE]
     >For more information about two-factor verification and your Amazon account, see [About Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201596330) and [Signing in with Two-Step Verification](https://www.amazon.com/gp/help/customer/display.html?nodeId=201962440).
-
 
 ## Next steps
 

@@ -1,5 +1,5 @@
 ---
-title: Build a console app using Azure Cosmos DB's API for MongoDB and Java SDK
+title: 'Quickstart: Build a web app using the Azure API for Mongo DB and Java SDK - Azure Cosmos DB'
 description: Presents a Java code sample you can use to connect to and query using Azure Cosmos DB's API for MongoDB.
 author: rimman
 ms.service: cosmos-db
@@ -8,9 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.author: rimman
+ms.custom: seo-java-august2019, seo-java-september2019
 
 ---
-# Quickstart: Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
+# Quickstart: Create a console app with Java and the MongoDB API in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -21,14 +22,14 @@ ms.author: rimman
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
+In this quickstart, you'll use the  Azure Cosmos DB API for Mongo DB and Java SDK to create a console web app. Azure Cosmos DB allows you to quickly create and query document, key/value and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
 
 This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md). You'll then build and deploy a console app built using the [MongoDB Java driver](https://docs.mongodb.com/ecosystem/drivers/java/). 
 
 ## Prerequisites
 
 Before you can run this sample, you must have the following prerequisites:
-* [Install the JDK for Azure and Azure Stack JDK version 8] (https://aka.ms/azure-jdks)
+* [Install the JDK for Azure and Azure Stack JDK version 8](https://aka.ms/azure-jdks)
 * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -108,7 +109,7 @@ The following snippets are all taken from the Program.java file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. From the Account, select **Quick Start**, select Java, then copy the connection string to your clipboard
+1. From the Account, select **Quick Start**, select **Java**, then copy the connection string to your clipboard.
 
 2. Open the `Program.java` file, replace the argument to the MongoClientURI constructor with the connection string. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     

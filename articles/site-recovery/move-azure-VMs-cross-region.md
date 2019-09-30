@@ -62,8 +62,8 @@ You might want to move Azure infrastructure as a service (IaaS) virtual machines
    Azure Site Recovery automatically discovers and creates a virtual network and storage account when you enable replication for the source VM. You can also pre-create these resources and assign them to the VM as part of the enable-replication step. But you must manually create any other resources in the target region. Refer to the following documents to create the most commonly used network resources based on the your source VM configuration:
 
    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Load balancers](https://docs.microsoft.com/azure/load-balancer)
+   - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
     
    For any other networking components, see the [Azure networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network). 
 

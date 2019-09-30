@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/12/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -53,7 +54,7 @@ a known vulnerability at a central location versus securing each
 individual web application.
 
 The [Azure Application Gateway
-WAF](https://docs.microsoft.com/azure/application-gateway/waf-overview)
+WAF](../../application-gateway/waf-overview.md)
 provides centralized protection of your web applications from common
 exploits and vulnerabilities. The WAF is based on rules from the [OWASP
 core rule
@@ -106,7 +107,7 @@ Azure services that assist with application monitoring are:
 #### Application Insights
 
 [Application
-Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)
+Insights](../../azure-monitor/app/app-insights-overview.md)
 is an extensible Application Performance Management (APM) service for
 web developers on multiple platforms. Use it to monitor your live web
 application. Application Insights automatically detects performance
@@ -117,7 +118,7 @@ designed to help you continuously improve performance and usability.
 #### Azure Security Center
 
 [Azure Security
-Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
+Center](../../security-center/security-center-intro.md)
 helps you prevent, detect, and respond to threats with increased
 visibility into (and control over) the security of your Azure resources,
 including web applications. Azure Security Center helps detect threats
@@ -126,7 +127,7 @@ solutions.
 
 Security Center’s Free tier offers limited security for your Azure
 resources only. The [Security Center Standard
-tier](https://docs.microsoft.com/azure/security-center/security-center-onboarding)
+tier](../../security-center/security-center-onboarding.md)
 extends these capabilities to on-premises resources and other clouds.
 Security Center Standard helps you:
 

@@ -109,7 +109,7 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Create Azure AD Domain Services instance | Global Administrator | 
-Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
+Perform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
 ## Devices
@@ -141,6 +141,13 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
+## Entitlement management
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Add resources to a catalog | User administrator | With entitlement management, you can delegate this task to the catalog owner ([see documentation](../governance/entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager))
+Add SharePoint Online sites to catalog | Global administrator
+
+
 ## Groups
 
 Task | Least privileged role | Additional roles
@@ -167,10 +174,10 @@ Configure and enable or disable MFA policy| Security Administrator |
 Configure and enable or disable sign-in risk policy| Security Administrator | 
 Configure and enable or disable user risk policy | Security Administrator | 
 Configure weekly digests | Security Administrator| 
-Dismiss all risk events | Security Administrator | 
+Dismiss all risk detections | Security Administrator | 
 Fix or dismiss vulnerability | Security Administrator | 
 Read all configuration | Security Reader | 
-Read all risk events | Security Reader | 
+Read all risk detections | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
 ## Licenses

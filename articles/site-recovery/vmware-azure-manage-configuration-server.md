@@ -105,7 +105,7 @@ You can reregister the configuration server in the same vault if you need to. If
 
     >[!NOTE]
     >In order to **pull latest certificates** from configuration server to scale-out process server execute the  command
-    > *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    > *"\<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
 8. Finally, restart the obengine by executing the following command.
    ```

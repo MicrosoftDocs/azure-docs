@@ -3,7 +3,8 @@ title: Azure Kinect get body tracking results
 description: Get body tracking results
 author: qm13
 ms.prod: kinect-dk
-ms.author: yijwan, quentinm
+ms.author: quentinm
+ms.reviewer: yijwan
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, azure, sensor, sdk, body, tracking, joint
@@ -31,7 +32,8 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_get_calibration(device, device_config.dep
 }
 
 k4abt_tracker_t tracker = NULL;
-if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, &tracker), "Body tracker initialization failed!")
+k4abt_tracker_configuration_t tracker_config = K4ABT_TRACKER_CONFIG_DEFAULT;
+if (K4A_RESULT_SUCCEEDED != k4abt_tracker_create(&sensor_calibration, tracker_config, &tracker))
 {
     printf("Body tracker initialization failed!\n");
     return 0;
@@ -68,7 +70,7 @@ case K4A_WAIT_RESULT_FAILED:
 The tracker internally maintains an input queue and an output queue to asynchronously process the Azure Kinect DK captures more efficiently. Use the [k4abt_tracker_enqueue_capture()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_ga093becd9bb4a63f5f4d56f58097a7b1e.html#ga093becd9bb4a63f5f4d56f58097a7b1e) function to add a new capture to the input queue. Use the [k4abt_tracker_pop_result()](https://microsoft.github.io/Azure-Kinect-Body-Tracking/release/0.9.x/group__btfunctions_gaaf446fb1579cbbe0b6af824ee0a7458b.html#gaaf446fb1579cbbe0b6af824ee0a7458b) function o pop a result from the output queue. Use of the timeout value is dependent on the application and controls the queuing wait time.
 
 ### Real-time processing
-Use this pattern for single-threaded applications that need real-time results and can accommodate dropped frames. The `simple_3d_viewer` sample located in `examples/src` is an example of real-time processing.
+Use this pattern for single-threaded applications that need real-time results and can accommodate dropped frames. The `simple_3d_viewer` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of real-time processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, 0);
@@ -95,7 +97,7 @@ Use this pattern for applications that do not need real-time results or cannot a
 
 Processing throughput may be limited.
 
-The `simple_sample.exe` sample located in `examples/src` is an example of synchronous processing.
+The `simple_sample.exe` sample located in [GitHub Azure-Kinect-Samples](https://github.com/microsoft/Azure-Kinect-Samples) is an example of synchronous processing.
 
 ```C
 k4a_wait_result_t queue_capture_result = k4abt_tracker_enqueue_capture(tracker, sensor_capture, K4A_WAIT_INFINITE);

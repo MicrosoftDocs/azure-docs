@@ -4,7 +4,7 @@ description: Use C# and Azure Resource Manager to deploy a virtual machine and a
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 87524373-5f52-4f4b-94af-50bf7b65c277
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
@@ -83,7 +83,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 1. Open the Program.cs file for the project that you created. Then, add these using statements to the existing statements at top of the file:
 
-    ```
+    ```csharp
     using Microsoft.Azure.Management.Compute.Fluent;
     using Microsoft.Azure.Management.Compute.Fluent.Models;
     using Microsoft.Azure.Management.Fluent;
@@ -93,7 +93,7 @@ Before you start this step, make sure that you have access to an [Active Directo
 
 2. To create the management client, add this code to the Main method:
 
-    ```
+    ```csharp
     var credentials = SdkContext.AzureCredentialsFactory
         .FromFile(Environment.GetEnvironmentVariable("AZURE_AUTH_LOCATION"));
 
@@ -112,7 +112,7 @@ All resources must be contained in a [Resource group](../../azure-resource-manag
 
 To specify values for the application and create the resource group, add this code to the Main method:
 
-```
+```csharp
 var groupName = "myResourceGroup";
 var vmName = "myVM";
 var location = Region.USWest;
@@ -129,7 +129,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
 
 To create the availability set, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Creating availability set...");
 var availabilitySet = azure.AvailabilitySets.Define("myAVSet")
     .WithRegion(location)
@@ -144,7 +144,7 @@ A [Public IP address](../../virtual-network/virtual-network-ip-addresses-overvie
 
 To create the public IP address for the virtual machine, add this code to the Main method:
    
-```
+```csharp
 Console.WriteLine("Creating public IP address...");
 var publicIPAddress = azure.PublicIPAddresses.Define("myPublicIP")
     .WithRegion(location)
@@ -159,7 +159,7 @@ A virtual machine must be in a subnet of a [Virtual network](../../virtual-netwo
 
 To create a subnet and a virtual network, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Creating virtual network...");
 var network = azure.Networks.Define("myVNet")
     .WithRegion(location)
@@ -175,7 +175,7 @@ A virtual machine needs a network interface to communicate on the virtual networ
 
 To create a network interface, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Creating network interface...");
 var networkInterface = azure.NetworkInterfaces.Define("myNIC")
     .WithRegion(location)
@@ -193,7 +193,7 @@ Now that you created all the supporting resources, you can create a virtual mach
 
 To create the virtual machine, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Creating virtual machine...");
 azure.VirtualMachines.Define(vmName)
     .WithRegion(location)
@@ -215,7 +215,7 @@ azure.VirtualMachines.Define(vmName)
 
 If you want to use an existing disk instead of a marketplace image, use this code:
 
-```
+```csharp
 var managedDisk = azure.Disks.Define("myosdisk")
     .WithRegion(location)
     .WithExistingResourceGroup(groupName)
@@ -240,7 +240,7 @@ During the lifecycle of a virtual machine, you may want to run management tasks 
 
 When you need to do anything with the VM, you need to get an instance of it:
 
-```
+```csharp
 var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 ```
 
@@ -248,7 +248,7 @@ var vm = azure.VirtualMachines.GetByResourceGroup(groupName, vmName);
 
 To get information about the virtual machine, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Getting information about the virtual machine...");
 Console.WriteLine("hardwareProfile");
 Console.WriteLine("   vmSize: " + vm.Size);
@@ -320,7 +320,7 @@ You can stop a virtual machine and keep all its settings, but continue to be cha
 
 To stop the virtual machine without deallocating it, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Stopping vm...");
 vm.PowerOff();
 Console.WriteLine("Press enter to continue...");
@@ -329,7 +329,7 @@ Console.ReadLine();
 
 If you want to deallocate the virtual machine, change the PowerOff call to this code:
 
-```
+```csharp
 vm.Deallocate();
 ```
 
@@ -337,7 +337,7 @@ vm.Deallocate();
 
 To start the virtual machine, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Starting vm...");
 vm.Start();
 Console.WriteLine("Press enter to continue...");
@@ -350,7 +350,7 @@ Many aspects of deployment should be considered when deciding on a size for your
 
 To change size of the virtual machine, add this code to the Main method:
 
-```
+```csharp
 Console.WriteLine("Resizing vm...");
 vm.Update()
     .WithSize(VirtualMachineSizeTypes.StandardDS2) 
@@ -363,7 +363,7 @@ Console.ReadLine();
 
 To add a data disk to the virtual machine, add this code to the Main method. This example adds a data disk that is 2 GB in size, han a LUN of 0 and a caching type of ReadWrite:
 
-```
+```csharp
 Console.WriteLine("Adding data disk to vm...");
 vm.Update()
     .WithNewDataDisk(2, 0, CachingTypes.ReadWrite) 
@@ -378,7 +378,7 @@ Because you are charged for resources used in Azure, it is always good practice 
 
 To delete the resource group, add this code to the Main method:
 
-```
+```csharp
 azure.ResourceGroups.DeleteByName(groupName);
 ```
 
@@ -393,4 +393,3 @@ It should take about five minutes for this console application to run completely
 ## Next steps
 * Take advantage of using a template to create a virtual machine by using the information in [Deploy an Azure Virtual Machine using C# and a Resource Manager template](csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn more about using the [Azure libraries for .NET](https://docs.microsoft.com/dotnet/azure/?view=azure-dotnet).
-

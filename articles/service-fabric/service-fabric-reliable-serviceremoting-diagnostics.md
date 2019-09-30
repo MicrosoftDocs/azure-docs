@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: suchiagicha
+ms.author: chackdan
 
 ---
 # Diagnostics and performance monitoring for Reliable Service Remoting

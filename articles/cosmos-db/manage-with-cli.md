@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 
 ---
@@ -22,7 +22,7 @@ To create an Azure Cosmos DB account with SQL API, Session consistency in East U
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
@@ -36,7 +36,7 @@ az cosmosdb create \
 
 ## Create a database
 
-To create a Cosmos DB database, run the following command:
+To create a Cosmos database, run the following command:
 
 ```azurecli-interactive
 az cosmosdb database create \
@@ -47,7 +47,7 @@ az cosmosdb database create \
 
 ## Create a container
 
-To create a Cosmos DB container with RU/s of 400 and a partition key, run the following command:
+To create a Cosmos container with RU/s of 400 and a partition key, run the following command:
 
 ```azurecli-interactive
 # Create a container
@@ -62,7 +62,7 @@ az cosmosdb collection create \
 
 ## Change the throughput of a container
 
-To change the throughput of a Cosmos DB container to 1000 RU/s, run the following command:
+To change the throughput of a Cosmos container to 1000 RU/s, run the following command:
 
 ```azurecli-interactive
 # Update container throughput

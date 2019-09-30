@@ -6,7 +6,6 @@ documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-
 ms.assetid: cda8eba6-843f-4a09-8c55-0aaf6e593d75
 ms.service: active-directory
 ms.workload: identity
@@ -14,8 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/17/2019
-ms.author: jeedes
-
+ms.author: "jeedes"
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with 360 Online
