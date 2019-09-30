@@ -50,7 +50,7 @@
       href: security-center-incident.md
     - name: Threat detection for VMs & servers
       href: security-center-alerts-iaas.md
-    - name: Threat detection for cloud native compute
+    - name: Threat detection for cloud apps and containers
       href: security-center-alerts-compute.md
     - name: Threat detection for data services
       href: security-center-alerts-data-services.md
