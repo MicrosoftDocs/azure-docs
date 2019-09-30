@@ -40,389 +40,288 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
-You'll receive a `200 (Success)` response with the following JSON output:
+You'll receive a `201 (Success)` response with a **Location** header. The value of this header is the ID of the new model being trained. Pass this model ID into a new call to check the training status:
+
+```bash
+curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+```
+
+You'll receive a `200 (Success)` response with a JSON body in the following format. 
 
 ```json
 {
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
+  "modelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "status": "creating",
+  "createdDateTime": "2019-09-30T20:34:21.534Z",
+  "lastUpdatedDateTime": "2019-09-30T20:34:21.534Z",
+  "keys": {
+    "clusters": {
+      "additionalProp1": [
+        "string"
+      ],
+      "additionalProp2": [
+        "string"
+      ],
+      "additionalProp3": [
+        "string"
+      ]
     }
-  ],
-  "errors": []
+  },
+  "trainResult": {
+    "trainingDocuments": [
+      {
+        "documentName": "string",
+        "pages": 0,
+        "errors": [
+          "string"
+        ],
+        "status": "succeeded"
+      }
+    ],
+    "trainingFields": {
+      "fields": [
+        {
+          "fieldName": "string",
+          "accuracy": 0
+        }
+      ],
+      "averageModelAccuracy": 0
+    },
+    "errors": [
+      {
+        "errorMessage": "string"
+      }
+    ]
+  }
 }
 ```
 
-Note the `"modelId"` value. You'll need it in the following steps.
-  
+When the `"status"` value under each `"trainingDocuments"` entry is `"succeeded"`, then you are ready to query your model.
+
 ## Extract key-value pairs and tables from forms
 
 Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the cURL command that follows. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<modelID>` with the model ID that you received in the previous section.
+1. Replace `<model ID>` with the model ID that you received in the previous section.
 1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
 1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
 1. Replace `<subscription key>` with your subscription key.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
-### Examine the response
+You'll receive a `201 (Success)` response with a **Location** header. The value of this header is an ID to track the result of the Analyze operation. Save this result ID for the next step.
 
-A success response is returned in JSON. It represents the key-value pairs and tables extracted from the form:
+### Get the Analyze results
+
+Use the following API to query the results of the Analyze operation.
+
+```bash
+curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<model ID>/analyzeResults/<result ID>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+```
+
+You'll receive a `200 (Success)` response with a JSON body in the following format. 
 
 ```bash
 {
-  "status": "success",
-  "pages": [
-    {
-      "number": 1,
-      "height": 792,
-      "width": 612,
-      "clusterId": 0,
-      "keyValuePairs": [
-        {
-          "key": [
-            {
-              "text": "Address:",
+  "status": "notStarted",
+  "createdDateTime": "2019-09-30T20:57:43.820Z",
+  "lastUpdatedDateTime": "2019-09-30T20:57:43.820Z",
+  "analyzeResult": {
+    "version": "string",
+    "readResults": [
+      {
+        "page": 0,
+        "angle": 0,
+        "width": 0,
+        "height": 0,
+        "unit": "pixel",
+        "language": "en",
+        "lines": [
+          {
+            "text": "string",
+            "boundingBox": [
+              0
+            ],
+            "language": "en",
+            "words": [
+              {
+                "text": "string",
+                "boundingBox": [
+                  0
+                ],
+                "confidence": 0
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 0,
+        "clusterId": 0,
+        "keyValuePairs": [
+          {
+            "key": {
+              "text": "string",
               "boundingBox": [
-                57.4,
-                683.1,
-                100.5,
-                683.1,
-                100.5,
-                673.7,
-                57.4,
-                673.7
+                0
+              ],
+              "elements": [
+                "string"
+              ],
+              "words": [
+                {
+                  "text": "string",
+                  "boundingBox": [
+                    0
+                  ],
+                  "confidence": 0
+                }
               ]
-            }
-          ],
-          "value": [
-            {
-              "text": "1 Redmond way Suite",
-              "boundingBox": [
-                57.4,
-                671.3,
-                154.8,
-                671.3,
-                154.8,
-                659.2,
-                57.4,
-                659.2
-              ],
-              "confidence": 0.86
             },
-            {
-              "text": "6000 Redmond, WA",
+            "value": {
+              "text": "string",
               "boundingBox": [
-                57.4,
-                657.1,
-                146.9,
-                657.1,
-                146.9,
-                645.5,
-                57.4,
-                645.5
+                0
               ],
-              "confidence": 0.86
-            },
-            {
-              "text": "99243",
-              "boundingBox": [
-                57.4,
-                643.4,
-                85,
-                643.4,
-                85,
-                632.3,
-                57.4,
-                632.3
+              "elements": [
+                "string"
               ],
-              "confidence": 0.86
-            }
-          ]
-        },
-        {
-          "key": [
-            {
-              "text": "Invoice For:",
-              "boundingBox": [
-                316.1,
-                683.1,
-                368.2,
-                683.1,
-                368.2,
-                673.7,
-                316.1,
-                673.7
+              "words": [
+                {
+                  "text": "string",
+                  "boundingBox": [
+                    0
+                  ],
+                  "confidence": 0
+                }
               ]
-            }
-          ],
-          "value": [
-            {
-              "text": "Microsoft",
-              "boundingBox": [
-                374,
-                687.9,
-                418.8,
-                687.9,
-                418.8,
-                673.7,
-                374,
-                673.7
-              ],
-              "confidence": 1
             },
-            {
-              "text": "1020 Enterprise Way",
-              "boundingBox": [
-                373.9,
-                673.5,
-                471.3,
-                673.5,
-                471.3,
-                659.2,
-                373.9,
-                659.2
-              ],
-              "confidence": 1
-            },
-            {
-              "text": "Sunnayvale, CA 87659",
-              "boundingBox": [
-                373.8,
-                659,
-                479.4,
-                659,
-                479.4,
-                645.5,
-                373.8,
-                645.5
-              ],
-              "confidence": 1
-            }
-          ]
+            "confidence": 0
+          }
+        ],
+        "tables": [
+          {
+            "rows": 0,
+            "columns": 0,
+            "cells": [
+              {
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "rowSpan": 0,
+                "columnSpan": 0,
+                "text": "string",
+                "boundingBox": [
+                  0
+                ],
+                "confidence": 0,
+                "elements": [
+                  "string"
+                ],
+                "words": [
+                  {
+                    "text": "string",
+                    "boundingBox": [
+                      0
+                    ],
+                    "confidence": 0
+                  }
+                ],
+                "isHeader": false,
+                "isFooter": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "documentResults": [
+      {
+        "docType": "string",
+        "pageRange": [
+          0
+        ],
+        "fields": {
+          "additionalProp1": {
+            "type": "string",
+            "valueString": "string",
+            "valueDate": "2019-09-30",
+            "valueTime": "string",
+            "valuePhoneNumber": "string",
+            "valueNumber": 0,
+            "valueInteger": 0,
+            "valueArray": [
+              null
+            ],
+            "valueObject": {},
+            "text": "string",
+            "boundingBox": [
+              0
+            ],
+            "confidence": 0,
+            "elements": [
+              "string"
+            ]
+          },
+          "additionalProp2": {
+            "type": "string",
+            "valueString": "string",
+            "valueDate": "2019-09-30",
+            "valueTime": "string",
+            "valuePhoneNumber": "string",
+            "valueNumber": 0,
+            "valueInteger": 0,
+            "valueArray": [
+              null
+            ],
+            "valueObject": {},
+            "text": "string",
+            "boundingBox": [
+              0
+            ],
+            "confidence": 0,
+            "elements": [
+              "string"
+            ]
+          },
+          "additionalProp3": {
+            "type": "string",
+            "valueString": "string",
+            "valueDate": "2019-09-30",
+            "valueTime": "string",
+            "valuePhoneNumber": "string",
+            "valueNumber": 0,
+            "valueInteger": 0,
+            "valueArray": [
+              null
+            ],
+            "valueObject": {},
+            "text": "string",
+            "boundingBox": [
+              0
+            ],
+            "confidence": 0,
+            "elements": [
+              "string"
+            ]
+          }
         }
-      ],
-      "tables": [
-        {
-          "id": "table_0",
-          "columns": [
-            {
-              "header": [
-                {
-                  "text": "Invoice Number",
-                  "boundingBox": [
-                    38.5,
-                    585.2,
-                    113.4,
-                    585.2,
-                    113.4,
-                    575.8,
-                    38.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "34278587",
-                    "boundingBox": [
-                      38.5,
-                      547.3,
-                      82.8,
-                      547.3,
-                      82.8,
-                      537,
-                      38.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Date",
-                  "boundingBox": [
-                    139.7,
-                    585.2,
-                    198.5,
-                    585.2,
-                    198.5,
-                    575.8,
-                    139.7,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/18/2017",
-                    "boundingBox": [
-                      139.7,
-                      546.8,
-                      184,
-                      546.8,
-                      184,
-                      537,
-                      139.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Invoice Due Date",
-                  "boundingBox": [
-                    240.5,
-                    585.2,
-                    321,
-                    585.2,
-                    321,
-                    575.8,
-                    240.5,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "6/24/2017",
-                    "boundingBox": [
-                      240.5,
-                      546.8,
-                      284.8,
-                      546.8,
-                      284.8,
-                      537,
-                      240.5,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "Charges",
-                  "boundingBox": [
-                    341.3,
-                    585.2,
-                    381.2,
-                    585.2,
-                    381.2,
-                    575.8,
-                    341.3,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "$56,651.49",
-                    "boundingBox": [
-                      387.6,
-                      546.4,
-                      437.5,
-                      546.4,
-                      437.5,
-                      537,
-                      387.6,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            },
-            {
-              "header": [
-                {
-                  "text": "VAT ID",
-                  "boundingBox": [
-                    442.1,
-                    590,
-                    474.8,
-                    590,
-                    474.8,
-                    575.8,
-                    442.1,
-                    575.8
-                  ]
-                }
-              ],
-              "entries": [
-                [
-                  {
-                    "text": "PT",
-                    "boundingBox": [
-                      447.7,
-                      550.6,
-                      460.4,
-                      550.6,
-                      460.4,
-                      537,
-                      447.7,
-                      537
-                    ],
-                    "confidence": 1
-                  }
-                ]
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ],
-  "errors": []
+      }
+    ],
+    "errors": [
+      {
+        "errorMessage": "string"
+      }
+    ]
+  }
 }
 ```
 
