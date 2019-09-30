@@ -11,7 +11,7 @@ ms.date: 09/17/2019
 
 # Tutorial: Create managed application with resource onboarding
 
-In this tutorial, you create your own managed application with resource onboarding. The managed application will contain a custom action on the `Overview` page, a custom resource type displayed as a separate menu item in `Table of Content` and a custom context action on the custom resource page.
+In this tutorial, you create your own managed application with resource onboarding. The managed application will contain an `Overview` page and an `Associations` view displayed as a separate menu item in the `Table of Contents`, which will allow existing resources to onboard to the managed application.
 
 This tutorial includes the following steps:
 
@@ -36,7 +36,7 @@ To complete this tutorial, you need to know:
 
 ## User interface definition
 
-In this tutorial, the user interface definition (`createUIDefinition.json`) does not have any required inputs. The user interface definition allows the author of the managed application to accept parameters from the end users, which can applied to the `mainTemplate.json`.
+In this tutorial, the user interface definition (`createUIDefinition.json`) accepts an optional "Logic app name" TextBox for the Logic App instance in the managed application. The user interface definition allows the author of the managed application to accept parameters from the end users, which can applied to the `mainTemplate.json`.
 
 The `createUIDefinition.json` for the managed application:
 

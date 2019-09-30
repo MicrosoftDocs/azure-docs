@@ -272,7 +272,7 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 
 `"kind": "Associations"`
 
-You can define multiple views of this type. Each view represents a **unique** custom resource type from the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
+You can define multiple views of this type. This view allows you to link existing resources to the managed application through the custom provider you defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers Preview overview](custom-providers-overview.md).
 
 In this view you can extend existing Azure resources based on the `targetResourceType`. When a resource is selected, it will create an onboarding request to the **public** custom provider, which can apply a side effect to the resource. 
 
@@ -295,9 +295,9 @@ In this view you can extend existing Azure resources based on the `targetResourc
 
 |Property|Required|Description|
 |---------|---------|---------|
-|displayName|Yes|The displayed title of the view. The title should be **unique** for each CustomResources view in your **viewDefinition.json**.|
+|displayName|Yes|The displayed title of the view. The title should be **unique** for each Associations view in your **viewDefinition.json**.|
 |version|No|The version of the platform used to render the view.|
-|targetResourceType|Yes|The target resource type. These are the resource types that will be displayed for resource onboarding.|
+|targetResourceType|Yes|The target resource type. This is the resource type that will be displayed for resource onboarding.|
 |createUIDefinition|No|Create UI Definition schema for create custom resource command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md)|
 |columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
 
