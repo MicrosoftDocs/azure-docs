@@ -139,7 +139,7 @@ Once your new project loads in the Visual Studio window, take a moment to famili
 
 * An IoT Edge project called **CSharpTutorialApp**.
   * The **Modules** folder contains pointers to the modules included in the project. In this case, it should be just IotEdgeModule1. 
-  * The **.env** file holds the credentials to your container registry. These credentials are shared with your IoT Edge device so that it has access to pull the container images.
+  * The hidden **.env** file holds the credentials to your container registry. These credentials are shared with your IoT Edge device so that it has access to pull the container images.
   * The **deployment.template.json** file is a template to help you create a deployment manifest. A *deployment manifest* is a file that defines exactly which modules you want deployed on a device, how they should be configured, and how they can communicate with each other and the cloud.
     > [!TIP]
     > In the registry credentials section, the address is autofilled from the information you provided when you created the solution. However, the username and password reference variables stored in the .env file. This is for security, as the .env file is git ignored, but the deployment template is not.
@@ -165,7 +165,7 @@ The IoT Edge runtime needs your registry credentials to pull your container imag
    }
    ```
 
-1. Open the **.env** file in your module solution.
+1. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.)
 
 1. Add the **Username** and **Password** values that you copied from your Azure container registry.
 
