@@ -32,7 +32,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../governance/management-groups/index.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 

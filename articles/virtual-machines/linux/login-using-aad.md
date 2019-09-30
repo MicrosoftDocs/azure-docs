@@ -3,7 +3,7 @@ title: Log in to a Linux VM with Azure Active Directory credentials | Microsoft 
 description: Learn how to create and configure a Linux VM to sign in using Azure Active Directory authentication.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor:
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
+ms.author: iainfou
 ---
 
 # Preview: Log in to a Linux virtual machine in Azure using Azure Active Directory authentication
@@ -85,7 +85,7 @@ It takes a few minutes to create the VM and supporting resources.
 ## Install the Azure AD login VM extension
 
 > [!NOTE]
-> If deploying this exention to a previously created VM ensure the machine has at least 1GB of memory allocated else the extension will fail to install
+> If deploying this extension to a previously created VM ensure the machine has at least 1GB of memory allocated else the extension will fail to install
 
 To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines. Use [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) to install the *AADLoginForLinux* extension on the VM named *myVM* in the *myResourceGroup* resource group:
 
