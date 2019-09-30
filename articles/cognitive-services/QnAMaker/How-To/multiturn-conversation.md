@@ -50,17 +50,30 @@ When you create a knowledge base, the **Populate your KB** section displays an *
 
 ![Check box for enabling multi-turn extraction](../media/conversational-context/enable-multi-turn.png)
 
-When you select this option for an imported document, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
+When you select this option you, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
 
 Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Because of the size of this PDF file, the QnA Maker resource requires a **Search pricing tier** of **B** (15 indexes) or greater. 
 
 ![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-## Add multi-turn file after creating knowledge base
+### Determine multi-turn structure from format
+
+QnA Maker determines multi-turn structure from:
+
+* Heading font size - if you use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts. 
+
+Rules of headings include:
+
+* Do not end a heading with a question mark, `?`. 
+
+### Add file with multi-turn prompts
 
 When you add a multi-turn document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
 
-1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. Support for creating a knowledge base with a multi-turn file or URL, at the time of knowledge base creation, isn't supported.
+> [!Caution]
+> Support for using an exported TSV or XLS multi-turn knowledge base file as a data source for a new or empty knowledge base isn't supported. You need to **Import** that file type, from the **Settings** page of the QnA Maker portal, in order to add exported multi-turn prompts to a knowledge base.
+
+1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. 
 1. Go to the **Settings** page, select the file or URL to add. 
 1. **Save and train** the knowledge base.
 
