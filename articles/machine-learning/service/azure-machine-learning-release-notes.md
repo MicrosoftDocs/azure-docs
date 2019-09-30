@@ -337,7 +337,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
 ### Azure Machine Learning Data Prep SDK v1.1.10
 
 + **New features**
-  + You can now request to execute specific inspectors (e.g. histogram, scatter plot, etc) on specific columns.
+  + You can now request to execute specific inspectors (e.g. histogram, scatter plot, etc.) on specific columns.
   + Added a parallelize argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution will be streaming but single-threaded.
 
 ## 2019-07-23
