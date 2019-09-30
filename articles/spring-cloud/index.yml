@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Spring Cloud documentation# < 60 chars
+title: Azure Spring Cloud documentation # < 60 chars
 summary: Azure Spring Cloud provides a managed service that enables Java developers to easily build and run Spring-boot based microservices on Azure with no code changes. # < 160 chars
 
 metadata:
