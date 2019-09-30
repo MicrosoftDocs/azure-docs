@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 In a mobile-first, cloud-first world, users can access your organization's resources from anywhere using different kinds of devices and apps. As a result, just focusing on who can access a resource is no longer enough. You can control who has access and identify where the user is and what device is being used and much more.
 
-To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md#conditional-access-policies) for more information.
+To provide this control, **Azure Active Directory (AD) Conditional Access** allows you to specify the conditions any user must meet for access to an application, such as Multi-Factor Authentication (MFA). Using Conditional Access policies controls how authorized users (users that have been granted access to a cloud app) access cloud apps under specific conditions. Refer to [What is Conditional Access in Azure Active Directory](overview.md) for more information.
 
 ## Key benefits
 

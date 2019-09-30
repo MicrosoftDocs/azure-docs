@@ -57,7 +57,7 @@ public static async Task<object> Run(
 {
     try
     {
-        var x = await context.CallActivityAsync<object>("F1");
+        var x = await context.CallActivityAsync<object>("F1", null);
         var y = await context.CallActivityAsync<object>("F2", x);
         var z = await context.CallActivityAsync<object>("F3", y);
         return  await context.CallActivityAsync<object>("F4", z);
@@ -109,7 +109,7 @@ public static async Task Run(
     var parallelTasks = new List<Task<int>>();
 
     // Get a list of N work items to process in parallel.
-    object[] workBatch = await context.CallActivityAsync<object[]>("F1");
+    object[] workBatch = await context.CallActivityAsync<object[]>("F1", null);
     for (int i = 0; i < workBatch.Length; i++)
     {
         Task<int> task = context.CallActivityAsync<int>("F2", workBatch[i]);
@@ -283,7 +283,7 @@ These examples create an approval process to demonstrate the human interaction p
 public static async Task Run(
     [OrchestrationTrigger] DurableOrchestrationContext context)
 {
-    await context.CallActivityAsync("RequestApproval");
+    await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
     {
         DateTime dueTime = context.CurrentUtcDateTime.AddHours(72);
@@ -297,7 +297,7 @@ public static async Task Run(
         }
         else
         {
-            await context.CallActivityAsync("Escalate");
+            await context.CallActivityAsync("Escalate", null);
         }
     }
 }
@@ -374,7 +374,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += operand;
+            currentValue += amount;
             break;
         case "reset":
             currentValue = 0;

@@ -198,6 +198,15 @@ A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Mak
 
 *QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
 
+If you want to add content using update/replace knowledgebase APIs and the content/file contains html tags, you can preserve the HTML in your file by ensuring that opening and closing of the tags are converted in the encoded format.
+
+| Preserve HTML  | Representation in the API request  | Representation in KB |
+|-----------|---------|-------------------------|
+| Yes | \&lt;br\&gt; | &lt;br&gt; |
+| Yes | \&lt;h3\&gt;header\&lt;/h3\&gt; | &lt;h3&gt;header&lt;/h3&gt; |
+
+Additionally, CR LF(\r\n) are converted to \n in the KB. LF(\n) is kept as is. If you want to escape any escape sequence like a \t or \n you can use backslash, for example: '\\\\r\\\\n' and '\\\\t'
+
 ## Editing your knowledge base locally
 
 Once a knowledge base is created, it is recommended that you make edits to the knowledge base text in the [QnA Maker portal](https://qnamaker.ai), rather than exporting and reimporting through local files. However, there may be times that you need to edit a knowledge base locally. 

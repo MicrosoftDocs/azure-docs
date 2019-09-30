@@ -93,7 +93,7 @@ The Free tier of Security Center offers limited security for only your Azure res
 
 Use Security Center to get a central view of the security state of all your Azure resources. At a glance, verify that the appropriate security controls are in place and configured correctly, and quickly identify any resources that need attention.
 
-Security Center also integrates with [Windows Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Windows Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Security Center.
+Security Center also integrates with [Microsoft Defender Advanced Threat Protection (ATP)](../../security-center/security-center-wdatp.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender ATP integration, you can spot abnormalities. You can also detect and respond to advanced attacks on server endpoints monitored by Security Center.
 
 Almost all enterprise organizations have a security information and event management (SIEM) system to help identify emerging threats by consolidating log information from diverse signal gathering devices. The logs are then analyzed by a data analytics system to help identify what’s “interesting” from the noise that is inevitable in all log gathering and analytics solutions.
 
@@ -119,7 +119,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
-**Detail**: [Enable Windows Defender ATP integration](../../security-center/security-center-wdatp.md#enable-windows-defender-atp-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
+**Detail**: [Enable Microsoft Defender ATP integration](../../security-center/security-center-wdatp.md#enable-microsoft-defender-atp-integration) via your Security Center security policy. Consider using Azure Sentinel for threat hunting and incident response.
 
 ## Monitor end-to-end scenario-based network monitoring
 Customers build an end-to-end network in Azure by combining network resources like a virtual network, ExpressRoute, Application Gateway, and load balancers. Monitoring is available on each of the network resources.

@@ -21,4 +21,6 @@ Azure provides the following built-in RBAC roles for authorizing access to blob 
 - [Storage Queue Data Message Sender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
 
 > [!NOTE]
-> Keep in mind that RBAC role assignments may take up to five minutes to propagate.
+> RBAC role assignments may take up to five minutes to propagate.
+>
+> Only roles explicitly defined for data access permit a security principal to access blob or queue data. Roles such as **Owner**, **Contributor**, and **Storage Account Contributor** permit a security principal to manage a storage account, but do not provide access to the blob or queue data within that account.

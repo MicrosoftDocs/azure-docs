@@ -1,9 +1,10 @@
 ---
 title: Azure Storage Explorer troubleshooting guide | Microsoft Docs
 description: Overview of debugging techniques for Azure Storage Explorer
-services: virtual-machines
+services: storage
 author: Deland-Han
-ms.service: virtual-machines
+manager: dcscontentpm
+ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan

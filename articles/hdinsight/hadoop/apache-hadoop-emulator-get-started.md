@@ -38,7 +38,7 @@ To download an older HDP version sandbox, see the links under **Older Versions**
 1. From the **File** menu, click **Import Appliance**, and then specify the Hortonworks Sandbox image.
 1. Select the Hortonworks Sandbox, click **Start**, and then **Normal Start**. Once the virtual machine has finished the boot process, it displays login instructions.
 
-    ![Normal start](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
+    ![virtualbox manager normal start](./media/apache-hadoop-emulator-get-started/virtualbox-normal-start.png)
 
 1. Open a web browser and navigate to the URL displayed (usually `http://127.0.0.1:8888`).
 
