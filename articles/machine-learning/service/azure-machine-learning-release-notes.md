@@ -22,21 +22,21 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning SDK for Python v1.0.65
 
-+ **New features**
-  + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
+  + **New features**
+    + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
   
-+ **azureml-train-automl**
-  + Added the ONNX conversion support for the ADB and HDI
+  + **azureml-train-automl**
+    + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**  
-+ **azureml-train-automl**
-  + Supported BERT and BiLSTM as text featurizer (preview only)
-  + Supported featurization customization for column purpose and transformer parameters (preview only)
-  + Supported raw explanations when user enables model explanation during training (preview only)
-  + Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
+  + **azureml-train-automl**
+    + Supported BERT and BiLSTM as text featurizer (preview only)
+    + Supported featurization customization for column purpose and transformer parameters (preview only)
+    + Supported raw explanations when user enables model explanation during training (preview only)
+    + Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
   
-+ **azureml-contrib-datadrift**
-  + Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
+  + **azureml-contrib-datadrift**
+    + Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
 
 + **Bug fixes and improvements**
   + **azureml-automl-core**
