@@ -27,7 +27,7 @@ landingContent:
             url: pre-reqs.md
       - linkListType: quickstart
         links:
-          - text: Create Service – Portal
+          - text: Create service – Portal
             url: quickstart-create-data-migration-service-portal.md
       - linkListType: how-to-guide
         links:            
