@@ -81,4 +81,4 @@ The following table contains common problems during pipeline development, with p
 
 * See the SDK reference for help with the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
-* Follow the [advanced tutorial](tutorial-batch-scoring-classification.md) on using pipelines for batch scoring.
+* Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines for batch scoring.
