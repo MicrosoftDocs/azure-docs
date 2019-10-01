@@ -42,9 +42,11 @@ The machine learning model workflow generally follows this sequence:
 Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 + Use the [visual interface (preview) for Azure Machine Learning](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
+
 
 > [!NOTE]
 > Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
