@@ -27,7 +27,7 @@ In Azure Search, "search-as-you-type" or typeahead functionality is based on a *
 
 A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
 
-The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggester contains the hotel name field.
+The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are hotel names. This is because only the HotelName field is listed in the suggester.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
@@ -49,7 +49,7 @@ To create a suggester, add one to an index schema. You can have one suggester in
 
 The best time to create a suggester is when you are also creating the field definition itself.
 
-If you try to create a suggester using pre-existing fields, the API will disallow it. Adding a suggester invokes an indexing operation. Given that existing fields are already indexed, you will have to rebuild the index if you want to add them to a suggester. For more information about reindexing, see [How to rebuild an Azure Search index](search-howto-reindex.md).
+If you try to create a suggester using pre-existing fields, the API will disallow it. Typeahead text is created during indexing, when partial terms in two or more character combinations are tokenized alongside whole terms. Given that existing fields are already tokenized, you will have to rebuild the index if you want to add them to a suggester. For more information about reindexing, see [How to rebuild an Azure Search index](search-howto-reindex.md).
 
 ### Create using the REST API
 
