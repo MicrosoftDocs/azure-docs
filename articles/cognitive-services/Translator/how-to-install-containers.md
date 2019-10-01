@@ -43,7 +43,7 @@ You must first complete and submit the [Cognitive Translator Text Containers Req
 
 ### The host computer
 
-The host is a x64-based computer with a Linux OS that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
+The host is an x64-based computer with a Linux OS that runs the Docker container. It can be a computer on your premises or a Docker hosting service in Azure, such as:
 
 * Azure Kubernetes Service.
 * Azure Container Instances.
@@ -57,7 +57,7 @@ The following table describes the minimum and recommended CPU cores, at least 2.
 |-----------|---------|---------------|
 | Translator Text | 4 core, 4 GB memory | 4 |
 
-For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 3 of 4 language pairs depending on the `<image-tag>` you're running. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
+For every language pair, it's recommended to have 1 GB of memory. By default, the Translator Text container has 3 of 4 language pairs, depending on the `<image-tag>` you're running. See [supported languages and translation](#supported-languages-and-translation) for the details. The core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -140,7 +140,7 @@ The docker logs command above will collect the "Error" logs for the last four ho
 The `POST /translate` method supports the following languages conversions, moving from *English* to a target language and vice versa. Please note that while you can go to and from English with one of the languages listed, you *cannot* go from one *non-English* language to another *non-English* language.
 
 > [!NOTE]
-> For optimal quality consumers should only send one sentence per request.
+> For optimal quality, consumers should only send one sentence per request.
 
 | Language Conversion | Language ISO Conversion | Image Tags |
 |--|--|:--|
