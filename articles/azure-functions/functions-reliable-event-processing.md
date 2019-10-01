@@ -121,7 +121,7 @@ Using this approach, no messages are lost, all messages are processed in order, 
 ## Resources
 
 - [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
-- [Durable Actor Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
+- [Azure Durable Functions Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## Next steps
 
