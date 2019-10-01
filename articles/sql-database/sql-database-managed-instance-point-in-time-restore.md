@@ -23,7 +23,7 @@ Point-in-time restore can:
 - Restore a database from an existing database.
 - Restore a database from a deleted database.
 
-With a managed instance, point-in-time restore can also:
+For a managed instance, point-in-time restore can also:
 
 - Restore a database to the same managed instance.
 - Restore a database to another managed instance.
@@ -124,7 +124,7 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
        --dest-mi mytargetinstancename
 ```
 
-For a detailed explanation of the available parameters, see the [managed -instance CLI documentation](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
+For a detailed explanation of the available parameters, see the [managed-instance CLI documentation](https://docs.microsoft.com/cli/azure/sql/midb?view=azure-cli-latest#az-sql-midb-restore).
 
 ---
 
@@ -153,9 +153,7 @@ $properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $poi
 $properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
 ```
 
-To restore the deleted database to another instance, change the resource-group name and managed-instance name.
-
-Make sure that the location parameter matches the location of the resource group and the managed instance.
+To restore the deleted database to another instance, change the resource-group name and managed-instance name. Also, make sure that the location parameter matches the location of the resource group and the managed instance.
 
 ```powershell-interactive
 $resourceGroupName = "<Second resource group name>"
@@ -172,10 +170,10 @@ New-AzResource -Location $location -Properties $properties `
 
 ## Overwrite an existing database
 
-To overwrite an existing database, you must also:
+To overwrite an existing database, you must:
 
 1. Drop the existing database that you want to overwrite.
-1. Rename the point-in-time restored database to the name of the database that you dropped.
+1. Rename the point-in-time-restored database to the name of the database that you dropped.
 
 ### Drop the original database
 
