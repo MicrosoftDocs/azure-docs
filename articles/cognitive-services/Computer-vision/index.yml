@@ -165,7 +165,7 @@ landingContent:
 #    linkLists:
 #      - linkListType: concept
 #        links:
-#          - text: Adult and racy content detection
+#          - text: Adult, racy, and gory content detection
 #            url: concept-detecting-adult-content.md
 #      - linkListType: quickstart
 #        links:

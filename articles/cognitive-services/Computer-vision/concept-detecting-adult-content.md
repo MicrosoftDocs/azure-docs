@@ -1,7 +1,7 @@
 ---
 title: Adult, racy, gory content - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to detecting adult and racy content in images using the Computer Vision APi.
+description: Concepts related to detecting adult content in images using the Computer Vision APi.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
