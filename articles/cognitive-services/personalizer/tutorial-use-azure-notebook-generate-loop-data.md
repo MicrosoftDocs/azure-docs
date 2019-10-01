@@ -25,7 +25,7 @@ The notebook selects a random user, time of day, and type of weather from the da
 
 |Customers - context features|Times of Day|Types of weather|
 |--|--|--|
-|Alice<br>Bob<br>Cathy<br>Dave|Morning<br>afternoon<br>evening|Sunny<br>rainy<br>snowy| 
+|Alice<br>Bob<br>Cathy<br>Dave|Morning<br>Afternoon<br>Evening|Sunny<br>Rainy<br>Snowy| 
 
 To help Personalizer learn, over time, the correct coffee selection for each person, the _system_ also knows details about the coffee.
 
@@ -33,7 +33,7 @@ To help Personalizer learn, over time, the correct coffee selection for each per
 |--|--|--|--|--|
 |Cappacino|Hot|Kenya|Dark|Organic|
 |Cold brew|Cold|Brazil|Light|Organic|
-|Iced mocha|cold|Ethiopia|Light|Not organic|
+|Iced mocha|Cold|Ethiopia|Light|Not organic|
 |Latte|Hot|Brazil|Dark|Not organic|
 
 
@@ -110,12 +110,22 @@ import uuid
 
 ### Set Personalizer resource key and name
 
-Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `resource_key` to own of your Personalizer keys on the **Keys** page from the Azure portal. The cell has no output.
+Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `<your-resource-key>` to own of your Personalizer keys on the **Keys** page from the Azure portal. The cell has no output.
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
-personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure.com"
-resource_key = "123456789"
+personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure.com/"
+resource_key = "<your-resource-key>"
+```
+
+### Print current data and time
+Use this function to note the start and end times of the iterative function, iterations.
+
+```python
+# Print out current datetime
+def currentDateTime():
+    currentDT = datetime.datetime.now()
+    print (str(currentDT))
 ```
 
 ### Get the last model update date and time
@@ -137,6 +147,9 @@ def get_last_updated(currentModifiedDate):
     # get model properties
     response = requests.get(personalization_model_properties_url, headers = headers, params = None)
     
+    print(response)
+    print(response.json())
+
     # get lastModifiedTime
     lastModifiedTime = json.dumps(response.json()["lastModifiedTime"])
     
@@ -156,17 +169,26 @@ This cell
 * reads in the JSON data files
 * calls `get_last_updated` method
 
-The cell has output from the call to `get_last_updated` function, which is the date of the last model training update. The date looks like: 
+The cell has output from the call to `get_last_updated` function, which is the date of the last model training update, the JSON response status, values. 
+
+It also prints the count of objects in the JSON data files for users and coffee. 
+
+The date looks like: 
 
 ```python
-"0001-01-01T00:00:00+00:00"
+-----checking model
+<Response [200]>
+{'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
+-----model updated: "0001-01-01T00:00:00+00:00"
+User count 4
+Coffee count 4
 ```
 
 ```python
 # build URLs
-personalization_rank_url = personalization_base_url + "/personalizer/v1.0/rank"
-personalization_reward_url = personalization_base_url + "/personalizer/v1.0/events/" #add "{eventId}/reward"
-personalization_model_properties_url = personalization_base_url + "/personalizer/v1.0/model/properties"
+personalization_rank_url = personalization_base_url + "personalizer/v1.0/rank"
+personalization_reward_url = personalization_base_url + "personalizer/v1.0/events/" #add "{eventId}/reward"
+personalization_model_properties_url = personalization_base_url + "personalizer/v1.0/model/properties"
 headers = {'Ocp-Apim-Subscription-Key' : resource_key, 'Content-Type': 'application/json'}
 
 # context
@@ -195,7 +217,16 @@ with open(requestpath) as handle:
     rankactionsjsonobj = json.loads(handle.read())  
     
 get_last_updated(modelLastModified)
+
+print(f'User count {len(userpref)}')
+print(f'Coffee count {len(actionfeaturesobj)}')
 ```
+
+### Troubleshooting the first REST call
+
+This previous cell is the first cell that calls out to Personalizer. Make sure the REST status code in the output is 200. If you get an error, such as 404, but you are sure your resource key and name are correct, reload the notebook.
+
+Make sure the count of coffee and users is both 4. If you get an error, check that you uploaded all 3 JSON files. 
 
 ### Generate a unique event ID
 
@@ -373,7 +404,7 @@ def iterations(n, modelCheck, jsonFormat):
     currentDateTime()
 
     # collect results to aggregate in graph
-    recommendations = 0
+    total = 0
     rewards = []
     count = []
 
@@ -408,13 +439,13 @@ def iterations(n, modelCheck, jsonFormat):
         reward = get_reward_from_simulated_data(name, weather, timeofday, prediction)
 
         # show result for iteration
-        print(f'   {i} {name} {weather} {timeofday} {prediction} {reward}')
+        print(f'   {i} {currentDateTime()} {name} {weather} {timeofday} {prediction} {reward}')
 
         # send the reward to the service 
         response = requests.post(personalization_reward_url + eventid + "/reward", headers = headers, params= None, json = { "value" : reward })
 
-        # for every N rank requests, compute total correct recommendations 
-        recommendations = recommendations + reward
+        # for every N rank requests, compute total correct  total
+         total =  total + reward
 
         # every N iteration, get last updated model date and time
         if(i % modelCheck == 0):
@@ -425,18 +456,20 @@ def iterations(n, modelCheck, jsonFormat):
 
         # aggregate so chart is easier to read
         if(i % 10 == 0):
-            rewards.append(recommendations)
+            rewards.append( total)
             count.append(i)
-            recommendations = 0
+             total = 0
 
         i = i + 1
         
     # Print out dateTime
     currentDateTime()
+
+    return [count, rewards]
 ```
 
 ## Run for 10,000 iterations
-Run the Personalizer loop for 10,000 iterations
+Run the Personalizer loop for 10,000 iterations. This is a long running event. Do not close the browser running the notebook.
 
 ```python
 # max iterations
@@ -475,7 +508,7 @@ createChart(count,rewards)
 
 ## Reading the chart
 
-This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to one hundred percent minus the exploration. The default setting of exploration is 20%. 
+This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to 100 percent minus the exploration. The default setting of exploration is 20%. 
 
 `100-20=80`
 
@@ -494,8 +527,15 @@ In order to find a better learning policy, based on your data to the Rank API, r
 
 1. Select **OK** to begin the evaluation. 
 1. This **Evaluations** page lists the new evaluation and its current status. Depending on how much data you have, this evaluation can take some time. You can come back to this page after a few minutes to see the results. 
-1. When the evaulation is completed, select the evaluation then select **Comparison of different learning policies**. This shows the available learning policies and how they would behave with the data. 
+1. When the evaluation is completed, select the evaluation then select **Comparison of different learning policies**. This shows the available learning policies and how they would behave with the data. 
 1. Select the top-most learning policy in the table and select **Apply**. This applies the _best_ learning policy to your model and retrains. 
+
+## Change update model frequency to 5 minutes
+
+1. In the Azure portal, still on the Personalizer resource, select the **Settings** page. 
+1. Change the **model update frequency** and **reward wait time** to 5 minutes and select **Save**.
+
+Learn more about the [reward wait time](concept-rewards.md#reward-wait-time) and [model update frequency](how-to-settings.md#model-update-frequency).
 
 ## Validate new learning policy by running experiment for 2,000 iterations
 
