@@ -35,8 +35,6 @@ Premium performance block blob storage makes data available via high-performance
 
 Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions.
 
-Premium performance is only available via the block blob storage account type.
-
 ## Standard performance
 
 Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
