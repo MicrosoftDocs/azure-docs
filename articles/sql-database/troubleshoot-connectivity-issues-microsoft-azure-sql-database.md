@@ -329,7 +329,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-When the exception happens due to query issues, you will notice a call stack that is similar to the following ones (Note the reference to the **SqlConnection** class).In these scenarios, [tune your queries](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+When the exception happens due to query issues, you will notice a call stack that is similar to the following ones (Note the reference to the **Sqlcommand** class). In these scenarios, [tune your queries](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
