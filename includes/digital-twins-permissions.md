@@ -44,8 +44,8 @@
 
     > [!IMPORTANT]
     > The Azure AD API name and ID that will appear depends on your tenant:
-    > * Standard accounts should search for `Azure Digital Twins`.
-    > * Development test accounts should search for `Azure Smart Spaces Service`.
+    > * Test tenant and customer accounts should search for `Azure Digital Twins`.
+    > * Other Microsoft accounts should search for `Azure Smart Spaces Service`.
 
 1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 
