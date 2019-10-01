@@ -123,7 +123,7 @@ The user's objectId will be returned in the output:
 ```
 To find a user with Azure PowerShell, use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) cmdlet, passing the users email address to the `-UserPrincipalName` parameter.
 
-``azurepowershell
+```azurepowershell
  Get-AzAdUser -UserPrincipalName <email-address-of-user>
 ```
 
