@@ -34,9 +34,9 @@ With *kubenet*, only the nodes receive an IP address in the virtual network subn
 
 ![Kubenet network model with an AKS cluster](media/use-kubenet/kubenet-overview.png)
 
-Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or network policies aren't supported with *kubenet*.  You can also use [Calico network policies][calico-network-policies], as they are supported with kubenet.
+Azure supports a maximum of 400 routes in a UDR, so you can't have an AKS cluster larger than 400 nodes. AKS features such as [Virtual Nodes][virtual-nodes] or Azure Network Policies aren't supported with *kubenet*.  You can use [Calico Network Policies][calico-network-policies], as they are supported with kubenet.
 
-With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or network policies are supported with *Azure CNI*.  You can also use [Calico network policies][calico-network-policies], as they are also supported with *Azure CNI*.
+With *Azure CNI*, each pod receives an IP address in the IP subnet, and can directly communicate with other pods and services. Your clusters can be as large as the IP address range you specify. However, the IP address range must be planned in advance, and all of the IP addresses are consumed by the AKS nodes based on the maximum number of pods that they can support. Advanced network features and scenarios such as [Virtual Nodes][virtual-nodes] or Network Policies (either Azure or Calico) are supported with *Azure CNI*.
 
 ### IP address availability and exhaustion
 
@@ -68,14 +68,14 @@ Use *kubenet* when:
 
 - You have limited IP address space.
 - Most of the pod communication is within the cluster.
-- You don't need advanced AKS features such as virtual nodes or network policy.  You can optionally use [Calico network policies][calico-network-policies].
+- You don't need advanced AKS features such as virtual nodes or Azure Network Policy.  You can optionally use [Calico network policies][calico-network-policies].
 
 Use *Azure CNI* when:
 
 - You have available IP address space.
 - Most of the pod communication is to resources outside of the cluster.
 - You don’t want to manage the UDRs.
-- You need AKS advanced features such as virtual nodes or network policy.  You can optionally use [Calico network policies][calico-network-policies].
+- You need AKS advanced features such as virtual nodes or Azure Network Policy.  You can optionally use [Calico network policies][calico-network-policies].
 
 For more information to help you decide which network model to use, see [Compare network models and their support scope][network-comparisons].
 
@@ -192,8 +192,8 @@ With an AKS cluster deployed into your existing virtual network subnet, you can 
 <!-- LINKS - External -->
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
-[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 [Calico-network-policies]: https://docs.projectcalico.org/v3.8/security/calico-network-policy
+[kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli
