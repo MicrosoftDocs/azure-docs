@@ -7,10 +7,10 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
 
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 08/11/2019
+ms.date: 10/1/2019
 ---
 
 # Deep learning and AI frameworks for the Azure Data Science VM
