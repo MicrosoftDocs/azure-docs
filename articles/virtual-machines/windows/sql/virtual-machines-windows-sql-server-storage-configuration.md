@@ -71,7 +71,12 @@ If you use the following Resource Manager templates, two premium data disks are 
 * [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Create VM with AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
-* 
+
+### Quickstart template
+
+You can use the following quickstart template to deploy a SQL Server VM using storage optimization. 
+
+* [Create VM with storage optimization](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
 
 ## Existing VMs
 
