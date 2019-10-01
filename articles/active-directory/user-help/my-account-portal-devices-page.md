@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Manage your connected devices from the My Account portal
 
-From the **Devices** page of the **My account portal**, you can:
+From the **Devices** page of the **My account** portal, you can:
 
 - View your work or school account-connected devices.
 

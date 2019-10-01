@@ -45,6 +45,12 @@ For detailed information and instructions about what's available from the **My A
 | [View or disable your connected devices](my-account-portal-devices-page.md) | Instructions about how to view or disable any devices you've connected to your work or school account.|
 | [View your privacy-related info](my-account-portal-privacy-page.md) | Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
 
-## Related content
+## Related Office content
 
-| [Access the Microsoft Office My Account page](https://portal.office.com/account/#home) | Takes you to the Microsoft Office version of the **My Account** page, where you can view your [Office-related installations](https://portal.office.com/account/#installs) and your [assigned app subscriptions](https://portal.office.com/account/#subscriptions). For information about how to manage your Office product, see [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f).
+- [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Go to the **My Account** page](https://portal.office.com/account/#home)
+
+- [Go to the **My installs** page](https://portal.office.com/account/#installs)
+
+- [Go to the **Subscriptions** page](https://portal.office.com/account/#subscriptions)
