@@ -96,19 +96,25 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 ```bash
-sourceDiskSizeBytes= $(az disk show -g <sourceResourceGroupHere> -n <sourceDiskNameHere> --query '[uniqueId]' -o tsv)
+sourceDiskName = <sourceDiskNameHere>
+sourceRG = <sourceResourceGroupHere>
+targetDiskName = <targetDiskNameHere>
+targetRG = <targetResourceGroupHere>
+targetLocale = <yourTargetLocationHere>
 
-az disk create -n <targetResourceGroupHere> -n <targetDiskNameHere> -l <yourTargetLocationHere> --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
+sourceDiskSizeBytes= $(az disk show -g $sourceRG -n $sourceDiskName --query '[uniqueId]' -o tsv)
 
-targetSASURI = $(az disk grant-access -n <targetDiskNameHere> -g <targetResourceGroupHere>  --access-level Write --duration-in-seconds 86400 -o tsv)
+az disk create -n $targetRG -n $targetDiskName -l $targetLocale --for-upload --upload-size-bytes $(($sourceDiskSizeBytes+512)) --sku standard_lrs
 
-sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g <sourceResourceGroupNameHere> --duration-in-seconds 86400 --query [acessSas] -o tsv)
+targetSASURI = $(az disk grant-access -n $targetDiskName -g $targetRG  --access-level Write --duration-in-seconds 86400 -o tsv)
+
+sourceSASURI=$(az disk grant-access -n <sourceDiskNameHere> -g $sourceRG --duration-in-seconds 86400 --query [acessSas] -o tsv)
 
 .\azcopy copy $sourceSASURI $targetSASURI --blob-type PageBlob
 
-az disk revoke-access -n <sourceDiskNameHere> -g <sourceResourceGroupHere>
+az disk revoke-access -n $sourceDiskName -g $sourceRG
 
-az disk revoke-access -n <targetDiskNameHere> -g <targetResourceGroupHere>
+az disk revoke-access -n $targetDiskName -g $targetRG
 ```
 
 ## Next steps

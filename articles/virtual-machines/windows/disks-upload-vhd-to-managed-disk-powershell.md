@@ -92,22 +92,30 @@ The follow script will do this for you, the process is similar to the steps desc
 Replace the `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` and `<yourTargetLocationHere>` (an example of a location value would be uswest2) with your values, then run the following script in order to copy a managed disk.
 
 ```powershell
-$sourceDisk = Get-AzDisk -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere>
+
+$sourceRG = <sourceResourceGroupHere>
+$sourceDiskName = <sourceDiskNameHere>
+$targetDiskName = <targetDiskNameHere>
+$targetRG = <targetResourceGroupHere>
+$targetOS = <yourOSTypeHere>
+$targetLocate = <yourTargetLocationHere>
+
+$sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
 # Adding the sizeInBytes with the 512 offset, and the -Upload flag
-$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType <yourOSTypeHere> -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location <yourTargetLocationHere> -CreateOption 'Upload'
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
 
-$targetDisk = New-AzDisk -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> -Disk $targetDiskconfig
+$targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
 
-$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere> -DurationInSecond 86400 -Access 'Read'
+$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 86400 -Access 'Read'
 
-$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> -DurationInSecond 86400 -Access 'Write'
+$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 86400 -Access 'Write'
 
 azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
 
-Revoke-AzDiskAccess -ResourceGroupName <sourceResourceGroupHere> -DiskName <sourceDiskNameHere>
+Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
-Revoke-AzDiskAccess -ResourceGroupName <targetResourceGroupHere> -DiskName <targetDiskNameHere> 
+Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
 ## Next steps
