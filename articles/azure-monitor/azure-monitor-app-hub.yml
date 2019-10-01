@@ -31,7 +31,7 @@ highlightedContent:
       url: ./app/asp-net-core.md
     - title: Create a resource 
       itemType: how-to-guide
-      url: ./app/create-new-resource
+      url: ./app/create-new-resource.md
     - title: Add client-side JavaScript to your website
       itemType: how-to-guide 
       url: ./app/javascript.md
@@ -62,7 +62,7 @@ conceptualContent:
         - url: ./app/nodejs.md
           itemType: how-to-guide
           text: Node.js
-        - url: ./app/javascrt.md
+        - url: ./app/javascript.md
           itemType: how-to-guide
           text: JavaScript    
 
@@ -86,7 +86,7 @@ conceptualContent:
         - url: ./app/status-monitor-v2-overview.md
           itemType: how-to-guide
           text: Status Monitor V2
-        - url: ./app/azure-vm-smss-apps.md
+        - url: ./app/azure-vm-vmss-apps.md
           itemType: how-to-guide
           text: Azure VM & Azure virtual machine scale sets
         
@@ -95,7 +95,7 @@ conceptualContent:
         - url: ./app/distributed-tracing.md
           itemType: overview
           text: What is distributed tracing? 
-        - url: ./app/appmap.md
+        - url: ./app/app-map.md
           itemType: how-to-guide
           text: Application Map
         - url: ./app/correlation.md
@@ -130,7 +130,7 @@ conceptualContent:
         - url: .\app\pre-aggregated-metrics-log-metrics.md
           itemType: how-to-guide
           text:  Log-based and pre-aggregated metrics
-        - url: ./app/app-insights-metrics.md
+        - url: ./platform/app-insights-metrics.md
           itemType: how-to-guide
           text:  Log-based metric definitions
         - url: ./app/diagnostic-search.md
@@ -145,10 +145,10 @@ conceptualContent:
         - url: ./app/profiler.md
           itemType: how-to-guide
           text:  Profile Azure App Service apps
-        - url: ./app/profiler-cloud-service.md
+        - url: ./app/profiler-cloudservice.md
           itemType: how-to-guide
           text:  Profile Azure Cloud Services apps
-        - url: ./app/profiler-servicefabric.ms
+        - url: ./app/profiler-servicefabric.md
           itemType: how-to-guide
           text:  Profile Service Fabric apps
         - url: ./app/profiler-vm.md
