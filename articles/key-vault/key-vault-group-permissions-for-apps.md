@@ -49,9 +49,9 @@ To give an application, Azure AD group, or user access to your key vault, you mu
 
 #### Applications
 
-There are two ways to obtain an objectId for an application.
+The objectId for an applications corresponds with its associated service principal. For full details on service principals. see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).] 
 
-The first is to register your application with Azure Active Directory. To do so, follow the steps in the quickstart [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). When registration is complete, the objectID will be listed as the "Application (client) ID".
+There are two ways to obtain an objectId for an application.  The first is to register your application with Azure Active Directory. To do so, follow the steps in the quickstart [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). When registration is complete, the objectID will be listed as the "Application (client) ID".
 
 The second is to create a service principal in a terminal window. With the Azure CLI, use the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command.
 
@@ -74,7 +74,7 @@ The objectId will be listed in the output as `Id` (not `ApplicationId`).
 
 You can add multiple applications and users to an Azure AD group, and then give the group access to your key vault.  For more details, see the [Creating and adding members to an Azure AD group](#creating-and-adding-members-to-an-azure-ad-group) section, below.
 
-To find the objectId of an Azure Ad group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you will probably wish to also provide a search string to the `--display-name` parameter.
+To find the objectId of an Azure Ad group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you should also provide a search string to the `--display-name` parameter.
 
 ```azurecli
 az ad group list --displayname <search-string>
@@ -113,6 +113,7 @@ If you nonetheless wish to find a user with the Azure CLI, use the [az ad user s
 ```azurecli
 az ad user show --id <email-address-of-user>
 ```
+
 The user's objectId will be returned in the output:
 
 ```console
@@ -121,6 +122,7 @@ The user's objectId will be returned in the output:
   "objectType": "User",
   ...
 ```
+
 To find a user with Azure PowerShell, use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser?view=azps-2.7.0) cmdlet, passing the users email address to the `-UserPrincipalName` parameter.
 
 ```azurepowershell
@@ -179,9 +181,17 @@ In either case, make note on the newly created groups GroupId, as you will need 
 
 ### Find the objectIds of your applications and users
 
-Find the objectIds of your applications and groups using the steps given above:
+You can find the objectIds of your applications using the Azure CLI with the [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) command, with the `--show-mine` paramater.
 
+```azurecli
+az ad sp list --show-mine
+```
 
+Find the objectIds of your applications using Azure PowerShell with the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, passing a search string to the `-SearhcString` paramater.
+
+```azurepowershell
+Get-AzADServicePrincipal -SearchString <search-string>
+```
 
 ### Add your applications and users to the group
 
