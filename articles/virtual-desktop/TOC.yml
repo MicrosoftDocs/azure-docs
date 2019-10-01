@@ -107,7 +107,7 @@
 - name: Resources
   items:
   - name: Experience estimator
-    href: https://azure.microsoft.com/en-us/services/virtual-desktop/assessment/
+    href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Tech Community support group

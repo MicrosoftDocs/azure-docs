@@ -53,3 +53,7 @@ Different display resolutions require different available bandwidths. The follow
 
 >[!NOTE]
 >These recommendations apply regardless of how many users are in the session.
+
+## Additional resources
+
+The Azure region you're in can affect user experience as much as network conditions. Check out the [Windows Virtual Desktop experience estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to learn more.
