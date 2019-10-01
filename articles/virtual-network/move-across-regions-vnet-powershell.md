@@ -55,7 +55,7 @@ To export the virtual network and deploy the target virtual network by using Pow
    Export-AzResourceGroup -ResourceGroupName <source-resource-group-name> -Resource $sourceVNETID -IncludeParameterDefaultValue
    ```
 
-1. Give the downloaded file the same name as that of the resource group that the resource was exported from. Locate the *\<resource-group-name>.json* file, which you exported with the command, and then open it in an editor of your choice:
+1. The downloaded file has the same name as the resource group that the resource was exported from. Locate the *\<resource-group-name>.json* file, which you exported with the command, and then open it in your editor:
    
    ```azurepowershell
    notepad <source-resource-group-name>.json
