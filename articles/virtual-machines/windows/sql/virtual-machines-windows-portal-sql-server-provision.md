@@ -199,7 +199,7 @@ Under **Storage optimized for**, select one of the following options:
 * **Transactional** processing optimizes the storage for traditional database OLTP workloads.
 * **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
-![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/sql-vm-storage-configuration.png)
 
 You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
