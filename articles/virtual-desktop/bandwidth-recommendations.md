@@ -6,26 +6,26 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/01/2019
 ms.author: helohr
 ---
 # Bandwidth recommendations for remote sessions
 
-When using a remote Windows session, your network’s available bandwidth greatly impacts the quality of your experience. Different applications and display resolutions require different network configurations, so it’s important to make sure your network is configured to meet your needs. This article describes recommended bandwidths for each workload.
+When using a remote Windows session, your network’s available bandwidth greatly impacts the quality of your experience. Different applications and display resolutions require different network configurations, so it’s important to make sure your network is configured to meet your needs. The recommended bandwidths for each workload apply to scenarios with one or multiple users.
 
 >[!NOTE]
 >The following recommendations apply to networks with less than 0.1% loss.
 
 ## Applications
 
-The following table lists the minimum requirements for a smooth user experience. 
+The following table lists the minimum recommended bandwidths for a smooth user experience. These recommendations apply to scenarios with one or multiple users.
 
 |Workload        |Sample applications                                                                                           |Recommended bandwidth|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5&nbsp;Mbps             |
-|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3&nbsp;Mbps               |
-|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5&nbsp;Mbps               |
-|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15&nbsp;Mbps              |
+|Task worker     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5&nbsp;Mbps        |
+|Office worker   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer                                        |3&nbsp;Mbps          |
+|Knowledge worker|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java                                  |5&nbsp;Mbps          |
+|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, Photo Viewer, Java, CAD/CAM, illustration/publishing|15&nbsp;Mbps         |
 
 Keep in mind that the stress put on your network depends on both your app workload's output frame rate and your display resolution. If either the frame rate or display resolution increases, the bandwidth requirement will also rise. For example, a light workload with a high-resolution display requires more available bandwidth than a light workload with regular or low resolution.
 
@@ -39,7 +39,7 @@ Make sure to load test these scenarios in your deployment using simulation tools
 
 ## Display resolutions
 
-Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a frame rate of 30 frames per second (fps). Keep in mind that scenarios involving a frame rate under 30 fps, such as reading static text, require less available bandwidth. 
+Different display resolutions require different available bandwidths. The following table lists the bandwidths we recommend for a smooth user experience at typical display resolutions with a frame rate of 30 frames per second (fps). These recommendations apply to single and multiple user scenarios. Keep in mind that scenarios involving a frame rate under 30 fps, such as reading static text, require less available bandwidth. 
 
 |Typical display resolutions at 30 fps    |Recommended bandwidth|
 |-----------------------------------------|---------------------|
