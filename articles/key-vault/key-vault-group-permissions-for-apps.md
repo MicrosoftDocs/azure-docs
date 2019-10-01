@@ -51,7 +51,7 @@ To give an application, Azure AD group, or user access to your key vault, you mu
 
 #### Applications
 
-The objectId for an applications corresponds with its associated service principal. For full details on service principals. see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).] 
+The objectId for an applications corresponds with its associated service principal. For full details on service principals. see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). 
 
 There are two ways to obtain an objectId for an application.  The first is to register your application with Azure Active Directory. To do so, follow the steps in the quickstart [Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). When registration is complete, the objectID will be listed as the "Application (client) ID".
 
@@ -166,7 +166,7 @@ If you intend to use PowerShell, you will also need the [Azure AD PowerShell mod
 
 ### Create an Azure Active Directory group
 
-Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup](/(powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
+Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
 
 
 ```azurecli-interactive

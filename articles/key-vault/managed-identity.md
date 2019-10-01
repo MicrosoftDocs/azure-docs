@@ -14,7 +14,7 @@ ms.author: mbaldwin
 ---
 # Provide Key Vault authentication with a managed identity
 
-A managed identity from Azure Active Directory allows your app to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
+A managed identity from Azure Active Directory allows your app to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and does not require you to provision or rotate any secrets. For more information, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
 This article shows you how to create a managed identity for an App Service application and use it to access Azure Key Vault. For applications hosted in Azure VMs, see [Use a Windows VM system-assigned managed identity to access Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
 
@@ -99,7 +99,7 @@ Make a note of the `PrincipalId`, which will be needed in next section.
 
 ### Azure CLI
 
-To grant your application access to your key vault, use the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, supplying the **ObjectId** parameter with the **principalId* you noted above.
+To grant your application access to your key vault, use the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, supplying the **ObjectId** parameter with the **principalId** you noted above.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
