@@ -109,6 +109,8 @@ az vm create \
     --generate-ssh-keys
 ```
 
+We recommend that you limit the number of concurrent deployments to 20 VMs from a single image. If you are planning large-scale, concurrent deployments of over 20 VMs from the same custom image, you should use a [Shared Image Gallery](shared-image-galleries.md) with multiple image replicas. 
+
 ## Image management 
 
 Here are some examples of common image management tasks and how to complete them using the Azure CLI.

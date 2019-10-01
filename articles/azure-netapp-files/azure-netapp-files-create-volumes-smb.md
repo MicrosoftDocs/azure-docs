@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/20/2019
+ms.date: 9/25/2019
 ms.author: b-juche
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -90,6 +90,9 @@ A subnet must be delegated to Azure NetApp Files.
 
     * **Organizational unit path**  
         This is the LDAP path for the organizational unit (OU) where SMB server machine accounts will be created. That is, OU=second level, OU=first level. 
+
+        If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
+        
     * Credentials, including your **username** and **password**
 
     ![Join Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
