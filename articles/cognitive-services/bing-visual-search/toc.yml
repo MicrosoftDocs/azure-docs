@@ -34,6 +34,8 @@
         href: visual-search-sdk-node.md
       - name: Using Python
         href: visual-search-sdk-python.md
+      - name: Using Java
+        href: visual-search-sdk-java.md
 - name: Tutorials
   items:
   - name: Uploading an image
