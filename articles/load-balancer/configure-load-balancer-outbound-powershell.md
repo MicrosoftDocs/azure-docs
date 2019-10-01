@@ -77,7 +77,7 @@ This section explains how to create and configure the following components of th
   - A load-balancer outbound rule that defines how traffic is distributed from the VMs
 
 ### Create an inbound front-end IP
-Create the outbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). The load balancer should include an inbound front-end IP configuration named *myfrontendinbound*. Associate this configuration with the public IP address *mypublicipinbound*.
+Create the inbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). The load balancer should include an inbound front-end IP configuration named *myfrontendinbound*. Associate this configuration with the public IP address *mypublicipinbound*.
 
 ```azurepowershell-interactive
 $frontendIPin = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendinbound" -PublicIpAddress $pubIPin
@@ -156,6 +156,6 @@ When you no longer need the resource group, load balancer, and related resources
 ```
 
 ## Next steps
-In this article, you created a standard load balancer, configured both inbound load-balancer traffic rules, and configured a health probe for the VMs in the back-end pool. 
+In this article, you created a standard load balancer, configured both inbound and outbound load-balancer traffic rules, and configured a health probe for the VMs in the back-end pool. 
 
 To learn more, continue to the [tutorials for Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
