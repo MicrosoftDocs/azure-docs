@@ -21,7 +21,7 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-5. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## Install the Azure CLI extension
 
@@ -41,12 +41,7 @@ az account list -o table
 az account set --subscription
 ```
 
-Prepare your resource name and resource group. The following is a brief explanation of each.
-
-- Resource Name: Specify the name of your service instance.
-- Resource group: Creating new resource groups for new resources is generally considered the best practice.
-
-Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
+1. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
 
 ```azurecli
     az spring-cloud create -n <resource name> -g <resource group name> --is-public true
@@ -54,7 +49,7 @@ Open an Azure CLI window and run the following commands to provision an instance
 
 The service instance will take about five minutes to deploy.
 
-Set your default resource group name and cluster name using the following commands:
+1. Set your default resource group name and cluster name using the following commands:
 
 ```azurecli
 az configure --defaults group=<service group name>

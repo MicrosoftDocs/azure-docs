@@ -12,9 +12,9 @@ ms.author: jeconnoc
 
 Service Discovery is a key requirement for a microservice-based architecture.  Configuring each client manually takes time and introduce the possibility of human error.  Azure Spring Cloud offers service discovery through Eureka to solve this problem.  Once configured, a Eureka server will control service registration and discovery for your application's microservices. The Eureka server maintains a registry of the deployed microservices.  This service enables client-side load-balancing and decouples service providers from clients without relying on DNS.
 
-## Enable service discovery using Eureka
+## Register your application using Eureka
 
-Before your application can manage service registraton and discovery using Eureka, several dependencies must be included in the application's *pom.xml* file.
+Before your application can manage service registration and discovery using Eureka, several dependencies must be included in the application's *pom.xml* file.
 
 To begin, we add a snapshot repository to the *repository* section of your *pom.xml*
 
@@ -30,6 +30,8 @@ To begin, we add a snapshot repository to the *repository* section of your *pom.
     </repositories>
 ```
 
+## Include dependencies
+
 Next, we include dependencies for *spring-cloud-starter-netflix-eureka-client* and *spring-cloud-starter-azure-spring-cloud-client* to your *pom.xml*
 
 ```xml
@@ -43,6 +45,8 @@ Next, we include dependencies for *spring-cloud-starter-netflix-eureka-client* a
         <version>2.1.0-SNAPSHOT</version>
     </dependency>
 ```
+
+## Update the top level class
 
 Finally, we add an annotation to the top level class of your application
 
