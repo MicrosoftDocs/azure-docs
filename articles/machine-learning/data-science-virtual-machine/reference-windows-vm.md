@@ -131,4 +131,6 @@ You can use the [Microsoft Web Platform Installer](https://www.microsoft.com/web
 > [!NOTE]
 > On the Windows Server 2012 edition of the DSVM and the Windows Server 2016 edition before March 2018, the default Anaconda environment is Python 2.7. The secondary environment is Python 3.5, located at C:\Anaconda\envs\py35.
 
+## Next steps
 
+Have additional questions? Consider creating a [support ticket](https://azure.microsoft.com/support/create-ticket/).

@@ -61,7 +61,7 @@ user.department -eq "Sales"
 
 Parentheses are optional for a single expression. The total length of the body of your membership rule cannot exceed 2048 characters.
 
-# Constructing the body of a membership rule
+## Constructing the body of a membership rule
 
 A membership rule that automatically populates a group with users or devices is a binary expression that results in a true or false outcome. The three parts of a simple rule are:
 

@@ -19,6 +19,7 @@ Get up and running with a Windows Data Science Virtual Machine.
 ## Prerequisite
 
 To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 ## Create your DSVM
 
@@ -26,10 +27,12 @@ To create a DSVM instance:
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
 1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine - Windows 2016."
+
     ![Windows VM Listing](./media/provision-vm/search-windows.png)
+
 1. Select the **Create** button at the bottom.
 
-   ![Virtual machine listing on the Azure portal, with Create button](./media/provision-vm/create-windows.png)
+    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    ![Basics tab corresponding to Windows Virtual Machine](./media/provision-vm/review-create-windows.png)
