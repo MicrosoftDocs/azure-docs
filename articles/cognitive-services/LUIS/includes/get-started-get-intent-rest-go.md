@@ -1,40 +1,25 @@
 ---
-title: "Quickstart: Get intent, Go - LUIS"
+title: Get intent with REST call in Go
 titleSuffix: Azure Cognitive Services
-description: In this Go quickstart, use an available public LUIS app to determine a user's intention from conversational text.  
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 09/03/2019
+ms.topic: include 
+ms.date: 09/27/2019
 ms.author: diberry
-#Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using GO so that I can see the JSON prediction response. 
 ---
-
-# Quickstart: Get intent using Go
-
-In this quickstart, pass utterances to a LUIS endpoint and get intent and entities back.
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
-
 ## Prerequisites
 
 * [Go](https://golang.org/) programming language  
 * [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
-
-## Get intent with browser
-
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent programmatically
 
@@ -79,14 +64,17 @@ You can use Go to access the same results you saw in the browser window in the p
         ]
     }
     ```
-    
+
+
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
-Close the Go file and remove it from the file system. 
+
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Add utterances](luis-get-started-go-add-utterance.md)
+> [Add utterances and train with Go](../luis-get-started-go-add-utterance.md)

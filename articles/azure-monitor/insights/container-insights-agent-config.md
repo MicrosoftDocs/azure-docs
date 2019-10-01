@@ -183,6 +183,22 @@ The output will show similar to the following with the annotation schema-version
 
 ## Review Prometheus data usage
 
+To view prometheus metrics scraped by Azure Monitor, specify "prometheus" as the Namespace. Here is a sample query to view prometheus metrics from the `default` kubernetes namespace.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+Prometheus data can also be directly queried by name.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
+
 To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
 
 ```
