@@ -308,13 +308,16 @@ This method has more steps than Method 1, but has the same result. It is include
 3. Add the new root certificate. You can only add one certificate at a time.
 
    ```azurepowershell
-   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $MyP2SCertPubKeyBase64_2
+   Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName2 `
+   -VirtualNetworkGatewayname $GWName `
+   -ResourceGroupName $RG `
+   -PublicCertData $MyP2SCertPubKeyBase64_2
    ```
 4. You can verify that the new certificate was added correctly by using the following example:
 
    ```azurepowershell
-   Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
-   -VirtualNetworkGatewayName "VNet1GW"
+   Get-AzVpnClientRootCertificate -ResourceGroupName $RG `
+   -VirtualNetworkGatewayName $GWName
    ```
 
 ### <a name="removerootcert"></a>To remove a root certificate
@@ -335,8 +338,8 @@ This method has more steps than Method 1, but has the same result. It is include
 3. Use the following example to verify that the certificate was removed successfully.
 
    ```azurepowershell-interactive
-   Get-AzVpnClientRootCertificate -ResourceGroupName "TestRG" `
-   -VirtualNetworkGatewayName "VNet1GW"
+   Get-AzVpnClientRootCertificate -ResourceGroupName $RG `
+   -VirtualNetworkGatewayName $GWName
    ```
 
 ## <a name="revoke"></a>To revoke a client certificate
