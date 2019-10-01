@@ -1,5 +1,6 @@
 ---
 title: Tools Included on the DSVM
+titleSuffix: Azure Data Science Virtual Machine tools
 description: A list of tools included on the Windows and Ubuntu DSVM images
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
@@ -13,7 +14,7 @@ ms.date: 09/27/2019
 
 ---
 
-# What tools are included on the Data Science Virtual Machine?
+# What tools are included on the Azure Data Science Virtual Machine?
 
 Below we have included an up-to-date list of tools included on the Data Science Virtual Machine, along with links to understand how each tool is configured.
 
