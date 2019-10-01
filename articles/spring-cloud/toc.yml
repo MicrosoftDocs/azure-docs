@@ -2,7 +2,7 @@
   href: index.yml
   displayName: Azure Spring Cloud
 - name: Overview
-  href: spring-cloud/overview.md
+  href: overview.md
 - name: Quickstarts
   expanded: true 
   items:
