@@ -1554,6 +1554,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: Meta Networks Connector
+        href: meta-networks-connector-provisioning-tutorial
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle
