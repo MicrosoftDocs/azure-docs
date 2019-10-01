@@ -23,7 +23,7 @@ Software requirements:
 
 ## Import the plug-in
 1. Import the acoustics UnityPackage into your project. 
- In Unity, go to **Assets > Import Package > Custom Package**.
+ In Unity, go to **Assets** > **Import Package** > **Custom Package**.
 
     ![The Unity Import Package menu](media/import-package.png)  
 
@@ -49,17 +49,17 @@ Project Acoustics includes audio runtime DSP that integrates into the Unity audi
 
 ![The Unity Spatializer settings panel with Project Acoustics spatializer selected](media/choose-spatializer.png)
 
-Next, open the Audio Mixer (**Window > Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't have one, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Project Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
+Next, open the Audio Mixer (**Window** > **Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't have one, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
 
 ![The Unity Audio Mixer hosting the Project Acoustics mixer](media/audio-mixer.png)
 
 ## Enable acoustics on sound sources
-Create an audio source: Select the **Spatialize** checkbox at the bottom of the AudioSource's inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
+Create an audio source: Select the **Spatialize** checkbox at the bottom of the AudioSource inspector panel. Make sure that **Spatial Blend** is set to full *3D*.  
 
 ![The Unity Audio Source panel](media/audio-source.png)
 
 ## Enable acoustic design
-Attach the *AcousticsAdjust* script to a sound source in your scene to enable additional source design parameters: Select **Add Component** and choose **Scripts > Acoustics Adjust**.
+Attach the *AcousticsAdjust* script to a sound source in your scene to enable additional source design parameters: Select **Add Component** and choose **Scripts** > Acoustics Adjust**.
 
 ![The Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
