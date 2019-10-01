@@ -41,6 +41,8 @@ Because this vault was in tenant A before the move, the original value of **$vau
 
 Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy).
 
+Also note that if you are using MSI, you will have to update the MSI identity as well since the old identity will no longer be in the correct AAD tenant.
+
 ## Next steps
 
 If you have questions about Azure Key Vault, visit the [Azure Key Vault Forums](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).
