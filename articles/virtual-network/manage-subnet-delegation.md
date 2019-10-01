@@ -22,7 +22,7 @@ Subnet delegation gives explicit permissions to the service to create service-sp
 
 Sign in to the Azure portal at https://portal.azure.com.
 
-### Create the virtual network
+# Create the virtual network
 
 In this section, you create a virtual network and the subnet that you will later delegate to an Azure service.
 
