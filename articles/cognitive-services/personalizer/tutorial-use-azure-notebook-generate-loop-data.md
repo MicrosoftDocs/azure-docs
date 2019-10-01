@@ -23,15 +23,19 @@ The loop suggests which type of coffee a customer should order. The users and th
 
 The notebook selects a random user, time of day, and type of weather from the dataset. A summary of the user information is:
 
-|Customers|Times of Day|Types of weather|
+|Customers - context features|Times of Day|Types of weather|
 |--|--|--|
 |Alice<br>Bob<br>Cathy<br>Dave|Morning<br>afternoon<br>evening|Sunny<br>rainy<br>snowy| 
 
 To help Personalizer learn, over time, the correct coffee selection for each person, the _system_ also knows details about the coffee.
 
-|Types of temperature|Places of origin|Types of roast|Organic|
-|--|--|--|--|
-|Hot<br>cold|Kenya<br>Brazil<br>Ethiopia|Dark<br>light|Organic<br>not organic|
+|Coffee - action features|Types of temperature|Places of origin|Types of roast|Organic|
+|--|--|--|--|--|
+|Cappacino|Hot|Kenya|Dark|Organic|
+|Cold brew|Cold|Brazil|Light|Organic|
+|Iced mocha|cold|Ethiopia|Light|Not organic|
+|Latte|Hot|Brazil|Dark|Not organic|
+
 
 The **purpose** of the Personalizer loop is to find the best match between the users and the coffee as much of the time as possible. 
 
