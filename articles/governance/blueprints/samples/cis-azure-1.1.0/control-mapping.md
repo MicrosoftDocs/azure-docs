@@ -37,7 +37,7 @@ built-in policy initiative.
 ## 1.1 Ensure that multi-factor authentication is enabled for all privileged users
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help you monitor
-when multi-factor authentication is not enabled on privileged Azure Active Directory accounts.
+when multi-factor authentication isn't enabled on privileged Azure Active Directory accounts.
 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - MFA should be enabled on accounts with write permissions on your subscription
@@ -45,7 +45,7 @@ when multi-factor authentication is not enabled on privileged Azure Active Direc
 ## 1.2 Ensure that multi-factor authentication is enabled for all non-privileged users
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-monitor when multi-factor authentication is not enabled on non-privileged Azure Active Directory
+monitor when multi-factor authentication isn't enabled on non-privileged Azure Active Directory
 accounts.
 
 - MFA should be enabled on accounts with read permissions on your subscription
@@ -62,7 +62,7 @@ for guest accounts that may need removed.
 ## 2.1 Ensure that standard pricing tier is selected
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-monitor networks and virtual machines where the Security Center standard tier is not enabled.
+monitor networks and virtual machines where the Security Center standard tier isn't enabled.
 
  - Security Center standard pricing tier should be selected
 
@@ -118,9 +118,9 @@ protect virtual machines running web applications.
 ## 2.9 Ensure ASC Default policy setting "Enable Next Generation Firewall(NGFW) Monitoring" is not "Disabled"
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help protect
-subnets and virtual machines from threats by restricting access. (The Security Center policy
+subnets and virtual machines from threats by restricting access. *The Security Center policy
 referenced by this CIS recommendation has been replaced by two new recommendations. The policies
-referenced below address the new recommendations.)
+referenced below address the new recommendations.*
 
 - Subnets should be associated with a Network Security Group
 - Virtual machines should be associated with a Network Security Group
@@ -320,8 +320,9 @@ mitigate brute force attacks on PostgreSQL database servers.
 ## 4.19 Ensure that Azure Active Directory Admin is configured
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure an Azure Active Directory administrator is provisioned for SQL servers. (This is duplicate of
-recommendation 4.8.)
+ensure an Azure Active Directory administrator is provisioned for SQL servers. (CIS Microsoft Azure
+Foundations Benchmark includes this recommendation; however, it is a duplicate of recommendation
+4.8.)
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 
