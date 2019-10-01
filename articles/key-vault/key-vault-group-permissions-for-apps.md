@@ -18,9 +18,9 @@ ms.author: mbaldwin
 
 The simplest way to authenticate an cloud-based application to Key Vault is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](managed-identity.md) for details.
 
-If you are creating an on-prem application, doing local development, or otherwise unable to use a managed identity, you can instead provide applications, Azure AD groups, and users access to your key vault with an access control policy. This is how the console app accesses key vault in the [Azure Key Vault client library for .NET quickstart](quick-create-net.md), for example.
+If you are creating an on-prem application, doing local development, or otherwise unable to use a managed identity, you can instead provide access to your key vault with an access control policy. Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to a "principal": an application, Azure AD group, or user.  For example, this is how the console app in the [Azure Key Vault client library for .NET quickstart](quick-create-net.md) accesses the key vault.
 
-Key vault supports up to 1024 access policy entries, with each entry granting a distinct set of permissions to an application, Azure AD group, or user.  For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on [Keys, Secrets, and Certificates](about-keys-secrets-and-certificates.md) access control, see: 
+For full details on Key Vault access control, see [Azure Key Vault security: Identity and access management](overview-security.md#identity-and-access-management). For full details on [Keys, Secrets, and Certificates](about-keys-secrets-and-certificates.md) access control, see: 
 
 - [Keys access control](about-keys-secrets-and-certificates.md#key-access-control)
 - [Secrets access control](about-keys-secrets-and-certificates.md#secret-access-control)
@@ -36,7 +36,7 @@ Key vault supports up to 1024 access policy entries, with each entry granting a 
 
 ## Grant access to your key vault
 
-Each key vault access policy entry grants a distinct set of permissions to one of the following:
+Each key vault access policy entry grants a distinct set of permissions to a principal:
 
 - **An application** If the application is cloud-based, you should instead [Use an App Service managed identity to access Azure Key Vault](managed-identity.md), if possible
 - **An Azure AD group** Although key vault only supports 1024 access policy entries, you can add multiple applications and users to a single Azure AD group, and then add that group as a single entry to your access control policy.
@@ -74,7 +74,7 @@ The objectId will be listed in the output as `Id` (not `ApplicationId`).
 
 You can add multiple applications and users to an Azure AD group, and then give the group access to your key vault.  For more details, see the [Creating and adding members to an Azure AD group](#creating-and-adding-members-to-an-azure-ad-group) section, below.
 
-To find the objectId of an Azure Ad group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you should also provide a search string to the `--display-name` parameter.
+To find the objectId of an Azure AD group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you should also provide a search string to the `--display-name` parameter.
 
 ```azurecli
 az ad group list --displayname <search-string>
@@ -89,7 +89,7 @@ The objectId will be returned in the JSON:
     ...
 ```
 
-To find the objectId of an Azure Ad group with Azure PowerShell, use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) cmdlet. Because of the large number of groups that may be in your organization, you will probably wish to also provide a search string to the `-SearchString` parameter.
+To find the objectId of an Azure AD group with Azure PowerShell, use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup?view=azps-2.7.0) cmdlet. Because of the large number of groups that may be in your organization, you will probably wish to also provide a search string to the `-SearchString` parameter.
 
 ```azurepowershell
 Get-AzADGroup -SearchString <search-string>
@@ -103,9 +103,9 @@ Id                    : 1cef38c4-388c-45a9-b5ae-3d88375e166a
 ...
 ```
 
-#### User
+#### Users
 
-You can also add an individual user to an key vault's access control policy. However, we do not recommend this. We instead encourage you to add users to an Azure AD group, and add the group on the policies.
+You can also add an individual user to an key vault's access control policy. **We do not recommend this.** We instead encourage you to add users to an Azure AD group, and add the group on the policies.
 
 If you nonetheless wish to find a user with the Azure CLI, use the [az ad user show](/cli/azure/ad/user?view=azure-cli-latest#az-ad-user-show) command, passing the users email address to the `--id` parameter.
 
@@ -137,9 +137,9 @@ Id                : f76a2a6f-3b6d-4735-9abd-14dccbf70fd9
 Type              :
 ```
 
-### Give the application, Azure AD group, or user access to your key vault
+### Give the principal access to your key vault
 
-Now that you have an objectID of your application, Azure Ad group, or user, you can create an access policy for your key vault that gives it get, list, set, and delete permissions for both keys and secrets, plus any additional permissions you wish.
+Now that you have an objectID of your principal, you can create an access policy for your key vault that gives it get, list, set, and delete permissions for both keys and secrets, plus any additional permissions you wish.
 
 With the Azure CLI, this is done by passing the objectId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
@@ -193,6 +193,8 @@ Find the objectIds of your applications using Azure PowerShell with the [Get-AzA
 Get-AzADServicePrincipal -SearchString <search-string>
 ```
 
+TO find the objectIds of your Users, follow the steps in the [Users](#users) section, above.
+
 ### Add your applications and users to the group
 
 Now, add the objectIds to your newly created Azure AD group.
@@ -212,7 +214,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 ### Give the AD group access to your key vault
 
-Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-application-azure-ad-group-or-user-access-to-your-key-vault) section, above.
+Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-principal-access-to-your-key-vault) section, above.
 
 
 ## Next steps
