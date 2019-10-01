@@ -1,7 +1,7 @@
 ---
 title: Validation policies for apps and add-ins submitted to AppSource (version 2.2)
 description: Criteria that are used to validate Office Add-ins, SharePoint Add-ins, Microsoft Teams apps, and Power BI custom visuals for listing in the AppSource.
-ms.date: 9/24/2019
+ms.date: 09/23/2019
 localization_priority: Priority
 ---
 
