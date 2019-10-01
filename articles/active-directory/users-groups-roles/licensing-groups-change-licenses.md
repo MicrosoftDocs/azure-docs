@@ -48,7 +48,7 @@ On the **Update license assignments** page, if you see that some checkboxes are 
 1. Select the check box for Office 366 E3 and ensure that at minimum the all of the E1 services that are assigned to the user are selected.
 1. Clear the check box for Office 365 E1.
 
-    ![license assignments page for a user showing Office 365 E1 cleared and Office 365 E3 selected](media/licensing-groups-change-licenses/update-users-license-assignments.png)
+    ![license assignments page for a user showing Office 365 E1 cleared and Office 365 E3 selected](media/licensing-groups-change-licenses/update-user-license-assignments.png)
 
 1. Select **Save**.
 
