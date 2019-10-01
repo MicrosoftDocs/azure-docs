@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Spring Cloud?
-            url: overview.md
+            url: spring-cloud-overview.md
           
 
   # Card (optional)
@@ -34,15 +34,15 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Launch a Java Spring app using the Portal
-            url: spring-cloud-quickstart-launch-app-portal.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Launch a Java Spring app using Maven
-            url: spring-cloud-quickstart-launch-app-maven.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Launch a Java Spring app using the Azure CLI
-            url: spring-cloud-quickstart-launch-app-cli.md
+            url: url: spring-cloud-overview.md ## must update when article checked in
       - linkListType: tutorial
         links:
           - text: Prepare a Java Spring app for deployment
-            url: spring-cloud-quickstart-prepare-deployment.md 
+            url: spring-cloud-overview.md ## must update when article checked in
 
   # Card
   - title: Monitor your application
@@ -50,15 +50,13 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Monitor your application using distributed tracing and App Insights
-            url: spring-cloud-distributed-tracing
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Enable Diagnostic Services on your Java Spring application
-            url: spring-cloud-diagnostics.md
+            url: spring-cloud-overview.md ## must update when article checked in
       - linkListType: concept
         links:
           - text: Understanding Azure Monitor Metrics for Spring Cloud
-            url: spring-cloud-metrics.md
-          - text: linktext2
-            url: file2.md
+            url: spring-cloud-overview.md ## must update when article checked in
 
   # Card
   - title: Bind with other services
@@ -66,23 +64,23 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Bind your application with Azure Cache for Redis
-            url: spring-cloud-service-binding-redis.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Bind your application to an Azure MySQL DB
-            url: spring-cloud-service-binding-mysql.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Bind your application to Azure CosmosDB
-            url: spring-cloud-service-binding-cosmos.md
+            url: spring-cloud-overview.md ## must update when article checked in
 
   - title: Configure your service
     linkLists: 
       - linkListType: tutorial
         links:
           - text: Use Config Server to maintain application configuration
-            url: spring-cloud-tutorial-config-server.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Manually scale your application
-            url: spring-cloud-tutorial-manually-scale.md
+            url: spring-cloud-overview.md ## must update when article checked in
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
-            url: spring-cloud-automate-ci-cd.md
+            url: spring-cloud-overview.md ## must update when article checked in
           - text: Enable Blue-Green deployments using Azure Spring Cloud
-            url: spring-cloud-how-to-staging-environment.md
+            url: spring-cloud-overview.md ## must update when article checked in
