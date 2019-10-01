@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -20,12 +20,12 @@ This article explores ways to clone an IoT Hub and provides some questions you n
 
 * You are setting up a hub for a development vs production environment.
 
-* You want to do a custom implementation of multi-hub high availability. 
+* You want to do a custom implementation of multi-hub high availability. For more information, see the [How to achieve cross region HA section of IoT Hub high availability and disaster recovery](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr#achieve-cross-region-ha).
 
-> [!NOTE]
-> JOHN -- next time we talk, can you please provide a 2 minute overview of the last item so I know how the customer would do that, just generally.
+To move a hub to a different region, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
 
-To move a hub to a different region, you need a subscription with administrative access to the original hub. Put the new hub in a new resource group and region, but in the same subscription.
+[!NOTE]
+At this time, there's no first-class feature for cloning an IoT hub. It's primarily a manual process, and thus is fairly error-prone. The complexity of cloning a hub is directly proportional to the simplicity of the hub. For example, cloning an IoT hub with no message routing is fairly simple. If you add message routing as just one complexity, cloning the hub becomes at least an order of magnitude more complicated.
 
 ## Things to consider
 
@@ -43,11 +43,16 @@ There are several things to consider when cloning an IoT hub.
 
 * You will need to schedule downtime for the migration. Cloning the devices to the new hub will take time. It can take up to a second to move 100 devices. If you interpolate that upward, it may take 3 hours to move a million devices. 
 
+* You can copy the devices to the new hub without shutting down or changing the devices. The new hub won't take "ownership" until X happens. I don't know what X is.
+
+> [!NOTE]
+> John, can you help me understand what happens in this case? How do you change the linkage so the device is linked to the new hub instead of the old one?
+
 * You will need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere -- this will need to be updated as well.
 
 ## Methodology 
 
-This is the general method we recommend for moving an IoT Hub from one region to another. This assumes the hub does not have any custom routing. See below for ideas you can use to deal with routing.
+This is the general method we recommend for moving an IoT Hub from one region to another. This assumes the hub does not have any custom message routing. See the [section on Routing](#routing) for ideas if you want to move a hub using the message routing feature.
 
    1. Export the hub and its settings to a Resource Manager template. 
    
@@ -58,6 +63,8 @@ This is the general method we recommend for moving an IoT Hub from one region to
    1. Debug as needed. 
    
    1. Add anything that wasn't exported to the template. For example, consumer group is not exported to the template. You need to add the consumer group to the template manually or use the [Azure portal](https://portal.azure.com) after the hub is created. There is an example of adding consumer group to a template in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md).
+
+   1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## Steps for migrating the hub to another region
 
@@ -187,7 +194,7 @@ Use [VS Code](https://code.visualstudio.com) or a text editor to edit the templa
         }
     ]
 }
-````
+```
 
 ### Edit the template 
 
@@ -260,19 +267,19 @@ Now create the new hub in the new location.
 
 1. In the search box, put in "template deployment" and select Enter.
 
-1. Select **template deployment (deploy using custom**. This will take you to a screen for the Template deployment. Select **Create**. You see this screen.
+1. Select **template deployment (deploy using custom**. This will take you to a screen for the Template deployment. Select **Create**. You see this screen:
 
-![Screenshot showing the command for building your own template.](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
+![Screenshot showing the command for building your own template](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
-1. Select **Build your own template in the editor** so you can upload your template from a file. 
+1. Select **Build your own template in the editor**, which enables you to upload your template from a file. 
 
 1. Select **Load file**. 
 
-![Screenshot showing the command for uploading a template file.](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
+![Screenshot showing the command for uploading a template file](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
 1. Browse for the new template you edited and select it, then select **Open**. It loads your template in the edit window. Select **Save**. 
 
-![Screenshot showing loading the template.](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
+![Screenshot showing loading the template](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 
 1. Fill in the following fields.
 
@@ -282,97 +289,120 @@ Now create the new hub in the new location.
 
    **Location**: this will be filled in for you to match the location of the resource group.
 
-   **I agree checkbox**: this just says that you agree to pay for the resource(s) you're creating.
+   **I agree checkbox**: this basically says that you agree to pay for the resource(s) you're creating.
 
 1. Select the **Purchase** button.
 
-It will now validate your template and then deploy your cloned hub.
+It will now validate your template and deploy your cloned hub. 
 
 ## Managing the devices registered to the IoT hub
 
 Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. 
 
-### Get the connection strings
+### The sample code, explained
 
-### The sample code
+1. Use the IoT C# samples from this page: [Azure IoT Samples for C#](https://azure.microsoft.com/en-us/resources/samples/azure-iot-samples-csharp/.) Download the zip file and unzip it on your computer. 
 
-1. Download the C# samples from this page: [Azure IoT Samples for C#](https://azure.microsoft.com/en-us/resources/samples/azure-iot-samples-csharp/.) Download the zip file and unzip it on your computer. 
+1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You can use VSCode or Visual Studio to edit the code if needed.
 
-1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You can use VSCode to edit the code if needed.
+1. **Program.cs** calls ImportExportDevicesSample.cs, which contains the code for various import/export procedures.
 
-1. **Program.cs** calls ImportExportDevicesSample.cs. 
+1. **ImportExportDevicesSample** has multiple methods. Comment out the method calls you don't want to run. Note especially that there are two calls that enable you to remove all devices from the source and/or destination hub. Be very sure that's what you want when you run one of those, because there is no going back. Once the devices are deleted, they are gone. Here's what's in this class:
 
-2. **ImportExportDevicesSample** has multiple methods that you can run. Comment out the method calls you don't want to run. Note especially that there are two calls that enable you to remove all devices from a hub. Be very sure when you want to run one of those, because there is no going back. Once the devices are deleted, they are gone. Here's what's in this class:
+    **RunSampleAsync** -- this is the driving method where you comment out the bits you don't want to run. 
 
-    **RunSampleAsync** -- this is the driving method where you comment out the bits you don't want to run.
+    **CopyAllDevicesToNewHub** -- this copies all the devices from one hub to a new one. In our case, it is used to copy the devices from the original hub to the clone. 
 
-    **GenerateAndAddDevices** -- for testing -- this generates new devices, complete with encryption keys, and registers them with the original hub. You could use this for testing -- create a hub,generate 100 devices on the first one, clone the hub, then copy those 100 devices to the clone and check out the results.
+    **GenerateAndAddDevices** -- for testing -- this generates new devices with random device names, complete with encryption keys, and registers those new devices with the original hub. You could use this for testing -- create a hub,generate 100 devices on the first one, clone the hub, then copy those 100 devices to the clone and check out the results. 
 
-    **ExportDevices** -- for testing -- this exports the list of devices from the IoT Hub to a file in blob storage. You could use this to view the list of registered devices.
+    **ExportDevices** -- for testing -- this exports the list of devices from the IoT Hub to a file in blob storage. You could use this to view the list of registered devices. 
 
-    **CopyAllDevicesToNewHub** -- this copies all the devices from one hub to a new one. In our case, it would be used to copy the devices from the original hub to the clone. 
+    **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub. Use this with care. There are two of these -- one for the source hub and one for the destination hub.
 
-    **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub. Use this with care.
+In general, all of the method calls should be commented out in **RunSampleAsync** except for **CopyAllDevicesToNewHub**. 
 
-1. Be sure all of the method calls are commented out in **RunSampleAsync** except for **CopyAllDevicesToNewHub**. 
+### Run the sample code
 
-1. To run the sample, you will need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files.
+You can run the application by setting environment variables and then running the application in Visual Studio or from the command line. You can also pass in the variables as arguments on the command line. We'll look at how to use environment variables. 
 
-You want to protect your connection strings and make sure you don't check them into github or to another source control applcation. You can set environment variables in a command window and then run the application in the same window and it will pick those values up. You can also pass them to the application as command-line parameters.
+#### Set the environment variables
 
-To use environment variables for the connection strings, type these commands (with the connection strings filled in) to a command window. 
+1. To run the sample, you need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files. 
+
+1. To get the connection string values, sign in to the [Azure portal](https://portal.azure.com). 
+
+1. Put the connection strings somewhere you can retrieve them, such as NotePad. Copy the following, then you can paste the connection strings in directly. Don't add spaces around the equal sign, or it will change the variable name. Also, you do not need double-quotes around the connection strings. If you put quotes around the storage account connection string, it won't work.
 
    ```command  
-   SET IOTHUB_CONN_STRING_CSHARP=""
-   SET DEST_IOTHUB_CONN_STRING_CSHARP=""
-   SET STORAGE_ACCT_CONN_STRING_CSHARP=""
+   SET IOTHUB_CONN_STRING=<put connection string to original IoT Hub here>
+   SET DEST_IOTHUB_CONN_STRING=<put connection string to destination or clone IoT Hub here>
+   SET STORAGE_ACCT_CONN_STRING=<put connection string to the storage account here>
    ```
 
-Then run the application from the same command line window (it has the environment variables defined).
+1. For the IoT hub connection strings, go to each hub in the portal. You can search in **Resources** for the hub. If you know the Resource Group, you can go to **Resource groups**, select your resource group, and then select the hub from the list of assets in that resource group. 
 
-[!NOTE] Robin -- verify this command
+1. Select **Shared access policies** from the Settings for the hub, then select **iothubowner** and copy one of the connection strings. Do the same for the destination hub. Add them to the appropriate SET commands.
+
+1. For the storage account connection string, find the storage account in **Resources** or under its **Resource group** and open it. 
+   
+1. Under the Settings section, select **Access keys** and copy one of the connection strings. Put the connection string in your text file for the appropriate SET command. 
+
+Now that your environment variables are ready, let's set them and run the application.
+
+#### Running the sample application
+
+1. Open a Command Prompt window and navigate to `./iot-hub/Samples/service/` in your unzipped project folder. This is where you will run the application.
+
+1. Copy each SET command, one at a time, and paste it into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it will show your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
+
+1.  Make sure the methods you don't want to run (such as DeleteAllDevicesFromHub) are commented out in ImportExportDevicesSample.cs. 
+
+1. To run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables.
 
     ```command       
-    dotnet run ImportExportDevicesSample
+    ImportExportDevicesSample.sln
+    ```
+
+    Right-click on the project ImportExportDevicesSample and select **Set as startup project**.    
+    
+    Select F5 to run the application. 
+
+1. To run the application without using Visual Studio, you can type this command in the same command window where you set the environment variables. It will build and then run the application.
+
+    ```command
+    dotnet run --project ImportExportDevicesSample
     ```
 
 1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the clone. You can also view the properties for the clone. 
 
-> [!NOTE]
-> Robin -- be sure the import/export includes the device twins. I think in the C# version you have to specifically say to include them. 
+1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty, there were no errors. If you try to import the same device more than once, it will reject the device the second time and add an error message to the log file.
+
+At this point, you have copied your hub to the new regions, and migrated the devices to point at the new clone. 
+
+> [!NOTE] 
+> Robin -- put something in here about changing the devices to work for the new clone and not for the old hub.
 
 ## Routing 
 
 If you have custom routing defined for the original hub, exporting the template for the hub includes the routing configuration. However, it does not export resources used. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
 
-### Do-it-yourself by creating the resources before importing the template
+### Migrate the routing resources manually
 
-In these steps, you export the template, manually create the resources used by the routing, and then import the template to create the hub and the routing configuration.
-
-1. Export the hub and its routing configuration to a Resource Manager template. 
-
-1. Manually recreate the resources used by the routing (with new names) using the [Azure portal](https://portal.azure.com).
-
-1. Edit the template and change the name of the hub to its new name. Also update the resource names in the routing configuration.
-
-1. Import the template to create the hub and set up the routing configuration.
-
-### Do-it-yourself by adding resources to the template
-
-In these steps, you add the resources used by the routing to the template.
+In these steps, you export the template for the hub, then export a template for each of the resources used by the routing. Next, edit all of the templates to have new names and the new location, import the templates for the routing resources, and then import the hub's template (which includes the routing configuration).
 
 1. Export the hub and its routing configuration to a Resource Manager template. 
 
-1. Edit the template and change the name of the hub to its new name. 
+1. Next, for each resource used by the routing, export it to a Resource Manager template and update the name and location of the resource. 
 
-1. Edit the template and add the resources (with new names) used by the routing. This is difficult to get exactly right unless you have an example to follow, such as the one in the article [Use an Azure Resource Manager template to configure IoT Hub message routing](tutorial-routing-config-message-routing-rm-template.md). The article shows  several of the custom endpoints in a Resource Manager template.
+1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. It will most likely only be the template for the IoT hub itself that references the resources used by the routing.
 
-1. Change the names of any resources listed in the routing sections as needed.
+1. Edit the template for the IoT hub and change the name of the hub to its new name. Also, if you haven't already, update the resource names in the routing configuration for the IoT hub to match the new names.
 
-1. Import the template to create the hub and its resources. 
+1. Import each of the new templates except the one for the hub itself. You want the resources to be created before the routing is configured upon upload of the hub's template.
 
-> [!NOTE]
-> Robin -- Test this so you know exactly what it does. I'm not sure if it causes an error when you upload the template, or if that actually works, but if you send messages to the hub, it fails after it writes the message to the hub and when it tries to route the message. At what point does this mess up the works?
+1. Import the hub's template to create the hub and the routing configuration.
+
+1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## Checking the results 
 
@@ -389,3 +419,5 @@ You have cloned the original IoT hub into a new hub in a new region, complete wi
 * [IoT Hub routing](tutorial-routing.md)
 
 * [IoT Hub device management overview](iot-hub-device-management-overview.md)
+
+* If you want to deploy the sample application, please see [.NET Core application deployment](https://docs.microsoft.com/en-us/dotnet/core/deploying/index).
