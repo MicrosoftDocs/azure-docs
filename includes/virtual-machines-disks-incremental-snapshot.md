@@ -18,10 +18,11 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 Incremental snapshots also offer a differential capability, which is uniquely available to managed disks. They enable you to get the changes between two incremental snapshots of the same managed disks, down to the block level. You can use this capability to reduce your data footprint when copying snapshots across regions.
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
 
 ## Restrictions
 
+- Incremental snapshots are currently only available in West Central US.
 - Incremental snapshots currently cannot be created after you've changed the size of a disk.
 - Incremental snapshots currently cannot be moved between subscriptions.
 - You can currently only generate SAS URIs of up to five snapshots of a particular snapshot family at any given time.
@@ -31,7 +32,7 @@ If you haven't yet signed up for the preview and you'd like to start using incre
 
 ## PowerShell
 
-You can use Azure PowerShell to create an incremental snapshot. You can install the latest version of PowerShell locally. You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
+You can use Azure PowerShell to create an incremental snapshot. You will need the latest version of Azure PowerShell, the following command will either install it or update your existing installation to latest:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -39,22 +40,24 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 Once that is installed, login to your PowerShell session with `az login`.
 
+To create an incremental snapshot with Azure PowerShell, set the configuration with [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) with the `-Incremental` parameter and then pass that as a variable to [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) through the `-Snapshot` parameter.
+
 Replace `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`, and `<yourDesiredSnapShotNameHere>` with your values, then you can use the following script to create an incremental snapshot:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName <yourDiskNameHere> -ResourceGroupName <yourResourceGroupNameHere>
 
-# Create an incremental snapshot by setting:
-# 1. Incremental property
-# 2. SourceUri property with the value of the Id property of the disk
+# Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
+```
 
-# You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
-# SourceResourceId is the Azure Resource Manager resource ID of the parent disk. 
-# SourceUniqueId is the value inherited from the UniqueId property of the disk. If you delete a disk and then create a disk with the same name, the value of the UniqueId property will change. 
-# Following script shows how to get all the incremental snapshots in a resource group of same disk
+You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+
+You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. Replace `<yourResourceGroupNameHere>` with your value and then you can use the following example to list your existing incremental snapshots:
+
+```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList
@@ -68,6 +71,46 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+## CLI
+
+You can create an incremental snapshot with the Azure CLI, you will need the latest version of Azure CLI. The following command will either install or update your existing installation to the latest version:
+
+```PowerShell
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+```
+
+To create an incremental snapshot, use [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) with the `--incremental` parameter.
+
+The following example creates an incremental snapshot, replace `<yourDesiredSnapShotNameHere>`, `<yourResourceGroupNameHere>`,`<exampleDiskName>`, and `<exampleLocation>` with your own values, then run the example:
+
+```bash
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot create -g <yourResourceGroupNameHere> \
+-n <yourDesiredSnapShotNameHere> \
+-l <exampleLocation> \
+--source "$sourceResourceId" \
+--incremental
+```
+
+You can identify incremental snapshots from the same disk with the `SourceResourceId` and the `SourceUniqueId` properties of snapshots. `SourceResourceId` is the Azure Resource Manager resource ID of the parent disk. `SourceUniqueId` is the value inherited from the `UniqueId` property of the disk. If you were to delete a disk and then create a new disk with the same name, the value of the `UniqueId` property changes.
+
+You can use `SourceResourceId` and `SourceUniqueId` to create a list of all snapshots associated with a particular disk. The following example will list all incremental snapshots associated with a particular disk but, it requires some setup.
+
+This example uses jq for querying the data. To run the example, you must [install jq](https://stedolan.github.io/jq/download/).
+
+Replace `<yourResourceGroupNameHere>` and `<exampleDiskName>` with your values, then you can use the following example to list your existing incremental snapshots, as long as you've also installed jq:
+
+```bash
+sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
+
+ 
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot list -g <yourResourceGroupNameHere> -o json \
+| jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
 ```
 
 ## Resource Manager template
@@ -106,32 +149,6 @@ You can also use Azure Resource Manager templates to create an incremental snaps
 }
 ```
 
-## CLI
-
-You can create an incremental snapshot with the Azure CLI using [az snapshot create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create). An example command would look like the following:
-
-```bash
-az snapshot create -g <exampleResourceGroup> \
--n <exampleSnapshotName> \
--l <exampleLocation> \
---source <exampleVMId> \
---incremental
-```
-
-You can also identify what snapshots are incremental snapshots in the CLI with by using the `--query` parameter on [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show). You can use that parameter to directly query the **SourceResourceId** and **SourceUniqueId** properties of snapshots. SourceResourceId is the Azure Resource Manager resource ID of the parent disk. **SourceUniqueId** is the value inherited from the **UniqueId** property of the disk. If you delete a disk and then create a disk with the same name, the value of the **UniqueId** property will change.
-
-Examples of either queries would look like the following:
-
-```bash
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceResourceId] -o tsv
-
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceUniqueId] -o tsv
-```
-
 ## Next steps
 
-If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, please email us at AzureDisks@microsoft.com to get access to the public preview.
+If you haven't yet signed up for the preview and you'd like to start using incremental snapshots, email us at AzureDisks@microsoft.com to get access to the public preview.
