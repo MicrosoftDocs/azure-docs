@@ -22,7 +22,7 @@ Azure block blob storage offers two different performance tiers:
 
 The following considerations apply to the different performance tiers:
 
-- Standard performance is available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage). Premium performance is available in select regions.
+- Standard performance is available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage). Premium performance is available in [select regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage).
 - Premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
 - Premium performance requires using block blob storage accounts, which support block blob and append blob.
 - Standard performance is available with General Purpose v1, General Purpose v2, and Blob storage accounts.
