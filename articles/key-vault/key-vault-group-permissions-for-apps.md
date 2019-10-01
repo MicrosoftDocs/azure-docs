@@ -72,7 +72,7 @@ The objectId will be listed in the output as `Id` (not `ApplicationId`).
 
 #### Azure AD Groups
 
-You can add multiple applications and users to an Azure AD group, and then give the group access to your key vault.  See , below.
+You can add multiple applications and users to an Azure AD group, and then give the group access to your key vault.  For more details, see the [Creating and adding members to an Azure AD group](#creating-and-adding-members-to-an-azure-ad-group) section, below.
 
 To find the objectId of an Azure Ad group with the Azure CLI, use the [az ad group list](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-list) command. Because of the large number of groups that may be in your organization, you will probably wish to also provide a search string to the `--display-name` parameter.
 
@@ -202,7 +202,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 ### Give the AD group access to your key vault
 
-Lastly, give the AD group permissions to your key vault using the steps above:  
+Lastly, give the AD group permissions to your key vault using the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command, or the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet. For examples, see the [Give the application, Azure AD group, or user access to your key vault](#give-the-application-azure-ad-group-or-user-access-to-your-key-vault) section, above.
 
 
 ## Next steps
