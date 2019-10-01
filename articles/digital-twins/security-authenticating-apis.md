@@ -31,8 +31,8 @@ To integrate an application or service with Azure AD, a developer must first reg
 
 > [!IMPORTANT]
 > Azure Digital Twins supports both of the following authentication libraries:
-> * The recommended [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * The older [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## Call Digital Twins from a middle-tier web API
 
