@@ -73,7 +73,7 @@ AKS can be configured to use Azure Active Directory (AD) for user authentication
 - After registering the application, from the **Overview** page select **Authentication** from the left-hand pane. On the **Authentication** page, under **Advanced settings** implicitly grant **Access tokens** and **ID tokens** and then save your changes.
 
 >[!NOTE]
->If you're using this feature in Mooncake then the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
+>If you're using this feature in Azure China region, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 
 >[!NOTE]
 >Configuring authentication with Azure Active Directory for single-sign on can only be accomplished during initial deployment of a new AKS cluster. You cannot configure single-sign on for an AKS cluster already deployed.
