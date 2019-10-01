@@ -14,9 +14,9 @@ ms.subservice: blobs
 The change feed records all changes that occur to the blobs and the blob metadata in your storage account. Changes are recorded the order in which they were modified. The changes are stored as an immutable, read-only log which can be read by any client application. You can use the change feed to build efficient and scalable solutions that process change events that occur in your Blob Storage account.
 
 > [!NOTE]
-> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see [this page](storage-blob-change-feed.md).
+> The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To review limitations, see the [Known issues and limitations](#known-issues) section of this article. To enroll in the preview, see the [Register your subscription](#register) section of this article.
 
-Log files are are stored as blobs in your account. These logs are durable, immutable, and read only, and you can store them for any period of time based on your requirements. The cost to store these logs is standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Log files are are stored as blobs in the **$blobchangefeed** container of your storage account. These logs are durable, immutable, and read only, and you can store them for any period of time based on your requirements. The cost to store these logs is standard [blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 You can process these logs asynchronously, incrementally or in-full, at your convenience either in real-time or in batched-mode for analytics. Any number of client applications can read the change feed at any time, and at any pace, and you can distribute these logs to one or more consumers of your application for parallel processing. Also, analytic applications can consume logs directly which lets you process them in batch-mode, at low cost, and without having to write a custom application.
 
@@ -38,6 +38,31 @@ Here's some examples of actions that applications can take based on objects that
 Unlike *Blob Storage events*, which enable your functions or applications to react individual events in real-time, The change feed gives you a fully-managed, durable ordered log of *change event records* that you can store for any lifetime that you choose, and at a low cost. Any number of applications can process the log of changes in real-time, or for batched analytical processing all by using Azure Blob APIs.
 
 Changes are appended to the change feed every 60 - 120 seconds. If your application has to react to events much quicker than this, consider using blob storage events instead. To learn more about how to handle Blob Storage events, see [Reacting to Blob storage events](storage-blob-event-overview.md).
+
+<a id="register" />
+
+## Register your subscription
+
+Because the change feed is only in public preview, you'll need to register your subscription to use the feature.
+
+# [PowerShell](#tab/azure-powershell)
+
+In a PowerShell console, run these commands:
+
+   ```powershell
+   Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
+   Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+   ```
+# [Azure CLI](#tab/azure-cli)
+
+In Azure Cloud Shell, run these commands:
+
+```cli
+az feature register --namespace Microsoft.Storage --name Changefeed
+az provider register --namespace 'Microsoft.Storage'
+```
+
+---
 
 ## Enabling and disabling the change feed
 
@@ -82,6 +107,9 @@ $blobchangefeed/idx/segments/2019/02/22/1810/meta.json                  BlockBlo
 $blobchangefeed/idx/segments/2019/02/22/1910/meta.json                  BlockBlob                      584  application/json
 $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlob                      584  application/json
 ```
+
+> [!NOTE]
+> The `$blobchangefeed/idx/segments/1601/01/01/0000/meta.json` is automatically created when you enable the change feed. You can safely ignore this file. It is always empty.
 
 Each segment file contains meta data that describes that segment. 
 
