@@ -34,6 +34,12 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
+## SKUs
+
+Azure Machine Learning offers two SKUs that are tailored for your machine learning needs –  Enterprise SKU and Basic SKU. These SKUs make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic edition is available in general availability (GA), while the Enterprise edition is currently available in public preview. Customers are responsible for costs incurred on underlying compute during this time. See the [SKUs pricing page](https://azure.microsoft.com/pricing/details/machine-learning/) for up to date pricing details.
+
+Learn how to [upgrade your workspace from Basic to Enterprise SKU](concept-workspace.md#upgrade). 
+
 ## What can I do with Azure Machine Learning?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
@@ -55,8 +61,6 @@ For code-free training, try:
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
 + The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).
   ![Visual interface for Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
-
-
 
 ### Operationalization (MLOps)
 
