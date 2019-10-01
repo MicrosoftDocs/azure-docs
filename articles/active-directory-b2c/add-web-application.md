@@ -38,10 +38,6 @@ Scopes provide a way to govern access to protected resources. Scopes are used by
 
 To call a protected web API from an application, you need to grant your application permissions to the API. For example, in [Tutorial: Register an application in Azure Active Directory B2C](tutorial-register-applications.md), a web application is created in Azure AD B2C named *webapp1*. You can use this application to call the web API.
 
-1. Select **Applications**, and then select your web application.
-1. Select **API access**, and then select **Add**.
-1. In the **Select API** dropdown, select *webapi1*.
-1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-1. Select **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Your application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the application. The application obtains an authorization grant from Azure AD B2C to access the protected web API.
