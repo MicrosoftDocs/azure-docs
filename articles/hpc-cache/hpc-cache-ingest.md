@@ -4,21 +4,21 @@ description: How to populate Azure Blob storage for use with Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
 ---
 
-# Move data to Azure Blob storage for Azure HPC Cache (preview)
+# Move data to Azure Blob storage
 
-If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy to copy your data through the Azure HPC Cache.
+If your workflow includes moving data to Azure Blob storage, make sure you are using an efficient strategy. You can either preload data in a new Blob container before defining it as a storage target, or add the container and then copy your data using Azure HPC Cache.
 
 This article explains the best ways to move data to Blob storage for use with Azure HPC Cache.
 
 Keep these facts in mind:
 
-* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud filesystem.)
+* Azure HPC Cache uses a specialized storage format to organize data in Blob storage. This is why a Blob storage target must either be a new, empty container, or a Blob container that was previously used for Azure HPC Cache data. ([Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) also uses this cloud file system.)
 
-* Copying data through the Azure HPC Cache is best when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
+* Copying data through the Azure HPC Cache to a back-end storage target is more efficient when you use multiple clients and parallel operations. A simple copy command from one client will move data slowly.
 
 A Python-based utility is available to load content into a Blob storage container. Read [Pre-load data in Blob storage](#pre-load-data-in-blob-storage-with-clfsload) to learn more.
 
@@ -36,7 +36,7 @@ Detailed information is included in the Avere CLFSLoad distribution, which is av
 
 A general overview of the process:
 
-1. Prepare a Linux system (VM or physical) with Python version 3.6 or later. (Python 3.7 is recommended for better performance.)
+1. Prepare a Linux system (VM or physical) with Python version 3.6 or later. Python 3.7 is recommended for better performance.
 1. Install the Avere-CLFSLoad software on the Linux system.
 1. Execute the transfer from the Linux command line.
 
@@ -45,7 +45,7 @@ The Avere CLFSLoad utility needs the following information:
 * The storage account ID that contains your Blob storage container
 * The name of the empty Blob storage container
 * A shared access signature (SAS) token that allows the utility to write to the container
-* A local path to the data source - either a local directory that contains the data to copy, or a local path to a mounted remote system with the data.
+* A local path to the data source - either a local directory that contains the data to copy, or a local path to a mounted remote system with the data
 
 <!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 
