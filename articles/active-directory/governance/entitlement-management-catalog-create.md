@@ -60,7 +60,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites. The groups can be cloud-created Office 365 groups or cloud-created Azure AD security groups. The applications can be Azure AD enterprise applications, including both SaaS applications and your own applications federated to Azure AD. The sites can be SharePoint Online sites or SharePoint Online site collections.
 
-**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-roles.md#required-roles-to-add-resources-to-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -72,7 +72,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
 
-    If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog).
+    If you don't see a resource that you want to add or you are unable to add a resource, make sure you have the required Azure AD directory role and entitlement management role. You might need to have someone with the required roles add the resource to your catalog. For more information, see [Required roles to add resources to a catalog](entitlement-management-roles.md#required-roles-to-add-resources-to-a-catalog).
 
 1. Select one or more resources of the type that you would like to add to the catalog.
 
@@ -84,7 +84,7 @@ To include resources in an access package, the resources must exist in a catalog
 
 You can remove resources from a catalog. A resource can only be removed from a catalog if it is not being used in any of the catalog's access packages.
 
-**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-delegate.md#required-roles-to-add-resources-to-a-catalog)
+**Prerequisite role:** See [Required roles to add resources to a catalog](entitlement-management-roles.md#required-roles-to-add-resources-to-a-catalog)
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -128,5 +128,5 @@ You can delete a catalog, but only if it does not have any access packages.
 
 ## Next steps
 
-- [Add a catalog creator](entitlement-management-delegate.md#add-a-catalog-creator)
+- [Delegate access governance to others](entitlement-management-delegate.md)
 - [Create and manage an access package](entitlement-management-access-package-create.md)

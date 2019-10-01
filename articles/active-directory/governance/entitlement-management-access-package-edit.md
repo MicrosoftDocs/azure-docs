@@ -365,5 +365,5 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 ## Next steps
 
-- [Add a catalog owner or an access package manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
+- [Delegate access governance to others](entitlement-management-delegate.md)
 - [Request process and email notifications](entitlement-management-process.md)
