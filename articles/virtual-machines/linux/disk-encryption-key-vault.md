@@ -30,7 +30,8 @@ These steps are illustrated in the following quickstarts:
 
 You may also, if you wish, generate or import a key encryption key (KEK).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!Note]
+> The steps in this article are automated in the [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) and [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
 
 ## Install tools and connect to Azure
 
@@ -215,6 +216,8 @@ Set-AzVMDiskEncryptionExtension -ResourceGroupName MyResourceGroup -VMName "MyVM
  
 ## Next steps
 
+- [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started)
+- [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
 - Learn [Azure Disk Encryption scenarios on Linux VMs](disk-encryption-linux.md)
 - Learn how to [troubleshoot Azure Disk Encryption](disk-encryption-troubleshooting.md)
 - Read the [Azure Disk Encryption sample scripts](disk-encryption-sample-scripts.md)
