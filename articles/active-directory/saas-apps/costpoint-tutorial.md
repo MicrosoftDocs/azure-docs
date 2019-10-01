@@ -37,110 +37,133 @@ To get started, you need the following items:
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * A Costpoint single sign-on (SSO) enabled subscription.
 
-## Scenario Description
+## Scenario description
 
 In this tutorial, you will configure and test Azure AD SSO in a test environment. Costpoint supports **SP and IDP** initiated SSO.
+
+## Generate Costpoint metadata
+
+Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. Download this guide from the Deltek Costpoint support site and refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Microsoft Azure** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. 
+
+![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility.png)
 
 ## Adding Costpoint from the gallery
 
 To configure the integration of Costpoint into Azure AD, you need to add Costpoint from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
-1. To add new application, select **New application**.
-1. In the **Add from the gallery** section, type **Costpoint** in the search box.
-1. Select **Costpoint** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+	![The Azure Active Directory button](common/select-azuread.png)
 
-Configure and test Azure AD SSO with Costpoint using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Costpoint.
+1. Navigate to **Enterprise Applications** and select the **All Applications** option.
+
+	![The Enterprise applications blade](common/enterprise-applications.png)
+
+1. To add a new application, select **New application**.
+
+	![The New application button](common/add-new-app.png)
+
+1. In the **Add from the gallery** section, enter **Costpoint** into the search box.
+
+	![Costpoint in the results list](common/search-new-app.png)
+
+1. Select **Costpoint** from the results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+
+## Configure and Test Azure AD Single Sign-on
+
+Configure and test Azure AD SSO with Costpoint using a test user named **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Costpoint.
 
 To configure and test Azure AD SSO with Costpoint, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Costpoint](#configure-costpoint)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-5. **[Create Costpoint test user](#create-costpoint-test-user)** to have a counterpart of B.Simon in Costpoint that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+1. **[Configure Costpoint](#configure-costpoint)** to configure the SAML SSO settings on application side.
+1. **[Create an Azure AD Test User](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+1. **[Assign the Azure AD Test User](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Create Costpoint Test User](#create-costpoint-test-user)** to have a counterpart of Britta Simon in Costpoint that is linked to the Azure AD representation of user.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Costpoint** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Costpoint** application integration page, select **Single sign-on**.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+	![Configure single sign-on link](common/select-sso.png)
 
 1. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
-	> [!NOTE]
-	> You will get the Service Provider metadata file from the **Generate Costpoint Metadata** section, which is explained later in the tutorial.
+	 > [!NOTE]
+	 > You will get the Service Provider metadata file from the **Generate Costpoint Metadata** section, which is explained later in the tutorial.
  
-	1. Click **Upload metadata file**.
+   1. Click the **Upload metadata file** button at the top, select the **Costpoint SP Federation Metadata XML** file previously generated by Costpoint, and click the **Add** button to upload the file.
+
+	   ![Upload Metadata File](./media/costpoint-tutorial/upload-metadata.png)
 	
-	1. Click on **folder logo** to select the metadata file and click **Upload**.
-	
-	1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Costpoint section textboxes
+	 1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Costpoint section textboxes
 
-		> [!Note]
-		> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement. Verify that **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** are correctly set and that **ACS URL** is a valid Costpoint URL ending with **/LoginServlet.cps**.
+		  > [!Note]
+		  > If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement. Verify that **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** are correctly set and that **ACS URL** is a valid Costpoint URL ending with **/LoginServlet.cps**.
 
-	1. Click **Set additional URLs**.
+	 1. Click **Set additional URLs**.
 
-    1. In the **Relay State** text box, type a value using the following pattern:`system=[your system], (for example, **system=DELTEKCP**)`
+      - In the **Relay State** text box, type a value using the following pattern:`system=[your system], (for example, **system=DELTEKCP**)`
 
-1. If you wish to configure the application in **SP** initiated mode perform the following step:
-	
-	In the **Sign-on URL** text box, type a URL:
-    `https://costpointteea.deltek.com/cpweb/cploginform.htm`
+1. If the **Basic SAML Configuration** dialog box is not already open, click the **Edit** icon to open it.
 
-	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Relay State. Contact [Costpoint Client support team](https://www.deltek.com/about/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
+  
+   - Verify that **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** are correctly set and that **ACS URL** is a valid Costpoint URL ending with **/LoginServlet.cps**.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy **App Federation Metadata Url** and save it to Notepad.
+	   ![Costpoint Basic SAML Configuration](./media/costpoint-tutorial/basic-saml-configuration.png)
 
-   ![The Certificate download link](common/copy-metadataurl.png)
+1. In the **Relay State** text box, enter a value using the following pattern: **system=[your system]**, (for example, **system=DELTEKCP**).
 
-### Generate Costpoint Metadata
+	 ![Costpoint Relay State](./media/costpoint-tutorial/relay-state.png)
 
-Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. From that refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Azure AD** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. Use this in the **Basic SAML Configuration** in Azure portal.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click the **Copy** icon to copy the **App Federation Metadata Url** and save it to Notepad.
 
-![Costpoint Configuration Utility](./media/costpoint-tutorial/config02.png)
-
-> [!NOTE]
-> You will get the **DeltekCostpoint711Security.pdf** guide from the [Costpoint Client support team](https://www.deltek.com/about/contact-us). If you do not have this file please contact them to get this file.
+	 ![SAML Signing Certificate](common/copy-metadataurl.png)
 
 ### Configure Costpoint
 
-Return to **Costpoint Configuration Utility** and paste the **App Federation Metadata Url** into the **IdP Federation Metadata XML** text box and continue the instructions from the **DeltekCostpoint711Security.pdf** guide to finish the Costpoint SAML setup. 
+1. Return to **Costpoint Configuration Utility** and paste the **App Federation Metadata Url** into the **IdP Federation Metadata XML** text box. 
 
-![Costpoint Configuration Utility](./media/costpoint-tutorial/config01.png)
+	 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config-utility-idp.png)
+
+1. Continue the instructions from the **DeltekCostpoint711Security.pdf** guide to finish the Costpoint SAML setup.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+The objective of this section is to create a test user in the Azure portal named Britta Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory > Users > All users**.
+
+    ![The "Users and groups" and "All users" links](common/users.png)
+
 1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+
+    ![New user Button](common/new-user.png)
+
+1. In the **User** properties, perform the following steps:
+
+   ![The User dialog box](common/user-properties.png)
+
+   a. In the **Name** field, enter **B.Simon**.  
+   b. In the **User name** field, enter `b.simon\@yourcompanydomain.extension` (for example, B.Simon@contoso.com).
+   c. Select the **Show Password** check box, and  write down the value that's displayed in the **Password** field.
+   d. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting B.simon access to Costpoint.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting B.Simon access to Costpoint.
 
 1. In the Azure portal, select **Enterprise Applications** > **All applications**.
 1. In the applications list, select **Costpoint**.
 1. In the **Manage** section of the app's overview page, select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+	![The "Users and groups" link](common/users-groups-blade.png)
 
 1. Select **Add user**, and select **Users and groups** in the **Add Assignment** dialog box.
 
@@ -152,11 +175,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting B
 
 ### Create Costpoint test user
 
-In this section, you will create a user in Costpoint. Assume the **User ID** is **B.SIMON** and the name **B.Simon**. Work with the [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the user in the Costpoint platform. The user must be created and activated before you use single sign-on.
- 
+In this section, you will create a user in Costpoint. Assume the user id is **B.SIMON** and the name **B.Simon**. Work with the [Costpoint Client support team](https://www.deltek.com/about/contact-us) to add the user in the Costpoint platform. The user must be created and activated before you use single sign-on. 
 Once created, the user's **Authentication Method** selection must be **Active Directory**, the **SAML Single Sign-on** check box must be selected, and the user name from Azure Active Directory must be **Active Directory or Certificate ID** (as shown below).
 
-![Costpoint User](./media/costpoint-tutorial/user01.png)
+![Costpoint User](./media/costpoint-tutorial/costpoint-user.png)
 
 ### Test SSO
 
