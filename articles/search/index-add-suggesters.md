@@ -47,7 +47,9 @@ To create a suggester, add one to an index schema. You can have one suggester in
 
 ### When to create a suggester
 
-To avoid an index rebuild, a suggester and the fields specified in `sourceFields` must be created at the same time. If you create a suggester using pre-existing fields, the field definition is fundamentally changed and a rebuild is required. For more information, see [How to rebuild an Azure Search index](search-howto-reindex.md).
+The best time to create a suggester is when you are also creating the field definition itself.
+
+If you try to create a suggester using pre-existing fields, the API will disallow it. Adding a suggester invokes an indexing operation. Given that existing fields are already indexed, you will have to rebuild the index if you want to add them to a suggester. For more information about reindexing, see [How to rebuild an Azure Search index](search-howto-reindex.md).
 
 ### Create using the REST API
 
