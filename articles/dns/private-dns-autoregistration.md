@@ -22,7 +22,7 @@ You can enable autoregistration by selecting "Enable Registration" option while 
 ## Restrictions
 
 * Autoregistration works only for virtual machines. For all other resources like internal load balancers etc., you can create DNS records manually in the private DNS zone linked to the virtual network.
-* DNS records will be created automatically only for the primary NIC of the virtual machine. If your virtual machines have more than one NIC, you can manually create the DNS records for other network interfaces.
+* DNS records are created automatically only for the primary virtual machine NIC . If your virtual machines have more than one NIC, you can manually create the DNS records for other network interfaces.
 * autoregistration for IPv6 (AAAA records) is not supported.
 
 ## Next steps
