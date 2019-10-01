@@ -57,7 +57,7 @@ To change the user-managed identity assigned to the lab, remove the identity att
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
 
     {
-        "location": "eastus2euap",
+        "location": "{location}",
         "identity":{
             "type": "userAssigned",
             "userAssignedIdentities":{
@@ -70,12 +70,14 @@ To change the user-managed identity assigned to the lab, remove the identity att
     Here's an example: 
 
     ```json
+    PUT https://management.azure.com/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.Devtestlab/labs/mylab/serviceRunners/sampleuseridentity
+
     {
-        "location": "eastus2euap",
+        "location": "eastus",
         "identity":{
             "type": "userAssigned",
             "userAssignedIdentities":{
-                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{useridentityname}":{}
+                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/exampleRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/sampleuseridentity":{}
             }
         }
     }
