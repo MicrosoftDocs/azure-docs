@@ -16,18 +16,17 @@ ms.subservice: common
 
 This article shows you how to use the Blob Storage Service REST APIs and how to authorize the call to the service. It's written from the point of view of a developer who knows nothing about REST and no idea how to make a REST call. We look at the reference documentation for a REST call and see how to translate it into an actual REST call – which fields go where? After learning how to set up a REST call, you can leverage this knowledge to use any of the other Storage Service REST APIs.
 
-## Prerequisites 
+## Prerequisites
 
 The application lists the containers in blob storage for a storage account. To try out the code in this article, you need the following items: 
 
-* Install [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the following workload:
-    - Azure development
+- Install [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) with the **Azure development** workload.
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-quickstart-create-account.md).
+- A general-purpose storage account. If you don't yet have a storage account, see [Create a storage account](storage-quickstart-create-account.md).
 
-* The example in this article shows how to list the containers in a storage account. To see output, add some containers to blob storage in the storage account before you start.
+- The example in this article shows how to list the containers in a storage account. To see output, add some containers to blob storage in the storage account before you start.
 
 ## Download the sample application
 
@@ -61,11 +60,11 @@ Let's look at the page in the REST API Reference for the [ListContainers](/rest/
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
-**Request URI**: https://myaccount.blob.core.windows.net/?comp=list  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
+**Request URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  This is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
 [URI parameters](/rest/api/storageservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 
-Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this feature, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. When using this feature, it is analogous to paging through the results. 
+Another helpful parameter is *maxresults:* if more containers are available than this value, the response body will contain a *NextMarker* element that indicates the next container to return on the next request. To use this feature, you provide the *NextMarker* value as the *marker* parameter in the URI when you make the next request. When using this feature, it is analogous to paging through the results.
 
 To use additional parameters, append them to the resource string with the value, like this example:
 
@@ -96,17 +95,17 @@ In our sample project, the code for creating the Authorization header is in a se
 
 To build the request, which is an HttpRequestMessage object, go to ListContainersAsyncREST in Program.cs. The steps for building the request are: 
 
-* Create the URI to be used for calling the service. 
-* Create the HttpRequestMessage object and set the payload. The payload is null for ListContainersAsyncREST because we're not passing anything in.
-* Add the request headers for x-ms-date and x-ms-version.
-* Get the authorization header and add it.
+- Create the URI to be used for calling the service. 
+- Create the HttpRequestMessage object and set the payload. The payload is null for ListContainersAsyncREST because we're not passing anything in.
+- Add the request headers for x-ms-date and x-ms-version.
+- Get the authorization header and add it.
 
 Some basic information you need: 
 
-*  For ListContainers, the **method** is `GET`. This value is set when instantiating the request. 
-*  The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](/rest/api/storageservices/List-Containers2).
-*  The URI is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
-*  For ListContainers, **requestBody** is null and there are no extra **headers**.
+- For ListContainers, the **method** is `GET`. This value is set when instantiating the request. 
+- The **resource** is the query portion of the URI that indicates which API is being called, so the value is `/?comp=list`. As noted earlier, the resource is on the reference documentation page that shows the information about the [ListContainers API](/rest/api/storageservices/List-Containers2).
+- The URI is constructed by creating the Blob service endpoint for that storage account and concatenating the resource. The value for **request URI** ends up being `http://contosorest.blob.core.windows.net/?comp=list`.
+- For ListContainers, **requestBody** is null and there are no extra **headers**.
 
 Different APIs may have other parameters to pass in such as *ifMatch*. An example of where you might use ifMatch  is when calling PutBlob. In that case, you set ifMatch to an eTag, and it only updates the blob if the eTag you provide matches the current eTag on the blob. If someone else has updated the blob since retrieving the eTag, their change won't be overridden. 
 
@@ -307,7 +306,7 @@ What are CanonicalizedHeaders and CanonicalizedResource? Good question. In fact,
 
 Let's start with those two canonicalized fields, because they are required to create the Authorization header.
 
-**Canonicalized Headers**
+### Canonicalized headers
 
 To create this value, retrieve the headers that start with "x-ms-" and sort them, then format them into a string of `[key:value\n]` instances, concatenated into one string. For this example, the canonicalized headers look like this: 
 
@@ -352,7 +351,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
 }
 ```
 
-**Canonicalized Resource**
+### Canonicalized resource
 
 This part of the signature string represents the storage account targeted by the request. Remember that the Request URI is
 `<http://contosorest.blob.core.windows.net/?comp=list>`, with the actual account name (`contosorest` in this case). In this example, this is returned:
@@ -376,10 +375,10 @@ private static string GetCanonicalizedResource(Uri address, string storageAccoun
 
     foreach (var item in values.AllKeys.OrderBy(k => k))
     {
-        sb.Append('\n').Append(item).Append(':').Append(values[item]);
+        sb.Append('\n').Append(item.ToLower()).Append(':').Append(values[item]);
     }
 
-    return sb.ToString().ToLower();
+    return sb.ToString();
 }
 ```
 
@@ -433,9 +432,9 @@ The AuthorizationHeader is the last header placed in the request headers before 
 
 That covers everything you need to know to put together a class with which you can create a request to call the Storage Services REST APIs.
 
-## How about another example? 
+## Example: List blobs
 
-Let's look at how to change the code to call ListBlobs for container *container-1*. This code is almost identical to the code for listing containers, the only differences being the URI and how you parse the response. 
+Let's look at how to change the code to call the List Blobs operation for container *container-1*. This code is almost identical to the code for listing containers, the only differences being the URI and how you parse the response.
 
 If you look at the reference documentation for [ListBlobs](/rest/api/storageservices/List-Blobs), you find that the method is *GET* and the RequestURI is:
 
@@ -463,26 +462,26 @@ foreach (XElement container in x.Element("Blobs").Elements("Blob"))
 
 When you run this sample, you get results like the following:
 
-**Canonicalized Headers:**
+**Canonicalized headers:**
 
 ```
 x-ms-date:Fri, 17 Nov 2017 05:16:48 GMT\nx-ms-version:2017-07-29\n
 ```
 
-**Canonicalized Resource:**
+**Canonicalized resource:**
 
 ```
 /contosorest/container-1\ncomp:list\nrestype:container
 ```
 
-**MessageSignature:**
+**Message signature:**
 
 ```
 GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
   \nx-ms-version:2017-07-29\n/contosorest/container-1\ncomp:list\nrestype:container
 ```
 
-**AuthorizationHeader:**
+**Authorization header:**
 
 ```
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
@@ -522,7 +521,7 @@ Content-Length: 1135
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
     ServiceEndpoint="http://contosorest.blob.core.windows.net/" ContainerName="container-1">
     <Blobs>
         <Blob>
@@ -571,7 +570,7 @@ In this article, you learned how to make a request to the blob storage REST API.
 
 ## Next steps
 
-* [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
-* [File Service REST API](/rest/api/storageservices/file-service-rest-api)
-* [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
-* [Table Service REST API](/rest/api/storageservices/table-service-rest-api)
+- [Blob Service REST API](/rest/api/storageservices/blob-service-rest-api)
+- [File Service REST API](/rest/api/storageservices/file-service-rest-api)
+- [Queue Service REST API](/rest/api/storageservices/queue-service-rest-api)
+- [Table Service REST API](/rest/api/storageservices/table-service-rest-api)
