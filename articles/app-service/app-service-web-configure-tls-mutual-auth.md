@@ -33,6 +33,15 @@ To set up your app to require client certificates, you need to set the `clientCe
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
+## Exclude paths from requiring authentication
+
+When you enable mutual auth for your application, all paths under the root of your app will require a client certificate for access. If you want to allow certain paths to remain open to anonymous access, you can define exclusion paths as part of your application configuration.
+
+Exclusion paths can be configured by selecting **Configuration** > **General Settings** and defining an exclusion path. In this example anything under `/public` path for your application would not request a client certificate.
+
+![Certificate Exclusion Paths][exclusion-paths]
+
+
 ## Access client certificate
 
 In App Service, SSL termination of the request happens at the frontend load balancer. When forwarding the request to your app code with [client certificates enabled](#enable-client-certificates), App Service injects an `X-ARR-ClientCert` request header with the client certificate. App Service does not do anything with this client certificate other than forwarding it to your app. Your app code is responsible for validating the client certificate.
@@ -209,3 +218,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png
