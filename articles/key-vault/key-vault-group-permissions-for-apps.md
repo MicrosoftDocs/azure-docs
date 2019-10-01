@@ -181,13 +181,13 @@ In either case, make note on the newly created groups GroupId, as you will need 
 
 ### Find the objectIds of your applications and users
 
-You can find the objectIds of your applications using the Azure CLI with the [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) command, with the `--show-mine` paramater.
+You can find the objectIds of your applications using the Azure CLI with the [az ad sp list](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-list) command, with the `--show-mine` parameter.
 
 ```azurecli-interactive
 az ad sp list --show-mine
 ```
 
-Find the objectIds of your applications using Azure PowerShell with the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, passing a search string to the `-SearchString` paramater.
+Find the objectIds of your applications using Azure PowerShell with the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, passing a search string to the `-SearchString` parameter.
 
 ```azurepowershell-interactive
 Get-AzADServicePrincipal -SearchString <search-string>
