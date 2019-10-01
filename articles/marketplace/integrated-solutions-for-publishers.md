@@ -12,7 +12,7 @@ ms.author: v-qiwe
 ---
 # Publish an integrated solution
 
-In a single bundled offer, an integrated solution combines multiple point-solution technologies of a software vendor with the deployment and support of a services partner. The services partner lists the offer in Azure Marketplace or Microsoft AppSource as a [consulting service](https://docs.microsoft.com/azure/marketplace/consulting-services).
+In a single bundled offer, an integrated solution combines point-solution technologies from software vendors with the deployment and support of a services partner. The services partner lists the offer in Azure Marketplace or Microsoft AppSource as a [consulting service](https://docs.microsoft.com/azure/marketplace/consulting-services).
 
 Integrated solutions aim to address a specific customer need or scenario. Providers begin by understanding the industry challenge or pain points. They then integrate two or more best-of-breed technologies to create a unified and repeatable deployment experience for customers. Providers get customers up and running rapidly. They offer a single point of contact to the customer, providing relevant customization, consulting, and solution support. The outcome is an integrated solution, including technology and services.
 
@@ -28,8 +28,8 @@ For an overview of the Integrated Solutions program, watch [this video](https://
 ## Eligibility criteria
 
 * Participating partners must have an MPN ID.
-* Participating services providers should be ready to co-sell.
-* Participating software vendors should be ready to IP co-sell. 
+* Participating services providers should be co-sell ready.
+* Participating software vendors should be IP co-sell ready. 
 * At least one participating partner must have Gold Competency in one of the following areas:
 
     * Application Development
