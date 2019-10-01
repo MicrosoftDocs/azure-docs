@@ -27,7 +27,7 @@ In Azure Search, "search-as-you-type" or typeahead functionality is based on a *
 
 A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
 
-The following screenshot from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggester contains the hotel name field.
+The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggester contains the hotel name field.
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
