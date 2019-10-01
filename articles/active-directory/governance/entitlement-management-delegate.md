@@ -31,37 +31,52 @@ ms.collection: M365-identity-device-management
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required. Typically it is users within departments who know who need to collaborate. 
 
-Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights. This article describes the roles that you can assign to delegate various tasks in entitlement management. 
+Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
+
+This article describes how to delegate access governance to others in entitlement management. 
 
 ## Delegate example for department adoption
 
-To understand how you might delegate access governance in entitlement management, it helps to consider an example. 
+To understand how you might delegate access governance in entitlement management, it helps to consider an example. Suppose your organization has the following administrator and department managers.
 
-Suppose your organization has the following users:
+![Entitlement management delegate from IT to department managers](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-| Name | Job | Notes |
-| --- | --- | --- |
+| Name | Job |
+| --- | --- |
 | Hana | IT administrator |
 | Mamta | Marketing manager |
-| Bob | Marketing lead |
-| Jessica | Marketing project manager |
-| Marcus | Marketing |
+| Mark | Finance manager |
+| Joe | Legal manager |
 
-The marketing department wants to use entitlement management for their users. Hana is not yet ready for other departments to use entitlement management. Here is one way that Hana could delegate access governance to the marketing department.
+As the IT administrator, Hana has contacts in each department -- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
-1. Hana creates a new Azure AD security group for catalog creators, and adds Mamta as a member of that group.
+With entitlement management, you can delegate access governance to these department managers because they're the ones who know who needs access and to which resources. This ensures the right people are managing access for their departments, without IT involvement.
 
-1. Hana uses the entitlement management settings to add that group to the catalog creators role.
+Here is one way that Hana could delegate access governance to the marketing department.
 
-1. Mamta creates a **Marketing** catalog, and adds Bob as a co-owner of that catalog. Bob adds the marketing application he owns to the catalog as a resource, so that it can be used in an access package for marketing collaboration.
+1. Hana creates a new Azure AD security group, and adds Mamta as a member of that group.
 
-Now the Marketing department can utilize entitlement management. Bob, Carol, Mamta, and Elisa can create and manage access packages in their respective catalogs.
+1. Hana add that group to the catalog creators role. Mamta can now create catalogs for the Marketing department, add resources that the department needs, and further delegate within the catalog.
+
+1. Mamta creates a **Marketing** catalog, which is a container of resources.
+
+1. Mamta adds the resources her marketing department owns to the catalog.
+
+1. Mamta can add any catalog owners that she wants to co-own that catalog. This helps share the catalog management tasks.
+
+1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog. An access package is a bundle of resources for a team or project that users can request.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
 ## As an IT administrator, delegate to department manager
 
-If you want to delegate catalog creation, you add users to the catalog creator role.  You can add individual users, or for convenience can add a group, whose members are then able to create catalogs. Follow these steps to assign a user to the catalog creator role.
+To delegate to department managers so that they can create their own catalogs, you add users to the catalog creator role. You can add individual users, or for convenience can add a group, whose members are then able to create catalogs.
+
+This video provides an overview of delegation from IT to department manager:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq00]
+
+Follow these steps to assign a user to the catalog creator role.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -79,17 +94,15 @@ If you want to delegate catalog creation, you add users to the catalog creator r
 
 1. Click **Save**.
 
-## As a department manager, add co-owners
+## As a department manager, create a catalog
 
-To delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. 
+## As a department manager, add resources to the catalog
 
-The assigned catalog owner or access package manager must be familiar with the project. The catalog creator should create the access package if involved in the day to day operations of the project, and they know the following information:
-- what resources are needed
-- who will need access
-- who needs to approve access
-- how long the project will last
+## As a department manager, add additional catalog owners
 
-The catalog creator should delegate the access governance to the project lead, who will create and manage the access package, if not involved in the day to day operations of the project. Follow these steps to assign a user to the catalog owner or access package manager role:
+Whoever creates a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management tasks. 
+
+Follow these steps to assign a user to the catalog owner role:
 
 **Prerequisite role:** Global administrator, User administrator or Catalog owner
 
@@ -99,21 +112,25 @@ The catalog creator should delegate the access governance to the project lead, w
 
 1. In the left menu, click **Roles and administrators**.
 
-1. Click **Add owners** or **Add access package managers** to select the members for these roles.
+1. Click **Add owners** to select the members for these roles.
 
 1. Click **Select** to add these members.
 
 ## As a department manager, delegate to project manager
 
-To delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. 
+To delegate creation and management of access packages in the catalog, you add users to the access package manager role.
 
-The assigned catalog owner or access package manager must be familiar with the project. The catalog creator should create the access package if involved in the day to day operations of the project, and they know the following information:
-- what resources are needed
-- who will need access
-- who needs to approve access
-- how long the project will last
+Access package managers must be familiar with the project and are typically a project manager or a project lead. Access package managers are involved in the day-to-day operations of the project, and they know the following information:
+- What resources are needed
+- Who will need access
+- Who needs to approve access
+- How long the project will last
 
-The catalog creator should delegate the access governance to the project lead, who will create and manage the access package, if not involved in the day to day operations of the project. Follow these steps to assign a user to the catalog owner or access package manager role:
+This video provides an overview of delegation from department manager to project manager:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq08]
+
+Follow these steps to assign a user to the access package manager role:
 
 **Prerequisite role:** Global administrator, User administrator or Catalog owner
 
@@ -123,7 +140,7 @@ The catalog creator should delegate the access governance to the project lead, w
 
 1. In the left menu, click **Roles and administrators**.
 
-1. Click **Add owners** or **Add access package managers** to select the members for these roles.
+1. Click **Add access package managers** to select the members for these roles.
 
 1. Click **Select** to add these members.
 
