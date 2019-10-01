@@ -163,7 +163,7 @@ def get_last_updated(currentModifiedDate):
 
 This cell 
 
-* builds the URLs used in REST calls* 
+* builds the URLs used in REST calls 
 * sets the security header using your Personalizer resource key 
 * sets the random seed for the Rank event ID
 * reads in the JSON data files
