@@ -31,7 +31,7 @@ The Hyperscale service tier is only available for single databases using the vCo
 
 ### How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers
 
-The vCore-based service tiers are primarily differentiated based upon availability, storage type, and IOPs.
+The vCore-based service tiers are primarily differentiated based upon availability, storage type, and IOPS.
 
 - The General Purpose service tier is appropriate for most business workloads, offering a balanced set of compute and storage options where IO latency or failover times are not the priority.
 - The Hyperscale service tier is optimized for very large database workloads.
@@ -39,14 +39,14 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 
 | | Resource type | General Purpose |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
-| **Best for** |All|  Most business workloads. Offers budget oriented balanced compute and storage options. | Data applications with large data capacity requirements and the ability to auto-scale storage and scale compute fluidly. | OLTP applications with high transaction rate and lowest latency IO. Offers highest resilience to failures using several, isolated replicas.|
+| **Best for** |All|Offers budget oriented balanced compute and storage options.|Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|
 |  **Resource type** ||Single database / elastic pool / managed instance | Single database | Single database / elastic pool / managed instance |
 | **Compute size**|Single database / elastic pool * | 1 to 80 vCores | 1 to 80  vCores* | 1 to 80 vCores |
 | |Managed instance | 8, 16, 24, 32, 40, 64, 80  vCores | N/A | 8, 16, 24, 32, 40, 64, 80  vCores |
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 | **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
+| **IOPS** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
 |**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 4 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
 |**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7 days, constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
@@ -55,7 +55,7 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 
 ### Who should use the Hyperscale service tier
 
-The Hyperscale service tier is primarily intended for customers who have large on-premises SQL Server databases and want to modernize their applications by moving to the cloud or for customers who are already using Azure SQL Database and want to significantly expand the potential for database growth. Hyperscale is also intended for customers who seek both high performance and high scalability. With Hyperscale, you get:
+The Hyperscale service tier is intended for customers who have large on-premises SQL Server databases and want to modernize their applications by moving to the cloud or for customers who are already using Azure SQL Database and want to significantly expand the potential for database growth. Hyperscale is also intended for customers who seek both high performance and high scalability. With Hyperscale, you get:
 
 - Support for up to 100 TB of database size
 - Fast database backups regardless of database size (backups are based on file snapshots)
@@ -167,7 +167,7 @@ Your database size automatically grows as you insert/ingest more data.
 
 ### In what increments does my database size grow
 
-1 GB
+Each data file grows by 10 GB. Multiple data files may grow at the same time.
 
 ### Is the storage in SQL Database Hyperscale local or remote
 
@@ -195,13 +195,13 @@ Yes
 
 ### If I have a huge table, does my table data get spread out across multiple data files
 
-Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses a [proportional fill strategy](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
+Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses a [proportional fill strategy](database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
 
 ## Data migration questions
 
 ### Can I move my existing Azure SQL databases to the Hyperscale service tier
 
-Yes. You can move your existing Azure SQL databases to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
+Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview).
   
 ### Can I move my Hyperscale databases to other editions
 
@@ -222,11 +222,13 @@ Downtime is the same as the downtime when you migrate your databases to a single
 
 ### How much time would it take to bring in X amount of data to SQL Database Hyperscale
 
-Hyperscale is capable of consuming 100 MB/sec of new/changed data.
+Hyperscale is capable of consuming 100 MB/sec of new/changed data, but the time needed to move data into Azure SQL databases is also affected by available network throughput, source read speed and the target Hyperscale database Service Level Objective.
 
 ### Can I read data from blob storage and do fast load (like Polybase and SQL Data Warehouse)
 
 You can read data from Azure Storage and load data load into a Hyperscale database (just like you can do with a regular single database). Polybase is currently not supported on Azure SQL Database. You can do Polybase using [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) or running a Spark job in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) with the [Spark connector for SQL](sql-database-spark-connector.md). The Spark connector to SQL supports bulk insert.
+
+It's also possible to bulk read data from Azure Blob store using BULK INSERT or OPENROWSET: [Examples of Bulk Access to Data in Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Simple recovery or bulk logging model is not supported in Hyperscale. Full recovery model is required to provide high availability. However, Hyperscale provides a better data ingest rate compared to a single Azure SQL database because of the new log architecture.
 
