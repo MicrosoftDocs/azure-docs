@@ -58,6 +58,12 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
 
+### <a name="1.8.2"/>1.8.2
+
+* Fixed high CPU consumption on certain scenarios.
+* Tracing now uses TraceSource. Users can define listeners for the `BulkExecutorTrace` source.
+* Fixed a rare scenario that could cause a lock when sending documents near 2Mb of size.
+
 ### <a name="1.6.0"/>1.6.0
 
 * Updated the bulk executor to now use the latest version of the Azure Cosmos DB .NET SDK (2.4.0)

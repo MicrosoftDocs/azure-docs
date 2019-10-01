@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: 
 ---
@@ -26,15 +26,20 @@ Azure Monitor Logs is designed to scale and support collecting, indexing, and st
 
 In this article we review how you can proactively monitor data volume and storage growth, and define limits to control those associated costs. 
 
-The cost of data can be considerable depending on the following factors: 
 
-- Volume of data generated and ingested to the workspace 
-    - Number of management solutions enabled
-    - Number of systems monitored
-    - Type of data collected from each monitored resource 
-- The length of time you decide to retain your data 
+## Pricing model
 
-## Understand your workspace's usage and estimated cost
+Pricing for Log Analytics is based on data volume ingested and optionally for longer data retention. Each Log Analytics workspace is charged as a separate service and contributes to the bill for your Azure subscription. The amount of data ingestion can be considerable depending on the following factors: 
+
+  - Number of management solutions enabled
+  - Use of solutions with their own billing model, for instance [Azure Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/)
+  - Number of VMs monitored
+  - Type of data collected from each monitored VM 
+
+> [!NOTE]
+> The recently announced Capacity Reservation pricing tiers will be available for Log Analytics on November 1, 2019. Learn more at the [https://azure.microsoft.com/en-us/pricing/details/monitor/](Azure Monitor pricing page).
+
+## Understand your usage and estimate costs
 
 Azure Monitor Logs makes it easy to understand what the costs are likely be based on recent usage patterns. To do this, use  **Log Analytics Usage and Estimated Costs** to review and analyze data usage. The shows how much data is collected by each solution, how much data is being retained and an estimate of your costs based on the amount of data ingested and any additional retention beyond the included amount.
 
@@ -48,20 +53,20 @@ From the **Usage and Estimated Costs** page you can review your data volume for 
  
 Log Analytics charges are added to your Azure bill. You can see details of your Azure bill under the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
 
-## Daily cap
+## Manage your maximum daily data volume
 
 You can configure a daily cap and limit the daily ingestion for your workspace, but use care as your goal should not be to hit the daily limit.  Otherwise, you lose data for the remainder of the day, which can impact other Azure services and solutions whose functionality may depend on up-to-date data being available in the workspace.  As a result, your ability to observe and receive alerts when the health conditions of resources supporting IT services are impacted.  The daily cap is intended to be used as a way to manage the unexpected increase in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace.  
 
 When the daily limit is reached, the collection of billable data types stops for the rest of the day. A warning banner appears across the top of the page for the selected Log Analytics workspace and an operation event is sent to the *Operation* table under **LogManagement** category. Data collection resumes after the reset time defined under *Daily limit will be set at*. We recommend defining an alert rule based on this operation event, configured to notify when the daily data limit has been reached. 
 
 > [!NOTE]
-> The daily cap does not stop the collection of data from Azure Security Center.
+> The daily cap does not stop the collection of data from Azure Security Center, except for workspaces in which Azure Security Center was installed before June 19, 2017. 
 
 ### Identify what daily data limit to define
 
 Review [Log Analytics Usage and estimated costs](usage-estimated-costs.md) to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
 
-### Manage the maximum daily data volume
+### Set the Daily Cap
 
 The following steps describe how to configure a limit to manage the volume of data that Log Analytics workspace will ingest per day.  
 
@@ -71,7 +76,7 @@ The following steps describe how to configure a limit to manage the volume of da
 
     ![Log Analytics configure data limit](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
-### Alert when daily cap reached
+### Alert when Daily Cap reached
 
 While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view, and manage alerts](alerts-metric.md).
 
@@ -102,6 +107,8 @@ The following steps describe how to configure how long log data is kept by in yo
     ![Change workspace data retention setting](media/manage-cost-storage/manage-cost-change-retention-01.png)
 	
 The retention can also be [set via ARM](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) using the `dataRetention` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This functionality is only exposed via ARM. 
+
+Two data types -- `Usage` and `AzureActivity` -- are retained for 90 days by default, and there is no charge for for this 90 day retention. These data types are also free from data ingestion charges. 
 
 ## Legacy pricing tiers
 
@@ -411,6 +418,10 @@ When creating the alert for the second query -- when it is predicted that there 
 Specify an existing or create a new [Action Group](action-groups.md) so that when the log alert matches criteria, you are notified.
 
 When you receive an alert, use the steps in the following section to troubleshoot why usage is higher than expected.
+
+## Data transfer charges using Log Analytics
+
+Sending data to Log Analytics might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/en-us/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Log Analytics data ingestion. Consequently controlling costs for Log Analytics needs to focus on your ingested data volume, and we have guidance to help understand that [here](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
 
 ## Limits summary
 
