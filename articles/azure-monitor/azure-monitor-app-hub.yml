@@ -349,8 +349,8 @@ conceptualContent:
 additionalContent:
   sections:
     - items:
-      - title: 
-        summary: Application Insights API summary
+      - title: Application Insights API summary
+        summary: Code samples for all the Application Insights API calls
         url: https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics
       - title: Application Insights PowerShell
         summary: Learn how to install and use the Application Insights powershell cmdlets.
