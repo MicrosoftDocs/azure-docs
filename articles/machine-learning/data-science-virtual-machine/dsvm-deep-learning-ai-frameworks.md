@@ -53,7 +53,7 @@ Deep learning frameworks on the DSVM are listed below.
 | How to run it      | Open a command prompt (on Windows) or a terminal (on Linux), and then run _nvidia-smi_. |
 
 
-## [Horovod](https://github.com/uber/horovod
+## [Horovod](https://github.com/uber/horovod)
 
 |    |           |
 | ------------- | ------------- |
@@ -79,15 +79,6 @@ Deep learning frameworks on the DSVM are listed below.
 | Supported DSVM editions      | Windows and Linux   |
 | How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
 | How to run it      | Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
-
-<!-- ## [NVidia Digits](https://developer.nvidia.com/digits)
-
-|    |           |
-| ------------- | ------------- |
-| Version(s) supported | 2.5.1 |
-| Supported DSVM editions      | Linux (Ubuntu)   |
-| How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available as a service named _digits_. |
-| How to run it      | Sign in to the VM with X2Go. At a terminal, start the service by running ```sudo systemctl start digits```. <br/><br/>The service takes about one minute to start. Open a web browser and go to `http://localhost:5000`. Note that DIGITS does not provide a secure login and should not be exposed outside the VM.|  -->
 
 ## [PyTorch](https://pytorch.org/)
 
@@ -125,10 +116,3 @@ Deep learning frameworks on the DSVM are listed below.
 | Supported DSVM editions      | Linux |
 | How is it configured / installed on the DSVM?  |Theano is installed in Python 2.7 (_root_), and in Python 3.5 (_py35_) environment. |
 | How to run it      |  Terminal: Activate the Python version you want (root or py35), run Python, and then import Theano.<br/>* Jupyter: Select the Python 2.7 or 3.5 kernel, and then import Theano.  <br/>To work around a recent math kernel library (MKL) bug, you need to first set the MKL threading layer as follows:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |
-
-
-
-
-
-
-<!-- |[TensorRT](https://developer.nvidia.com/tensorrt) |  No | Yes (Ubuntu) |A deep-learning inference server from NVIDIA. TensorRT is installed as an _apt_ package. Samples are available [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).| -->

@@ -75,12 +75,9 @@ Below we have included an up-to-date list of tools included on the Data Science 
 | &nbsp;&nbsp;&nbsp;&nbsp; [Microsoft Cognitive Toolkit (CNTK)](./dsvm-deep-learning-ai-frameworks.md#microsoft-cognitive-toolkit-cntk) (Windows 2016) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow](./dsvm-deep-learning-ai-frameworks.md#tensorflow) |<span class='green-check'>&#9989;</span> (Windows 2016) |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Horovod](./dsvm-deep-learning-ai-frameworks.md#horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp; [MXNet](https://mxnet.io/) |<span class='green-check'>&#9989;</span> (Windows 2016) | <span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Caffe and Caffe2](https://github.com/caffe2/caffe2) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Chainer](https://chainer.org/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Torch](http://torch.ch/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Keras](https://keras.io/)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [PyTorch](https://pytorch.org/)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow Serving](https://www.tensorflow.org/serving/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Caffe and Caffe2](./dsvm-deep-learning-ai-frameworks.md#caffe2) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Chainer](./dsvm-deep-learning-ai-frameworks.md#chainer) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Keras](./dsvm-deep-learning-ai-frameworks.md#keras)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [PyTorch](./dsvm-deep-learning-ai-frameworks.md#pytorch)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow Serving](./dsvm-deep-learning-ai-frameworks.md#tensorflow-serving) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [CUDA, cuDNN, NVIDIA Driver]((./dsvm-deep-learning-ai-frameworks.md#cuda-cudnn-nvidia-driver) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |
