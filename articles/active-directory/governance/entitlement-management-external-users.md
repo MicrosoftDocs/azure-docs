@@ -1,6 +1,6 @@
 ---
-title: Manage access for external users in Azure AD entitlement management (Preview) - Azure Active Directory
-description: Learn about the settings you can specify to manage access for external users in Azure Active Directory entitlement management.
+title: Govern access for external users in Azure AD entitlement management (Preview) - Azure Active Directory
+description: Learn about the settings you can specify to govern access for external users in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -18,11 +18,11 @@ ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a administrator, I want understand how I can manage access for external users in entitlement management.
+#Customer intent: As a administrator, I want understand how I can govern access for external users in entitlement management.
 
 ---
 
-# Manage access for external users in Azure AD entitlement management (Preview)
+# Govern access for external users in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -31,7 +31,7 @@ ms.collection: M365-identity-device-management
 
 Azure AD entitlement management utilizes [Azure AD business-to-business (B2B)](../b2b/what-is-b2b.md) to collaborate with people outside your organization in another Azure AD directory. With Azure AD B2B, external users authenticate to their home directory, but have a representation in your directory. The representation in your directory enables the user to be assigned access to your resources.
 
-This article describes the settings you can specify to manage access for external users.
+This article describes the settings you can specify to govern access for external users.
 
 ## How entitlement management can help
 
