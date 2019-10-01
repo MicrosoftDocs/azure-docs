@@ -101,7 +101,7 @@ A rule you may choose to implement might enforce that:
 
 The implementation details will vary given your needs, but in general you can create a system that:
 
-- Log failures to a storage account (Azure Table Storage, Redis, etc.)
+- Log failures to a storage account (Azure Storage, Redis, etc.)
 - When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
 - If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
 
