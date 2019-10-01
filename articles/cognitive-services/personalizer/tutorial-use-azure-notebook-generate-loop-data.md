@@ -559,7 +559,6 @@ jsonTemplate2 = rankactionsjsonobj
 [count2, rewards2] = iterations(num_requests, lastModCheck2, jsonTemplate)
 ```
 
-
 ## Run chart for 2,000 rank requests
 
 Run the `createChart` function.
@@ -572,6 +571,8 @@ createChart(count2,rewards2)
 
 The second chart should show a visible increase in Rank predictions aligning with user preferences. 
 
+![The second chart should show a visible increase in Rank predictions aligning with user preferences.](./media/tutorial-azure-notebook/azure-notebook-chart-results-happy-graph.png)
+
 ## Clean up resources
 
 If you do not intend to continue the tutorial series, clean up the following resources:
@@ -581,7 +582,5 @@ If you do not intend to continue the tutorial series, clean up the following res
 
 ## Next steps
 
-The [Jupyter notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample is available on the GitHub repo for Personalizer. 
-
-In the next tutorial, use the data for offline evaluation, create, and apply a new learning policy. Then run the simulation again to see the improvements. 
+The [Jupyter notebook and data files](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) used in this sample are available on the GitHub repo for Personalizer. 
 
