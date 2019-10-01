@@ -37,4 +37,4 @@ Azure Spring Cloud allows you to easily scale the micro-services in your Azure S
 
 ### Monitor your application using distributed tracing and Azure App Insights
 
-Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in their application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/insights/overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this tutorial.
+Spring Cloud's distributed tracing tools allow developers to debug and monitor the complex interconnections between microservices in their application.  By integrating [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../../azure-monitor/insights/overview.md), Azure provides powerful distributed tracing capability directly from the Azure portal.  To learn more, complete this tutorial.
