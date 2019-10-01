@@ -1,93 +1,84 @@
 ---
-title: Use command-line tools to start and stop VMs Azure DevTest Labs | Microsoft Docs
-description: Learn how to use command-line tools to start and stop virtual machines in Azure DevTest Labs. 
-services: devtest-lab,virtual-machines,lab-services
+title: Use Azure managed identities to create environments in DevTest Labs | Microsoft Docs
+description: Learn how to use managed identities in Azure to deploy environments in a lab in Azure DevTest Labs. 
+services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
-manager: femila
 
 ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 10/01/2019
 ms.author: spelluru
 
 ---
 
-# Use command-line tools to start and stop Azure DevTest Labs virtual machines
-This article shows you how to use Azure PowerShell or Azure CLI to start or stop virtual machines in a lab in Azure DevTest Labs. You can create PowerShell/CLI scripts to automate these operations. 
+# Use Azure managed identities to deploy environments in a lab 
+As a lab owner, you can use a managed identity to deploy environments in a lab. This feature is helpful in scenarios where the environment contains or has references to Azure resources such as key vaults, shared image galleries, and networks that are external to the environment’s resource group. It enables creation of sandbox environments that aren't limited to the resource group of that environment.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!NOTE]
+> Currently, a single user assigned identity is supported per lab. 
 
-## Overview
-Azure DevTest Labs is a way to create fast, easy, and lean dev/test environments. It allows you to manage cost, quickly provision VMs, and minimize waste.  There are built-in features in the Azure portal that allow you to configure VMs in a lab to automatically start and stop at specific times. 
+## Prerequisites
+- [Create a user assigned identity using Managed Identities in the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-However, in some scenarios, you may want to automate starting and stopping of VMs from PowerShell/CLI scripts. It gives you some flexibility with starting and stopping individual machines at any time instead of at specific times. Here are some of the situations in which running these tasks by using scripts would be helpful.
+## Use Azure portal
+In this section you, as a lab owner, use the Azure portal to add a user-managed identity to the lab. 
 
-- When using a 3-tier application as part of a test environment, the tiers need to be started in a sequence. 
-- Turn off a VM when a custom criteria is met to save money. 
-- Use it as a task within a CI/CD workflow to start at the beginning of the flow, use the VMs as build machines, test machines, or infrastructure, then stop the VMs when the process is complete. An example of this would be the custom image factory with Azure DevTest Labs.  
+1. On the lab page, select **Configuration and policies**. 
+1. Select **Identity** in the **Settings** section.
+1. To add a user assigned identity, select **Add** on the toolbar. 
+1. Select an **identity** from a pre-populated drop-down list.
+1. Select **OK**.
 
-## Azure PowerShell
-The following PowerShell script starts a VM in a lab. [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction?view=azps-1.7.0) is the primary focus for this script. The **ResourceId** parameter is the fully qualified resource ID for the VM in the lab. The **Action** parameter is where the **Start** or **Stop** options are set depending on what is needed.
+    ![Add user-managed identity](./media/use-managed-identities-environments/add-user-managed-identity.png)
+2. You see the added user-managed identity in the list. 
 
-```powershell
-# The id of the subscription
-$subscriptionId = "111111-11111-11111-1111111"
+    ![User-managed identity in the list](./media/use-managed-identities-environments/identity-in-list.png)
 
-# The name of the lab
-$devTestLabName = "yourlabname"
+Once saved, the lab will use this identity while deploying all lab environments. You can also access the identity resource in Azure by selecting the identity from the list. 
 
-# The name of the virtual machine to be started
-$vMToStart = "vmname"
+The lab owner doesn't need to do anything special while deploying an environment as long as the identity added to the lab has permissions to the external resources that the environment needs to access. 
 
-# The action on the virtual machine (Start or Stop)
-$vmAction = "Start"
+To change the user-managed identity assigned to the lab, remove the identity attached to the lab first and then add another one to the lab. To remove an identity attached to the lab, select **... (ellipsis)**, and click **Remove**. 
 
-# Select the Azure subscription
-Select-AzSubscription -SubscriptionId $subscriptionId
+![User-managed identity in the list](./media/use-managed-identities-environments/replace-identity.png)  
 
-# Get the lab information
-if ($(Get-Module -Name AzureRM).Version.Major -eq 6) {
-    $devTestLab = Get-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -Name $devTestLabName
-} else {
-    $devTestLab = Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' -ResourceNameEquals $devTestLabName
-}
+# Use API
 
-# Start the VM and return a succeeded or failed status
-$returnStatus = Invoke-AzResourceAction `
-                    -ResourceId "$($devTestLab.ResourceId)/virtualmachines/$vMToStart" `
-                    -Action $vmAction `
-                    -Force
+1. After creating an identity, note the resource ID of this identity. It should look like the following sample: 
 
-if ($returnStatus.Status -eq 'Succeeded') {
-    Write-Output "##[section] Successfully updated DTL machine: $vMToStart, Action: $vmAction"
-}
-else {
-    Write-Error "##[error]Failed to update DTL machine: $vMToStart, Action: $vmAction"
-}
-```
+    `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
+1. Using **Fiddler**, run a PUT on **ServiceRunners** with the following properties:
+ 
+    ```json
+    PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}
 
+    {
+        "location": "eastus2euap",
+        "identity":{
+            "type": "userAssigned",
+            "userAssignedIdentities":{
+                "[userAssignedIdentityResourceId]":{}
+            }
+        }
+    }
+    ```
+ 
+    Here's an example: 
 
-## Azure CLI
-The [Azure CLI](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest) is another way to automate the starting and stopping of DevTest Labs VMs. Azure CLI can be [installed](/cli/azure/install-azure-cli?view=azure-cli-latest) on different operating systems. The following script gives you commands for starting and stopping a VM in a lab. 
-
-```azurecli
-# Sign in to Azure
-az login 
-
-## Get the name of the resource group that contains the lab
-az resource list --resource-type "Microsoft.DevTestLab/labs" --name "yourlabname" --query "[0].resourceGroup" 
-
-## Start the VM
-az lab vm start --lab-name yourlabname --name vmname --resource-group labResourceGroupName
-
-## Stop the VM
-az lab vm stop --lab-name yourlabname --name vmname --resource-group labResourceGroupName
-```
-
-
-## Next steps
-See the following article for using the Azure portal to do these operations: [Restart a VM](devtest-lab-restart-vm.md).
+    ```json
+    {
+        "location": "eastus2euap",
+        "identity":{
+            "type": "userAssigned",
+            "userAssignedIdentities":{
+                "/subscriptions/0000000000-0000-0000-0000-000000000000000/resourceGroups/{rg}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{useridentityname}":{}
+            }
+        }
+    }
+    ```
+ 
+Once the user assigned identity is added to the lab, the Azure DevTest Labs service will use it while deploying Azure Resource Manager environments. For example, if you need your Resource Manager template to access an external shared image gallery image, make sure that the identity you added to the lab has minimum required permissions for the shared image gallery resource. 
