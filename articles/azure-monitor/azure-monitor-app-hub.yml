@@ -296,6 +296,33 @@ conceptualContent:
           itemType: how-to-guide
           text: Endpoint overrides
 
+    - title:  Data model
+      links: 
+        - url: ./app/data-model.md
+          itemType: overview
+          text:  Overview
+        - url: ./app/data-model-request-telemetry.md
+          itemType: how-to-guide
+          text:  Request
+        - url: ./app/data-model-dependency-telemetry.md
+          itemType: how-to-guide
+          text:  Dependency
+        - url: ./app/data-model-exception-telemetry.md
+          itemType: how-to-guide
+          text:  Exception
+        - url: ./app/data-model-trace-telemetry.md
+          itemType: how-to-guide
+          text:  Trace
+        - url: ./app/data-model-event-telemetry.md
+          itemType: how-to-guide
+          text:  Event
+        - url: ./app/data-model-metric-telemetry.md
+          itemType: how-to-guide
+          text:  Metric
+        - url: ./app/data-model-context.md
+          itemType: how-to-guide
+          text:  Context
+
     - title:  Azure DevOps
       links: 
         - url: ./app/annotations.md
@@ -321,6 +348,21 @@ conceptualContent:
           text:  Export data model
 
     
+    - title:  Visualizations
+      links: 
+        - url: ./app/overview-dashboard.md
+          itemType: how-to-guide
+          text:  Application dashboard
+        - url: ./app/export-power-bi.md
+          itemType: how-to-guide
+          text:  PowerBI  integration
+        - url: ./app/monitoring-metric-charts.md
+          itemType: how-to-guide
+          text:  Metric charts
+        - url: ./app/usage-workbooks.md
+          itemType: how-to-guide
+          text:  Workbooks (interactive reporting)    
+  
     - title:  Visual Studio
       links: 
         - url: ./app/visual-studio.md
@@ -344,8 +386,9 @@ conceptualContent:
         - url: ./app/azure-functions-supported-features.md
           itemType: how-to-guide
           text:  Azure Functions integration
+        
+        
             
-
 additionalContent:
   sections:
     - items:
