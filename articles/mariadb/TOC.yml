@@ -4,7 +4,7 @@
   items:
   - name: What is Azure DB for MariaDB?
     href: overview.md
-  - name: PaaS vs IaaS for MariaDB 
+  - name: Which MariaDB option should I choose?
     href: selecting-right-deployment-type.md
 - name: Quickstarts
   expanded: true
