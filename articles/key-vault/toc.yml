@@ -98,7 +98,7 @@
     items:
     - name: Recommendations
       href: security-recommendations.md
-  - name: Authenticate Apps
+  - name: Authentication
     items:
     - name: Use an App Service managed identity
       href: managed-identity.md

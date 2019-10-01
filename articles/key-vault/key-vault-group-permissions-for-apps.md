@@ -166,7 +166,7 @@ If you intend to use PowerShell, you will also need the [Azure AD PowerShell mod
 
 ### Create an Azure Active Directory group
 
-Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup]/(powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
+Create a new Azure Active Directory group using the Azure CLI [az ad group create](/cli/azure/ad/group?view=azure-cli-latest#az-ad-group-create) command, or the Azure PowerShell [New-AzureADGroup](/(powershell/module/azuread/new-azureadgroup?view=azureadps-2.0) cmdlet.
 
 
 ```azurecli
@@ -187,13 +187,13 @@ You can find the objectIds of your applications using the Azure CLI with the [az
 az ad sp list --show-mine
 ```
 
-Find the objectIds of your applications using Azure PowerShell with the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, passing a search string to the `-SearhcString` paramater.
+Find the objectIds of your applications using Azure PowerShell with the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal?view=azps-2.7.0) cmdlet, passing a search string to the `-SearchString` paramater.
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <search-string>
 ```
 
-TO find the objectIds of your Users, follow the steps in the [Users](#users) section, above.
+To find the objectIds of your Users, follow the steps in the [Users](#users) section, above.
 
 ### Add your applications and users to the group
 
@@ -208,7 +208,7 @@ az ad group member add -g <groupId> --member-id <objectId>
 
 With Azure PowerShell, use the [Add-AzADGroupMember](/powershell/module/az.resources/add-azadgroupmember?view=azps-2.7.0) cmdlet, passing the objectId to the `-MemberObjectId` parameter.
 
-```azurePowerShell
+```azurepowershell
 Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId> 
 ```
 
