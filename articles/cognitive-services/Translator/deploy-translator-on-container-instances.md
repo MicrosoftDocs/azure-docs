@@ -1,5 +1,5 @@
 ---
-title: Run Azure Container Instances - Translator Text
+title: Run Azure Container instances - Translator Text
 titleSuffix: Azure Cognitive Services
 description: Deploy the Translator Text container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 10/01/2019
 ms.author: dapine
 ---
 
