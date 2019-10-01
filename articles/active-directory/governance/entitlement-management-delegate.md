@@ -73,6 +73,8 @@ If you want to delegate catalog creation, you add users to the catalog creator r
 
 1. Click **Edit**.
 
+    ![Settings to manage the lifecyle of external users](./media/entitlement-management-shared/settings-external-users.png)
+
 1. In the **Delegate entitlement management** section, click **Add catalog creators** to select the users or groups who will be the members for this entitlement management role.
 
 1. Click **Select**.
