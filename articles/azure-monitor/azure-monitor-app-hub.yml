@@ -32,7 +32,7 @@ highlightedContent:
     - title: Create a resource 
       itemType: how-to-guide
       url: ./app/create-new-resource.md
-    - title: Add client-side JavaScript to your website
+    - title: Monitor your website
       itemType: how-to-guide 
       url: ./app/javascript.md
 
@@ -62,9 +62,6 @@ conceptualContent:
         - url: ./app/nodejs.md
           itemType: how-to-guide
           text: Node.js
-        - url: ./app/javascript.md
-          itemType: how-to-guide
-          text: JavaScript    
 
     - title: Codeless monitoring
       links: 
@@ -74,7 +71,7 @@ conceptualContent:
         - url: ./app/cloudservices.md
           itemType: how-to-guide
           text: Cloud Services 
-        - url: https://docs.microsoft.com/en-us/azure/azure-functions/functions-monitoring
+        - url: ../azure-functions/functions-monitoring.md
           itemType: how-to-guide
           text: Azure Functions 
         - url: ./app/kubernetes.md
@@ -127,7 +124,7 @@ conceptualContent:
         - url: ./app/live-stream.md
           itemType: how-to-guide
           text:  Live Metrics
-        - url: .\app\pre-aggregated-metrics-log-metrics.md
+        - url: ./app/pre-aggregated-metrics-log-metrics.md
           itemType: how-to-guide
           text:  Log-based and pre-aggregated metrics
         - url: ./platform/app-insights-metrics.md
