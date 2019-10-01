@@ -419,19 +419,7 @@ conceptualContent:
           text:  Trends
         - url: ./app/visual-studio-codelens.md
           itemType: how-to-guide
-          text:  CodeLens
-
-    - title:  Other platforms
-      links: 
-        - url: ./app/sharepoint.md
-          itemType: how-to-guide
-          text:  SharePoint sites
-        - url: ./app/windows-desktop.md
-          itemType: how-to-guide
-          text:  Classic Windows desktop apps
-        - url: ./app/console.md
-          itemType: how-to-guide
-          text:  .NET console applications      
+          text:  CodeLens     
 
     - title:  Troubleshooting & FAQ
       links: 
