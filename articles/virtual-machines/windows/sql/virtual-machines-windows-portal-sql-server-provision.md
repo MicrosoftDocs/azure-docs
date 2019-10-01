@@ -50,17 +50,6 @@ When you create a SQL Server virtual machine, you can select one of several pre-
 1. Select **Create**.
 
 
-## <a id="configure"></a> Configuration options
-
-There are multiple tabs for configuring a SQL Server virtual machine. For the purpose of this guide, we will focus on the following: 
-
-| Step | Description |
-| --- | --- |
-| **Basics** |[Configure basic settings](#1-configure-basic-settings) |
-| **Optional Features** |[Configure optional features](#2-configure-optional-features) |
-| **SQL Server settings** |[Configure SQL server settings](#3-configure-sql-server-settings) |
-| **Review + create** | [Review the summary](#4-review--create) |
-
 ## 1. Configure basic settings
 
 
@@ -137,8 +126,6 @@ On the **Monitoring** tab, configure monitoring and autoshutdown.
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. The settings that you can configure for SQL Server include the following:
 
-
-
 | Setting |
 | --- |
 | [Connectivity](#connectivity) |
@@ -206,14 +193,6 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
 
 
-> [!NOTE]
-> If you manually configured your VM to use standard storage, this option is not available. Automatic storage optimization is available only for Premium Storage.
-
-> [!TIP]
-> The number of stops and the upper limits of each slider is dependent on the size of VM you selected. A larger and more powerful VM is able to scale up more.
-
-You can specify requirements as input/output operations per second (IOPs), throughput in MB/s, and total storage size. Configure these values by using the sliding scales. You can change these storage settings based on workload. The portal automatically calculates the number of disks to attach and configure based on these requirements.
-
 Under **Storage optimized for**, select one of the following options:
 
 * **General** is the default setting and supports most workloads.
@@ -221,6 +200,8 @@ Under **Storage optimized for**, select one of the following options:
 * **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
 ![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+
+You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### SQL Server License
 If you're a Software Assurance customer, you can utilize the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 

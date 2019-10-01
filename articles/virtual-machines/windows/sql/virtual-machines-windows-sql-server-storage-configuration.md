@@ -39,9 +39,20 @@ The following sections describe how to configure storage for new SQL Server virt
 
 ### Azure portal
 
-When provisioning an Azure VM using a SQL Server gallery image, you can choose to automatically configure the storage for your new VM. You specify the storage size, performance limits, and workload type. The following screenshot shows the Storage configuration blade used during SQL VM provisioning.
+When provisioning an Azure VM using a SQL Server gallery image, you can customize the storage that suits your needs, or leave the values at the default chosen **Storage optimization**. 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) and **Data warehousing** will create separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). 
+
+The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+
+![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+
+   > [!TIP]
+   > Be sure that your storage configuration matches the limitations imposed by the the selected VM size. Choosing storage parameters that exceed the performance cap of the VM size will result in error: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Either decrease the IOPs by changing the disk type, or increase the performance cap limitation by increasing the VM size. 
+
 
 Based on your choices, Azure performs the following storage configuration tasks after creating the VM:
 
@@ -60,6 +71,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 * [Create VM with Automated Backup](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autobackup)
 * [Create VM with Automated Patching](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Create VM with AKV Integration](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
+* 
 
 ## Existing VMs
 
@@ -76,32 +88,11 @@ To modify the storage settings, select **Configure** under **Settings**.
 
 ![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-The configuration options that you see varies depending on whether you have used this feature before. When using for the first time, you can specify your storage requirements for a new drive. If you previously used this feature to create a drive, you can choose to extend that drive’s storage.
+You can modify the disk settings for the drives that were configured during the SQL Server VM creation process. Selecting **Extend drive** opens the drive modification page, allowing you to change the disk type, as well as add additional disks. 
 
-### Use for the first time
+![Configure Storage for Existing SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-If it is your first time using this feature, you can specify the storage size and performance limits for a new drive. This experience is similar to what you would see at provisioning time. The main difference is that you are not permitted to specify the workload type. This restriction prevents disrupting any existing SQL Server configurations on the virtual machine.
 
-Azure creates a new drive based on your specifications. In this scenario, Azure performs the following storage configuration tasks:
-
-* Creates and attaches premium storage data disks to the virtual machine.
-* Configures the data disks to be accessible to SQL Server.
-* Configures the data disks into a storage pool based on the specified size and performance (IOPS and throughput) requirements.
-* Associates the storage pool with a new drive on the virtual machine.
-
-For further details on how Azure configures storage settings, see the [Storage configuration section](#storage-configuration).
-
-### Add a new drive
-
-If you have already configured storage on your SQL Server VM, expanding storage brings up two new options. The first option is to add a new drive, which can increase the performance level of your VM.
-
-However, after adding the drive, you must perform some extra manual configuration to achieve the performance increase.
-
-### Extend the drive
-
-The other option for expanding storage is to extend the existing drive. This option increases the available storage for your drive, but it does not increase performance. With storage pools, you cannot alter the number of columns after the storage pool is created. The number of columns determines the number of parallel writes, which can be striped across the data disks. Therefore, any added data disks cannot increase performance. They can only provide more storage for the data being written. This limitation also means that, when extending the drive, the number of columns determines the minimum number of data disks that you can add. So if you create a storage pool with four data disks, the number of columns is also four. Every time you extend the storage, you must add at least four data disks.
-
-![Extend a drive for a SQL VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
 
 ## Storage configuration
 
