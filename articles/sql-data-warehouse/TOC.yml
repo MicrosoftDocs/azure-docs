@@ -78,11 +78,7 @@
     - name: Authentication
       items:
       - name: Overview
-<<<<<<< HEAD
         href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-=======
-        href: sql-data-warehouse-authentication.md
->>>>>>> 84b894b130e896989dfa1868dd3b3047fcd65804
       - name: Azure Active Directory
         href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
       - name: Logins and users
