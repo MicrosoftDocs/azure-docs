@@ -68,54 +68,82 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
 ## Get the training result
 
-After you've called the **Analyze** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. The operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+After you've started the train operation, you use the returned ID to get the status of the operation. Add the following code to the bottom of your Python script. This extracts the ID value from the training call and passes it to a new API call. The training operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
 
 You'll receive a `200 (Success)` response.
 
+```python 
+operationId = operationURL.split("operations/")[1]
+
+conn = http.client.HTTPSConnection('<Endpoint>')
+while True:
+    try:
+        conn.request("GET", f"/formrecognizer/v1.0-preview/custom/models/{operationId}", "", headers)
+        responseString = conn.getresponse().read().decode('utf-8')
+        responseDict = json.loads(responseString)
+        conn.close()
+        print(responseString)
+        if 'status' in responseDict and responseDict['status'] not in ['partiallySucceeded','failed']:
+            break
+        time.sleep(1)
+    except Exception as e:
+        print(e)
+        exit()
+```
+
+When the training process is completed, you'll receive a JSON response like the following:
+
 ```json
 {
-  "modelId": "59e2185e-ab80-4640-aebc-f3653442617b",
-  "trainingDocuments": [
-    {
-      "documentName": "Invoice_1.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_2.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_3.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_4.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
-    },
-    {
-      "documentName": "Invoice_5.pdf",
-      "pages": 1,
-      "errors": [],
-      "status": "success"
+  "modelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "status": "creating",
+  "createdDateTime": "2019-10-01T17:23:58.793Z",
+  "lastUpdatedDateTime": "2019-10-01T17:23:58.793Z",
+  "keys": {
+    "clusters": {
+      "additionalProp1": [
+        "string"
+      ],
+      "additionalProp2": [
+        "string"
+      ],
+      "additionalProp3": [
+        "string"
+      ]
     }
-  ],
-  "errors": []
+  },
+  "trainResult": {
+    "trainingDocuments": [
+      {
+        "documentName": "string",
+        "pages": 0,
+        "errors": [
+          "string"
+        ],
+        "status": "succeeded"
+      }
+    ],
+    "trainingFields": {
+      "fields": [
+        {
+          "fieldName": "string",
+          "accuracy": 0
+        }
+      ],
+      "averageModelAccuracy": 0
+    },
+    "errors": [
+      {
+        "errorMessage": "string"
+      }
+    ]
+  }
 }
 ```
 
-Note the `"modelId"` value. You'll need it for the following steps.
-  
 ## Extract key-value pairs and tables from forms
 
-Next, you'll analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the Python script that follows. Before you run the command, make these changes:
+Next, you'll use your trained model to analyze a document and extract key-value pairs and tables from it. Call the **Model - Analyze** API by running the following code in a new Python script. Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
@@ -141,9 +169,19 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
         url = base_url + "/models/" + model_id + "/analyze" 
         with open(file_path, "rb") as f:
             data_bytes = f.read()  
+        body = data_bytes
         resp = http_post(url = url, data = data_bytes, headers = headers)
         print("Response status code: %d" % resp.status_code)    
-        print("Response body:\n%s" % resp.json())   
+        print("Response body:\n%s" % resp.json())
+
+        # use this format instead: ???
+        conn = http.client.HTTPSConnection('<Endpoint>')
+        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models/" + model_id + "analyze", body, headers)
+        response = conn.getresponse()
+        data = response.read()
+        operationURL = "" + response.getheader("Location")
+        print ("Location header: " + operationURL)
+        conn.close()
     except Exception as e:
         print(str(e))
     ```
@@ -152,7 +190,8 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
 
-### Examine the response
+## Get the Analyze result
+
 
 A success response is returned in JSON. It represents the key-value pairs and tables extracted from the form:
 
