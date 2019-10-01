@@ -277,8 +277,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
-                                                              
-## Async
+
+## Concurrency
+
+The Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient if you are trying to handle a number of invocations at the same time and/or if your application is processing a lot of I/O events (i.e. your application is I/O bound).
+
+For these we recommend the following
+
+### Async
 
 We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
 
@@ -299,6 +305,10 @@ If the main() function is synchronous (no  qualifier), we automatically run the 
 def main():
     some_blocking_socket_io()
 ```
+### Use multiple language worker processes
+
+By default every Functions host has a single language worker process. However there is support to have multiple language worker processes per Functions host. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count) App setting to change this value. 
+
 
 ## Context
 
