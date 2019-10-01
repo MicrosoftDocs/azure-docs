@@ -276,21 +276,12 @@
         href: authentication-national-cloud.md
       - name: Authentication
         href: msal-national-cloud.md
-<<<<<<< HEAD
     - name: Automatic user provisioning (SCIM)
       items:
       - name: What is automatic user provisioning?
         href: user-provisioning.md
       - name: Building and integrating a SCIM endpoint
         href: use-scim-to-provision-users-and-groups.md
-=======
-   - name: Automatic user provisioning (SCIM)
-     items:
-     - name: What is automatic user provisioning?
-       href: user-provisioning.md
-     - name: Building and integrating a SCIM endpoint
-       href: use-scim-to-provision-users-and-groups.md
->>>>>>> 190b9552218dbd55381e0a26921a4a017bbebda2
   - name: How-to guides
     items:
     - name: Authentication
