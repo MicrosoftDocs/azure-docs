@@ -41,22 +41,24 @@ To train a Form Recognizer model with the documents in your Azure blob container
 
     ```python
     ########### Python Form Recognizer Train #############
-    from requests import post as http_post
+    import http.client, urllib.request, urllib.parse, urllib.error, base64
 
     # Endpoint URL
-    base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
     source = r"<SAS URL>"
     headers = {
         # Request headers
         'Content-Type': 'application/json',
         'Ocp-Apim-Subscription-Key': '<Subscription Key>',
     }
-    url = base_url + "/train" 
     body = {"source": source}
     try:
-        resp = http_post(url = url, json = body, headers = headers)
-        print("Response status code: %d" % resp.status_code)
-        print("Response body: %s" % resp.json())
+        conn = http.client.HTTPSConnection('<Endpoint>')
+        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models", body, headers)
+        response = conn.getresponse()
+        data = response.read()
+        operationURL = "" + response.getheader("Location")
+        print ("Location header: " + operationURL)
+        conn.close()
     except Exception as e:
         print(str(e))
     ```
@@ -64,7 +66,11 @@ To train a Form Recognizer model with the documents in your Azure blob container
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognize-train.py`.
 
-You'll receive a `200 (Success)` response with this JSON output:
+## Get the training result
+
+After you've called the **Analyze** API, you call the **Get Receipt Result** API to get the status of the operation and the extracted data. Add the following code to the bottom of your Python script. This extracts the operation ID value and passes it to a new API call. The operation is asynchronous, so this script calls the API at regular intervals until the results are available. We recommend an interval of one second or more.
+
+You'll receive a `200 (Success)` response.
 
 ```json
 {
