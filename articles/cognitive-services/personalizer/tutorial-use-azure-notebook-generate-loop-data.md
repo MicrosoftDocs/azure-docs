@@ -508,7 +508,12 @@ createChart(count,rewards)
 
 ## Reading the chart
 
-This chart shows the success of the current learning policy for the duration of the test. The ideal target that by the end of the test, the loop is averaging a success rate that is close to 100 percent minus the exploration. The default setting of exploration is 20%. 
+This chart shows the success of the current learning policy for the duration of the test. 
+
+![This chart shows the success of the current learning policy for the duration of the test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
+
+
+The ideal target that by the end of the test, the loop is averaging a success rate that is close to 100 percent minus the exploration. The default setting of exploration is 20%. 
 
 `100-20=80`
 
