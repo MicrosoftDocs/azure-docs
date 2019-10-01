@@ -116,7 +116,7 @@ conceptualContent:
         - url: ./learn/tutorial-users.md
           itemType: how-to-guide
           text: Understand user behavior
-        - url: ./app/tutorial-app-dashboards.md
+        - url: ./learn/tutorial-app-dashboards.md
           itemType: how-to-guide
           text: Create custom dashboards
 
@@ -282,7 +282,7 @@ conceptualContent:
 
     - title:  Privacy, security, usage & cost
       links: 
-        - url: ./app/personal-data-mgmt.md
+        - url: ./platform/personal-data-mgmt.md
           itemType: how-to-guide
           text:  Personal data handling
         - url: ./app/data-retention-privacy.md
@@ -305,13 +305,10 @@ conceptualContent:
           text:  Sampling
         - url: ./app/api-filtering-sampling.md
           itemType: how-to-guide
-          text:  Filtering
+          text:  Filtering & telemetry processors
         - url: ./app/telemetry-channels.md
           itemType: how-to-guide
           text:  Telemetry Channels
-        - url: ./app/telemetry-processors.md
-          itemType: how-to-guide
-          text:  Telemetry Processors
         - url: ./app/configuration-with-applicationinsights-config.md
           itemType: how-to-guide
           text: ApplicationInsights.config
@@ -393,13 +390,13 @@ conceptualContent:
         - url: ./app/export-power-bi.md
           itemType: how-to-guide
           text:  PowerBI  integration
-        - url: ./app/monitoring-metric-charts.md
+        - url: ./platform/monitoring-metric-charts.md
           itemType: how-to-guide
           text:  Metric charts
         - url: ./app/usage-workbooks.md
           itemType: how-to-guide
           text:  Workbooks (interactive reporting)
-        - url: ./app/usage-change-analysis.md
+        - url: ./app/change-analysis.md
           itemType: how-to-guide
           text:  Change Analysis (preview)     
   
@@ -417,7 +414,7 @@ conceptualContent:
 
     - title:  Troubleshooting & FAQ
       links: 
-        - url: ./app/usage-troubleshoot
+        - url: ./app/usage-troubleshoot.md
           itemType: how-to-guide
           text:  Usage troubleshooting
         - url: ./app/snapshot-debugger-troubleshoot.md
