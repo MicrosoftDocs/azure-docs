@@ -3,11 +3,13 @@ title: Create virtual networks for Azure HDInsight clusters
 description: Learn how to create an Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
 ---
+
 # Create virtual networks for Azure HDInsight clusters
 
 This article provides examples and code samples for creating and configuring [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) for use with Azure HDInsight clusters. Detailed examples of creating network security groups (NSGs) and configuring DNS are presented. 

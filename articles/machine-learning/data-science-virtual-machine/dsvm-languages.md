@@ -46,6 +46,8 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
     # To run Python 3.6
     activate 
     python --version 
+    ```
+    
 * Use in an IDE:
 
   Use Python Tools for Visual Studio (PTVS), installed in the Visual Studio Community edition. By default, the only environment that's set up automatically in PTVS is Python 3.6. 

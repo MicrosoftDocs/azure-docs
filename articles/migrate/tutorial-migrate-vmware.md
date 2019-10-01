@@ -4,7 +4,7 @@ description: Describes how to perform and agentless migration of on-premises VMw
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -121,7 +121,10 @@ Enable ssh | Ensure ssh is enabled and the sshd service is set to start automati
 
 ## Replicate VMs
 
-With discovery completed, you can begin replication of VMware VMs to Azure.
+With discovery completed, you can begin replication of VMware VMs to Azure. 
+
+> [!NOTE]
+> You can replicate up to 10 machines together. If you need to replicate more, then replicate them simultaneously in batches of 10. For agentless migration you can run up to 100 simultaneous replications.
 
 1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 

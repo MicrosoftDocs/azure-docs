@@ -31,9 +31,9 @@ Use the Language Understanding (LUIS) authoring client library for Python to:
 
 ## Setting up
 
-### Get your Language Understanding (LUIS) authoring key
+### Get your Language Understanding (LUIS) starter key
 
-Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `LUIS_AUTHORING_KEY` and an environment variable for the region of the key, `LUIS_REGION`.
+Get your [starter key](luis-how-to-azure-subscription.md#starter-key), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `LUIS_AUTHORING_KEY` and an environment variable for the region of the key, `LUIS_REGION`.
 
 ### Install the Python library for LUIS
 

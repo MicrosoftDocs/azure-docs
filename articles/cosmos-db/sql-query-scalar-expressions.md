@@ -137,5 +137,5 @@ The results are:
 ## Next steps
 
 - [Introduction to Azure Cosmos DB](introduction.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Subqueries](sql-query-subquery.md)

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2019
+ms.date: 09/26/2019
 ms.author: bwren
 ---
 
@@ -53,7 +53,7 @@ The Custom Log Wizard runs in the Azure portal and allows you to define a new cu
 
 1. In the Azure portal, select **Log Analytics workspaces** > your workspace > **Advanced Settings**.
 2. Click on **Data** > **Custom logs**.
-3. By default, all configuration changes are automatically pushed to all agents.  For Linux agents, a configuration file is sent to the Fluentd data collector.  If you wish to modify this file manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
+3. By default, all configuration changes are automatically pushed to all agents. For Linux agents, a configuration file is sent to the Fluentd data collector.
 4. Click **Add+** to open the Custom Log Wizard.
 
 ### Step 2. Upload and parse a sample log

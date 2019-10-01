@@ -24,6 +24,11 @@ This connector is specialized for [Azure Database for MySQL service](../mysql/ov
 
 ## Supported capabilities
 
+This Azure Database for MySQL connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+
 You can copy data from Azure Database for MySQL to any supported sink data store. Or, you can copy data from any supported source data store to Azure Database for MySQL. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
@@ -185,8 +190,7 @@ To copy data to Azure Database for MySQL, the following properties are supported
 | type | The type property of the copy activity sink must be set to: **AzureMySqlSink** | Yes |
 | preCopyScript | Specify a SQL query for the copy activity to execute before writing data into Azure Database for MySQL in each run. You can use this property to clean up the preloaded data. | No |
 | writeBatchSize | Inserts data into the Azure Database for MySQL table when the buffer size reaches writeBatchSize.<br>Allowed value is integer representing number of rows. | No (default is 10,000) |
-| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br> 
-Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
+| writeBatchTimeout | Wait time for the batch insert operation to complete before it times out.<br>Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default is 00:00:30) |
 
 **Example:**
 
@@ -220,6 +224,10 @@ Allowed values are Timespan. An example is 00:30:00 (30 minutes). | No (default 
     }
 ]
 ```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Data type mapping for Azure Database for MySQL
 

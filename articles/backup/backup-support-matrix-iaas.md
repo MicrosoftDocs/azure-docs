@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 09/13/2019
 ms.author: dacurwin
 ---
 
@@ -147,19 +147,20 @@ Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM,
 Back up Multi-VM consistency | Azure Backup does not provide data and application consistency across multiple VMs.
 Backup with [Diagnostic Settings](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | Unsupported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered using [Create New](backup-azure-arm-restore-vms.md#create-a-vm) option, then the restore fails.
 Restore of Zone-pinned VMs | Supported (for VM that is backed-up after Jan 2019 and where [availability zone](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>We currently support restoring to the same zone which is pinned in VMs. However, if the zone is unavailable, restore fails.
+Gen2 VMs | Supported <br> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from Recovery point, they are restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 
 
 ## VM storage support
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.<br/><br/>To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
-Data disk size | Individual disk can be up to 4095 GB.<br/><br/>To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, refer to this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports backup of virtual machines with each disk size up to 30TB and a maximum of 256TB combined for all disks in a VM.
+Data disk size | Individual disk can be up to 30TB.
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Not supported.<br/><br/> Azure backup automatically excludes the Disks with Write Accelerator enabled during backup. Since they are not backed up, you will not be able to Restore these disks from Recovery-Points of the VM.
-Back up deduplicated disks | Not supported.
+Back up & Restore deduplicated VMs/disks | Azure Backup does not support deduplication. For more information refer to this [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Azure Backup does not deduplicate across VMs in the Recovery Services vault <br/> <br/>  - If there are VMs in deduplication state during restore, the files can't be restored as vault does not understand the format
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using Cluster Shared Volume (CSV) or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
@@ -175,7 +176,7 @@ Multiple reserved IP addresses |	Supported. <br/><br/> [Learn more](backup-azure
 VMs with multiple network adapters	| Supported. <br/><br/> [Learn more](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) about restoring VMs with special network settings.
 VMs with public IP addresses	| Supported.<br/><br/> Associate an existing public IP address with the NIC, or create an address and associate it with the NIC after restore is done.
 Network security group (NSG) on NIC/subnet. |	Supported.
-Reserved IP address (static) | Not supported.<br/><br/> You can't back up a VM with a reserved IP address and no defined endpoint.
+Static IP address | Not supported.<br/><br/> A new VM that's created from a restore point is assigned a dynamic IP address.<br/><br/> For classic VMs, you can't back up a VM with a reserved IP address and no defined endpoint.
 Dynamic IP address |	Supported.<br/><br/> If the NIC on the source VM uses dynamic IP addressing, by default the NIC on the restored VM will use it too.
 Azure Traffic Manager	| Supported.<br/><br/>If the backed-up VM is in Traffic Manager, manually add the restored VM to the same Traffic Manager instance.
 Azure DNS |	Supported.

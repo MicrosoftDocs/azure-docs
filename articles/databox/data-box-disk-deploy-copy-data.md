@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 09/03/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 ::: zone target="docs"
@@ -21,7 +22,7 @@ Customer intent: As an IT admin, I need to be able to order Data Box Disk to upl
 
 ## Copy data to Azure Data Box Disk and validate
 
-After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should the data that you have copied. The validation ensures that the data will successfully upload to Azure later.
+After the disks are connected and unlocked, you can copy data from your source data server to your disks. After the data copy is complete, you should validate the data to ensure that it will successfully upload to Azure.
 
 ::: zone-end
 
