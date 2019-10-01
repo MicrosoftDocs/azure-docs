@@ -276,7 +276,7 @@
         href: authentication-national-cloud.md
       - name: Authentication
         href: msal-national-cloud.md
-   - name: Automatic user provisioning (SCIM)
+    - name: Automatic user provisioning (SCIM)
       items:
       - name: What is automatic user provisioning?
         href: user-provisioning.md
