@@ -46,7 +46,7 @@ To change the user-managed identity assigned to the lab, remove the identity att
 
 ![User-managed identity in the list](./media/use-managed-identities-environments/replace-identity.png)  
 
-# Use API
+## Use API
 
 1. After creating an identity, note the resource ID of this identity. It should look like the following sample: 
 
