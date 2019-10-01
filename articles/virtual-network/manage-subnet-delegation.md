@@ -48,7 +48,7 @@ Subnet delegation gives explicit permissions to the service to create service-sp
 1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork1** appears in the search results, select it.
 2. In the search results, select *myVirtualNetwork*.
 3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
-4. In *mySubnet* page, for the **Subnet delegation** list, select **Microsoft.DBforPostgreSQL/serversv2** from the services listed under **Delegate subnet to a service**.  
+4. In *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
 
 ## Remove subnet delegation from an Azure service
 
