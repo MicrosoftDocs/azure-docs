@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/27/2019
+ms.date: 09/29/2019
 ms.author: diberry
 ---
 # List entity 
@@ -39,49 +39,72 @@ Suppose the app has a list, named `Cities`, allowing for variations of city name
 
 In the previous utterance, the word `paris` is mapped to the paris item as part of the `Cities` list entity. The list entity matches both the item's normalized name as well as the item synonyms.
 
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 22,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
+  "entities": [
+    {
+      "entity": "paris",
+      "type": "Cities",
+      "startIndex": 18,
+      "endIndex": 22,
+      "resolution": {
+        "values": [
+          "Paris"
+        ]
+      }
     }
-  }
-]
+  ]
 ```
+
+#### [V3 prediction endpoint response](#tab/V3)
+
+
+This is the JSON if `verbose=false` is set in the query string:
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ]
+}
+```
+
+This is the JSON if `verbose=true` is set in the query string:
+
+```json
+"entities": {
+    "Cities": [
+        [
+            "Paris"
+        ]
+    ],
+    "$instance": {
+        "Cities": [
+            {
+                "type": "Cities",
+                "text": "paris",
+                "startIndex": 18,
+                "length": 5,
+                "modelTypeId": 5,
+                "modelType": "List Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+* * * 
 
 |Data object|Entity name|Value|
 |--|--|--|
 |List Entity|`Cities`|`paris`|
 
-Another example utterance, using a synonym for Paris:
-
-`book 2 tickets to roissy`
-
-```JSON
-"entities": [
-  {
-    "entity": "roissy",
-    "type": "Cities",
-    "startIndex": 18,
-    "endIndex": 23,
-    "resolution": {
-      "values": [
-        "Paris"
-      ]
-    }
-  }
-]
-```
-
-|Data object|Entity name|Value|
-|--|--|--|
-|List Entity|`Cities`|`roissy`|
 
 ## Next steps
 
