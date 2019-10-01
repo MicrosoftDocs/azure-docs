@@ -56,7 +56,7 @@ Applications that support the SCIM profile described in this article can be conn
 
 **To connect an application that supports SCIM:**
 
-1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). 
+1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com). Note that you can get access a free trial for Azure Active Directory with P2 licenses by signing up for the [developer program](https://developer.microsoft.com/office/dev-program)
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
 1. Select **+ New application** > **All** > **Non-gallery application**.
 1. Enter a name for your application, and select **Add** to create an app object. The new app is added to the list of enterprise applications and opens to its app management screen.
