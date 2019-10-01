@@ -741,6 +741,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },  
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-get-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
+      "redirect_document_id": false
+    },                
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
       "redirect_document_id": false
@@ -1224,11 +1249,6 @@
       "source_path": "articles/cognitive-services/bing-viusal-search/bing-spell-check-stats.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/governance/management-groups/overview.md",
-      "redirect_url": "/azure/governance/management-groups/index",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machines/linux/classic/rdma-cluster.md",
@@ -1888,6 +1908,11 @@
     {
       "source_path": "articles/cosmos-db/sql-api-dotnetcore-get-started.md",
       "redirect_url": "/azure/cosmos-db/sql-api-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/knowledge-store-howto.md",
+      "redirect_url": "/azure/search/knowledge-store-create-rest",
       "redirect_document_id": false
     },
     {
@@ -5403,6 +5428,31 @@
     {
       "source_path": "articles/azure-functions/functions-create-vnet-old.md",
       "redirect_url": "/azure/azure-functions/functions-create-vnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio.md",
+      "redirect_url": "/azure/azure-functions/functions-create-your-first-function-visual-studio",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/create-visual-studio-code.md",
+      "redirect_url": "/azure/azure-functions/functions-create-first-function-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-python.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-python",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs-code.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/add-output-binding-storage-queue-vs.md",
+      "redirect_url": "/azure/azure-functions/functions-add-output-binding-storage-queue-vs",
       "redirect_document_id": false
     },
     {
@@ -28880,6 +28930,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/mysql/scripts/sample-pitr-restore.md",
+      "redirect_url": "/azure/mysql/scripts/sample-point-in-time-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/postgresql/concepts-service-tiers.md",
       "redirect_url": "/azure/postgresql/concepts-pricing-tiers",
       "redirect_document_id": false
@@ -42032,6 +42087,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/windows/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/tutorial-monitoring.md",
+      "redirect_url": "/azure/virtual-machines/linux/tutorial-monitor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/mysql/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mysql/reference-stored-procedures",
       "redirect_document_id": false
@@ -42044,6 +42109,11 @@
     {
       "source_path": "articles/mariadb/reference-data-in-stored-procedures.md",
       "redirect_url": "/azure/mariadb/reference-stored-procedures",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cloudfoundry/use-osba-pcf-app.md",
+      "redirect_url": "/azure/cloudfoundry",
       "redirect_document_id": false
     }
   ]
