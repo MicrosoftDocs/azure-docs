@@ -63,7 +63,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Node.js
 
-    - title: Codeless monitoring
+    - title: Codeless/agent-based monitoring
       links: 
         - url: ./app/azure-web-apps.md
           itemType: how-to-guide
