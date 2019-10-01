@@ -69,7 +69,7 @@ Refer to [Azure DNS limits](https://docs.microsoft.com/azure/azure-subscription-
 
 ## Why don’t my existing private DNS zones show up in new portal experience?
 
-If your existing private DNS zone were create using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API will not show up in new portal experience. See below for instructions on how to migrate to new resource model.
+If your existing private DNS zone were created using preview API, you must migrate these zones to new resource model. Private DNS zones created using preview API will not show up in new portal experience. See below for instructions on how to migrate to new resource model.
 
 ## How do I migrate my existing private DNS zones to the new model?
 
