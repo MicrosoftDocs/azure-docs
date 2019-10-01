@@ -13,7 +13,7 @@ ms.reviewer: clausjor
 
 # Azure Block Blob storage performance tiers
 
-As enterprises deploy performance sensitive cloud-native applications, it's important to have options for cost-effective data storage with different performance levels.
+As enterprises deploy performance sensitive cloud-native applications, it's important to have options for cost-effective data storage at different performance levels.
 
 Azure block blob storage offers two different performance tiers:
 
@@ -33,7 +33,9 @@ The following considerations apply to the different performance tiers:
 
 Premium performance block blob storage makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
-Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions. Premium performance is only available via the block blob storage account type.
+Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions.
+
+Premium performance is only available via the block blob storage account type.
 
 ## Standard performance
 
