@@ -572,7 +572,7 @@ The `tags` field is a string with the tags delimited by semicolons. This can be 
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=text"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04&format=JSON"
 ```
 
 **Response**

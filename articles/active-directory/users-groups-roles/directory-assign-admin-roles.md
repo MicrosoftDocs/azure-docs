@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -65,8 +65,6 @@ Users with this role can set or reset non-password credentials and can update pa
 * Message Center Reader
 * Reports Reader
 
-The Authentication administrator role is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 
@@ -75,6 +73,12 @@ The Authentication administrator role is currently in public preview. This previ
 * Security Group and Office 365 Group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
 * Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
 * Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
+
+### [Azure DevOps Administrator](#azure-devops-administrator-permissions)
+
+Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed the company’s Azure AD organization.
+
+All enterprise Azure DevOps policies can be managed by users in this role.
 
 ### [Azure Information Protection Administrator](#azure-information-protection-administrator-permissions)
 
@@ -488,6 +492,19 @@ Allowed to view, set and reset authentication method information for any non-adm
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 | microsoft.directory/users/password/update | Update passwords for all users in the Office 365 organization. See online documentation for more detail. |
+
+### Azure DevOps Administrator permissions
+
+Can manage Azure DevOps organization policy and settings.
+
+> [!NOTE]
+> This role has additional permissions outside of Azure Active Directory. For more information, see [role description](#azure-devops-administrator) above.
+>
+>
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.azure.devOps/allEntities/allTasks | Read and configure Azure DevOps. |
 
 ### Azure Information Protection Administrator permissions
 

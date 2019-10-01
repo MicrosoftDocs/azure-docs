@@ -29,7 +29,7 @@ The following table summarizes the Azure Storage services that are supported wit
 |Azure Storage| Blob Storage** | Object | Block Blob | Standard | Hot, Cool, Archive | All | All |
 |Azure Data Lake Storage Gen1| N/A | Hierarchical (filesystem) | N/A | N/A | N/A | 3.6 Only | All except HBase |
 
-**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage.
+**For HDInsight clusters, only secondary storage accounts can be of type BlobStorage and Page Blob is not a supported storage option.
 
 For more information on Azure Storage account types, see [Azure storage account overview](../storage/common/storage-account-overview.md)
 
@@ -90,9 +90,9 @@ For more information, see [The Azure Blob Filesystem driver (ABFS): A dedicated 
 
 Azure Data Lake Storage Gen2 uses a new URI scheme to access files in Azure Storage from HDInsight:
 
-`abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
+`abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`
 
-The URI scheme provides SSL-encrypted access (`abfss://` prefix) and unencrypted access (`abfs://` prefix). Use `abfss` wherever possible, even when accessing data that lives inside the same region in Azure.
+The URI scheme provides SSL-encrypted access.
 
 `<FILE_SYSTEM_NAME>` identifies the path of the file system Data Lake Storage Gen2.
 
@@ -103,8 +103,8 @@ The URI scheme provides SSL-encrypted access (`abfss://` prefix) and unencrypted
 If values for `<FILE_SYSTEM_NAME>` and `<ACCOUNT_NAME>` aren't specified, the default file system is used. For the files on the default file system, use a relative path or an absolute path. For example, the `hadoop-mapreduce-examples.jar` file that comes with HDInsight clusters can be referred to by using one of the following paths:
 
 ```
-abfss://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
-abfss:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
+abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
+abfs:///example/jars/hadoop-mapreduce-examples.jar /example/jars/hadoop-mapreduce-examples.jar
 ```
 
 > [!Note]
