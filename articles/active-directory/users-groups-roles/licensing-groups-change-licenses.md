@@ -52,7 +52,7 @@ On the **Update license assignments** page, if you see that some checkboxes are 
 
 1. Select **Save**.
 
-Azure AD shows you which features it is licensing for each license plan assigned to the user, and the page also helps resolves license conflicts.
+Azure AD applies the new licenses and removes the old licenses simultaneously to provide service continuity.
 
 ## Change group license assignments
 
@@ -60,12 +60,14 @@ Azure AD shows you which features it is licensing for each license plan assigned
 1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
 1. Select **Licenses**.
 1. Select the **Assignments** command to edit license assignment for the user or group.
-1. Select the check box for Office 366 E3 and to maintain continuity of service, ensure that at minimum you select all of the E1 services that are already assigned to the user.
+1. Select the check box for Office 366 E3. To maintain continuity of service, ensure that you select all of the E1 services that are already assigned to the user.
 1. Clear the check box for Office 365 E1.
 
     ![Select the Assignments command on a user or group Licenses page](media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
 1. Select **Save**.
+
+Azure AD applies the new licenses and removes the old licenses simultaneously to provide service continuity.
 
 ## Next steps
 
