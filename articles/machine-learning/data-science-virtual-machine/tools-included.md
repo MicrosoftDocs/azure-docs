@@ -72,18 +72,15 @@ Below we have included an up-to-date list of tools included on the Data Science 
 | &nbsp;&nbsp;&nbsp;&nbsp; [CatBoost](https://tech.yandex.com/catboost/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> (Ubuntu only) | |
 | &nbsp;&nbsp;&nbsp;&nbsp; [H2O](https://www.h2o.ai/h2o/), [Sparkling Water](https://www.h2o.ai/sparkling-water/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> (Ubuntu only) | [H20 on the DSVM](./dsvm-ml-data-science-tools.md#h2o) |
 | Deep learning tools that work on a GPU or CPU: |  |  | [Deep learning tools on the DSVM](./dsvm-deep-learning-ai-frameworks.md) |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow](https://www.tensorflow.org/) |<span class='green-check'>&#9989;</span> (Windows 2016) |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Horovod](https://github.com/uber/horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> (Ubuntu) |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Microsoft Cognitive Toolkit (CNTK)](./dsvm-deep-learning-ai-frameworks.md#microsoft-cognitive-toolkit-cntk) (Windows 2016) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow](./dsvm-deep-learning-ai-frameworks.md#tensorflow) |<span class='green-check'>&#9989;</span> (Windows 2016) |<span class='green-check'>&#9989;</span> |
+| &nbsp;&nbsp;&nbsp;&nbsp; [Horovod](./dsvm-deep-learning-ai-frameworks.md#horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> (Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp; [MXNet](https://mxnet.io/) |<span class='green-check'>&#9989;</span> (Windows 2016) | <span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Caffe and Caffe2](https://github.com/caffe2/caffe2) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Chainer](https://chainer.org/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Torch](http://torch.ch/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [Theano](https://github.com/Theano/Theano) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [Keras](https://keras.io/)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [PyTorch](https://pytorch.org/)|<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [NVidia Digits](https://github.com/NVIDIA/DIGITS) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [TensorFlow Serving](https://www.tensorflow.org/serving/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
-| &nbsp;&nbsp;&nbsp;&nbsp; [TensorRT](https://developer.nvidia.com/tensorrt) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> |
 | &nbsp;&nbsp;&nbsp;&nbsp; [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> |

@@ -1,7 +1,7 @@
 ---
 title: Deep Learning & AI frameworks
 titleSuffix: Azure Data Science Virtual Machine 
-description: Available deep learning frameworks and tools on Azure Data Science Virtual Machine, including TensorFlow, PyTorch,  Keras, Caffe, MXNet, Horovod, Theano, Chainer and more.
+description: Available deep learning frameworks and tools on Azure Data Science Virtual Machine.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 ms.service: machine-learning
@@ -77,27 +77,58 @@ Deep learning frameworks on the DSVM are listed below.
 | ------------- | ------------- |
 | Version(s) supported | 2.5.1 |
 | Supported DSVM editions      | Windows and Linux   |
-| How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on Windows and in Python 3.5 on Linux |
-| How to run it      | Activate the correct environment at the terminal, and then run Python. |
+| How is it configured / installed on the DSVM?  | CNTK is installed in Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) and in Python 3.5 on [Linux](./dsvm-languages.md#python-linux-edition)) |
+| How to run it      | Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
 
-||Yes | Yes | Installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Sample Jupyter notebooks are included on DSVM. <br/><br/>**To run it**: <br/>Terminal: Activate the correct environment and run Python. <br/>Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the CNTK directory for samples. |
+<!-- ## [NVidia Digits](https://developer.nvidia.com/digits)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 2.5.1 |
+| Supported DSVM editions      | Linux (Ubuntu)   |
+| How is it configured / installed on the DSVM?  | DIGITS is installed in `/dsvm/tools/DIGITS` and is available as a service named _digits_. |
+| How to run it      | Sign in to the VM with X2Go. At a terminal, start the service by running ```sudo systemctl start digits```. <br/><br/>The service takes about one minute to start. Open a web browser and go to `http://localhost:5000`. Note that DIGITS does not provide a secure login and should not be exposed outside the VM.|  -->
+
+## [PyTorch](https://pytorch.org/)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.2.0 |
+| Supported DSVM editions      | Linux |
+| How is it configured / installed on the DSVM?  | Installed in [Python 3.5](dsvm-languages.md#python-linux-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch. |
+| How to run it      | Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples.  |
+
+## [TensorFlow](https://www.tensorflow.org/)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.13 |
+| Supported DSVM editions      | Windows, Linux |
+| How is it configured / installed on the DSVM?  | Installed in Python 3.5 on [Linux](dsvm-languages.md#python-linux-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) |
+| How to run it      | Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples.   |
+
+## [TensorFlow Serving](https://www.tensorflow.org/serving/)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.12 |
+| Supported DSVM editions      | Linux |
+| How is it configured / installed on the DSVM?  | tensorflow_model_server is available at the terminal. |
+| How to run it      |  Samples are available [online](https://www.tensorflow.org/serving/).   |
+
+
+## [Theano](https://github.com/Theano/Theano)
+
+|    |           |
+| ------------- | ------------- |
+| Version(s) supported | 1.0.3 |
+| Supported DSVM editions      | Linux |
+| How is it configured / installed on the DSVM?  |Theano is installed in Python 2.7 (_root_), and in Python 3.5 (_py35_) environment. |
+| How to run it      |  Terminal: Activate the Python version you want (root or py35), run Python, and then import Theano.<br/>* Jupyter: Select the Python 2.7 or 3.5 kernel, and then import Theano.  <br/>To work around a recent math kernel library (MKL) bug, you need to first set the MKL threading layer as follows:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |
 
 
 
-|Deep-learning&nbsp;tools&nbsp;on&nbsp;DSVM|Windows|Linux|Usage&nbsp;notes|
-|---------|-------------------|------------------|-----|
-|[TensorFlow](https://www.tensorflow.org/) | Yes (Windows 2016) | Yes |Installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). Sample Jupyter notebooks are included on DSVM.<br/><br/>**To run it**:<br/>* Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the TensorFlow directory for samples.  |
-|[PyTorch](https://pytorch.org/)| No | Yes |Installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition). Sample Jupyter notebooks are included, and samples are in /dsvm/samples/pytorch.    <br/><br/>**To run it**:<br/>* Terminal: Activate the correct environment, and then run Python.<br/>* [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): Connect, and then open the PyTorch directory for samples.  |
 
 
 
-|[Torch](http://torch.ch/) | No |Yes (Ubuntu)|Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment. Torch samples are in `/dsvm/samples/torch` and PyTorch samples are in `/dsvm/samples/pytorch`. |
-|[MXNet](https://mxnet.io/) | Yes (Windows 2016) | Yes|MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R bindings are also installed on Ubuntu.<br/><br/>Sample Jupyter notebooks are included. <br/><br/>**To run it**:<br/>* Terminal: Activate the correct environment, and then run Python. <br/> * Jupyter: Connect to [Jupyter](provision-vm.md) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine), and then open the mxnet directory for samples.|
-|[MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | No | Yes |A server to create HTTP endpoints for MXNet and ONNX models. _Mxnet-model-server_ is available at the terminal. Samples on the [MXNet Model Server page](https://github.com/awslabs/mxnet-model-server).|
-
-|[Theano](https://github.com/Theano/Theano) | No | Yes (Ubuntu) |Theano is installed in Python 2.7 (_root_), and in Python 3.5 (_py35_) environment.<br/><br/>**To run it**: <br/>* Terminal: Activate the Python version you want (root or py35), run Python, and then import Theano.<br/>* Jupyter: Select the Python 2.7 or 3.5 kernel, and then import Theano.  <br/>To work around a recent math kernel library (MKL) bug, you need to first set the MKL threading layer as follows:<br/><br/>`export MKL_THREADING_LAYER=GNU`|
-
-|[NVidia Digits](https://github.com/NVIDIA/DIGITS) | No | Yes (Ubuntu) |Deep-learning system from NVIDIA for rapidly training deep-learning models. DIGITS is installed in `/dsvm/tools/DIGITS` and is available as a service named _digits_.  <br/><br/>**To run it**: <br/>Sign in to the VM with X2Go. At a terminal, start the service by running ```sudo systemctl start digits```. <br/><br/>The service takes about one minute to start. Open a web browser and go to `http://localhost:5000`. Note that DIGITS does not provide a secure login and should not be exposed outside the VM.|
-
-|[TensorFlow Serving](https://www.tensorflow.org/serving/) | No | Yes |A server to inference on a TensorFlow model; tensorflow_model_server is available at the terminal. Samples are available [online](https://www.tensorflow.org/serving/).|
-|[TensorRT](https://developer.nvidia.com/tensorrt) |  No | Yes (Ubuntu) |A deep-learning inference server from NVIDIA. TensorRT is installed as an _apt_ package. Samples are available [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).|
+<!-- |[TensorRT](https://developer.nvidia.com/tensorrt) |  No | Yes (Ubuntu) |A deep-learning inference server from NVIDIA. TensorRT is installed as an _apt_ package. Samples are available [online](https://docs.nvidia.com/deeplearning/sdk/tensorrt-developer-guide/index.html#samples).| -->

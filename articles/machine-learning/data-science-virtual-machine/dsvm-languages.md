@@ -63,6 +63,44 @@ The Data Science Virtual Machine (DSVM) comes with several pre-built languages a
 
   The default Python environments on the DSVM are global environments that are readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or python2 environment by using the `activate` command as an administrator. Then, you can use a package manager like `conda` or `pip` to install or update packages.
 
+## Python (Linux edition)
+
+|    |           |
+| ------------- | ------------- |
+| Language versions supported | Python 2.7 and 3.5 |
+| Supported DSVM editions      | Linux   |
+| How is it configured / installed on the DSVM?  | Two global `conda` environments are created: <br /> * `root` environment located at `/anaconda/` is Python 2.7. <br/> * `py35` environment located at `/anaconda/envs/py35`is Python 3.5.       |
+| Links to samples      | Sample Jupyter notebooks for Python are included.     |
+| Related tools on the DSVM      | PySpark, R, Julia      |
+### How to use and run it    
+
+* Run in a terminal:
+
+  Open the terminal and do one of the following, depending on the version of Python you want to run:
+
+    ```
+    # To run Python 2.7
+    source activate 
+    python --version
+    
+    # To run Python 3.5
+    source activate py35
+    python --version
+    
+    ```
+* Use in an IDE:
+
+  Use PyCharm, installed in the Visual Studio Community edition. 
+
+* Use in Jupyter:
+
+  Open Jupyter and select **New** to create a new notebook. You can set the kernel type as **Python [Conda Root]** for Python 2.7 and **Python [Conda env:py35]** for the Python 3.5 environment. 
+
+* Install Python packages:
+
+  The default Python environments on the DSVM are global environments readable by all users. But only administrators can write and install global packages. To install packages to the global environment, activate to the root or py35 environment by using the `source activate` command as an administrator or as a user with sudo permissions. Then, you can use a package manager like `conda` or `pip` to install or update packages.
+
+
 ## R
 
 |    |           |
