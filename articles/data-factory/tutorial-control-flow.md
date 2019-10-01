@@ -15,7 +15,7 @@ ms.date: 9/27/2019
 
 # Branching and chaining activities in a Data Factory pipeline
 
-In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation in an email. That information could include the amount of data written. If the copy activity fails, it sends details of copy failure, such as the error message, in a failure email. Throughout the tutorial, you see how to pass parameters.
+In this tutorial, you create a Data Factory pipeline that showcases some control flow features. This pipeline copies from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, the pipeline sends details of the successful copy operation in an email. That information could include the amount of data written. If the copy activity fails, it sends details of the copy failure, such as the error message, in an email. Throughout the tutorial, you see how to pass parameters.
 
 This graphic provides an overview of the scenario:
 
@@ -29,29 +29,29 @@ This tutorial shows you how to do the following tasks:
 > * Create an Azure Blob dataset
 > * Create a pipeline that contains a copy activity and a web activity
 > * Send outputs of activities to subsequent activities
-> * Utilize parameter passing and system variables
+> * Use parameter passing and system variables
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
 This tutorial uses .NET SDK. You can use other mechanisms to interact with Azure Data Factory. For Data Factory quickstarts, see [5-Minute Quickstarts](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-* Azure Storage account. You use the blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) to create one.
+* Azure Storage account. You use blob storage as a source data store. If you don't have an Azure storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer. To install this tool, see [Azure Storage Explorer](https://storageexplorer.com/).
-* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) to create one.
+* Azure SQL Database. You use the database as a sink data store. If you don't have an Azure SQL Database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md).
 * Visual Studio. This article uses Visual Studio 2019.
-* Azure .NET SDK. Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/).
+* Azure .NET SDK. Download and install the [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 For a list of Azure regions in which Data Factory is currently available, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores and computes can be in other regions. The stores include Azure Storage and Azure SQL Database. The computes include HDInsight, which Data Factory uses.
 
-Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assign application to **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
+Create an application as described in [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Assign the application to the **Contributor** role by following instructions in the same article. You'll need several values for later parts of this tutorial, such as **Application (client) ID** and **Directory (tenant) ID**.
 
-### Create blob table
+### Create a blob table
 
-1. Open a plain text editor. Copy the following text and save it locally as *input.txt*.
+1. Open a text editor. Copy the following text and save it locally as *input.txt*.
 
    ```
    Ethel|Berg
@@ -61,9 +61,9 @@ Create an application as described in [Create an Azure Active Directory applicat
 1. Open Azure Storage Explorer. Expand your storage account. Right-click **Blob Containers** and select **Create Blob Container**.
 1. Name the new container *adfv2branch* and select **Upload** to add your *input.txt* file to the container.
 
-## Create Visual Studio project
+## Create Visual Studio project<a name="create-visual-studio-project"></a>
 
-Create a C# .NET console application.
+Create a C# .NET console application:
 
 1. Start Visual Studio and select **Create a new project**.
 1. In **Create a new project**, choose **Console App (.NET Framework)** for C# and select **Next**.
@@ -128,7 +128,7 @@ Create a C# .NET console application.
    static string sendSuccessEmailActivity = "SendSuccessEmailActivity";
    ```
 
-1. Add the following code to the `Main` method. This code creates an instance of `DataFactoryManagementClient` class. You use this object to create data factory, linked service, datasets, and pipeline. You also use this object to monitor the pipeline run details.
+1. Add the following code to the `Main` method. This code creates an instance of `DataFactoryManagementClient` class. You then use this object to create data factory, linked service, datasets, and pipeline. You can also use this object to monitor the pipeline run details.
 
    ```csharp
    // Authenticate and create a data factory management client
@@ -166,7 +166,7 @@ Create a C# .NET console application.
    }
    ```
 
-1. Add the following line to `Main` method that creates a data factory:
+1. Add the following line to the `Main` method that creates a data factory:
 
    ```csharp
    Factory df = CreateOrUpdateDataFactory(client);
@@ -200,9 +200,9 @@ For more information about supported properties and details, see [Linked service
 
 ## Create datasets
 
-In this section, you create two datasets, one for the source and the other for the sink.
+In this section, you create two datasets, one for the source and one for the sink.
 
-### Create a dataset for source Azure Blob
+### Create a dataset for a source Azure Blob
 
 Add a method that creates an *Azure blob dataset*. For more information about supported properties and details, see [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties).
 
@@ -231,7 +231,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 
 Notice the use of parameters for the *FolderPath*. `sourceBlobContainer` is the name of the parameter and the expression is replaced with the values passed in the pipeline run. The syntax to define parameters is `@pipeline().parameters.<parameterName>`
 
-### Create a dataset for sink Azure Blob
+### Create a dataset for a sink Azure Blob
 
 1. Add a `SourceBlobDatasetDefinition` method to your *Program.cs* file:
 
@@ -297,7 +297,7 @@ In your C# project, create a class named `EmailRequest`. This class defines what
 
 ## Create email workflow endpoints
 
-To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic Apps workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic Apps workflow, see [How to create a Logic App](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ### Success email workflow
 
@@ -355,7 +355,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 
 ## Create a pipeline
 
-Go back to your project in Visual Studio. We'll add the code that creates a pipeline with a copy activity and `DependsOn` property. In this tutorial, the pipeline contains one activity, copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. If the copy activity succeeds or fails, it calls different email tasks.
+Go back to your project in Visual Studio. We'll now add the code that creates a pipeline with a copy activity and `DependsOn` property. In this tutorial, the pipeline contains one activity, a copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. If the copy activity succeeds or fails, it calls different email tasks.
 
 In this pipeline, you use the following features:
 
@@ -364,7 +364,7 @@ In this pipeline, you use the following features:
 * Activity dependency
 * Using output from an activity as an input to another activity
 
-1. Add this method to your project. The next sections explain in more detail.
+1. Add this method to your project. The following sections provide in more detail.
 
     ```csharp
     static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
@@ -486,9 +486,9 @@ The Web activity allows a call to any REST endpoint. For more information about 
 In the `Url` property, paste the **HTTP POST URL** endpoints from your Logic Apps workflows. In the `Body` property, pass an instance of the `EmailRequest` class. The email request contains the following properties:
 
 * Message. Passes value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of `dataWritten`. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
-* Data Factory Name. Passes value of `@{pipeline().DataFactory}` This system variable allows you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
+* Data Factory Name. Passes value of `@{pipeline().DataFactory}` This system variable allows you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md).
 * Pipeline Name. Passes value of `@{pipeline().Pipeline}`. This system variable allows you to access the corresponding pipeline name.
-* Receiver. Passes value of `"\@pipeline().parameters.receiver"`. Accesses the pipeline parameters.
+* Receiver. Passes value of `"@pipeline().parameters.receiver"`. Accesses the pipeline parameters.
 
 This code creates a new Activity Dependency that depends on the previous copy activity.
 
@@ -590,7 +590,7 @@ Build and run your program to trigger a pipeline run!
 
 Build and start the application, then verify the pipeline execution.
 
-The application displays the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage explorer to check the blob is copied to *outputBlobPath* from *inputBlobPath* as you specified in variables.
+The application displays the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage Explorer to check the blob was copied to *outputBlobPath* from *inputBlobPath* as you specified in variables.
 
 Your output should resemble the following sample:
 
@@ -754,7 +754,7 @@ You did the following tasks in this tutorial:
 > * Create an Azure Blob dataset
 > * Create a pipeline that contains a copy activity and a web activity
 > * Send outputs of activities to subsequent activities
-> * Utilize parameter passing and system variables
+> * Use parameter passing and system variables
 > * Start a pipeline run
 > * Monitor the pipeline and activity runs
 
