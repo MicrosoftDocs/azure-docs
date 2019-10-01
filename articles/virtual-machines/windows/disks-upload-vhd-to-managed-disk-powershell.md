@@ -97,8 +97,9 @@ $sourceRG = <sourceResourceGroupHere>
 $sourceDiskName = <sourceDiskNameHere>
 $targetDiskName = <targetDiskNameHere>
 $targetRG = <targetResourceGroupHere>
-$targetOS = <yourOSTypeHere>
 $targetLocate = <yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+$targetOS = <yourOSTypeHere>
 
 $sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
 
