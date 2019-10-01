@@ -1,24 +1,14 @@
 ---
-title: "Quickstart: Get intent, Node.js - LUIS"
+title: Get intent with REST call in Node.js
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, use an available public LUIS app to determine a user's intention from conversational text. Using Node.js, send the user's intention as text to the public app's HTTP prediction endpoint.  
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: quickstart
-ms.date: 09/04/2019
+ms.topic: include 
+ms.date: 09/27/2019
 ms.author: diberry
-#Customer intent: As an API or REST developer new to the LUIS service, I want to query the LUIS endpoint of a published model using Node.js so that I can see the JSON prediction response.
 ---
-
-# Quickstart: Get intent using Node.js
-
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
-
-<a name="create-luis-subscription-key"></a>
 
 ## Prerequisites
 
@@ -32,11 +22,7 @@ ms.author: diberry
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
-
-## Get intent with browser
-
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
 
 ## Get intent programmatically
 
@@ -59,14 +45,16 @@ You can use Node.js to access the same results you saw in the browser window in 
 
 5. Run the code with `npm start`. It displays the same values that you saw earlier in the browser window.
 
+
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## Clean up resources
 
-Delete the Node.js file.
+When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Add utterances](luis-get-started-node-add-utterance.md)
+> [Add utterances and train with Node.js](../luis-get-started-node-add-utterance.md)
