@@ -802,9 +802,9 @@
     href: https://stackoverflow.com/questions/tagged/sql-azure
   - name: Troubleshooting
     items:
-    - name: Azure SQL Database Import/Export Service Hangs
+    - name: Import/Export Service Hangs
       href: azure-sql-database-hangs-importing-exporting.md
-    - name: Troubleshooting connectivity issues with Microsoft Azure SQL Database
+    - name: Troubleshooting connectivity issues
       href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
