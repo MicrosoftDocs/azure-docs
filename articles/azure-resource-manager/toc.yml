@@ -222,6 +222,8 @@
       href: resource-manager-common-deployment-errors.md
     - name: AccountNameInvalid
       href: resource-manager-storage-account-name-errors.md
+    - name: DeploymentQuotaExceeded
+      href: deployment-quota-exceeded.md
     - name: InvalidTemplate
       href: resource-manager-invalid-template-errors.md
     - name: Linux deployment issues

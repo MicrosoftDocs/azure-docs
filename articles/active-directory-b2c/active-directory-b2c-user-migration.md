@@ -61,11 +61,7 @@ Next, grant the application the Azure AD Graph API permissions required for writ
 
 Create a client secret (key) for use by the user migration application that you configure in a later step.
 
-1. In the **Registered app** page, select **Settings**.
-1. Select **Keys**.
-1. Under **Passwords**, add a new key (also known as a client secret) named *MyClientSecret* or another name of your choosing, select an expiration window, select **Save**, and then copy the key value for later use.
-
-    ![Application ID value and Keys menu item highlighted in Azure portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Now you have an application with permissions to create, read, and update users in your Azure AD B2C tenant.
 
