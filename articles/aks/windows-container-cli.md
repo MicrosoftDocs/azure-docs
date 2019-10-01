@@ -147,7 +147,7 @@ az aks create \
 > If you get a password validation error, try creating your resource group in another region.
 > Then try creating the cluster with the new resource group.
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster.
+After a few minutes, the command completes and returns JSON-formatted information about the cluster. Occasionally the cluster can take longer than a few minutes to provision. Allow up to 10 minutes in these cases. 
 
 ## Add a Windows Server node pool
 
@@ -262,7 +262,7 @@ service/sample created
 
 ## Test the application
 
-When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete.
+When the application runs, a Kubernetes service exposes the application front end to the internet. This process can take a few minutes to complete. Occasionally the service can take longer than a few minutes to provision. Allow up to 10 minutes in these cases.
 
 To monitor progress, use the [kubectl get service][kubectl-get] command with the `--watch` argument.
 

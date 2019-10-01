@@ -123,7 +123,7 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
 | Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2016    | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer                       |
 | Windows Server 2008 R2 | Internet Explorer                       |
 | macOS                  | Chrome, Safari                                  |
@@ -244,7 +244,6 @@ In your Conditional Access policy, you can require an app protection policy be p
 This setting applies to the following client apps:
 
 - Microsoft Cortana
-- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
 - Microsoft Planner

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/03/2019
+ms.date: 09/19/2019
 ms.author: diberry
 #Customer intent: 
 ---
@@ -35,7 +35,7 @@ Personalizer uses machine learning models to discover what action to rank highes
 1. Create and configure an instance of the Personalization Service in the Azure portal. Each instance is a Personalizer Loop.
 1. Use SDK to call Personalizer with information (_features_) about your users, and the content (_actions_). You don't need to provide clean, labeled data before using Personalizer. 
 1. In the client application, show the user the action selected by Personalizer.
-1. Use SDK to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _reward score_, typically between -1 and 1.
+1. Use the SDK to provide feedback to Personalizer indicating if the user selected Personalizer's action. This is a _[reward score](concept-rewards.md)_.
 1. View analytics in the Azure portal to evaluate how the system is working and how your data is helping personalization.
 
 ## Where can I use Personalizer?
@@ -49,14 +49,14 @@ For example, your client application can add Personalizer to:
 * Choose a chat bot's response to clarify user intent or suggest an action.
 * Prioritize suggestions of what a user should do as the next step in a business process.
 
-Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action a context a single model that can obtain maximum rewards when similar features occur. 
+Personalizer is not a service to persist and manage user profile information, or to log individual users' preferences or history. Personalizer learns from each interaction's features in the action of a context in a single model that can obtain maximum rewards when similar features occur. 
 
 ## Personalization for developers
 
 Personalizer Service has two APIs:
 
 * Send information (_features_) about your users and the content (_actions_) to personalize. Personalizer responds with the top action.
-* Send feedback to Personalizer about how well the ranking worked as a number typically between 0 and 1 (the previous section said -1 and 1). 
+* Send feedback to Personalizer about how well the ranking worked as a [reward score](concept-rewards.md). 
 
 ![Basic sequence of events for Personalization](media/what-is-personalizer/personalization-intro.png)
 

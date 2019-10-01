@@ -98,6 +98,8 @@ No. Since the proxy server is stateless, it's not important which specific proxy
 
 Yes. The Azure AD Password Protection Proxy service and Azure AD Connect should never conflict directly with each other.
 
+Unfortunately, an incompatibility has been found between the version of the Microsoft Azure AD Connect Agent Updater service that is installed by the Azure AD Password Protection Proxy software and the version of the service that is installed by the [Azure Active Directory Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) software. This incompatibility may result in the Agent Updater service being unable to contact Azure for software updates. It is not recommended to install Azure AD Password Protection Proxy and Azure Active Directory Application Proxy on the same machine.
+
 **Q: In what order should the DC agents and proxies be installed and registered?**
 
 Any ordering of Proxy agent installation, DC agent installation, forest registration, and Proxy registration  is supported.
@@ -133,6 +135,10 @@ No.
 **Q: Why is Azure AD still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
 
 Audit mode is only supported in the on-premises Active Directory environment. Azure AD is implicitly always in "enforce" mode when it evaluates passwords.
+
+**Q: My users see the traditional Windows error message when a password is rejected by Azure AD Password Protection. Is it possible to customize this error message so that users know what really happened?**
+
+No. The error message seen by users when a password is rejected by a domain controller is controlled by the client machine, not by the domain controller. This behavior happens whether a password is rejected by the default Active Directory password policies or by a password-filter-based solution such as Azure AD Password Protection.
 
 ## Additional content
 

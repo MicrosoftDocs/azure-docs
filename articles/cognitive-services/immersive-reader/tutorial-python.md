@@ -110,7 +110,7 @@ pip install jinja2
 Install virtualenv. A tool to create isolated Python environments.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Install virtualenvwrapper-win. The idea behind virtualenvwrapper is to ease usage of virtualenv.
@@ -123,6 +123,12 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 
 ```cmd
 pip install requests
+```
+
+Install the python-dotenv module. This module reads the key-value pair from .env file and adds them to environment variable.
+
+```cmd
+pip install python-dotenv
 ```
 
 Make a virtual environment
@@ -248,6 +254,12 @@ Install the requests module. Requests is an Apache2 Licensed HTTP library, writt
 
 ```bash
 pip install requests --user
+```
+
+Install the python-dotenv module. This module reads the key-value pair from .env file and adds them to environment variable.
+
+```bash
+pip install python-dotenv --user
 ```
 
 Choose a folder where you would like to keep your virtual environments and run this command

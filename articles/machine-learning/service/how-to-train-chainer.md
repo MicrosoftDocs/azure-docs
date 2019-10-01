@@ -1,7 +1,7 @@
 ---
 title: Train deep learning neural network with Chainer 
 titleSuffix: Azure Machine Learning
-description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifis handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
+description: Learn how to run your PyTorch training scripts at enterprise scale using Azure Machine Learning's Chainer estimator class.  The example script classifies handwritten digit images to build a deep learning neural network using the Chainer Python library running on top of numpy. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -81,7 +81,7 @@ In this tutorial, the training script **chainer_mnist.py** is already provided f
 
 To use Azure ML's tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
 
-The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#upload-dataset-and-scripts) to make data available during training.
+The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md) to make data available during training.
 
 Copy the training script **chainer_mnist.py** into your project directory.
 

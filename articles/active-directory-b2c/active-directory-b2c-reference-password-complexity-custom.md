@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In Azure Active Directory (Azure AD) B2C, you can configure the complexity requirements for passwords that are provided by a user when creating an account. By default, Azure AD B2C uses **Strong** passwords. This article shows you how to configure password complexity in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure password complexity in [user flows](active-directory-b2c-reference-password-complexity.md).
+In Azure Active Directory B2C (Azure AD B2C), you can configure the complexity requirements for passwords that are provided by a user when creating an account. By default, Azure AD B2C uses **Strong** passwords. This article shows you how to configure password complexity in [custom policies](active-directory-b2c-overview-custom.md). It's also possible to configure password complexity in [user flows](active-directory-b2c-reference-password-complexity.md).
 
 ## Prerequisites
 
@@ -108,7 +108,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Identity Experience Framework**.
 5. On the Custom Policies page, click **Upload Policy**.
