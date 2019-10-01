@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
