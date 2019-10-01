@@ -49,7 +49,7 @@ In order to follow along with this tutorial, you will need to create an Azure No
  
     ![create project](./media/tutorial-ev-routing/create-project-window.png)
 
-4. Once your project is created, download the [Jupyter notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/src/notebook/contosoMapsNotebook.ipynb) from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
+4. Once your project is created, download the [Jupyter notebook document file](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJuypterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
 
 5. Select your project from the projects list on the **My Projects** page and click on **Upload** to upload the Jupyter notebook document file. Upload the file from your computer and click **Done**.
 
@@ -65,7 +65,7 @@ In order to better understand the functionality implemented in the notebook file
 
 In order to run the code in the notebook, you need to install packages at the project level. Follow the steps below to install the required packages:
 
-1. Download the ["requirements.txt"](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/src/requirements.txt) file from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) and upload it to your project.
+1. Download the ["requirements.txt"](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJuypterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) file from the [Azure Maps Jupyter Notebook repository](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook) and upload it to your project.
 2. On the project dashboard, select **Project Settings**. 
 3. In the popup that appears, select the **Environment tab**, then select **Add**.
 4. Under **Environment Setup Steps**, 
