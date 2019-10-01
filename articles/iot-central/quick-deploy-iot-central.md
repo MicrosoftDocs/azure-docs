@@ -15,21 +15,21 @@ manager: corywink
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_ and simulated _devices_.
+As a _builder_, you use the Azure IoT Central UI to define your Microsoft Azure IoT Central application. This quickstart shows you how to create an Azure IoT Central application that contains a sample _device template_.
 
 ## Create an application
 
 Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. Then sign in with a Microsoft personal, work, or school account.
 
-To start creating a new Azure IoT Central application, select **New Application**. This takes you to the **Create an application** page.
+To start creating a new Azure IoT Central application, select **New Application**. This link takes you to the **Create an application** page.
 
 ![Azure IoT Central Create Application page](media/quick-deploy-iot-central/iotcentralcreate.png)
 
 To create a new Azure IoT Central application:
 
 1. Choose a payment plan:
-   - **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire. If you create a **Trial** application, you will need to enter your contact information and choose whether to receive information and tips from Microsoft.
-   - **Pay-As-You-Go** applications are charged per device, with the first five devices free. If you create a **Pay-As-You-Go** application, you will need to select your *Directory*, *Azure Subscription*, and *Region*:
+   - **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire. If you create a **Trial** application, you'll need to enter your contact information and choose whether to receive information and tips from Microsoft.
+   - **Pay-As-You-Go** applications are charged per device, with the first five devices free. If you create a **Pay-As-You-Go** application, you'll need to select your *Directory*, *Azure Subscription*, and *Region*:
         - *Directory* is the Azure Active Directory (AD) to create your application. It contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
         - An *Azure Subscription* enables you to create instances of Azure services. IoT Central will provision resources in your subscription. If you don’t have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription). After you create the Azure subscription, navigate back to the **Create an application** page. Your new subscription appears in the **Azure Subscription** drop-down.
         - *Region* is the physical location or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your application. Typically, you should choose the region that's physically closest to your devices to get optimal performance. You can see the regions in which Azure IoT Central is available on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) page. Once you choose a region, you can't move your application to a different region later.
@@ -44,7 +44,7 @@ To create a new Azure IoT Central application:
     | Sample Devkits       | Creates an application with device templates ready for you to connect an MXChip or Raspberry Pi device. Use this template if you are a device developer experimenting with any of these devices. |
     | Custom application   | Creates an empty application for you to populate with your own device templates and devices. |
 
-1. Azure IoT Central automatically suggests an application name based on the application template you've selected. You can accept this name or enter your own friendly application name, such as **Contoso IoT**. Azure IoT Central also generates a unique URL prefix for you, based on the application name. You are free to change this URL prefix to something more memorable if you'd like.
+1. Azure IoT Central automatically suggests an application name based on the application template you've selected. You can accept this name or enter your own friendly application name, such as **Contoso IoT**. Azure IoT Central also generates a unique URL prefix for you, based on the application name. You're free to change this URL prefix to something more memorable if you'd like.
 
 1. Fill additional information required for the payment plan you selected earlier, in Step 1.
 
