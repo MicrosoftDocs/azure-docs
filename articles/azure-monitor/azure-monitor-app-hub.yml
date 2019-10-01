@@ -384,10 +384,10 @@ conceptualContent:
         - url: ./app/code-sample-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export data model
-       - url: ./app/automate-with-flow.md
+        - url: ./app/automate-with-flow.md
           itemType: how-to-guide
           text:  Flow integration
-      - url: ./app/automate-with-logic-apps.md
+        - url: ./app/automate-with-logic-apps.md
           itemType: how-to-guide
           text:  Logic App integration
        
