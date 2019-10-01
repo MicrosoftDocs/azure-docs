@@ -50,7 +50,7 @@
   - name: Use health check in Deployment Manager
     displayName: adm
     href: deployment-manager-tutorial-health-check.md
-  - name: Update VS Deployment script to Az Powershell
+  - name: Update VS Deploy script to Az Powershell
     href: vs-azure-tools-update-deploy-script-to-az-powershell.md
   - name: Troubleshoot template deployment
     href: resource-manager-tutorial-troubleshoot.md
