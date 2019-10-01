@@ -23,7 +23,7 @@ One private DNS zone can have multiple registration virtual networks, however ev
 
 ## Resolution virtual network
 
-When you create a virtual network link under a private DNS zone and choose not to enable autoregistration of DNS records, the virtual network is treated as a resolution only virtual network. DNS records for virtual machines deployed in such networks will not be automatically created in the link private DNS zone. However the virtual machines deployed in such a network will be able to successfully query the DNS records from the private DNS zone. These records may be manually created by you or may be populated from other virtual networks that have been linked as registration networks with the private DNS zone.
+When you create a virtual network link under a private DNS zone and choose not to enable DNS record autoregistration , the virtual network is treated as a resolution only virtual network. DNS records for virtual machines deployed in such networks will not be automatically created in the linked private DNS zone. However, the virtual machines deployed in such a network can successfully query the DNS records from the private DNS zone. These records may be manually created by you or may be populated from other virtual networks that have been linked as registration networks with the private DNS zone.
 One private DNS zone can have multiple resolution virtual networks and a virtual network can have multiple resolution zones associated to it.
 
 ## Limits
