@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 10/01/2019
 ms.author: ralfwi
 ---
 
 
 # Connect to Azure Germany by using Visual Studio
 
-Developers use Visual Studio to easily manage their Azure subscriptions while building solutions. Currently, you can't configure a connection to Azure Germany in the Visual Studio user interface.  
+Developers use Visual Studio to easily manage their Azure subscriptions while building solutions. Currently, in the Visual Studio user interface, you can't configure a connection to Azure Germany.
 
 ## Visual Studio 2017 and Visual Studio 2019
 
