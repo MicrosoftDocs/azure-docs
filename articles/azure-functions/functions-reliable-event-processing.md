@@ -49,7 +49,7 @@ Azure Functions consumes Event Hub events while cycling through the following st
 This behavior reveals a few important points:
 
 - *Unhandled exceptions may cause you to lose messages.* Executions that result in an exception will continue to progress the pointer.
-- *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to account for the fact that the same message could be received twice.
+- *Functions guarantees at-least-once delivery.* Your code and dependent systems may need to [account for the fact that the same message could be received twice](./functions-idempotent.md).
 
 ## Handling exceptions
 
