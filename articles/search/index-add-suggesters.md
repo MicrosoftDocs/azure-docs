@@ -107,16 +107,16 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### Analyzer restrictions for sourceFields in a suggester
 
-By default, for both autocomplete and suggestions, query execution occurs as soon as the first two characters are received. To meet the performance expectations inherent in typeahead experiences, partial as well as whole terms must be analyzed and indexed, which increases the complexity and volume of both processes. 
+By default, for both autocomplete and suggestions, query execution occurs when the first two-character combination is received. To meet the performance expectations inherent in typeahead experiences, partial as well as whole terms must be analyzed and indexed, which increases the complexity and longevity of both processes. 
 
 The constraint of using only named analyzers on `sourceFields` exists as a way to limit unforeseen complications during the analysis phase of both indexing and querying. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
 
 > [!NOTE] 
->  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have suggesters, while the other can be set up with a custom analyzer configuration.
+>  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
 
 <a name="how-to-use-a-suggester"></a>
 
-## How to use a suggester 
+## Use a suggester in a query
 
 After a suggester is created, call the appropriate API in your query logic to invoke the feature. 
 
@@ -125,15 +125,21 @@ After a suggester is created, call the appropriate API in your query logic to in
 + [SuggestWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
 + [AutocompleteWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-A suggester is referenced on the request along with the operation. For example, on a GET REST call, specify either `suggest` or `autocomplete` on the documents collection. For REST, after a suggester is created, use the [Suggestions API](https://docs.microsoft.com/rest/api/searchservice/suggestions) or the [Autocomplete API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) in your query logic.
+API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index. Second, you can add query parameters. While many query parameters are common to both APIs, the list is different for each one.
+
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs/autocomplete?[query parameters]  
+api-key: [admin or query key]
+```
+
+If a suggester is not defined in the index, a call to autocomplete or suggestions will fail.
 
 ## Sample code
 
-+ [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and facet navigation. This code sample uses the hotels index.
++ [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample runs on a sandbox Azure Search service and uses a pre-loaded Hotels index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) is an older sample containing both C# and Java code. It also demonstrates a suggester construction, suggested queries, autocomplete, and facet navigation. This code sample uses the [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample application. 
++ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) is an older sample containing both C# and Java code. It also demonstrates a suggester construction, suggested queries, autocomplete, and faceted navigation. This code sample uses the hosted [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) sample data. 
 
-Both examples use a sandbox Azure Search service and a pre-loaded index so all you have to do is press F5 to run the application. No subscription or sign-in is necessary.
 
 ## Next steps
 
