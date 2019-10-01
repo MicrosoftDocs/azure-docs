@@ -800,11 +800,13 @@
     href: https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/sql-azure
-  - name: Troubleshooting
+  - name: Troubleshoot
     items:
-    - name: Import/Export Service Hangs
-      href: azure-sql-database-hangs-importing-exporting.md
-    - name: Troubleshooting connectivity issues
+    - name: Connectivity issues
       href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+    - name: Problem Resolution
+      items: 
+      - name: Import/Export service hangs
+        href: azure-sql-database-hangs-importing-exporting.md
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
