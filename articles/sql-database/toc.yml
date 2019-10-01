@@ -485,7 +485,7 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL databases
+- name: SQL database
   items:
   - name: Single database documentation
     href: sql-database-single-index.yml
@@ -697,7 +697,7 @@
         href: elastic-jobs-migrate.md
 
 
-- name: SQL managed instances
+- name: SQL managed instance
   items:
   - name: Managed instance documentation
     href: sql-database-managed-instance-index.yml
