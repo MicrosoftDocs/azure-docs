@@ -1,6 +1,6 @@
 ---
-title: Use Azure Cosmos DB's API for MongoDB 3.6 feature support
-description: Learn about the feature support that Azure Cosmos DB's API for MongoDB provides for MongoDB 3.6.
+title: Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
+description: Learn about Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
@@ -8,7 +8,7 @@ ms.date: 10/1/2019
 author: sivethe
 ms.author: sivethe
 ---
-# Azure Cosmos DB’s API for MongoDB 3.6: supported features and syntax
+# Azure Cosmos DB's API for MongoDB (3.6 version): supported features and syntax
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can communicate with the Azure Cosmos DB's API for MongoDB using any of the open source MongoDB client [drivers](https://docs.mongodb.org/ecosystem/drivers). The Azure Cosmos DB's API for MongoDB enables the use of existing client drivers by adhering to the MongoDB [wire protocol](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -264,7 +264,7 @@ The bar operator '|' acts as an "or" function - the query ```find({x:{$regex: /^
 - $addToSet
 - $pop
 - $pullAll
-- $pull  (Note: $pull with condition is not supported)
+- $pull
 - $pushAll
 - $push
 - $each
@@ -298,7 +298,7 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 
 ## Additional operators
 
-Operator | Example | Notes 
+Operator | Example | Notes
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
 $elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  

@@ -26,9 +26,11 @@ For accounts serving wire protocol version 3.6, the only default index is _id, w
 
 ### Creating a compound index (3.6)
 
-True compound indexes are supported for accounts using the 3.6 wire protocol. The following command will create a compound index on the fields 'a' and 'b':  `db.coll.createIndex({a:1,b:1})`
+True compound indexes are supported for accounts using the 3.6 wire protocol. The following command will create a compound index on the fields 'a' and 'b':
+`db.coll.createIndex({a:1,b:1})`
 
-Compound indexes can be used to sort efficiently on multiple fields at once, such as: `db.coll.find().sort({a:1,b:1})`
+Compound indexes can be used to sort efficiently on multiple fields at once, such as:
+`db.coll.find().sort({a:1,b:1})`
 
 ## Indexing for version 3.2
 
@@ -58,7 +60,7 @@ The following operations are common for both accounts serving wire protocol vers
 
 The following command creates a unique index on the field "student_id":
 
-```JavaScript
+```shell
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} )
 {
         "_t" : "CreateIndexesResponse",
@@ -73,7 +75,7 @@ For sharded collections, as per MongoDB behavior, creating a unique index requir
 
 The following commands create a sharded collection ```coll``` (shard key is ```university```) with a unique index on fields student_id and university:
 
-```JavaScript
+```shell
 globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { university: "hashed"}});
 {
         "_t" : "ShardCollectionResponse",
