@@ -45,12 +45,7 @@ To use the Azure AD Graph API with your B2C tenant, you need to register an appl
 
 ### Assign API access permissions
 
-1. On the **Registered app** overview page, select **Settings**.
-1. Under **API ACCESS**, select **Required permissions**.
-1. Select **Windows Azure Active Directory**.
-1. Under **APPLICATION PERMISSIONS**, select **Read and write directory data**.
-1. Select **Save**.
-1. Select **Grant permissions**, and then select **Yes**. It might take a few minutes to for the permissions to fully propagate.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### Create client secret
 

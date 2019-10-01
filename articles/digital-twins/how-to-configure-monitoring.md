@@ -1,13 +1,13 @@
 ---
-title: 'How to configure monitoring in Azure Digital Twins | Microsoft Docs'
+title: 'How to configure monitoring - Azure Digital Twins | Microsoft Docs'
 description: How to configure monitoring in Azure Digital Twins.
-author: kingdomofends
-manager: philmea
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/09/2019
-ms.author: v-adgera
 ms.custom: seodec18
 ---
 

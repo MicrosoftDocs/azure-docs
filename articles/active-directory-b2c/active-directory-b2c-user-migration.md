@@ -55,12 +55,7 @@ First, register an application that you can use for management tasks like user m
 
 Next, grant the application the Azure AD Graph API permissions required for writing to the directory.
 
-1. In the **Settings** menu, select **Required permissions**.
-1. Select **Windows Azure Active Directory**.
-1. In the **Enable Access** pane, under **Application Permissions**, select **Read and write directory data**, and then select **Save**.
-1. In the **Required permissions** pane, select **Grant Permissions**, then select **Yes**.
-
-   ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### Step 1.3: Create the application secret
 

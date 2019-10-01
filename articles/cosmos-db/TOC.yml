@@ -102,6 +102,8 @@
         href: global-dist-under-the-hood.md
       - name: Regional presence
         href: regional-presence.md
+      - name: Transactional and analytical storage
+        href: globally-distributed-transactional-analytical-storage.md
     - name: Partitioning
       items:
       - name: Overview
@@ -453,11 +455,12 @@
       - name: Trigger Azure Functions 
         displayName: change feed
         href: change-feed-functions.md
-    - name: Built-in analytics with Apache Spark
+    - name: Globally distributed analytics and AI
       items:
       - name: Introduction
+        displayName: Apache Spark, spark
         href: spark-api-introduction.md
-      - name: Analytics usecases
+      - name: Analytics use cases
         href: analytics-usecases.md
       - name: Analytics - solution architectures
         href: analytics-solution-architectures.md
