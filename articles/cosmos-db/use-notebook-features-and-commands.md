@@ -21,7 +21,10 @@ In a new code cell, insert and run the following code, replacing ``PackageToBeIn
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-This package will be available to use from any notebook in the Azure Cosmos account. 
+This package will be available to use from any notebook in the Azure Cosmos account workspace. 
+
+> [!TIP]
+> If your notebook requires a custom package, we recommend that you add a cell in your notebook to install the package, as packages are removed if you [reset the workspace](#reset-notebooks-workspace).  
 
 ## Run a SQL query
 
@@ -148,6 +151,11 @@ primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
 > The ``COSMOS_ENDPOINT`` and ``COSMOS_KEY`` environment variables are only applicable for SQL API. For other APIs, find the endpoint and key in the **Connection Strings** or **Keys** blade in your Cosmos account.  
+
+## Reset notebooks workspace
+To reset the notebooks workspace to the default settings, select **Reset Workspace** on the command bar. This will remove any custom installed packages and restart the Jupyter server. Your notebooks, files, and Cosmos resources will not be affected.  
+
+![Reset notebooks workspace](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## Next steps
 
