@@ -25,6 +25,20 @@
       href: private-dns-getstarted-cli.md
     - name: Create a private zone - PowerShell
       href: private-dns-getstarted-powershell.md
+- name: Tutorials
+  items:
+  - name: Public DNS
+    items:
+    - name: Host your domain in Azure DNS
+      href: dns-delegate-domain-azure-dns.md
+    - name: Create custom DNS records for a web app
+      href: dns-web-sites-custom-domain.md
+    - name: Alias records for Traffic Manager
+      href: tutorial-alias-tm.md
+    - name: Alias records for Public IP addresses
+      href: tutorial-alias-pip.md
+    - name: Alias records for zone records
+      href: tutorial-alias-rr.md
 - name: Concepts
   items:
   - name: Public DNS
@@ -57,20 +71,6 @@
       href: ../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md
     - name: FAQ
       href: dns-faq-private.md
-- name: Tutorials
-  items:
-  - name: Public DNS
-    items:
-    - name: Host your domain in Azure DNS
-      href: dns-delegate-domain-azure-dns.md
-    - name: Create custom DNS records for a web app
-      href: dns-web-sites-custom-domain.md
-    - name: Alias records for Traffic Manager
-      href: tutorial-alias-tm.md
-    - name: Alias records for Public IP addresses
-      href: tutorial-alias-pip.md
-    - name: Alias records for zone records
-      href: tutorial-alias-rr.md
 - name: How to
   items:
   - name: Public DNS
