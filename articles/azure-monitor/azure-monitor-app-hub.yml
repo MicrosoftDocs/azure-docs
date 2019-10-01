@@ -87,7 +87,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Azure VM & Azure virtual machine scale sets
         
-    - title: Distributed tracing & end-to-end correlation 
+    - title: Distributed tracing, dependency tracking, & correlation 
       links: 
         - url: ./app/distributed-tracing.md
           itemType: overview
@@ -98,10 +98,21 @@ conceptualContent:
         - url: ./app/correlation.md
           itemType: how-to-guide
           text: Telemetry correlation
+        - url: ./app/custom-data-correlation.md
+          itemType: how-to-guide
+          text: Correlate custom data sources
         - url: ./app/transaction-diagnostics.md
           itemType: how-to-guide
-          text: End-to-end transaction diagnostrics
-
+          text: End-to-end transaction diagnostics
+        - url: ./app/asp-net-dependencies.md
+          itemType: how-to-guide
+          text: Dependency tracking
+        - url: ./app/auto-collect-dependencies.md
+          itemType: how-to-guide
+          text: Dependency auto-collection
+        - url: ./app/custom-operations-tracking.md
+          itemType: how-to-guide
+          text: Queues & background tasks
 
     - title: Synthetic Transactions & Availability monitoring
       links: 
@@ -130,9 +141,19 @@ conceptualContent:
         - url: ./platform/app-insights-metrics.md
           itemType: how-to-guide
           text:  Log-based metric definitions
+        - url: ./app/performance-counters.md
+          itemType: how-to-guide
+          text:  Performance counters
+        - url: ./app/eventcounters.md
+          itemType: how-to-guide
+          text:  EventCounter (.NET/.NETCORE)
+        - url: ./app/asp-net-trace-logs.md
+          itemType: how-to-guide
+          text:  System diagnostic trace logs
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
           text:  Search
+        
         
     - title:  Profiler
       links: 
@@ -155,15 +176,185 @@ conceptualContent:
           itemType: how-to-guide
           text:  Profiler troubleshooting
 
+    - title:  Snapshot Debugger
+      links: 
+        - url: ./app/snapshot-debugger.md
+          itemType: overview
+          text:  Profiler overview
+        - url: ./app/snapshot-debugger-appservice.md
+          itemType: how-to-guide
+          text:  Enable Snapshot Debugger for Azure App Service
+        - url: ./app/snapshot-debugger-vm.md
+          itemType: how-to-guide
+          text:  Enable Snapshot Debugger for other environments
+        - url: ./app/snapshot-debugger-upgrade.md
+          itemType: how-to-guide
+          text:  Upgrade Snapshot Debugger
+        - url: ./app/snapshot-debugger-troubleshoot.md
+          itemType: how-to-guide
+          text:  Snapshot Debugger troubleshooting
+ 
+    - title:  Smart Detection
+      links: 
+        - url: ./app/proactive-diagnostics.md
+          itemType: overview
+          text:  Smart Detection overview
+        - url: ./app/proactive-failure-diagnostics.md
+          itemType: how-to-guide
+          text:  Failure anomolies
+        - url: ./app/proactive-performance-diagnostics.md
+          itemType: how-to-guide
+          text:  Performance anomalies
+        - url: ./app/proactive-trace-severity.md
+          itemType: how-to-guide
+          text:  Trace degradation
+        - url: ./app/proactive-exception-volume.md
+          itemType: how-to-guide
+          text:  Exception volume
+        - url: ./app/proactive-potential-memory-leak.md
+          itemType: how-to-guide
+          text:  Memory leak
+        - url: ./app/proactive-application-security-detection-pack.md
+          itemType: how-to-guide
+          text:  Security detections
+        - url: ./app/proactive-cloud-services.md
+          itemType: how-to-guide
+          text: Azure Cloud Services
+        - url: ./app/proactive-arm-config.md
+          itemType: how-to-guide
+          text: Manage smart detection rules
+        - url: ./app/proactive-email-notification.md
+          itemType: how-to-guide
+          text: E-mail notification
+
+    - title:  Usage (User behavior analytics)
+      links: 
+        - url: ./app/usage-overview.md
+          itemType: overview
+          text:  Overview
+        - url: ./app/usage-segmentation.md
+          itemType: how-to-guide
+          text:  Users, Sessions, Events
+        - url: ./app/usage-funnels.md
+          itemType: how-to-guide
+          text:  funnels
+        - url: ./app/usage-cohorts.md
+          itemType: how-to-guide
+          text:  Cohorts
+        - url: ./app/usage-impact.md
+          itemType: how-to-guide
+          text:  Impact
+        - url: ./app/usage-retention.md
+          itemType: how-to-guide
+          text:  Retention
+        - url: ./app/usage-flows.md
+          itemType: how-to-guide
+          text:  User Flows
+        - url: ./app/usage-troubleshoot
+          itemType: how-to-guide
+          text:  Usage troublshooting
+
+    - title:  Privacy, security, usage & cost
+      links: 
+        - url: ./app/personal-data-mgmt.md
+          itemType: how-to-guide
+          text:  Personal data handling
+        - url: ./app/data-retention-privacy.md
+          itemType: how-to-guide
+          text:  Data collection, retention & storage
+        - url: ./app/resources-roles-access-control.md
+          itemType: how-to-guide
+          text:  Role based access control
+        - url: ./app/ip-addresses.md
+          itemType: how-to-guide
+          text: IP address & firewall exceptions
+        - url: ./app/ip-collection.md
+          itemType: how-to-guide
+          text: Geolocation & IP address handling
+      
+    - title:  Advanced Configuration
+      links: 
+        - url: ./app/sampling.md
+          itemType: how-to-guide
+          text:  Sampling
+        - url: ./app/telemetry-channels.md
+          itemType: how-to-guide
+          text:  Telemetry Channels
+        - url: ./app/telemetry-processors.md
+          itemType: how-to-guide
+          text:  Telemetry Processors
+        - url: ./app/configuration-with-applicationinsights-config.md
+          itemType: how-to-guide
+          text: ApplicationInsights.config
+        - url: ./app/asp-net-exceptions.md
+          itemType: how-to-guide
+          text: Exceptions
+        - url: ./app/automate-custom-reports.md
+          itemType: how-to-guide
+          text: Custom e-mail reports
+        - url: ./app/custom-endpoints.md
+          itemType: how-to-guide
+          text: Endpoint overrides
+
+    - title:  Azure DevOps
+      links: 
+        - url: ./app/annotations.md
+          itemType: how-to-guide
+          text:  Release annotations
+        - url: ./app/continuous-monitoring.md
+          itemType: how-to-guide
+          text:  Continuous monitoring
+
+    - title:  Export
+      links: 
+        - url: ./app/export-telemetry.md
+          itemType: how-to-guide
+          text:  export telemetry
+        - url: ./app/export-stream-analytics.md
+          itemType: how-to-guide
+          text:  Export to Stream Analytics
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text:  Export to SQL using Stream Analytics
+        - url: ./app/code-sample-export-sql-stream-analytics.md
+          itemType: how-to-guide
+          text:  Export data model
+
+    
+    - title:  Visual Studio
+      links: 
+        - url: ./app/visual-studio.md
+          itemType: how-to-guide
+          text:  F5 insights
+        - url: ./app/visual-studio-trends.md
+          itemType: how-to-guide
+          text:  Trends
+        - url: ./app/visual-studio-codelens.md
+          itemType: how-to-guide
+          text:  CodeLens
+
+    - title:  Reference
+      links: 
+        - url: ./app/nuget.md
+          itemType: how-to-guide
+          text:  NuGet packages
+        - url: ./app/platforms.md
+          itemType: how-to-guide
+          text:  Platforms
+        - url: ./app/azure-functions-supported-features.md
+          itemType: how-to-guide
+          text:  Azure Functions integration
+            
+
 additionalContent:
   sections:
     - items:
-      - title: Microsoft 365
-        summary: Explore Microsoft 365, a complete solution that includes Azure AD.
-        url: https://docs.microsoft.com/microsoft-365/
-      - title: Azure AD PowerShell
-        summary: Learn how to install and use the Azure AD PowerShell module. 
-        url: https://docs.microsoft.com/powershell/module/azuread/
-      - title: Azure CLI commands for Azure AD
-        summary: Find the Azure AD commands in the CLI reference.
-        url: https://docs.microsoft.com/cli/azure/ad
+      - title: 
+        summary: Application Insights API summary
+        url: https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics
+      - title: Application Insights PowerShell
+        summary: Learn how to install and use the Application Insights powershell cmdlets.
+        url: https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.7.0&viewFallbackFrom=azps-2.5.0
+      - title: Azure CLI commands for Application Insights
+        summary: Application Insights CLI extension commands (az extension add -n application-insights).
+        url: https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest
