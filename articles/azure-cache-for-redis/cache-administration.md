@@ -97,7 +97,6 @@ The default, and minimum, maintenance window for updates is five hours. This val
 * [When do updates occur if I don't use the schedule updates feature?](#when-do-updates-occur-if-i-dont-use-the-schedule-updates-feature)
 * [What type of updates are made during the scheduled maintenance window?](#what-type-of-updates-are-made-during-the-scheduled-maintenance-window)
 * [Can I manage scheduled updates using PowerShell, CLI, or other management tools?](#can-i-managed-scheduled-updates-using-powershell-cli-or-other-management-tools)
-* [What pricing tiers can use the schedule updates functionality?](#what-pricing-tiers-can-use-the-schedule-updates-functionality)
 
 ### When do updates occur if I don't use the schedule updates feature?
 If you don't specify a maintenance window, updates can be made at any time.
@@ -112,9 +111,6 @@ Yes, you can manage your scheduled updates using the following PowerShell cmdlet
 * [New-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/new-azrediscachepatchschedule)
 * [New-AzRedisCacheScheduleEntry](/powershell/module/az.rediscache/new-azrediscachescheduleentry)
 * [Remove-AzRedisCachePatchSchedule](/powershell/module/az.rediscache/remove-azrediscachepatchschedule)
-
-### What pricing tiers can use the schedule updates functionality?
-The **Schedule updates** feature is only available in the premium pricing tier.
 
 ## Next steps
 * Explore more [Azure Cache for Redis premium tier](cache-premium-tier-intro.md) features.

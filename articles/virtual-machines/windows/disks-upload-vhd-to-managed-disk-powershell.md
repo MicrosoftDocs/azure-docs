@@ -26,7 +26,7 @@ Currently, direct upload is supported for standard HDD, standard SSD, and premiu
 
 ## Create an empty managed disk
 
-To upload your vhd to Azure, you'll need to create an empty managed disk that is specifically configured for this upload process. Before you create one, there's some additional information you should know about these disks.
+To upload your vhd to Azure, you'll need to create an empty managed disk that is configured for this upload process. Before you create one, there's some additional information you should know about these disks.
 
 This kind of managed disk has two unique states:
 
@@ -49,7 +49,7 @@ New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName' -Disk $di
 
 If you would like to upload either a premium SSD or a standard SSD, replace **Standard_LRS** with either **Premium_LRS** or **StandardSSD_LRS**. Ultra SSD is not yet supported.
 
-You have now created an empty managed disk which is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
+You have now created an empty managed disk that is configured for the upload process. To upload a vhd to the disk, you'll need a writeable SAS, so that you can reference it as the destination for your upload.
 
 To generate a writable SAS of your empty managed disk, use the following command:
 

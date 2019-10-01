@@ -13,7 +13,7 @@ ms.service: virtual-machines-linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/27/2019
+ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
 
@@ -44,13 +44,13 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create VM
 
-To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](/cli/azure/group#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
+To see diagnostics and metrics in action, you need a VM. First, create a resource group with [az group create](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create). The following example creates a resource group named *myResourceGroupMonitor* in the *eastus* location.
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
+Now create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM* and generates SSH keys if they do not already exist in *~/.ssh/*:
 
 ```azurecli-interactive
 az vm create \
@@ -65,7 +65,7 @@ az vm create \
 
 As Linux VMs boot, the boot diagnostic extension captures boot output and stores it in Azure storage. This data can be used to troubleshoot VM boot issues. Boot diagnostics are not automatically enabled when you create a Linux VM using the Azure CLI.
 
-Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](/cli/azure/storage/account#az-storage-account-create) command. In this example, a random string is used to create a unique storage account name.
+Before enabling boot diagnostics, a storage account needs to be created for storing boot logs. Storage accounts must have a globally unique name, be between 3 and 24 characters, and must contain only numbers and lowercase letters. Create a storage account with the [az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) command. In this example, a random string is used to create a unique storage account name.
 
 ```azurecli-interactive
 storageacct=mydiagdata$RANDOM
@@ -94,13 +94,13 @@ az vm boot-diagnostics enable \
 
 ## View boot diagnostics
 
-When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](/cli/azure/vm#az-vm-deallocate) command as follows:
+When boot diagnostics are enabled, each time you stop and start the VM, information about the boot process is written to a log file. For this example, first deallocate the VM with the [az vm deallocate](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-deallocate) command as follows:
 
 ```azurecli-interactive
 az vm deallocate --resource-group myResourceGroupMonitor --name myVM
 ```
 
-Now start the VM with the [az vm start](/cli/azure/vm#az-vm-stop) command as follows:
+Now start the VM with the [az vm start](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-start) command as follows:
 
 ```azurecli-interactive
 az vm start --resource-group myResourceGroupMonitor --name myVM
