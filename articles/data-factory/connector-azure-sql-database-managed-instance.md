@@ -22,6 +22,12 @@ This article outlines how to use the copy activity in Azure Data Factory to copy
 
 ## Supported capabilities
 
+This Azure SQL Database Managed Instance connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
+- [GetMetadata activity](control-flow-get-metadata-activity.md)
+
 You can copy data from Azure SQL Database Managed Instance to any supported sink data store. You also can copy data from any supported source data store to the managed instance. For a list of data stores that are supported as sources and sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Specifically, this Azure SQL Database Managed Instance connector supports:
@@ -613,6 +619,14 @@ When data is copied to and from Azure SQL Database Managed Instance, the followi
 
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Azure Data Factory supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [Supported data stores](copy-activity-overview.md##supported-data-stores-and-formats).

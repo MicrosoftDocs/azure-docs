@@ -137,3 +137,9 @@ Use the following workarounds for this:
 1. Use an existing service principal which has already propagated across regions and exists to pass into AKS at cluster create time.
 2. If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 3. If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
+
+## I'm receiving errors after restricting my egress traffic
+
+When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, you may not be able to run certain `kubectl` commands. You may also see errors when creating an AKS cluster.
+
+Verify that your settings are not conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.

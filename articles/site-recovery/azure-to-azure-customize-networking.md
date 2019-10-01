@@ -18,13 +18,16 @@ This article provides guidance on customizing networking configurations on the t
 
 Learn how Site Recovery provides disaster recovery for [this scenario](azure-to-azure-architecture.md).
 
-## Support networking resources
+## Supported networking resources
 
 The following key resource configurations can be provided for the failover VM while replicating Azure VMs.
 
 - [Internal Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
 - [Public IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Network Security Group](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) both for the subnet and for the NIC
+
+ > [!IMPORTANT]
+  > These settings are only supported  in the failover operation at the moment and not for test failover.
 
 ## Pre-requisites
 

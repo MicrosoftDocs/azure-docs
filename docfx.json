@@ -381,8 +381,11 @@
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
+        "articles/governance/blueprints/**/*.yml": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
+        "articles/governance/policy/**/*.yml": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "manager": {

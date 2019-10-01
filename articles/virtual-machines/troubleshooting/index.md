@@ -5,7 +5,7 @@ description: Learn how to troubleshoot virtual machine deployments.
 title: Troubleshooting for Azure Virtual Machines Documentation | Microsoft Docs
 services: virtual-machines
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 layout: LandingPage
 
 ms.assetid:

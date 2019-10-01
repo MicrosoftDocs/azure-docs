@@ -16,69 +16,73 @@ Learn the users and the roles in HDInsight Enterprise Security Package (ESP), an
 ## Use VSCode to link to domain joined cluster
 
 You can link a normal cluster by using Apache Ambari managed username, also link a security Apache Hadoop cluster by using domain username (such as: `user1@contoso.com`).
+
 1. Open the command palette by selecting **CTRL+SHIFT+P**, and then enter **HDInsight: Link a cluster**.
 
-   ![link cluster command](./media/apache-domain-joined-manage/link-cluster-command.png)
+   ![command palette, link a cluster](./media/apache-domain-joined-manage/link-cluster-command.png)
 
 2. Enter HDInsight cluster URL -> input Username -> input Password -> select cluster type -> it shows success info if verification passed.
-   
-   ![link cluster dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
+
+   ![link cluster process steps dialog](./media/apache-domain-joined-manage/link-cluster-process.png)
 
    > [!NOTE]  
-   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster. 
-   
+   > The linked username and password are used if the cluster both logged in Azure subscription and Linked a cluster.
+
 3. You can see a Linked cluster by using command **List cluster**. Now you can submit a script to this linked cluster.
 
-   ![linked cluster](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "linked cluster")
+   ![list cluster command output verification](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "linked cluster")
 
 4. You also can unlink a cluster by inputting **HDInsight: Unlink a cluster** from command palette.
 
 ## Use IntelliJ to link to domain joined cluster
 
-You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: `user1@contoso.com`). 
+You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: `user1@contoso.com`).
+
 1. Click **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu intellij](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Enter **Cluster Name**, **User Name** and **Password**. You need to check the username and password if got the authentication failure. Optionally, add Storage Account, Storage Key, then select a container from Storage Container. Storage information is for storage explorer in the left tree
-   
-   ![link cluster dialog intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
+
+   ![Azure Explorer link cluster dialog intellij](./media/apache-domain-joined-manage/link-a-cluster-dialog.png)
 
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
-   > ![storage explorer in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
+   > 
+   > ![Azure Explorer storage account in IntelliJ](./media/apache-domain-joined-manage/storage-explorer-in-IntelliJ.png)
 
-   
 3. You can see a Linked cluster in **HDInsight** node if the input information are right. Now you can submit an application to this linked cluster.
 
-   ![linked cluster intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "linked cluster intellij]")
+   ![Azure Explorer linked cluster intellij](./media/apache-domain-joined-manage/linked-cluster-intellij.png "linked cluster intellij]")
 
 4. You also can unlink a cluster from **Azure Explorer**.
-   
-   ![unlinked cluster intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
+
+   ![Azure Explorer unlinked cluster intellij](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Use Eclipse to link to domain joined cluster
 
 You can link a normal cluster by using Ambari managed username, also link a security hadoop cluster by using domain username (such as: `user1@contoso.com`).
+
 1. Click **Link a cluster** from **Azure Explorer**.
 
    ![link cluster context menu eclipse](./media/apache-domain-joined-manage/link-a-cluster-context-menu.png)
 
 2. Enter **Cluster Name**, **User Name** and **Password**, then click OK button to link cluster. Optionally, enter Storage Account, Storage Key and then select Storage Container for storage explorer to work in the left tree view
-   
-   ![link cluster dialog eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
-   
+
+   ![Azure Explorer link cluster dialog eclipse](./media/apache-domain-joined-manage/link-cluster-dialog1.png)
+
    > [!NOTE]  
    > We use the linked storage key, username and password if the cluster both logged in Azure subscription and Linked a cluster.
-   > ![storage explorer in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
+   > 
+   > ![Azure Explorer storage account in Eclipse](./media/apache-domain-joined-manage/storage-explorer-in-Eclipse.png)
 
 3. You can see a Linked cluster in **HDInsight** node after clicking OK button, if the input information are right. Now you can submit an application to this linked cluster.
 
-   ![linked cluster eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
+   ![Azure Explorer linked cluster eclipse](./media/apache-domain-joined-manage/linked-cluster-intellij.png)
 
 4. You also can unlink a cluster from **Azure Explorer**.
    
-   ![unlinked cluster eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
+   ![Azure Explorer unlinked cluster eclipse](./media/apache-domain-joined-manage/hdinsight-unlink-cluster.png)
 
 ## Access the clusters with Enterprise Security Package.
 
@@ -99,8 +103,8 @@ Security and user isolation are important for a HDInsight cluster with Enterpris
 
 Using the standard APIs helps from security perspective. In addition, you get the following benefits:
 
-1.	**Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
-2.	**Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
+- **Management** – You can manage your code and automate jobs using standard APIs – Livy, HS2 etc.
+- **Audit** – With SSH, there is no way to audit, which users SSH’d to the cluster. This wouldn’t be the case when jobs are constructed via standard endpoints as they would be executed in context of user. 
 
 
 
@@ -178,11 +182,11 @@ HDInsight Enterprise Security Package has the following roles:
 4. Sign in to Ambari using the cluster administrator domain user name and password.
 5. Click the **Admin** dropdown menu from the upper right corner, and then click **Manage Ambari**.
 
-    ![ESP HDInsight manage Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
+    ![ESP HDInsight manage Apache Ambari](./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png)
 
     The UI looks like:
 
-    ![ESP HDInsight Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
+    ![ESP HDInsight Apache Ambari management UI](./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png)
 
 ## List the domain users synchronized from your Active Directory
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).

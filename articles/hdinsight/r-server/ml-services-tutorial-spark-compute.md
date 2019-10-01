@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Use R in a Spark compute context in Azure HDInsight'
 description: Tutorial - Get started with R and Spark on an Azure HDInsight Machine Learning services cluster.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/21/2019
@@ -55,9 +55,9 @@ The *Airline 2012 On-Time Data Set* consists of 12 comma-separated files that co
 
 1. In the right pane, select the **Environment** tab. The variables are displayed under **Values**.
 
-    ![RStudio](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
+    ![HDInsight R studio web console](./media/ml-services-tutorial-spark-compute/hdinsight-rstudio-image.png)
 
-1.  Create a local directory, and download the sample data. In RStudio, enter the following code:
+1. Create a local directory, and download the sample data. In RStudio, enter the following code:
 
     ```R
     # Create local directory

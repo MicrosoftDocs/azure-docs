@@ -57,7 +57,7 @@ Attach a workspace as follows:
 
     ![Add workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
 
-    - After you specify a name for a new workspace, it's created in the same geography as the Azure Migrate project.
+    - After you specify a name for a new workspace, you can choose the [region](https://azure.microsoft.com/global-infrastructure/regions/) in which the workspace will be created.
     - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project.
     - You need Reader access to the workspace to be able to attach it.
     - You can't modify the workspace associated with a project after it's attached.

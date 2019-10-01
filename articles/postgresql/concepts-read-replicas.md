@@ -168,4 +168,4 @@ When a master server is deleted, all of its read replicas become standalone serv
 
 ## Next steps
 * Learn how to [create and manage read replicas in the Azure portal](howto-read-replicas-portal.md).
-* Learn how to [create and manage read replicas in the Azure CLI](howto-read-replicas-cli.md).
+* Learn how to [create and manage read replicas in the Azure CLI and REST API](howto-read-replicas-cli.md).

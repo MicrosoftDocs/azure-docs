@@ -20,13 +20,17 @@ Message routing enables you to send messages from your devices to cloud services
 
 * **Filtering data before routing it to various endpoints** by applying rich queries. Message routing allows you to query on the message properties and message body as well as device twin tags and device twin properties. Learn more about using [queries in message routing](iot-hub-devguide-routing-query-syntax.md).
 
-IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. When you first configure your IoT solution, you may need to monitor your additional endpoints and make any necessary adjustments for the actual load.
+IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. For example, if you are using Event Hubs as a custom endpoint, you must configure the **throughput units** for that event hub so it can handle the ingress of events you plan to send via IoT Hub message routing. Similarly, when using a Service Bus Queue as an endpoint, you must configure the **maximum size** to ensure the queue can hold all the data ingressed, until it is egressed by consumers. When you first configure your IoT solution, you may need to monitor your additional endpoints and make any necessary adjustments for the actual load.
 
 The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. If a message matches multiple routes that point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you don't need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering. Use this tutorial to learn how to [configure message routing](tutorial-routing.md).
 
 ## Routing endpoints
 
-An IoT hub has a default built-in-endpoint (**messages/events**) that is compatible with Event Hubs. You can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT Hub. IoT Hub currently supports the following services as custom endpoints:
+An IoT hub has a default built-in-endpoint (**messages/events**) that is compatible with Event Hubs. You can create [custom endpoints](iot-hub-devguide-endpoints.md#custom-endpoints) to route messages to by linking other services in your subscription to the IoT Hub. 
+
+Each message is routed to all endpoints whose routing queries it matches. In other words, a message can be routed to multiple endpoints.
+
+IoT Hub currently supports the following services as custom endpoints:
 
 ### Built-in endpoint
 
@@ -38,9 +42,9 @@ IoT Hub supports writing data to Azure Blob Storage in the [Apache Avro](https:/
 
 ![Blob storage endpoint encoding](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-IoT Hub also supports routing messages to ADLS Gen2 accounts, which are [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)-enabled storage accounts built on top of Blob storage. This capability is in public preview and available for new ADLS Gen2 accounts in West US 2 and West Central US. We will roll out this capability to all cloud regions soon.
+IoT Hub also supports routing messages to [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) (ADLS) Gen2 accounts, which are [hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md)-enabled storage accounts built on top of Blob storage. This capability is in public preview and available for new ADLS Gen2 accounts in West US 2 and West Central US. Please [sign up](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) to preview this. We will roll out this capability to all cloud regions soon. 
 
-IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention:
+IoT Hub batches messages and writes data to a blob whenever the batch reaches a certain size or a certain amount of time has elapsed. IoT Hub defaults to the following file naming convention: 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
