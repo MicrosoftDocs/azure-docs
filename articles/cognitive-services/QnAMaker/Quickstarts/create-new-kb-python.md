@@ -26,7 +26,7 @@ This quickstart calls QnA Maker APIs:
 ## Prerequisites
 
 * [Python 3.7](https://www.python.org/downloads/)
-* You must have a QnA Maker service. To retrieve your key, select Keys under Resource Management in your dashboard.
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
@@ -41,7 +41,7 @@ At the top of `create-new-knowledge-base-3x.py`, add the following lines to add 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key.
+After the preceding required dependencies, add the required constants to access QnA Maker. Replace the value of the `<your-qna-maker-subscription-key>` and `<your-resource-name>` with your own QnA Maker key and resource name.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 

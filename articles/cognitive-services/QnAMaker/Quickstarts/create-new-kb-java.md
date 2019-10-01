@@ -21,6 +21,13 @@ This quickstart walks you through programmatically creating a sample QnA Maker k
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
+## Prerequisites
+
+* [Go 1.10.1](https://golang.org/dl/)
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+
+The [sample code](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) is available on the GitHub repo for QnA Maker with Java.
+
 ## Create a knowledge base file
 
 Create a file named `CreateKB.java`
@@ -32,7 +39,11 @@ At the top of `CreateKB.java`, add the following lines to add necessary dependen
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## Add the required constants
-After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. Replace the value of the `subscriptionKey`variable with your own QnA Maker key. You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
+After the preceding required dependencies, add the required constants to the `CreateKB` class to access QnA Maker. 
+
+You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+
+You do not need to add the final curly bracket to end the class; it is in the final code snippet at the end of this quickstart.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 

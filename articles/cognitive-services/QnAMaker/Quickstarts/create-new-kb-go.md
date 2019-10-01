@@ -26,7 +26,9 @@ This quickstart calls QnA Maker APIs:
 ## Prerequisites
 
 * [Go 1.10.1](https://golang.org/dl/)
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and resource name, select **Quickstart** in the Azure portal for your QnA Maker resource. 
+
+The [sample code](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/blob/master/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go) is available on the GitHub repo for QnA Maker with Go.
 
 ## Create a knowledge base Go file
 
