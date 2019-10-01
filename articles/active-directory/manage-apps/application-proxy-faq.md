@@ -19,7 +19,17 @@ ms.reviewer: japere
 ---
 
 # Application Proxy frequently asked questions
+## Enabling Application Proxy
 
+### What license is required to use Application Proxy?
+
+To use Application Proxy you must have a P1 or P2 license. For more details on licensing, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/)
+
+### I am not able to enable Application Proxy in the Azure Portal since the “enable application proxy” button is grayed out.
+
+Make sure you have at least a P1 or P2 license and a connector installed. After you successfully install your first connector, the Azure AD Application Proxy service will automatically be enabled. 
+
+ 
 ## Connector configuration
 
 ### Can Connector services run in a different user context than the default?
@@ -29,21 +39,21 @@ No, this scenario isn't supported. The default settings are:
 - Microsoft AAD Application Proxy Connector - WAPCSvc - Network Service
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
-### Is there a way to force all application requests to come through the same connector the initial request came through, for example, to ensure connector-to-application affinity?
+### My backend application is hosted on multiplwe web servers and requires user session persistence (stickiness). How can I achieve this? 
 
-There's no connector-to-application affinity. Consider using a load balancer device that can keep the session based on the X-Forwarded-For header. The connector places the X-Forwarded-For header with the original client IP into the requests sent to the back-end application. For best practices, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md). Another possible workaround is to assign a connector group to the published application that has only one connector.
+For best practices, see [High availability and load balancing of your Application Proxy connectors and applications](application-proxy-high-availability-load-balancing.md).
 
 ### Can I place a forward proxy device between the connector server(s) and the back-end Application server?
 
-This scenario isn't currently supported. The connector uses the proxy settings for the outbound traffic to Azure.  
+No, this scenario isn't supported. Only the connector and update services can be configured to use a forward proxy for outbound traffic to Azure, see [Work with existing on-premises proxy servers](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers)
 
-### Is SSL termination (SSL/HHTPS inspection or acceleration) on traffic from the connector servers supported?
+### Is SSL termination (SSL/HHTPS inspection or acceleration) on traffic from the connector servers to Azure supported?
 
-The App Proxy Connector performs certificate-based authentication to the App Proxy Service. SSL Termination (SSL/HHTPS inspection or acceleration) breaks this authentication and isn't supported. Traffic from the connector must bypass any devices doing SSL Termination.  
+The App Proxy Connector performs certificate-based authentication to Azure. SSL Termination (SSL/HHTPS inspection or acceleration) breaks this authentication method and this not supported. Traffic from the connector to Azure must bypass any devices doing SSL Termination.  
 
 ### Should I create a dedicated account to register the connector with the Azure AD Application Proxy?
 
-There's no reason to. Any global admin account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on. You can see this certificate in the personal store of the computer account.
+There's no reason to. Any global admin / appplication administrator account will work. The credentials entered during installation aren't used after the registration process. Instead, a certificate is issued to the connector, which is used for authentication from that point on.
 
 ### How can I monitor the performance of the Azure AD Application Proxy connector?
 
@@ -55,17 +65,17 @@ There are Performance Monitor counters that are installed along with the connect
 
 ### Does the Azure AD App Proxy connector have to be on the same subnet as the resource?
 
-The connector isn't required to be on the same subnet. However, it needs name resolution to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For best practices, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
+The connector isn't required to be on the same subnet. However, it needs name resolution (DNS, hosts file) to the resource and the necessary network connectivity (routing to the resource, ports open on the resource, etc.). For best practices, see [Network topology considerations when using Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 
 ## Application configuration
 
 ### What is the length of the default and "long" backend timeout? Can this timeout be extended?
 
-The default length is 85 seconds. The "long" setting is 180 seconds. Because of possible security risks, the timeout limit can't be extended.
+The default length is 85 seconds. The "long" setting is 180 seconds.The timeout limit can't be extended.
 
 ### How do I change the landing page my application loads?
 
-From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. This page will load when the application is launched from My Apps.
+From the Application Registrations page, you can change the homepage URL to the desired external URL of the landing page. This page will load when the application is launched from My Apps or Office 365 Portal. For steps on how to d this see, [Set a custom home page for published apps by using Azure AD Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-home-page)
 
 ### Can only IIS-based apps be published? What about web apps running on non-Windows web servers? Does the connector have to be installed on a server with IIS installed?
 
@@ -82,11 +92,11 @@ For more information, see the whitepaper [Understanding Kerberos Constrained Del
 
 ## Passthrough authentication
 
-### Can I use multi-factor authentication (MFA) Conditional Access policies for apps published with passthrough authentication?
+### Can I use Conditional Access Policies for apps published with passthrough authentication?
 
-MFA Conditional Access policies are enforced only for pre-authenticated users. These policies aren't enforced for passthrough authentication. With passthrough authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling pre-authentication with Azure AD Application Proxy.
+Conditional Access Policies are only enforced for successfully pre-authenticated users in Azure AD. These policies cannot be enforced for passthrough authentication, since this scenario doesn’t trigger Azure AD authentication. With passthrough authentication, MFA policies must be implemented on the on-premises server, if possible, or by enabling pre-authentication with Azure AD Application Proxy. 
 
-### Can I use client certification if used in passthrough?
+### Can I publish a web application with client certificate authentication requirement?
 
 No, this scenario isn't supported because Application Proxy will terminate TLS traffic.  
 
@@ -106,11 +116,11 @@ Yes, it’s expected. The pre-authentication scenario requires an ActiveX contro
 
 ### Is the Remote Desktop Web Client supported?
 
-No, this scenario isn't currently supported. 
+No, this scenario isn't currently supported. Follow our [UserVoice](https://aka.ms/aadapuservoice) for updates on this feature.
 
 ### After I configured the pre-authentication scenario, I realized that the user must do the authentication twice. First at the Azure AD logon form and secondly on the RDWEB logon form. Is this expected? How can I reduce the number of logons to one?
 
-Yes, if the user’s computer is Azure AD joined, the user will be logged into Azure AD automatically. The user needs to provide their credentials only on the RDWEB logon form.
+Yes, this is expected. If the user’s computer is Azure AD joined, the user will be logged into Azure AD automatically. The user needs to provide their credentials only on the RDWEB logon form.
 
 ## SharePoint publishing
 
@@ -122,19 +132,20 @@ Refer to [Enable remote access to SharePoint with Azure AD Application Proxy](ap
 
 ### Can I use Azure AD Application Proxy as AD FS proxy (like Web Application Proxy)?
 
-No. Azure AD Application Proxy is a reverse proxy solution. It doesn’t fulfill the AD FS proxy requirements.
+No. Azure AD Application Proxy is designed to work with AAD and doesn’t fulfill the requirements to act as an AD FS proxy.
 
 ## WebSocket 
 
 ### Does WebSocket support work for other applications than QlikSense?
 
-No. Currently, WebSocket protocol support is still in public preview and it may not work for other applications. It is on the roadmap to broaden its support for more applications.  
+Currently, WebSocket protocol support is still in public preview and it may not work for other applications. IT's on the roadmap to broaden its support for more applications. Some have seen mixed success using this with other applications. If you do test this out we would love to hear what results you get, send us your feedback at aadapfeedback@microsoft.com. 
 
 ## Link Translation
 
 ### Is there a performance impact from using Link translation?
 
-Yes. Link translation impacts performance. The Application Proxy service needs to scan the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. For better link translation performance, we recommend using the My Apps Secure Sign in Extension or Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md) 
+Yes. Link translation impacts performance. The Application Proxy service needs to scan the application for hardcoded links and replaces them with their respective, published external URLs before presenting them to the user. 
+For the best experience, we recommend using identical internal and external URLs by configuring [custom domains](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain). If it's not possible to use custom domains, you can still have better link translation performance by using the My Apps Secure Sign in Extension or Edge Browser on mobile. See [Redirect hardcoded links for apps published with Azure AD Application Proxy](application-proxy-configure-hard-coded-link-translation.md).
 
 ## Wildcards
 
