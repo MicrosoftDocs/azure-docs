@@ -27,7 +27,8 @@ You may also, if you wish, generate or import a key encryption key (KEK).
 
 See the main [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md) article for steps on how to [Install tools and connect to Azure](disk-encryption-key-vault.md#install-tools-and-connect-to-azure).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> [!Note]
+> The steps in this article are automated in the [Azure Disk Encryption prerequisites CLI script](https://github.com/ejarvi/ade-cli-getting-started) and [Azure Disk Encryption prerequisites PowerShell script](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts).
 
 
 ## Create a key vault 
@@ -134,8 +135,7 @@ To write encryption secrets to a specified Key Vault, Azure Disk Encryption need
 ### <a name="bkmk_KVAPPSH"></a> Set the key vault access policy for the Azure AD app with Azure PowerShell
 Your Azure AD application needs rights to access the keys or secrets in the vault. Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant permissions to the application, using the client ID (which was generated when the application was registered) as the _–ServicePrincipalName_ parameter value. To learn more, see the blog post [Azure Key Vault - Step by Step](https://blogs.technet.com/b/kv/archive/2015/06/02/azure-key-vault-step-by-step.aspx). 
 
-1. If needed, [connect to your Azure subscription](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH).
-2. Set the key vault access policy for the AD application with PowerShell.
+1. Set the key vault access policy for the AD application with PowerShell.
 
      ```azurepowershell
      $keyVaultName = 'MySecureVault'

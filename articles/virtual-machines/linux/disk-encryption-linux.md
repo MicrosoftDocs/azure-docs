@@ -390,6 +390,20 @@ You can disable encryption using Azure PowerShell, the Azure CLI, or with a Reso
      1. Click **Deploy to Azure**.
      2. Select the subscription, resource group, location, VM, legal terms, and agreement.
 
+## Unsupported scenarios
+
+Azure Disk Encryption does not work for the following Linux scenarios, features, and technology:
+
+- Encrypting basic tier VM or VMs created through the classic VM creation method.
+- Disabling encryption on an OS drive or data drive of a Linux VM when the OS drive is encrypted.
+- Encrypting OS drive for Linux virtual machine scale sets.
+- Encrypting custom images on Linux VMs.
+- Integration with an on-premises key management system.
+- Azure Files (shared file system).
+- Network File System (NFS).
+- Dynamic volumes.
+- Ephemeral OS disks.
+- Encryption of shared/distributed file systems like (but not limited to): DFS, GFS, DRDB, CephFS, etc
 
 ## Next steps
 
