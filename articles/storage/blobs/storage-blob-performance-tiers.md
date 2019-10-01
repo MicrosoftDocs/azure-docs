@@ -1,21 +1,21 @@
 ---
-title: Azure Blob storage performance tiers - Azure Storage
+title: Azure Block Blob storage performance tiers - Azure Storage
 description: Performance tiers for Azure blob storage.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/30/2019
+ms.date: 10/02/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
 ---
 
-# Azure Blob storage performance tiers
+# Azure Block Blob storage performance tiers
 
-As enterprises deploy performance sensitive cloud-native applications, it's important to have options for cost-effective data storage with different performance options.
+As enterprises deploy performance sensitive cloud-native applications, it's important to have options for cost-effective data storage with different performance levels.
 
-Azure blob storage offers two different performance tiers:
+Azure block blob storage offers two different performance tiers:
 
 - Premium: optimized for high transaction rates and single-digit consistent storage latency
 - Standard: optimized for high capacity and high throughput
@@ -24,33 +24,20 @@ The following considerations apply to the different performance tiers:
 
 - Standard performance is available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/services/?products=storage). Premium performance is available in select regions.
 - Premium performance provides optimized pricing for applications with high transaction rates to help [lower total storage cost](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) for these workloads.
-- Premium performance requires using block blob storage accounts, which support block blob and append blob. Standard performance is available with General Purpose v1, General Purpose v2, and Blob storage accounts.
-- Data can't be tiered between block blob storage accounts and General Purpose v2 storage accounts.
-- Premium and standard performance both support high throughput block blobs. High throughput block blobs are available for premium performance at greater than 256 KiB. High throughput block blobs are available for standard performance at greater than 4 MiB Put Block or Put Blob sizes.
+- Premium performance requires using block blob storage accounts, which support block blob and append blob.
+- Standard performance is available with General Purpose v1, General Purpose v2, and Blob storage accounts.
+- Premium and standard performance both support [high throughput block blobs](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/). High throughput block blobs are available for premium performance at greater than 256 KiB. High throughput block blobs are available for standard performance at greater than 4 MiB Put Block or Put Blob sizes.
 - Premium performance is currently available with locally redundant storage (LRS) only.
 
 ## Premium performance
 
 Premium performance block blob storage makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives.
 
-Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions. Example workloads include:
-
-- Interactive editing of video, maps, and so on
-- On-demand analytics and reporting
-- Financial and insurance modeling
-- [Distributed training of deep learning models](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)
-- Static web content
-- Telemetry and debug data
-- Data transformation
-
-Premium performance is only available via the block blob storage account type. It doesn't support tiering between hot, cool, and archive access tiers.
+Premium performance block blob storage is ideal for workloads that require fast and consistent response times. It's best for workloads that perform many small transactions. Premium performance is only available via the block blob storage account type.
 
 ## Standard performance
 
-Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets. Example workloads include:
-
-- Backup and archive data
-- High-performance computing (HPC) data
+Standard performance supports different [access tiers](storage-blob-storage-tiers.md) to store data in the most cost-effective manner. It's optimized for high capacity and high throughput on large data sets.
 
 ## Blob lifecycle management
 
