@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -29,6 +29,8 @@ Find reference documentation based on the tool:
 ## Language Understanding authoring and prediction requests
 
 The Language Understanding service is accessed from an Azure resource you need to create. There are two resources: authoring and prediction endpoint resources. Both of these resources allow you to control your LUIS resources. 
+
+Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 ### REST APIs
 
