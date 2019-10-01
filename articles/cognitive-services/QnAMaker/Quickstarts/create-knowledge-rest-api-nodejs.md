@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/01/2019
 ms.author: diberry
 ---
 
@@ -33,6 +33,7 @@ Use the QnA Maker REST APIs for Node.js to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of [Node.js](https://nodejs.org).
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
 ## Setting up
 
