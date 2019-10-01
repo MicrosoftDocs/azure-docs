@@ -119,8 +119,8 @@ protect virtual machines running web applications.
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that help protect
 subnets and virtual machines from threats by restricting access. *The Security Center policy
-referenced by this CIS recommendation has been replaced by two new recommendations. The policies
-referenced below address the new recommendations.*
+referenced by this CIS Microsoft Azure Foundations Benchmark recommendation has been replaced by two
+new recommendations. The policies referenced below address the new recommendations.*
 
 - Subnets should be associated with a Network Security Group
 - Virtual machines should be associated with a Network Security Group
@@ -320,9 +320,9 @@ mitigate brute force attacks on PostgreSQL database servers.
 ## 4.19 Ensure that Azure Active Directory Admin is configured
 
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you
-ensure an Azure Active Directory administrator is provisioned for SQL servers. (CIS Microsoft Azure
+ensure an Azure Active Directory administrator is provisioned for SQL servers. *CIS Microsoft Azure
 Foundations Benchmark includes this recommendation; however, it is a duplicate of recommendation
-4.8.)
+4.8.*
 
 - An Azure Active Directory administrator should be provisioned for SQL servers
 
