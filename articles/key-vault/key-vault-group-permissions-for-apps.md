@@ -131,7 +131,7 @@ To find a user with Azure PowerShell, use the [Get-AzADUser](/powershell/module/
 
 The user's objectId will be returned in the output as `Id`.
 
-``console
+```console
 ...
 Id                : f76a2a6f-3b6d-4735-9abd-14dccbf70fd9
 Type              :
