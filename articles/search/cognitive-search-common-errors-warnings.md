@@ -54,7 +54,7 @@ Indexer read and processed the document but failed to add the data to the search
 
 | Reason | Example | Action |
 | --- | --- | --- |
-| A field contains a term that is too large | A term in your document is larger than the [32KB limit](search-limits-quotas-capacity#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| A field contains a term that is too large | A term in your document is larger than the [32KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
