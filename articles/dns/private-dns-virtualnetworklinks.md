@@ -12,7 +12,7 @@ ms.author: rohink
 # What is a virtual network link
 
 Once you have created a private DNS zone in Azure, it is not immediately accessible from any virtual network. You must link it to a virtual network before VM hosted in that network can access the private DNS zone.
-To link a private DNS zone with a virtual network, you must create a virtual network link under the private DNS zone. Ever private DNS zone has a collection of virtual network link child resources. Each one of these resources represents a connection to a virtual network.
+To link a private DNS zone with a virtual network, you must create a virtual network link under the private DNS zone. Every private DNS zone has a collection of virtual network link child resources. Each one of these resources represents a connection to a virtual network.
 
 You can link a virtual network to a private DNS zone as a registration virtual network or as a resolution virtual network.
 
