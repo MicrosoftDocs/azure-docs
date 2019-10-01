@@ -16,7 +16,7 @@ ms.author: kumud
 
 # Add or remove a subnet delegation
 
-Learn how to add or remove a delegated subnet for an Azure service. If you're new to virtual networks, you can learn more about them in the [Virtual network overview](virtual-networks-overview.md) or by completing a [tutorial](quick-create-portal.md).
+Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet using a unique identifier when deploying the service. This article describes how to add or remove a delegated subnet for an Azure service.
 
 ## Sign in to Azure
 
@@ -24,7 +24,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ### Create the virtual network
 
-In this section, you will create virtual network and the subnet to host the VM that is used to access your Private Link resource.
+In this section, you create a virtual network and the subnet that you will later delegate to an Azure service.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 1. In **Create virtual network**, enter or select this information:
@@ -43,16 +43,16 @@ In this section, you will create virtual network and the subnet to host the VM t
 
 ## Delegate a subnet to an Azure service
 
-Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet using a unique identifier when deploying the service. In this section, we will delegate the subnet created in the preceding section to an Azure service.
+In this section, you delegate the subnet that you created in the preceding section to an Azure service.
 
-1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork1** appears in the search results, select it.
+1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
 2. In the search results, select *myVirtualNetwork*.
 3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
 4. In *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
 
 ## Remove subnet delegation from an Azure service
 
-1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork1** appears in the search results, select it.
+1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
 2. In the search results, select *myVirtualNetwork*.
 3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
 4. In *mySubnet* page, for the **Subnet delegation** list, select **None** from the services listed under **Delegate subnet to a service**. 
