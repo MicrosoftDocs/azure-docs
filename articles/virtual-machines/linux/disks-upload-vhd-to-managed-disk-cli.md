@@ -84,6 +84,8 @@ After the upload is complete, and you no longer need to write any more data to t
 az disk revoke-access -n mydiskname -g resourcegroupname
 ```
 
+## Copy a managed disk
+
 Direct upload also simplifies the process of copying a managed disk. You can either copy within the same region or cross-region (to another region).
 
 The follow script will do this for you, the process is similar to the steps described earlier, with some differences since you're working with an existing disk.
