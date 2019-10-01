@@ -54,21 +54,21 @@ All users, regardless of how they're created, have the following account lockout
 
 With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
 
-Account lockouts only occur within the managed domain. User accounts are only locked out in Azure AD DS, and only due to failed sign in attempts against the managed domain. User accounts that were synchronized in from Azure AD or on-premises aren't locked out in their source directories, only in Azure AD DS.
+Account lockouts only occur within the managed domain. User accounts are only locked out in Azure AD DS, and only due to failed sign-in attempts against the managed domain. User accounts that were synchronized in from Azure AD or on-premises aren't locked out in their source directories, only in Azure AD DS.
 
-For user accounts created manually in an Azure AD DS managed domain, the following additional password policy settings are also applied. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
+For user accounts created manually in an Azure AD DS managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
 
 * **Minimum password length (characters):** 7
 * **Maximum password age (lifetime):** 90 days
 * **Passwords must meet complexity requirements**
 
-You can't modify or delete the settings in the built-in password policy. Instead, members of the *AAD DC Administrators* group can a create custom FGPP and configure it to override (take precedence over) the default built-in FGPP, as shown in the next section.
+You can't modify the account lockout or password settings in the default password policy. Instead, members of the *AAD DC Administrators* group can create custom password policies and configure it to override (take precedence over) the default built-in policy, as shown in the next section.
 
 ## Create a custom password policy
 
-As you build and run applications in Azure, you may want to configure a custom password policy. For example, you could create a FGPP to to set different account lockout policy settings.
+As you build and run applications in Azure, you may want to configure a custom password policy. For example, you could create a policy to set different account lockout policy settings.
 
-Custom FGPPs are applied to groups in an Azure AD DS managed domain. This configuration effectively overrides the default FGPP. You can also create custom password policies and apply them to any custom OUs in an Azure AD DS managed domain.
+Custom password policies are applied to groups in an Azure AD DS managed domain. This configuration effectively overrides the default policy. You can also create custom password policies and apply them to any custom OUs in an Azure AD DS managed domain.
 
 To create a custom password policy, you use the Active Directory Administrative Tools from a domain-joined VM. The Active Directory Administrative Center lets you view, edit, and create resources in an Azure AD DS managed domain, including OUs.
 
@@ -78,9 +78,12 @@ To create a custom password policy, you use the Active Directory Administrative 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
 1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*.
-1. Open the **System** container, then the **Password Settings** container.
+1. Open the **System** container, then the **Password Settings Container**.
 
-    A built-in FGPP for the Azure AD DS managed domain is shown. You can't modify this built-in FGPP. Instead, create a new custom FGPP to override the default FGPP.
+    A built-in password policy for the Azure AD DS managed domain is shown. You can't modify this built-in policy. Instead, create a custom password policy to override the default policy.
+
+    ![Create a password policy in the Active Directory Administrative Center](./media/password-policy/create-password-policy-adac.png)
+
 1. In the **Tasks** panel on the right, select **New > Password Settings**.
 1. In the **Create Password Settings** dialog, enter a name for the policy, such as *MyCustomFGPP*.
 1. When multiple password policies exist, the policy with the highest precedence, or priority, is applied to a user. The lower the number, the higher the priority. The default password policy has a priority of *200*.
@@ -90,7 +93,7 @@ To create a custom password policy, you use the Active Directory Administrative 
 1. Edit other password policy settings as desired. Remember the following key points:
 
     * Settings like password complexity, age, or expiration time only to users manually created in an Azure AD DS managed domain.
-    * Account lockout settings apply to all users, and only take effect within the managed domain.
+    * Account lockout settings apply to all users, but only take effect within the managed domain.
 
     ![Create a custom fine-grained password policy](./media/how-to/custom-fgpp.png)
 
