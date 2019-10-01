@@ -292,6 +292,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-sdk-for-go-samples",
+      "url": "https://github.com/Azure-Samples/azure-sdk-for-go-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
       "branch": "master",
