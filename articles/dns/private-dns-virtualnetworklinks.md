@@ -38,7 +38,7 @@ To understand how many registration and resolution networks, you can link to pri
 
 * Each virtual network link under a private DNS zone must have unique name within the context of the private DNS zone. You can have links with same name in different private DNS zones.
 
-* After creating a virtual network link, check the "Link Status" field of the virtual network link resource. Depending on the size of the virtual network, it can take a few minutes before link is operation and Link Status changes to completed.
+* After creating a virtual network link, check the "Link Status" field of the virtual network link resource. Depending on the size of the virtual network, it can take a few minutes before the link is operation and the Link Status changes to *Completed*.
 
 * When you delete a virtual network, all the virtual network links and auto-registered DNS records associated with it in different private DNS zones are automatically deleted.
 
