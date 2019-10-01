@@ -57,8 +57,6 @@ Next, grant the application the Azure AD Graph API permissions required for writ
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-   ![Read/write directory checkbox, Save, and Grant permissions highlighted](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
-
 ### Step 1.3: Create the application secret
 
 Create a client secret (key) for use by the user migration application that you configure in a later step.
