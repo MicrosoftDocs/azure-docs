@@ -39,16 +39,9 @@ Once you have an Azure AD B2C tenant, you need to register your management appli
 
 ### Register application in Azure Active Directory
 
-To use the Azure AD Graph API with your B2C tenant, you need to register an application by using the Azure Active Directory **App registrations** workflow.
+To use the Azure AD Graph API with your B2C tenant, you need to register an application by using the Azure Active Directory application registration workflow.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and switch to the directory that contains your Azure AD B2C tenant.
-1. Select **Azure Active Directory** (*not* Azure AD B2C) in the left menu. Or, select **All services** and then search for and select **Azure Active Directory**.
-1. Under **Manage** in the left menu, select **App registrations (Legacy)**.
-1. Select **New application registration**
-1. Enter a name for the application. For example, *Management App*.
-1. Enter any valid URL in **Sign-on URL**. For example, *https://localhost*. This endpoint does not need to be reachable, but needs to be a valid URL.
-1. Select **Create**.
-1. Record the **Application ID** that appears on the **Registered app** overview page. You use this value for configuration in a later step.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### Assign API access permissions
 
@@ -79,7 +72,7 @@ If you want to give your application the ability to delete users or update passw
 1. Under **Manage**, select **Roles and administrators**.
 1. Select the **User administrator** role.
 1. Select **Add assignment**.
-1. In the **Select** text box, enter the name of the application you registered earlier, for example, *Management App*. Select your application when it appears in the search results.
+1. In the **Select** text box, enter the name of the application you registered earlier, for example, *managementapp1*. Select your application when it appears in the search results.
 1. Select **Add**. It might take a few minutes to for the permissions to fully propagate.
 
 Your Azure AD B2C application now has the additional permissions required to delete users or update their passwords in your B2C tenant.
