@@ -37,17 +37,27 @@ You cannot pause the service. Computational and storage resources are allocated 
 
 ## Indexing Operations
 
-### Backup and restore (or download and move) indexes or index snapshots?
+### Move, backup and restore indexes or index snapshots?
 
-Although you can [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time, there is no index extraction, snapshot, or backup-restore feature for downloading a *populated* index running in the cloud to a local system, or moving it to another Azure Search service.
+During the development phase, you may want to move your index between search services. For example, you may use a Basic or Free pricing tier to develop your index, and then want to move it to the Standard or higher tier for production use. 
 
-Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
+Or, you may want to backup an index snapshot to files that can be used to restore it later. 
+
+You can do all these things with the **index-backup-restore** tool in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+
+You can also [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time using the Azure Search REST API.
+
+There is currently no built-in index extraction, snapshot, or backup-restore feature in the Azure portal. However, we are considering adding the backup and restore functionality in a future release. If you want show your support for this feature, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
 ### Can I restore my index or service once it is deleted?
 
-No, you cannot restore indexes or services. If you delete an Azure Search index, the operation is final and the index cannot be recovered. When you delete an Azure Search service, all indexes in the service are deleted permanently. Also, if you delete an Azure resource group that contains one or more Azure Search services, all services are deleted permanently.  
+No, if you delete an Azure Search index or service, it cannot be recovered. When you delete an Azure Search service, all indexes in the service are deleted permanently. Also, if you delete an Azure resource group that contains one or more Azure Search services, all services are deleted permanently.  
 
-Restoring resources such as indexes, indexers, data sources, and skillsets requires that you recreate them from code. In the case of indexes, you must reindex data from external sources. For this reason, it is strongly recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
+Recreating resources such as indexes, indexers, data sources, and skillsets requires that you recreate them from code. 
+
+In the case of indexes, you must reindex data from external sources. For this reason, it is strongly recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
+
+As an alternative, you can use the the **index-backup-restore** tool in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup an index definition and index snapshot to a series of JSON files, and later restore the index, if needed.  
 
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
