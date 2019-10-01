@@ -16,8 +16,8 @@ ms.date: 09/30/2019
 ms.author: spelluru
 
 ---
-# Example class types on Azure Lab Services
-This article provides a list of example classes you can set up on Azure Lab Services.
+# Class types overview - Azure Lab Services
+Azure Lab Services enables you to quickly set up classroom lab environments in the cloud. Articles in this section provide guidance on how to set up several types of classroom labs using Azure Lab Services.
 
 ## Deep learning in natural language processing
 You can set up a lab focused on deep learning in natural language processing (NLP) using Azure Lab Services. Natural language processing (NLP) is a form of artificial intelligence (AI) that enables computers with translation, speech recognition, and other language understanding capabilities. Students taking an NLP class get a Linux virtual machine (VM) to learn how to apply neural network algorithms to develop deep learning models that are used for analyzing written human language. 
