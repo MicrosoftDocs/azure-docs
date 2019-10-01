@@ -72,7 +72,7 @@ To send cross-platform notifications by using templates, do the following steps:
 
     This code calls the platform-specific method to create a template registration instead of a native registration. Because template registrations derive from native registrations, you don't need to modify existing registrations.
 
-1. In **Solution Explorer**, in the **Controllers** folder, and then open the *NotificationsController.cs* file. Replace the `Post` method with the following code:
+1. In **Solution Explorer**, in the **Controllers** folder, and open the *NotificationsController.cs* file. Replace the `Post` method with the following code:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -91,9 +91,9 @@ To send cross-platform notifications by using templates, do the following steps:
 
 1. Republish your WebApi back-end project.
 
-1. Run the client app again, and then verify that the registration has succeeded.
+1. Run the client app again to verify that the registration has succeeded.
 
-1. (Optional) Deploy the client app to a second device, and then run the app. A notification is displayed on each device.
+1. Optionally, deploy the client app to a second device, and then run the app. A notification is displayed on each device.
 
 ## Next steps
 
