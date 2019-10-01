@@ -35,7 +35,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 We will create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView containing the text "Hello World!".
 
-1. Click the TextView element. Change its ID attribute in the upper-right corner to `outputMessage`, and drag it to the lower screen. Delete it's text.
+1. Click the TextView element. Change its ID attribute in the upper-right corner to `outputMessage`, and drag it to the lower screen. Delete its text.
 
 1. From the Palette in the upper left of the `activity_main.xml` window, drag a button into the empty space above the text.
 
