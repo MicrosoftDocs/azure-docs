@@ -49,7 +49,7 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
 ## 3 - Configure Postman
 
-Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. 
+Download the [Postman collection source code](https://github.com/Azure-Samples/azure-search-postman-samples/knowledge-store/KnowledgeStore.postman_collection.json) and import it into Postman using **File, Import...**. Switch to the **Collections** tab and click on the **...** button and select **Edit**. 
 
 ![Postman app showing navigation](media/knowledge-store-create-rest/postman-edit-menu.png "Navigate to the Edit menu in Postman")
 
