@@ -44,33 +44,31 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
 1. Verify that no license assignments failed by checking each group for users in error state. For more information, see [Identifying and resolving license problems for a group](licensing-groups-resolve-problems.md).
 
-1. Consider removing the original direct assignments; you may want to do it gradually, in “waves”, to monitor the outcome on a subset of users first.
-
-   You could leave the original direct assignments on users, but when the users leave their licensed groups they will still retain the original license, which is possibly not what you want.
+Consider removing the original direct assignments. We recommend that you do it gradually, and monitor the outcome on a subset of users first. If you could leave the original direct assignments on users, but when the users leave their licensed groups they retain the directly assigned licenses, which might not be what you want.
 
 ## An example
 
-An organization has 1,000 users. All users require Enterprise Mobility + Security (EMS) licenses. 200 users are in the Finance Department and require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Azure AD.
+An organization has 1,000 users. All users require Office 365 Enterprise E3 licenses. Currently the organization has a PowerShell script running on premises, adding and removing licenses from users as they come and go. However, the organization wants to replace the script with group-based licensing so licenses can be managed automatically by Azure AD.
 
 Here is what the migration process could look like:
 
-1. Using the Azure portal, assign the EMS license to the **All users** group in Azure AD. Assign the E3 license to the **Finance department** group that contains all the required users.
+1. Using the Azure portal, assign the Office 365 E3 license to the **All users** group in Azure AD.
 
-1. For each group, confirm that license assignment has completed for all users. Go to the blade for each group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
+1. Confirm that license assignment has completed for all users. Go to the overview page for the group, select **Licenses**, and check the processing status at the top of the **Licenses** blade.
 
    - Look for “Latest license changes have been applied to all users" to confirm processing has completed.
 
-   - Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license SKUs that prevent them from inheriting group licenses?
+   - Look for a notification on top about any users for whom licenses may have not been successfully assigned. Did we run out of licenses for some users? Do some users have conflicting license plans that prevent them from inheriting group licenses?
 
-1. Spot check some users to verify that they have both the direct and group licenses applied. Go to the blade for a user, select **Licenses**, and examine the state of licenses.
+1. Spot check some users to verify that they have both the direct and group licenses applied. Go to the profile page for a user, select **Licenses**, and examine the state of licenses.
 
    - This is the expected user state during migration:
 
       ![the expected user state during migration](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-     This confirms that the user has both direct and inherited licenses. We see that both **EMS** and **E3** are assigned.
+     This confirms that the user has both direct and inherited licenses. We see that Office 365 E3 is assigned.
 
-   - Select each license to show details about the enabled services. This can be used to check if the direct and group licenses enable exactly the same services for the user.
+   - Select each license to see which services are enabled. To verify that the direct and group licenses enable exactly the same services for the user, select **Assignments**.
 
 1. After confirming that both direct and group licenses are equivalent, you can start removing direct licenses from users. You can test this by removing them for individual users in the portal and then run automation scripts to have them removed in bulk. Here is an example of the same user with the direct licenses removed through the portal. Notice that the license state remains unchanged, but we no longer see direct assignments.
 
@@ -78,7 +76,7 @@ Here is what the migration process could look like:
 
 ## Next steps
 
-To learn more about other scenarios for license management through groups, read
+Learn more about other scenarios for group license management:
 
 - [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 - [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)

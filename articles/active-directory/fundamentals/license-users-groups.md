@@ -110,7 +110,7 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 ## Remove a license
 
-You can remove a license from a user's Azure AD user page, the group page for a group assignemnt, or from the Azure AD **Licenses** page.
+You can remove a license from a user's Azure AD user page, from the group overview page for a group assignment, or starting from the Azure AD **Licenses** page to see the users and groups for a license.
 
 ### To remove a license from a user
 
@@ -125,7 +125,7 @@ You can remove a license from a user's Azure AD user page, the group page for a 
 
 ### To remove a license from a group
 
-1. On the **Licensed groups** page for the service plan, select the group that should no longer have the license.
+1. On the **Licensed groups** page for the license plan, select the group that should no longer have the license.
 
 1. Select **Remove license**.
 

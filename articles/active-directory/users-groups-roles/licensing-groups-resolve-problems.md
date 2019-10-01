@@ -29,7 +29,9 @@ When you're using group-based licensing, the same errors can occur, but they hap
 
 ## Find license assignment errors
 
-1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
+### To find users in an error state in a group
+
+1. Open the group to its overview page and select **Licenses**. A notification appears if there are any users in an error state.
 
    ![Group and error notifications message](./media/licensing-groups-resolve-problems/group-error-notification.png)
 

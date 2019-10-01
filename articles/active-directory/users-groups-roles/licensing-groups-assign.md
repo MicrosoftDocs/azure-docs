@@ -59,17 +59,17 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. On the group page, select **Assignments**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
-   - List of product licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
+   - Service licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
-   - Status of the latest license changes that were made to the group (if the changes are being processed or if processing has finished for all user members).
+   - Status updates of the latest license changes, which are available if the changes are being processed or if processing has finished for all user members.
 
-   - Information about users who are in an error state because licenses couldn't be assigned to them.
+   - Information about user license assignments that are in an error state.
 
    ![licensing errors and license status](./media/licensing-groups-assign/assignment-errors.png)
 
 1. See more detailed information about license processing under **Azure Active Directory** > **Users and groups** > *group name* > **Audit logs**. Check the following activities:
 
-   - Activity: `Start applying group based license to users`. This is logged when the system picks up the license-assignment change on the group and starts applying it to all user members. It contains information about the change that was made.
+   - Activity: `Start applying group based license to users`. This is logged when the system picks up the license assignment change on the group and starts applying it to all user members. It contains information about the change that was made.
 
    - Activity: `Finish applying group based license to users`. This is logged when the system finishes processing all users in the group. It contains a summary of how many users were successfully processed and how many users couldn't be assigned group licenses.
 
