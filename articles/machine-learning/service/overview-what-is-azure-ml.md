@@ -38,6 +38,9 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 Azure Machine Learning offers two SKUs that are tailored for your machine learning needs –  Enterprise SKU and Basic SKU. These SKUs make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic edition is available in general availability (GA), while the Enterprise edition is currently available in public preview. Customers are responsible for costs incurred on underlying compute during this time. See the (SKUs pricing page)[https://azure.microsoft.com/pricing/details/machine-learning/] for up to date pricing details.
 
+> [!Warning]
+> You can not downgrade resources from Enterprise SKU to Basic SKU.
+
 ## What can I do with Azure Machine Learning?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
