@@ -12,8 +12,8 @@ ms.author: dapine
 
 ## Create a Translator Text resource
 
-1. Sign into the [Azure portal](https://portal.azure.com)
-1. Click [Create **Translator Text**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Select the [Create **Translator Text**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) resource.
 1. Enter all required settings:
 
     |Setting|Value|
