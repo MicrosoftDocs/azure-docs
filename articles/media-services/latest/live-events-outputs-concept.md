@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/30/2019
 ms.author: juliako
 
 ---
@@ -82,6 +82,9 @@ When creating a Live Event, you can specify the following options:
 * The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 Also see, [Streaming Endpoints naming conventions](streaming-endpoint-concept.md#naming-convention).
+
+> [!TIP]
+> To guarantee uniqueness of your live event name, you can generate a GUID then remove all the hyphens and curly brackets (if any). The string will be unique across all live events and its length is guaranteed to be 32.
 
 ## Live Event ingest URLs
 
