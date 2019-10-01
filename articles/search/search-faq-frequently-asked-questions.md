@@ -43,7 +43,7 @@ During the development phase, you may want to move your index between search ser
 
 Or, you may want to backup an index snapshot to files that can be used to restore it later. 
 
-You can do all these things with the **index-backup-restore** tool in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
+You can do all these things with the **index-backup-restore** sample code in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
 You can also [get an index definition](https://docs.microsoft.com/rest/api/searchservice/get-index) at any time using the Azure Search REST API.
 
@@ -57,7 +57,7 @@ Recreating resources such as indexes, indexers, data sources, and skillsets requ
 
 To recreate an index, you must re-index data from external sources. For this reason, it is recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
 
-As an alternative, you can use the the **index-backup-restore** tool in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up an index definition and index snapshot to a series of JSON files. Later, you can use the tool and files to restore the index, if needed.  
+As an alternative, you can use the **index-backup-restore** sample code in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to back up an index definition and index snapshot to a series of JSON files. Later, you can use the tool and files to restore the index, if needed.  
 
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
