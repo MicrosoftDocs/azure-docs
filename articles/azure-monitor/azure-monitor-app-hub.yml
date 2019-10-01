@@ -53,9 +53,9 @@ conceptualContent:
         - url: ./app/java-get-started.md
           itemType: how-to-guide
           text: Java
-        - url: ./app/ilogger.md
+        - url: ./app/opencensus-python.md
           itemType: how-to-guide
-          text: ILogger
+          text: Python (preview)
         - url: ./app/javascript.md
           itemType: how-to-guide
           text: JavaScript
@@ -87,6 +87,42 @@ conceptualContent:
           itemType: how-to-guide
           text: Azure VM & Azure virtual machine scale sets
         
+    - title: Quickstarts
+      links: 
+        - url: ./learn/quick-monitor-portal.md
+          itemType: how-to-guide
+          text: ASP.NET
+        - url: ./learn/dotnetcore-quick-start.md
+          itemType: how-to-guide
+          text: ASP.NET Core
+        - url: ./learn/nodejs-quick-start.md
+          itemType: how-to-guide
+          text: Node.js
+        - url: ./learn/mobile-center-quickstart.md
+          itemType: how-to-guide
+          text: Mobile app
+        - url: ./app/website-monitoring.md
+          itemType: how-to-guide
+          text: Website monitoring
+              
+    - title: Tutorials
+      links: 
+        - url: ./learn/tutorial-runtime-exceptions.md
+          itemType: how-to-guide
+          text: Find and diagnose runtime exceptions
+        - url: ./learn/tutorial-performance.md
+          itemType: how-to-guide
+          text: Find and diagnose performance issues
+        - url: ./learn/tutorial-alert.md
+          itemType: how-to-guide
+          text: Monitor and alert on application health
+        - url: ./learn/tutorial-users.md
+          itemType: how-to-guide
+          text: Understand user behavior
+        - url: ./app/tutorial-app-dashboards.md
+          itemType: how-to-guide
+          text: Create custom dashboards
+
     - title: Distributed tracing, dependency tracking, & correlation 
       links: 
         - url: ./app/distributed-tracing.md
@@ -125,10 +161,9 @@ conceptualContent:
         - url: ./app/availability-alerts.md
           itemType: how-to-guide
           text:  Availability alerts
-        - url: ./app/troubleshoot-availability.md
+        - url: ./app/performance-testing.md
           itemType: how-to-guide
-          text:  Availability troubleshooting
-
+          text:  Performance testing
 
     - title: Metrics, Logs, & Traces 
       links: 
@@ -141,6 +176,9 @@ conceptualContent:
         - url: ./platform/app-insights-metrics.md
           itemType: how-to-guide
           text:  Log-based metric definitions
+        - url: ./app/ilogger.md
+          itemType: how-to-guide
+          text: ILogger
         - url: ./app/performance-counters.md
           itemType: how-to-guide
           text:  Performance counters
@@ -150,6 +188,9 @@ conceptualContent:
         - url: ./app/asp-net-trace-logs.md
           itemType: how-to-guide
           text:  System diagnostic trace logs
+        - url: ./app/micrometer-java.md
+          itemType: how-to-guide
+          text:  Micrometer metrics
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
           text:  Search
@@ -172,9 +213,6 @@ conceptualContent:
         - url: ./app/profiler-vm.md
           itemType: how-to-guide
           text:  Profile VM & virtual machine scale set apps
-        - url: ./app/profiler-troubleshooting.md
-          itemType: how-to-guide
-          text:  Profiler troubleshooting
 
     - title:  Snapshot Debugger
       links: 
@@ -190,9 +228,6 @@ conceptualContent:
         - url: ./app/snapshot-debugger-upgrade.md
           itemType: how-to-guide
           text:  Upgrade Snapshot Debugger
-        - url: ./app/snapshot-debugger-troubleshoot.md
-          itemType: how-to-guide
-          text:  Snapshot Debugger troubleshooting
  
     - title:  Smart Detection
       links: 
@@ -250,9 +285,6 @@ conceptualContent:
         - url: ./app/usage-flows.md
           itemType: how-to-guide
           text:  User Flows
-        - url: ./app/usage-troubleshoot
-          itemType: how-to-guide
-          text:  Usage troublshooting
 
     - title:  Privacy, security, usage & cost
       links: 
@@ -277,6 +309,9 @@ conceptualContent:
         - url: ./app/sampling.md
           itemType: how-to-guide
           text:  Sampling
+        - url: ./app/api-filtering-sampling.md
+          itemType: how-to-guide
+          text:  Filtering
         - url: ./app/telemetry-channels.md
           itemType: how-to-guide
           text:  Telemetry Channels
@@ -292,6 +327,9 @@ conceptualContent:
         - url: ./app/automate-custom-reports.md
           itemType: how-to-guide
           text: Custom e-mail reports
+        - url: ./app/usage-send-user-context.md
+          itemType: how-to-guide
+          text: Send user context IDs
         - url: ./app/custom-endpoints.md
           itemType: how-to-guide
           text: Endpoint overrides
@@ -336,7 +374,7 @@ conceptualContent:
       links: 
         - url: ./app/export-telemetry.md
           itemType: how-to-guide
-          text:  export telemetry
+          text:  Export telemetry
         - url: ./app/export-stream-analytics.md
           itemType: how-to-guide
           text:  Export to Stream Analytics
@@ -346,9 +384,14 @@ conceptualContent:
         - url: ./app/code-sample-export-sql-stream-analytics.md
           itemType: how-to-guide
           text:  Export data model
-
-    
-    - title:  Visualizations
+       - url: ./app/automate-with-flow.md
+          itemType: how-to-guide
+          text:  Flow integration
+      - url: ./app/automate-with-logic-apps.md
+          itemType: how-to-guide
+          text:  Logic App integration
+       
+    - title:  Visualizations & analysis 
       links: 
         - url: ./app/overview-dashboard.md
           itemType: how-to-guide
@@ -361,7 +404,10 @@ conceptualContent:
           text:  Metric charts
         - url: ./app/usage-workbooks.md
           itemType: how-to-guide
-          text:  Workbooks (interactive reporting)    
+          text:  Workbooks (interactive reporting)
+        - url: ./app/usage-change-analysis.md
+          itemType: how-to-guide
+          text:  Change Analysis (preview)     
   
     - title:  Visual Studio
       links: 
@@ -374,6 +420,39 @@ conceptualContent:
         - url: ./app/visual-studio-codelens.md
           itemType: how-to-guide
           text:  CodeLens
+
+    - title:  Other platforms
+      links: 
+        - url: ./app/sharepoint.md
+          itemType: how-to-guide
+          text:  SharePoint sites
+        - url: ./app/windows-desktop.md
+          itemType: how-to-guide
+          text:  Classic Windows desktop apps
+        - url: ./app/console.md
+          itemType: how-to-guide
+          text:  .NET console applications      
+
+    - title:  Troubleshooting & FAQ
+      links: 
+        - url: ./app/usage-troubleshoot
+          itemType: how-to-guide
+          text:  Usage troubleshooting
+        - url: ./app/snapshot-debugger-troubleshoot.md
+          itemType: how-to-guide
+          text:  Snapshot Debugger troubleshooting
+        - url: ./app/profiler-troubleshooting.md
+          itemType: how-to-guide
+          text:  Profiler troubleshooting
+        - url: ./app/troubleshoot-availability.md
+          itemType: how-to-guide
+          text:  Availability troubleshooting
+        - url: ./app/asp-net-troubleshoot-no-data.md
+          itemType: how-to-guide
+          text:  Troubleshoot no data
+        - url: ./app/troubleshoot-faq.md
+          itemType: how-to-guide
+          text:  Troubleshooting FAQ
 
     - title:  Reference
       links: 
