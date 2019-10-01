@@ -34,23 +34,9 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## Editions
+## SKUs
 
-Azure Machine Learning offers two editions that are tailored for your machine learning needs –  Enterprise and Basic make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic edition is available in general availability (GA). Currently, the Enterprise edition is available in a free public preview. Customers are be responsible for costs incurred on underlying compute during this time. Please refer the Virtual Machines pricing page for compute prices. 
-
-LINKS TO ACOM and PRICING PAGE
-
-Upgrading: 
-
-To upgrade from the Basic SKU to the Enterprise SKU, visit the Azure portal and you can either: 
-
-- Go to your list of workspaces and specify the workspace that you wish to upgrade by selecting ‘Upgrade’ to begin the process.  
-
-- In the Azure portal, create a new workspace and specify the ‘Workspace Type’ as ‘Enterprise’.   
-
-We currently do not support upgrading your workspace to the Enterprise SKU from the SDK or CLI.  
-
-You are not be able to downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
+Azure Machine Learning offers two SKUs that are tailored for your machine learning needs –  Enterprise SKU and Basic SKU. These SKUs make it easy for developers and data scientists to accelerate the end to end machine learning lifecycle. The Basic edition is available in general availability (GA), while the Enterprise edition is currently available in public preview. Customers are responsible for costs incurred on underlying compute during this time. See the (SKUs pricing page)[https://azure.microsoft.com/pricing/details/machine-learning/] for up to date pricing details.
 
 ## What can I do with Azure Machine Learning?
 
@@ -73,8 +59,6 @@ For code-free training, try:
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
 + The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).
   ![Visual interface for Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
-
-
 
 ### Operationalization (MLOps)
 
