@@ -1,23 +1,18 @@
----
-layout: HubPage
-hide_bc: false
-title: Azure Monitor Application insights Documentation - Tutorials, API Reference | Microsoft Docs
-description: Azure Monitor Application Insights provides deep code-level application performance monitoring.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
-ms.author: mbullwin
-
----
-
 ### YamlMime:Hub 
 
-title: Azure Application Insights
-summary: Azure Application Insights is part of Azure Monitor. 
+title: Azure Application Insights Documentation
+summary: Azure Application Insights is part of the Azure Monitor service
 brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure Application Insights Documentation
+  description: Azure Application Insights is part of the Azure Monitor service
+  ms.service: application-insights
+  ms.topic: hub-page
+  author: mrbullwinkle
+  ms.author: mbullwin
+  manager: carmonm
+  ms.date: 09/30/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -34,9 +29,9 @@ highlightedContent:
     - title: Monitor ASP.NET Core apps 
       itemType: how-to-guide
       url: ./app/asp-net-core.md
-    - title: Azure AD deployment checklist 
-      itemType: concept
-      url: continuous=monitoring.md
+    - title: Create a resource 
+      itemType: how-to-guide
+      url: ./app/create-new-resource
     - title: Add client-side JavaScript to your website
       itemType: how-to-guide 
       url: ./app/javascript.md
@@ -142,13 +137,11 @@ conceptualContent:
           itemType: how-to-guide
           text:  
         
-
-
-    - title: Developers 
+    - title:  Profiler
       links: 
-        - url: ./develop/about-microsoft-identity-platform.md
+        - url: ./app/profiler-overview.md
           itemType: overview
-          text:  About Microsoft identity platform
+          text:  Profiler overview
         - url: ./develop/v2-oauth2-auth-code-flow.md
           itemType: concept
           text:  OAuth 2.0 code flow grant
