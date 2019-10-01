@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -127,14 +127,12 @@ There are two ways to change the Service Administrator. You can change in the **
 
 There can only be one Service Administrator per Azure subscription. Changing the Service Administrator will behave differently depending on whether the Account Administrator is a Microsoft account or whether it is an Azure AD account (work or school account).
 
-If the Account Administrator is a Microsoft account, they can change the Service Administrator to another Microsoft account in the same organization, but cannot change the Service Administrator to an Azure AD account.
-
-If the Account Administrator is an Azure AD account, they can change the Service Administrator to a Microsoft account or an Azure AD account in the same organization, but not in a different organization. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
-
-| Account Administrator account | Can change the Service Administrator to a Microsoft account in the same organization? | Can change the Service Administrator to an Azure AD account in the same organization? | Can change the Service Administrator to an Azure AD account in a different organization? |
+| Account Administrator account | Can change the Service Administrator to a different Microsoft account? | Can change the Service Administrator to an Azure AD account in the same directory? | Can change the Service Administrator to an Azure AD account in a different directory? |
 | --- | --- | --- | --- |
 | Microsoft account | Yes | No | No |
 | Azure AD account | Yes | Yes | No |
+
+If the Account Administrator is an Azure AD account, you can change the Service Administrator to an Azure AD account in the same directory, but not in a different directory. For example, abby@contoso.com can change the Service Administrator to bob@contoso.com, but cannot change the Service Administrator to john@notcontoso.com unless john@notcontoso.com has a presence in the contoso.com directory.
 
 For more information about Microsoft accounts and Azure AD accounts, see [What is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md).
 
