@@ -196,6 +196,12 @@
           href: disk-encryption-troubleshooting.md
         - name: Disk encryption FAQ
           href: disk-encryption-faq.md
+        - name: Disk encryption - previous version (AAD)- name: name
+          items:
+          - name: Overview
+            href: disk-encryption-overview-aad.md
+          - name: Disk encryption scenarios for Linux
+            href: disk-encryption-linux-aad.md
     - name: Use access controls
       href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Use policies
