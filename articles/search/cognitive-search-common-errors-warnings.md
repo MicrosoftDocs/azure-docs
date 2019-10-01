@@ -49,6 +49,13 @@ Indexer read the document from the data source, but there was an issue convertin
 | Could not apply field mapping to a field | Could not apply mapping function `'functionName'` to field `'fieldName'`. Array cannot be null. Parameter name: bytes | Double check the [field mappings](search-indexer-field-mappings.md) defined on the indexer, and compare with the data of the specified field of the failed document. It may be necessary to modify the field mappings or the document data. |
 | Could not read field value | Could not read the value of column `'fieldName'` at index `'fieldIndex'`. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
 
+### Could not index document
+Indexer read and processed the document but failed to add the data to the search index. This can happen due to:
+
+| Reason | Example | Action |
+| --- | --- | --- |
+| A field contains a term that is too large | A term in your document is larger then the [32KB limit](search-limits-quotas-capacity#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
