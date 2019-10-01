@@ -7,7 +7,7 @@ metadata:
   title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Spring Cloud provides a managed service that enables Java developers to easily build and run Spring-boot based microservices on Azure with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
   services: spring-cloud
-  ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: jpconnock #Required; your GitHub user alias, with correct capitalization.
@@ -38,7 +38,7 @@ landingContent:
           - text: Launch a Java Spring app using Maven
             url: spring-cloud-overview.md ## must update when article checked in
           - text: Launch a Java Spring app using the Azure CLI
-            url: url: spring-cloud-overview.md ## must update when article checked in
+            url: spring-cloud-overview.md ## must update when article checked in
       - linkListType: tutorial
         links:
           - text: Prepare a Java Spring app for deployment
