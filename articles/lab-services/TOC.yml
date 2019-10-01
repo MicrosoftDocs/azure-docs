@@ -220,6 +220,8 @@
         href: connect-environment-lab-virtual-network.md
       - name: Configure test environments with nested templates
         href: deploy-nested-template-environments.md
+      - name: Use Azure managed identities to deploy environments
+        href: use-managed-identities-environments.md
     - name: Manage reusable templates
       items: 
       - name: Custom images vs. formulas
