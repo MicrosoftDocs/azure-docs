@@ -17,7 +17,8 @@ There is an agent troubleshooter for Hybrid Worker agent to determine the underl
 
 If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
+The following section highlights specific error messages and a possible resolution for
+each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -142,6 +143,20 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
+
+## <a name="node-reboots"></a>Scenario: Unexplained reboots
+
+### Issue
+
+You have configured [Reboot Control](automation-update-management.md#install-updates) with **Never Reboot**, but machines are still rebooting after installed updates.
+
+### Cause
+
+Windows Update behavior can be modified by several registry keys which can modify reboot behaviors.
+
+### Resolution
+
+Review the registry keys listed under [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) to ensure your machines are configured properly.
 
 ## <a name="failed-to-start"></a>Scenario: A machine shows Failed to start in an update deployment
 

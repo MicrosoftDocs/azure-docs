@@ -98,7 +98,8 @@ Connect-AzureRmAccount -Identity
 Get-AzureRmVm | Select Name
 ```
 
-You can also use a System Assigned Managed Identity to connect to Azure Resource API.  For more information, see [Get an access token using the VM's system-assigned managed identity](../active-directory/managed-identities-azure-resources/).
+> [!NOTE]
+> `Connect-AzureRMAccount -Identity` works for a HRW using a system assigned identity and a single user assigned identity. If you need to use multiple user assigned identities on the HRW, you must specify the `-AccountId` parameter to select the specific user assigned identity.
 
 ### <a name="runas-script"></a>Automation Run As account
 
