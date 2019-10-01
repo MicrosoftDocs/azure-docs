@@ -11,9 +11,9 @@ ms.custom: seodec18
 
 ---
 
-# Enable Azure Disk Encryption for Linux IaaS VMs (previous release)
+# Enable Azure Disk Encryption with Azure AD on Linux VMs (previous release)
 
-**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you're no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Linux VMS](azure-security-disk-encryption-linux.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
+**The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you're no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption for Linux VMS](disk-encryption-linux.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
 You can enable many disk-encryption scenarios, and the steps may vary according to the scenario. The following sections cover the scenarios in greater detail for Linux IaaS VMs. Before you can use disk encryption, the [Azure Disk Encryption prerequisites](azure-security-disk-encryption-prerequisites-aad.md) need to be completed and the [Additional prerequisites for Linux IaaS VMs](azure-security-disk-encryption-prerequisites-aad.md#additional-prerequisites-for-linux-iaas-vms) section should be reviewed.
 
