@@ -233,15 +233,9 @@
   - name: Secure
     items:
     - name: Configure Azure AD auth
-<<<<<<< HEAD
-      href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json
-    - name: Conditional Access
-      href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json
-=======
       href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
     - name: Conditional Access
       href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
->>>>>>> 84b894b130e896989dfa1868dd3b3047fcd65804
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Enable encryption - portal
