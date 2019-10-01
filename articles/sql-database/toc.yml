@@ -13,44 +13,43 @@
   - name: Planned maintenance events
     href: sql-database-planned-maintenance.md
 
-
-- name: Which SQL option should I choose?
-  href: sql-database-paas-vs-sql-server-iaas.md
-
-
-- name: Price and performance options
+- name: Overview
   items:
-  - name: Purchasing models
-    items: 
-    - name: Overview 
-      href: sql-database-purchase-models.md
-    - name: vCore-based model
-      href: sql-database-service-tiers-vcore.md
-    - name: DTU service tiers
-      href: sql-database-service-tiers-dtu.md
-    - name: Serverless compute tier
-      href: sql-database-serverless.md
-    - name: Prepay for reserved capacity
-      href: sql-database-reserved-capacity.md
-    - name: Migrate from Premium RS service tier
-      href: sql-database-service-tiers-prs.md
-  - name: Compute & storage
+  - name: Which deployment option should I choose?
+    href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Price and performance options
     items:
-    - name: Overview
-      href: sql-database-service-tiers-general-purpose-business-critical.md
-      displayName: provisioned compute tier  
-    - name: General purpose / Standard service tiers
-      href: sql-database-service-tier-general-purpose.md
-    - name: Business critical / Premium service tiers
-      href: sql-database-service-tier-business-critical.md
-    - name: Hyperscale service tier
-      href: sql-database-service-tier-hyperscale.md
-    - name: Hyperscale FAQ
-      href: sql-database-service-tier-hyperscale-faq.md
+    - name: Purchasing models
+      items: 
+      - name: Overview 
+        href: sql-database-purchase-models.md
+      - name: vCore-based model
+        href: sql-database-service-tiers-vcore.md
+      - name: DTU service tiers
+        href: sql-database-service-tiers-dtu.md
+      - name: Serverless compute tier
+        href: sql-database-serverless.md
+      - name: Prepay for reserved capacity
+        href: sql-database-reserved-capacity.md
+      - name: Migrate from Premium RS service tier
+        href: sql-database-service-tiers-prs.md
+    - name: Compute & storage
+      items:
+      - name: Overview
+        href: sql-database-service-tiers-general-purpose-business-critical.md
+        displayName: provisioned compute tier  
+      - name: General purpose / Standard service tiers
+        href: sql-database-service-tier-general-purpose.md
+      - name: Business critical / Premium service tiers
+        href: sql-database-service-tier-business-critical.md
+      - name: Hyperscale service tier
+        href: sql-database-service-tier-hyperscale.md
+      - name: Hyperscale FAQ
+        href: sql-database-service-tier-hyperscale-faq.md
 
 
 
-- name: Common features
+- name: Concepts
   items:
   - name: Shared feature documentation
     href: sql-database-paas-index.yml
@@ -71,8 +70,6 @@
         href: sql-database-control-access.md
       - name: Logins and users
         href: sql-database-manage-logins.md
-      - name: Conditional Access
-        href: sql-database-conditional-access.md
       - name: Server-level IP firewall rules
         items:
         - name: Create and manage
@@ -485,11 +482,11 @@
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
-- name: SQL database
+- name: SQL databases
   items:
-  - name: Single database documentation
+  - name: SQL databases documentation
     href: sql-database-single-index.yml
-  - name: Single database overview
+  - name: SQL databases overview
     href: sql-database-single-database.md  
   - name: Quickstarts
     items:
@@ -507,6 +504,10 @@
       - name: Server-level IP firewall rules
         href: sql-database-server-level-firewall-rule.md
 
+  - name: Security
+    items:
+    - name: Conditional Access
+      href: sql-database-conditional-access.md
 
   - name: Tutorials
     items:
@@ -696,12 +697,22 @@
       - name: Migrate (from old Elastic jobs)
         href: elastic-jobs-migrate.md
 
+  - name: Samples
+    items:
+    - name: Azure CLI
+      href: sql-database-cli-samples.md?tabs=single-database
+    - name: Azure PowerShell
+      href: sql-database-powershell-samples.md?tabs=single-database
+
+
+
+
 
 - name: SQL managed instance
   items:
   - name: Managed instance documentation
     href: sql-database-managed-instance-index.yml
-  - name: Managed instance overview
+  - name: Overview
     href: sql-database-managed-instance.md
   - name: FAQ
     href: sql-database-managed-instance-faq.md
@@ -727,6 +738,8 @@
       items:
       - name: Restore database backup
         href: sql-database-managed-instance-get-started-restore.md
+  - name: Security
+
   - name: Tutorials
     items:
       - name: Migrate online using DMS
