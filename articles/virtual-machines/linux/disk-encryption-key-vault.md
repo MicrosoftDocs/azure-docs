@@ -14,6 +14,9 @@ ms.custom: seodec18
 
 Azure Disk Encryption uses Azure Key Vault to control and manage disk encryption keys and secrets.  For more information about key vaults, see [Get started with Azure Key Vault](../../key-vault/key-vault-get-started.md) and [Secure your key vault](../../key-vault/key-vault-secure-your-key-vault.md). 
 
+> [!WARNING]
+> - If you have previously used Azure Disk Encryption with Azure AD to encrypt a VM, you must continue use this option to encrypt your VM. See [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](disk-encryption-key-vault-aad.md) for details.
+
 Creating and configuring a key vault for use with Azure Disk Encryption involves three steps:
 
 1. Creating a resource group, if needed.
