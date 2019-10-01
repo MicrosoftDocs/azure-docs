@@ -12,15 +12,13 @@ ms.author: cshoe
 
 # Azure Functions reliable event processing
 
-Event processing is one of the most common scenarios in serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
-
-The patterns described in this article demonstrate how to take advantage of dynamic scale and consumption pricing without compromising reliability.
+Event processing is one of the most common scenarios associated with serverless architecture. This article describes how to create a reliable message processor with Azure Functions to avoid losing messages.
 
 ## Challenges of event streams in distributed systems
 
 Consider a system that sends events at a constant rate  of 100 events per second. At this rate, within minutes multiple parallel Functions instances can consume the incoming 100 events every second.
 
-However, consider the following less-optimal conditions:
+However, any of the following less-optimal conditions are possible:
 
 - What if the event publisher sends a corrupt event?
 - What if your Functions instance encounters unhandled exceptions?
@@ -55,7 +53,7 @@ This behavior reveals a few important points:
 
 ## Handling exceptions
 
-As a general rule, every function should include a `try/catch` block at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
+As a general rule, every function should include a [try/catch block](./functions-bindings-error-pages.md) at the highest level of code. Specifically, all functions that consume Event Hubs events should have a `catch` block. That way, when an exception is raised, the catch block handles the error before the pointer progresses.
 
 ### Retry mechanisms and policies
 
@@ -91,7 +89,7 @@ There are two pieces required to implement a circuit breaker in an event process
 
 Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Table Storage, a Redis cache, or any other account that is accessible by a collection of functions.
 
-Azure Logic Apps is a natural fit to manage the workflow to manage the circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
+Azure Logic Apps or durable entities are a natural fit to manage the workflow and circuit state. Other services may work just as well, but logic apps are used for this example. Using logic apps, you can pause and restart a function's execution giving you the control required to implement the circuit breaker pattern.
 
 ### Define a failure threshold across instances
 
@@ -123,6 +121,7 @@ Using this approach, no messages are lost, all messages are processed in order, 
 ## Resources
 
 - [Reliable event processing samples](https://github.com/jeffhollan/functions-csharp-eventhub-ordered-processing)
+- [Durable Actor Circuit Breaker](https://github.com/jeffhollan/functions-durable-actor-circuitbreaker)
 
 ## Next steps
 
