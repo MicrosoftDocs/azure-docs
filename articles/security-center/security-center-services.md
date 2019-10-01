@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2019
+ms.date: 09/24/2019
 ms.author: memildin
 ---
 # Supported features available in Azure Security Center
@@ -35,7 +35,7 @@ The following sections show Security Center features that are available for thei
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
 |VMBA threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
 |Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
-|Windows Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|Microsoft Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
 |Missing patches|✔|✔|✔|✔|✔|✔|Free|
 |Security configurations|✔|✔|✔|✔|✔|✔|Free|
 |Endpoint protection assessment|✔|✔|✔|X|X|X|Free|

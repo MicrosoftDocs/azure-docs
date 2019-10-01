@@ -105,7 +105,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: The configured disk size(s) is currently not supported by Azure Backup. <br>
 
-Your backup operation could fail when backing up a VM with a disk size greater than 30 TB. Also, backup of encrypted disks greater than 4TB in size is not supported today. Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
+Your backup operation could fail when backing up a VM with a disk size greater than 30 TB. Also, backup of encrypted disks greater than 4 TB in size is not supported today. Ensure that the disk size(s) is less than or equal to the supported limit by splitting the disk(s).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
@@ -228,7 +228,11 @@ Completing these steps causes the extension to be reinstalled during the next ba
 
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 
-After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
+After removing the lock, the restore points have to be cleaned up.
+
+If you delete the Resource Group of the VM, or the VM itself, the instant restore snapshots of managed disks remain active and expire according to the retention set. In order to delete the instant restore snapshots (if you don't need them anymore) that are stored in the Restore Point Collection, clean up the restore point collection according to the steps given below.
+
+To clean up the restore points, follow any of the methods:<br>
 
 - [Clean up restore point collection by running ad hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
 - [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>

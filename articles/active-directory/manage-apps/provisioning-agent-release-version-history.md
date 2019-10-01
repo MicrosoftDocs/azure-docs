@@ -19,7 +19,7 @@ ms.author: chmutali
 ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect Provisioning Agent: Version release history
-This article lists the versions and features of Azure AD Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. Provisioning Agents are updated automatically when a new version is released. 
+This article lists the versions and features of Azure Active Directory Connect Provisioning Agent that have been released. The Azure AD team regularly updates the Provisioning Agent with new features and functionality. The Provisioning Agent is updated automatically when a new version is released. 
 
 We recommend enabling auto update for your agents to ensure that you have the latest features and bug fixes. Microsoft provides direct support for the latest agent version and one version before.
 
@@ -31,24 +31,24 @@ September 9, 2019: Released for auto update
 
 ### New features and improvements
 
-* Ability to configure additional tracing and logging for debugging provisioning agent issues
-* Ability to fetch only those AD attributes that are configured in the mapping to improve performance of sync
+* Ability to configure additional tracing and logging for debugging Provisioning Agent issues
+* Ability to fetch only those Azure AD attributes that are configured in the mapping to improve performance of sync
 
 ### Fixed issues
 
-* Fixed a bug where-in the agent went into an unresponsive state if there were issues with AD connection failures
-* Fixed a bug that caused issues when binary data was read from Active Directory
-* Fixed a bug where-in the agent failed to renew trust with the cloud Hybrid Identity Service
+* Fixed a bug wherein the agent went into an unresponsive state if there were issues with Azure AD connection failures
+* Fixed a bug that caused issues when binary data was read from Azure Active Directory
+* Fixed a bug wherein the agent failed to renew trust with the cloud hybrid identity service
 
 ## 1.1.30.0
 
 ### Release status
 
-Jan 23, 2019: Released for download
+January 23, 2019: Released for download
 
 ### New features and improvements
 
-* Revamped Provisioning Agent & Connector architecture for better performance, stability and reliability 
-* Simplified Provisioning Agent configuration using UI-driven Installation Wizard 
+* Revamped the Provisioning Agent and connector architecture for better performance, stability, and reliability 
+* Simplified the Provisioning Agent configuration using UI-driven installation wizard 
 * Added support for automatic agent updates
 

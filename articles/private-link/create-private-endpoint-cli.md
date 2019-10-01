@@ -140,7 +140,7 @@ Connect to the VM *myVm* from the internet as follows:
 
 1. Once the VM desktop appears, minimize it to go back to your local desktop.  
 
-## Access DQL Database Server privately from the VM
+## Access SQL Database Server privately from the VM
 
 In this section, you will connect to the SQL Database Server from the VM using the Private Endpoint.
 

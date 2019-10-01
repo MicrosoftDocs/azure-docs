@@ -51,7 +51,7 @@ Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling j
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
 - Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
