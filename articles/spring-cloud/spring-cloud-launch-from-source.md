@@ -33,7 +33,7 @@ az extension add -y --source https://github.com/VSChina/azure-cli-extensions/rel
 
 ## Provision a service instance using the Azure CLI
 
-1. Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
+Login to the Azure CLI and choose your active subscription. Be sure to choose the active subscription that is whitelisted for Azure Spring Cloud
 
 ```Azure CLI
 az login
@@ -41,7 +41,7 @@ az account list -o table
 az account set --subscription
 ```
 
-1. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
+Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. Note that we also tell Azure Spring Cloud to assign a public domain here.
 
 ```azurecli
     az spring-cloud create -n <resource name> -g <resource group name> --is-public true
@@ -49,7 +49,7 @@ az account set --subscription
 
 The service instance will take about five minutes to deploy.
 
-1. Set your default resource group name and cluster name using the following commands:
+Set your default resource group name and cluster name using the following commands:
 
 ```azurecli
 az configure --defaults group=<service group name>
