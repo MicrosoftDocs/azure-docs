@@ -39,43 +39,33 @@ Before you update the license assignments, it's important to verify certain assu
 
 ## Change user license assignments
 
+On the **Update license assignments** page, if you see that some checkboxes are unavailable, it indicates services that can't be changed because they're inherited from a group license.
+
 1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
-1. Select **Azure Active Directory**, and then open the **Profile** page for the user or the **Overview** page for the group.
+1. Select **Azure Active Directory** > **Users**, and then open the **Profile** page for a user.
 1. Select **Licenses**.
-1. Select the **Assignments** command to edit license assignment for the user or group. 
+1. Select **Assignments** to edit license assignment for the user or group. The **Assignments** page is where you can resolve license assignment conflicts.
+1. Select the check box for Office 366 E3 and ensure that at minimum the all of the E1 services that are assigned to the user are selected.
+1. Clear the check box for Office 365 E1.
 
-Office 365 E1 to Office 365 E3
-Mock up E1
+    ![license assignments page for a user showing Office 365 E1 cleared and Office 365 E3 selected](media/licensing-groups-change-licenses/update-users-license-assignments.png)
 
-click E3
-check services list to ensure that at least the all your previous E1 services assigned to the user are selected
-remove E1
+1. Select **Save**.
 
-Note
-Charmi email
-In the update assignments screen
-checkboxes are unavailable because inherited by GBL
+Azure AD shows you which features it is licensing for each license plan assigned to the user, and the page also helps resolves license conflicts.
 
-Azure AD will show you which features it is licensing for each license plan assigned to the user, and automatically resolves license conflicts.
+## Change group license assignments
 
-    ![Select the Assignments command on a user or group Licenses page](media/licensing-groups-change-licenses/assignments-command.png)
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a License administrator account in your Azure AD organization.
+1. Select **Azure Active Directory** > **Groups**, and then open the **Overview** page for a group.
+1. Select **Licenses**.
+1. Select the **Assignments** command to edit license assignment for the user or group.
+1. Select the check box for Office 366 E3 and to maintain continuity of service, ensure that at minimum you select all of the E1 services that are already assigned to the user.
+1. Clear the check box for Office 365 E1.
 
-1. Edit the options until the licenses are as you want them to be.
+    ![Select the Assignments command on a user or group Licenses page](media/licensing-groups-change-licenses/update-group-license-assignments.png)
 
-    ![Assignments page, with number of purchased services and assigned licenses](media/licensing-groups-change-licenses/update-license-assignments.png)
-
-## Update group license assignments
-
-Change direct assignment at a group level
-
-Group > licenses > Assignments
-
-
-Change group license plans
-
-group-based licensing is just group licenses
-Products appear to me to be license plans. Shouldn't we call them that in the UI? Some of those "products" enable all kinds of services that the user can't distinguish from separate products. But license plans enable combinations of services.
-
+1. Select **Save**.
 
 ## Next steps
 
