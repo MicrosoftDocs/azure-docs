@@ -778,19 +778,6 @@
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
 
-  - name: Reference
-    items:
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: Azure CLI
-      href: /cli/azure/
-    - name: T-SQL
-      href: https://docs.microsoft.com/sql/t-sql/language-reference
-    - name: SQL Server Drivers
-      href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
-    - name: REST
-      href: /rest/api/
-  - name: Resources
 
 
 - name: Reference
