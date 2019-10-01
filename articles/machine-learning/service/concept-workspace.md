@@ -83,7 +83,7 @@ There are multiple ways to create a workspace.
 * Use an [Azure Resource Manager template](how-to-create-workspace-template.md) or the [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) when you need to automate or customize the creation with corporate security standards.
 * If you work in Visual Studio Code, use the [VS Code extension](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code).
 
-## <a name="resources"></a> Upgrade to Enterprise SKU
+## <a name="upgrade"></a> Upgrade to Enterprise SKU
 
 ## <a name="resources"></a> Associated resources
 
