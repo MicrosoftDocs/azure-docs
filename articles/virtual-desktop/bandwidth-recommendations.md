@@ -56,4 +56,4 @@ Different display resolutions require different available bandwidths. The follow
 
 ## Additional resources
 
-The Azure region you're in can affect user experience as much as network conditions. Check out the [Windows Virtual Desktop experience estimator](https://azure.microsoft.com/en-us/services/virtual-desktop/assessment/) to learn more.
+The Azure region you're in can affect user experience as much as network conditions. Check out the [Windows Virtual Desktop experience estimator](https://azure.microsoft.com/services/virtual-desktop/assessment/) to learn more.
