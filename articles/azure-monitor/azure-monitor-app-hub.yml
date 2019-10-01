@@ -87,7 +87,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Azure VM & Azure virtual machine scale sets
         
-    - title: Quickstarts
+    - title: Quickstarts & Tutorials
       links: 
         - url: ./learn/quick-monitor-portal.md
           itemType: how-to-guide
@@ -104,9 +104,6 @@ conceptualContent:
         - url: ./app/website-monitoring.md
           itemType: how-to-guide
           text: Website monitoring
-              
-    - title: Tutorials
-      links: 
         - url: ./learn/tutorial-runtime-exceptions.md
           itemType: how-to-guide
           text: Find and diagnose runtime exceptions
@@ -196,7 +193,7 @@ conceptualContent:
           text:  Search
         
         
-    - title:  Profiler
+    - title:  Profiler & Snapshot Debugger
       links: 
         - url: ./app/profiler-overview.md
           itemType: overview
@@ -213,12 +210,9 @@ conceptualContent:
         - url: ./app/profiler-vm.md
           itemType: how-to-guide
           text:  Profile VM & virtual machine scale set apps
-
-    - title:  Snapshot Debugger
-      links: 
         - url: ./app/snapshot-debugger.md
           itemType: overview
-          text:  Profiler overview
+          text:  Snapshot Debugger overview
         - url: ./app/snapshot-debugger-appservice.md
           itemType: how-to-guide
           text:  Enable Snapshot Debugger for Azure App Service
