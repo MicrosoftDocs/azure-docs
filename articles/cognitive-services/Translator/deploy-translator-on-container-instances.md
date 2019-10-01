@@ -12,7 +12,7 @@ ms.date: 09/17/2019
 ms.author: dapine
 ---
 
-# Deploy the Translator Text container to Azure Container Instances
+# Deploy the Translator Text container to Azure Container instances
 
 Learn how to deploy the Cognitive Services [Translator Text](how-to-install-containers.md) container to Azure [Container Instances](https://docs.microsoft.com/azure/container-instances/). This procedure demonstrates the creation of an Azure Translator Text resource. Then we discuss pulling the associated container image. Finally, we highlight the ability to exercise the orchestration of the two from a browser. Using containers can shift the developers' attention away from managing infrastructure to instead focusing on application development.
 
