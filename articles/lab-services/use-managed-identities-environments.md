@@ -19,10 +19,10 @@ ms.author: spelluru
 As a lab owner, you can use a managed identity to deploy environments in a lab. This feature is helpful in scenarios where the environment contains or has references to Azure resources such as key vaults, shared image galleries, and networks that are external to the environment’s resource group. It enables creation of sandbox environments that aren't limited to the resource group of that environment.
 
 > [!NOTE]
-> Currently, a single user assigned identity is supported per lab. 
+> Currently, a single user-assigned identity is supported per lab. 
 
 ## Prerequisites
-- [Create a user assigned identity using Managed Identities in the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
+- [Create, list, delete or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
 ## Use Azure portal
 In this section you, as a lab owner, use the Azure portal to add a user-managed identity to the lab. 
