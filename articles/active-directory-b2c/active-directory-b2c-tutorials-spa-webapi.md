@@ -50,12 +50,7 @@ To call a protected web API from another application, you need to grant that app
 
 In the prerequisite tutorial, you created a web application named *webapp1*. In this tutorial, you configure that application to call the web API you created in a previous section, *webapi1*.
 
-1. Navigate to your B2C tenant in Azure portal
-1. Select **Applications**, and then select *webapp1*.
-1. Select **API access**, and then select **Add**.
-1. In the **Select API** dropdown, select *webapi1*.
-1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-1. Select **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Your single-page web application is registered to call the protected web API. A user authenticates with Azure AD B2C to use the single-page application. The single-page app obtains an authorization grant from Azure AD B2C to access the protected web API.
 
