@@ -41,7 +41,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
         [![Search API for Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
-    > The Azure AD API name and ID that will appear in your Azure account depends on the tenant to which you belong:
+    > The Azure AD API name and ID that will appear depends on your tenant:
     > * Standard accounts should search for `Azure Digital Twins`.
     > * Development test accounts should search for `Azure Smart Spaces Service`.
 
