@@ -135,7 +135,7 @@ conceptualContent:
           text:  Log-based metric definitions
         - url: ./app/diagnostic-search.md
           itemType: how-to-guide
-          text:  
+          text:  Search
         
     - title:  Profiler
       links: 
