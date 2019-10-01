@@ -11,18 +11,17 @@ ms.date: 09/10/2019
 ms.author: memildin
 ---
 
+# Retirement of Security Center features (July 2019)
+
 > [!NOTE]
 > This document details the list of features that were retired from Azure Security Center on July 31st, 2019.
 >
 >
 
-
-# Retirement of Security Center features (July 2019)
-
 We made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the six months leading up to July 2019.
 With these improved capabilities, we removed some redundant features and related APIs from Security Center on July 31, 2019.
 
-Most of these retiring features can be replaced with new functionality in Azure Security Center or Azure Log Analytics. Other features can be implemented using [Azure Sentinel (preview)](https://azure.microsoft.com/services/azure-sentinel/).
+Most of these retired features can be replaced with other functionality in Azure Security Center or Azure Log Analytics. Other features can be implemented using [Azure Sentinel (preview)](https://azure.microsoft.com/services/azure-sentinel/).
 
 Retired Security Center features include:
 
@@ -100,11 +99,11 @@ We removed the **Go to security events map** button and the per-workspace dashbo
 
 ![Security alerts map - button][10]
 
-When you select the **Go to security events map** button, you open the threat intelligence dashboard. We retired the threat intelligence dashboard.
+When you select the **Go to security events map** button, it opened the (now retired) threat intelligence dashboard.
 
 ![Threat intelligence dashboard][11]
 
-When you choose a workspace to view its threat intelligence dashboard, you open the security alerts map (preview) screen in Log Analytics. We retired this screen.
+When you choose a workspace to view its threat intelligence dashboard, you opened the (now retired) security alerts map (preview) screen in Log Analytics.
 
 ![Security alerts map in Log Analytics][12]
 

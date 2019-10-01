@@ -7,7 +7,7 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 09/16/2019
+ms.date: 09/20/2019
 ms.author: cherylmc
 
 ---
@@ -36,19 +36,19 @@ You will have access to Azure services across all regions within a geopolitical 
 ## <a name="locations"></a>Azure regions to ExpressRoute locations within a geopolitical region.
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
-| **Geopolitical region** | **Zone** | **Azure regions** | **ExpressRoute locations** |
-| --- | --- | --- | --- |
-| **Australia Government** | 1 | Australia Central, Australia Central 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Stockholm, Zurich |
-| **North America** | 1 |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
-| **Asia** | 2 |East Asia, Southeast Asia |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
-| **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
-| **Japan** | 2 |Japan West, Japan East |Osaka, Tokyo |
-| **Oceania** | 2 |Australia Southeast, Australia East |Auckland, Melbourne, Perth, Sydney |
-| **South Korea** | 2 |Korea Central, Korea South |Busan, Seoul|
-| **UAE** | 3 | UAE Central, UAE North | Dubai, Dubai2 |
-| **South Africa** | 3 |South Africa West, South Africa North |Cape Town, Johannesburg |
-| **South America** | 3 |Brazil South |Sao Paulo |
+| **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
+| --- | --- | --- |
+| **Australia Government** |Australia Central, Australia Central 2 |Canberra, Canberra2 |
+| **Europe** | France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Stockholm, Zurich |
+| **North America** |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
+| **Asia** | East Asia, Southeast Asia |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
+| **India** | India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
+| **Japan** | Japan West, Japan East |Osaka, Tokyo |
+| **Oceania** | Australia Southeast, Australia East |Auckland, Melbourne, Perth, Sydney |
+| **South Korea** | Korea Central, Korea South |Busan, Seoul|
+| **UAE** | UAE Central, UAE North | Dubai, Dubai2 |
+| **South Africa** | South Africa West, South Africa North |Cape Town, Johannesburg |
+| **South America** | Brazil South |Sao Paulo |
 
 
 ## Regions and geopolitical boundaries for national clouds

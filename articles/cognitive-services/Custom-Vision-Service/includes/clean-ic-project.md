@@ -13,4 +13,4 @@ If you wish to implement your own image classification project (or try an [objec
 
 On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
 
-![Screenshot of a panel labelled My New Project with a trash can icon](../media/csharp-tutorial/delete_project.png)
+![Screenshot of a panel labeled My New Project with a trash can icon](../media/csharp-tutorial/delete_project.png)

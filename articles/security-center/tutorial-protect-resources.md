@@ -3,10 +3,8 @@ title: Azure Security Center Tutorial - Protect your resources with Azure Securi
 description: This tutorial shows you how to configure a just in time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: v-mohabe
+ms.date: 12/03/2018
+ms.author: memildin
 
 ---
 # Tutorial: Protect your resources with Azure Security Center
