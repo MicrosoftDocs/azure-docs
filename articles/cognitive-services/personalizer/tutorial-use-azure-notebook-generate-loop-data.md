@@ -158,6 +158,27 @@ def get_last_updated(currentModifiedDate):
         print(f'-----model updated: {lastModifiedTime}')
 ```
 
+### Get policy and service configruation
+
+Validate the state of the service with these two REST calls.
+
+```python
+def get_service_settings():
+    
+    print('-----checking service settings')
+    
+    # get learning policy
+    response = requests.get(personalization_model_policy_url, headers = headers, params = None)
+    
+    print(response)
+    print(response.json())
+    
+    # get service settings
+    response = requests.get(personalization_service_configuration_url, headers = headers, params = None)
+    
+    print(response)
+    print(response.json())
+```
 
 ### Construct URLs for REST calls and read JSON data files
 
@@ -167,21 +188,27 @@ This cell
 * sets the security header using your Personalizer resource key 
 * sets the random seed for the Rank event ID
 * reads in the JSON data files
-* calls `get_last_updated` method
+* calls `get_last_updated` method - learning policy has been removed in example output
+* calls `get_service_settings` method
 
-The cell has output from the call to `get_last_updated` function, which is the date of the last model training update, the JSON response status, values. 
-
-It also prints the count of objects in the JSON data files for users and coffee. 
-
-The date looks like: 
+The cell has output from the call to `get_last_updated` and `get_service_settings` functions, which is the date of the last model training update. The date looks like: 
 
 ```python
 -----checking model
 <Response [200]>
 {'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
 -----model updated: "0001-01-01T00:00:00+00:00"
+-----checking service settings
+<Response [200]>
+{...learning policy...}
+<Response [200]>
+{'rewardWaitTime': '00:00:15', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:00:15', 'logRetentionDays': -1}
 User count 4
 Coffee count 4
+```
+
+Verify that the `rewardWaitTime` and the `modelExportFrequency` are both set to 15 seconds. 
+
 ```
 
 ```python
@@ -189,6 +216,9 @@ Coffee count 4
 personalization_rank_url = personalization_base_url + "personalizer/v1.0/rank"
 personalization_reward_url = personalization_base_url + "personalizer/v1.0/events/" #add "{eventId}/reward"
 personalization_model_properties_url = personalization_base_url + "personalizer/v1.0/model/properties"
+personalization_model_policy_url = personalization_base_url + "personalizer/v1.0/configurations/policy"
+personalization_service_configuration_url = personalization_base_url + "personalizer/v1.0/configurations/service"
+
 headers = {'Ocp-Apim-Subscription-Key' : resource_key, 'Content-Type': 'application/json'}
 
 # context
@@ -217,6 +247,7 @@ with open(requestpath) as handle:
     rankactionsjsonobj = json.loads(handle.read())  
     
 get_last_updated(modelLastModified)
+get_service_settings()
 
 print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
@@ -541,6 +572,11 @@ In order to find a better learning policy, based on your data to the Rank API, r
 1. Change the **model update frequency** and **reward wait time** to 5 minutes and select **Save**.
 
 Learn more about the [reward wait time](concept-rewards.md#reward-wait-time) and [model update frequency](how-to-settings.md#model-update-frequency).
+
+```python
+#Verify new learning policy and times
+get_service_settings()
+```
 
 ## Validate new learning policy by running experiment for 2,000 iterations
 
