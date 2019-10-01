@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
 #Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
 ---
@@ -33,9 +33,10 @@ A branch device (a customer on-premises VPN device or SDWAN CPE) typically uses 
   1. Typically, a virtual WAN user will start the process by creating a Virtual WAN resource.
   2. The user will set up a service principal-based resource group access for the on-premises system (your branch controller or VPN device provisioning software) to write branch info into Azure Virtual WAN.
   3. The user may decide at this time to log into your UI and set up the service principal credentials. Once that is complete, your controller should be able to upload branch information with the automation you will provide. The manual equivalent of this on the Azure side is 'Create Site'.
-  4. Once the Site (branch device) information is available in Azure, the user will associate the site to a hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region and the vpn endpoint (vpngateway) inside it is created during this process. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs. You may choose to automate virtual hub and vpngateway creation from your branch device controller dashboard.
+  4. Once the Site (branch device) information is available in Azure, the user will connect the site to a hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). The hub is the core of your network in a region. There can only be one hub per Azure region and the vpn endpoint (vpngateway) inside it is created during this process. The VPN gateway is a scalable gateway which sizes appropriately based on bandwidth and connection needs. You may choose to automate virtual hub and vpngateway creation from your branch device controller dashboard.
   5. Once the virtual Hub is associated to the site, a configuration file is generated for the user to manually download. This is where your automation comes in and makes the user experience seamless. Instead of the user having to manually download and configure the branch device, you can set the automation and provide minimal click-through experience on your UI, thereby alleviating typical connectivity issues such as shared key mismatch, IPSec parameter mismatch, configuration file readability etc.
   6. At the end of this step in your solution, the user will have a seamless site-to-site connection between the branch device and virtual hub. You can also set up additional connections across other hubs. Each connection is an active-active tunnel. Your customer may choose to use a different ISP for each of the links for the tunnel.
+  7. Consider providing troubleshooting and monitoring capabilities in the CPE management interface. Typical scenarios include "Customer not able to access Azure resources due to a CPE issue", "Show IPsec parameters at the CPE side" etc.
 
 ## <a name ="understand"></a>Understand automation details
 
@@ -61,7 +62,7 @@ This step involves downloading Azure configuration and setting up connectivity f
 **Configuration notes**
 
   * If Azure VNets are attached to the virtual hub, they will appear as ConnectedSubnets.
-  * VPN connectivity uses route-based configuration and IKEv2/IKEv1.
+  * VPN connectivity uses route-based configuration and supports both IKEv1, and IKEv2 protocols.
 
 #### Understanding the device configuration file
 
