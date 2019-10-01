@@ -77,7 +77,7 @@ For more information, see [Configure the Windows Firewall to Allow SQL Server Ac
 
 ``Login failed for user '<User name>'.This session has been assigned a tracing ID of '<Tracing ID>'. Provide this tracing ID to customer support when you need assistance. (Microsoft SQL Server, Error: 18456)``
 
-To resolve this issue, contact your service administrator to provide you the valid SQL user name and password.
+To resolve this issue, contact your service administrator to provide you with a valid SQL user name and password.
 
 Typically, the service administrator can use the following steps to add the login:
 
@@ -329,13 +329,20 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-When the exception happens due to query issues, you will notice a call stack that is similar to the following ones (Note the reference to the **Sqlcommand** class). In these scenarios, [tune your queries](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+When the exception happens due to query issues, you will notice a call stack that is similar to the following ones (Note the reference to the **SqlCommand** class). In these scenarios, [tune your queries](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
   at AzureConnectionTest.Program.Main(String[] args)
   ClientConnectionId:<Client ID>
 ```
+For additional guidance on fine tuning performance, please see the following:
+
+* [How to maintain Azure SQL Indexes and Statistics](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/How-to-maintain-Azure-SQL-Indexes-and-Statistics/ba-p/368787)
+* [Manual tune query performance in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
+* [Monitoring performance Azure SQL Database using dynamic management views](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
+* [Operating the Query Store in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
+
 
 ## Steps to fix common connection issues
 
