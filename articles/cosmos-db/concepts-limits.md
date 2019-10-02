@@ -28,7 +28,7 @@ After you create an Azure Cosmos account under your subscription, you can manage
 | Maximum attachment size per Account (Attachment feature is being depreciated) | 2 GB | 
 
 > [!NOTE]
-> For best practices to manage workloads that have partition keys that need higher limits for storage or throughput, see [Designing for Hot Partition Keys](synthetic-partition-keys.md)
+> To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
 >
 
 A Cosmos container (or shared throughput database) must have a minimum throughput of 400 RUs. As the container grows, the minimum supported throughput also depends on the following factors:
