@@ -41,6 +41,8 @@ In the history tab, you are able to view the snapshots that have been copied in 
 
 You can view more details about each snapshot run by clicking on the run start date. 
 
+Up to 30 days of snapshot history is displayed by default. If you need to see more than 30 days worth of history, navigate to Monitoring -> Diagnostic settings and select **Add diagnostic setting**. You will be required to select a storage account to store these logs into. 
+
 ## Next Steps 
 
 Learn more about [Azure Data Share terminology](terminology.md)
