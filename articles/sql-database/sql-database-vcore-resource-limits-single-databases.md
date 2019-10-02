@@ -304,7 +304,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 ### Notes
 
-**Note 1**: Hyperscale is a multi-tiered architecture with separate computer and storage components: [SQL Database Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
 **Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
 
