@@ -21,9 +21,6 @@ By default, for each Azure Data Warehouse table created without an index option,
 
 When creating an ordered CCI, the Azure SQL Data Warehouse engine sorts the existing data in memory by the order key(s) before the index builder compresses it into index segments.  With sorted data, segment overlapping is reduced allowing queries to have a more efficient segment elimination and thus faster performance because the number of segments to read from disk is smaller.  If all data can be sorted in memory at once, then segment overlapping can be avoided.  Given the large size of data in data warehouse tables, this scenario doesn't happen often.  
 
-> [!NOTE] 
-> In an ordered CCI table, new data resulting from DML or data loading operations is not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  
-
 To check the segment ranges for a column, run this command with your table name and column name:
 
 ```sql
@@ -39,6 +36,10 @@ WHERE o.name = '<Table_Name>' and cols.name = '<Column_Name>'
 ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
+
+> [!NOTE] 
+> In an ordered CCI table, new data resulting from DML or data loading operations is not automatically sorted.  Users can REBUILD the ordered CCI to sort all data in the table.  
+
 ## Data loading performance
 
 The performance of data loading into an ordered CCI table is similar to data loading into a partitioned table.  
