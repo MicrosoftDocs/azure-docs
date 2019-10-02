@@ -47,7 +47,7 @@ After you add your information, you can submit your solution for publishing. You
 1. Complete your submission details.
 2. Select **Publish** on the top right in Partner Center.
 3. Review the details and status of your submission.
-4. Add any testing notes.
+4. Add any notes for certification.
 5. Select **Publish**.
     
 > [!NOTE]
