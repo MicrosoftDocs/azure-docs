@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 10/01/2019
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -107,24 +107,24 @@ To create an Apache Kafka on HDInsight cluster, use the following steps:
 3. When prompted, enter the password for the SSH user.
 
     Once connected, you see information similar to the following text:
-    
+
     ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     83 packages can be updated.
     37 updates are security updates.
 
 
     Welcome to Apache Kafka on HDInsight.
-    
+
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
@@ -140,18 +140,16 @@ In this section, you get the host information from the Apache Ambari REST API on
     sudo apt -y install jq
     ```
 
-2. Set up environment variables. Replace `PASSWORD` and `CLUSTERNAME` with the cluster login password and cluster name respectively, then enter the command:
+2. Set up password variable. Replace `PASSWORD` with the cluster login password, then enter the command:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, store it in a variable, and then display the correctly cased name, and the name you provided earlier. Enter the following command:
+3. Extract correctly cased cluster name. The actual casing of the cluster name may be different than you expect, depending on how the cluster was created. This command will obtain the actual casing, and store it in a variable. Enter the following command:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
 
 4. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
@@ -161,6 +159,10 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```
 
     This command directly queries the Ambari service on the cluster head node. You can also access Ambari using the public address of `https://$CLUSTERNAME.azurehdinsight.net:80/`. Some network configurations can prevent access to the public address. For example, using Network Security Groups (NSG) to restrict access to HDInsight in a virtual network.
+
+    > [!NOTE]
+    > If you can't access the Ambari service on the cluster headnode (if for e.g. you're executing these commands on a different VM), use the public endpoint.
+    > `export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')`
 
 5. To verify that the environment variable is set correctly, use the following command:
 
@@ -180,7 +182,7 @@ In this section, you get the host information from the Apache Ambari REST API on
 
 7. To verify that the environment variable is set correctly, use the following command:
 
-    ```bash   
+    ```bash
     echo $KAFKABROKERS
     ```
 
