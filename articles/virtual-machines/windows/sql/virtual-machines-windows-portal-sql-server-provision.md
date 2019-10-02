@@ -192,7 +192,6 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
 
-sql-vm-storage-configuration-provisioning
 ![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimized for**, select one of the following options:
