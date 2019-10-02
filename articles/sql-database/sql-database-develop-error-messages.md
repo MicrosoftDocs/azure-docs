@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 03/06/2019
+ms.date: 10/02/2019
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 

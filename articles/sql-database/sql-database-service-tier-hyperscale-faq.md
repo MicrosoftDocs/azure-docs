@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-ms.date: 05/06/2019
+ms.date: 10/02/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 

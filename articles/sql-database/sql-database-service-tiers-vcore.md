@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
+ms.date: 10/01/2019
 ---
 # Choose among the vCore service tiers and migrate from the DTU service tiers
 
