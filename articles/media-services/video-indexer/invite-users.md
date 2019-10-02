@@ -45,7 +45,7 @@ If you want to remove users that have access to your account, you can click on t
 
 ![Remove users](./media/invite-users/remove-users.png)
 
-The user will not receive a notification upon removal, they will not be authorized when they try to log in.
+The user will not receive a notification upon removal. Once removed, users will not be authorized try to log in.
 
 ## Next steps
 
