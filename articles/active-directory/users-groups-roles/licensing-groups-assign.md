@@ -57,7 +57,7 @@ When assign licenses to a group, Azure AD processes all existing members of that
 
 1. Go to **Azure Active Directory** > **Groups**. Select the group that licenses were assigned to.
 
-1. On the group page, select **Assignments**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
+1. On the group page, select **Licenses**. This lets you quickly confirm if licenses have been fully assigned to users and if there are any errors that you need to look into. The following information is available:
 
    - Service licenses that are currently assigned to the group. Select an entry to show the specific services that have been enabled and to make changes.
 
