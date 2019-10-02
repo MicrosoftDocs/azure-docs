@@ -26,11 +26,11 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table and column mapping](net-standard-ingest-data#create-a-table-on-your-test-cluster)
+1. [A test table and column mapping](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 1. [Set database-level/table-level policies](database-table-policies-csharp.md) (Optional)
 
-1. [An event hub with data for ingestion](ingest-data-event-hub#create-an-event-hub) for adding a EventHub data connection. Or [a storage account with an Event Grid subscription](ingest-data-event-grid#create-an-event-grid-subscription-in-your-storage-account) for adding a EventGrid data connection. Or [An IoT hub with a shared access policy configured](ingest-data-iot-hub#create-an-iot-hub) for adding an IoT hub data connection
+1. [An event hub with data for ingestion](ingest-data-event-hub.md#create-an-event-hub) for adding a EventHub data connection. Or [a storage account with an Event Grid subscription](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account) for adding a EventGrid data connection. Or [An IoT hub with a shared access policy configured](ingest-data-iot-hub.md#create-an-iot-hub) for adding an IoT hub data connection
 
 ## Install C# Nuget
 
@@ -43,7 +43,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Add an Event Hub data connection
-The following example shows how to add an Event Hub data connection programmatically. Check [Connect to the event hub](ingest-data-event-hub#connect-to-the-event-hub) for adding an Event Hub data connection through Azure Portal.
+The following example shows how to add an Event Hub data connection programmatically. Check [Connect to the event hub](ingest-data-event-hub.md#connect-to-the-event-hub) for adding an Event Hub data connection through Azure portal.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -96,7 +96,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | location | *Central US* | The location of the data connection resource.|
 
 ## Add an Event Grid data connection
-The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure Portal.
+The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid.md#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure portal.
 
 ```csharp
 //The event hub and storage account that are created as part of the Prerequisites
@@ -112,7 +112,7 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | storageAccountResourceId | *Resource ID* | The resource ID of your storage account, which holds the data for ingestion. |
 
 ## Add an IoT Hub data connection (Preview)
-The following example shows how to add an IoT Hub data connection programmatically. Check [Connect Azure Data Explorer table to IoT hub](ingest-data-iot-hub#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through Azure Portal.
+The following example shows how to add an IoT Hub data connection programmatically. Check [Connect Azure Data Explorer table to IoT hub](ingest-data-iot-hub.md#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through Azure portal.
 
 ```csharp
 //The IoT hub that is created as part of the Prerequisites

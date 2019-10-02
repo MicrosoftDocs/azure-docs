@@ -43,7 +43,7 @@ pip install msrestazure
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Add an Event Hub data connection
-The following example shows how to add an Event Hub data connection programmatically. Check [Connect to the event hub](ingest-data-event-hub#connect-to-the-event-hub) for adding an Event Hub data connection through Azure Portal.
+The following example shows how to add an Event Hub data connection programmatically. Check [Connect to the event hub](ingest-data-event-hub#connect-to-the-event-hub) for adding an Event Hub data connection through Azure portal.
 
 ```Python
 from azure.mgmt.kusto import KustoManagementClient
@@ -102,7 +102,7 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
   
 
 ## Add an Event Grid data connection
-The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure Portal.
+The following example shows how to add an Event Grid data connection programmatically. Check [Create an Event Grid data connection in Azure Data Explorer](ingest-data-event-grid#create-an-event-grid-data-connection-in-azure-data-explorer) for adding an Event Grid data connection through Azure portal.
 
 
 ```Python
@@ -123,7 +123,7 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | storage_account_resource_id | *Resource ID* | The resource ID of your storage account, which holds the data for ingestion. |
 
 ## Add an IoT Hub data connection (Preview)
-The following example shows how to add an IoT Hub data connection programmatically. Check [Connect Azure Data Explorer table to IoT hub](ingest-data-iot-hub#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through Azure Portal.
+The following example shows how to add an IoT Hub data connection programmatically. Check [Connect Azure Data Explorer table to IoT hub](ingest-data-iot-hub#connect-azure-data-explorer-table-to-iot-hub) for adding an Iot Hub data connection through Azure portal.
 
 ```Python
 from azure.mgmt.kusto.models import IotHubDataConnection
