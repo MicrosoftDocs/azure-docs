@@ -39,11 +39,15 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Name your knowledge base **My Sample QnA KB**.
 
+<!--
+
 1. Select **Enable multi-turn extraction from URLs, .pdf or .docx files.**. This allows QnA Maker to extract multi-turn question and answer sets from a data source.
+
+-->
 
 1. Add a sample word document as a URL: 
 
-    `https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/multi-turn.docx`
+    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
 
 1. Select `+ Add URL`.
 
@@ -55,16 +59,24 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
+## Add a new question and answer set
 
-## Add a follow-up prompt
+1. In the QnA Maker portal, on the **Edit** page, select **Add QnA pair**.
+1. Add the following question: 
 
-The knowledge base has two different data sources that are not connected. When a customer begins the bot conversation with `hello`, the bot should respond and give the user some options, known as follow-up prompts.
+    `How many Azure services are used by a knowledge base?`
 
-1. In the QnA Maker portal, on the **Edit** section, search for `hello`.  The primary question is **Aloha**. For the **Aloha** question and answer set, select **Add follow-up prompt**.
-1. For **Display text**, enter `Surface Pro`.
-1. In **Link to QnA**, search for `Surface Pro`. This returns existing question and answer pairs from your data sources. Select the top question then select **Save**.
+1. Add the answer formatted with _markdown_:
 
-    The knowledge base knows that a beginning prompt should follow up with options for question and answer sets about the Surface Pro. 
+    ```markdown
+    * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan
+    ```
+
+    ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+
+    The markdown symbol, `*`, is used for bullet points. The `\n` is used for a new line.  
+
+    The **Edit** page shows the markdown. When you use the **Test** panel later, you will see the markdown displayed properly. 
 
 ## Save and train
 
@@ -73,13 +85,11 @@ In the upper right, select **Save and train** to save your edits and train the Q
 ## Test the knowledge base
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect. 
-1. Enter an example user query in the box, and select Enter. Make sure **Enable multi-turn** is selected. 
+1. Enter an example user query in the textbox. 
 
-    `hello`  
+    `How many Azure services are used by a knowledge base?`  
 
-    You should see the answer text, **Surface Pro**, as a response.
-
-1. Select **Surface Pro** to see more relative prompts.
+    ![ Enter an example user query in the textbox. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
 
 1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
 
@@ -121,9 +131,11 @@ When you make changes to the knowledge base and republish, you don't need to tak
 1. Under **Bot Management**, select **Test in Web Chat**.
 1. At the chat prompt of **Type your message**, enter:
 
-    `hello`
+    `Azure services?`
 
     The chat bot responds with an answer from your knowledge base. 
+
+    ![Enter a user query into the test web chat.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
 
 ## Clean up resources
 
@@ -131,11 +143,28 @@ Clean up the QnA Maker and Bot framework resources in the Azure portal.
 
 ## Next steps
 
-For more information on Bot resource configuration settings, see [Create a QnA Bot with Azure Bot Service v4](../tutorials/create-qna-bot.md).
+For more information:
 
-Review the list of [data sources](../Concepts/data-sources-supported.md) supported [here]. 
-
-For cost savings measures, you can [share](../how-to/set-up-qnamaker-service-azure.md#share-existing-services-with-qna-maker) some but not all Azure resources created for QnA Maker.
+* [Markdown format in answers](concepts/data-sources-supported.md)
+* [Testing your markdown](concepts/data-sources-supported.md#testing-your-markdown)
+* QnA Maker [data sources](../Concepts/data-sources-supported.md). 
+* [Bot resource configuration settings](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]
-> [Add questions and answer with QnA Maker portal](add-question-metadata-portal.md)
+> [Add questions with metadata](add-question-metadata-portal.md)
+
+<!--
+
+## Add a follow-up prompt
+
+The knowledge base has two different data sources that are not connected. When a customer begins the bot conversation with `hello`, the bot should respond and give the user some options, known as follow-up prompts.
+
+1. In the QnA Maker portal, on the **Edit** section, search for `hello`.  The primary question is **Aloha**. For the **Aloha** question and answer set, select **Add follow-up prompt**.
+1. For **Display text**, enter `Surface Pro`.
+1. In **Link to QnA**, search for `Surface Pro`. This returns existing question and answer pairs from your data sources. Select the top question then select **Save**.
+
+    The knowledge base knows that a beginning prompt should follow up with options for question and answer sets about the Surface Pro. 
+
+    `https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/multi-turn.docx`
+
+--->
