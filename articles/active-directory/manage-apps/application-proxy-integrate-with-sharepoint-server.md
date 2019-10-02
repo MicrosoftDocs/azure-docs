@@ -127,7 +127,7 @@ The SharePoint web application must be configured with Kerberos and the appropri
 
         ![Alternate Access Mappings of extended application](./media/application-proxy-integrate-with-sharepoint-server/extend-webapp-aam.png)
 
-### Ensure that SharePoint web application is running under a domain account
+### Ensure that the SharePoint web application is running under a domain account
 
 Use the following steps to identify the account running the application pool of the SharePoint web application, and ensure it is a domain account:
 
