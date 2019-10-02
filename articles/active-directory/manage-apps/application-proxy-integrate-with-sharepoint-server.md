@@ -82,7 +82,7 @@ The SharePoint web application must be configured with Kerberos and the appropri
 
 ### Provision the SharePoint web application
 
-- If you create a new web application and use only Default zone (preferred option):
+- If you create a new web application and use only the Default zone (preferred option):
 
     1. Start the **SharePoint Management Shell** and run the following script:
 
