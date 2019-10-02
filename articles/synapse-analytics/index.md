@@ -1,6 +1,6 @@
 ---
-title: Azure Arcadia Documentation - Tutorials, Concepts | Microsoft Docs
-description: Learn how to use an Azure Arcadia, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
+title: Azure Synapse Analytics Documentation - Tutorials, Concepts | Microsoft Docs
+description: Learn how to use an Azure Synapse Analytics, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
 services: sql-data-warehouse
 author: hirokib
 manager: craigg
@@ -13,7 +13,7 @@ ms.author: elbutter
 ms.reviewer: igorstan
 ---
 
-# Arcadia Documentation
+# Azure Synapse Analytics Documentation
 
 Learn how to use an Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse. 
 

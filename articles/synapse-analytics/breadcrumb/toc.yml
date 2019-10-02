@@ -2,39 +2,39 @@
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /azure/sql-database/
-    topicHref: /azure/arcadia/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /azure/sql-data-warehouse/
-    topicHref: /azure/arcadia/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /azure/azure-databricks/
-    topicHref: /azure/arcadia/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /azure/data-factory/
-    topicHref: /azure/arcadia/index
+    topicHref: /azure/synapse-analytics/index
 
 - name: Azure
   tocHref: /azure/
   topicHref: /azure/index
   items:
-  - name: Arcadia
+  - name: Synapse Analytics
     tocHref: /sql/t-sql/
-    topicHref: /azure/arcadia/index
+    topicHref: /azure/synapse-analytics/index
 
