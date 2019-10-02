@@ -135,8 +135,6 @@
       href: how-to-update-iot-edge.md
   - name: Auto-provision with DPS
     items:
-    - name: X.509 attestation
-      href: how-to-auto-provision-x509-certificates.md
     - name: TPM attestation
       items:
       - name: Linux
