@@ -38,6 +38,20 @@
       href: create-cluster-database-csharp.md
     - name: Python
       href: create-cluster-database-python.md  
+    - name: Azure Resource Manager template
+      href: create-cluster-database-resource-manager.md
+  - name: Create policies
+    items:
+    - name: C#
+      href: database-table-policies-csharp.md
+    - name: Python
+      href: database-table-policies-python.md
+  - name: Create data connections
+    items:
+    - name: C#
+      href: data-connection-csharp.md
+    - name: Python
+      href: data-connection-python.md  
   - name: Ingest data
     items:
     - name: Event Hub
@@ -88,6 +102,8 @@
     items:
     - name: Power BI
       items:
+      - name: Best practices
+        href: power-bi-best-practices.md
       - name: connector
         href: power-bi-connector.md
       - name: imported query
