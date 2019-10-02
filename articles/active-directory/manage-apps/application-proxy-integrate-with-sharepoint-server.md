@@ -87,7 +87,7 @@ The SharePoint web application must be configured with Kerberos and the appropri
     1. Start the **SharePoint Management Shell** and run the following script:
 
        ```powershell
-       # This scripts create a web application and configure Default zone with the internal/external URL needed to work with Azure AD Application Proxy
+       # This script creates a web application and configures the Default zone with the internal/external URL needed to work with Azure AD Application Proxy
        # Edit variables below to fit your environment. Note that the managed account must exist and it must be a domain account
        $internalUrl = "https://sharepoint"
        $externalUrl = "https://spsites-demo1984.msappproxy.net/"
