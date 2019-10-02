@@ -59,7 +59,7 @@ var kustoManagementClient = new KustoManagementClient(credentials)
 };
 
 var resourceGroupName = "testrg";
-//The cluster and database that are created in step(3) at the Prerequisite section
+//The cluster and database that are created as part of the Prerequisites
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
 await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(softDeletePeriod: TimeSpan.FromDays(10)));
@@ -85,7 +85,7 @@ var kustoManagementClient = new KustoManagementClient(credentials)
 };
 
 var resourceGroupName = "testrg";
-//The cluster and database that are created in step(3) at the Prerequisite section
+//The cluster and database that are created as part of the Prerequisites
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
 await kustoManagementClient.Databases.UpdateAsync(resourceGroupName, clusterName, databaseName, new DatabaseUpdate(hotCachePeriod: TimeSpan.FromDays(5)));
@@ -115,8 +115,9 @@ var kustoConnectionStringBuilder =
 using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
 {
     //dataHotSpan and indexHotSpan should have the same value
+    var hotSpan = TimeSpan.FromDays(5);
     var command1 = CslCommandGenerator.GenerateAlterTableCachingPolicyCommand(tableName: tableName,
-                    dataHotSpan: TimeSpan.FromDays(5), indexHotSpan: TimeSpan.FromDays(5));
+                    dataHotSpan: hotSpan, indexHotSpan: hotSpan);
 
     kustoClient.ExecuteControlCommand(command);
 }
@@ -143,7 +144,7 @@ var kustoManagementClient = new KustoManagementClient(credentials)
 };
 
 var resourceGroupName = "testrg";
-//The cluster and database that are created in step(3) at the Prerequisite section
+//The cluster and database that are created as part of the Prerequisites
 var clusterName = "mykustocluster";
 var databaseName = "mykustodatabase";
 await kustoManagementClient.Databases.AddPrincipalsAsync(resourceGroupName, clusterName, databaseName,

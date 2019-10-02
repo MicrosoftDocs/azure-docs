@@ -30,11 +30,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [Set database-level/table-level policies](database-table-policies-csharp.md) (Optional)
 
-1. [An event hub with data for ingestion](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) for adding a EventHub data connection
-
-1. [An event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create), [a storage account with data for ingestion](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), and [an Event Grid subscription in your storage account](ingest-data-event-grid.md) for adding a EventGrid data connection
-
-1. [An IoT hub and a shared access policy](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) for adding an IoT hub data connection
+1. [An event hub with data for ingestion](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) for adding a EventHub data connection. Or [An event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create), [a storage account with data for ingestion](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), and [an Event Grid subscription in your storage account](ingest-data-event-grid.md) for adding a EventGrid data connection. Or [An IoT hub and a shared access policy](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) for adding an IoT hub data connection
 
 ## Install C# Nuget
 
@@ -67,15 +63,15 @@ For running the examples in this article, we need an Azure AD Application and se
     };
 
     var resourceGroupName = "testrg";
-    //The cluster and database that are created in step(3) at the Prerequisite section
+    //The cluster and database that are created as part of the Prerequisites
     var clusterName = "mykustocluster";
     var databaseName = "mykustodatabase";
     var dataConnectionName = "myeventhubconnect";
-    //The event hub that is created in step(6) at the Prerequisite section
+    //The event hub that is created as part of the Prerequisites
     var eventHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
     var consumerGroup = "$Default";
     var location = "Central US";
-    //The table and column mapping are created in step(4) at the Prerequisite section
+    //The table and column mapping are created as part of the Prerequisites
     var tableName = "StormEvents";
     var mappingRuleName = "StormEvents_CSV_Mapping";
     var dataFormat = DataFormat.CSV;
@@ -84,7 +80,7 @@ For running the examples in this article, we need an Azure AD Application and se
     ```
     |**Setting** | **Suggested value** | **Field description**|
     |---|---|---|
-    | tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The id of your tenant.|
+    | tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The id of your tenant, aka Directory ID.|
     | subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The id of the subscription you create resources with.|
     | clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client id of the application that can access resources in your tenant.|
     | clientSecret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
@@ -102,7 +98,7 @@ For running the examples in this article, we need an Azure AD Application and se
 1. Add EventGrid data connection by using the following code:
 
     ```csharp
-    //The event hub and storage account that are created in step(7) at the Prerequisite section
+    //The event hub and storage account that are created as part of the Prerequisites
     var eventHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
     var storageAccountResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Storage/storageAccounts/xxxxxx";
 
@@ -117,7 +113,7 @@ For running the examples in this article, we need an Azure AD Application and se
 1. Add IoT hub data connection by using the following code:
 
     ```csharp
-    //The IoT hub that is created in step(8) at the Prerequisite section
+    //The IoT hub that is created as part of the Prerequisites
     var iotHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Devices/IotHubs/xxxxxx";
     var sharedAccessPolicyName = "iothubforread";
 

@@ -85,8 +85,6 @@ For running the examples in this article, we need an Azure AD Application and se
 
     > [!NOTE]
     > **Create a cluster** is a long running operation. Method **create_or_update** returns an instance of LROPoller, please check [LROPoller class](https://docs.microsoft.com/en-us/python/api/msrest/msrest.polling.lropoller?view=azure-python) to get more information.
-	
-1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
 
 1. Run the following command to check whether your cluster was successfully created:
 

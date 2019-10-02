@@ -58,7 +58,7 @@ credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";
-#The cluster and database that are created in step(2) at the Prerequisite section
+#The cluster and database that are created as part of the Prerequisites
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
@@ -92,7 +92,7 @@ credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";
-#The cluster and database that are created in step(2) at the Prerequisite section
+#The cluster and database that are created as part of the Prerequisites
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 
@@ -119,10 +119,9 @@ client_id_to_add = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
 
-#The table that is created in step(3) at the Prerequisite section
+#The table that is created as part of the Prerequisites
 table_name = "<TableName>"
-#hotdata and hotindex should have the same value
-caching_policy = r'hotdata=time(5.00:00:00) hotindex=time(5.00:00:00)'
+caching_policy = r'hot = 5d'
 command = '.alter table {} policy caching '.format(table_name) +  caching_policy
 kusto_client.execute_mgmt(database_name, command)
 ```
@@ -153,7 +152,7 @@ credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";
-#The cluster and database that are created in step(2) at the Prerequisite section
+#The cluster and database that are created as part of the Prerequisites
 cluster_name = "mykustocluster";
 database_name = "mykustodatabase";
 role = "Admin"
