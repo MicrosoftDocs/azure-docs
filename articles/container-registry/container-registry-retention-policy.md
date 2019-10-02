@@ -75,7 +75,7 @@ az acr config retention show --registry myregistry
 To disable a retention policy in a registry, run the [az acr config retention update][az-acr-config-retention-update] command and set `--status disabled`:
 
 ```azurecli
-az acr config retention update --registry myregistry --status disabled
+az acr config retention update --registry myregistry --status disabled --type UntaggedManifests
 ```
 
 ## Set a retention policy - portal
