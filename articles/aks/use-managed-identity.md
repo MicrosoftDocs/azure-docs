@@ -63,12 +63,6 @@ az provider register --namespace Microsoft.ContainerService
 
 You can now create an AKS cluster with managed identities using the following CLI command
 ```azurecli-interactive
-# Create an Azure resource group
-az group create --name myResourceGroup --location westus2
-```
-
-## Create an AKS cluster
-```azurecli-interactive
 az aks create -g MyResourceGroup -n MyManagedCluster --enable-managed-identity
 ```
 
