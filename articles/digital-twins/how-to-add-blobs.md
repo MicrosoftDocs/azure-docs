@@ -179,12 +179,11 @@ Lastly, [cURL](https://curl.haxx.se/) users can make multipart form requests in 
 [![Device blobs](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
-curl
- -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
- -H "Authorization: Bearer YOUR_TOKEN"
- -H "Accept: application/json"
- -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
+curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
+ -H "Authorization: Bearer YOUR_TOKEN" \
+ -H "Accept: application/json" \
+ -H "Content-Type: multipart/form-data" \
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
