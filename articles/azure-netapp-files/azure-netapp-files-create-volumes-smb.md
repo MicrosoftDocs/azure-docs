@@ -65,7 +65,7 @@ A subnet must be delegated to Azure NetApp Files.
 
     The Network Security Groups (NSGs) and firewalls must have appropriately configured rules to allow for Active Directory and DNS traffic requests. 
 
-* Azure NetApp Files will attempt to discover all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. If the Azure NetApp Files delegated subnet cannot reach a domain controller, service interruption can occur.  
+* The Azure NetApp Files delegated subnet must be able to reach all Active Directory Domain Services (ADDS) domain controllers in the domain, including all local and remote domain controllers. Otherwise, service interruption can occur.  
 
     If you have domain controllers that are unreachable via the Azure NetApp Files delegated subnet, you can submit an Azure support request to alter the scope from **global** (default) to **site**.  Azure NetApp Files needs to communicate only with domain controllers in the site where the Azure NetApp Files delegated subnet address space resides.
 
