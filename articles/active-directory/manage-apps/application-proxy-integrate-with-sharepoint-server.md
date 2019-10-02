@@ -195,7 +195,7 @@ You are now ready to sign in to SharePoint using the external URL and authentica
 
 ## Troubleshoot sign-in errors
 
-If sign-in to the site is not working, you can get more information about the issue in the Connector logs: From the machine running the connector, open the event viewer > Applications and Services Logs > Microsoft > AadApplicationProxy > Connector and inspect the log Admin.
+If sign-in to the site is not working, you can get more information about the issue in the Connector logs: From the machine running the connector, open the event viewer, go to **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector**, and inspect the **Admin** log.
 
 ## Next steps
 
