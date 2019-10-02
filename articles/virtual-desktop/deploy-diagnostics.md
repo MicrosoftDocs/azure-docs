@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
 
@@ -199,7 +199,7 @@ After you've signed in to your account using the information you've received fro
 
 ### How to read activity search results
 
-Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify issues with the diagnostics feature](diagnostics-role-service.md#common-error-scenarios).
+Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify and diagnose issues](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Service errors are called "external errors" in the linked documentation. This will be changed when we update the PowerShell reference.
