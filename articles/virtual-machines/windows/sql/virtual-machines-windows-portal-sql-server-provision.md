@@ -192,14 +192,16 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to specify the storage requirements.
 
+sql-vm-storage-configuration-provisioning
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimized for**, select one of the following options:
 
 * **General** is the default setting and supports most workloads.
-* **Transactional** processing optimizes the storage for traditional database OLTP workloads.
+* **Transactional processing** optimizes the storage for traditional database OLTP workloads.
 * **Data warehousing** optimizes the storage for analytic and reporting workloads.
 
-![SQL VM Storage configuration](media/virtual-machines-windows-portal-sql-server-provision/sql-vm-storage-configuration.png)
+![SQL VM Storage configuration](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
 You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md). 
 

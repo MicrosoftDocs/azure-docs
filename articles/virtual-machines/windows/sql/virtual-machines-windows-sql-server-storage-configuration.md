@@ -39,11 +39,11 @@ The following sections describe how to configure storage for new SQL Server virt
 
 ### Azure portal
 
-When provisioning an Azure VM using a SQL Server gallery image, you can customize the storage that suits your needs, or leave the values at the default chosen **Storage optimization**. 
+When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the storage configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on disk striping and IOPS. 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) and **Data warehousing** will create separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). 
+Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or  **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). 
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
 
