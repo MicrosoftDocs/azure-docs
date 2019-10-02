@@ -89,7 +89,7 @@ az spring-cloud app deployment create --app <app-name> -n <deployment-name> --ja
 
 ### Deploy from source code
 
-Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to upload your source code, build your project, and deploy it to the target application.
+Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
 
 > [!WARNING]
 > The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
@@ -115,3 +115,6 @@ Review the kpack build logs using the following command:
 ```azurecli
 az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 ```
+
+> [!NOTE]
+> The kpack logs will only show the latest deployment if that deployment was built from source using kpack.
