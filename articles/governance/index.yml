@@ -148,7 +148,7 @@ additionalContent:
               url: /rest/api/guestconfiguration/
               note: (Guest Configuration)
             - text: Resource Manager templates
-              url: /azure/templates/microsoft.authorization
+              url: /azure/templates/microsoft.authorization/allversions
         - title: Azure Blueprints
           links:
             - text: Blueprint functions
