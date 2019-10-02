@@ -3,31 +3,49 @@ title: Invite users to Video Indexer - Azure
 titlesuffix: Azure Media Services
 description: This article shows how to invite users to Video Indexer.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
-ms.author: anzaman
+ms.date: 10/01/2019
+ms.author: juliako
 ---
 
-# Invite users to Video Indexer
+# Quickstart: Invite users to Video Indexer
 
-To collaborate with your colleagues, you can invite them to your Video Indexer account. Note that only the account’s admin can add or remove users.
+To collaborate with your colleagues, you can invite them to your Video Indexer account. 
+
+> [!NOTE]
+> Only the account’s admin can add or remove users.
 
 ## Invite new users
 
-1.	When connected with an admin account, click on the “Invite others” button on the top menu:
+1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website. Make sure you are connected with an admin account.
+1. Click the **Invite others** button on the top menu:
 
    ![Invite new users](./media/invite-users/invite-users.png)
-2.	Add the email addresses of the people you want to add to your Video Indexer account:
 
-    ![Invite new users](./media/invite-users/invite-to-account.png)
+1. Add the email addresses of the people you want to add to your Video Indexer account:
+
+    ![Invite users to this account](./media/invite-users/invite-to-account.png)
         
     >[!NOTE]
     > All the users you invite will have read and write permission to all of the videos in your account.
-3.	The users you invited will get an email with a link and will be able to access the account once they click on the “Join Video Indexer” link:
+1. The users you invited will get an email with a link and will be able to access the account once they click on the **Join Video Indexer** link:
 
-    ![Invite new users](./media/invite-users/invite-msg.png)
+    ![Confirmation](./media/invite-users/invite-msg.png)
+
+    The user must click on the link to join in order to gain access to the account. 
+
+## Removing existing users
+
+If you want to remove users that have access to your account, you can click on the **X** sign next to their name:
+
+![Remove users](./media/invite-users/remove-users.png)
+
+The user will not receive a notification upon removal, they will not be authorized when they try to log in.
+
+## Next steps
+
