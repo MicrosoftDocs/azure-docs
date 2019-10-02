@@ -20,15 +20,18 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 1. [Install Git](https://git-scm.com/)
 2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-5. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+
+> [!TIP]
+> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ## Install the Azure CLI extension
 
 Install the Azure Spring Cloud extension for the Azure CLI with the following command
 
 ```Azure CLI
-az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.4/spring_cloud-0.4.0-py2.py3-none-any.whl
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
 ```
 
 ## Provision a service instance using the Azure CLI
@@ -81,7 +84,7 @@ az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <depployment-name> --jar-path <path-to-built-jar>
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
 ```
 
 ### Deploy from source code
