@@ -5,7 +5,7 @@ author: tfitzmac
 
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
 ---
 
@@ -47,3 +47,9 @@ You can get the current count in the deployment history with the following comma
 (Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup).Count
 ```
 
+## Third-party solutions
+
+The following external solutions address specific scenarios:
+
+* [Azure Logic Apps and PowerShell solutions](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
+* [AzDevOps Extension](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)
