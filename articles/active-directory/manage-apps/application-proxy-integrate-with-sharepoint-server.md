@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/02/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
@@ -163,7 +163,7 @@ You can now access the SharePoint site externally via Azure AD Application Proxy
 
 ## Step 3: Configure Kerberos Constrained Delegation (KCD)
 
-Users will initially authenticate in Azure Active Directory, then to SharePoint using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure Active Directory user, it is required to configure Kerberos Constrained Delegation with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://technet.microsoft.com/library/jj553400.aspx).
+Users will initially authenticate in Azure Active Directory, then to SharePoint using Kerberos through the Azure AD Proxy connector. To allow the connector to obtain a Kerberos token on behalf of the Azure Active Directory user, it is required to configure Kerberos Constrained Delegation with protocol transition. To learn more about KCD, see [Kerberos Constrained Delegation Overview](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/jj553400(v=ws.11)).
 
 ### Set the service principal name for the SharePoint service account
 
@@ -173,7 +173,7 @@ To register SPN `HTTP/sharepoint` for the SharePoint application pool account `C
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
 The Setspn command searches for the SPN before it adds it. If it already exists, you will see a **Duplicate SPN Value** error. In this case, consider removing the existing SPN if it's not set under the correct application pool account.  
-You can verify that the SPN was added successfully by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
+You can verify that the SPN was added successfully by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11)).
 
 ### Ensure that the connector is trusted for delegation to the SPN added to the SharePoint application pool account
 
@@ -193,9 +193,9 @@ To configure the KCD, repeat the following steps for each connector machine:
 
 You are now ready to sign in to SharePoint using the external URL and authenticate with Azure.
 
-## Troubleshoot sign-in errors
+## Troubleshoot sign in errors
 
-If sign-in to the site is not working, you can get more information about the issue in the Connector logs: From the machine running the connector, open the event viewer, go to **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector**, and inspect the **Admin** log.
+If sign in to the site is not working, you can get more information about the issue in the Connector logs: From the machine running the connector, open the event viewer, go to **Applications and Services Logs** > **Microsoft** > **AadApplicationProxy** > **Connector**, and inspect the **Admin** log.
 
 ## Next steps
 
