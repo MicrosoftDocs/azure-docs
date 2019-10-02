@@ -15,7 +15,7 @@ ms.date: 09/25/2019
 
 You're the cluster administrator of an Azure Red Hat OpenShift cluster. Your account has increased permissions and access to all user-created projects.
 
-When your account has the osa-customer-admins authorization role bound to it, it can automatically manage a project.
+When your account has the osa-customer-admin authorization role bound to it, it can automatically manage a project.
 
 > [!Note] 
 > The osa-customer-admin cluster role is not the same as the cluster-admin cluster role.
