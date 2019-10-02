@@ -225,4 +225,4 @@ Sample Output:
     ```
 ## Next steps
 
-Next, you can [publish and subscribe](pub-sub-events-webhook-local.md) to events locally using Event Grid on IoT Edge.
+Next, learn more about [Azure Blob Storage on IoT Edge](../azure/iot-edge/how-to-store-data-blob.md) and its features.
