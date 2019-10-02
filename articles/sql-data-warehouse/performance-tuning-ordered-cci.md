@@ -64,7 +64,7 @@ OPTION (MAXDOP 1);
 - Pre-sort the data by the sort key(s) before loading them into Azure SQL Data Warehouse tables.
 
 
-Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations.  The ordered CCI table is created via CTAS from a 20GB heap table using MAXDOP 1, xlargerc, and DWU1000c.  The CCI is ordered on a BIGINT column with no duplicates.  
+Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations.  The ordered CCI table is created in a DWU1000c database via CTAS from a 20GB heap table using MAXDOP 1 and xlargerc.  The CCI is ordered on a BIGINT column with no duplicates.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
