@@ -157,7 +157,7 @@ To remove the profile, run the following command:
    C:\> Remove-VpnConnection UserTest  
    ```
 
-![Cleanup](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4.jpg)
+![Cleanup](./media/vpn-gateway-howto-always-on-user-tunnel/p2s4..jpg)
 
 ## Next steps
 
