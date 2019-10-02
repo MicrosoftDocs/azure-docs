@@ -150,10 +150,10 @@ To remove a VM from Update Management:
 
 ## Next steps
 
-Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to view the update assessment for your machines.
+Now that the solution is enabled for your virtual machines, visit the Update Management overview article to learn how to create an **Update Deployment** for your machines.
 
 > [!div class="nextstepaction"]
-> [Update Management - View update assessment](./automation-update-management.md#viewing-update-assessments)
+> [Update Management - Create an Update Deployment](./automation-create-an-update-deployment.md)
 
 Addition tutorials on the solutions and how to use them:
 

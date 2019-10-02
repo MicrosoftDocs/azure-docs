@@ -53,7 +53,7 @@ Select **Add Azure VMs**.
 
 ![Add Azure VM tab](./media/manage-update-multi/update-onboard-vm.png)
 
-Select a virtual machine to onboard. 
+Select a virtual machine to onboard.
 
 Under **Enable Update Management**, select **Enable** to onboard the virtual machine.
 
@@ -124,12 +124,12 @@ In the **New update deployment** pane, specify the following information:
 
 - **Name**: Enter a unique name to identify the update deployment.
 - **Operating system**: Select **Windows** or **Linux**.
-- **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management.md#using-dynamic-groups)
+- **Groups to update (preview)**: Define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more see, [Dynamic Groups](automation-update-management-groups.md)
 - **Machines to update**: Select a Saved Search, Imported group, or select Machines, to choose the machines that you want to update. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column. You can see the health state of the machine before you schedule the update deployment. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md)
 
   ![New update deployment pane](./media/manage-update-multi/update-select-computers.png)
 
-- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-update-management.md#update-classifications). The classification types are:
+- **Update classification**: Select the types of software to include in the update deployment. For a description of the classification types, see [Update classifications](automation-view-update-assessments.md#update-classifications). The classification types are:
   - Critical updates
   - Security updates
   - Update rollups

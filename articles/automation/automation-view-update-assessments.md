@@ -10,7 +10,7 @@ ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-## View update assessments
+# View update assessments
 
 In your Automation account, select **Update Management** to view the status of your machines.
 
@@ -24,7 +24,7 @@ To run a log search that returns information about the machine, update, or deplo
 
 Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, the operating system, and a link for more information is shown. The **Log search** pane shows more details about the updates.
 
-[ScreenShot]
+![Missing Updates](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## Update classifications
 

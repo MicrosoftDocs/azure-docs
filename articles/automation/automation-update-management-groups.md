@@ -14,9 +14,6 @@ manager: carmonm
 
 Update Management provides the ability to target a dynamic group of Azure or Non-Azure VMs for update deployments. These groups are evaluated at deployment time so you do not have to edit your deployment to add machines.
 
-> [!NOTE]
-> You must have the proper permissions when creating an update deployment. To learn more, see [Create an Update Deployment](automation-create-an-update-deployment.md).
-
 ## Azure machines
 
 These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
@@ -40,4 +37,4 @@ For Non-Azure machines, saved searches also referred to as computer groups are u
 
 ## Next Steps
 
-After creating a dynamic group, you can [Create an Update Deployment](automation-create-an-update-deployment.md)
+After creating a dynamic group, you can [Create an Update Deployment](automation-tutorial-update-management.md)

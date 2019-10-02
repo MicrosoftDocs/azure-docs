@@ -148,7 +148,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 ### Issue
 
-You have configured [Reboot Control](automation-update-management.md#install-updates) with **Never Reboot**, but machines are still rebooting after installed updates.
+You have configured **Reboot Control** with **Never Reboot**, but machines are still rebooting after installed updates.
 
 ### Cause
 
@@ -180,7 +180,7 @@ This error may happen due to one of the following reasons:
 
 ### Resolution
 
-When applicable use [dynamic groups](../automation-update-management.md#using-dynamic-groups) for your update deployments.
+When applicable use [dynamic groups](../automation-update-management-groups.md) for your update deployments.
 
 * Verify the machine still exists and is reachable. If it does not exist, edit your deployment and remove the machine.
 * See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required for Update Management and verify your machine meets these requirements.
@@ -280,7 +280,7 @@ The default maintenance window for updates, is 120 minutes. You can increase the
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
-For more information on maintenance windows, see [Install Updates](../automation-update-management.md#install-updates).
+For more information on maintenance windows, see [Install Updates](../automation-tutorial-update-management.md#schedule-an-update-deployment).
 
 ## <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
 

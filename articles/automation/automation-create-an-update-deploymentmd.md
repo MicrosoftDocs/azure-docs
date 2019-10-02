@@ -77,50 +77,7 @@ Below is a list of all available **Update Deployment** properties and their desc
 
 ### New Update Deployment properties
 
-| Property | Description |
-| --- | --- |
-| Name |Unique name to identify the **update deployment**. |
-|Operating System| Linux or Windows|
-| Groups to update |For Azure machines, define a query based on a combination of subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. </br></br>For Non-Azure machines, select an existing saved search to select a group of Non-Azure machines to include in the deployment. </br></br>To learn more, see [Dynamic Groups](automation-update-management.md#using-dynamic-groups)|
-| Machines to update |Select a Saved search, Imported group, or pick Machine from the drop-down and select individual machines. If you choose **Machines**, the readiness of the machine is shown in the **UPDATE AGENT READINESS** column.</br> To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../azure-monitor/platform/computer-groups.md) |
-|Update classifications|Select all the update classifications that you need|
-|Include/exclude updates|This opens the **Include/Exclude** page. Updates to be included or excluded are on separate tabs. For more information on how inclusion is handled, see [inclusion behavior](automation-update-management.md#inclusion-behavior) |
-|Schedule settings|Select the time to start, and select either Once or recurring for the recurrence|
-| Pre-scripts + Post-scripts|Select the scripts to run before and after your deployment|
-| Maintenance window |Number of minutes set for updates. The value can't be less than 30 minutes and no more than 6 hours |
-| Reboot control| Determines how reboots should be handled. Available options are:</br>Reboot if required (Default)</br>Always reboot</br>Never reboot</br>Only reboot - will not install updates|
 
-**Update Deployments** can also be created programmatically. To learn how to create an **Update Deployment** with the REST API, see [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create). There is also a sample runbook that can be used to create a weekly **Update Deployment**. To learn more about this runbook, see [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
-
-> [!NOTE]
-> The Registry keys listed under [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause a reboot event if **Reboot Control** is set to **Never Reboot**.
-
-### Maintenance Windows
-
-Maintenance windows control the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window.
-
-* Maintenance windows control how many updates are attempted to be installed.
-* Update Management does not stop installing new updates if the end of a maintenance window is approaching.
-* Update Management does not terminate in-progress updates if when the maintenance window is exceeded.
-* If the maintenance window is exceeded on Windows, it is often because of a service pack update taking a long time to install.
-
-> [!NOTE]
-> “By the way” info not critical to a taskTo avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the Unattended-Upgrade package to disable automatic updates. For information about how to configure the package, see [Automatic Updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
-
-### <a name="multi-tenant"></a>Cross-tenant Update Deployments
-
-If you have machines in another Azure tenant reporting to Update Management that you need to patch, you'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) cmdlet and pass the machines in the other tenant to the `-NonAzureComputer` parameter. The following example shows an example on how to do this:
-
-```azurepowershell-interactive
-$nonAzurecomputers = @("server-01", "server-02")
-
-$startTime = ([DateTime]::Now).AddMinutes(10)
-
-$sched = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccountName myaccount -Name myupdateconfig -Description test-OneTime -OneTime -StartTime $startTime -ForUpdate
-
-New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName <automationAccountName> -Schedule $sched -Windows -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
-```
 
 ## View update deployments
 
@@ -130,7 +87,7 @@ Now that we have created a new **Update Deployment**, select the **Deployment Sc
 
 Next, select the **History** tab and click on the most recent run of your **Update Deployment** to open the **Update Deployment Run** pane for that update deployment. Job logs are stored for a max of 30 days.
 
-![Overview of update deployment results](./media/automation-create-an-update-deployment/automation-create-deployment-deployment-schedules-run.png)
+![Overview of update deployment results](./media/automation-create-an-update-deployment/automation-create-deployment-deployment-run.png)
 
 To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
 
