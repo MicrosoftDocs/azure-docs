@@ -27,7 +27,7 @@ In Azure Search, "search-as-you-type" or typeahead functionality is based on a *
 
 A suggester supports two typeahead variants: *autocomplete*, which completes the term or phrase you are typing, and *suggestions* that return a short list of matching documents.  
 
-The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are hotel names. This is because only the HotelName field is listed in the suggester.
+The following screenshot, from the [Create your first app in C#](tutorial-csharp-type-ahead-and-suggestions.md) sample, illustrates typeahead. Autocomplete anticipates what the user might type into the search box. Actual input is "tw", which autocomplete finishes with "in", resolving as "twin" as the prospective search term. Suggestions are visualized in the dropdown list. For suggestions, you can surface any part of a document that best describes the result. In this example, the suggestions are hotel names. 
 
 ![Visual comparison of autocomplete and suggested queries](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "Visual comparison of autocomplete and suggested queries")
 
@@ -109,9 +109,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 ### Analyzer restrictions for sourceFields in a suggester
 
-By default, for both autocomplete and suggestions, query execution occurs when the first two-character combination is received. To meet the performance expectations inherent in typeahead experiences, partial as well as whole terms must be analyzed and indexed, which increases the complexity and longevity of both processes. 
-
-The constraint of using only named analyzers on `sourceFields` exists as a way to limit unforeseen complications during the analysis phase of both indexing and querying. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
+Azure Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms, which requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, Azure Search prevents fields with custom analyzers from being included in a suggester.
 
 > [!NOTE] 
 >  If you need to work around the above limitation, use two separate fields for the same content. This will allow one of the fields to have a suggester, while the other can be set up with a custom analyzer configuration.
