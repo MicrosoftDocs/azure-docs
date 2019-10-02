@@ -201,7 +201,7 @@ Yes. The data pages associated with a given table can end up in multiple data fi
 
 ### Can I move my existing Azure SQL databases to the Hyperscale service tier
 
-Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview).
+Yes. You can move your existing Azure SQL databases to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
   
 ### Can I move my Hyperscale databases to other editions
 
@@ -211,9 +211,9 @@ No. At this time, you can’t move a Hyperscale database to another service tier
 
 Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, including but not limited long term retention backup. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
 
-### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
+### Can I move my on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
-Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, logical data loading. See also the [Azure Database Migration Service](../dms/dms-overview.md).
+Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
 ### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
