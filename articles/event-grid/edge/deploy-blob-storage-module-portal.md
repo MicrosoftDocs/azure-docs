@@ -23,6 +23,7 @@ This article shows you how deploy the Azure Blob Storage on IoT module, which wo
 To complete this tutorial, you will need:-
 
 * **Azure Event Grid module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) article if you don't have this set up.
+* **Azure Function module on an IoT Edge Device**. Follow the steps in described in the [Tutorial: Deploy Azure Functions module](deploy-func-webhook-module-portal.md) article if you don't have this set up.
 
 ## Select your IoT Edge device
 
@@ -167,7 +168,7 @@ Keep the default routes, and select **Next** to continue to the review section
         }
     ```
 
-2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../azure/iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## Verify Event Delivery
 
@@ -230,4 +231,4 @@ Sample Output:
 
 ## Next steps
 
-Next, learn more about [Azure Blob Storage on IoT Edge](../azure/iot-edge/how-to-store-data-blob.md) and its features.
+Next, learn more about [Azure Blob Storage on IoT Edge](../../iot-edge/how-to-store-data-blob.md) and its features.
