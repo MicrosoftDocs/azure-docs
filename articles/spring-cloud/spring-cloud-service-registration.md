@@ -1,6 +1,6 @@
 ---
-title:  Service discovery and registration using Eureka
-description: Learn how to discover and register your Spring Cloud services using Eureka
+title:  Automate service registry and discovery 
+description: Learn how to automate service discovery and registration using Spring Cloud Service Registry
 author:  jpconnock
 
 ms.service: spring-cloud
@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
 ---
-# Discover and register your Spring Cloud services using Eureka
+# Discover and register your Spring Cloud services
 
-Service Discovery is a key requirement for a microservice-based architecture.  Configuring each client manually takes time and introduce the possibility of human error.  Azure Spring Cloud offers service discovery through Eureka to solve this problem.  Once configured, a Eureka server will control service registration and discovery for your application's microservices. The Eureka server maintains a registry of the deployed microservices.  This service enables client-side load-balancing and decouples service providers from clients without relying on DNS.
+Service Discovery is a key requirement for a microservice-based architecture.  Configuring each client manually takes time and introduces the possibility of human error.  Azure Spring Cloud Service Registry solves this problem.  Once configured, a Service Registry server will control service registration and discovery for your application's microservices. The Service Registry server maintains a registry of the deployed microservices, enables client-side load-balancing, and decouples service providers from clients without relying on DNS.
 
-## Register your application using Eureka
+## Register your application using Spring Cloud Registry
 
-Before your application can manage service registration and discovery using Eureka, several dependencies must be included in the application's *pom.xml* file.
+Before your application can manage service registration and discovery using Spring Cloud Registry, several dependencies must be included in the application's *pom.xml* file.
 
 To begin, we add a snapshot repository to the *repository* section of your *pom.xml*
 
@@ -64,6 +64,6 @@ Finally, we add an annotation to the top level class of your application
     }
  ```
 
-The Eureka server endpoint will be injected as an environment variable in your application.  Microservices will now be able to register themselves with the Eureka server and discover other dependent microservices.
+The Spring Cloud Registry server endpoint will be injected as an environment variable in your application.  Microservices will now be able to register themselves with the Registry server and discover other dependent microservices.
 
 Note that it can take a few minutes for the changes to propagate from the server to all microservices.
