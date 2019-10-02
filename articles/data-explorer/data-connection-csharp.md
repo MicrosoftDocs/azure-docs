@@ -1,7 +1,7 @@
 ---
 title: 'Add data connections for Azure Data Explorer by using C#'
 description: In this article, you learn how to add data connections for Azure Data Explorer by using C#.
-author: lugoldbe
+author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer

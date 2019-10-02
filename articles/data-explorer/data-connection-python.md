@@ -1,7 +1,7 @@
 ---
 title: 'Add data connections for Azure Data Explorer by using Python'
 description: In this article, you learn how to add data connections for Azure Data Explorer by using Python.
-author: lugoldbe
+author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
@@ -43,7 +43,7 @@ pip install azure-mgmt-kusto
 pip install adal
 pip install msrestazure
 ```
-# Authentication
+## Authentication
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
 
 ## Add data connections
