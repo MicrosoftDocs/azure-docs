@@ -172,7 +172,7 @@ Keep the default routes, and select **Next** to continue to the review section
 ## Verify Event Delivery
 
 Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#step-4-verify-event-delivery)
-1. On uploading files as block blobs from Azure Storage Explorer you are publishing create events. Checkout the subscriber logs for create event
+1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. Checkout the subscriber logs for create event
 
 Sample Output:
 
@@ -200,7 +200,7 @@ Sample Output:
       ]
 ```
 
-2. When you delete blobs from Azure Storage Explorer you are publishing delete events. Checkout the subscriber logs for delete event
+2. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. Checkout the subscriber logs for delete event
 
 Sample Output:
 
