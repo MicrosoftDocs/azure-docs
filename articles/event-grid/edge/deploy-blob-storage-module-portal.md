@@ -13,7 +13,7 @@ services: event-grid
 
 # Tutorial: Deploy Azure Blob Storage on IoT Edge module (Preview)
 
-This article shows you how deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid
+This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid
 
 > [!CAUTION]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
@@ -84,7 +84,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
 ### Review deployment
 
-1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see the following four modules: **$edgeAgent**, **$edgeHub**, **eventgridmodule** and **subscriber** that were deployed previously.
+1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see the following four modules: **$edgeAgent**, **$edgeHub**, **eventgridmodule**, and **subscriber** that were deployed previously.
 2. Review your deployment information, then select **Submit**.
 
 ## Verify your deployment
@@ -173,7 +173,7 @@ Keep the default routes, and select **Next** to continue to the review section
 ## Verify Event Delivery
 
 Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#step-4-verify-event-delivery)
-1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. Checkout the subscriber logs for create event
+1. Upload files as block blobs to the local storage from Azure Storage Explorer, and the module will automatically publish create events. Check out the subscriber logs for create event
 
 Sample Output:
 
@@ -201,7 +201,7 @@ Sample Output:
       ]
 ```
 
-2. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. Checkout the subscriber logs for delete event
+2. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. Check out the subscriber logs for delete event
 
 Sample Output:
 
