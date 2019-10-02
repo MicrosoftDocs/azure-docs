@@ -5,7 +5,7 @@ author: Jain-Garima
 ms.author: gjain
 ms.date: 5/17/2019
 ms.topic: article
-ms.service: security
+ms.service: azure-government
 ms.reviewer: rochiou
 ---
 
