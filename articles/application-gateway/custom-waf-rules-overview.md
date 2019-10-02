@@ -9,7 +9,7 @@ ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Custom rules for web application firewall v2
+# Overview: Custom rules for web application firewall v2
 
 Azure Application Gateway web application firewall (WAF) v2 comes with a pre-configured, platform-managed rule set that offers protection from many different types of attacks. These attacks include cross-site scripting, SQL injection, and others. If you're a WAF admin, you might want to write your own rules to augment the core rule set rules. Your rules can either block or allow requested traffic based on matching criteria.
 
