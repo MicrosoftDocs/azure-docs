@@ -137,7 +137,7 @@ Use the following steps to identify the account running the application pool of 
 
    ![Choices for configuring a service account](./media/application-proxy-integrate-with-sharepoint-server/service-web-application.png)
 
-1. Confirm that **Select an account for this component** returns a domain account, and remember it as it will be needed in next step.
+1. Confirm that **Select an account for this component** returns a domain account, and remember it as it will be needed in the next step.
 
 ### Ensure that an HTTPS certificate is configured for the IIS site of the Extranet zone
 
