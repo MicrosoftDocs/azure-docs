@@ -184,6 +184,8 @@
       items:
         - name: Disk encryption scenarios for Linux
           href: disk-encryption-linux.md
+        - name: VM encryption with Azure portal
+          href: disk-encryption-portal-quickstart.md
         - name: VM encryption with Azure CLI
           href: disk-encryption-cli-quickstart.md
         - name: VM encryption with Azure PowerShell
