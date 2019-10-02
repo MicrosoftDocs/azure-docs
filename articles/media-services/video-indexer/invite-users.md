@@ -49,3 +49,10 @@ The user will not receive a notification upon removal, they will not be authoriz
 
 ## Next steps
 
+You can now use the [Video Indexer website](video-indexer-view-edit.md) or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video.
+
+## See also
+
+- [Video Indexer overview](video-indexer-overview.md)
+- [How to sign up and upload your first video](video-indexer-get-started.md)
+- [Start using APIs](video-indexer-use-apis.md)
