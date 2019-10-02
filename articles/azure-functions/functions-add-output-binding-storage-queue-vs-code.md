@@ -6,8 +6,7 @@ ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-manager: jeconnoc
+manager: gwallace
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 

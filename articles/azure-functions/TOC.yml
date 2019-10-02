@@ -15,7 +15,7 @@
   items:
   - name: Create function - C#
     href: functions-create-your-first-function-visual-studio.md
-  - name: Create function - Java/Maven
+  - name: Create function - Java
     href: functions-create-first-java-maven.md
   - name: Create function - JavaScript
     href: functions-create-first-function-vs-code.md
@@ -27,6 +27,8 @@
     items:
     - name: Storage - C#
       href: functions-add-output-binding-storage-queue-vs.md
+    - name: Storage - Java
+      href: functions-add-output-binding-storage-queue-java.md
     - name: Storage - JavaScript
       href: functions-add-output-binding-storage-queue-vs-code.md
     - name: Storage - Python
