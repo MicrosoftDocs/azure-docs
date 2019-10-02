@@ -470,17 +470,7 @@
           - name: ETL for analytics
             href: saas-multitenantdb-tenant-analytics.md
 
-  - name: Samples
-    items:
-    - name: Azure CLI
-      href: sql-database-cli-samples.md
-    - name: Azure PowerShell
-      href: sql-database-powershell-samples.md
-    - name: Azure Resource Manager
-      displayName: Resource Manager template
-      href: sql-database-resource-manager-samples.md 
-    - name: Code samples
-      href: https://azure.microsoft.com/resources/samples/?service=sql-database
+
 
 - name: SQL databases
   items:
@@ -703,7 +693,10 @@
       href: sql-database-cli-samples.md?tabs=single-database
     - name: Azure PowerShell
       href: sql-database-powershell-samples.md?tabs=single-database
-
+    - name: Azure Resource Manager
+      href: sql-database-resource-manager-samples.md?tabs=single-database
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 
 
@@ -791,7 +784,16 @@
     - name: Connect applications
       href: sql-database-managed-instance-connect-app.md
 
-
+  - name: Samples
+    items:
+    - name: Azure CLI
+      href: sql-database-cli-samples.md?tabs=managed-instance
+    - name: Azure PowerShell
+      href: sql-database-powershell-samples.md?tabs=managed-instance
+    - name: Azure Resource Manager
+      href: sql-database-resource-manager-samples.md?tabs=managed-instance
+    - name: Code samples
+      href: https://azure.microsoft.com/resources/samples/?service=sql-database
 
 - name: Reference
   items:
