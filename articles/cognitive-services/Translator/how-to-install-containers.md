@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/02/2019
 ms.author: dapine
 ---
 
@@ -103,9 +103,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 ```Docker
 docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-translator-text:ar_de_en_ru_zh_1.0.0 \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+Eula=accept
 ```
 
 This command:
@@ -152,7 +150,7 @@ The `POST /translate` method supports the following languages conversions, movin
 | English :left_right_arrow: French | `en-US` :left_right_arrow: `fr-FR` | `de_en_es_fr_1.0.0` |
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula` must be specified to run the container; otherwise, the container won't start.
 
 ## Query the container's translate endpoint
 
@@ -260,14 +258,6 @@ namespace TranslateContainer
 ## Troubleshooting
 
 If you run the container with an output [mount](translator-text-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
-
-## Billing
-
-The Translator Text containers send billing information to Azure, using a *Translator Text* resource on your Azure account.
-
-[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
-
-For more information about these options, see [Configure containers](translator-text-container-config.md).
 
 <!--blogs/samples/video course -->
 

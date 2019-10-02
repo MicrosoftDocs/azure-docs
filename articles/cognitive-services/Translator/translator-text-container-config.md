@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.author: dapine
 ---
 
@@ -21,31 +21,11 @@ Translator Text provides each container with a common configuration framework, s
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise, your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-to-install-containers.md#billing).
-
-## ApiKey configuration setting
-
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Translator Text_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
-
-This setting can be found in the following place:
-
-* Azure portal: **Translator Text** resource management, under **Keys**
+> The [`Eula`](#eula-setting) setting must be provided with the value of `accept`; otherwise, your container won't start.
 
 ## ApplicationInsights setting
 
 [!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
-
-## Billing configuration setting
-
-The `Billing` setting specifies the endpoint URI of the _Translator Text_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Translator Text_ resource on Azure. The container reports usage about every 10 to 15 minutes.
-
-This setting can be found in the following place:
-
-* Azure portal: **Translator Text** Overview, labeled `Endpoint`
-
-|Required| Name | Data type | Description |
-|--|------|-----------|-------------|
-|Yes| `Billing` | String | The required billing endpoint URI |
 
 ## Eula setting
 
@@ -83,17 +63,6 @@ The following examples use the configuration settings to illustrate how to write
 * **Line-continuation character**: The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with docker containers.
 
-Replace {_argument_name_} with your own values:
-
-| Placeholder | Value | Format or example |
-|-------------|-------|---|
-| **{API_KEY}** | The endpoint key of the `Translator Text` resource available on the Azure `Translator Text` Keys page. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Translator Text` Overview page.| See [gathering required parameters](how-to-install-containers.md#gathering-required-parameters) for explicit examples. |
-
-> [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-to-install-containers.md#billing).
-> The ApiKey value is the **Key** from the Azure `Translator Text` Resource keys page. 
-
 ## Translator Text container docker examples
 
 The following docker examples are for the Translator Text container.
@@ -103,9 +72,7 @@ The following docker examples are for the Translator Text container.
 ```
 docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-translator-text \
-Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY}
+Eula=accept
 ```
 
 ### Logging example
@@ -114,8 +81,6 @@ ApiKey={API_KEY}
 docker run --rm -it -p 5000:80 --memory 4g --cpus 4 \
 containerpreview.azurecr.io/microsoft/cognitive-services-translator-text \
 Eula=accept \
-Billing={ENDPOINT_URI} \
-ApiKey={API_KEY} \
 Logging:Console:LogLevel:Default=Information
 ```
 
