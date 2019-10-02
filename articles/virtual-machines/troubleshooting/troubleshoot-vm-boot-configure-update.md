@@ -4,7 +4,7 @@ description: Introduce the steps to troubleshoot the issue in which VM startup i
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 

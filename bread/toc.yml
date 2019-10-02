@@ -108,9 +108,16 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
-  - name: Azure Blockchain Service
-    tocHref: /azure/blockchain/service
-    topicHref: /azure/blockchain/service
+  - name: Blockchain
+    tocHref: /azure/blockchain/
+    topicHref: /azure/blockchain/
+    items:
+    - name: Blockchain Service
+      tocHref: /azure/blockchain/service/
+      topicHref: /azure/blockchain/service/index
+    - name: Blockchain Workbench
+      tocHref: /azure/blockchain/workbench/
+      topicHref: /azure/blockchain/workbench/
   - name: Azure Databricks
     tocHref: /azure/azure-databricks/
     topicHref: /azure/azure-databricks/
@@ -120,6 +127,9 @@
   - name: Azure Digital Twins
     tocHref: /azure/digital-twins/
     topicHref: /azure/digital-twins/
+  - name: Azure HPC Cache
+    tocHref: /azure/hpc-cache/
+    topicHref: /azure/hpc-cache/
   - name: Azure Lighthouse
     tocHref: /azure/lighthouse/
     topicHref: /azure/lighthouse/
@@ -221,9 +231,6 @@
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/
-  - name: Blockchain Workbench
-    tocHref: /azure/blockchain-workbench/
-    topicHref: /azure/blockchain-workbench/
   - name: Bot Service
     tocHref: /azure/bot-service/
     topicHref: /azure/bot-service/
@@ -621,6 +628,9 @@
   - name: Power BI Workspace Collections
     tocHref: /azure/power-bi-workspace-collections/
     topicHref: /azure/power-bi-workspace-collections/
+  - name: Private Link
+    tocHref: /azure/private-link/
+    topicHref: /azure/private-link/
   - name: Azure Cache for Redis
     tocHref: /azure/azure-cache-for-redis/
     topicHref: /azure/azure-cache-for-redis/

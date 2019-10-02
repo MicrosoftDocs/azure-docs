@@ -3,11 +3,13 @@ title: Configure the OS patching schedule for Linux-based HDInsight clusters - A
 description: Learn how to configure OS patching schedule for Linux-based HDInsight clusters.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/01/2019
 ---
+
 # Configure the OS patching schedule for Linux-based HDInsight clusters 
 
 > [!IMPORTANT]

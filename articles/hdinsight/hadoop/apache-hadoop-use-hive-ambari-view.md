@@ -30,7 +30,7 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 3. From the list of views, select __Hive View__.
 
-    ![The Hive view selected](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
+    ![Apache Ambari select Apache Hive view](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
     The Hive view page is similar to the following image:
 
@@ -94,25 +94,25 @@ The **Visual Explain** view of the query can be helpful in understanding the flo
 To display the Tez UI for the query, select the **Tez UI** tab below the worksheet.
 
 > [!IMPORTANT]  
-> Tez is not used to resolve all queries. You can resolve many queries without using Tez. 
+> Tez is not used to resolve all queries. You can resolve many queries without using Tez.
 
 ## View job history
 
 The __Jobs__ tab displays a history of Hive queries.
 
-![Image of the job history](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
+![Apache Hive view jobs tab history](./media/apache-hadoop-use-hive-ambari-view/apache-hive-job-history.png)
 
 ## Database tables
 
 You can use the __Tables__ tab to work with tables within a Hive database.
 
-![Image of the tables tab](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
+![Image of the Apache Hive tables tab](./media/apache-hadoop-use-hive-ambari-view/hdinsight-tables-tab.png)
 
 ## Saved queries
 
 From the **Query** tab, you can optionally save queries. After you save a query, you can reuse it from the __Saved Queries__ tab.
 
-![Image of saved queries tab](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
+![Apache Hive view saved queries tab](./media/apache-hadoop-use-hive-ambari-view/ambari-saved-queries.png)
 
 > [!TIP]  
 > Saved queries are stored in the default cluster storage. You can find the saved queries under the path `/user/<username>/hive/scripts`. These are stored as plain-text `.hql` files.
@@ -125,7 +125,7 @@ You can extend Hive through user-defined functions (UDF). Use a UDF to implement
 
 Declare and save a set of UDFs by using the **UDF** tab at the top of the Hive View. These UDFs can be used with the **Query Editor**.
 
-![Image of UDF tab](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
+![Apache Hive view UDFs tab display](./media/apache-hadoop-use-hive-ambari-view/user-defined-functions.png)
 
 After you've added a UDF to the Hive View, an **Insert udfs** button appears at the bottom of the **Query Editor**. Selecting this entry displays a drop-down list of the UDFs defined in the Hive View. Selecting a UDF adds HiveQL statements to your query to enable the UDF.
 

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/17/2019
 ms.author: raynew
 ---
 
@@ -22,9 +22,9 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Deployment** | **Details***
 --- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
-**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure. 
+**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
 
-Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration. 
+Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration.
 
 ## Azure Migrate projects
 
@@ -39,10 +39,13 @@ Geography | You can create Azure Migrate projects in a number of geographies. Al
   Azure Government | US Gov Virginia
   Asia Pacific | East Asia or Southeast Asia
   Australia | Australia East or Australia Southeast
+  Brazil | Brazil South
   Canada | Canada Central or Canada East
   Europe | North Europe or West Europe
+  France | France Central
   India | Central India or South India
   Japan |  Japan East or Japan West
+  Korea | Korea Central or Korea South
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 

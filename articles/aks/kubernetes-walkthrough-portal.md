@@ -234,7 +234,7 @@ The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown 
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-front` pod, select the **View container logs** from the drop down of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
