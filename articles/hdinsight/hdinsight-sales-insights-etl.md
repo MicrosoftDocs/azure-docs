@@ -95,7 +95,7 @@ The default password for SSH access to the clusters is `Thisisapassword1`. If yo
 ### Verify deployment and collect resource information
 
 1. If you want to check the status of your deployment, go to the resource group on the Azure portal. Select **Deployments** under **Settings**. Select the name of your deployment, `ResourcesDeployment`. Here you can see the resources that have successfully deployed and the resources that are still in progress.
-1. After the deployment has finished, go the Azure portal > **Resource groups** > <RESOURCE_GROUP_NAME>.
+1. After the deployment has finished, go to the Azure portal > **Resource groups** > <RESOURCE_GROUP_NAME>.
 1. Locate the new Azure storage account that was created for storing the sales files. The name of the storage account begins with `blob` and then contains a random string. Do the following:
    1. Make a note of the storage account name for later use.
    1. Select the name of the Blob storage account.
