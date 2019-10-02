@@ -195,7 +195,7 @@ Yes
 
 ### If I have a huge table, does my table data get spread out across multiple data files
 
-Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses a [proportional fill strategy](database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
+Yes. The data pages associated with a given table can end up in multiple data files, which are all part of the same filegroup. SQL Server uses a [proportional fill strategy](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) to distribute data over data files.
 
 ## Data migration questions
 

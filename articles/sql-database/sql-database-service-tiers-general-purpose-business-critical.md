@@ -57,7 +57,7 @@ For more information, see the detailed differences between the service tiers in 
 
 ## Data and log storage
 
-The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](sql-database-service-tier-hyperscale).
+The following factors affect the amount of storage used for data and log files, and applies to General Purpose and Business Critical. For details on data and log storage in Hyperscale, see [Hyperscale service tier](sql-database-service-tiers-hyperscale).
 
 - The allocated storage is used by data files (MDF) and log files (LDF).
 - Each single database compute size supports a maximum database size, with a default maximum size of 32 GB.
