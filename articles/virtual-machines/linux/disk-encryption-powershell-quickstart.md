@@ -23,12 +23,11 @@ New-AzResourceGroup -Name "myResourceGroup" -Location "EastUS"
 ```
 
 ## Create a virtual machine
-```azurepowershell-interactive
+
 Create an Azure virtual machine with [New-AzVM](/powershell/module/az.compute/new-azvm), passing to it the VM configuration object you created above.
 
-```powershell
-$securePassword = ConvertTo-SecureString 'AZUREuserPA$$W0RD' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential ("azureuser", $securePassword)
+```powershell-interactive
+$cred = = Get-Credential
 
 New-AzVM -Name MyVm -Credential $cred -ResourceGroupName MyResourceGroup -Image Canonical:UbuntuServer:16.04-LTS:latest -Size Standard_D2S_V3
 ```
