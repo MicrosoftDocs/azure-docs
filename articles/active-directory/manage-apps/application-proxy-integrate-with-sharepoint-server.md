@@ -141,7 +141,7 @@ Use the following steps to identify the account running the application pool of 
 
 ### Ensure that an HTTPS certificate is configured for the IIS site of the Extranet zone
 
-Since the Internal URL uses HTTPS protocol (`https://SharePoint/`), a certificate must be set in the IIS site.
+Because the Internal URL uses HTTPS protocol (`https://SharePoint/`), a certificate must be set in the IIS site.
 
 1. Open Windows PowerShell console.
 1. Run the following script to generate a self-signed certificate and add it to the computer MY store:
