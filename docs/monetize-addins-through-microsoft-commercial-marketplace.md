@@ -20,26 +20,26 @@ In this monetization model, your add-in is authenticated by your SaaS offering, 
 
 <!--Write out steps for accessibility-->
 
-## Submitting a SaaS offer in Partner Center
+## Preparing your SaaS offer
 To prepare to submit your service as a SaaS offer, you will need to provide a website that a customer can sign in to and use to manage their purchased licenses. They can do this as either an admin user or an end user. Your service should be connected to your own licensing database that you can then use for your add-in to query.
 To get started, see [Create new SaaS offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer).
 
 Your offer must also use the SaaS fulfillment APIs to integrate with Commercial Marketplace. For extensive documentation, see [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
+
+## Testing your SaaS offer
+
+You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you publish your offer as a private plan, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+
+## Submission process for SaaS offer + add-in
+You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
+
+![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
 ## Customer experience
 
 A customer discovers your SaaS service in AppSource and purchases licenses, providing their payment detials to Microsoft. The customer is then redirected to your website, where they finish setting up their account. The licenses are provisioned and the customer is billed. Your customer is then able to download your free add-in and sign in using the details provided. Your add-in checks the licensing database to verify that the cusotmer has a license. The following illustration shows the user workflow.
 
 ![Diagram of the user workflow to acquire a SaaS app with an associated free add-in](images/monetization-customer-flow-diagram.png)
-
-## Testing your SaaS offer
-
-You are able to submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you publish your offer as a private plan, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
-
-## Submission process for SaaS offer + add-in
-You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
-
-![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
 ## FAQs
 
