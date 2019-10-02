@@ -1,5 +1,5 @@
 ---
-title: Electric Vehicle Routing using Azure Notebooks (Python) | Microsoft Docs
+title: Electric vehicle routing using Azure Notebooks (Python) | Microsoft Docs
 description: EV Routing using Azure Maps routing APIs and Azure Notebooks.
 author: walsehgal
 ms.author: v-musehg
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Electric Vehicle Routing using Azure Notebooks (Python)
+# Electric vehicle routing using Azure Notebooks (Python)
 
 Azure Maps is a portfolio of geospatial service APIs natively integrated into Azure that enable developers, enterprises, and ISVs to create location aware apps and IoT, mobility, logistics, and asset tracking solutions. The Azure Maps REST APIs can be called from languages like Python and R to enable geospatial data analysis and machine learning scenarios. Azure Maps offers a robust set of [routing APIs]([https://docs.microsoft.com/rest/api/maps/route) that allows users to calculate routes between several data points based on various conditions such as vehicle type or reachable area. In this tutorial, we will walk through a scenario to help an electric vehicle driver, whose vehicle is low on battery charge, to find the closest possible charging station with respect to drive time.
 
