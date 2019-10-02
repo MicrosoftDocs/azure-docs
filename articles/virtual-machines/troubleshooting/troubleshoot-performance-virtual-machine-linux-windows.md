@@ -1,5 +1,5 @@
 ---
-title: Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows| Microsoft Docs
+title: Generic performance troubleshooting for Azure virtual machine running Linux or Windows
 description: This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -25,17 +25,17 @@ This article describes virtual machine (VM) generic performance troubleshooting 
 
 ### Azure IAAS VM Monitoring
 
-To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, click [here](https://azure.microsoft.com/documentation/articles/insights-how-to-use-diagnostics/#change-settings-for-an-existing-resource). If you see the following, then you most likely don't have the diagnostics enabled:
+To monitor the Guest VM, use the Azure VM Monitoring, which will alert you to certain high-level resource conditions. To check whether you have the VM diagnostics enabled, see [Azure Resource logs overview](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource). If you see the following, then you most likely don't have the diagnostics enabled:
 
 ![Monitoring isn't enabled](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
-### Enable VM Diagnostics through Portal
+### Enable VM Diagnostics through Microsoft Azure Portal
 
 To enable VM diagnostics, go to the VM, click **Settings**, and then click **Diagnostics**.
 
 ![Click Settings, then Diagnostics](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
  
-### Enable Storage Account Diagnostics through Portal
+### Enable Storage Account Diagnostics through Azure Portal
 
 First, identify which storage account (or accounts) your VM is using by selecting the VM. Click **Settings**, and then click **Disks**:
 
@@ -73,11 +73,11 @@ To identify if you have any resource bottlenecks, review your data. If your find
 
 ### CPU Observe Trends
 
-When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform).
+When looking at performance issues, be aware of the trends and understand if they affect you. In the next sections, we'll use the Monitoring graphs from the portal to show trends. They can also be useful for cross referencing difference resource behaviors in the same time period. To customize the graphs, click [Azure Monitor data platform](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform).
 
 Spiking – Spiking could be related to a scheduled task/known event. If you can identify the task, determine whether the task runs at the required performance level. If performance is acceptable, you may not need to increase resources.
 
-Spike up and Constant – Often indicates a new workload. If it's not a recognized workload, enable monitoring in the VM to find out what process (or processes) causes the behavior. Once the process is recognized, determine whether the increased consumption is being caused by inefficient code, or normal consumption. If normal consumption, decide wether the process operates at the required performance level.
+Spike up and Constant – Often indicates a new workload. If it's not a recognized workload, enable monitoring in the VM to find out what process (or processes) causes the behavior. Once the process is recognized, determine whether the increased consumption is being caused by inefficient code, or normal consumption. If normal consumption, decide whether the process operates at the required performance level.
 
 Constant – Determine whether your VM has always run at this level, or if it has only been running at that level since the diagnostics have been enabled. If so, identify the process (or processes) causing the issue, and consider adding more of that resource.
 

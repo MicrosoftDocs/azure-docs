@@ -1,6 +1,6 @@
 ---
 title: Preserve the drive letter for protected virtual machines that are failed over or migrated to Azure| Microsoft Docs
-description: A technique that you can use to maintain the drive letters of attached storage devices when you import or migrate a VM that is protected by Azure Site Recovery (ASR) to Azure.
+description: A technique that you can use to maintain the drive letters of attached storage devices when you import or migrate a VM that is protected by Microsoft Azure Site Recovery to Azure.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: v-miegge
@@ -19,7 +19,7 @@ ms.author: v-miegge
 
 # Preserve the drive letter for protected virtual machines that are failed over or migrated to Azure
 
-When you fail over or migrate a virtual machine (VM) from an on-premises location to Microsoft Azure, the drive letters of additional data disks may change from their previous values. This article describes a technique that you can use to maintain the drive letters of attached storage devices when you import or migrate a VM that is protected by Azure Site Recovery (ASR) to Azure.
+When you fail over or migrate a virtual machine (VM) from an on-premises location to Microsoft Azure, the drive letters of additional data disks may change from their previous values. This article describes a technique that you can use to maintain the drive letters of attached storage devices when you import or migrate a VM that is protected by Microsoft Azure Site Recovery to Azure.
 
 By default, Azure virtual machines are assigned to drive D for use as temporary storage. This drive assignment causes all other attached storage drive assignments to increment by one letter.
 

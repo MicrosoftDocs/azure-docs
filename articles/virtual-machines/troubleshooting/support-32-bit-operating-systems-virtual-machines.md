@@ -11,7 +11,6 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
@@ -27,6 +26,9 @@ For more information about operating systems that are supported on Azure virtu
 
 * [Microsoft server software support for Microsoft Azure virtual machines](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
 * [Support for Linux and open source technology in Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure)
+
+## References
+
 * [Learn more about free Extended Security Updates for Windows Server 2008/R2 in Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
 * [Learn more about support for Windows Server 2008 SP2 32-bit specialized images in Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
 * [Learn more about support for migration of Windows Server 2008 images to Azure using Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)

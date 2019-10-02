@@ -30,6 +30,8 @@ Before you open a case for Microsoft Azure Automation Support, we recommend that
 Collect the data described in the following Knowledge Base article:
 
 * [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics) How to capture Azure Automation-scripted diagnostics
+
+## Collect Data Depending on Issue
  
 ### For issues that affect Update Management on Linux
 
