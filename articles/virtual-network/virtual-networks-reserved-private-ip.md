@@ -4,7 +4,7 @@ description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0

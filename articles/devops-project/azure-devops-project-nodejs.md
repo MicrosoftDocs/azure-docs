@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for  Node.js with Azure DevOps Projects' 
+title: Create a CI/CD pipeline for Node.js with Azure DevOps Projects
 description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 monikerRange: 'vsts'
 ---
 
 
-#  Create a CI/CD pipeline for  Node.js with Azure DevOps Projects 
+#  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure Pipelines.  
 

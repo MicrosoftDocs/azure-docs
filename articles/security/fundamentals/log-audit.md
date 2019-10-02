@@ -33,7 +33,7 @@ Cloud applications are complex, with many moving parts. Logs provide data to hel
 Azure logs are categorized into the following types:
 * **Control/management logs** provide information about Azure Resource Manager CREATE, UPDATE, and DELETE operations. For more information, see [Azure activity logs](../../azure-monitor/platform/activity-logs-overview.md).
 
-* **Data plane logs** provide information about events raised as part Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/diagnostic-logs-overview.md) that are configured through Azure Monitor.
+* **Data plane logs** provide information about events raised as part Azure resource usage. Examples of this type of log are the Windows event system, security, and application logs in a virtual machine (VM) and the [diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md) that are configured through Azure Monitor.
 
 * **Processed events** provide information about analyzed events/alerts that have been processed on your behalf. Examples of this type are [Azure Security Center alerts](../../security-center/security-center-managing-and-responding-alerts.md) where [Azure Security Center](../../security-center/security-center-intro.md) has processed and analyzed your subscription and provides concise security alerts.
 
@@ -42,7 +42,7 @@ The following table lists the most important types of logs available in Azure:
 | Log category | Log type | Usage | Integration |
 | ------------ | -------- | ------ | ----------- |
 |[Activity logs](../../azure-monitor/platform/activity-logs-overview.md)|Control-plane events on Azure Resource Manager resources|	Provides insight into the operations that were performed on resources in your subscription.|	Rest API, [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
-|[Azure diagnostics logs](../../azure-monitor/platform/diagnostic-logs-overview.md)|Frequent data about the operation of Azure Resource Manager resources in subscription|	Provides insight into operations that your resource itself performed.| Azure Monitor, [Stream](../../azure-monitor/platform/diagnostic-logs-overview.md)|
+|[Azure diagnostics logs](../../azure-monitor/platform/resource-logs-overview.md)|Frequent data about the operation of Azure Resource Manager resources in subscription|	Provides insight into operations that your resource itself performed.| Azure Monitor, [Stream](../../azure-monitor/platform/resource-logs-overview.md)|
 |[Azure AD reporting](../../active-directory/reports-monitoring/overview-reports.md)|Logs and reports | Reports user sign-in activities and system activity information about users and group management.|[Graph API](../../active-directory/develop/active-directory-graph-api-quickstart.md)|
 |[Virtual machines and cloud services](../../azure-monitor/learn/quick-collect-azurevm.md)|Windows Event Log service and Linux Syslog|	Captures system data and logging data on the virtual machines and transfers that data into a storage account of your choice.|	Windows (using Windows Azure Diagnostics [[WAD](../../monitoring-and-diagnostics/azure-diagnostics.md)] storage) and Linux in Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Storage logging, provides metrics data for a storage account|Provides insight into trace requests, analyzes usage trends, and diagnoses issues with your storage account.|	REST API or the [client library](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
@@ -92,7 +92,7 @@ Azure diagnostics logs offer multiple configuration options, such as the Azure p
 
 * Save them to a [storage account](../../azure-monitor/platform/archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) by using the diagnostics settings.
 
-* [Stream them to event hubs](../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
+* [Stream them to event hubs](../../azure-monitor/platform/resource-logs-stream-event-hubs.md) for ingestion by a third-party service or custom analytics solution, such as [PowerBI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/).
 
 * Analyze them with [Azure Monitor logs](../../log-analytics/log-analytics-queries.md).
 
@@ -312,11 +312,11 @@ At the center of Azure Monitor logs is the Log Analytics workspace, which is hos
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Connected sources are the computers and other resources that generate the data that's collected by Azure Monitor logs. Sources can include agents that are installed on [Windows](../../log-analytics/log-analytics-agent-windows.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) computers that connect directly, or agents in [a connected System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). Azure Monitor logs can also collect data from an [Azure storage account](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+Connected sources are the computers and other resources that generate the data that's collected by Azure Monitor logs. Sources can include agents that are installed on [Windows](../../log-analytics/log-analytics-agent-windows.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) computers that connect directly, or agents in [a connected System Center Operations Manager management group](../../azure-monitor/platform/om-agents.md). Azure Monitor logs can also collect data from an [Azure storage account](../../azure-monitor/platform/resource-logs-collect-storage.md).
 
 [Data sources](../../azure-monitor/platform/agent-data-sources.md) are the various kinds of data that's collected from each connected source. Sources include events and [performance data](../../azure-monitor/platform/data-sources-performance-counters.md) from [Windows](../../azure-monitor/platform/data-sources-windows-events.md) and Linux agents, in addition to sources such as [IIS logs](../../azure-monitor/platform/data-sources-iis-logs.md) and [custom text logs](../../azure-monitor/platform/data-sources-custom-logs.md). You configure each data source that you want to collect, and the configuration is automatically delivered to each connected source.
 
-There are four ways to [collect logs and metrics for Azure services](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md):
+There are four ways to [collect logs and metrics for Azure services](../../azure-monitor/platform/resource-logs-collect-storage.md):
 
 * Azure Diagnostics direct to Azure Monitor logs (**Diagnostics** in the following table)
 

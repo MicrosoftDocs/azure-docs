@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -18,7 +18,7 @@ This article explains the common tasks that an administrator accomplishes in the
 
 Enterprise administrators have the most privileges when managing an Azure EA enrollment. The initial Azure EA admin was created when the EA agreement was set up. However, you can add or remove new admins at any time. New admins are only added by existing admins. For more information about adding  additional enterprise admins, see [Create another enterprise admin](billing-ea-portal-get-started.md#create-another-enterprise-admin). For more information about billing profile roles and tasks, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
-## Update user state from Pending to Active
+## Update user state from pending to active
 
 When new Account Owners (AO) are added to an Azure EA enrollment for the first time, their status appears as _pending_. When a new account owner receives the activation welcome email, they can sign in to activate their account. When they activate their account, the account status is updated from _pending_ to _active_. New users might get prompted enter their first and last name to create a Commerce Account. If so, they must add the required information to proceed and then the account is activated.
 
@@ -26,7 +26,7 @@ When new Account Owners (AO) are added to an Azure EA enrollment for the first t
 
 After an Azure EA admin creates a department, the Azure Enterprise administrator can add department administrators and associate each one to a department. A department administrator can create new accounts. New accounts are needed for Azure EA subscriptions to get created.
 
-For more information about adding a department, see Create an Azure EA department.
+For more information about adding a department admin, see [Create an Azure EA department admin](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## Enterprise user roles
 
@@ -119,14 +119,14 @@ There's no downtime during the account transfer. It can be completed on the same
 
 When you request an enrollment transfer, provide the following information:
 
-- For the source enrollment, the enrollment number and account to transfer
-- For the target enrollment, the enrollment number to transfer to
+- For the source enrollment, the enrollment number and account to transfer.
+- For the target enrollment, the enrollment number to transfer to.
 - For the enrollment transfer effective date, it can be a date on or after the start date of the target enrollment. The chosen date can't impact usage for any overage invoice already issued.
 
 Other points to keep in mind before an enrollment transfer:
 
-- Approval from an EA Administrator is required for the target and source enrollment
-  - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
+- Approval from an EA Administrator is required for the target and source enrollment.
+  - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment.
 - If an enrollment transfer doesn't meet your requirements, consider an account transfer.
 - Only the accounts that you specify are transferred. You can request to transfer all of your accounts.
 - The source enrollment retains its status as active/extended. You can continue using the enrollment until it expires.
@@ -203,7 +203,7 @@ If a notification isn't received by a user, verify that the user's notification 
 6. Add a contact, if needed and click **Add**.
 7. Click **Save**.
 
-![Example showing Add Contact to add a ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Example showing Add Contact box ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## Azure Sponsorship offer
 The Azure Sponsorship offer is a limited sponsored Microsoft Azure account. It is available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure Sponsorship offer, you'll receive an e-mail invitation to your account ID.

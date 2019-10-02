@@ -10,7 +10,6 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: luisca
-ms.subservice: cognitive-search
 ---
 #	Image Analysis cognitive skill
 

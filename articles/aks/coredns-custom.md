@@ -18,7 +18,7 @@ Azure Kubernetes Service (AKS) uses the [CoreDNS][coredns] project for cluster D
 
 As AKS is a managed service, you cannot modify the main configuration for CoreDNS (a *CoreFile*). Instead, you use a Kubernetes *ConfigMap* to override the default settings. To see the default AKS CoreDNS ConfigMaps, use the `kubectl get configmaps --namespace=kube-system coredns -o yaml` command.
 
-This article shows you how to use ConfigMaps for basic customization options of CoreDNS in AKS.
+This article shows you how to use ConfigMaps for basic customization options of CoreDNS in AKS. This approach differs from configuring CoreDNS in other contexts such as using the CoreFile. Verify the version of CoreDNS you are running as the configuration values may change between versions.
 
 > [!NOTE]
 > `kube-dns` offered different [customization options][kubednsblog] via a Kubernetes config map. CoreDNS is **not** backwards compatible with kube-dns. Any customizations you previously used must be updated for use with CoreDNS.
@@ -29,7 +29,7 @@ This article assumes that you have an existing AKS cluster. If you need an AKS c
 
 ## What is supported/unsupported
 
-All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported. 
+All built-in CoreDNS plugins are supported. No add-on/third party plugins are supported.
 
 ## Rewrite DNS
 

@@ -18,6 +18,107 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-09-30
+
+### Azure Machine Learning SDK for Python v1.0.65
+
+  + **New features**
+    + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in Workspace's list of environment, with prefix "AzureML".
+  
+  + **azureml-train-automl**
+    + Added the ONNX conversion support for the ADB and HDI
+
++ **Preview features**  
+  + **azureml-train-automl**
+    + Supported BERT and BiLSTM as text featurizer (preview only)
+    + Supported featurization customization for column purpose and transformer parameters (preview only)
+    + Supported raw explanations when user enables model explanation during training (preview only)
+    + Added Prophet for timeseries forecasting as a trainable pipeline (preview only)
+  
+  + **azureml-contrib-datadrift**
+    + Packages relocated from azureml-contrib-datadrift to azureml-datadrift; the contrib package will be removed in a future release 
+
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Introduced FeaturizationConfig to AutoMLConfig and AutoMLBaseSettings
+      + Override Column Purpose for Featurization with given column and feature type
+      + Override transformer parameters
+    + Added deprecation message for explain_model() and retrieve_model_explanations()
+    + Added Prophet as a trainable pipeline (preview only)
+    + Added support for automatic detection of target lags, rolling window size and maximal horizon. If one of target_lags, target_rolling_window_size or max_horizon is set to 'auto', the heuristics will be applied to estimate the value of corresponding parameter based on training data.
+    + Fixed forecasting in the case when data set contains one grain column, this grain is of a numeric type and there is a gap between train and test set
+    + Fixed the error message about the duplicated index in the remote run in forecasting tasks
+    + Added a guardrail to check whether a dataset is imbalanced or not. If it is, a guardrail message would be written to the console.
+  + **azureml-core**
+    + Added ability to retrieve SAS URL to model in storage through the model object. Ex: model.get_sas_url()
+    + Introduce `run.get_details()['datasets']` to get datasets associated with the submitted run
+    + Add API `Dataset.Tabular.from_json_lines_files` to create a TabularDataset from JSON Lines files. To learn about this tabular data in JSON Lines files on TabularDataset, please visit https://aka.ms/azureml-data for documentation.
+    + Added additional VM size fields (OS Disk, number of GPUs) to the supported_vmsizes () function
+    + Added additional fields to the list_nodes () function to show the run, the private and the public IP, the port etc.
+    + Ability to specify a new field during cluster provisioning --remotelogin_port_public_access which can be set to enabled or disabled depending on whether you would like to leave the SSH port open or closed at the time of creating the cluster. If you do not specify it, the service will smartly open or close the port depending on whether you are deploying the cluster inside a VNet.
+  + **azureml-explain-model**
+    + Improved documentation for Explanation outputs in the classification scenario.
+    + Added the ability to upload the predicted y values on the explanation for the evaluation examples. Unlocks more useful visualizations.
+    + Added explainer property to MimicWrapper to enable getting the underlying MimicExplainer.
+  + **azureml-pipeline-core**
+    + Added notebook to describe Module, ModuleVersion and ModuleStep
+  + **azureml-pipeline-steps**
+    + Added RScriptStep to support R script run via AML pipeline
+    + Fixed metadata parameters parsing in AzureBatchStep which was causing the error message "assignment for parameter SubscriptionId is not specified"
+  + **azureml-train-automl**
+    + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
+    + Added deprecation message for explain_model() and retrieve_model_explanations()
+
+  
+## 2019-09-16
+
+### Azure Machine Learning SDK for Python v1.0.62
+
++ **New features**
+  + Introduced the timeseries trait on TabularDataset. This trait enables easy timestamp filtering on data a TabularDataset, such as taking all data between a range of time or the most recent data. To learn about this the timeseries trait on TabularDataset, please visit https://aka.ms/azureml-data for documentation or https://aka.ms/azureml-tsd-notebook for an example notebook. 
+  + Enabled training with TabularDataset and FileDataset. Please visit https://aka.ms/dataset-tutorial for an example notebook. 
+  
+  + **azureml-train-core**
+  	+ Added Nccl and Gloo support in PyTorch estimator
+  
++ **Bug fixes and improvements**
+  + **azureml-automl-core**
+    + Deprecated the AutoML setting 'lag_length' and the LaggingTransformer.
+    + Fixed correct validation of input data if they are specified in a Dataflow format
+    + Modified the fit_pipeline.py to generate the graph json and upload to artifacts. 
+    + Rendered the graph under userrun using Cytoscape.
+  + **azureml-core**
+    + Revisited the exception handling in ADB code and make changes to as per new error handling
+    + Added automatic MSI authentication for Notebook VMs.
+    + Fixes bug where corrupt or empty models could be uploaded because of failed retries.
+    + Fixed the bug where `DataReference` name changes when the `DataReference` mode changes (e.g. when calling `as_upload`, `as_download`, or `as_mount`).
+    + Make `mount_point` and `target_path` optional for `FileDataset.mount` and `FileDataset.download`.
+    + Exception that timestamp column cannot be found will be throw out if the time serials related API is called without fine timestamp column assigned or the assigned timestamp columns are dropped.
+    + Time serials columns should be assigned with column whose type is Date, otherwise exception is expected
+    + Time serials columns assigning API 'with_timestamp_columns' can take None value fine/coarse timestamp column name, which will clear previously assigned timestamp columns.
+    + Exception will be thrown out when either coarse grain or fine grained timestamp column is dropped with indication for user that dropping can be done after either excluding timestamp column in dropping list or call with_time_stamp with None value to release timestamp columns
+    + Exception will be thrown out when either coarse grain or fine grained timestamp column is not included in keep columns list with indication for user that keeping can be done after either including timestamp column in keep column list or call with_time_stamp with None value to release timestamp columns.
+    + Added logging for the size of a registered model.
+  + **azureml-explain-model**
+    + Fixed warning printed to console when "packaging" python package is not installed: "Using older than supported version of lightgbm, please upgrade to version greater than 2.2.1"
+    + Fixed download model explanation with sharding for global explanations with many features
+    + Fixed mimic explainer missing initialization examples on output explanation
+    + Fixed immutable error on set properties when uploading with explanation client using two different types of models
+    + Added a get_raw param to scoring explainer .explain() so one scoring explainer can return both engineered and raw values.
+  + **azureml-train-automl**
+    + Introduced public APIs from AutoML for supporting explanations from automl explain SDK - Newer way of supporting AutoML explanations by decoupling AutoML featurization and explain SDK - Integrated raw explanation support from azureml explain SDK for AutoML models.
+    + Removing azureml-defaults from remote training environments.
+    + Changed default cache store location from FileCacheStore based one to AzureFileCacheStore one for AutoML on AzureDatabricks code path.
+    + Fixed correct validation of input data if they are specified in a Dataflow format
+  + **azureml-train-core**
+    + Reverted source_directory_data_store deprecation.
+    + Added ability to override azureml installed package versions. 
+    + Added dockerfile support in `environment_definition` parameter in estimators.
+    + Simplified distributed training parameters in estimators.
+    	 ```py 
+	    from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
+	    ```
+
 ## 2019-09-09
 
 ### New web experience (preview) for Azure Machine Learning workspaces 
@@ -236,7 +337,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
 ### Azure Machine Learning Data Prep SDK v1.1.10
 
 + **New features**
-  + You can now request to execute specific inspectors (e.g. histogram, scatter plot, etc) on specific columns.
+  + You can now request to execute specific inspectors (e.g. histogram, scatter plot, etc.) on specific columns.
   + Added a parallelize argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution will be streaming but single-threaded.
 
 ## 2019-07-23
