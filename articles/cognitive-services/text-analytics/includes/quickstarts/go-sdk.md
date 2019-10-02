@@ -129,7 +129,7 @@ In a new function, create variables for your resource's Azure endpoint and subsc
 
 Create a new [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object. Pass your key to the [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) function, which will then be passed to the client's `authorizer` property.
 
-[!code-go[Client creation](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=client)]
+[!code-go[Client creation ](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=client)]
 
 ## Sentiment analysis
 
@@ -137,7 +137,7 @@ Create a new function called `SentimentAnalysis()` and create a client using the
 
 Call the client's [Sentiment()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Sentiment) function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-[!code-go[Sentiment analysis](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=sentimentAnalysis)]
+[!code-go[Sentiment analysis sample](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=sentimentAnalysis)]
 
 call `SentimentAnalysis()` in your project.
 
@@ -153,7 +153,7 @@ Create a new function called `LanguageDetection()` and create a client using the
 
 Call the client's [DetectLanguage()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.DetectLanguage) and get the result. Then iterate through the results, and print each document's ID, and detected language.
 
-[!code-go[Language detection](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=languageDetection)]
+[!code-go[Language detection sample](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=languageDetection)]
 
 Call `LanguageDetection()` in your project.
 
@@ -169,7 +169,7 @@ Create a new function called `ExtractEntities()` and create a client using the `
 
 Call the client's [Entities()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.Entities) and get the result. Then iterate through the results, and print each document's ID, and extracted entities score.
 
-[!code-go[entity recognition](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=entityRecognition)]
+[!code-go[entity recognition sample](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=entityRecognition)]
 
 call `ExtractEntities()` in your project.
 
@@ -201,7 +201,7 @@ Create a new function called `ExtractKeyPhrases()` and create a client using the
 
 Call the client's [KeyPhrases()](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#BaseClient.KeyPhrases) and get the result. Then iterate through the results, and print each document's ID, and extracted key phrases.
 
-[!code-go[key phrase extraction](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=keyPhrases)]
+[!code-go[key phrase extraction sample](~/azure-sdk-for-go-samples/cognitiveservices/textanalytics.go?name=keyPhrases)]
 
 Call `ExtractKeyPhrases()` in your project.
 
