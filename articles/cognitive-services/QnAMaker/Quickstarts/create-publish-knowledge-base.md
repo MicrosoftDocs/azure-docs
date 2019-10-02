@@ -145,8 +145,8 @@ Clean up the QnA Maker and Bot framework resources in the Azure portal.
 
 For more information:
 
-* [Markdown format in answers](concepts/data-sources-supported.md)
-* [Testing your markdown](concepts/data-sources-supported.md#testing-your-markdown)
+* [Markdown format in answers](../concepts/data-sources-supported.md)
+* [Testing your markdown](../concepts/data-sources-supported.md#testing-your-markdown)
 * QnA Maker [data sources](../Concepts/data-sources-supported.md). 
 * [Bot resource configuration settings](../tutorials/create-qna-bot.md).
 
