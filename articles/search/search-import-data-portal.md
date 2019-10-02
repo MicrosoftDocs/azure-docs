@@ -20,7 +20,7 @@ Steps performed by the wizard include:
 
 2 - Create an index schema, inferred by sampling source data.
 
-3 - Optionally, add AI enrichments to extract or generate searchable content from non-searchable content. You can save enrichments to an external knowledge store.
+3 - Optionally, add AI enrichments to extract or generate content and structure.
 
 4 - Run the wizard to create objects, import data, set a schedule and other configuration options.
 
@@ -30,7 +30,7 @@ The wizard outputs a number of objects that are saved to your search service, wh
 
 Before you write any code, you can use the wizard for prototyping and proof-of-concept testing. The wizard connects to external data sources, samples the data to create an initial index, and then imports the data as JSON documents into an index on Azure Search. 
 
-Sampling is the process by which an index schema is inferred and it has some limitations. When the data source is created, the wizard picks a sample of documents to decide what columns are part of the data source. Not all files are read, as this could potentially take hours for very large data sources. Given a selection of documents, source metadata, such as field name or type, is used to create a fields collection in an index schema. Depending on the complexity of source data, you might need to edit or extend the initial schema provided by the wizard. You can make your changes inline in the index definition page.
+Sampling is the process by which an index schema is inferred and it has some limitations. When the data source is created, the wizard picks a sample of documents to decide what columns are part of the data source. Not all files are read, as this could potentially take hours for very large data sources. Given a selection of documents, source metadata, such as field name or type, is used to create a fields collection in an index schema. Depending on the complexity of source data, you might need to edit the initial schema for accuracy, or extend it for completeness. You can make your changes inline on the index definition page.
 
 Overall, the advantages of using the wizard are clear: as long as requirements are met, you can prototype a queryable index within minutes. Some of the complexities of indexing, such as providing data as JSON documents, are handled by the wizard.
 
@@ -68,7 +68,7 @@ You should create the single table or view before running the wizard, and it mus
 
 ## Wizard output
 
-Behind the scenes, the wizard creates, configures, and invokes the following objects. Links to the REST API provide comprehensive and definitive descriptions of each object.
+Behind the scenes, the wizard creates, configures, and invokes the following objects. Links to the REST API provide comprehensive and definitive descriptions of each object. After the wizard runs, you can find all of the objects it creates in portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets.
 
 | Object | Description | Reference |
 |--------|-------------|-----------|
@@ -89,32 +89,6 @@ The Import data wizard is started from the command bar on the service Overview p
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
 You can also launch **Import data** from other Azure services, including Azure Cosmos DB, Azure SQL Database, and Azure Blob storage. Look for **Add Azure Search** in the left-navigation pane on the service overview page.
-
-<!-- 
-3. The wizard opens to **Connect to your data**, where you can choose an external data source to use for this import. There are several things to know about this step, so be sure to read the [Data source inputs](#data-source-inputs) section for more details.
-
-   ![Import data wizard in portal](./media/search-import-data-portal/import-data-wizard-startup.png "Import data wizard for Azure Search")
-
-4. Next is **Add cognitive search**, in case you want to include optical character recognition (OCR) of text in image files, or text analysis over unstructured data. AI algorithms from Cognitive Services are pulled in for this task. There are two parts to this step:
-  
-   First, [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to an Azure Search skillset.
-  
-   Second, choose which AI enrichments to include in the skillset. For a walkthrough demonstration, see this [Quickstart](cognitive-search-quickstart-blob.md).
-
-   If you just want to import data, skip this step and go directly to index definition.
-
-5. Next is **Customize target index**, where you can accept or modify the index schema presented in the wizard. The wizard infers the fields and datatypes by sampling data and reading metadata from the external data source.
-
-   For each field, [check the index attributes](#index-definition) to enable specific behaviors. If you don't select any attributes, your index won't be usable. 
-
-6. Next is **Create an indexer**, which is a product of this wizard. An indexer is a crawler that extracts searchable data and metadata from an external Azure data source. By selecting the data source and attaching skillsets (optional) and an index, you've been configuring an indexer as you move through each step of the wizard.
-
-   Give the indexer a name, and click **Submit** to begin the import process. 
-
-You can monitor indexing in the portal by clicking the indexer in the **Indexers** list. As documents are loaded, the document count will grow for the index you have defined. Sometimes it takes a few minutes for the portal page to pick up the most recent updates.
-
-The index is ready to query as soon as the first document is loaded. You can use [Search explorer](search-explorer.md) for this task. -->
-
 
 <a name="index-definition"></a>
 
@@ -160,4 +134,4 @@ For a functional index, make sure you have the following elements defined.
 The best way to understand the benefits and limits of the wizard is to step through it. The following quickstart provides an explanation of each step.
 
 > [!div class="nextstepaction"]
-> Create an Azure Search index using the Azure portal](search-get-started-portal.md)
+> [Create an Azure Search index using the Azure portal](search-get-started-portal.md)
