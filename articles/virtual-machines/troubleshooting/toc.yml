@@ -148,8 +148,6 @@
     href: troubleshoot-deploy-vm-windows.md
 - name: Device names are changed
   href: troubleshoot-device-names-problems.md
-- name: Preserve the drive letter for protected virtual machines that are failed over or migrated to Azure
-  href: preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md 
 - name: VM recovery access
   items:
   - name: Windows

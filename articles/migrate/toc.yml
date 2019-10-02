@@ -82,7 +82,9 @@
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
-  - name: Scale assessment and migration
+  - name: Preserve the drive letter for protected virtual machines that are failed over or migrated to Azure
+    href: preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md 
+- name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
       href: scale-vmware-assessment.md
