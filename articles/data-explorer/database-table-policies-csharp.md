@@ -26,13 +26,13 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table](net-standard-ingest-data.md)
+1. [A test table](net-standard-ingest-data#create-a-table-on-your-test-cluster)
 
 ## Install C# Nuget
 
 1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-1. Install the [Microsoft.Azure.Kusto.Data.NETStandard nuget package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/).
+1. Install the [Microsoft.Azure.Kusto.Data.NETStandard nuget package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/) (Optional, for changing table's policies).
 
 1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
 
