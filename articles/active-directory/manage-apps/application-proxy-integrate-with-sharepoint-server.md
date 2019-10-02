@@ -29,7 +29,7 @@ To perform the configuration, you need the following resources:
 - A SharePoint 2013 farm or newer.
 - An Azure Active Directory tenant with a plan that includes Application Proxy. Learn more about the [Azure Active Directory plans and pricing](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
 - A [custom verified domain](../fundamentals/add-custom-domain.md) in the Azure AD tenant.
-- On-premises Active Directory synchronized with Azure AD Connect with users able to [sign-in on Azure](../hybrid/plan-connect-user-signin.md).
+- On-premises Active Directory synchronized with Azure AD Connect with users able to [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
 
 Configuring SharePoint with Application Proxy requires 2 URLs:
