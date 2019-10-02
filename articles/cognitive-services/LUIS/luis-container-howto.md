@@ -1,7 +1,7 @@
 ---
 title: Docker containers - LUIS
 titleSuffix: Azure Cognitive Services
-description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints. 
+description: The LUIS container loads your trained or published app into a docker container and provides access to the query predictions from the container's API endpoints.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -366,7 +366,6 @@ For more information about these options, see [Configure containers](luis-contai
 
 The latest container, released at 2019 //Build, will support:
 
-* Bing spell check: requests to the query prediction endpoint with the `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` query string parameters. Use the [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) to learn more. If this feature is used, the container sends the utterance to your Bing Spell Check V7 resource.
 * [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use. 
 
 <a name="unsupported-dependencies"></a>
@@ -384,6 +383,7 @@ Unsupported app configurations|Details|
 |Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
 |Sentiment analysis|External dependencies are not supported in the container.|
+|Bing spell check|External dependencies are not supported in the container.|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
