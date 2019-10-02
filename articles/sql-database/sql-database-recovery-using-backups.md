@@ -73,7 +73,7 @@ You generally restore a database to an earlier point for recovery purposes. You 
   
 ### Point-in-time restore by using Azure portal
 
-You can recover a single SQL database or instance database to a point in time from the overview blade of the database you wish to restore in the Azure portal.
+You can recover a single SQL database or instance database to a point in time from the overview blade of the database you want to restore in the Azure portal.
 
 #### Single Azure SQL database
 
@@ -232,7 +232,7 @@ To restore a single or pooled database by using Azure CLI, see [az sql db restor
 
 #### Managed instance database
 
-To restore a managed instance database using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)
+To restore a managed instance database using Azure CLI, see [az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore).
 
 ## Summary
 
