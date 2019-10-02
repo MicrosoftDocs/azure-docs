@@ -49,7 +49,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 
 To develop an IoT Edge module with the Custom Vision service, install the following additional prerequisites on your development machine: 
 
-* [Python](https://www.python.org/downloads/)
+* [Python](https://www.python.org/downloads/) version 3.7.x minimum 
 * [Git](https://git-scm.com/downloads)
 * [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
 
