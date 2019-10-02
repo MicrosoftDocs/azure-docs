@@ -5,13 +5,8 @@
   href: sql-database-technical-overview.md
 
 - name: Release notes
-  items:
-  - name: What's new?
-    href: sql-database-release-notes.md
-  - name: Gateway IP migration updates
-    href: sql-database-gateway-migration.md
-  - name: Planned maintenance events
-    href: sql-database-planned-maintenance.md
+  href: sql-database-release-notes.md
+
 
 - name: Overview
   items:
@@ -46,12 +41,15 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
-
+  - name: Gateway IP address updates
+    href: sql-database-gateway-migration.md
+  - name: Periodic maintenance events
+    href: sql-database-planned-maintenance.md
 
 
 - name: Concepts
   items:
-  - name: Shared feature documentation
+  - name: Common features documentation
     href: sql-database-paas-index.yml
   - name: Feature comparison
     href: sql-database-features.md
