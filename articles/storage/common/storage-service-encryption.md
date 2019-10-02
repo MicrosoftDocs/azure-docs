@@ -24,11 +24,14 @@ Encryption does not affect Azure Storage performance. There is no additional cos
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
-## Key management
+## About encryption key management
 
-You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you can specify a customer-managed key that is used for encrypting and decrypting all data in the storage account. A client making a request against Blob storage can also provide an encryption key on an individual request for granular control over how Blob data is encrypted and decrypted.
+You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you have two options:
 
-The following table compares the key management options for Azure Storage encryption.
+- You can specify a *customer-managed key* to use for encrypting and decrypting all data in the storage account. A customer-managed key is used to encrypt all data in all services in your storage account.
+- You can specify a *customer-provided key* on Blob storage operations. A client making a read or write request against Blob storage can include an encryption key on the request for granular control over how blob data is encrypted and decrypted.
+
+The following table compares key management options for Azure Storage encryption.
 
 |                                        |    Microsoft-managed keys                             |    Customer-managed keys                                                                                                                        |    Customer-provided keys                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -41,7 +44,7 @@ The following table compares the key management options for Azure Storage encryp
 
 The following sections describe each of the options for key management in greater detail.
 
-### Microsoft-managed keys
+## Microsoft-managed keys
 
 By default, your storage account uses Microsoft-managed encryption keys. You can see the encryption settings for your storage account in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
 
