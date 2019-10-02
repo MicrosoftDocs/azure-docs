@@ -17,7 +17,7 @@ ms.date: 10/03/2019
 
 Known issues and limitations associated with online migrations of Oracle to Azure Database for PostgreSQL-Single server are described in the following sections.
 
-## Supported Oracle versions as a source database
+## Oracle versions supported as a source database
 
 Azure Database Migration Service supports connecting to:
 
@@ -26,7 +26,7 @@ Azure Database Migration Service supports connecting to:
 
 Azure Database Migration Service doesn't support connecting to multi-tenant container databases (CDBs).
 
-## Supported PostgreSQL versions as a target database
+## PostgreSQL versions supported as a target database
 
 Azure Database Migration Service supports migrations to Azure Database for PostgreSQL-Single server version 9.5, 9.6, 10 and 11. See the article [Supported PostgreSQL database versions](https://docs.microsoft.com/azure/postgresql/concepts-supported-versions) for current information on version support in Azure Database for PostgreSQL-Single server.
 
@@ -39,7 +39,8 @@ The following datatypes **won't** be migrated:
 - REF
 - UROWID
 - ANYDATA
-- SDO_GEOMETRY Nested Table
+- SDO_GEOMETRY
+- Nested tables
 - User-defined data types
 - Notes
 - Virtual columns
