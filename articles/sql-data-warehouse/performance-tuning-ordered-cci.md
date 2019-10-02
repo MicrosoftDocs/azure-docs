@@ -57,8 +57,8 @@ The number of overlapping segments depends on the size of data to sort, the avai
 - Create ordered CCI with MAXDOP = 1.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands does not support the MAXDOP option. For example,
 
 ```sql
-Create table Table1 with (distribution = hash(c1), clustered columnstore index order(c1) )
-as select * from ExampleTable
+CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
+AS SELECT * FROM ExampleTable
 OPTION (MAXDOP 1);
 ```
 - Pre-sort the data by the sort key(s) before loading them into Azure SQL Data Warehouse tables.
