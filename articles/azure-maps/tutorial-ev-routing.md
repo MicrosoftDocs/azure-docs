@@ -260,7 +260,7 @@ display(Image(poiRangeMap))
 
 ## Find the optimal charging station to stop
 
-After we have all the potential charging stations within the reachable range, we want to know which one of the stations can be reached in the minimum amount of time. The following script calls the Azure Maps [Matrix routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) returning for the given vehicle location the travel time and distance to every given charging station location. Next the script parses the response to get location for the closest reachable charging station with respect to time.
+After we have all the potential charging stations within the reachable range, we want to know which one of the stations can be reached in the minimum amount of time. The following script calls the Azure Maps [Matrix routing API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview) returning for the given vehicle location the travel time and distance to every given charging station location. Next the script, parses the response to get location for the closest reachable charging station with respect to time.
 
 Run the following script to find the closest reachable charging station that can be reached in the minimum amount of time.
 
