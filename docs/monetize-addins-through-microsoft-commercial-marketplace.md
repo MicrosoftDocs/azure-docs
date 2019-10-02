@@ -1,6 +1,6 @@
 ---
 title: Monetize your Office 365 add-in through Microsoft Commercial Marketplace
-description: We’re making it easier for customers to discover bundled solutions and deploy across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
+description: We’re making it easier for customers to discover bundled solutions and deploy them across Microsoft Teams, Office, SharePoint, and other Microsoft applications.
 localization_priority: Priority
 ---
 
@@ -36,30 +36,29 @@ A customer discovers your SaaS service in AppSource and purchases licenses, prov
 
 You are able to submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you publish your offer as a private plan, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
-## Submitting your offer + add-in
+## Submission process for SaaS offer + add-in
+You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
 
-You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer.
-
-![Submission flow](images/monetization-submission-diagram.png)
+![Diagram showing the process for submitting an add-in and associated SaaS offer](images/monetization-submission-diagram.png)
 
 ## FAQs
 
 ### Why has Microsoft changed their monetization model for add-ins?
 
-By charging for core application functionality and making add-ins free, partners gain more flexibility in adding new value for customers by delivering paid functionality outside of the context of an add-in. To better support this model, AppSource has enabled full commerce for SaaS app transactions on May 31, 2019, providing a new range of options for partners. Given our emphasis on a range of payment models for SaaS apps, we’re simplifying Office Add-ins by only supporting free-to-download options.
+By charging for core application functionality and making add-ins free, partners gain more flexibility to add new value for customers by delivering paid functionality outside of the context of an add-in. To better support this model, AppSource has enabled full commerce for SaaS app transactions effective May 31, 2019, providing a new range of options for partners. Given our emphasis on a range of payment models for SaaS apps, we’re simplifying Office Add-ins by only supporting free-to-download options.
 
 ### How do I sign up for Partner Center?
 
-Review the information on the [Welcome to Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account. For more details, see [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
+Review the information on the [Welcome to Microsoft Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) enrollment page and then register for an account. For details, see [Create a Commercial Marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account).
 
 ### Where can I find documentation about integrating with Azure Active Directory?
 
-Extensive documentation, samples and guidance can be found at [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
-To start, we recommend that you have a subscription dedicated for your Azure Marketplace publishing, allowing you to isolate the work from other initiatives. Once this is done you can start deploying your SaaS application in this subscription to start the development work.
-In addition, you can use [Azure AD Service updates](https://azure.microsoft.com/updates/?product=active-directory) to check for Service Updates.
+For extensive documentation, samples, and guidance, see [Microsoft identity platform overview](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+To start, we recommend that you have a subscription dedicated to your Azure Marketplace publishing, to isolate the work from other initiatives. Then you can start deploying your SaaS application in this subscription to start the development work.
+You can also check for [Azure AD service updates](https://azure.microsoft.com/updates/?product=active-directory).
 
 ### How does my add-in authenticate a user with Azure AD?
-Office provides the [Office Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For additional information, please see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+Office provides the [Office Dialog API](https://docs.microsoft.com/en-us/office/dev/add-ins/develop/auth-with-office-dialog-api) to enable you to authenticate users from within your add-in. For more information, see [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
 
 ### What reports will I receive from Commercial Marketplace about my SaaS offer?
 
