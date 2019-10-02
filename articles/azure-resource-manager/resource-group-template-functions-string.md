@@ -1909,7 +1909,7 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. |
+| baseUri |Yes |string |The base uri string. Must end with a trailing slash ('/')  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
 The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing `http://contoso.com/resources/azuredeploy.json` as the baseUri parameter results in a base URI of `http://contoso.com/resources/`.
