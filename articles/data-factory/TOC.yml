@@ -151,8 +151,6 @@
       href: concepts-data-flow-json.md
     - name: Schema drift
       href: concepts-data-flow-schema-drift.md
-    - name: Inspect pane
-      href: concepts-data-flow-inspect-pane.md
     - name: Column patterns
       href: concepts-data-flow-column-pattern.md
     - name: Data flow monitoring
@@ -161,8 +159,6 @@
       href: concepts-data-flow-performance.md
     - name: Move nodes
       href: concepts-data-flow-move-nodes.md
-    - name: Optimize tab
-      href: concepts-data-flow-optimize-tab.md
     - name: Expression builder
       href: concepts-data-flow-expression-builder.md
     - name: Reference nodes
