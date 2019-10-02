@@ -191,7 +191,7 @@ To configure the KCD, repeat the following steps for each connector machine:
   
    ![Delegation settings](./media/application-proxy-integrate-with-sharepoint-server/delegation-box2.png)
 
-You are now ready to sign-in on SharePoint using the external URL and authenticate on Azure.
+You are now ready to sign in to SharePoint using the external URL and authenticate with Azure.
 
 ## Troubleshoot sign-in errors
 
