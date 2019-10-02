@@ -30,10 +30,10 @@ The following limits are common across basic, standard, and dedicated tiers.
 ### Event Hubs Basic and Standard - quotas and limits
 | Limit | Scope | Notes | Basic | Standard |
 | --- | --- | --- | -- | --- |
-| Maximum size of Event Hubs event|Entity |- | 256 KB (Basic)<p>1 MB (Standard)</p> |
-| Number of consumer groups per event hub |Entity | - |1 |20 |
+| Maximum size of Event Hubs event|Entity | &nbsp; | 256 KB | 1 MB |
+| Number of consumer groups per event hub |Entity | &nbsp; |1 |20 |
 | Number of AMQP connections per namespace |Namespace |Subsequent requests for additional connections are rejected, and an exception is received by the calling code. |100 |5,000|
-| Maximum retention period of event data |Entity | - |1 day |1-7 days |
+| Maximum retention period of event data |Entity | &nbsp; |1 day |1-7 days |
 |Apache Kafka enabled namespace|Namespace |Event Hubs namespace streams applications using Kafka protocol |No | Yes |
 |Capture |Entity | When enabled, micro-batches on the same stream |No |Yes |
 
