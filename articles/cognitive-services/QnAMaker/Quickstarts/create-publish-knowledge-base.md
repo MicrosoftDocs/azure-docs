@@ -68,9 +68,7 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Add the answer formatted with _markdown_:
 
-    ```markdown
-    * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan
-    ```
+    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
 
     ![ Add the question as text and the answer formatted with markdown.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
 
