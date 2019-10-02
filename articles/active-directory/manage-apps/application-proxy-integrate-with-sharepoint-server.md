@@ -70,7 +70,7 @@ In this step, you create an application in your Azure Active Directory tenant th
 
 1. To finish setting up your application, go to the **Users and groups** section and assign users to access this application. 
 
-## Step 2: Configure SharePoint web application
+## Step 2: Configure the SharePoint web application
 
 The SharePoint web application must be configured with Kerberos and the appropriate alternate access mappings to work correctly with Azure AD Application Proxy. There are two possible options:
 
