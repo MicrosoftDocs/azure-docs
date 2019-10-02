@@ -21,7 +21,7 @@ ms.author: v-miegge
 
 This article describes some of the basic information that you should gather before you open a case for Azure Automation with Microsoft Azure Support. This information is not required to open the case. However, it can help Microsoft resolve your problem more quickly. Also, you may be asked for this data by the support engineer after you open the case.
 
-## More Information
+## Collect more information
 
 Before you open a case for Microsoft Azure Automation Support, we recommend that you collect the following information.
 
@@ -31,7 +31,7 @@ Collect the data described in the following Knowledge Base article:
 
 * [4034605](https://support.microsoft.com/help/4034605/how-to-capture-azure-automation-scripted-diagnostics) How to capture Azure Automation-scripted diagnostics
 
-## Collect Data Depending on Issue
+## Collect data depending on issue
  
 ### For issues that affect Update Management on Linux
 
@@ -99,5 +99,8 @@ In addition to the items under "Basic data collection", gather the following inf
 * A screenshot of any error messages.
 * A screenshot of the current modules and their version numbers.
 
+## Next steps
 
+If you need more help at any point in this article, contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
 
+Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

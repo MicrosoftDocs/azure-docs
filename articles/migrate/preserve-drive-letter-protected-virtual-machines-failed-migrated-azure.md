@@ -25,7 +25,7 @@ By default, Azure virtual machines are assigned to drive D for use as temporary 
 
 For example, if your on-premises installation uses a data disk that is assigned to drive D for application installations, the assignment for this drive increments to drive E after you import the VM to Azure. To prevent this automatic assignment, you can set the storage area network (SAN) policy to **OnlineAll**. This setting causes Azure to assign the next free drive letter to its temporary volume. In this situation, the data drive maintains the drive D designation, and the Azure temporary drive is assigned drive E.
 
-## More Information
+## More information
 
 By setting the SAN policy to **OnlineAll**, you can assure that the drive letter is maintained when the virtual machine starts to run in Azure. 
 
@@ -48,3 +48,9 @@ After you make this change, wait for the **Copy Frequency** (Recovery Point Obje
 For more information about temporary drive assignments on Azure VMs, go to the [Understanding the temporary drive on Windows Azure Virtual Machines](http://blogs.msdn.com/b/mast/archive/2013/12/07/understanding-the-temporary-drive-on-windows-azure-virtual-machines.aspx) Azure Support Team Blog article.
 
 For more information about SAN policy, see the Azure Support Team Blog article on the [SAN Policy](http://technet.microsoft.com/library/gg252636.aspx).
+
+## Next steps
+
+If you need more help at any point in this article, contact the Azure experts on [the MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/).
+
+Alternatively, file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
