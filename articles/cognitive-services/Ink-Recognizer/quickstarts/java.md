@@ -40,11 +40,11 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 1. Create a new Java project in your favorite IDE or editor, and import the following libraries.
     
-    [!code-java[import statements](~/cognitive-services-java-sdk-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=imports)]
+    [!code-java[import statements](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=imports)]
 
 2. Create variables for your subscription key and your endpoint. Replace the endpoint below with the one generated for your Ink Recognizer resource. Append it to the Ink recognizer URI to connect to the API.
 
-    [!code-java[initial vars](~/cognitive-services-java-sdk-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=vars)]
+    [!code-java[initial vars](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=vars)]
 
 ## Create a function to send requests
 
@@ -60,13 +60,13 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 6. Create an `HttpEntity` object to store the response content. Get the content with `getEntity()`. If the response isn't empty, return it.
     
-    [!code-java[send a request](~/cognitive-services-java-sdk-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
+    [!code-java[send a request](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=sendRequest)]
 
 ## Send an ink recognition request
 
 Create a method called `recognizeInk()` to recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
-[!code-java[recognizeInk](~/cognitive-services-java-sdk-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
+[!code-java[recognizeInk](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=recognizeInk)]
 
 ## Load your digital ink data and send the request
 
@@ -74,7 +74,7 @@ Create a method called `recognizeInk()` to recognize your ink stroke data. Call 
 
 2. Call the ink recognition function created above.
     
-    [!code-java[main method](~/cognitive-services-java-sdk-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
+    [!code-java[main method](~/cognitive-services-rest-samples/java/InkRecognition/quickstart/RecognizeInk.java?name=main)]
 
 
 ## Run the application and view the response
