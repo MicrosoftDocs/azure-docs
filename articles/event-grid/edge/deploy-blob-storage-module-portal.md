@@ -72,7 +72,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    - Replace `<storage mount>` according to your container operating system.
      - For Linux containers, **my-volume:/blobroot**
-     - For Windows containers,**C:/ContainerData:C:/BlobRoot**. Make sure "C:/ContainerData" directory exists in your IoT device.
+     - For Windows containers,**my-volume:C:/BlobRoot**
 
 5. Click **Save**
 6. Click **Next** to continue to the routes section
@@ -167,7 +167,7 @@ Keep the default routes, and select **Next** to continue to the review section
         }
     ```
 
-2. [Connect to your local storage with Azure Storage Explorer](../azure/iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../azure/iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## Verify Event Delivery
 
