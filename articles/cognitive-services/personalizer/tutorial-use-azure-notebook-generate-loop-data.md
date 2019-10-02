@@ -574,7 +574,7 @@ createChart(count,rewards)
 
 ## Reading the chart
 
-This chart shows the success of the current learning policy for the duration of the test. 
+This chart shows the success of the model for the current default learning policy. 
 
 ![This chart shows the success of the current learning policy for the duration of the test.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
