@@ -51,7 +51,7 @@ After the VM has restarted into the new kernel, the new kernel version can be co
 uname -a
 ```
 
-## Update the Azure Virtual Machine Agent and Extension Versions
+## Update the Azure Virtual Machine Agent and extension versions
 
 Azure Disk Encryption operations may fail on virtual machine images using unsupported versions of the Azure Virtual Machine Agent. Linux images with agent versions earlier than 2.2.38 should be updated prior to enabling encryption. For more information, see [How to update the Azure Linux Agent on a VM](../extensions/update-linux-agent.md) and [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
@@ -108,7 +108,7 @@ The VM must be able to access the [Azure Instance Metadata service](../windows/i
 
 At runtime, Azure Disk Encryption for Linux relies on the target distribution’s package management system to install needed prerequisite components before enabling encryption. If the firewall settings prevent the VM from being able to download and install these components, then subsequent failures are expected. The steps to configure this package management system can vary by distribution. On Red Hat, when a proxy is required, you must make sure that the subscription-manager and yum are set up properly. For more information, see [How to troubleshoot subscription-manager and yum problems](https://access.redhat.com/solutions/189533).  
 
-## Troubleshooting Encryption Status 
+## Troubleshooting encryption status 
 
 The portal may display a disk as encrypted even after it has been unencrypted within the VM.  This can occur when low-level commands are used to directly unencrypt the disk from within the VM, instead of using the higher level Azure Disk Encryption management commands.  The higher level commands not only unencrypt the disk from within the VM, but outside of the VM they also update important platform level encryption settings and extension settings associated with the VM.  If these are not kept in alignment, the platform will not be able to report encryption status or provision the VM properly.   
 

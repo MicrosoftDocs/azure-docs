@@ -31,7 +31,7 @@ You can learn the fundamentals of Azure Disk Encryption for Linux in just a few 
 
 Linux VMs are available in a [range of sizes](sizes.md). Azure Disk Encryption is not available on [Basic, A-series VMs](/pricing/details/virtual-machines/series/), or on virtual machines that do not meet these minimum memory requirements:
 
-| Virtual Machine | Minimum memory requirement |
+| Virtual machine | Minimum memory requirement |
 |--|--|
 | Linux VMs when only encrypting data volumes| 2 GB |
 | Linux VMs when encrypting both data and OS volumes, and where the root (/) file system usage is 4GB or less | 8 GB |

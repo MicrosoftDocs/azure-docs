@@ -20,7 +20,7 @@ You can enable many disk-encryption scenarios, and the steps may vary according 
 - [Additional requirements for VMs](disk-encryption-overview.md#supported-vms-and-operating-systems)
 - [Networking and Group Policy](disk-encryption-overview-aad.md#networking-and-group-policy)
 - [Encryption key storage requirements](disk-encryption-overview-aad.md#encryption-key-storage-requirements)
-- 
+
 Take a [snapshot](snapshot-copy-managed-disk.md) and/or back up  before disks are encrypted. Backups ensure that a recovery option is possible if an unexpected failure occurs during encryption. VMs with managed disks require a backup before encryption occurs. Once a backup is made, you can use the Set-AzVMDiskEncryptionExtension cmdlet to encrypt managed disks by specifying the -skipVmBackup parameter. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../../backup/backup-azure-vms-encryption.md) article. 
 
 >[!WARNING]

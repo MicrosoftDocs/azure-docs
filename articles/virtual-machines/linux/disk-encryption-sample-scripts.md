@@ -39,7 +39,7 @@ If you're already familiar with the prerequisites for Azure Disk Encryption, you
 The following table shows which parameters can be used in the PowerShell script: 
 
 
-|Parameter|Description|Is Mandatory|
+|Parameter|Description|Mandatory?|
 |------|------|------|
 |$resourceGroupName| Name of the resource group to which the KeyVault belongs to.  A new resource group with this name will be created if one doesn't exist.| True|
 |$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| True|
@@ -393,7 +393,7 @@ To configure encryption to work with Azure, do the following steps:
     ```    
 5. Run the “/usr/sbin/dracut -f -v” to update the initrd.
 
-![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
+    ![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
 ## Upload encrypted VHD to an Azure storage account
 After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
