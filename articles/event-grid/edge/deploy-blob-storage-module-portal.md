@@ -5,7 +5,7 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: spelluru 
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
