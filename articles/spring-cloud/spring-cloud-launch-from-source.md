@@ -97,7 +97,7 @@ Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to upload your
 For single module Maven / Gradle projects:
 
 ```azurecli
-cd <path-to-maven-or-gradle-soure-root>
+cd <path-to-maven-or-gradle-source-root>
 az spring-cloud app deploy -n <app-name>
 ```
 
