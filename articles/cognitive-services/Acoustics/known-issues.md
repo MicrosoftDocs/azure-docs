@@ -35,7 +35,7 @@ Check that:
 - Your account supports the type of node that you requested in the bake.
 - Your system clock is set correctly.
 
-## The Bake tab stays in "deleting" state after you cancel a bake
+## The Bake tab still shows "deleting" after you cancel
 Project Acoustics cleans up all Azure resources for a job after successful completion or cancellation. This process can take up to 5 minutes.
 
 ## Next steps
