@@ -14,11 +14,11 @@ In this section, you send breaking news as tagged template notifications from a 
 
 1. In Visual Studio, create a new Visual C# console application:
     1. On the menu, select **File** > **New** > **Project**.
-    1. In **Create a new project**, select **Console App (.NET Framework)** in the list of templates, and select **Next**.
+    1. In **Create a new project**, select **Console App (.NET Framework)** for C# in the list of templates, and select **Next**.
     1. Enter a name for the app.
     1. For **Solution**, choose **Add to solution**, and select **Create** to create the project.
 
-1. On the Visual Studio main menu, select **Tools** > **NuGet Package Manager** > **Package Manager Console** and then, in the console window, enter then run the following command:
+1. Select **Tools** > **NuGet Package Manager** > **Package Manager Console** and then, in the console window, run the following command:
 
    ```powershell
    Install-Package Microsoft.Azure.NotificationHubs

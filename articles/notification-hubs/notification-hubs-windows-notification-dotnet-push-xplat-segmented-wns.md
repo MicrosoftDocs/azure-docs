@@ -33,7 +33,7 @@ In this tutorial, you learn how to use Azure Notification Hubs to push notificat
 To enable broadcast scenarios, include one or more *tags* when you create a registration in the notification hub. When notifications are sent to a tag, all devices that are registered for the tag receive the notification. For more information about tags, see [Routing and tag expressions](notification-hubs-tags-segment-push-message.md).
 
 > [!NOTE]
-> Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2017. For more information, see [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs).
+> Windows Store and Windows Phone project versions 8.1 and earlier are not supported in Visual Studio 2019. For more information, see [Visual Studio 2019 Platform Targeting and Compatibility](/visualstudio/releases/2019/compatibility).
 
 In this tutorial, you do the following tasks:
 
@@ -226,11 +226,11 @@ The app is now complete. It can store a set of categories in the device local st
 
 1. In Visual Studio, select F5 to compile and start the app. The app UI provides a set of toggles that lets you choose the categories to subscribe to.
 
-    ![Breaking News app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews.png)
+   ![Breaking News app](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-breakingnews.png)
 
 1. Enable one or more category toggles, and then select **Subscribe**.
 
-    The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The app displays the registered categories in a dialog box.
+   The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub. The app displays the registered categories in a dialog box.
 
     ![Category toggles and Subscribe button](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-toast.png)
 
@@ -240,16 +240,14 @@ The app is now complete. It can store a set of categories in the device local st
 
 ## Run the console app to send tagged notifications
 
-Run the app created in the previous section. Notifications for the selected categories appear as toast notifications. If you select the notification, you see the first UWP app window.
-
-     ![Toast notifications](./media/notification-hubs-windows-store-dotnet-send-breaking-news/notification-hub-windows-reg.png)
+Run the app created in the previous section. Notifications for the selected categories appear as toast notifications.
 
 ## Next steps
 
 In this article, you learned how to broadcast breaking news by category. The back-end application pushes tagged notifications to devices that have registered to receive notifications for that tag. To learn how to push notifications to specific users independent of what device they use, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
-> [Push localized notifications](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+> [Push localized notifications to Windows apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 
 <!-- Anchors. -->
 [Add category selection to the app]: #adding-categories
