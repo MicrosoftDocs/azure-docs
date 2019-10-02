@@ -62,7 +62,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 + For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
-      The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
 
         ```Python
           datastore = Datastore.register_azure_blob_container(workspace=ws, 
@@ -75,7 +75,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
-      The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
+    The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
 
         ```Python
           datastore = Datastore.register_azure_file_share(workspace=ws, 
