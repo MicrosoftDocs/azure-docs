@@ -348,6 +348,10 @@ If you call the command from outside the virtual network or from a non-peered vi
 
 For more information about pricing and FAQ related to billing, see the [Azure HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight/) page.
 
+### When does HDInsight billing start & stop?
+
+HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute
+
 ### How do I cancel my subscription?
 
 For information about how to cancel your subscription, see [Cancel your Azure subscription](https://docs.microsoft.com/azure/billing/billing-how-to-cancel-azure-subscription).
