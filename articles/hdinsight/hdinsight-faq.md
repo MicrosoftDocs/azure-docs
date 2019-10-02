@@ -188,7 +188,7 @@ For information on malware protection, see [Microsoft Antimalware for Azure Clou
 
 ### How do I create a keytab for an HDInsight ESP cluster?
 
-Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. Note that the domain name is uppercase:
+Create a Kerberos keytab for your domain username. You can later use this keytab to authenticate to remote domain-joined clusters without entering a password. The domain name is uppercase:
 
 ```shell
 ktutil
@@ -350,7 +350,7 @@ For more information about pricing and FAQ related to billing, see the [Azure HD
 
 ### When does HDInsight billing start & stop?
 
-HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute
+HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute.
 
 ### How do I cancel my subscription?
 
