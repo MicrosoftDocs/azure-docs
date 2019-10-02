@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
 ---
@@ -160,8 +160,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
 | YOUR_PATH | True | String |	The chosen path to check access for. |
-| YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
-| YOUR_RESOURCE_TYPE | True | String |	The resource to check. |
+| YOUR_ACCESS_TYPE |  True | String |	*Read*, *Create*, *Update*, or *Create* |
+| YOUR_RESOURCE_TYPE | True | String |	*Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata*, or *UserExtendedProperty* |
 
 A successful request will return a boolean `true` or `false` to indicate whether the access type has been assigned to the user for the given path and resource.
 
