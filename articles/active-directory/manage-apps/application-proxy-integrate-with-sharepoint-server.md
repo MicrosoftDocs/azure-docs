@@ -32,7 +32,7 @@ To perform the configuration, you need the following resources:
 - On-premises Active Directory synchronized with Azure AD Connect with users able to [sign in to Azure](../hybrid/plan-connect-user-signin.md).
 - An Application Proxy connector installed and running on a machine within the corporate domain.
 
-Configuring SharePoint with Application Proxy requires 2 URLs:
+Configuring SharePoint with Application Proxy requires two URLs:
 - An external URL, visible to end-users and determined in Azure Active Directory. This URL may use a custom domain. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 - An internal URL, known only within the corporate domain and never used directly.
 
