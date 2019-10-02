@@ -91,7 +91,7 @@ Now you create a table in Azure Data Explorer, to which Event Hubs will send dat
 
 ## Connect to the event hub
 
-Now you connect to the event hub from Azure Data Explorer. When this connection is in place, data that flows into the event hub streams to the test table you created earlier in this article. Check [Add an Event Hub data connection](data-connection-csharp.md#add-an-event-hub-data-connection) for adding the data connection programmatically.
+Now you connect to the event hub from Azure Data Explorer. When this connection is in place, data that flows into the event hub streams to the test table you created earlier in this article. To learn about how to connect to the event hub programmatically, see [Add an Event Hub data connection](data-connection-csharp.md#add-an-event-hub-data-connection).
 
 1. Select **Notifications** on the toolbar to verify that the event hub deployment was successful.
 
