@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 12/04/2018
+ms.date: 09/20/2019
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -69,7 +69,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.5"
     }
@@ -100,7 +100,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     resource "azurerm_resource_group" "k8s" {
         name     = "${var.resource_group_name}"
         location = "${var.location}"
@@ -197,7 +197,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     variable "client_id" {}
     variable "client_secret" {}
 
@@ -261,7 +261,7 @@ Create the Terraform configuration file that declares the resources for the Kube
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -318,7 +318,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 

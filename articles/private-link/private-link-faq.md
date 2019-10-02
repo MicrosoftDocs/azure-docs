@@ -1,9 +1,9 @@
 ---
 title: Azure Private Link frequently asked questions (FAQ)
 description: Learn about Azure Private Link.
-services: virtual-network
+services: private-link
 author: KumudD
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
@@ -19,8 +19,8 @@ ms.author: kumud
 - **[Azure Private Endpoint](private-endpoint-overview.md)**: Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. You can use Private Endpoints to connect to an Azure PaaS service that supports Private Link or to your own Private Link Service.
 - **[Azure Private Link Service](private-link-service-overview.md)**: Azure Private Link service is a service created by a service provider. Currently, a Private Link service can be attached to the frontend IP configuration of a Standard Load Balancer. 
 
-### How is traffic being send when using Private Link?
-Traffic is send privately using Microsoft backbone. It doesn’t traverse the internet.  
+### How is traffic being sent when using Private Link?
+Traffic is sent privately using Microsoft backbone. It doesn’t traverse the internet.  
  
 ### What is the difference between a Service Endpoints and a Private Endpoints?
 - When using Private Endpoints, network access is granted to specific resources behind a given service providing granular segmentation, also traffic can reach the service resource from on premises without using public endpoints.

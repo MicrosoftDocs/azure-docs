@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
 ms.custom: seodec18
 ---
@@ -14,8 +14,6 @@ ms.custom: seodec18
 # Create and manage role assignments in Azure Digital Twins
 
 Azure Digital Twins uses role-based access control ([RBAC](./security-role-based-access-control.md)) to manage access to resources.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Role assignments overview
 
@@ -69,17 +67,24 @@ The supplied Swagger reference documentation contains further information about 
 
 Granting permissions to your service principal is often one of the first steps you'll take when working with Azure Digital Twins. It entails:
 
-1. Logging in to your Azure instance through PowerShell.
+1. Logging in to your Azure instance through [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) or [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Acquiring your service principal information.
 1. Assigning the desired role to your service principal.
 
 Your application ID is supplied to you in Azure Active Directory. To learn more about configuring and provisioning an Azure Digital Twins in Active Directory, read through the [Quickstart](./quickstart-view-occupancy-dotnet.md).
 
-Once you have the application ID, execute the following PowerShell commands:
+Once you have the application ID, execute one of the following commands. In Azure CLI:
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+In Powershell:
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 A user with the **Admin** role can then assign the Space Administrator role to a user by making an authenticated HTTP POST request to the URL:

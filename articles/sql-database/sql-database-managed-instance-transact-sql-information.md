@@ -403,7 +403,7 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 - Snapshot and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication, and updatable subscriptions are not supported.
 - [Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on managed instance with some constraints:
-    - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but Publisher and Distributor cannot be placed on different instances.
+    - All types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on managed instances, but the publisher and the distributor must be either both in the cloud or both on-premises.
     - Managed instances can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
     - Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
 
@@ -538,6 +538,15 @@ The maximum file size of `tempdb` can't be greater than 24 GB per core on a Gene
 A managed instance places verbose information in error logs. There are many internal system events that are logged in the error log. Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ## <a name="Issues"></a> Known issues
+
+### Change service tier and create instance operations are blocked by ongioing database restore
+
+**Date:** Sep 2019
+
+Ongoing `RESTORE` statement, Data Migration Service migration process, and built-in point-in time restore will block updating service tier or resize of the existing instance and creating new instances until restore process finishes. 
+Restore process will block these operations on the Managed instances and instance pools in the same subnet where restore process is running. The instances in instance pools are not affected. Create or change service tier operations will not fail or timeout - they will proceed once the restore process is completed or canceled.
+
+**Workaround**: Wait until the restore process finishes, or cancel the restore process if creation or update service-tier operation has higher priority.
 
 ### Missing validations in restore process
 

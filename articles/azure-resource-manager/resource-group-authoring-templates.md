@@ -4,7 +4,7 @@ description: Describes the structure and properties of Azure Resource Manager te
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
 ---
 
@@ -70,7 +70,7 @@ The available properties for a parameter are:
 | Element name | Required | Description |
 |:--- |:--- |:--- |
 | parameter-name |Yes |Name of the parameter. Must be a valid JavaScript identifier. |
-| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. |
+| type |Yes |Type of the parameter value. The allowed types and values are **string**, **securestring**, **int**, **bool**, **object**, **secureObject**, and **array**. See [Data types](#data-types). |
 | defaultValue |No |Default value for the parameter, if no value is provided for the parameter. |
 | allowedValues |No |Array of allowed values for the parameter to make sure that the right value is provided. |
 | minValue |No |The minimum value for int type parameters, this value is inclusive. |
@@ -80,6 +80,18 @@ The available properties for a parameter are:
 | description |No |Description of the parameter that is displayed to users through the portal. For more information, see [Comments in templates](#comments). |
 
 For examples of how to use parameters, see [Parameters in Azure Resource Manager templates](template-parameters.md).
+
+### Data types
+
+For integers passed as inline parameters, the range of values may be limited by the SDK or command-line tool you use for deployment. For example, when using PowerShell to deploy a template, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](resource-manager-parameter-files.md). Resource types apply their own limits for integer properties.
+
+When specifying boolean and integer values in your template, don't surround the value with quotation marks. Start and end string values with double quotation marks.
+
+Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
+
+Secure strings and secure objects can't be read after resource deployment.
+
+For samples of formatting data types, see [Parameter type formats](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## Variables
 
@@ -118,7 +130,7 @@ For examples of how to use variables, see [Variables in Azure Resource Manager t
 
 ## Functions
 
-Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expression that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
+Within your template, you can create your own functions. These functions are available for use in your template. Typically, you define complicated expressions that you don't want to repeat throughout your template. You create the user-defined functions from expressions and [functions](resource-group-template-functions.md) that are supported in templates.
 
 When defining a user function, there are some restrictions:
 

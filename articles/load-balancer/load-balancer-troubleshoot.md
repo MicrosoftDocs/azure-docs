@@ -5,7 +5,7 @@ description: Troubleshoot known issues with Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
 ms.devlang: na
