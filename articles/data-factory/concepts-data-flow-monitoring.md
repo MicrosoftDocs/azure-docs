@@ -19,7 +19,7 @@ When you execute your pipeline, you will be able to monitor the pipeline and all
 
 <img src="media/data-flow/mon001.png" width="800">
 
-You will see stats at this level as well inculding the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
+You will see stats at this level as well including the run times and status. The Run ID at the activity level is different that the Run ID at the pipeline level. The Run ID at the previous level is for the pipeline. Clicking the eyeglasses will give you deep details on your data flow execution.
 
 <img src="media/data-flow/mon002.png" width="800">
 
