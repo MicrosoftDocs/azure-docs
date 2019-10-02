@@ -4,7 +4,7 @@ description: How to configure downstream or leaf devices to connect to Azure IoT
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/07/2019
+ms.date: 09/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -28,6 +28,10 @@ This article identifies common problems with downstream device connections and g
 * Walking through Azure IoT samples in several languages to help get you started. 
 
 In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge device configured as a transparent gateway. 
+
+## Prerequisites 
+
+Have the **azure-iot-test-only.root.ca.cert.pem** certificate file that was generated in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md) available on your downstream device. Your downstream device uses this certificate to validate the identity of the gateway device. 
 
 ## Prepare a downstream device
 
@@ -84,6 +88,14 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 ### Windows
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
+
+You can install certificates using PowerShell's [Import-Certificate](https://docs.microsoft.com/powershell/module/pkiclient/import-certificate?view=win10-ps) as an administrator:
+
+```powershell
+import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
+```
+
+You can also install certificates using the **certlm** utility: 
 
 1. In the Start menu, search for and select **Manage computer certificates**. A utility called **certlm** opens.
 2. Navigate to **Certificates - Local Computer** > **Trusted Root Certification Authorities**.

@@ -24,26 +24,6 @@ For more general information on Azure Key Vault, see [What is Key Vault](key-vau
 
 Periodically, we release a public preview of a new Key Vault feature. Try out these and let us know what you think via azurekeyvault@microsoft.com, our feedback email address.
 
-### Storage Account Keys - July 10, 2017
-
->[!NOTE]
->For this update of Azure Key Vault only the **Storage Account Keys** feature is in preview.
-
-This preview includes our new Storage Account Keys feature, available through these interfaces; [.NET/C#](/dotnet/api/microsoft.azure.keyvault/), [REST](/rest/api/keyvault/) and [PowerShell](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault). 
-
-For more information on the new Storage Account Keys feature, see [Azure Key Vault storage account keys overview](key-vault-ovw-storage-keys.md).
-
-## Videos
-
-This video shows you how to create your own key vault and how to use it from the 'Hello Key Vault' sample application.
-
-- [Key Vault developer - quick start guide](https://channel9.msdn.com/Blogs/Azure/Azure-Key-Vault-Developer-Quick-Start/player)
-
-Resources mentioned in above video:
-
-- [Azure PowerShell](https://go.microsoft.com/fwlink/p/?linkid=320376&clcid=0x409)
-- [Azure Key Vault Sample Code](https://go.microsoft.com/fwlink/?LinkId=521527&clcid=0x409)
-
 ## Creating and Managing Key Vaults
 
 Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Managed identities for Azure resources makes solving this problem simpler by giving Azure services an automatically managed identity in Azure Active Directory (Azure AD). You can use this identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without having any credentials in your code. 

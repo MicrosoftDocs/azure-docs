@@ -19,6 +19,10 @@ In this Quickstart, you will learn how to create a VM on an Azure Virtual Networ
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+> [!NOTE]
+> Private endpoint(s) are not permitted in conjunction with service endpoints in the same subnet!
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
@@ -209,6 +213,7 @@ After you've created **myVm*, connect to it from the internet as follows:
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
+    ```
 3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
 4. In **Connect to server**, enter or select this information:
