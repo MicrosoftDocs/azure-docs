@@ -6,27 +6,35 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 09/6/2019
+ms.date: 10/02/2019
 ---
 
 # High availability components in Azure HDInsight
 
-The high availability (HA) components in an HDInsight cluster are distributed as:
+This article discusses the components that help to ensure high availability for data, services and operations in HDInsight. High availability is the ability of a system to provide a desired level of continued operation to its users.
+
+Different nodes in an HDInsight cluster contain different high availability (HA) components as shown in the following diagram:
 
 ![HDInsight high availability services diagram](./media/high-availability-components/hdinsight-ha-services.png)
 
-HA components may differ with cluster types. HDInsight provides the following HA components:
+Different cluster types contain different HA components. HDInsight provides the following HA components:
 
 * Apache Ambari server
 * Application Timeline Server for Apache YARN
 * Job History Server for Apache MapReduce
 * Apache Livy for Spark2 Server
 
-HDInsight uses HDInsight Zookeeper to determine the status of HA services and to perform failovers. HDInsight Zookeeper is another quorum of Zookeeper server running on Zookeeper nodes in parallel with Apache Zookeeper. HDInsight Zookeeper is used to decide the active headnode. The HDInsight HA services run on headnodes only. The service should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
+> [!Important]
+> Some of the HA components mention in the diagram are not present in this list. Should this list provide more explanation of what each HA component does?
+
+HDInsight uses Apache Zookeeper to determine the status of HA services and to perform failovers. HDInsight Zookeeper is another quorum of Zookeeper servers running on Zookeeper nodes in parallel with Apache Zookeeper. HDInsight Zookeeper is used to decide the active headnode. The HDInsight HA services run on headnodes only. The service should always be running on the active headnode, and stopped and put in maintenance mode on the standby headnode.
+
+> [!Important]
+> This section requires more elaboration - Zookeeper is an Apache project and they have a copyright on the name. Are we just saying that for every cluster, we run two Zookeeper quorums: 1) to operate the cluster as normal and 2) to perform failovers in case a particular service goes down?
 
 ## Startup
 
-During deployment, the HDInsight agent starts HA service-related components in the order of: HDInsight Zookeeper, master failover controller, and slave failover controller.
+During cluster deployment, the HDInsight agent starts HA service-related components in the order of: HDInsight Zookeeper, master failover controller, and slave failover controller.
 
 ## Slave failover controller
 
@@ -48,11 +56,14 @@ For active headnode failures, such as headnode crash, or rebooting, if the stand
 
 For HDInsight HA service failures, such as service down, unhealthy, and so on, master failover controller should be able to automatically restart or stop the services according to the headnode status. Users shouldn't manually start HDInsight HA services on both head nodes. Instead, allow automatic or manual failover to recover the problem.
 
-## HDFS NameNode high availability
+## Hadoop Distributed File System (HDFS) NameNode high availability
 
 HDInsight clusters based on Hadoop 2.0 or higher provide NameNode high availability. There are two NameNodes running on two headnodes, respectively, which are configured for automatic failover. The NameNodes use ZKFailoverController to communicate with Apache Zookeeper to elect for active/standby status. ZKFailoverController runs on both headnodes, and works in the same way as the master failover controller above.
 
-Apache Zookeeper is independent of HDInsight Zookeeper, so the active NameNode may not run on active headnode. When the active NameNode is dead or unhealthy, the standby NameNode will win the election and become active.
+> [!Important]
+> Similar clarification needed of what we mean "HDInsight Zookeeper"
+
+Apache Zookeeper is independent of HDInsight Zookeeper, so the active NameNode may not run on the active headnode. When the active NameNode is dead or unhealthy, the standby NameNode wins the election and becomes active.
 
 ## YARN Resource Manager high availability
 
@@ -64,10 +75,18 @@ Resource Manager high availability is independent from NameNode and HDInsight HA
 
 ## Inadvertent manual intervention
 
-It's expected that HDInsight HA services should only be running on the active headnode, and automatically restarted when necessary. Since individual HA services don't have its own health monitor, failover can't be triggered at single service level. Failover and availability of HDInsight HA services is at a node level and not at a service level.
+It's expected that HDInsight HA services should only be running on the active headnode, and automatically restarted when necessary. Since individual HA services don't have their own health monitor, failover can't be triggered at the level of the individual service. Failover and availability of HDInsight HA services is ensured at the node level and not at the service level.
 
 ## Some known issues
+
+> [!Important]
+> Could we provide some info about the impact of these issues and any potential workarounds?
 
 * When manually starting an HA service on the standby headnode, it won't stop until next failover happens.
 
 * When an HA service on the active headnode stops, it won't restart until next failover happens or the master-ha-service restarts.
+
+## Next steps
+
+- [Availability and reliability of Apache Hadoop clusters in HDInsight](hdinsight-high-availability-linux.md)
+- [Azure HDInsight virtual network architecture](hdinsight-virtual-network-architecture.md)
