@@ -11,6 +11,7 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 10/02/2019
 ms.author: diberry
+
 ---
 
 # Quickstart: Publish a knowledge base in QnA Maker using Java
