@@ -1,6 +1,6 @@
 ---
-title: Article about known issues/migration limitations with online migrations of PostgreSQL to Azure Database for PostgreSQL-Single server | Microsoft Docs
-description: Learn about known issues/migration limitations with online migrations of PostgreSQL to Azure Database for PostgreSQL.
+title: Article about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server | Microsoft Docs
+description: Learn about known issues/migration limitations with online migrations from PostgreSQL to Azure Database for PostgreSQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -13,9 +13,9 @@ ms.topic: article
 ms.date: 10/03/2019
 ---
 
-# Known issues/migration limitations with online migrations of PostgreSQL to Azure DB for PostgreSQL-Single server
+# Known issues/migration limitations with online migrations from PostgreSQL to Azure DB for PostgreSQL-Single server
 
-Known issues and limitations associated with online migrations of PostgreSQL to Azure Database for PostgreSQL-Single server are described in the following sections.
+Known issues and limitations associated with online migrations from PostgreSQL to Azure Database for PostgreSQL-Single server are described in the following sections.
 
 ## Online migration configuration
 
