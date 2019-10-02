@@ -21,7 +21,7 @@ The main differences between these options are listed in the following table:
 
 |            | **Azure Database for MariaDB** | **MariaDB on Azure VMs**    |
 |:-------------------|:-----------------------------|:--------------------|
-| **SLA**                | Offers SLA of 99.99% availability| Up to 99.95% availability with 2 or more instance in same Availability Set. <br/>99.9% Single-Instance VM using Premium storage <br/> 99.99% with Availability Zone with 2 or more instance in 2 or more Availability Set.<br/> Note - [Virtual Machine SLA](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) |
+| **SLA**                | Offers SLA of 99.99% availability| Up to 99.95% availability with 2 or more instance in same Availability Set. <br/>99.9% Single-Instance VM using Premium storage <br/> 99.99% with Availability Zone with 2 or more instance in 2 or more Availability Set.<br/> Note - [Virtual Machine SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) |
 | **OS Patching**        | Automatic  | Managed by customers |
 |**MariaDB Patching**     | Automatic  | Managed by customers |
 | **High Availability** | The high availability (HA) model is based on built-in failover mechanisms when a node-level interruption occurs. In such cases, the service automatically creates instance and attaches storage to this new instance. | High Availability is architected, implemented, tested, and maintained by the customer. This may include Always-On (Failover Clustering or Group replication), Log Shipping, and Transactional Replication, depending on the version of MariaDB engine in use.|
@@ -34,7 +34,7 @@ The main differences between these options are listed in the following table:
 | **Performance Recommendation** | Provides customers with proactive [performance recommendation](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) based on the usage telemetry to help in optimizing workloads. <br/> <br/> Note - Performance Recommendation is currently in public preview. | Managed by customers |
 
 
-## Business motivations for choosing Azure Database for MariaDB or MariaDB on Azure VMs
+## Business motivations for choosing PaaS or IaaS
 
 There are several factors that can influence your decision to choose PaaS or IaaS to host your MariaDB databases:
 
