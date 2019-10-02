@@ -12,7 +12,7 @@ ms.custom: seodec2018
 ---
 # Import data wizard for Azure Search
 
-The Azure portal provides an **Import data** wizard on the Azure Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using buily-in sample data, see the [Create an Azure Search index using the Azure portal](search-get-started-portal.md) quickstart.
+The Azure portal provides an **Import data** wizard on the Azure Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Search index using the Azure portal](search-get-started-portal.md) quickstart.
 
 Steps performed by the wizard include:
 
@@ -24,7 +24,7 @@ Steps performed by the wizard include:
 
 4 - Run the wizard to create objects, import data, set a schedule and other configuration options.
 
-The wizard outputs a number of objects that are saved to your search service, which you can use programatically or in other tools.
+The wizard outputs a number of objects that are saved to your search service, which you can access programatically or in other tools.
 
 ## Advantages and limitations
 
@@ -94,9 +94,7 @@ You can also launch **Import data** from other Azure services, including Azure C
 
 ## How to edit or finish an index schema in the wizard
 
-The **Import data** wizard generates an incomplete index, which will be populated with documents obtained from the input data source. 
-
-For a functional index, make sure you have the following elements defined.
+The wizard generates an incomplete index, which will be populated with documents obtained from the input data source. For a functional index, make sure you have the following elements defined.
 
 1. Review the fields, adding new fields that sampling missed, removing any fields you don't want in your index.
 
