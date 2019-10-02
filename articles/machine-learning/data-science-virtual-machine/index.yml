@@ -32,6 +32,8 @@ landingContent:
             url: overview.md
           - text: What is the Geo AI DSVM?
             url: geo-ai-dsvm-overview.md
+          - text: Tools Included on the DSVM
+            url: tools-included.md
       - linkListType: get-started
         links:
           - text: Create a Windows DSVM
