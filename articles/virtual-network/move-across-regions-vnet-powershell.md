@@ -8,7 +8,7 @@ ms.date: 08/26/2019
 ms.author: allensu
 ---
 
-# Move an Azure virtual network to another region by using Azure Powershell
+# Move an Azure virtual network to another region by using Azure PowerShell
 
 There are various scenarios for moving an existing Azure virtual network from one region to another. For example, you might want to create a virtual network with the same configuration for testing and availability as your existing virtual network. Or you might want to move a production virtual network to another region as part of your disaster recovery planning.
 
