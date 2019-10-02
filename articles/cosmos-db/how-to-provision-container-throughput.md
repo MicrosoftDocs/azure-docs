@@ -26,7 +26,7 @@ This article explains how to provision throughput on a container (collection, gr
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
+    ![Screenshot of Data Explorer, with New Collection highlighted](./media/how-to-provision-container-throughput/provision-container-throughput-portal-all-api.png)
 
 ## Provision throughput using Azure CLI or PowerShell
 

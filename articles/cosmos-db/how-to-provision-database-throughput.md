@@ -27,7 +27,7 @@ This article explains how to provision throughput on a database in Azure Cosmos 
    * Enter a throughput (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    ![Screenshot of New Database dialog box](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
 ## Provision throughput using Azure CLI or PowerShell
 
@@ -42,6 +42,7 @@ To create a database with shared throughput see,
 > You can use Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
+
 ### .Net V2 SDK
 
 ```csharp
@@ -58,6 +59,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 ```
 
 ### .Net V3 SDK
+
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API

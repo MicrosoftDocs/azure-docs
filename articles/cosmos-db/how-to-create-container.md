@@ -28,7 +28,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Data Explorer pane, with New Container highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
+    ![Screenshot of Data Explorer pane, with New Container highlighted](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
@@ -44,7 +44,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
+    ![Screenshot of Azure Cosmos DB API for MongoDB, Add Container dialog box](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -60,7 +60,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
+    ![Screenshot of Cassandra API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
 > [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
@@ -80,7 +80,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
+    ![Screenshot of Gremlin API, Add Graph dialog box](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
 ### <a id="portal-table"></a>Table API
 
@@ -94,7 +94,7 @@ This article explains the different ways to create an Azure Cosmos container (co
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 
-![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
+    ![Screenshot of Table API, Add Table dialog box](./media/how-to-create-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
@@ -161,7 +161,7 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 ## Next steps
 
-- [Partitioning in Azure Cosmos DB](partitioning-overview.md)
-- [Request Units in Azure Cosmos DB](request-units.md)
-- [Provision throughput on containers and databases](set-throughput.md)
-- [Work with Azure Cosmos account](account-overview.md)
+* [Partitioning in Azure Cosmos DB](partitioning-overview.md)
+* [Request Units in Azure Cosmos DB](request-units.md)
+* [Provision throughput on containers and databases](set-throughput.md)
+* [Work with Azure Cosmos account](account-overview.md)
