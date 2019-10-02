@@ -18,7 +18,18 @@ Translator Text provides each container with a common configuration framework, s
 
 ## Configuration settings
 
-[!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
+
+The container has the following configuration settings:
+
+|Required|Setting|Purpose|
+|--|--|--|
+|Yes|[ApiKey](#apikey-configuration-setting)|Tracks billing information.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Enables adding [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
+|Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
+|No|[Fluentd](#fluentd-settings)|Writes log and, optionally, metric data to a Fluentd server.|
+|No|HTTP Proxy|Configures an HTTP proxy for making outbound requests.|
+|No|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
+|No|[Mounts](#mount-settings)|Reads and writes data from the host computer to the container and from the container back to the host computer.|
 
 > [!IMPORTANT]
 > The [`Eula`](#eula-setting) setting must be provided with the value of `accept`; otherwise, your container won't start.
