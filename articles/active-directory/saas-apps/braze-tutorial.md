@@ -126,7 +126,6 @@ To configure Azure AD single sign-on with Braze, perform the following steps:
 	| email | user.userprincipalname |
 	| first_name| user.givenname|
 	| last_name| user.surname|
-	| login| user.mail|
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
