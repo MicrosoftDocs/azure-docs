@@ -3,8 +3,8 @@ title: Run batch inference on large data
 titleSuffix: Azure Machine Learning service
 description: Learn how to get inferences asynchronously on large amounts of data using Azure Machine Learning Batch Inference service. Batch Inference provides parallel processing capabilities out of box and optimizes for high throughput, fire-and-forget inference for a large collection of data.
 services: machine-learning
-ms.service: core
-ms.subservice: batch inference
+ms.service: machine-learning
+ms.subservice: core
 ms.topic: tutorial
 
 ms.reviewer: trbye, jmartens, larryfr
