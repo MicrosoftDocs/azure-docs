@@ -299,7 +299,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage |7|7|7|7|7|7|7|7|
+|Included backup storage|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
 ### Note 1
