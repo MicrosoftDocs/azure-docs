@@ -31,7 +31,7 @@ To run the LUIS container, note the following prerequisites:
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Azure `Cognitive Services` resource and LUIS [packaged app](luis-how-to-start-new-app.md#export-app-for-containers) file |In order to use the container, you must have:<br><br>* A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. <br>* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Cognitive Services_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the Overview page.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
+|Azure `Cognitive Services` resource and LUIS [packaged app](luis-how-to-start-new-app.md#export-app-for-containers) file |In order to use the container, you must have:<br><br>* A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. <br>* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APP_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{API_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Cognitive Services_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the Overview page.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -104,9 +104,9 @@ The input mount directory can contain the **Production**, **Staging**, and **Tra
 
 |Package Type|Query Endpoint API|Query availability|Package filename format|
 |--|--|--|--|
-|Trained|GET, POST|Container only|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Staging|GET, POST|Azure and container|`{APPLICATION_ID}_STAGING.gz`|
-|Production|GET, POST|Azure and container|`{APPLICATION_ID}_PRODUCTION.gz`|
+|Trained|GET, POST|Container only|`{APP_ID}_v{APP_VERSION}.gz`|
+|Staging|GET, POST|Azure and container|`{APP_ID}_STAGING.gz`|
+|Production|GET, POST|Azure and container|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
 > Do not rename, alter, overwrite, or decompress the LUIS package files.
@@ -158,15 +158,15 @@ The trained app's package is available from the **Versions** list page.
 Use the following REST API method, to package a LUIS app that you've already [published](luis-how-to-publish-app.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
-GET /luis/api/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APP_ID}/slot/{SLOT_NAME}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
 | Placeholder | Value |
 |-------------|-------|
-| **{APPLICATION_ID}** | The application ID of the published LUIS app. |
-| **{APPLICATION_ENVIRONMENT}** | The environment of the published LUIS app. Use one of the following values:<br/>`PRODUCTION`<br/>`STAGING` |
+| **{APP_ID}** | The application ID of the published LUIS app. |
+| **{SLOT_NAME}** | The environment of the published LUIS app. Use one of the following values:<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | The authoring key of the LUIS account for the published LUIS app.<br/>You can get your authoring key from the **User Settings** page on the LUIS portal. |
 | **{AZURE_REGION}** | The appropriate Azure region:<br/><br/>`westus` - West US<br/>`westeurope` - West Europe<br/>`australiaeast` - Australia East |
 
@@ -177,15 +177,15 @@ To download the published package, refer to the [API documentation here][downloa
 Use the following REST API method, to package a LUIS application that you've already [trained](luis-how-to-train.md). Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
-GET /luis/api/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
+GET /luis/api/v2.0/package/{APP_ID}/versions/{APP_VERSION}/gzip HTTP/1.1
 Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
 | Placeholder | Value |
 |-------------|-------|
-| **{APPLICATION_ID}** | The application ID of the trained LUIS app. |
-| **{APPLICATION_VERSION}** | The application version of the trained LUIS app. |
+| **{APP_ID}** | The application ID of the trained LUIS app. |
+| **{APP_VERSION}** | The application version of the trained LUIS app. |
 | **{AUTHORING_KEY}** | The authoring key of the LUIS account for the published LUIS app.<br/>You can get your authoring key from the **User Settings** page on the LUIS portal. |
 | **{AZURE_REGION}** | The appropriate Azure region:<br/><br/>`westus` - West US<br/>`westeurope` - West Europe<br/>`australiaeast` - Australia East |
 
@@ -232,13 +232,13 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 ## Endpoint APIs supported by the container
 
-Both V2 and [V3 (Preview)](luis-migration-api-v3.md) versions of the API are available with the container. 
+Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available with the container. 
 
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-Use the host, `http://localhost:5000`, for container APIs. 
+Use the host, `http://localhost:5000`, for container APIs.
 
 # [API v2](#tab/v2)
 
@@ -283,7 +283,7 @@ An example CURL command for querying the container for a published app is:
 
 ```bash
 curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
 To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
@@ -293,9 +293,11 @@ To make queries to the **Staging** environment, change the **staging** query str
 # [API v3](#tab/v3)
 
 ```bash
-curl -X GET \
-"http://localhost:5000/luis/v3.0-preview/apps/{APPICATION_ID}/slots/production/predict?query=turn%20on%20the%20lights&verbose=false&log=true" \
--H "accept: application/json"
+curl -G \
+-d verbose=false \
+-d log=true \
+--data-urlencode "query=turn the lights on" \
+"http://localhost:5000/luis/v3.0-preview/apps/{APP_ID}/slots/production/predict"
 ```
 
 To make queries to the **Staging** environment, replace **production** route with **staging**.
@@ -310,7 +312,7 @@ An example CURL command for querying the container for a trained app is:
 
 ```bash
 curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}/versions/{APPLICATION_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
+"http://localhost:5000/luis/v2.0/apps/{APP_ID}/versions/{APP_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
 -H "accept: application/json"
 ```
 The version name has a maximum of 10 characters and contains only characters allowed in a URL.
@@ -318,9 +320,11 @@ The version name has a maximum of 10 characters and contains only characters all
 # [API v3](#tab/v3)
 
 ```bash
-curl -X GET \
-"http://localhost:5000/luis/v3.0-preview/apps/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/predict?query=turn%20on%20the%20lights&verbose=false&log=false&show-all-intents=false" \
--H "accept: application/json"
+curl -G \
+-d verbose=false \
+-d log=false \
+--data-urlencode "query=turn the lights on" \
+"http://localhost:5000/luis/v3.0-preview/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
 ***
