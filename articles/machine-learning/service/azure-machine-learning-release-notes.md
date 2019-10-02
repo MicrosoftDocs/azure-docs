@@ -23,9 +23,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### New web experience (preview) for Azure Machine Learning workspaces
 
 The Experiment tab has been been updated so data scientists can monitor experiments in a more performant way. You can explore the following features:
-	+ Experiment metadata to easily filter and sort your list of experiments
-	+ Simplified and performant experiment details pages which allow you to visualize and compare your runs
-	+ New design to run details pages to understand and monitor your training runs
++ Experiment metadata to easily filter and sort your list of experiments
++ Simplified and performant experiment details pages which allow you to visualize and compare your runs
++ New design to run details pages to understand and monitor your training runs
 
 ## 2019-09-30
 
