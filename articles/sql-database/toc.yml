@@ -469,7 +469,6 @@
             href: saas-multitenantdb-tenant-analytics.md
 
 
-
 - name: SQL databases
   items:
   - name: SQL databases documentation
@@ -695,8 +694,6 @@
       href: sql-database-resource-manager-samples.md?tabs=single-database
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=sql-database
-
-
 
 
 - name: SQL managed instance
