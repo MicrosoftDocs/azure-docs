@@ -14422,12 +14422,12 @@
     },
     {
       "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
-      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
-      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
       "redirect_document_id": false
     },
     {
