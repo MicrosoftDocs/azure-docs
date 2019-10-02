@@ -139,12 +139,12 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-    // Synchronous call to the entity which returns a value
+    // Synchronous call to the entity which returns a value - will await a response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
-        // Asynchronous call which updates the value
-        await context.SignalEntityAsync<int>(entityId, "Add", 1);
+        // Asynchronous call which updates the value - will not await a response
+        context.SignalEntity(entityId, "Add", 1);
     }
 }
 ```
