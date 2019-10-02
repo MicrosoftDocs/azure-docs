@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ---
 
@@ -74,6 +74,8 @@ Active learning is off by default. Turn it on to see suggested questions. After 
     Once **Active Learning** is enabled, the knowledge base suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
 ## Accept an active learning suggestion in the knowledge base
+
+Active Learning alters the Knowledge Base or Search Service after you approve the suggestion, then save and train. If you approve the suggestion it will be added as an alternate question.
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **View Options**, then select **Show active learning suggestions**. 
 
@@ -182,7 +184,7 @@ Content-Type: application/json
 |HTTP request property|Name|Type|Purpose|
 |--|--|--|--|
 |URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
-|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Custom subdomain|QnAMaker resource name|string|The resource name is used as the custom subdomain for your QnA Maker. This is available on the Settings page after you publish the knowledge base. It is listed as the `host`.|
 |Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
 |Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Post Body|JSON object|JSON|The training feedback|
@@ -291,14 +293,14 @@ public class FeedbackRecord
 /// <summary>
 /// Method to call REST-based QnAMaker Train API for Active Learning
 /// </summary>
-/// <param name="host">Endpoint host of the runtime</param>
+/// <param name="endpoint">Endpoint URI of the runtime</param>
 /// <param name="FeedbackRecords">Feedback records train API</param>
 /// <param name="kbId">Knowledgebase Id</param>
 /// <param name="key">Endpoint key</param>
 /// <param name="cancellationToken"> Cancellation token</param>
-public async static void CallTrain(string host, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
+public async static void CallTrain(string endpoint, FeedbackRecords feedbackRecords, string kbId, string key, CancellationToken cancellationToken)
 {
-    var uri = host + "/knowledgebases/" + kbId + "/train/";
+    var uri = endpoint + "/knowledgebases/" + kbId + "/train/";
 
     using (var client = new HttpClient())
     {
@@ -382,7 +384,14 @@ The `SuggestedQuestions` column is a JSON object of information of implicit, `au
 ]
 ```
 
+You can also use the download alterations API to review these alterations, using REST or any of the language-based SDKs:
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 When you reimport this app, the active learning continues to collect information and recommend suggestions for your knowledge base. 
+
+
 
 ## Best practices
 
