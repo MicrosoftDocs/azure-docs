@@ -65,13 +65,19 @@ The following errors are embedded in the more general error code 40197:
 The service has encountered an error processing your request. Please try again. Error code %d.
 ```
 
-| Error code | Severity | Description | Corrective Action |
-| ---:| ---:|:---|:---|
-|  1104 |20 |TEMPDB ran out of space during spilling. |Create space by dropping objects and/or rewrite the query to consume fewer rows. If the issue still persists, consider upgrading to a higher service level objective.|
-| 40020 | |||
-| 40143 | |||
-| 40166 | |||
-| 40540 | |||
+| Error code | Severity | Description | 
+| ---:| ---:|:---|
+|  1104 |17 |TEMPDB ran out of space during spilling. Create space by dropping objects and/or rewrite the query to consume fewer rows. If the issue still persists, consider upgrading to a higher service level objective.|
+| 40020 |16 |The database is in transition and transactions are being terminated.|
+| 40143 |16 |The replica that the data node hosts for the requested partition is not primary.|
+| 40166 |16 |A CloudDB reconfiguration is going on and all new user transactions are aborted.|
+| 40540 |16 |Transaction was aborted as database is moved to read-only mode. This is a temporary situation and please retry the operation.|
+
+Details on other embedded errors can be found by querying `sys.messages`:
+
+```sql
+SELECT * FROM sys.[messages] WHERE [message_id] = <error_code>
+```
 
 ## Database copy errors
 
