@@ -33,9 +33,13 @@ Use the Anomaly Detector client library for Python to:
 
 ### Create an Anomaly Detector resource
 
+>[!NOTE]
+> New resources created after July 1, 2019 use the new endpoint format below. See [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) for more information and a complete list of regional endpoints.
+> `https://<your-custom-subdomain>.api.cognitive.microsoft.com`
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 After you get a key from your trial subscription or resource, [create an environment variable](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) for the key, named `ANOMALY_DETECTOR_KEY`.
+
 
 ### Create a new python application
 
