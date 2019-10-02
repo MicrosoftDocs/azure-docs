@@ -23,7 +23,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **Storage optimization** | You can now [fully customize your storage configuration](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) when creating a new SQL Server VM. |
+| **Performance Optimized Storage Configuration** | You can now [fully customize your storage configuration](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) when creating a new SQL Server VM. |
 | &nbsp; | &nbsp; |
 
 ## August 2019

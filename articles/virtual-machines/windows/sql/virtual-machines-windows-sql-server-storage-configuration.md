@@ -39,15 +39,23 @@ The following sections describe how to configure storage for new SQL Server virt
 
 ### Azure portal
 
-When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the storage configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on disk striping and IOPS. 
+When provisioning an Azure VM using a SQL Server gallery image, select **Change configuration** on the **SQL Server Settings** tab to open the Performance Optimized Storage Configuration page. You can either leave the values at default, or modify the type of disk configuration that best suits your needs based on your workload. 
 
 ![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or  **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). 
+Select the type of workload you're deploying your SQL Server for under **Storage optimization**. With the **General** optimization option, by default you will have one data disk with 5000 max IOPS, and you will use this same drive for your data, transaction log, and TempDB storage. Selecting either **Transactional processing** (OLTP) or **Data warehousing** will create a separate disk for data, a separate disk for the transaction log, and use local SSD for TempDB. There are no storage differences between **Transactional processing** and **Data warehousing**, but it does change your [stripe configuration, and trace flags](#workload-optimization-settings). Choosing premium storage  sets the caching to *Readonly* for the data drive, and *None* for the log drive as per [SQL Server VM performance best practices](virtual-machines-windows-sql-performance.md). 
+
+![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
 
-![SQL Server VM Storage Configuration During Provisioning](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+Additionally, you have the ability to set the caching for the disks. Azure VMs have a multi-tier caching technology called [Blob Cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) when used with [Premium Disks](/azure/virtual-machines/windows/disks-types#premium-ssd). Blob Cache uses a combination of the Virtual Machine RAM and local SSD for caching. 
+
+Disk caching for Premium SSD can be *ReadOnly*, *ReadWrite* or *None*. 
+
+- *ReadOnly* caching is highly beneficial for SQL Server data files that are stored on Premium Storage. *ReadOnly* caching brings low read latency, high read IOPS, and throughput as, reads are performed from cache, which os within the VM memory and local SSD. These reads are much faster than reads from data disk, which is from the Azure blob storage. Premium storage does not count the reads served from cache towards the disk IOPS and throughput. Therefore, your applicable is able to achieve higher total IOPS ant throughput. 
+- *None* cache configuration should be used for the disks hosting SQL Server Log file as the log file is written sequentially and does not benefit from *ReadOnly* caching. 
+- *ReadWrite* caching should not be used to host SQL Server files as SQL Server does not support data consistency with the *ReadWrite* cache. Writes waste capacity of the *ReadOnly* blob cache and latencies slightly increase if writes go through *ReadOnly* blob cache layers. 
 
 
    > [!TIP]
@@ -77,6 +85,7 @@ If you use the following Resource Manager templates, two premium data disks are 
 You can use the following quickstart template to deploy a SQL Server VM using storage optimization. 
 
 * [Create VM with storage optimization](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Create VM using UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
 
 ## Existing VMs
 
