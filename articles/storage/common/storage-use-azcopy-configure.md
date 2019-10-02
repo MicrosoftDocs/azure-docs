@@ -51,31 +51,13 @@ Throughput can decrease when transferring small files. You can you can increase 
 
 Use the `azcopy env` to check the current value of this variable.  If the value is blank, then the `AZCOPY_CONCURRENCY_VALUE` variable is set to the default value of `300`.
 
-## Change the location of the log files
-
-By default, log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location if you need to by using these commands.
-
-| Operating system | Command  |
-|--------|-----------|
-| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
-| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
-| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
-
-Use the `azcopy env` to check the current value of this variable. If the value is blank, then logs are written to the default location.
-
-## Change the default log level
-
-By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option. 
-
-Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
-
 ## Troubleshoot issues
 
 AzCopy creates log and plan files for every job. You can use the logs to investigate and troubleshoot any potential problems. 
 
 The logs will contain the status of failure (`UPLOADFAILED`, `COPYFAILED`, and `DOWNLOADFAILED`), the full path, and the reason of the failure.
 
-By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` directory on Windows or `$HOME\\.azcopy` directory on Mac and Linux.
+By default, the log and plan files are located in the `%USERPROFILE\\.azcopy` directory on Windows or `$HOME\\.azcopy` directory on Mac and Linux, but you can change that location if you want.
 
 > [!IMPORTANT]
 > When submitting a request to Microsoft Support (or troubleshooting the issue involving any third party), share the redacted version of the command you want to execute. This ensures the SAS isn't accidentally shared with anybody. You can find the redacted version at the start of the log file.
@@ -124,3 +106,45 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 ```
 
 When you resume a job, AzCopy looks at the job plan file. The plan file lists all the files that were identified for processing when the job was first created. When you resume a job, AzCopy will attempt to transfer all of the files that are listed in the plan file which weren't already transferred.
+
+## Change the location of the plan and log files
+
+By default, plan and log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location.
+
+### Change the location of plan files
+
+Use any of these commands.
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_JOB_PLAN_LOCATION=<value>` |
+
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then plan files are written to the default location.
+
+### Change the location of log files
+
+Use any of these commands.
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_LOG_LOCATION=<value>` |
+| **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
+| **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
+
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then logs are written to the default location.
+
+## Change the default log level
+
+By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option. 
+
+Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
+
+## Remove plan and log files
+
+If you want to remove all plan and log files from your local machine to save disk space, use the `azcopy jobs clean` command.
+
+To remove the plan and log files associated with only one job, use `azcopy jobs rm <job-id>`. Replace the `<job-id>` placeholder in this example with the job id of the job.
+
+
