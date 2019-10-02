@@ -153,7 +153,7 @@ Next, you'll use your trained model to analyze a document and extract key-value 
 
     ```python
     ########### Python Form Recognizer Analyze #############
-    from requests import post as http_post
+    import http.client, urllib.request, urllib.parse, urllib.error, base64
     
     # Endpoint URL
     base_url = r"<Endpoint>" + "/formrecognizer/v1.0-preview/custom"
@@ -166,17 +166,11 @@ Next, you'll use your trained model to analyze a document and extract key-value 
     }
 
     try:
-        url = base_url + "/models/" + model_id + "/analyze" 
         with open(file_path, "rb") as f:
             data_bytes = f.read()  
         body = data_bytes
-        resp = http_post(url = url, data = data_bytes, headers = headers)
-        print("Response status code: %d" % resp.status_code)    
-        print("Response body:\n%s" % resp.json())
-
-        # use this format instead: ???
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models/" + model_id + "analyze", body, headers)
+        conn.request("POST", "/formrecognizer/v1.0-preview/custom/models/" + model_id + "/analyze", body, headers)
         response = conn.getresponse()
         data = response.read()
         operationURL = "" + response.getheader("Location")
