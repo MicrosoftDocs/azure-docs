@@ -28,7 +28,9 @@ This article describes how to use the continuous data export feature in Azure Io
 
 ## Set up export destination
 
-If you don't have an existing Event Hubs/Service Bus to export to, follow these steps:
+If you don't have an existing Event Hubs/Service Bus to export to, follow these steps to create one:
+
+### Create Event Hubs namespace
 
 1. Create a [new Event Hubs namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 2. Choose a subscription. 
@@ -37,7 +39,7 @@ If you don't have an existing Event Hubs/Service Bus to export to, follow these 
     > You can now export data to other subscriptions that are **not the same** as the one for your Pay-As-You-Go IoT Central application. You will connect using a connection string in this case.
 3. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
 
-## Create Service Bus namespace
+### Create Service Bus namespace
 
 1. Create a [new Service Bus namespace in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . You can learn more in [Azure Service Bus docs](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
 2. Choose a subscription. 
@@ -86,7 +88,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
 
 7. Under **Data to export**, specify each type of data to export by setting the type to **On**.
 
-8. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
+8. To turn on continuous data export, make sure the **Data export** toggle is **On**. Select **Save**.
 
 9. After a few minutes, your data will appear in your chosen destination.
 
@@ -135,7 +137,7 @@ The following example shows a message about measurements data received in event 
     "x-opt-enqueued-time": 1539381030200
   },
   "sequenceNumber": 25325,
-  "enqueuedTimeUtc": "2018-10-12T21:50:30.200Z",
+  "enqueuedTimeUtc": "2018-10-02T21:50:30.200Z",
   "offset": "<offset>",
   "properties": {
     "content_type": "application/json",
@@ -200,7 +202,7 @@ The following example shows a message about device data in event hub or Service 
   },
   "partitionKey": "<partitionKey>",
   "sequenceNumber": 39740,
-  "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
+  "enqueuedTimeUtc": "2018-10-02T16:22:39.654Z",
   "offset": "<offset>",
 }
 ```
@@ -225,62 +227,62 @@ Each message represents one or more changes to a device template since the last 
 The following example shows a message about device templates data in event hub or Service Bus queue or topic:
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "version": "1.0.0",
-    "name": "<templateName>",
-    "measurements": {
-      "telemetry": {
-        "humidity": {
-          "dataType": "double",
-          "name": "humidity"
+{ 
+  "body":{ 
+    "id":"<id>",
+    "version":"1.0.0",
+    "name":"<templateName>",
+    "measurements":{ 
+      "telemetry":{ 
+        "humidity":{ 
+          "dataType":"double",
+          "name":"humidity"
         },
-        "pressure": {
-          "dataType": "double",
-          "name": "pressure"
+        "pressure":{ 
+          "dataType":"double",
+          "name":"pressure"
         },
-        "temp": {
-          "dataType": "double",
-          "name": "temperature"
+        "temp":{ 
+          "dataType":"double",
+          "name":"temperature"
         }
       }
     },
-    "properties": {
-      "cloud": {
-        "location": {
-          "dataType": "string",
-          "name": "Location"
+    "properties":{ 
+      "cloud":{ 
+        "location":{ 
+          "dataType":"string",
+          "name":"Location"
         }
       },
-      "device": {
-        "dieNumber": {
-          "dataType": "double",
-          "name": "Die Number"
+      "device":{ 
+        "dieNumber":{ 
+          "dataType":"double",
+          "name":"Die Number"
         }
       }
     },
-    "settings": {
-      "device": {
-        "fanSpeed": {
-          "dataType": "double",
-          "name": "Fan Speed",
-          "initialValue": 0
+    "settings":{ 
+      "device":{ 
+        "fanSpeed":{ 
+          "dataType":"double",
+          "name":"Fan Speed",
+          "initialValue":0
         }
       }
     }
   },
-  "annotations": {
-    "iotcentral-message-source": "deviceTemplates",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 25315,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274985085
+  "annotations":{ 
+    "iotcentral-message-source":"deviceTemplates",
+    "x-opt-partition-key":"<partitionKey>",
+    "x-opt-sequence-number":25315,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539274985085
   },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 25315,
-  "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
-  "offset": "<offset>",
+  "partitionKey":"<partitionKey>",
+  "sequenceNumber":25315,
+  "enqueuedTimeUtc":"2018-10-02T16:23:05.085Z",
+  "offset":"<offset>"
 }
 ```
 
