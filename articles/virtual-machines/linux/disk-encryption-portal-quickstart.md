@@ -66,8 +66,8 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 ## Encrypt the virtual machine
 
 1. When the VM deployment is complete, select **Go to resource**.
-1. On the left-hand sidebar, select **Disks*
-1. On the Disks screen, select **Encryption* 
+1. On the left-hand sidebar, select **Disks**.
+1. On the Disks screen, select **Encryption**. 
 
     ![disks and encryption selection](./media/disk-encryption/portal-qs-disks-to-encryption.png)
 
