@@ -89,7 +89,7 @@ After you have configured the virtual network gateway and installed the client c
    $Message = "Complete."
    Write-Host "$Message"
    ```
-1. Copy the following text and save it as ***VPNProfile.xml*** in the same folder as **devicecert.ps1**. Edit the following text to match your environment.
+1. Copy the following text and save it as ***VPNProfile.xml*** in the same folder as **usercert.ps1**. Edit the following text to match your environment.
 
    * `<Servers>azuregateway-1234-56-78dc.cloudapp.net</Servers>`
    * `<Address>192.168.3.5</Address>`
