@@ -514,7 +514,7 @@ def iterations(n, modelCheck, jsonFormat):
 ```
 
 ## Run for 10,000 iterations
-Run the Personalizer loop for 10,000 iterations. This is a long running event. Do not close the browser running the notebook.
+Run the Personalizer loop for 10,000 iterations. This is a long running event. Do not close the browser running the notebook. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 20,000 calls, a rank and reward call for each iteration of the loop, the iterations are done. 
 
 ```python
 # max iterations
@@ -594,7 +594,7 @@ get_service_settings()
 
 ## Validate new learning policy by running experiment for 2,000 iterations
 
-Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. 
+Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done. 
 
 ```python
 # max iterations
