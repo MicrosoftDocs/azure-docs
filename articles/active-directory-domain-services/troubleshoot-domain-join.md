@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/13/2019
+ms.date: 10/02/2019
 ms.author: iainfou
 
 #Customer intent: As a directory administrator, I want to troubleshoot why VMs can't join an Azure Active Directory Domain Services managed domain.

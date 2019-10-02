@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: iainfou
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in an Azure Active Directory Domain Services managed domain.
@@ -17,9 +17,9 @@ ms.author: iainfou
 
 # Troubleshoot account lockout problems with an Azure AD Domain Services managed domain
 
-A security measure in Azure AD DS to prevent repeated sign-in attempts locks accounts after a defined threshold. This account lockout can happen by accident without a sign-in attack incident. If a user repeatedly enters the wrong password or a service attempts to use an old password, the account can get locked out.
+To prevent repeated malicious sign-in attempts, Azure AD DS locks accounts after a defined threshold. This account lockout can also happen by accident without a sign-in attack incident. For example, if a user repeatedly enters the wrong password or a service attempts to use an old password, the account gets locked out.
 
-This article outlines why account lockouts happen and configuration options, and how to review security audits to troubleshoot lockout events.
+This troubleshooting article outlines why account lockouts happen and how you can configure the behavior, and how to review security audits to troubleshoot lockout events.
 
 ## What is an account lockout?
 
