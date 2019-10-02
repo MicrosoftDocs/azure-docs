@@ -89,7 +89,7 @@ landingContent:
           - text: Migrate SQL Server 2008 to Azure SQL Database managed instance
             url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
 # Card 3
-  - title: Migrate PostgreSQL to Azure Database for PostgreSQL-Single server
+  - title: Migrate PostgreSQL to Azure Database for PostgreSQL
     linkLists:
       - linkListType: tutorial
         links:
