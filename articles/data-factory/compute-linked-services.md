@@ -13,7 +13,7 @@ ms.author: abnarain
 manager: craigg
 ---
 # Compute environments supported by Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explains different compute environments that you can use to process or transform data. It also provides details about different configurations (on-demand vs. bring your own) supported by Data Factory when configuring linked services linking these compute environments to an Azure data factory.
 

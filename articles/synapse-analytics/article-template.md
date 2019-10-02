@@ -1,5 +1,5 @@
 ---
-title: What is Arcadia #Required; update as needed page title displayed in search results. Include the brand.
+title: What is Azure Synapse Analytics #Required; update as needed page title displayed in search results. Include the brand.
 description: #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# What is Arcadia? 
+# What is Azure Synapse Analytics? 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.

@@ -15,7 +15,7 @@ ms.author: abnarain
 ms.reviewer: douglasl
 ---
 # Transform data by using Databricks in Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this tutorial, you create an end-to-end pipeline containing **Lookup**, **Copy**, and **Databricks notebook** activities in Data Factory.
 

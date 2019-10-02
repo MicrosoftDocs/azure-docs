@@ -14,7 +14,7 @@ ms.date: 01/23/2018
 ---
 
 # Create a trigger that runs a pipeline on a schedule
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article provides information about the schedule trigger and the steps to create, start, and monitor a schedule trigger. For other types of triggers, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).
 

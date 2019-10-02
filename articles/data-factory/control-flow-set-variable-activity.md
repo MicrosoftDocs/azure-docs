@@ -14,7 +14,7 @@ manager: jroth
 ms.reviewer: maghan
 ---
 # Set Variable Activity in Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the Set Variable activity to set the value of an existing variable of type String, Bool, or Array defined in a Data Factory pipeline.
 

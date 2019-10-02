@@ -21,7 +21,7 @@ ms.author: yexu
 > * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Current version](copy-activity-fault-tolerance.md)
 
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The copy activity in Azure Data Factory offers you two ways to handle incompatible rows when copying data between source and sink data stores:
 

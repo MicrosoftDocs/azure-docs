@@ -22,7 +22,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-onprem-teradata-connector.md)
 > * [Current version](connector-teradata.md)
 
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from Teradata Vantage. It builds on the [copy activity overview](copy-activity-overview.md).
 
