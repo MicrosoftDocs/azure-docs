@@ -20,7 +20,7 @@ During the creation of CloudSimple service and a Private Cloud, following networ
 
 | Name/Used for     | Description                                                                                                                            | Address Range            |
 |-------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
-| Gateway CIDR      | Required for Edge Services (VPN Gateways).  This CIDR is required during CloudSimple Service creation and must be from RFC 1918 space. | /28                      |
+| Gateway CIDR      | Required for edge services (VPN gateways).  This CIDR is required during CloudSimple Service creation and must be from RFC 1918 space. | /28                      |
 | vSphere/vSAN CIDR | Required for VMware management networks. This CIDR must be specified during Private Cloud creation.                                    | /24 or /23 or /22 or /21 |
 
 ## Network address range required for Azure network connection to on-premises network
