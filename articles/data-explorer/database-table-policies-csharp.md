@@ -26,7 +26,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test cluster and database](create-cluster-database-csharp.md)
 
-1. [A test table](net-standard-ingest-data#create-a-table-on-your-test-cluster)
+1. [A test table](net-standard-ingest-data.md#create-a-table-on-your-test-cluster)
 
 ## Install C# Nuget
 

@@ -19,7 +19,7 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [A test cluster and database](create-cluster-database-python.md)
 
-1. [A test table](python-ingest-data#create-a-table-on-your-cluster)
+1. [A test table](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## Install the data libraries
 

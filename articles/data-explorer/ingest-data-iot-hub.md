@@ -57,7 +57,7 @@ Now you create a table in Azure Data Explorer to which IoT Hubs will send data. 
 
 ## Connect Azure Data Explorer table to IoT hub
 
-Now you connect to the IoT Hub from Azure Data Explorer. When this connection is complete, data that flows into the iot hub streams to the [target table you created](#create-a-target-table-in-azure-data-explorer). Check [Add an IoT Hub data connection](data-connection-csharp#add-an-iot-hub-data-connection-preview) for adding the data connection programmatically.
+Now you connect to the IoT Hub from Azure Data Explorer. When this connection is complete, data that flows into the iot hub streams to the [target table you created](#create-a-target-table-in-azure-data-explorer). Check [Add an IoT Hub data connection](data-connection-csharp.md#add-an-iot-hub-data-connection-preview) for adding the data connection programmatically.
 
 1. Select **Notifications** on the toolbar to verify that the IoT Hub deployment was successful.
 
