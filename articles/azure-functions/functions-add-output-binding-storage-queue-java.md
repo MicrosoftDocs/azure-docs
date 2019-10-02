@@ -1,7 +1,6 @@
 ---
 title: Add an Azure Storage queue binding to your Java function 
 description: Learn how to add an Azure Storage queue output binding to your Java function.
-services: functions 
 author: ggailey777
 ms.author: glenga
 ms.date: 10/02/2019

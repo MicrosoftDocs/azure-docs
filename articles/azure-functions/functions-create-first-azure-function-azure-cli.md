@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create your first function using the Azure CLI
+title: Create your first function using the Azure CLI
 description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
 author: ggailey777
 ms.author: glenga

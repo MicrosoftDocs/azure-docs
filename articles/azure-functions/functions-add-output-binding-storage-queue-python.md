@@ -126,7 +126,7 @@ func host start
 
 ### Redeploy the project 
 
-To update your published app, use the [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
+To update your published app, use the [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In this example, replace `<APP_NAME>` with the name of your app.
 
 ```command
 func azure functionapp publish <APP_NAME> --build remote

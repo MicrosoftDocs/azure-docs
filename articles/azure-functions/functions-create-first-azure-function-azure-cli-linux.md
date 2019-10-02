@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create your first function on Linux in Azure 
+title: Create your first function on Linux in Azure 
 description: Learn how to create your first function hosted on Linux in Azure using the command line tools, Azure Functions Core Tools and the Azure CLI.
 author: ggailey777
 ms.author: glenga
