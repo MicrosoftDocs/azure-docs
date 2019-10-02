@@ -5,8 +5,8 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
-ms.date: 06/24/2019
+ms.topic: conceptual
+ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
@@ -116,4 +116,4 @@ When you create a new version of a key, you'll need to update the storage accoun
 ## Next steps
 
 - [Azure Storage encryption for data at rest](storage-service-encryption.md) 
-- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
+- [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

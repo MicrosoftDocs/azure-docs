@@ -5,15 +5,15 @@ description: Learn how to troubleshoot Linux virtual machine issues by connectin
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
-manager: gwallace
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2016
+ms.date: 08/19/2019
 ms.author: genli
 
 ---
@@ -25,7 +25,7 @@ If your Linux virtual machine (VM) encounters a boot or disk error, you may need
 The troubleshooting process is as follows:
 
 1. Stop the affected VM.
-1. Create a snapshot for the OS disk of the VM.
+1. Take a snapshot for the OS disk of the VM.
 1. Create a virtual hard disk from the snapshot.
 1. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
 1. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
@@ -74,8 +74,8 @@ To create a disk from the snapshot, follow these steps:
     #Provide the size of the disks in GB. It should be greater than the VHD file size. In this sample, the size of the snapshot is 127 GB. So we set the disk size to 128 GB.
     $diskSize = '128'
     
-    #Provide the storage type for Managed Disk. PremiumLRS or StandardLRS.
-    $storageType = 'StandardLRS'
+    #Provide the storage type for Managed Disk. Premium_LRS or Standard_LRS.
+    $storageType = 'Standard_LRS'
     
     #Provide the Azure region (e.g. westus) where Managed Disks will be located.
     #This location should be same as the snapshot location
@@ -173,18 +173,6 @@ Azure portal now supports change the OS disk of the VM. To do this, follow these
 
 1. Choose the new disk that you repaired, and then type the name of the VM to confirm the change. If you do not see the disk in the list, wait 10 ~ 15 minutes after you detach the disk from the troubleshooting VM. Also make sure that the disk is in the same location as the VM.
 1. Select OK.
-
-## Re-enable boot diagnostics
-When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. To check the status of boot diagnostics and turn on if needed, select your VM in the portal. Under **Monitoring**, click **Diagnostics settings**. Ensure the status is **On**, and the check mark next to **Boot diagnostics** is selected. If you make any changes, click **Save**:
-
-![Update boot diagnostics settings](./media/troubleshoot-recovery-disks-portal-linux/reenable-boot-diagnostics.png)
-
-## Troubleshoot a Managed Disk VM by attaching a new OS disk
-1. Stop the effected VM.
-2. [Create a managed disk snapshot](../windows/snapshot-copy-managed-disk.md) of the OS Disk of the Managed Disk VM.
-3. [Create a managed disk from the snapshot](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md).
-4. [Attach the managed disk as a data disk of the VM](../windows/attach-disk-ps.md).
-5. [Change the data disk from step 4 to OS disk](../windows/os-disk-swap.md).
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot SSH connections to an Azure VM](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Linux VM](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

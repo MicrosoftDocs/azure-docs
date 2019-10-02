@@ -119,7 +119,7 @@ Transcripts must be prepared to the specifications listed in this table. Each au
 | File name | Use the same name as the matching audio file |
 | Encoding format | UTF-8-BOM only |
 | # of utterances per line | No limit |
-| Maximum file size | 50M |
+| Maximum file size | 50 MB |
 
 All transcripts files in this data type should be grouped into a zip file. No subfolder is allowed in the zip file. For example, you have uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You will need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you will provide the full correct transcription for the matching audio.
 

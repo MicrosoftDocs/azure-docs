@@ -108,7 +108,8 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=service-fabric
+    href: https://docs.microsoft.com/samples/browse/
+
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
@@ -131,8 +132,8 @@
       href: service-fabric-application-and-service-security.md
     - name: Service Fabric Cluster security
       href: service-fabric-cluster-security.md
-    - name: Azure Common Security Attributes
-      href: service-fabric-security-attributes.md
+    - name: Built-in security controls
+      href: service-fabric-security-controls.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -354,8 +355,10 @@
     href: service-fabric-api-management-overview.md
   - name: App Resource model
     href: service-fabric-concept-resource-model.md
-  - name: Managed Identity 
+  - name: Managed Identity (preview)
     href: concepts-managed-identity.md
+  - name: Configure container repository credentials
+    href: configure-container-repository-credentials.md
   
 - name: How-to guides
   items:
@@ -748,7 +751,7 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
-  - name: Use Managed Identity for Service Fabric apps
+  - name: Use Managed Identity for Service Fabric apps (preview)
     items:
     - name: Cluster setup
       items:

@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Single sign-on (SSO) session management in Azure Active Directory (Azure AD) B2C enables an administrator to control interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. This article describes how to configure the SSO settings for Azure AD B2C.
+Single sign-on (SSO) session management in Azure Active Directory B2C (Azure AD B2C) enables an administrator to control interaction with a user after the user has already authenticated. For example, the administrator can control whether the selection of identity providers is displayed, or whether local account details need to be entered again. This article describes how to configure the SSO settings for Azure AD B2C.
 
 SSO session management has two parts. The first deals with the user's interactions directly with Azure AD B2C and the other deals with the user's interactions with external parties such as Facebook. Azure AD B2C does not override or bypass SSO sessions that might be held by external parties. Rather the route through Azure AD B2C to get to the external party is “remembered”, avoiding the need to reprompt the user to select their social or enterprise identity provider. The ultimate SSO decision remains with the external party.
 
@@ -59,7 +59,7 @@ To add claims in the session, use the `<PersistedClaims>` element of the technic
 
 ## ExternalLoginSSOSessionProvider
 
-This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook. 
+This provider is used to suppress the “choose identity provider” screen. It is typically referenced in a technical profile configured for an external identity provider, such as Facebook.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">

@@ -6,7 +6,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: heidist
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 
 ---

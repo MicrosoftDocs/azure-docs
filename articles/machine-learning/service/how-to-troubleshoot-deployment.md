@@ -1,7 +1,7 @@
 ---
 title: Deployment troubleshooting guide
-titleSuffix: Azure Machine Learning service
-description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn how to work around, solve, and troubleshoot the common Docker deployment errors with Azure Kubernetes Service and Azure Container Instances using  Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,11 +13,11 @@ ms.date: 07/09/2019
 ms.custom: seodec18
 ---
 
-# Troubleshooting Azure Machine Learning service Azure Kubernetes Service and Azure Container Instances deployment
+# Troubleshooting Azure Machine Learning Azure Kubernetes Service and Azure Container Instances deployment
 
-Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning service.
+Learn how to work around or solve common Docker deployment errors with Azure Container Instances (ACI) and Azure Kubernetes Service (AKS) using Azure Machine Learning.
 
-When deploying a model in Azure Machine Learning service, the system performs a number of tasks. The deployment tasks are:
+When deploying a model in Azure Machine Learning, the system performs a number of tasks. The deployment tasks are:
 
 1. Register the model in the workspace model registry.
 
@@ -199,6 +199,9 @@ print(prediction)
 
 During local testing, you may need to update the `score.py` file to add logging or attempt to resolve any problems that you've discovered. To reload changes to the `score.py` file, use `reload()`. For example, the following code reloads the script for the service, and then sends data to it. The data is scored using the updated `score.py` file:
 
+> [!IMPORTANT]
+> The `reload` method is only available for local deployments. For information on updating a deployment to another compute target, see the update section of [Deploy models](how-to-deploy-and-where.md#update).
+
 ```python
 service.reload()
 print(service.run(input_data=test_sample))
@@ -338,7 +341,7 @@ In some cases, you may need to interactively debug the Python code contained in 
 
         ```json
         {
-            "name": "Azure Machine Learning service: Docker Debug",
+            "name": "Azure Machine Learning: Docker Debug",
             "type": "python",
             "request": "attach",
             "port": 5678,
@@ -471,7 +474,7 @@ In this text example, the registry name is `myregistry` and the image is named `
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning service: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning service: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
+1. To attach VS Code to PTVSD inside the container, open VS Code and use the F5 key or select __Debug__. When prompted, select the __Azure Machine Learning: Docker Debug__ configuration. You can also select the debug icon from the side bar, the __Azure Machine Learning: Docker Debug__ entry from the Debug dropdown menu, and then use the green arrow to attach the debugger.
 
     ![The debug icon, start debugging button, and configuration selector](media/how-to-troubleshoot-deployment/start-debugging.png)
 

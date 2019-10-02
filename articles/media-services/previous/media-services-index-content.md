@@ -13,18 +13,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: johndeu
 
 ---
 # Indexing Media Files with Azure Media Indexer
+
+> [!NOTE]
+> The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+
 Azure Media Indexer enables you to make content of your media files searchable and to generate a full-text transcript for closed captioning and keywords. You can process one media file or multiple media files in a batch.  
 
-> [!IMPORTANT]
-> When indexing content, make sure to use media files that have clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
-> 
-> 
+When indexing content, make sure to use media files that have clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures, or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 
 An indexing job can generate the following outputs:
 

@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-java.md)]
 
-* [JDK 7 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Gradle](https://gradle.org/install/)
-* An Azure subscription key for Translator Text
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Initialize a project with Gradle
 
@@ -85,11 +83,12 @@ public class Transliterate {
 }
 ```
 
-Add these lines to the `Transliterate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). Make sure you update the subscription key value.
+Add these lines to the `Transliterate` class. First, the subscription key and endpoint are being read from environment variables. Then, you'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). 
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
+private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
+private static String endpoint = System.getenv("TRANSLATOR_TEXT_ENDPOINT");
+String url = endpoint + "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScript=latn";
 ```
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 

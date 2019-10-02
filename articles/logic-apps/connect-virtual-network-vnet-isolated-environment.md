@@ -44,58 +44,65 @@ This article shows how to complete these tasks:
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). If you don't have a virtual network, learn how to [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
 
-  * Your virtual network must have four *empty* subnets for creating and deploying resources in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
-  
-    > [!NOTE]
-    > If you use [ExpressRoute](../expressroute/expressroute-introduction.md), 
-    > which provides a private connection to Microsoft cloud services, you must 
-    > [create a route table](../virtual-network/manage-route-table.md) that has 
-    > the following route and link that table with each subnet used by your ISE:
-    > 
-    > **Name**: <*route-name*><br>
-    > **Address prefix**: 0.0.0.0/0<br>
-    > **Next hop**: Internet
+  * Your virtual network needs to have four *empty* subnets for creating and deploying resources in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
+
+  * Subnet names need to start with either an alphabetic character or an underscore and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
 
   * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
-* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE, which is a capability that's available with ISE public preview.
+  * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), which provides a private connection to Microsoft cloud services, you must [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table to each subnet that's used by your ISE:
+
+    **Name**: <*route-name*><br>
+    **Address prefix**: 0.0.0.0/0<br>
+    **Next hop**: Internet
+
+* If you want to use custom DNS servers for your Azure virtual network, [set up those servers by following these steps](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) before you deploy your ISE to your virtual network. Otherwise, each time you change your DNS server, you also have to restart your ISE.
+
+  > [!IMPORTANT]
+  > If you change your DNS server settings after you create an ISE, make sure that you restart your ISE. 
+  > For more information about managing DNS server settings, see [Create, change, or delete a virtual network](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 
 ## Check network ports
 
-When you use an ISE with an existing virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port you use on that FTP system, such as port 21 for sending commands, is available.
-
-If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md) in your virtual network so that you can control traffic across subnets. For an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, make sure that your ISE opens specific ports, as described in the following table, on the virtual network that has the NSGs. So, for existing NSGs or firewalls in your virtual network, make sure that they open these ports. That way, your ISE stays accessible and can work correctly so that you don't lose access to your ISE. Otherwise, if any required ports are unavailable, your ISE stops working.
-
-This table describe the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
+When you use an ISE with an Azure virtual network, a common setup problem is having one or more blocked ports. The connectors that you use for creating connections between your ISE and the destination system might also have their own port requirements. For example, if you communicate with an FTP system by using the FTP connector, make sure the port that you use on your FTP system is available, for example, port 21 for sending commands. To make sure that your ISE stays accessible and can work correctly, open the ports specified by the table below. Otherwise, if any required ports are unavailable, your ISE stops working.
 
 > [!IMPORTANT]
-> For internal communication inside your subnets, 
-> ISE requires that you open all ports within those subnets.
+> Source ports are ephemeral, so make sure that you set them to `*` for all rules.
+> For internal communication inside your subnets, your ISE requires that you open all ports within those subnets.
 
-| Purpose | Direction | Ports | Source service tag | Destination service tag | Notes |
-|---------|-----------|-------|--------------------|-------------------------|-------|
-| Communication from Azure Logic Apps | Outbound | 80 & 443 | VirtualNetwork | Internet | The port depends on the external service with which the Logic Apps service communicates |
-| Azure Active Directory | Outbound | 80 & 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage dependency | Outbound | 80 & 443 | VirtualNetwork | Storage | |
-| Intersubnet communication | Inbound & Outbound | 80 & 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
+* If you created a new virtual network and subnets without any constraints, you don't need to set up [network security groups (NSGs)](../virtual-network/security-overview.md#network-security-groups) in your virtual network to control traffic across subnets.
+
+* On an existing virtual network, you can *optionally* set up NSGs by [filtering network traffic across subnets](../virtual-network/tutorial-filter-network-traffic.md). If you choose this route, on the virtual network where you want to set up the NSGs, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+* If you have previously existing NSGs or firewalls in your virtual network, make sure that you open the ports specified by the table below. If you use [NSG security rules](../virtual-network/security-overview.md#security-rules), you need both TCP and UDP protocols.
+
+Here is the table that describes the ports in your virtual network that your ISE uses and where those ports get used. The [Resource Manager service tags](../virtual-network/security-overview.md#service-tags) represents a group of IP address prefixes that help minimize complexity when creating security rules.
+
+| Purpose | Direction | Destination ports | Source service tag | Destination service tag | Notes |
+|---------|-----------|-------------------|--------------------|-------------------------|-------|
+| Communication from Azure Logic Apps | Outbound | 80, 443 | VirtualNetwork | Internet | The port depends on the external service with which the Logic Apps service communicates |
+| Azure Active Directory | Outbound | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| Azure Storage dependency | Outbound | 80, 443 | VirtualNetwork | Storage | |
+| Intersubnet communication | Inbound & Outbound | 80, 443 | VirtualNetwork | VirtualNetwork | For communication between subnets |
 | Communication to Azure Logic Apps | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer or service that calls any request trigger or webhook that exists in your logic app. Closing or blocking this port prevents HTTP calls to logic apps with request triggers. |
 | Logic app run history | Inbound | 443 | Internal access endpoints: <br>VirtualNetwork <p><p>External access endpoints: <br>Internet <p><p>**Note**: These endpoints refer to the endpoint setting that was [selected at ISE creation](#create-environment). For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). | VirtualNetwork | The IP address for the computer from which you view the logic app's run history. Although closing or blocking this port doesn't prevent you from viewing the run history, you can't view the inputs and outputs for each step in that run history. |
 | Connection management | Outbound | 443 | VirtualNetwork  | Internet | |
 | Publish Diagnostic Logs & Metrics | Outbound | 443 | VirtualNetwork  | AzureMonitor | |
 | Communication from Azure Traffic Manager | Inbound | 443 | AzureTrafficManager | VirtualNetwork | |
-| Logic Apps Designer - dynamic properties | Inbound | 454 | Internet  | VirtualNetwork | Requests come from the Logic Apps [access endpoint inbound IP addresses in that region](../logic-apps/logic-apps-limits-and-config.md#inbound). |
-| App Service Management dependency | Inbound | 454 & 455 | AppServiceManagement | VirtualNetwork | |
-| Connector deployment | Inbound | 454 & 3443 | Internet  | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
-| Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL |
+| Logic Apps Designer - dynamic properties | Inbound | 454 | Internet | VirtualNetwork | Requests come from the Logic Apps [access endpoint inbound IP addresses in that region](../logic-apps/logic-apps-limits-and-config.md#inbound). |
+| App Service Management dependency | Inbound | 454, 455 | AppServiceManagement | VirtualNetwork | |
+| Connector deployment | Inbound | 454 | AzureConnectors | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Connector policy deployment | Inbound | 3443 | Internet | VirtualNetwork | Necessary for deploying and updating connectors. Closing or blocking this port causes ISE deployments to fail and prevents connector updates or fixes. |
+| Azure SQL dependency | Outbound | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | Outbound | 1886 | VirtualNetwork | AzureMonitor | For publishing health status to Resource Health |
-| API Management - management endpoint | Inbound | 3443 | APIManagement  | VirtualNetwork | |
-| Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VirtualNetwork  | EventHub | |
-| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VirtualNetwork  | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
-| Azure Load Balancer | Inbound | * | AzureLoadBalancer | VirtualNetwork |  |
+| API Management - management endpoint | Inbound | 3443 | APIManagement | VirtualNetwork | |
+| Dependency from Log to Event Hub policy and monitoring agent | Outbound | 5672 | VirtualNetwork | EventHub | |
+| Access Azure Cache for Redis Instances between Role Instances | Inbound <br>Outbound | 6379-6383 | VirtualNetwork | VirtualNetwork | Also, for ISE to work with Azure Cache for Redis, you must open these [outbound and inbound ports described in the Azure Cache for Redis FAQ](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements). |
+| Azure Load Balancer | Inbound | * | AzureLoadBalancer | VirtualNetwork | |
 ||||||
 
 <a name="create-environment"></a>
@@ -121,23 +128,27 @@ In the search box, enter "integration service environment" as your filter.
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your environment |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
-   | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment |
+   | **Integration service environment name** | Yes | <*environment-name*> | Your ISE name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), and periods (`.`). |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to deploy your environment |
    | **SKU** | Yes | **Premium** or **Developer (No SLA)** | The ISE SKU to create and use. For differences between these SKUs, see [ISE SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Additional capacity** | Premium: <br>Yes <p><p>Developer: <br>Not applicable | Premium: <br>0 to 10 <p><p>Developer: <br>Not applicable | The number of additional processing units to use for this ISE resource. To add capacity after creation, see [Add ISE capacity](#add-capacity). |
    | **Access endpoint** | Yes | **Internal** or **External** | The type of access endpoints to use for your ISE, which determine whether request or webhook triggers on logic apps in your ISE can receive calls from outside your virtual network. The endpoint type also affects access to inputs and outputs in your logic app runs history. For more information, see [Endpoint access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access). <p><p>**Important**: This option is available only at ISE creation and can't be changed later. |
    | **Virtual network** | Yes | <*Azure-virtual-network-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, [create an Azure virtual network first](../virtual-network/quick-create-portal.md). <p>**Important**: You can *only* perform this injection when you create your ISE. |
-   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet).  |
+   | **Subnets** | Yes | <*subnet-resource-list*> | An ISE requires four *empty* subnets for creating and deploying resources in your environment. To create each subnet, [follow the steps under this table](#create-subnet). |
    |||||
 
    <a name="create-subnet"></a>
 
    **Create subnet**
 
-   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. You *can't* change these subnet addresses after you create your environment. Each subnet must meet these criteria:
-
-   * Has a name that starts with an alphabetic character or an underscore, 
-   and doesn't have these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`
+   To create and deploy resources in your environment, your ISE needs four *empty* subnets that aren't delegated to any service. You *can't* change these subnet addresses after you create your environment.
+   
+   > [!IMPORTANT]
+   > 
+   > Subnet names must start with either an alphabetic character or an underscore 
+   > (no numbers), and doesn't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`.
+   
+   Also, each subnet must meet these requirements:
 
    * Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) and a Class B address space.
 
@@ -151,8 +162,7 @@ In the search box, enter "integration service environment" as your filter.
 
      To learn more about calculating addresses, see [IPv4 CIDR blocks](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), remember to [create a route table](../virtual-network/manage-route-table.md) 
-   that has the following route and link that table with each subnet used by your ISE:
+   * If you use [ExpressRoute](../expressroute/expressroute-introduction.md), you have to [create a route table](../virtual-network/manage-route-table.md) that has the following route and link that table with each subnet that's used by your ISE:
 
      **Name**: <*route-name*><br>
      **Address prefix**: 0.0.0.0/0<br>
@@ -238,6 +248,7 @@ The Premium ISE base unit has fixed capacity, so if you need more throughput, yo
    * If you choose metric-based, follow these steps:
 
      1. In the **Rules** section, choose **Add a rule**.
+
      1. On the **Scale rule** pane, set up your criteria and action to take when the rule triggers.
 
      1. When you're done, choose **Add**.

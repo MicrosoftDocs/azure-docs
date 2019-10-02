@@ -101,7 +101,7 @@ For a deeper look at the authentication process in other scenarios involving Win
 
 #### User manages their Windows Hello for Business credentials
 
-The [Microsoft PIN reset services](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-features#pin-reset) is a feature in Azure AD that enables users to reset their PIN if needed. Using group policy, Microsoft Intune or a compatible MDM, an administrator can configure Windows 10 devices to securely use the Microsoft PIN reset service that enables users to reset their forgotten PIN through settings or above the lock screen without requiring re-enrollment.
+The [Microsoft PIN reset services](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) is a feature in Azure AD that enables users to reset their PIN if needed. Using group policy, Microsoft Intune or a compatible MDM, an administrator can configure Windows 10 devices to securely use the Microsoft PIN reset service that enables users to reset their forgotten PIN through settings or above the lock screen without requiring re-enrollment.
 
 Sometimes users have to fall back to using passwords. [Self-service password reset](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR) is another Azure AD feature that enables users to reset their passwords without needing to contact IT staff. Users must register for or be registered for self-service password reset before using the service. During registration, the user chooses one or more authentication methods enabled by their organization. SSPR enables users to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
@@ -220,7 +220,7 @@ We also recommend that each organization create a protocol for users and adminis
 
 #### User sets up FIDO2 security key
 
-While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
+While administrators can [manually provision keys](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) and distribute them to end users, provisioning and enabling the FIDO2 credential provider on the Windows 10 lock screen will be supported through [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods). Administrators will also need to use the [Azure portal](https://portal.azure.com/) to enable hardware token devices as a passwordless authentication method.
 
 Deploying FIDO2 security keys also requires that users register their keys using [combined registration](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md). With combined registration, users register once and get the benefits of both Azure Multi-Factor Authentication and single sign-on password reset (SSPR).
 
@@ -337,4 +337,4 @@ The adoption of modern multi-factor authentication technologies such as biometri
 ## Next steps
 
 * An overview of [what is passwordless?](../../active-directory/authentication/concept-authentication-passwordless.md)
-* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-enable)
+* [How to enable passwordless in Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless)

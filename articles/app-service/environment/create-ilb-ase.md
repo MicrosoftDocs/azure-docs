@@ -10,7 +10,6 @@ ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy

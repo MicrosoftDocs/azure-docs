@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 09/04/2019
 ms.author: diberry
 ---
 
@@ -29,17 +29,18 @@ LUIS understands utterances in the following languages:
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Dutch |`nl-NL` |-|  -   |-|✔|
-| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| Dutch |`nl-NL` |✔|  -   |-|✔|
+| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | French (Canada) |`fr-CA` |-|   -   |-|✔|
-| German |`de-DE` |-| ✔ |✔ |✔|
-| Italian |`it-IT` |-| ✔ |✔|✔|
-| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
-| Korean |`ko-KR` |-|   -   |-|Key phrase only|
-| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
-| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| German |`de-DE` |✔| ✔ |✔ |✔|
+| Hindi | `hi-IN`|-|-|-|-|
+| Italian |`it-IT` |✔| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |✔|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
-| Turkish | `tr-TR` |-|-|-|Sentiment only|
+| Turkish | `tr-TR` |✔|-|-|Sentiment only|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
@@ -83,6 +84,7 @@ To perform machine learning, LUIS breaks an utterance into [tokens](luis-glossar
 |French (fr-FR)|✔||||
 |French (fr-CA)|✔||||
 |German|||✔|✔|
+| Hindi |✔|-|-|-|-|
 |Italian|✔||||
 |Japanese||||✔|
 |Korean||✔||✔|

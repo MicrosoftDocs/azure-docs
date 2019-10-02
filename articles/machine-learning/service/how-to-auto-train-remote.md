@@ -1,7 +1,7 @@
 ---
 title: Automated ML remote compute targets
-titleSuffix: Azure Machine Learning service
-description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning service
+titleSuffix: Azure Machine Learning
+description: Learn how to build models using automated machine learning on an Azure Machine Learning remote compute target with Azure Machine Learning
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -71,10 +71,14 @@ If you do wish to manually set the column types, you can set the `set_column_typ
 
 ```python
 # Create a project_folder if it doesn't exist
+if not os.path.isdir('data'):
+    os.mkdir('data')
+    
 if not os.path.exists(project_folder):
     os.makedirs(project_folder)
 
 from sklearn import datasets
+from azureml.core.dataset import Dataset
 from scipy import sparse
 import numpy as np
 import pandas as pd
@@ -271,7 +275,7 @@ Printing the `best_run` explanation summary variables results in the following o
 
 ![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
 
-You can also visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
+You can also visualize feature importance through the widget UI, the web UI on Azure portal, or your [workspace landing page (preview)](https://ml.azure.com). 
 
 ![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 

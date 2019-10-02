@@ -12,7 +12,7 @@ ms.assetid: 78492a2c-2694-4023-a7b8-c97d3708dcb7
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
@@ -189,7 +189,7 @@ Things to consider:
 Be purposeful on what services you now want to enable in Azure Resource Manager.  Many customers find the below compelling for their Azure environments:
 
 - [Role Based Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/resource-group-overview.md#template-deployment).
+- [Azure Resource Manager templates for easier and more controlled deployment](../../azure-resource-manager/template-deployment-overview.md).
 - [Tags](../../azure-resource-manager/resource-group-using-tags.md).
 - [Activity Control](../../azure-resource-manager/resource-group-audit.md)
 - [Azure Policies](../../governance/policy/overview.md)

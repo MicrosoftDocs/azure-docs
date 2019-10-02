@@ -22,6 +22,7 @@ This article outlines variations and considerations when using **Cognitive Servi
 The following AI and Cognitive Services are generally available in Azure Government: 
 
 - Computer Vision
+- Custom Vision
 - Face
 - Content Moderator
 - Speech
@@ -42,6 +43,16 @@ Variations in Azure Government:
 - Available SKUs: S1
 
 For more information, see the [global Azure documentation](../cognitive-services/computer-vision/index.yml) and [Computer Vision API documentation](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa).
+
+### Custom Vision
+
+Variations in Azure Government:
+
+- Custom Vision Portal: https://www.customvision.azure.us
+- Endpoint URL: https://virginia.api.cognitive.microsoft.us/customvision/v3.0/
+- Available SKUs: F0,S0
+
+For more information, see the [global Azure documentation](https://go.microsoft.com/fwlink/?linkid=848046), [Custom Vision Training API reference](https://go.microsoft.com/fwlink/?linkid=865445), and [Custom Vision Prediction API reference](https://go.microsoft.com/fwlink/?linkid=865446)
  
 ### Face
 
@@ -160,4 +171,3 @@ Data considerations for Cognitive Services and Azure Bot Service are not yet ava
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the [azure-gov](https://stackoverflow.com/questions/tagged/azure-gov) tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government) 
-

@@ -10,7 +10,7 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -113,7 +113,7 @@ Create service principal:
 scope=`az group show --name openshiftrg --query id`
 az ad sp create-for-rbac --name openshiftsp \
       --role Contributor --password {Strong Password} \
-      --scopes $scope
+      --scopes $scope \
 ```
 If you're using Windows, execute ```az group show --name openshiftrg --query id``` and use the output in place of $scope.
 

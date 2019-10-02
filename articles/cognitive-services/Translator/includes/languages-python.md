@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-python.md)]
 
-This quickstart requires:
-
-* Python 2.7.x or 3.x
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a project and import required modules
 
@@ -18,10 +16,7 @@ Create a new Python project using your favorite IDE or editor. Then copy this co
 
 ```python
 # -*- coding: utf-8 -*-
-import os
-import requests
-import uuid
-import json
+import os, requests, uuid, json
 ```
 
 > [!NOTE]
@@ -29,17 +24,25 @@ import json
 
 The first comment tells your Python interpreter to use UTF-8 encoding. Then required modules are imported to read your subscription key from an environment variable, construct the http request, create a unique identifier, and handle the JSON response returned by the Translator Text API.
 
-## Set the base url, and path
+## Set the endpoint and path
 
-The Translator Text global endpoint is set as the `base_url`. `path` sets the `languages` route and identifies that we want to hit version 3 of the API.
+This sample will try to read your Translator Text endpoint from an environment variable: `TRANSLATOR_TEXT_ENDPOINT`. If you're not familiar with environment variables, you can set `endpoint` as a string and comment out the conditional statement.
+
+```python
+endpoint_var_name = 'TRANSLATOR_TEXT_ENDPOINT'
+if not endpoint_var_name in os.environ:
+    raise Exception('Please set/export the environment variable: {}'.format(endpoint_var_name))
+endpoint = os.environ[endpoint_var_name]
+```
+
+The Translator Text global endpoint is set as the `endpoint`. `path` sets the `languages` route and identifies that we want to hit version 3 of the API.
 
 >[!NOTE]
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Languages](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).
 
 ```python
-base_url = 'https://api.cognitive.microsofttranslator.com'
 path = '/languages?api-version=3.0'
-constructed_url = base_url + path
+constructed_url = endpoint + path
 ```
 
 ## Add headers

@@ -17,21 +17,13 @@ ms.author: glenga
 
 # Azure Functions Python developer guide
 
-This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md).
+This article is an introduction to developing Azure Functions using Python. The content below assumes that you've already read the [Azure Functions developers guide](functions-reference.md). 
+
+For standalone Function sample projects in Python, see the [Python Functions samples](/samples/browse/?products=azure-functions&languages=python). 
 
 ## Programming model
 
-An Azure Function should be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file.
-
-You can change the default configuration by specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
-
-```json
-{
-  "scriptFile": "main.py",
-  "entryPoint": "customentry",
-  ...
-}
-```
+Azure Functions expects a function to be a stateless method in your Python script that processes input and produces output. By default, the runtime expects the method to be implemented as a global method called `main()` in the `__init__.py` file. You can also [specify an alternate entry point](#alternate-entry-point).
 
 Data from triggers and bindings is bound to the function via method attributes using the `name` property defined in the *function.json* file. For example, the  _function.json_ below describes a simple function triggered by an HTTP request named `req`:
 
@@ -61,7 +53,7 @@ def main(req):
     return f'Hello, {user}!'
 ```
 
-Optionally, to leverage the intellisense and auto-complete features provided by your code editor, you can also declare the attribute types and return type in the function using Python type annotations. 
+you can also explicitly declare the attribute types and return type in the function using Python type annotations. This helps you use the intellisense and autocomplete features provided by many Python code editors.
 
 ```python
 import azure.functions
@@ -74,15 +66,30 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 Use the Python annotations included in the [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) package to bind input and outputs to your methods.
 
+## Alternate entry point
+
+You can change the default behavior of a function by optionally specifying the `scriptFile` and `entryPoint` properties in the *function.json* file. For example, the _function.json_ below tells the runtime to use the `customentry()` method in the _main.py_ file, as the entry point for your Azure Function.
+
+```json
+{
+  "scriptFile": "main.py",
+  "entryPoint": "customentry",
+  "bindings": [
+      ...
+  ]
+}
+```
+
 ## Folder structure
 
-The folder structure for a Python Functions project looks like the following:
+The folder structure for a Python Functions project looks like the following example:
 
 ```
  FunctionApp
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
+ | | - example.py
  | - MySecondFunction
  | | - __init__.py
  | | - function.json
@@ -99,6 +106,12 @@ Shared code should be kept in a separate folder. To reference modules in the Sha
 
 ```
 from __app__.SharedCode import myFirstHelperFunction
+```
+
+To reference modules local to a function, you can use the relative import syntax as follows:
+
+```
+from . import example
 ```
 
 When deploying a Function project to your function app in Azure, the entire content of the *FunctionApp* folder should be included in the package, but not the folder itself.
@@ -222,12 +235,49 @@ Additional logging methods are available that let you write to the console at di
 
 | Method                 | Description                                |
 | ---------------------- | ------------------------------------------ |
-| logging.**critical(_message_)**   | Writes a message with level CRITICAL on the root logger.  |
-| logging.**error(_message_)**   | Writes a message with level ERROR on the root logger.    |
-| logging.**warning(_message_)**    | Writes a message with level WARNING on the root logger.  |
-| logging.**info(_message_)**    | Writes a message with level INFO on the root logger.  |
-| logging.**debug(_message_)** | Writes a message with level DEBUG on the root logger.  |
+| **`critical(_message_)`**   | Writes a message with level CRITICAL on the root logger.  |
+| **`error(_message_)`**   | Writes a message with level ERROR on the root logger.    |
+| **`warning(_message_)`**    | Writes a message with level WARNING on the root logger.  |
+| **`info(_message_)`**    | Writes a message with level INFO on the root logger.  |
+| **`debug(_message_)`** | Writes a message with level DEBUG on the root logger.  |
 
+To learn more about logging, see [Monitor Azure Functions](functions-monitoring.md).
+
+## HTTP Trigger and bindings
+
+The HTTP trigger is defined in the function.jon file. The `name` of the binding must match the named parameter in the function. 
+In the previous examples, a binding name `req` is used. This parameter is an [HttpRequest] object, and an [HttpResponse] object is returned.
+
+From the [HttpRequest] object, you can get request headers, query parameters, route parameters, and the message body. 
+
+The following example is from the [HTTP trigger template for Python](https://github.com/Azure/azure-functions-templates/tree/dev/Functions.Templates/Templates/HttpTrigger-Python). 
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    headers = {"my-http-header": "some-value"}
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+            
+    if name:
+        return func.HttpResponse(f"Hello {name}!", headers=headers)
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             headers=headers, status_code=400
+        )
+```
+
+In this function, the value of the `name` query parameter is obtained from the `params` parameter of the [HttpRequest] object. The JSON-encoded message body is read using the `get_json` method. 
+
+Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
+                                                              
 ## Async
 
 We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
@@ -240,7 +290,7 @@ async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no `async` qualifier) we automatically run the function in an `asyncio` thread-pool.
+If the main() function is synchronous (no  qualifier), we automatically run the function in an `asyncio` thread-pool.
 
 ```python
 # Would be run in an asyncio thread-pool
@@ -292,6 +342,26 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
+## Environment variables
+
+In Functions, [application settings](functions-app-settings.md), such as service connection strings, are exposed as environment variables during execution. You can access these settings by declaring `import os` and then using, `setting = os.environ["setting-name"]`.
+
+The following example gets the [application setting](functions-how-to-use-azure-function-app-settings.md#settings), with the key named `myAppSetting`:
+
+```python
+import logging
+import os
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Get the setting named 'myAppSetting'
+    my_app_setting_value = os.environ["myAppSetting"]
+    logging.info(f'My app setting value:{my_app_setting_value}')
+```
+
+For local development, application settings are [maintained in the local.settings.json file](functions-run-local.md#local-settings-file).  
+
 ## Python version and package management
 
 Currently, Azure Functions only supports Python 3.6.x (official CPython distribution).
@@ -312,6 +382,8 @@ pip install -r requirements.txt
 
 When you're ready to publish, make sure that all your dependencies are listed in the *requirements.txt* file, which is located at the root of your project directory. Azure Functions can [remotely build](functions-deployment-technologies.md#remote-build) these dependencies.
 
+Project files and folders that are excluded from publishing, including the virtual environment folder, are listed in the .funcignore file.  
+
 To deploy to Azure and perform a remote build, use the following command:
 
 ```bash
@@ -331,9 +403,9 @@ To build locally and configure the required binaries, [install Docker](https://d
 func azure functionapp publish <app name> --build-native-deps
 ```
 
-Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it'll then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
+Underneath the covers, Core Tools will use docker to run the [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) image as a container on your local machine. Using this environment, it will then build and install the required modules from source distribution, before packaging them up for final deployment to Azure.
 
-To build your dependencies and publish using a continuous delivery (CD) system, [use Azure DevOps Pipelines](functions-how-to-azure-devops.md). 
+To build your dependencies and publish using a continuous delivery (CD) system, [use Azure Pipelines](functions-how-to-azure-devops.md). 
 
 ## Unit Testing
 
@@ -457,6 +529,39 @@ class TestFunction(unittest.TestCase):
 
 All known issues and feature requests are tracked using [GitHub issues](https://github.com/Azure/azure-functions-python-worker/issues) list. If you run into a problem and can't find the issue in GitHub, open a new issue and include a detailed description of the problem.
 
+### Cross-origin resource sharing
+
+Azure Functions supports cross-origin resource sharing (CORS). CORS is configured [in the portal](functions-how-to-use-azure-function-app-settings.md#cors) and through the [Azure CLI](/cli/azure/functionapp/cors). The CORS allowed origins list applies at the function app level. With CORS enabled, responses include the `Access-Control-Allow-Origin` header. For more information, see [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
+
+The allowed origins list [isn't currently supported](https://github.com/Azure/azure-functions-python-worker/issues/444) for Python function apps. Because of this limitation, you must expressly set the `Access-Control-Allow-Origin` header in your HTTP functions, as shown in the following example:
+
+```python
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    # Define the allow origin headers.
+    headers = {"Access-Control-Allow-Origin": "https://contoso.com"}
+
+    # Set the headers in the response.
+    return func.HttpResponse(
+            f"Allowed origin '{headers}'.",
+            headers=headers, status_code=200
+    )
+``` 
+
+Make sure that you also update your function.json to support the OPTIONS HTTP method:
+
+```json
+    ...
+      "methods": [
+        "get",
+        "post",
+        "options"
+      ]
+    ...
+```
+
+This method is used by the Chrome browser to negotiate the allowed origins list. 
+
 ## Next steps
 
 For more information, see the following resources:
@@ -468,3 +573,7 @@ For more information, see the following resources:
 * [HTTP and Webhook bindings](functions-bindings-http-webhook.md)
 * [Queue storage bindings](functions-bindings-storage-queue.md)
 * [Timer trigger](functions-bindings-timer.md)
+
+
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python

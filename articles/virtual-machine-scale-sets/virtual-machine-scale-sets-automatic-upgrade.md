@@ -3,7 +3,7 @@ title: Automatic OS image upgrades with Azure virtual machine scale sets | Micro
 description: Learn how to automatically upgrade the OS image on VM instances in a scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: mayanknayar
+author: shandilvarun
 manager: drewm
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/16/2019
-ms.author: manayar
+ms.author: vashan
 
 ---
 # Azure virtual machine scale set automatic OS image upgrades
@@ -65,6 +65,7 @@ The following SKUs are currently supported (and more are added periodically):
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Datacenter-with-Containers |
+| Microsoft Corporation   | WindowsServer | Datacenter-Core-1903-with-Containers-smalldisk |
 
 
 ## Requirements for configuring automatic OS image upgrade

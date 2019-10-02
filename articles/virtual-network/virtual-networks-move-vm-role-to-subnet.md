@@ -4,7 +4,7 @@ description: Learn how to move VMs (Classic) and Cloud Services role instances t
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: de4135c7-dc5b-4ffa-84cc-1b8364b7b427

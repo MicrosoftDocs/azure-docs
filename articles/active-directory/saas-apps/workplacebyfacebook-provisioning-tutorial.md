@@ -94,6 +94,9 @@ For more information on how to configure automatic provisioning, see [https://de
 
 You can now create a test account. Wait for up to 20 minutes to verify that the account has been synchronized to Workplace by Facebook.
 
+> [!NOTE]
+> We are working closely with the Workplace by Facebook team to ensure that the Azure AD application is approved and meets their new guidelines.   
+
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](tutorial-list.md)
