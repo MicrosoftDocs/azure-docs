@@ -19,8 +19,7 @@ Azure Spring Cloud Maven plugin allows you to easily create and update your Azur
 
 ## Prerequisites
 1. [Install Git](https://git-scm.com/)
-2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
+2. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 
 ## Provision service instance
 
@@ -31,7 +30,7 @@ Please refer this [document](./spring-cloud-quickstart-launch-portal) to provisi
 
 1. Clone git repository by running below command.
     ```
-    git clone https://github.com/xscript/PiggyMetrics
+    git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
 1. Change directory and build the project by running below command.
