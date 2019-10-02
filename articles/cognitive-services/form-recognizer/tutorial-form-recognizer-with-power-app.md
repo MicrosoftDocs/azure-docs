@@ -30,7 +30,7 @@ Here's what this tutorial covers:
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
-* [Sign up](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) for Power Apps.
+* [Sign up](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) for PowerApps.
 
 ## Create an Azure Storage blob container
 
@@ -59,12 +59,17 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 You can use Microsoft Flow to create logic that performs one or more tasks when an event occurs. In this tutorial, you create a flow that is triggered by uploading a reciept that you want to analyze.
 
 1. Sing in to [PowerApps](http://www.web.powerapps.com).
-1. From the left pane, click **Flows**.
+1. From the left pane, select **Flows**.
     > [!div class="mx-imgBorder"]
     > ![Create blob container](media/tutorial-form-recognizer-with-power-app/create-powerapp-flow.png)
-1. 
-
-
+1. On the next page, select **New**, and then select, **Instant-from Blank**.
+    > [!div class="mx-imgBorder"]
+    > ![Create a blank Flow](media/tutorial-form-recognizer-with-power-app/create-flow-from-blank.png)
+1. On the next page, enter a name for your Flow application. From **Choose how to trigger this flow**, select **Manually trigger a flow**, and then select **Create**. 
+    > [!div class="mx-imgBorder"]
+    > ![Enter Flow name](media/tutorial-form-recognizer-with-power-app/provide-flow-name.png)
+1. On the next page, click **New step**, and under **Choose an action**, select **Form Recognizer**. Under the actions that are available for Form Recognizer, select **Train Model**.
+    ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/add-form-recognizer-flow.png)
 
 ## Integrate Form Recognizer in Flow 
 
