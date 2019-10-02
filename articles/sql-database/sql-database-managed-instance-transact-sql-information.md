@@ -545,9 +545,9 @@ A managed instance places verbose information in error logs. There are many inte
 
 SQL Server/Managed Instance [don't allow user to drop a file that is not empty](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites). If you try to remove a non-empty data file using `ALTER DATABASE REMOVE FILE` statement, the error `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` will not be immediately returned. Managed Instance will keep trying to drop the file and the operation will fail after 30min with `Internal server error`.
 
-**Workaround**: Remove the content of the file using `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` command.
+**Workaround**: Remove the content of the file using `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` command. If this is the only file in the filegroup you would need to delete data from the table or partition associated to this filegroup before you shrink the file, and optionally load this data into another table/partition.
 
-### Change service tier and create instance operations are blocked by ongioing database restore
+### Change service tier and create instance operations are blocked by ongoing database restore
 
 **Date:** Sep 2019
 
