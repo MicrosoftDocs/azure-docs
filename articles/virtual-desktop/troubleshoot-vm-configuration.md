@@ -1,15 +1,15 @@
 ---
-title: Tenant and host pool creation in Windows Virtual Desktop - Azure
-description: How to resolve issues when you're configuring a tenant and session host virtual machine (VM) in a Windows Virtual Desktop environment.
+title: Session host virtual machine configuration - Azure
+description: How to resolve issues when you're configuring Windows Virtual Desktop session host virtual machines.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Tenant and host pool creation
+# Session host virtual machine configuration
 
 Use this article to troubleshoot issues you're having when configuring the Windows Virtual Desktop session host virtual machines (VMs).
 
