@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/25/2019
+ms.date: 10/01/2019
 ms.author: diberry
 ---
 
@@ -26,6 +26,8 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 Include a chit-chat personality to make your knowledge more engaging with your users.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Prerequisite
 
