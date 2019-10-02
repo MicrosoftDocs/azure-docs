@@ -53,7 +53,7 @@ When you're assigning users, keep the following tips in mind:
 
 Before you configure Foodee for automatic user provisioning by using Azure AD, you need to enable System for Cross-domain Identity Management (SCIM) provisioning in Foodee.
 
-1. Sign in to [Foodee](https://www.food.ee/login/), and then select your Tenant ID.
+1. Sign in to [Foodee](https://www.food.ee/login/), and then select your tenant ID.
 
 	![Foodee](media/Foodee-provisioning-tutorial/tenant.png)
 
@@ -137,7 +137,7 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 	![Foodee user mappings](media/Foodee-provisioning-tutorial/userattribute.png)
 
 1. To commit your changes, select **Save**.
-1. Under **Mappings**, select **Synchronize Azure Active Directory Groups to **Foodee**.
+1. Under **Mappings**, select **Synchronize Azure Active Directory Groups to Foodee**.
 
 	![Foodee user mappings](media/Foodee-provisioning-tutorial/groupmapping.png)
 
@@ -146,7 +146,7 @@ Configure automatic user provisioning for Foodee in Azure AD by doing the follow
 	![Foodee user mappings](media/Foodee-provisioning-tutorial/groupattribute.png)
 
 1. To commit your changes, select **Save**.
-1. Configure the scoping filters. To learn how, refer to the instructions in [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Configure the scoping filters. To learn how, refer to the instructions in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
 1. To enable the Azure AD provisioning service for Foodee, in the **Settings** section, change the **Provisioning Status** to **On**.
 
