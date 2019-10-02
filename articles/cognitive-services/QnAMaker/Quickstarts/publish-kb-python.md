@@ -28,7 +28,7 @@ This quickstart calls QnA Maker REST APIs:
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](../how-to/create-knowledge-base).
+    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](../how-to/create-knowledge-base.md).
 
 > [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** GitHub repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
