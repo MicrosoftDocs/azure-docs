@@ -12,6 +12,8 @@ ms.author: v-chjen
 
 # Dynamics 365 for Operations Help Wiki
 
-The [Cloud Partner Portal](https://cloudpartner.azure.com/) no longer supports the creation and management of Dynamics 365 for Finance and Operations offers. Instead, this functionality has been moved to the Microsoft [Partner Center portal](https://partner.microsoft.com/). For more information, see [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Microsoft Dynamics 365 for Operations is Microsoft's business application for enterprises. It enables people to quickly make smarter decisions through an intelligent user interface that provides access to real-time insights and data. It enables businesses to transform and innovate by delivering proven business logic that allows them to redesign their business processes faster. It gives businesses the flexibility to grow at their own pace and do business nearly anywhere, anytime, allowing them to scale their operations globally to meet business needs.
 
-Before you create a new Dynamics 365 for Operations offer, you should read [Create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and then open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/directory) with the **Overview** page selected. Follow the instructions in [Create a new Dynamics 365 for Operations offer](https://docs.microsoft.com/en-us/azure/marketplace/partner-center-portal/create-new-operations-offer) to create your offer.
+This user guide can help you learn how to make Dynamics 365 for Operations work for your business.
+
+See [Dynamics 365 for Operations Help Wiki](https://docs.microsoft.com/dynamics365/operations/) for more info.
