@@ -50,11 +50,11 @@ Here is an example performance comparison of loading data into tables with diffe
  
 ## Reduce segment overlapping
 
-The number of overlapping segments depend on the size of data to sort, the available memory, and the MAXDOP setting during ordered CCI creation. Below are options to reduce segment overlapping when creating ordered CCI.
+The number of overlapping segments depends on the size of data to sort, the available memory, and the maximum degree of parallelism (MAXDOP) setting during ordered CCI creation. Below are options to reduce segment overlapping when creating ordered CCI.
 
 - Use xlargerc resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There is no data sorting within a segment or across segments.  
 
-- Create ordered CCI with maximum degree of paralellism = 1 (MAXDOP 1).  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands do not support MAXDOP option. For example,
+- Create ordered CCI with MAXDOP 1.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands do not support MAXDOP option. For example,
 
 ```sql
 Create table Table1 with (distribution = hash(c1), clustered columnstore index order(c1) )
