@@ -158,7 +158,7 @@ def get_last_updated(currentModifiedDate):
         print(f'-----model updated: {lastModifiedTime}')
 ```
 
-### Get policy and service configruation
+### Get policy and service configuration
 
 Validate the state of the service with these two REST calls.
 
@@ -258,6 +258,20 @@ print(f'Coffee count {len(actionfeaturesobj)}')
 This previous cell is the first cell that calls out to Personalizer. Make sure the REST status code in the output is 200. If you get an error, such as 404, but you are sure your resource key and name are correct, reload the notebook.
 
 Make sure the count of coffee and users is both 4. If you get an error, check that you uploaded all 3 JSON files. 
+
+### Set up metric chart in Azure portal
+
+Later in this tutorial, the long running process of 10,000 requests is visible from the browser with an updating text box. It may be easier to see in a chart or as a total sum, when the long running process ends. To view this information, use the metrics provided with the resource. You can create the chart now that you have completed a request to the service, then refresh the chart periodically while the long running process is going.
+
+1. In the Azure portal, select your Personalizer resource.
+1. In the resource navigation, select **Metrics** underneath Monitoring. 
+1. In the chart, select **Add metric**.
+1. The resource and metric namespace are already set. You only need to select the metric of **successful calls** and the aggregation of **sum**.
+1. Change the time filter to the last 4 hours.
+
+    ![Set up metric chart in Azure portal, adding metric for successful calls for the last 4 hours.](./media/tutorial-azure-notebook/metric-chart-setting.png)
+
+    You should see three successful calls in the chart. 
 
 ### Generate a unique event ID
 
