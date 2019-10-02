@@ -15,7 +15,10 @@ If you want your Word, Excel, Outlook, or PowerPoint add-in to be available in t
 > [!NOTE]
 > To make your add-in available for iOS, you must set up your Apple ID on the [Account settings](https://partner.microsoft.com/dashboard/account/management) page. After you add your ID in Account settings, remember to refresh the **Add-in setup** page.
 
-If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
+If your add-in requires the additional purchase of a service, either through a third-party commerce platform or Microsoft SaaS, select the **Associated service purchase** check box. 
+
+> [!NOTE]
+> If your Power BI visual requires the purchase of a service, be sure to provide a license key or token in the **Notes for certification** box on the **Review and publish** page, so that the validation team can validate the in-app purchase features. For details about Power BI visuals with an associated service, see [Power BI visuals with additional purchases](https://docs.microsoft.com/power-bi/developer/guidelines-powerbi-visuals#guidelines-for-power-bi-visuals-with-additional-purchases).
 
 ## Authorization
 
