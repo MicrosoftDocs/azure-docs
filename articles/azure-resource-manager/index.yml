@@ -82,7 +82,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Azure Quickstart templates
-            url: /resources/templates/
+            url: template-deployment-overview.md
   # Card
   - title: Deploy templates
     linkLists:
