@@ -1,5 +1,5 @@
 ---
-title: Use Managed Identities in Azure Kubernetes Service
+title: Use managed identities in Azure Kubernetes Service
 description: Learn how to use managed identities in Azure Kubernetes Service (AKS) 
 services: container-service
 author: saudas
@@ -11,9 +11,9 @@ ms.date: 09/11/2019
 ms.author: saudas
 ---
 
-# Preview - Use Managed Identities in Azure Kubernetes Service
+# Preview - Use managed identities in Azure Kubernetes Service
 
-Currently, users must provide a service principal or AKS creates one on your behalf in order for the AKS cluster (specifically the Kubernetes cloud provider) to create additional resources like load balancers and managed disks in Azure. Service principals are typically created with an expiration date. Clusters will eventually reach a state where the service principal will need to be renewed otherwise the cluster will not work. Managing service principals adds complexity. Managed Identities are essentially a wrapper around Service Principals and make their management simpler. Read more about [managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview) article.
+Currently, users must provide a service principal or AKS creates one on your behalf in order for the AKS cluster (specifically the Kubernetes cloud provider) to create additional resources like load balancers and managed disks in Azure. Service principals are typically created with an expiration date. Clusters will eventually reach a state where the service principal will need to be renewed otherwise the cluster will not work. Managing service principals adds complexity. Managed Identities are essentially a wrapper around Service Principals and make their management simpler. Read more about [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) article.
 
 AKS creates two managed identities one a system assigned managed identity and the other a user assigned identity. A system assigned managed identity is used by the kubernetes cloud provider to create Azure resources on behalf of the user. The life cycle of this system assigned managed identity is tied to that of the cluster and is deleted when the cluster is deleted. AKS also creates a User assigned managed identity that is used in the cluster for authorizing AKS to access ACRs, kubelet to get metadata from Azure, etc.
 
