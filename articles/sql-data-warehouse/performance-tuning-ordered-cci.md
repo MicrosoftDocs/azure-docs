@@ -64,12 +64,12 @@ OPTION (MAXDOP 1);
 - Pre-sort the data by the sort key(s) before loading them into Azure SQL Data Warehouse tables.
 
 
-Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations.  In this case, the ordered CCI is created on a BIGINT column in a 20GB table with no duplicates.
+Here is an example of an ordered CCI table distribution that has zero segment overlapping following above recommendations.  In this example, the ordered CCI is created on a BIGINT column in a 20GB table with no duplicates.
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## Create ordered CCI on large tables
-Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables, since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
+Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables,since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
 1.	Create partitions on the target large table (called Table A).
 2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
