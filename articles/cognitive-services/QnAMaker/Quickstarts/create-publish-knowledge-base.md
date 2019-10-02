@@ -31,8 +31,6 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. On the QnA Maker portal, select **Create a knowledge base**.
 
-   ![Screenshot of QnA Maker portal](../media/qna-maker-create-kb.png)
-
 1. On the **Create** page, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. 
 
 1. In the Qna Maker portal, select your QnA Maker service from the drop-down lists. If you created a new QnA Maker service, be sure to refresh the page.
@@ -41,9 +39,11 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. Name your knowledge base **My Sample QnA KB**.
 
-1. Add the QnA Maker troubleshooting page as a URL: 
+1. Select **Enable multi-turn extraction from URLs, .pdf or .docx files.**. This allows QnA Maker to extract multi-turn question and answer sets from a data source.
 
-    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
+1. Add a sample word document as a URL: 
+
+    `https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/multi-turn.docx`
 
 1. Select `+ Add URL`.
 
@@ -55,27 +55,33 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
     After QnA Maker successfully creates the knowledge base, the **Knowledge base** page opens. You can edit the contents of the knowledge base on this page.
 
-## Edit the knowledge base
 
-1. In the QnA Maker portal, on the **Edit** section, select **Add QnA pair** to add a new row to the knowledge base. 
-1. Under **Question**, enter **Hi.** Under **Answer**, enter **Hello. Ask me BitLocker questions.**
+## Add a follow-up prompt
 
-    ![Screenshot of QnA Maker portal](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+The knowledge base has two different data sources that are not connected. When a customer begins the bot conversation with `hello`, the bot should respond and give the user some options, known as follow-up prompts.
 
-1. In the upper right, select **Save and train** to save your edits and train the QnA Maker model. Edits aren't kept unless they're saved.
+1. In the QnA Maker portal, on the **Edit** section, search for `hello`.  The primary question is **Aloha**. For the **Aloha** question and answer set, select **Add follow-up prompt**.
+1. For **Display text**, enter `Surface Pro`.
+1. In **Link to QnA**, search for `Surface Pro`. This returns existing question and answer pairs from your data sources. Select the top question then select **Save**.
+
+    The knowledge base knows that a beginning prompt should follow up with options for question and answer sets about the Surface Pro. 
+
+## Save and train
+
+In the upper right, select **Save and train** to save your edits and train the QnA Maker model. Edits aren't kept unless they're saved.
 
 ## Test the knowledge base
 
 1. In the QnA Maker portal, in the upper right, select **Test** to test that the changes you made took effect. 
-1. Enter an example user query in the box, and select Enter.
+1. Enter an example user query in the box, and select Enter. Make sure **Enable multi-turn** is selected. 
 
-    `hi there`  
+    `hello`  
 
-    You should see the answer you created as a response.
+    You should see the answer text, **Surface Pro**, as a response.
+
+1. Select **Surface Pro** to see more relative prompts.
 
 1. Select **Inspect** to examine the response in more detail. The test window is used to test your changes to the knowledge base before publishing your knowledge base.
-
-    ![Screenshot of test panel](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Select **Test** again to close the **Test** panel.
 
@@ -89,7 +95,7 @@ When you publish a knowledge base, the contents of your knowledge base moves fro
 
     The QnA Maker service is now successfully published. You can use the endpoint in your application or bot code.
 
-    ![Screenshot of successful publishing](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Screenshot of successful publishing](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
 ## Create a bot
 
@@ -117,7 +123,7 @@ When you make changes to the knowledge base and republish, you don't need to tak
 
     `hello`
 
-    ![At the chat prompt, enter hello](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+    The chat bot responds with an answer from your knowledge base. 
 
 ## Clean up resources
 
