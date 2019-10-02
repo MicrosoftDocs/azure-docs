@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -41,7 +41,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 ## 1.4.25.0
 
 ### Release status
-9/25/2019: Released for auto-upgrade to select tenants. Not available for download.
+9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
 
 This version fixes a bug where some servers that were auto-upgraded from a previous version to 1.4.18.0 and experienced issues with Self-service password reset (SSPR) and Password Writeback.
 
