@@ -1,13 +1,23 @@
-conceptual groups
-
-## <a name="using-dynamic-groups"></a>Using dynamic groups
+---
+title: Use dynamic groups with Update Management
+description: describes how dynamic groups work with Update Management
+services: automation
+ms.service: automation
+ms.subservice: update-management
+author: bobbytreed
+ms.author: robreed
+ms.date: 10/02/2019
+ms.topic: conceptual
+manager: carmonm
+---
+# Use dynamic groups with Update Management
 
 Update Management provides the ability to target a dynamic group of Azure or Non-Azure VMs for update deployments. These groups are evaluated at deployment time so you do not have to edit your deployment to add machines.
 
 > [!NOTE]
-> You must have the proper permissions when creating an update deployment. To learn more, see [Install Updates](#install-updates).
+> You must have the proper permissions when creating an update deployment. To learn more, see [Create an Update Deployment](automation-create-an-update-deployment.md).
 
-### Azure machines
+## Azure machines
 
 These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
 
@@ -22,8 +32,12 @@ To preview the results of a dynamic group, click the **Preview** button. This pr
 
 ![preview groups](./media/automation-update-management/preview-groups.png)
 
-### Non-Azure machines
+## Non-Azure machines
 
 For Non-Azure machines, saved searches also referred to as computer groups are used to create the dynamic group. To learn how to create a saved search, see [Creating a computer group](../azure-monitor/platform/computer-groups.md#creating-a-computer-group). Once your group is created you can select it from the list of saved searches. Click **Preview** to preview the computers in the saved search at that time.
 
 ![Select groups](./media/automation-update-management/select-groups-2.png)
+
+## Next Steps
+
+After creating a dynamic group, you can [Create an Update Deployment](automation-create-an-update-deployment.md)

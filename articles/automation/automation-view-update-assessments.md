@@ -1,4 +1,16 @@
-## <a name="viewing-update-assessments"></a>View update assessments
+---
+title: View update assessments
+description: This article describes how to view update assessments for update deployments
+services: automation
+ms.service: automation
+ms.subservice: update-management
+author: bobbytreed
+ms.author: robreed
+ms.date: 05/17/2019
+ms.topic: conceptual
+manager: carmonm
+---
+## View update assessments
 
 In your Automation account, select **Update Management** to view the status of your machines.
 
@@ -12,13 +24,7 @@ To run a log search that returns information about the machine, update, or deplo
 
 Select **Missing updates** to view the list of updates that are missing from your machines. Each update is listed and can be selected. Information about the number of machines that require the update, the operating system, and a link for more information is shown. The **Log search** pane shows more details about the updates.
 
-## View update deployments
-
-Select the **Update Deployments** tab to view the list of existing update deployments. Select any of the update deployments in the table to open the **Update Deployment Run** pane for that update deployment. Job logs are stored for a max of 30 days.
-
-![Overview of update deployment results](./media/automation-update-management/update-deployment-run.png)
-
-To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
+[ScreenShot]
 
 ## Update classifications
 
