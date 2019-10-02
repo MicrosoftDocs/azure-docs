@@ -27,10 +27,10 @@ To complete this tutorial, you will need:-
 ## Select your IoT Edge device
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Navigate to your IoT Hub.
-1. Select **IoT Edge** from the menu
-1. Select the ID of the target device from the list of devices.
-1. Select **Set Modules**
+2. Navigate to your IoT Hub.
+3. Select **IoT Edge** from the menu
+4. Select the ID of the target device from the list of devices.
+5. Select **Set Modules**
 
 ## Configure a deployment manifest
 
@@ -39,31 +39,32 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 ### Add modules
 
 1. In the **Deployment Modules** section, select **Add**
-1. From the types of modules in the drop-down list, select **IoT Edge Module**
-1. Provide the name, image, and container create options of the container:
+2. From the types of modules in the drop-down list, select **IoT Edge Module**
+3. Provide the name, image, and container create options of the container:
 
    * **Name**: azureblobstorageoniotedge
    * **Image URI**: blobstoragebuilds.azurecr.io/azure-blob-storage:linux-amd64-20190917.2-delete-event-2
    * **Container Create Options**:
 
-   ```json
-   {
-     "Env":[
-       "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
-       "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>",
-       "EVENTGRID_ENDPOINT=http://eventgridmodule:5888"
-     ],
-     "HostConfig":{
-       "Binds":[
-           "<storage mount>"
-       ],
-       "PortBindings":{
-         "11002/tcp":[{"HostPort":"11002"}]
+```json
+       {
+         "Env":[
+           "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
+           "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>",
+           "EVENTGRID_ENDPOINT=http://eventgridmodule:5888"
+         ],
+         "HostConfig":{
+           "Binds":[
+               "<storage mount>"
+           ],
+           "PortBindings":{
+             "11002/tcp":[{"HostPort":"11002"}]
+           }
+         }
        }
-     }
-   }
-   ```
-1. Update the JSON that you copied with the following information:
+```
+
+4. Update the JSON that you copied with the following information:
 
    - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
@@ -73,8 +74,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
      - For Linux containers, **my-volume:/blobroot**
      - For Windows containers,**C:/ContainerData:C:/BlobRoot**. Make sure "C:/ContainerData" directory exists in your IoT device.
 
-1. Click **Save**
-1. Click **Next** to continue to the routes section
+5. Click **Save**
+6. Click **Next** to continue to the routes section
 
  ### Setup routes
 
@@ -83,13 +84,13 @@ Keep the default routes, and select **Next** to continue to the review section
 ### Review deployment
 
 1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see the following four modules: **$edgeAgent**, **$edgeHub**, **eventgridmodule** and **subscriber** that were deployed previously.
-1. Review your deployment information, then select **Submit**.
+2. Review your deployment information, then select **Submit**.
 
 ## Verify your deployment
 
 1. After you submit the deployment, you return to the IoT Edge page of your IoT hub.
-1. Select the **IoT Edge device** that you targeted with the deployment to open its details.
-1. In the device details, verify that the azureblobstorageoniotedge module is listed as both **Specified in deployment** and **Reported by device**.
+2. Select the **IoT Edge device** that you targeted with the deployment to open its details.
+3. In the device details, verify that the azureblobstorageoniotedge module is listed as both **Specified in deployment** and **Reported by device**.
 
     It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
@@ -100,9 +101,9 @@ Keep the default routes, and select **Next** to continue to the review section
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage?api-version=2019-01-01-preview
     ```
 
- Sample output:
+    Sample output:
 
-   ```json
+    ```json
         [
           {
             "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage",
@@ -114,8 +115,9 @@ Keep the default routes, and select **Next** to continue to the review section
             }
           }
         ]
-   ```
-1. Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for **MicrosoftStorage** topic.
+    ```
+
+2. Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for **MicrosoftStorage** topic.
     1. Create subscription.json with the following content. For details about the payload, see our [API documentation](api.md)
 
     ```json
@@ -148,7 +150,7 @@ Keep the default routes, and select **Next** to continue to the review section
 
     Sample output:
 
-   ```json
+    ```json
         {
           "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1",
           "type": "Microsoft.EventGrid/eventSubscriptions",
@@ -165,7 +167,7 @@ Keep the default routes, and select **Next** to continue to the review section
         }
     ```
 
-1. [Connect to your local storage with Azure Storage Explorer](../azure/iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
+2. [Connect to your local storage with Azure Storage Explorer](../azure/iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## Verify Event Delivery
 
@@ -173,7 +175,8 @@ Follow the steps to [verify the event delivery](pub-sub-events-webhook-local.md#
 1. On uploading files as block blobs from Azure Storage Explorer you are publishing create events. Checkout the subscriber logs for create event
 
 Sample Output:
-   ```json
+
+```json
         Received event data [
         {
           "id": "d278f2aa-2558-41aa-816b-e6d8cc8fa140",
@@ -195,12 +198,13 @@ Sample Output:
           }
         }
       ]
-    ```
+```
 
-1. When you delete blobs from Azure Storage Explorer you are publishing delete events. Checkout the subscriber logs for delete event
+2. When you delete blobs from Azure Storage Explorer you are publishing delete events. Checkout the subscriber logs for delete event
 
 Sample Output:
-   ```json
+
+```json
         Received event data [
         {
           "id": "ac669b6f-8b0a-41f3-a6be-812a3ce6ac6d",
@@ -222,7 +226,8 @@ Sample Output:
           }
         }
       ]
-    ```
+```
+
 ## Next steps
 
 Next, learn more about [Azure Blob Storage on IoT Edge](../azure/iot-edge/how-to-store-data-blob.md) and its features.
