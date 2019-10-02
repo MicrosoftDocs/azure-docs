@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
 
