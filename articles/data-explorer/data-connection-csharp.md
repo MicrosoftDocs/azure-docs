@@ -30,15 +30,18 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 1. [Set database-level/table-level policies](database-table-policies-csharp.md) (Optional)
 
-1. [A event hub with data for ingestion](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) for adding a EventHub data connection, or [A event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create), [a storage account with data for ingestion](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), and [an Event Grid subscription in your storage account](ingest-data-event-grid.md) for adding a EventGrid data connection
+1. [An event hub with data for ingestion](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create) for adding a EventHub data connection
+
+1. [An event hub](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-create), [a storage account with data for ingestion](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), and [an Event Grid subscription in your storage account](ingest-data-event-grid.md) for adding a EventGrid data connection
+
+1. [An IoT hub and a shared access policy](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-create-through-portal) for adding an IoT hub data connection
 
 ## Install C# Nuget
 
-```
 1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
 1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
-```
+
 
 ## Authentication
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
@@ -75,7 +78,7 @@ For running the examples in this article, we need an Azure AD Application and se
     //The table and column mapping are created in step(4) at the Prerequisite section
     var tableName = "StormEvents";
     var mappingRuleName = "StormEvents_CSV_Mapping";
-    var dataFormat = "csv";
+    var dataFormat = DataFormat.CSV;
     await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, dataConnectionName, 
         new EventHubDataConnection(eventHubResourceId, consumerGroup, location: location, tableName: tableName, mappingRuleName: mappingRuleName, dataFormat: dataFormat));
     ```
@@ -99,7 +102,7 @@ For running the examples in this article, we need an Azure AD Application and se
 1. Add EventGrid data connection by using the following code:
 
     ```csharp
-    //The event hub and storage account that are created in step(6) at the Prerequisite section
+    //The event hub and storage account that are created in step(7) at the Prerequisite section
     var eventHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.EventHub/namespaces/xxxxxx/eventhubs/xxxxxx";
     var storageAccountResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Storage/storageAccounts/xxxxxx";
 
@@ -110,6 +113,21 @@ For running the examples in this article, we need an Azure AD Application and se
     |---|---|---|
     | eventHubResourceId | *resource id* | The resource id of your event hub, where the event grid is configured to send events. |
     | storageAccountResourceId | *resource id* | The resource id of your storage account, which holds the data for ingestion. |
+
+1. Add IoT hub data connection by using the following code:
+
+    ```csharp
+    //The IoT hub that is created in step(8) at the Prerequisite section
+    var iotHubResourceId = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Devices/IotHubs/xxxxxx";
+    var sharedAccessPolicyName = "iothubforread";
+
+    await kustoManagementClient.DataConnections.CreateOrUpdate(resourceGroupName, clusterName, databaseName, dataConnectionName,
+                new IotHubDataConnection(iotHubResourceId, consumerGroup, sharedAccessPolicyName, tableName: tableName, location: location, mappingRuleName: mappingRuleName, dataFormat: dataFormat));
+    ```
+    |**Setting** | **Suggested value** | **Field description**|
+    |---|---|---|
+    | iotHubResourceId | *resource id* | The resource id of your IoT hub, which holds the data for ingestion. |
+    | sharedAccessPolicyName | *iothubforread* | The name of the shared access policy, which defines the permissions for devices and services to connect to IoT Hub. |
 
 ## Clean up resources
 * To delete the data connection, Use the following command:
