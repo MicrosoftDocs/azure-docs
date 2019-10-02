@@ -291,21 +291,26 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|64|128|256|384|384|384|384|384|
-|Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data IOPS (64 KB)| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
-|IO latency (approximate)|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|To be determined|
+|Storage type| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
+|Max data IOPS (64 KB)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|
+|IO latency (approximate)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Included backup storage|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
+|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
 |||
 
-### Note 1
+### Notes
 
-Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPS will depend on the workload.
+**Note 1**: Hyperscale is a multi-tiered architecture with separate computer and storage components: [SQL Database Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
+**Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
+
+**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas. 2 ms and higher for data on page servers.
+
+ 
 ### Next steps
 
 - For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
