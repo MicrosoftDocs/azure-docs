@@ -222,7 +222,7 @@ And for automatic operation naming.
 
 The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
 
-The incoming SDK configuration is explained further in our article on [correlation](correlation.md#w3c-distributed-tracing).
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md#telemetry-correlation-in-the-java-sdk).
 
 Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
 

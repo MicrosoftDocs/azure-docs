@@ -194,7 +194,7 @@ If the syntax is correct, you can view other causes for error by checking the cu
 ### Using the detector for App Service
 
 1. In the portal, navigate to your app.
-2. Select **Diagnose and solve prolems**.
+2. Select **Diagnose and solve problems**.
 3. Choose **Availability and Performance** and select **Web app down.**
 4. Find **Key Vault Application Settings Diagnostics** and click **More info**.
 
@@ -203,6 +203,6 @@ If the syntax is correct, you can view other causes for error by checking the cu
 
 1. In the portal, navigate to your app.
 2. Navigate to **Platform features.**
-3. Select **Diagnose and solve prolems**.
+3. Select **Diagnose and solve problems**.
 4. Choose **Availability and Performance** and select **Function app down or reporting errors.**
 5. Click on **Key Vault Application Settings Diagnostics.**
