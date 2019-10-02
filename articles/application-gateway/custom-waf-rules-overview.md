@@ -119,8 +119,8 @@ The selector describes the field of the matchVariable collection. For example, i
 
 The operator must be one of the following:
 
-- IPMatch: Used only when the match variable is *RemoteAddr*
-- Equals: Input is the same as the MatchValue
+- IPMatch: This operator is used only when the match variable is *RemoteAddr*.
+- Equals: The input is the same as the MatchValue.
 - Contains
 - LessThan
 - GreaterThan
