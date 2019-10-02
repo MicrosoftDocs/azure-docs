@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
 ---
 # Application Insights: Frequently Asked Questions
@@ -53,7 +53,7 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 
 [Read the pricing plan](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## How much is it costing?
+## How much does it cost?
 
 * Open the **Usage and estimated costs page** in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
 * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
@@ -133,6 +133,8 @@ We look up the IP address (IPv4 or IPv6) of the web client using [GeoLite2](http
 
 * Browser telemetry: We collect the sender's IP address.
 * Server telemetry: The Application Insights module collects the client IP address. It is not collected if `X-Forwarded-For` is set.
+* To learn more about how IP address and geolocation data is collected in Application Insights refer to this [article](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 You can configure the `ClientIpHeaderTelemetryInitializer` to take the IP address from a different header. In some systems, for example, it is moved by a proxy, load balancer, or CDN to `X-Originating-IP`. [Learn more](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 

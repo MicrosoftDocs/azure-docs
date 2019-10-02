@@ -9,7 +9,6 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.subservice: cognitive-search
 ---
 # Documentation resources for cognitive search workloads
 

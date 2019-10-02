@@ -1,11 +1,11 @@
 ---
 title: Configure and access slow query logs for Azure Database for MySQL in Azure portal
 description: This article describes how to configure and access the slow logs in Azure Database for MySQL from the Azure portal.
-author: rachel-msft
-ms.author: raagyema
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 09/30/2019
 ---
 
 # Configure and access slow query logs in the Azure portal
@@ -55,6 +55,25 @@ Once logging begins, you can view a list of available slow query logs and downlo
 5. Download individual log files using the **download** button (down arrow icon) next to each log file in the table row as shown:
 
    ![Click download icon](./media/howto-configure-server-logs-in-portal/5-download.png)
+
+## Set up diagnostic logs
+
+1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
+
+1. Click on "+ Add diagnostic setting"
+![Add diagnostic setting](./media/howto-configure-server-logs-in-portal/add-diagnostic-setting.png)
+
+1. Provide a diagnostic setting name.
+
+1. Specify which data sinks to send the slow query logs (storage account, event hub, and/or Log Analytics workspace).
+
+1. Select "MySqlSlowLogs" as the log type.
+![Configure diagnostic setting](./media/howto-configure-server-logs-in-portal/configure-diagnostic-setting.png)
+
+1. Once you've configured the data sinks to pipe the slow query logs to, you can click **Save**.
+![Save diagnostic setting](./media/howto-configure-server-logs-in-portal/save-diagnostic-setting.png)
+
+1. Access the slow query logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
 
 ## Next steps
 - See [access slow query Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download slow query logs programmatically.
