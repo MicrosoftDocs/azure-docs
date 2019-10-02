@@ -135,13 +135,15 @@
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Designing HA Apps using RA-GRS
         href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Access tiers
+    - name: Access and performance tiers
       items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
-      - name: Rehydrate data from Archive Storage
+      - name: Rehydrate data from archive tier
         href: storage-blob-rehydration.md
-      - name: Managing the Azure Blob Storage Lifecycle
+      - name: Performance tiers
+        href: storage-blob-performance-tiers.md
+      - name: Manage the Azure Blob storage lifecycle
         href: storage-lifecycle-management-concepts.md
     - name: Performance and scaling
       items:
