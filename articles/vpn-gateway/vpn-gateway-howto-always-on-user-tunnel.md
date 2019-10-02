@@ -33,8 +33,6 @@ Configure the VPN gateway to use IKEv2 and certificate-based authentication usin
 1. Install client certificates on the Windows 10 client as shown in this [point-to-site VPN client article](point-to-site-how-to-vpn-client-install-azure-cert.md). The certificate needs to be in the Current User Store
 2. Configure the Always On VPN client through PowerShell, SCCM, or Intune using [these instructions](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-1. Use [these instructions](https://docs.microsoft.com/en-us/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections) to create a VPN Profile and configure device tunnel in the context of the LOCAL SYSTEM account.
-
 ### Configuration example for user tunnel
 
 After you have configured the virtual network gateway and installed the client certificate in the Local Machine store on the Windows 10 client, use the following examples to configure a client device tunnel.
