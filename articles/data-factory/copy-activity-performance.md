@@ -21,7 +21,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Current version](copy-activity-performance.md)
 
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Whether you want to perform a large-scale data migration from data lake or enterprise data warehouse (EDW) to Azure, or you want to ingest data at scale from different sources into Azure for big data analytics, it is critical to achieve optimal performance and scalability.  Azure Data Factory provides a performant, resilient, and cost-effective mechanism to ingest data at scale, making it a great fit for data engineers looking to build highly performant and scalable data ingestion pipelines.
 

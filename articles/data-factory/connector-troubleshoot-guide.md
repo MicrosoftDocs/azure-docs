@@ -12,7 +12,7 @@ ms.reviewer: craigg
 
 # Troubleshoot Azure Data Factory Connectors
 
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
 

@@ -14,7 +14,7 @@ ms.reviewer:
 manager: craigg
 ---
 # Source control in Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Azure Data Factory user interface experience (UX) has two experiences available for visual authoring:
 

@@ -17,7 +17,7 @@ ms.author: jingwang
 
 ---
 # Copy data from and to Microsoft Access data stores using Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a Microsoft Access data store. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 

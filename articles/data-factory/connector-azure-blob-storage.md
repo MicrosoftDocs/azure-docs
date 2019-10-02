@@ -17,7 +17,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-azure-blob-connector.md)
 > * [Current version](connector-azure-blob-storage.md)
 
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from Azure Blob storage. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 

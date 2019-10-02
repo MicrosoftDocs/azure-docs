@@ -14,7 +14,7 @@ ms.date: 06/12/2018
 ---
 
 # System variables supported by Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes system variables supported by Azure Data Factory. You can use these variables in expressions when defining Data Factory entities.
 

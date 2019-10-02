@@ -14,7 +14,7 @@ ms.date: 03/25/2019
 ---
 
 # Webhook activity in Azure Data Factory
-[!INCLUDE[appliesto-adf-arc-md](includes/appliesto-adf-arc-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 You can use a web hook activity to control the execution of pipelines through your custom code. Using the webhook activity, customers can call an endpoint and pass a callback URL. The pipeline run waits for the callback to be invoked before proceeding to the next activity.
 
