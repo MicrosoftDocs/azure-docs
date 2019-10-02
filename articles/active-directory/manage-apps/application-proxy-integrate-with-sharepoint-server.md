@@ -78,7 +78,7 @@ The SharePoint web application must be configured with Kerberos and the appropri
 1. Extend an existing web application to configure Kerberos on a non-default zone.
 
 > [!IMPORTANT]
-> Regardless of the zone that will used, the application pool account of the SharePoint web application must be a domain account for Kerberos to work correctly.
+> Regardless of the zone that will be used, the application pool account of the SharePoint web application must be a domain account for Kerberos to work correctly.
 
 ### Provision the SharePoint web application
 
