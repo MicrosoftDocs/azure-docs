@@ -1,88 +1,21 @@
 ---
-title: Appendix - Azure Disk Encryption for IaaS VMs | Microsoft Docs
-description: This article is the appendix for Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
+title: Azure Disk Encryption sample scripts
+description: This article is the appendix for Microsoft Azure Disk Encryption for Linux VMs.
 author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 08/06/2019
 
 ms.custom: seodec18
 ---
 
 
-# Appendix for Azure Disk Encryption 
+# Azure Disk Encryption sample scripts 
 
-This article is an appendix to [Azure Disk Encryption for IaaS VMs](azure-security-disk-encryption-overview.md). Make sure you read the Azure Disk Encryption for IaaS VMs articles first to understand the context. This article describes how to prepare pre-encrypted VHDs and other tasks.
+This article provides sample scripts for preparing pre-encrypted VHDs and other tasks.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-## Connect to your subscription
-Before you start, review the [Prerequisites](azure-security-disk-encryption-prerequisites.md) article. After all the prerequisites have been met, connect to your subscription by running the following cmdlets:
-
-### <a name="bkmk_ConnectPSH"></a> Connect to your subscription with PowerShell
-
-1. Start an Azure PowerShell session, and sign in to your Azure account with the following command:
-
-     ```powershell
-     Connect-AzAccount 
-     ```
-2. If you have multiple subscriptions and want to specify one to use, type the following to see the subscriptions for your account:
-     
-     ```powershell
-     Get-AzSubscription
-     ```
-3. To specify the subscription you want to use, type:
- 
-     ```powershell
-      Select-AzSubscription -SubscriptionName <Yoursubscriptionname>
-     ```
-4. To verify that the subscription configured is correct, type:
-     
-     ```powershell
-     Get-AzSubscription
-     ```
-5. If needed, connect to Azure AD with [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
-     
-     ```powershell
-     Connect-AzureAD
-     ```
-6. To confirm the Azure Disk Encryption cmdlets are installed, type:
-     
-     ```powershell
-     Get-command *diskencryption*
-     ```
-                       
-7. Review [Getting started with Azure PowerShell](/powershell/azure/get-started-azureps) and [AzureAD](/powershell/module/azuread), if needed.
-
-### <a name="bkmk_ConnectCLI"></a> Connect to your subscription with the Azure CLI
-
-1. Sign in to Azure with [az login](/cli/azure/authenticate-azure-cli#sign-in-interactively). 
-     
-     ```azurecli
-     az login
-     ```
-
-2. If you would like to select a tenant to sign in under, use:
-    
-     ```azurecli
-     az login --tenant <tenant>
-     ```
-
-3. If you have multiple subscriptions and want to specify a specific one, get your subscription list with [az account list](/cli/azure/account#az-account-list) and specify with [az account set](/cli/azure/account#az-account-set).
-     
-     ```azurecli
-     az account list
-     az account set --subscription "<subscription name or ID>"
-     ```
-
-4. Verify the installed version.
-     
-     ```azurecli
-        az --version
-     ``` 
-
-5. Review [Get started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli) if needed. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Sample PowerShell scripts for Azure Disk Encryption 
 
@@ -100,13 +33,13 @@ Before you start, review the [Prerequisites](azure-security-disk-encryption-prer
      Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
-### <a name="bkmk_prereq-script"></a> Using the Azure Disk Encryption prerequisites PowerShell script
-If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](../virtual-machines/linux/disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
+### Using the Azure Disk Encryption prerequisites PowerShell script
+If you're already familiar with the prerequisites for Azure Disk Encryption, you can use the [Azure Disk Encryption prerequisites PowerShell script](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). For an example of using this PowerShell script, see the [Encrypt a VM Quickstart](disk-encryption-powershell-quickstart.md). You can remove the comments from a section of the script, starting at line 211, to encrypt all disks for existing VMs in an existing resource group. 
 
 The following table shows which parameters can be used in the PowerShell script: 
 
 
-|Parameter|Description|Is Mandatory|
+|Parameter|Description|Mandatory?|
 |------|------|------|
 |$resourceGroupName| Name of the resource group to which the KeyVault belongs to.  A new resource group with this name will be created if one doesn't exist.| True|
 |$keyVaultName|Name of the KeyVault in which encryption keys are to be placed. A new vault with this name will be created if one doesn't exist.| True|
@@ -117,93 +50,33 @@ The following table shows which parameters can be used in the PowerShell script:
 |$keyEncryptionKeyName|Name of optional key encryption key in KeyVault. A new key with this name will be created if one doesn't exist.|False|
 
 
-## Resource Manager templates
-
-<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
-
 ### Encrypt or decrypt VMs without an Azure AD app
 
-
-- [Enable disk encryption on existing or running IaaS Windows VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
-- [Disable disk encryption on existing or running IaaS Windows VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
-- [Enable disk encryption on an existing or running IaaS Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
-  - [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+- [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs.  
-
-### Encrypt or decrypt virtual machine scale sets
-
-- [Enable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-
-- [Enable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-
-  - [Deploy a virtual machine scale set of Linux VMs with a jumpbox and enables encryption on Linux VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-
-  - [Deploy a virtual machine scale set of Windows VMs with a jumpbox and enables encryption on Windows VMSS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-
-- [Disable disk encryption on a running Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
-
-- [Disable disk encryption on a running Windows virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ### Encrypt or decrypt VMs with an Azure AD app (previous release) 
  
-- [Enable disk encryption on existing or running IaaS Windows VMs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
+- [Enable disk encryption on an existing or running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
-- [Enable disk encryption on an existing or running IaaS Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
-
-- [Disable disk encryption on running Windows IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
 -  [Disable encryption on a running Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - Disabling encryption is only allowed on Data volumes for Linux VMs. 
 
-- [Enable disk encryption on new IaaS Windows VM from the Marketplace](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - This template creates a new encrypted Windows VM that uses the Windows Server 2012 gallery image.
-
-- [Create a new encrypted Windows IaaS Managed Disk VM from gallery image](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
-    - This template creates a new encrypted  Windows VM with managed disks using the Windows Server 2012 gallery image.
 
 - [Create a new encrypted managed disk from a pre-encrypted VHD/storage blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
     - Creates a new encrypted managed disk provided a pre-encrypted VHD and its corresponding encryption settings
 
-- [Enable disk encryption on a running Windows VM using an Azure AD client certificate thumbprint](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
-    
 
 
-## <a name="bkmk_preWin"></a> Prepare a pre-encrypted Windows VHD
-The sections that follow are necessary to prepare a pre-encrypted Windows VHD for deployment as an encrypted VHD in Azure IaaS. Use the information to prepare and boot a fresh Windows VM (VHD) on Azure Site Recovery or Azure. For more information on how to prepare and upload a VHD, see [Upload a generalized VHD and use it to create new VMs in Azure](../virtual-machines/windows/upload-generalized-managed.md).
-
-### Update group policy to allow non-TPM for OS protection
-Configure the BitLocker Group Policy setting **BitLocker Drive Encryption**, which you'll find under **Local Computer Policy** > **Computer Configuration** > **Administrative Templates** > **Windows Components**. Change this setting to **Operating System Drives** > **Require additional authentication at startup** > **Allow BitLocker without a compatible TPM**, as shown in the following figure:
-
-![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig8.png)
-
-### Install BitLocker feature components
-For Windows Server 2012 and later, use the following command:
-
-    dism /online /Enable-Feature /all /FeatureName:BitLocker /quiet /norestart
-
-For Windows Server 2008 R2, use the following command:
-
-    ServerManagerCmd -install BitLockers
-### Prepare the OS volume for BitLocker by using `bdehdcfg`
-To compress the OS partition and prepare the machine for BitLocker, execute the [bdehdcfg](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-basic-deployment) if needed:
-
-    bdehdcfg -target c: shrink -quiet 
 
 
-### Protect the OS volume by using BitLocker
-Use the [`manage-bde`](https://technet.microsoft.com/library/ff829849.aspx) command to enable encryption on the boot volume using an external key protector. Also place the external key (.bek file) on the external drive or volume. Encryption is enabled on the system/boot volume after the next reboot.
-
-    manage-bde -on %systemdrive% -sk [ExternalDriveOrVolume]
-    reboot
-
-> [!NOTE]
-> Prepare the VM with a separate data/resource VHD for getting the external key by using BitLocker.
-
-## <a name="bkmk_LinuxRunning"></a> Encrypting an OS drive on a running Linux VM
+## Encrypting an OS drive on a running Linux VM
 
 ### Prerequisites for OS disk encryption
 
-* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* The VM must be using a distribution compatible with OS disk encryption as listed in the [Azure Disk Encryption supported operating systems](disk-encryption-overview.md#supported-vm-sizes) 
 * The VM must be created from the Marketplace image in Azure Resource Manager.
 * Azure VM with at least 4 GB of RAM (recommended size is 7 GB).
 * (For RHEL and CentOS) Disable SELinux. To disable SELinux, see "4.4.2. Disabling SELinux" in the [SELinux User's and Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) on the VM.
@@ -273,7 +146,7 @@ You can monitor OS encryption progress in three ways:
 
   In the InstanceView, scroll down to see the encryption status of your drives.
 
-  ![VM Instance View](./media/azure-security-disk-encryption/vm-instanceview.png)
+  ![VM Instance View](./media/disk-encryption/vm-instanceview.png)
 
 * Look at [boot diagnostics](https://azure.microsoft.com/blog/boot-diagnostics-for-virtual-machines-v2/). Messages from the ADE extension should be prefixed with `[AzureDiskEncryption]`.
 
@@ -283,32 +156,31 @@ You can monitor OS encryption progress in three ways:
 
   We recommend that you don't sign-in to the VM while OS encryption is in progress. Copy the logs only when the other two methods have failed.
 
-## <a name="bkmk_preLinux"></a> Prepare a pre-encrypted Linux VHD
-The preparation for pre-encrypted VHDs can vary depending on the distribution. Examples on preparing [Ubuntu 16](#bkmk_Ubuntu),
-[openSUSE 13.2](#bkmk_openSUSE), and [CentOS 7](#bkmk_CentOS) are available. 
+## Prepare a pre-encrypted Linux VHD
+The preparation for pre-encrypted VHDs can vary depending on the distribution. Examples on preparing Ubuntu 16, openSUSE 13.2, and CentOS 7 are available. 
 
-### <a name="bkmk_Ubuntu"></a> Ubuntu 16
+### Ubuntu 16
 Configure encryption during the distribution installation by doing the following steps:
 
 1. Select **Configure encrypted volumes** when you partition the disks.
 
-   ![Ubuntu 16.04 Setup - Configure encrypted volumes](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig1.png)
+   ![Ubuntu 16.04 Setup - Configure encrypted volumes](./media/disk-encryption/ubuntu-1604-preencrypted-fig1.png)
 
 2. Create a separate boot drive, which must not be encrypted. Encrypt your root drive.
 
-   ![Ubuntu 16.04 Setup - Select devices to encrypt](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig2.png)
+   ![Ubuntu 16.04 Setup - Select devices to encrypt](./media/disk-encryption/ubuntu-1604-preencrypted-fig2.png)
 
 3. Provide a passphrase. This is the passphrase that you uploaded to the key vault.
 
-   ![Ubuntu 16.04 Setup - Provide passphrase](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig3.png)
+   ![Ubuntu 16.04 Setup - Provide passphrase](./media/disk-encryption/ubuntu-1604-preencrypted-fig3.png)
 
 4. Finish partitioning.
 
-   ![Ubuntu 16.04 Setup - Finish partitioning](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig4.png)
+   ![Ubuntu 16.04 Setup - Finish partitioning](./media/disk-encryption/ubuntu-1604-preencrypted-fig4.png)
 
 5. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
 
-   ![Ubuntu 16.04 Setup - Provide passphrase on boot](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
+   ![Ubuntu 16.04 Setup - Provide passphrase on boot](./media/disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
 6. Prepare the VM for uploading into Azure using [these instructions](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Don't run the last step (deprovisioning the VM) yet.
 
@@ -356,8 +228,6 @@ Configure encryption to work with Azure by doing the following steps:
     xxx_crypt uuid=xxxxxxxxxxxxxxxxxxxxx none luks,discard,keyscript=/usr/local/sbin/azure_crypt_key.sh
     ```
 
-3. If you're editing *azure_crypt_key.sh* in Windows and you copied it to Linux, run `dos2unix /usr/local/sbin/azure_crypt_key.sh`.
-
 4. Add executable permissions to the script:
    ```
     chmod +x /usr/local/sbin/azure_crypt_key.sh
@@ -374,19 +244,19 @@ Configure encryption to work with Azure by doing the following steps:
 
 7. Now you can deprovision the VM.
 
-   ![Ubuntu 16.04 Setup - update-initramfs](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
+   ![Ubuntu 16.04 Setup - update-initramfs](./media/disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
 8. Continue to the next step and upload your VHD into Azure.
 
-### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
+### openSUSE 13.2
 To configure encryption during the distribution installation, do the following steps:
 1. When you partition the disks, select **Encrypt Volume Group**, and then enter a password. This is the password that you'll upload to your key vault.
 
-   ![openSUSE 13.2 Setup - Encrypt Volume Group](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
+   ![openSUSE 13.2 Setup - Encrypt Volume Group](./media/disk-encryption/opensuse-encrypt-fig1.png)
 
 2. Boot the VM using your password.
 
-   ![openSUSE 13.2 Setup - Provide passphrase on boot](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
+   ![openSUSE 13.2 Setup - Provide passphrase on boot](./media/disk-encryption/opensuse-encrypt-fig2.png)
 
 3. Prepare the VM for uploading to Azure by following the instructions in [Prepare a SLES or openSUSE virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Don't run the last step (deprovisioning the VM) yet.
 
@@ -446,23 +316,23 @@ To configure encryption to work with Azure, do the following steps:
 
 6. Now you can deprovision the VM and upload your VHD into Azure.
 
-### <a name="bkmk_CentOS"></a> CentOS 7
+### CentOS 7
 To configure encryption during the distribution installation, do the following steps:
 1. Select **Encrypt my data** when you partition disks.
 
-   ![CentOS 7 Setup -Installation destination](./media/azure-security-disk-encryption/centos-encrypt-fig1.png)
+   ![CentOS 7 Setup -Installation destination](./media/disk-encryption/centos-encrypt-fig1.png)
 
 2. Make sure **Encrypt** is selected for root partition.
 
-   ![CentOS 7 Setup -Select encrypt for root partition](./media/azure-security-disk-encryption/centos-encrypt-fig2.png)
+   ![CentOS 7 Setup -Select encrypt for root partition](./media/disk-encryption/centos-encrypt-fig2.png)
 
 3. Provide a passphrase. This is the passphrase that you'll upload to your key vault.
 
-   ![CentOS 7 Setup - provide passphrase](./media/azure-security-disk-encryption/centos-encrypt-fig3.png)
+   ![CentOS 7 Setup - provide passphrase](./media/disk-encryption/centos-encrypt-fig3.png)
 
 4. When you boot the VM and are asked for a passphrase, use the passphrase you provided in step 3.
 
-   ![CentOS 7 Setup - Enter passphrase on bootup](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
+   ![CentOS 7 Setup - Enter passphrase on bootup](./media/disk-encryption/centos-encrypt-fig4.png)
 
 5. Prepare the VM for uploading into Azure by using the "CentOS 7.0+" instructions in [Prepare a CentOS-based virtual machine for Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Don't run the last step (deprovisioning the VM) yet.
 
@@ -523,14 +393,14 @@ To configure encryption to work with Azure, do the following steps:
     ```    
 5. Run the “/usr/sbin/dracut -f -v” to update the initrd.
 
-![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/azure-security-disk-encryption/centos-encrypt-fig5.png)
+    ![CentOS 7 Setup - run /usr/sbin/dracut -f -v](./media/disk-encryption/centos-encrypt-fig5.png)
 
-## <a name="bkmk_UploadVHD"></a> Upload encrypted VHD to an Azure storage account
-After BitLocker encryption or DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
+## Upload encrypted VHD to an Azure storage account
+After DM-Crypt encryption is enabled, the local encrypted VHD needs to be uploaded to your storage account.
 ```powershell
     Add-AzVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
-## <a name="bkmk_UploadSecret"></a> Upload the secret for the pre-encrypted VM to your key vault
+## Upload the secret for the pre-encrypted VM to your key vault
 When encrypting using an Azure AD app (previous release), the disk-encryption secret that you obtained previously must be uploaded as a secret in your key vault. The key vault needs to have disk encryption and permissions enabled for your Azure AD client.
 
 ```powershell 
@@ -543,38 +413,9 @@ When encrypting using an Azure AD app (previous release), the disk-encryption se
  Set-AzKeyVaultAccessPolicy -VaultName $KeyVaultName -ResourceGroupName $ResourceGroupName -EnabledForDiskEncryption
 ``` 
 
-### <a name="bkmk_SecretnoKEK"></a> Disk encryption secret not encrypted with a KEK
-To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). If you have a Windows virtual machine, the bek file is encoded as a base64 string and then uploaded to your key vault using the `Set-AzKeyVaultSecret` cmdlet. For Linux, the passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
+### Disk encryption secret not encrypted with a KEK
+To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). The passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
 
-#### Windows BEK file
-```powershell
-# Change the VM Name, key vault name, and specify the path to the BEK file.
-$VMName ="MySecureVM"
-$BEKFilepath = "C:\test\BEK\12345678-90AB-CDEF-A1B2-C3D4E5F67890A.BEK"
-$VeyVaultName ="MySecureVault"
-
-# Get the name of the BEK file from the BEK file path. This will be a tag for the key vault secret.
-$BEKFileName =  Split-Path $BEKFilepath -Leaf
-
-# These tags will be added to the key vault secret so you can easily see which BEK file belongs to which VM.
-$tags = @{“MachineName” = “$VMName”;"DiskEncryptionKeyEncryptionAlgorithm" = "RSA-OAEP"; "DiskEncryptionKeyFileName" = "$BEKFileName"}
-
-# Convert the BEK file to a Base64 string.
-$FileContentEncoded = [System.convert]::ToBase64String((Get-Content -Path $BEKFilepath -Encoding Byte))
-
-# Create a new secret in the vault from the converted BEK file. 
-# The file is converted to a secure string before import into the key vault
-
-$SecretName = [guid]::NewGuid().ToString()
-$SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
-$Secret = Set-AzKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
-
-# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
-$SecretUrl=$secret.Id
-$SecretUrl
-```
-
-#### Linux
 ```powershell
 
  # This is the passphrase that was provided for encryption during the distribution installation
@@ -590,9 +431,9 @@ $SecretUrl
 ```
 
 
-Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#bkmk_URLnoKEK).
+Use the `$secretUrl` in the next step for [attaching the OS disk without using KEK](#without-using-a-kek).
 
-### <a name="bkmk_SecretKEK"></a> Disk encryption secret encrypted with a KEK
+### Disk encryption secret encrypted with a KEK
 Before you upload the secret to the key vault, you can optionally encrypt it by using a key encryption key. Use the wrap [API](https://msdn.microsoft.com/library/azure/dn878066.aspx) to first encrypt the secret using the key encryption key. The output of this wrap operation is a base64 URL encoded string, which you can then upload as a secret by using the [`Set-AzKeyVaultSecret`](/powershell/module/az.keyvault/set-azkeyvaultsecret) cmdlet.
 
 ```powershell
@@ -683,11 +524,11 @@ Before you upload the secret to the key vault, you can optionally encrypt it by 
     $secretUrl = $response.id
 ```
 
-Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#bkmk_URLKEK).
+Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#using-a-kek).
 
-##  <a name="bkmk_SecretURL"></a> Specify a secret URL when you attach an OS disk
+##  Specify a secret URL when you attach an OS disk
 
-###  <a name="bkmk_URLnoKEK"></a>Without using a KEK
+###  Without using a KEK
 While you're attaching the OS disk, you need to pass `$secretUrl`. The URL was generated in the "Disk-encryption secret not encrypted with a KEK" section.
 ```powershell
     Set-AzVMOSDisk `
@@ -700,7 +541,7 @@ While you're attaching the OS disk, you need to pass `$secretUrl`. The URL was g
             -DiskEncryptionKeyVaultId $KeyVault.ResourceId `
             -DiskEncryptionKeyUrl $SecretUrl
 ```
-### <a name="bkmk_URLKEK"></a>Using a KEK
+### Using a KEK
 When you attach the OS disk, pass `$KeyEncryptionKey` and `$secretUrl`. The URL was generated in the "Disk encryption secret encrypted with a KEK" section.
 ```powershell
     Set-AzVMOSDisk `
