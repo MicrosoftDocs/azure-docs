@@ -110,7 +110,7 @@ import uuid
 
 ### Set Personalizer resource key and name
 
-Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `<your-resource-key>` to own of your Personalizer keys on the **Keys** page from the Azure portal. The cell has no output.
+From the Azure portal, find your key and endpoint on the **Quickstart** page of your Personalizer resource. Change the value of `<your-resource-name>` to your Personalizer resource's name. Change the value of `<your-resource-key>` to your Personalizer key. 
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -121,6 +121,8 @@ resource_key = "<your-resource-key>"
 ### Print current data and time
 Use this function to note the start and end times of the iterative function, iterations.
 
+The cell has no output.
+
 ```python
 # Print out current datetime
 def currentDateTime():
@@ -130,7 +132,9 @@ def currentDateTime():
 
 ### Get the last model update date and time
 
-When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. The cell has no output. The function does output the last model training date when called.
+When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. 
+
+These cells have no output. The function does output the last model training date when called.
 
 The function uses a GET REST API to [get model properties](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/GetModelProperties). 
 
@@ -162,6 +166,8 @@ def get_last_updated(currentModifiedDate):
 
 Validate the state of the service with these two REST calls.
 
+The cell has no output.
+
 ```python
 def get_service_settings():
     
@@ -191,7 +197,7 @@ This cell
 * calls `get_last_updated` method - learning policy has been removed in example output
 * calls `get_service_settings` method
 
-The cell has output from the call to `get_last_updated` and `get_service_settings` functions, which is the date of the last model training update. The date looks like: 
+The cell has output from the call to `get_last_updated` and `get_service_settings` functions: 
 
 ```python
 -----checking model
@@ -255,7 +261,7 @@ print(f'Coffee count {len(actionfeaturesobj)}')
 
 ### Troubleshooting the first REST call
 
-This previous cell is the first cell that calls out to Personalizer. Make sure the REST status code in the output is 200. If you get an error, such as 404, but you are sure your resource key and name are correct, reload the notebook.
+This previous cell is the first cell that calls out to Personalizer. Make sure the REST status code in the output is `<Response [200]>`. If you get an error, such as 404, but you are sure your resource key and name are correct, reload the notebook.
 
 Make sure the count of coffee and users is both 4. If you get an error, check that you uploaded all 3 JSON files. 
 
@@ -289,6 +295,8 @@ def add_event_id(rankjsonobj):
 ### Get random user, weather, and time of day
 
 This function selects a unique user, weather, and time of day, then adds those items to the JSON object to send to the Rank request.
+
+The cell has no output. When the function is called it returns the random user's name, random weather, and random time of day.
 
 The list of 4 users and their preferences - only some preferences are shown for brevity: 
 
@@ -365,6 +373,8 @@ def add_action_features(rankjsonobj):
 
 ### Compare Rank API's prediction with known user preference
 
+This function is called after the Rank API is called, for each iteration.
+
 This function compares the user's preference for coffee, based on weather and time of day, with the Personalizer's suggestion for the user for those filters. If the suggestion matches, a score of 1 is returned, otherwise the score is 0. The cell has no output. The function does output the score when called.
 
 ```python
@@ -376,9 +386,11 @@ def get_reward_from_simulated_data(name, weather, timeofday, prediction):
 
 ### Loop through calls to Rank and Reward
 
+### Loop through calls to Rank and Reward
+
 The next cell is the _main_ work of the Notebook, getting a random user, getting the coffee list, sending both to the Rank API. Comparing the prediction with the user's known preferences, then sending the reward back to the Personalizer service. 
 
-The loop runs for `num_requests` times, currently set to 4000. This number is meant to indicate that Personalizer needs a few thousand requests before its first retraining, regardless of the duration of the update model frequency. If the frequency was an five minutes or an hour, the service still needs a few thousand calls to Rank and Reward to create an effective learning policy. 
+The loop runs for `num_requests` times. Personalizer needs a few thousand calls to Rank and Reward to create a model. 
 
 An example of the JSON sent to the Rank API follows. The list of coffee is not complete, for brevity. You can see the entire JSON for coffee in `coffee.json`.
 
@@ -414,19 +426,28 @@ An example of the JSON sent to the Rank API follows. The list of coffee is not c
 }
 ```
 
-Then display the JSON sent to the Rank API:
+JSON sent to the Rank API:
 
 ```console
-To:  {'contextFeatures': [{'timeofday': 'Morning', 'weather': 'Sunny', 'name': 'Bob'}], 'actions': [{'id': 'Cappucino', 'features': [{'type': 'hot', 'origin': 'kenya', 'organic': 'yes', 'roast': 'dark'}]}, {'id': 'Cold brew', 'features': [{'type': 'cold', 'origin': 'brazil', 'organic': 'yes', 'roast': 'light'}]}, {'id': 'Iced mocha', 'features': [{'type': 'cold', 'origin': 'ethiopia', 'organic': 'no', 'roast': 'light'}]}, {'id': 'Latte', 'features': [{'type': 'hot', 'origin': 'brazil', 'organic': 'no', 'roast': 'dark'}]}], 'excludedActions': [], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'deferActivation': False}
+{'contextFeatures': [{'timeofday': 'Morning', 'weather': 'Sunny', 'name': 'Bob'}], 'actions': [{'id': 'Cappucino', 'features': [{'type': 'hot', 'origin': 'kenya', 'organic': 'yes', 'roast': 'dark'}]}, {'id': 'Cold brew', 'features': [{'type': 'cold', 'origin': 'brazil', 'organic': 'yes', 'roast': 'light'}]}, {'id': 'Iced mocha', 'features': [{'type': 'cold', 'origin': 'ethiopia', 'organic': 'no', 'roast': 'light'}]}, {'id': 'Latte', 'features': [{'type': 'hot', 'origin': 'brazil', 'organic': 'no', 'roast': 'dark'}]}], 'excludedActions': [], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'deferActivation': False}
 ```
 
-Then display the results from the Rank API:
+JSON response from the Rank API:
 
 ```
-From:  {'ranking': [{'id': 'Latte', 'probability': 0.85}, {'id': 'Iced mocha', 'probability': 0.05}, {'id': 'Cappucino', 'probability': 0.05}, {'id': 'Cold brew', 'probability': 0.05}], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'rewardActionId': 'Latte'}
+{
+    'ranking': [
+        {'id': 'Latte', 'probability': 0.85 },
+        {'id': 'Iced mocha', 'probability': 0.05 },
+        {'id': 'Cappucino', 'probability': 0.05 },
+        {'id': 'Cold brew', 'probability': 0.05 }
+    ], 
+    'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 
+    'rewardActionId': 'Latte'
+}
 ```
 
-Finally, each loop shows the random selection of user, weather, time of day, and determined reward.
+Finally, each loop shows the random selection of user, weather, time of day, and determined reward. The reward of 1 indicates the Personalizer resource selected the correct coffee type for the given user, weather, and time of day.
 
 ```console
 1 Alice Rainy Morning Latte 1
