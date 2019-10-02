@@ -40,7 +40,7 @@
       href: create-cluster-database-python.md
   - name: Create policies
     items:
-    - name: .NET Standard SDK
+    - name: C#
       href: database-table-policies-csharp.md
     - name: Python
       href: database-table-policies-python.md

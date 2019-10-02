@@ -1,6 +1,6 @@
 ---
-title: 'Create policies using the Azure Data Explorer .NET Standard SDK (Preview)'
-description: In this article, you learn how to create policies using .NET Standard SDK.
+title: 'Create policies using the Azure Data Explorer C# SDK'
+description: In this article, you learn how to create policies using c#.
 author: lugoldbe
 ms.author: lugoldbe
 ms.reviewer: orspodek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ---
 
-# Create database/table policies for Azure Data Explorer by using .NET Standard SDK (Preview)
+# Create database/table policies for Azure Data Explorer using C#
 
 > [!div class="op_single_selector"]
 > * [C#](database-table-policies-csharp.md)
@@ -30,11 +30,14 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 ## Install C# Nuget
 
-```
+1. Install the [Azure Data Explorer (Kusto) nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+
 1. Install the [Microsoft.Azure.Kusto.Data.NETStandard nuget package](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard/).
-```
+
+1. Install the [Microsoft.IdentityModel.Clients.ActiveDirectory nuget package](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) for authentication.
+
 ## Authentication
-For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
+For running the examples in this article, we need an Azure AD Application and service principal that can access resources. You may use the same Azure AD Application for authentication from the step of creating [A test cluster and database](create-cluster-database-csharp.md). If you want to use a different Azure AD Application, Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`. You may need to add the new Azure AD Application as a principal in the database, check [Manage Azure Data Explorer database permissions](https://docs.microsoft.com/bs-latn-ba/azure/data-explorer/manage-database-permissions).   
 
 ## Alter database's retention policy
 Sets a retention policy with a 10 day soft-delete period.
@@ -111,6 +114,7 @@ var kustoConnectionStringBuilder =
 
 using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnectionStringBuilder))
 {
+    //dataHotSpan and indexHotSpan should have the same value
     var command1 = CslCommandGenerator.GenerateAlterTableCachingPolicyCommand(tableName: tableName,
                     dataHotSpan: TimeSpan.FromDays(5), indexHotSpan: TimeSpan.FromDays(5));
 
@@ -119,7 +123,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ```
 
 ## Add a new principal for database
-Add a new application client id as admin principal for the database
+Add a new application as admin principal for the database
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
