@@ -181,7 +181,7 @@ Configure the KCD so that the Azure AD Application Proxy service can delegate us
 
 To configure the KCD, repeat the following steps for each connector machine:
 
-1. Log in as a domain administrator to a DC, and then open **Active Directory Users and Computers**.
+1. Sign in to a domain controller as a domain administrator, and then open **Active Directory Users and Computers**.
 1. Find the computer running the Azure AD Proxy connector. In this example, it's the SharePoint server itself.
 1. Double-click the computer, and then click the **Delegation** tab.
 1. Ensure that the delegation settings are set to **Trust this computer for delegation to the specified services only**. Then, select **Use any authentication protocol**.
