@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---
@@ -64,8 +64,6 @@ The Swagger documentation describes these model schemas in full detail.
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Learn about using the reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
-
-<div id="blobModel"></div>
 
 ### Blobs response data
 
@@ -218,7 +216,7 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 ### Spaces
 
@@ -236,7 +234,7 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 A PATCH request to the same endpoint updates metadata descriptions and creates versions of the blob. The HTTP request is made through the PATCH method, along with any necessary meta, and multipart form data.
 
@@ -256,7 +254,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | The desired blob ID |
 
-Successful requests return a JSON object as [described earlier](#blobModel).
+Successful requests return a JSON object as [described earlier](#blobs-response-data).
 
 ## Common errors
 
