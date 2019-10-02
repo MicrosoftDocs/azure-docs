@@ -28,7 +28,7 @@ Both Device tunnel and User tunnel operate independently with their VPN profiles
 
 Configure the VPN gateway to use IKEv2 and certificate-based authentication using this [point-to-site article](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-## 3. Configure the device tunnel
+## 2. Configure the device tunnel
 
 The following requirements must be met in order to successfully establish a device tunnel:
 
