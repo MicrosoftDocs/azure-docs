@@ -56,9 +56,19 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 
 ## Create a Flow in PowerApps
 
+You can use Microsoft Flow to create logic that performs one or more tasks when an event occurs. In this tutorial, you create a flow that is triggered by uploading a reciept that you want to analyze.
+
+1. Sing in to [PowerApps](http://www.web.powerapps.com).
+1. From the left pane, click **Flows**.
+    > [!div class="mx-imgBorder"]
+    > ![Create blob container](media/tutorial-form-recognizer-with-power-app/create-powerapp-flow.png)
+1. 
 
 
-### Test your app
+
+## Integrate Form Recognizer in Flow 
+
+## Test your Flow
 
 ## Next steps
 
