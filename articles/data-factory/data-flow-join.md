@@ -49,11 +49,11 @@ You are required to enter at least 1 (1..n) join conditions. They can be fields 
 
 ## Join Performance Optimizations
 
-Unlike Merge Join in tools like SSIS, Join in ADF Data Flow is not a mandatory merge join operation. Therefore, the join keys do not need to be sorted first. The Join operation will occur in Spark using Databricks based on the optimal join operation in Spark: Broadcast / Map-side join:
+Unlike Merge Join in tools like SSIS, Join in ADF Data Flow is not a mandatory merge join operation. Therefore, the join keys do not need to be sorted first. The Join operation will occur based on the optimal join operation in Spark: Broadcast / Map-side join:
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If your dataset can fit into the Databricks worker node memory, we can optimize your Join performance. You can also specify partitioning of your data on the Join operation to create sets of data that can fit better into memory per worker.
+If your dataset can fit into the worker node memory, we can optimize your Join performance. You can also specify partitioning of your data on the Join operation to create sets of data that can fit better into memory per worker.
 
 ## Self-Join
 

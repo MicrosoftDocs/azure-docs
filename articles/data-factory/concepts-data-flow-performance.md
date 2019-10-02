@@ -127,7 +127,7 @@ Clicking that icon will display the execution plan and subsequent performance pr
 ### File naming options
 
 * The default nature of writing transformed data in ADF Mapping Data Flows is to write to a dataset that has a Blob or ADLS Linked Service. You should set that dataset to point to a folder or container, not a named file.
-* Data Flows use Azure Databricks Spark for execution, which means that your output will be split over multiple files based on either default Spark partitioning or the partitioning scheme that you've explicitly chosen.
+* Data Flows use Spark for execution, which means that your output will be split over multiple files based on either default Spark partitioning or the partitioning scheme that you've explicitly chosen.
 * A very common operation in ADF Data Flows is to choose "Output to single file" so that all of your output PART files are merged together into a single output file.
 * However, this operation requires that the output reduces to a single partition on a single cluster node.
 * Keep this in mind when choosing this popular option. You can run out of cluster node resources if you are combining many large source files into a single output file partition.

@@ -29,13 +29,13 @@ When you are in the graphical node monitoring view, you will see a simplified vi
 
 ## View Data Flow Execution Plans
 
-When your Data Flow is executed in Databricks, Azure Data Factory determines optimal code paths based on the entirity of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you click on individual nodes, you will see "groupings" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups as opposed to the individual steps in your design.
+When your Data Flow is executed in Spark, Azure Data Factory determines optimal code paths based on the entirety of your data flow. Additionally, the execution paths may occur on different scale-out nodes and data partitions. Therefore, the monitoring graph represents the design of your flow, taking into account the execution path of your transformations. When you click on individual nodes, you will see "groupings" that represent code that was executed together on the cluster. The timings and counts that you see represent those groups as opposed to the individual steps in your design.
 
 <img src="media/data-flow/mon004.png" width="800"> 
 
 * When you click on the open space in the monitoring window, the stats in the bottom pane will display timing and row counts for each Sink and the transformations that led to the sink data for transformation lineage.
 
-* When you select individual transformations, you will receive additional feedback on the right-hand panel that shows partition stats, column counts, skewness (how evenly is the data distributed across partitions), and kurtosis (how spikey is the data).
+* When you select individual transformations, you will receive additional feedback on the right-hand panel that shows partition stats, column counts, skewness (how evenly is the data distributed across partitions), and kurtosis (how spiky is the data).
 
 * When you click on the Sink in the node view, you will see column lineage. There are three different methods that columns are accumulated throughout your data flow to land in the Sink. They are:
 
