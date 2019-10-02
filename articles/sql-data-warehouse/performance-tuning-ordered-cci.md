@@ -54,7 +54,7 @@ The number of overlapping segments depends on the size of data to sort, the avai
 
 - Use xlargerc resource class on a higher DWU to allow more memory for data sorting before the index builder compresses the data into segments.  Once in an index segment, the physical location of the data cannot be changed.  There is no data sorting within a segment or across segments.  
 
-- Create ordered CCI with MAXDOP 1.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands do not support MAXDOP option. For example,
+- Create ordered CCI with MAXDOP = 1.  Each thread used for ordered CCI creation works on a subset of data and sorts it locally.  There's no global  sorting across data sorted by different threads.  Using parallel threads can reduce the time to create an ordered CCI but will generate more overlapping segments than using a single thread.  Currently, the MAXDOP option is only supported in creating an ordered CCI table using CREATE TABLE AS SELECT command.  Creating an ordered CCI via CREATE INDEX or CREATE TABLE commands do not support MAXDOP option. For example,
 
 ```sql
 Create table Table1 with (distribution = hash(c1), clustered columnstore index order(c1) )
