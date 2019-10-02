@@ -47,3 +47,5 @@ The inputs for command are:
 - **TargetAppServicePlanName**: App Service plan linked to the app
 
 By default `Restore-AzDeletedWebApp` will restore both your app configuration as well a content. If you want to only restore content, you use the `-RestoreContentOnly` flag with this commandlet.
+
+You can find the full commandlet reference here: [Restore-AzDeletedWebApp](https://docs.microsoft.com/powershell/module/az.websites/restore-azdeletedwebapp).

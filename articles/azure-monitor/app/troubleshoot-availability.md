@@ -39,7 +39,7 @@ This article will help you to troubleshoot common issues that may occur when usi
 |    |Rerouting of certain IP addresses is occurring via (Load Balancers, Geo traffic managers, Azure Express Route.) 
 |    |If using Azure ExpressRoute, there are scenarios where packets can be dropped in cases where [Asymmetric Routing occurs](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## Intermittent test failure with a protocol violation error
+## Test failure with a protocol violation error
 
 |Symptom/error message| Possible causes| Possible Resolutions |
 |----|---------|-----|
