@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Enable remote access to SharePoint with Azure AD Application Proxy
 
-This article is a step by step that explains how to integrate an on-premises SharePoint farm with Azure Active Directory (Azure AD) Application Proxy.
+This step by step guide explains how to integrate an on-premises SharePoint farm with Azure Active Directory (Azure AD) Application Proxy.
 
 ## Prerequisites
 
