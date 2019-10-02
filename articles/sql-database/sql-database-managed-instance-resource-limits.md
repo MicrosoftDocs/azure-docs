@@ -32,12 +32,27 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 | Hardware | Intel E5-2673 v3 (Haswell) 2.4-GHz processors, attached SSD vCore = 1 PP (physical core) | Intel E5-2673 v4 (Broadwell) 2.3-GHz processors, fast NVMe SSD, vCore=1 LP (hyper-thread) |
 | Number of vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Max memory (memory/core ratio) | 7 GB per vCore<br/>Add more vCores to get more memory. | 5.1 GB per vCore<br/>Add more vCores to get more memory. |
-| Max In-Memory OLTP memory | Instance limit: 3 GB per vCore<br/>Database limits:<br/> - 8-core: 8 GB per database<br/> - 16-core: 20 GB per database<br/> - 24-core: 36 GB per database | Instance limit: 2.5 GB per vCore<br/>Database limits:<br/> - 8-core: 13 GB per database<br/> - 16-core: 32 GB per database |
+| Max In-Memory OLTP memory | Instance limit: 1-1.5 GB per vCore| Instance limit: 0.8 - 1.65 GB per vCore |
 | Max instance reserved storage |  General Purpose:8 TB<br/>Business Critical: 1TB | General Purpose: 8 TB<br/> Business Critical 1 TB, 2 TB, or 4 TB depending on the number of cores |
 
 > [!IMPORTANT]
 > - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
 > - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
+
+#### In-memory OLTP available space 
+
+The amount of In-memory OLTP space depends on the number of vCores and hardware generation. In the following table are listed limits of memory that can be used for In-memory OLTP objects.
+
+| In-memory OLTP space per vCore	| **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4	| 3.14 GB | |	
+| 8	| 6.28 GB | 8 GB |
+| 16	| 15.77	GB | 20 GB |
+| 24	| 25.25	GB | 36 GB |
+| 32	| 37.94	GB | |
+| 40	| 52.23	GB | |
+| 64	| 99.9 GB	| |
+| 80	| 131.68	GB| |
 
 ### Service tier characteristics
 

@@ -13,6 +13,10 @@ manager: dikamath
 
 In this article, learn how to create a CloudSimple Private Cloud and set up your Private Cloud environment.
 
+## Before you begin
+
+Review [Networking Prerequisites](cloudsimple-network-checklist.md).
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
