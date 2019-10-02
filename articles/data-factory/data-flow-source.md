@@ -162,7 +162,7 @@ From your source table, select a column to partition on. Also set the number of 
 
 You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
 
-For more information on optimization within Mapping Data Flow, see [Optimize tab](concepts-data-flow-optimize-tab.md).
+For more information on optimization within Mapping Data Flow, see the [Optimize tab](concepts-data-flow-overview.md#Optimize).
 
 ## Next steps
 

@@ -151,6 +151,6 @@ By default, turning on debug will use the default Azure Integration runtime that
 
 See the other Data Flow articles related to performance:
 
-- [Data Flow Optimize Tab](concepts-data-flow-optimize-tab.md)
+- [Data Flow Optimize Tab](concepts-data-flow-overview.md#Optimize)
 - [Data Flow activity](control-flow-execute-data-flow-activity.md)
 - [Monitor Data Flow performance](concepts-data-flow-monitoring.md)
