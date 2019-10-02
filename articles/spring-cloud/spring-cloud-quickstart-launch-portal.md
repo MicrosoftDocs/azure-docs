@@ -18,8 +18,6 @@ Azure Spring Cloud enables you to easily run Spring Cloud based microservice app
 
 This quickstart shows you how to deploy an existing Spring Cloud application to Azure. [Here is a link](https://github.com/xscript/PiggyMetrics) to the sample application code used in this tutorial. When you're finished, the provided sample application will be accessible on the web and ready to be managed via the Azure portal.
 
-![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
-
 Using this application you learn how to:
 
 > [!div class="checklist"]
@@ -33,7 +31,7 @@ Using this application you learn how to:
 To complete this quickstart:
 
 1. [Install Git](https://git-scm.com/)
-2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+2. [Install JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
 4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
 5. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -44,7 +42,7 @@ To complete this quickstart:
 Run below command to install Azure CLI extension.
 
 ```Azure CLI
-az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/beta2.0/asc-0.2.0-py2.py3-none-any.whl
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
 ```
 
 ## Provision a service instance on the Azure portal
@@ -58,7 +56,7 @@ az extension add -y --source https://github.com/VSChina/azure-cli-extensions/rel
 - Service Name: Specify the name of your service instance.
 - Subscription: Select the subscription you want to be billed for this resource.
 - Resource group: Creating new resource groups for new resources is generally considered the best practice.
-- Location: Location of your service instance. Only West Europe and East US are supported at this time. 
+- Location: Location of your service instance. East US, West US 2, West Europe, and Southeast Asia are supported at this time.
 
 Normally, the service instance takes about 5 minutes to be fully deployed. When it is deployed, you will be able to see the **Overview** page for the service instance.
 
@@ -66,14 +64,14 @@ Normally, the service instance takes about 5 minutes to be fully deployed. When 
 
 1. Go to the service **Overview** page and click **Config Server** entry in the menu.
 
-1. Set the **Default repository** to "https://github.com/xscript/piggymetrics-config" and click **Apply**.
+1. In the **Default repository** section, set **URI** to "https://github.com/Azure-Samples/piggymetrics". Then set **LABEL** to "config". Finally, click **Apply** to save your changes.
 
 
 ## Build and deploy microservice applications
 
 1. Open up a command window and run the following command to clone the sample app repository to your local machine.
     ```
-    git clone https://github.com/xscript/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
 1. Change directory and build the project by running below command.
@@ -116,13 +114,11 @@ Normally, the service instance takes about 5 minutes to be fully deployed. When 
 
 1. It takes a few minutes to finish deploying above applications. To confirm that they have deployed, go to **Application Dashboard** in the Azure portal. You should see a line for all three apps, as below.
 
-## Assign public IP to gateway
+## Assign public endpoint to gateway
 1.	Open **Application Dashboard** page.
 2.	Click `gateway` application to show the **Application Details** page.
-3.	Click **Assign Domain** to assign a public IP to gateway. This can take up to a couple minutes. You can use this public IP to access your app.
+3.	Click **Assign Domain** to assign a public endpoint to gateway. This can take up to a couple minutes. You can use this public IP to access your app.
 4. Use Piggy Metrics by entering the assigned public IP into an internet browser.
-
-![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 
 ## Next steps
