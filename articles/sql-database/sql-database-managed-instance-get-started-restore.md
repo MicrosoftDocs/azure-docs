@@ -31,6 +31,7 @@ This quickstart:
 - Requires using SSMS to connect to your Managed Instance. See these quickstarts on how to connect:
   - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md)
   - [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](sql-database-managed-instance-configure-p2s.md).
+- Requires Azure Blob Storage Account (for example Standard_LRS V2) on **public IP** protected with **SAS credential** that has `rw` permission. [Private IPs for blob storage protected by firewall](https://docs.microsoft.com/azure/storage/common/storage-network-security) and Azure Blob Storage service endpoints are currently not supported.
 
 > [!NOTE]
 > For more information on backing up and restoring a SQL Server database using Azure Blob storage and a [Shared Access Signature (SAS) key](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), see [SQL Server Backup to URL](sql-database-managed-instance-get-started-restore.md).

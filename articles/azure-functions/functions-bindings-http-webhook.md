@@ -8,7 +8,6 @@ manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe

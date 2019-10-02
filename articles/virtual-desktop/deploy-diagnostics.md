@@ -150,7 +150,7 @@ In order to be able to view the health of VMs, you'll need to enable the Log Ana
 
 To deploy the Azure Resource Management template for the diagnostics tool:
 
-1.  Go to the GitHub Azure RDS-Templates page.
+1.  Go to the [GitHub Azure RDS-Templates page](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy).
 2.  Deploy the template to Azure and follow the instructions in the template. Make sure you have the following information available:
 
     -   Client-Id
@@ -185,8 +185,8 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
 

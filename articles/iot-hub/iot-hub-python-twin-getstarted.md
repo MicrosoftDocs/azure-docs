@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/26/2019
 ms.author: robinsh
 ---
 # Get started with device twins (Python)
@@ -21,7 +21,7 @@ At the end of this tutorial, you will have two Python console apps:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-The following are the installation instructions for the prerequisites.
+## Prerequisites
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -43,11 +43,15 @@ The following are the installation instructions for the prerequisites.
 
 In this section, you create a Python console app that adds location metadata to the device twin associated with your **{Device ID}**. It then queries the device twins stored in the IoT hub selecting the devices located in Redmond, and then the ones that are reporting a cellular connection.
 
-1. Open a command prompt and install the **Azure IoT Hub Service SDK for Python**. Close the command prompt after you install the SDK.
+1. In your working directory, open a command prompt and install the **Azure IoT Hub Service SDK for Python**.
 
-   ```
+   ```cmd/sh
    pip install azure-iothub-service-client
    ```
+
+   > [!NOTE]
+   > The pip package for azure-iothub-service-client is currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Using a text editor, create a new **AddTagsAndQuery.py** file.
 
@@ -60,7 +64,7 @@ In this section, you create a Python console app that adds location metadata to 
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Add the following code, replacing the placeholder for `[IoTHub Connection String]` and `[Device Id]` with the connection string for the IoT hub and the device ID you created in the previous sections.
+4. Add the following code. Replace `[IoTHub Connection String]` with the IoT hub connection string you copied in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace `[Device Id]` with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -74,7 +78,7 @@ In this section, you create a Python console app that adds location metadata to 
 
 5. Add the following code to the **AddTagsAndQuery.py** file:
 
-     ```python
+    ```python
     def iothub_service_sample_run():
         try:
             iothub_registry_manager = IoTHubRegistryManager(CONNECTION_STRING)
@@ -137,7 +141,7 @@ In this section, you create a Python console app that adds location metadata to 
 
     You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
 
-    ![first query showing all devices in Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
+    ![first query showing all devices in Redmond](./media/iot-hub-python-twin-getstarted/service-1.png)
 
 In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
@@ -145,83 +149,60 @@ In the next section, you create a device app that reports the connectivity infor
 
 In this section, you create a Python console app that connects to your hub as your **{Device ID}**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
 
-1. Open a command prompt and install the **Azure IoT Hub Service SDK for Python**. Close the command prompt after you install the SDK.
+1. From a command prompt in your working directory, install the **Azure IoT Hub Device SDK for Python**:
 
-    ```
-    pip install azure-iothub-device-client
+    ```cmd/sh
+    pip install azure-iot-device
     ```
 
 2. Using a text editor, create a new **ReportConnectivity.py** file.
 
-3. Add the following code to import the required modules from the service SDK:
+3. Add the following code to import the required modules from the device SDK:
 
     ```python
     import time
-    import iothub_client
-    from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError
+    import threading
+    from azure.iot.device import IoTHubModuleClient
     ```
 
-4. Add the following code, replacing the placeholder for `[IoTHub Device Connection String]` with the connection string for the IoT hub device you created in the previous sections.
+4. Add the following code. Replace the `[IoTHub Device Connection String]` placeholder value with the device connection string you copied in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
-
-    # choose HTTP, AMQP, AMQP_WS or MQTT as transport protocol
-    PROTOCOL = IoTHubTransportProvider.MQTT
-
-    TIMER_COUNT = 5
-    TWIN_CONTEXT = 0
-    SEND_REPORTED_STATE_CONTEXT = 0
     ```
 
 5. Add the following code to the **ReportConnectivity.py** file to implement the device twins functionality:
 
     ```python
-    def device_twin_callback(update_state, payload, user_context):
-        print ( "" )
-        print ( "Twin callback called with:" )
-        print ( "    updateStatus: %s" % update_state )
-        print ( "    payload: %s" % payload )
-
-    def send_reported_state_callback(status_code, user_context):
-        print ( "" )
-        print ( "Confirmation for reported state called with:" )
-        print ( "    status_code: %d" % status_code )
+    def twin_update_listener(client):
+        while True:
+            patch = client.receive_twin_desired_properties_patch()  # blocking call
+            print("Twin patch received:")
+            print(patch)
 
     def iothub_client_init():
-        client = IoTHubClient(CONNECTION_STRING, PROTOCOL)
-
-        if client.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
-            client.set_device_twin_callback(
-                device_twin_callback, TWIN_CONTEXT)
-
+        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():
         try:
             client = iothub_client_init()
 
-            if client.protocol == IoTHubTransportProvider.MQTT:
-                print ( "Sending data as reported property..." )
+            twin_update_listener_thread = threading.Thread(target=twin_update_listener, args=(client,))
+            twin_update_listener_thread.daemon = True
+            twin_update_listener_thread.start()
 
-                reported_state = "{\"connectivity\":\"cellular\"}"
-
-                client.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
+            # Send reported 
+            print ( "Sending data as reported property..." )
+            reported_patch = {"connectivity": "cellular"}
+            client.patch_twin_reported_properties(reported_patch)
+            print ( "Reported properties updated" )
 
             while True:
-                print ( "Press Ctrl-C to exit" )
-
-                status_counter = 0
-                while status_counter <= TIMER_COUNT:
-                    status = client.get_send_status()
-                    time.sleep(10)
-                    status_counter += 1	
-        except IoTHubError as iothub_error:
-            print ( "Unexpected error %s from IoTHub" % iothub_error )
-            return
+                time.sleep(1000000)
         except KeyboardInterrupt:
             print ( "IoTHubClient sample stopped" )
-     ```
+    ```
 
     The **Client** object exposes all the methods you require to interact with device twins from the device. The previous code, after it initializes the **Client** object, retrieves the device twin for your device and updates its reported property with the connectivity information.
 
@@ -230,6 +211,7 @@ In this section, you create a Python console app that connects to your hub as yo
     ```python
     if __name__ == '__main__':
         print ( "Starting the IoT Hub Device Twins Python client sample..." )
+        print ( "IoTHubModuleClient waiting for commands, press Ctrl-C to exit" )
 
         iothub_client_sample_run()
     ```
@@ -242,7 +224,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     You should see confirmation the device twins were updated.
 
-    ![update twins](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
+    ![update twins](./media/iot-hub-python-twin-getstarted/device-1.png)
 
 8. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
 
@@ -252,7 +234,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
+    ![second query](./media/iot-hub-python-twin-getstarted/service-2.png)
 
 ## Next steps
 

@@ -1,91 +1,103 @@
 ---
 title: Configure Azure Active Directory authentication - Azure App Service
-description: Learn how to configure Azure Active Directory authentication for your App Services application.
-author: mattchenderson
+description: Learn how to configure Azure Active Directory authentication for your App Service app.
+author: cephalin
 services: app-service
 documentationcenter: ''
-manager: syntaxc4
+manager: gwallace
 editor: ''
 
 ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
-ms.service: app-service-mobile
-ms.workload: mobile
+ms.service: app-service
+ms.workload: web,mobile
 ms.tgt_pltfrm: na
-ms.devlang: multiple
 ms.topic: article
-ms.date: 02/20/2019
-ms.author: mahender
+ms.date: 09/03/2019
+ms.author: cephalin
 ms.custom: seodec18
+ms.custom: fasttrack-edit
 
 ---
 # Configure your App Service app to use Azure Active Directory sign-in
 
-> [!NOTE]
-> At this time, AAD V2 (including MSAL) is not supported for Azure App Services and Azure Functions. Please check back for updates.
->
-
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-This article shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.
+> [!NOTE]
+> At this time, AAD V2 (including MSAL) is not supported for Azure App Service and Azure Functions.
+>
+
+This article shows you how to configure Azure App Service to use Azure Active Directory as an authentication provider.
+
+It's recommended that you configure each App Service app with its own registration, so it has its own permissions and consent. Also, consider using separate app registrations for separate deployment slots. This avoids permission sharing between environments, so that an issue in new code you're testing does not affect production.
 
 ## <a name="express"> </a>Configure with express settings
 
 1. In the [Azure portal], navigate to your App Service app. In the left navigation, select **Authentication / Authorization**.
 2. If **Authentication / Authorization** is not enabled, select **On**.
 3. Select **Azure Active Directory**, and then select **Express** under **Management Mode**.
-4. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration. If you want to choose an existing
-   app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant.
-   Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
-   By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
-5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
+4. Select **OK** to register the App Service app in Azure Active Directory. This creates a new app registration. If you want to choose an existing app registration instead, click **Select an existing app** and then search for the name of a previously created app registration within your tenant. Click the app registration to select it and click **OK**. Then click **OK** on the Azure Active Directory settings page.
+By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code.
+5. (Optional) To restrict access to your app to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 
-> [!CAUTION]
-> Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
-
+    > [!NOTE]
+    > Restricting access in this way applies to all calls to your app, which may not be desirable for apps wanting a publicly available home page, as in many single-page applications. For such applications, **Allow anonymous requests (no action)** may be preferred, with the app manually starting login itself, as described [here](overview-authentication-authorization.md#authentication-flow).
 6. Click **Save**.
 
 ## <a name="advanced"> </a>Configure with advanced settings
 
-You can also provide configuration settings manually. This is the preferred solution if the Azure Active Directory tenant you wish to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
+You can also provide configuration settings manually, if the Azure Active Directory tenant you want to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
 
-### <a name="register"> </a>Register your App Service app with Azure Active Directory
+### <a name="register"> </a>Create an app registration in Azure AD for your App Service app
 
-1. Sign in to the [Azure portal], and navigate to your App Service app. Copy your app **URL**. You will use this to configure your Azure Active Directory app registration.
-2. Navigate to **Active Directory**, then select the **App registrations**, then click **New application registration** at the top to start a new app registration. 
-3. In the **Create** page, enter a **Name** for your app registration, select the  **Web App / API** type, in the **Sign-on URL** box paste the application URL (from step 1). Then click to **Create**.
-4. In a few seconds, you should see the new app registration you just created.
-5. Once the app registration has been added, click on the app registration name, click on **Settings** at the top, then click on **Properties** 
-6. In the **App ID URI** box, paste in the Application URL (from step 1), also in the **Home Page URL** paste in the Application URL (from step 1) as well, then click **Save**
-7. Now click on the **Reply URLs**, edit the **Reply URL**, paste in the Application URL (from step 1), then append it to the end of the URL, */.auth/login/aad/callback* (For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Click **Save**.
+When creating an app registration manually, note three pieces of information that you will need later when configuring your App Service app: the client ID, the tenant ID, and optionally the client secret and the application ID URI.
 
-   > [!NOTE]
-   > You can use the same app registration for multiple domains by adding additional **Reply URLs**. Make sure to model each App Service instance with its own registration, so it has its own permissions and consent. Also consider using separate app registrations for separate site slots. This is to avoid permissions being shared between environments, so that a bug in new code you are testing does not affect production.
-    
-8. At this point, copy the **Application ID** for the app. Keep it for later use. You will need it to configure your App Service app.
-9. Close the **Registered app** page. On the **App registrations** page, click on the **Endpoints** button at the top, then copy the **WS-FEDERATION SIGN-ON ENDPOINT** URL but remove the `/wsfed` ending from the URL. The end result should look like `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. The domain name may be different for a sovereign cloud. This will serve as the Issuer URL for later.
+1. In the [Azure portal], navigate to your App Service app and note your app's **URL**. You will use it to configure your Azure Active Directory app registration.
+1. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
+1. In the **Register an application** page, enter a **Name** for your app registration.
+1. In **Redirect URI**, select **Web** and type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Then select **Create**.
+1. Once the app registration is created, copy the **Application (client) ID** and the **Directory (tenant) ID** for later.
+1. Select **Branding**. In **Home page URL**, type the URL of your App Service app and select **Save**.
+1. Select **Expose an API** > **Set**. Paste in the URL of your App Service app and select **Save**.
+
+    > [!NOTE]
+    > This value is the **Application ID URI** of the app registration. If you want to have a front-end web app to access a back-end API, for example, and you want the back end to explicitly grant access to the front end, you need the **Application ID URI** of the *front end* when you configure the App Service app resource of the *back end*.
+1. Select **Add a scope**. In **Scope name**, type *user_impersonation*. In the text boxes, type the consent scope name and description you want users to see on the consent page, such as *Access my app*. When finished, click **Add scope**.
+1. (Optional) To create a client secret, select **Certificates & secrets** > **New client secret** > **Add**. Copy the client secret value shown in the page. Once you navigate away, it won't be shown again.
+1. (Optional) To add multiple **Reply URLs**, select **Authentication** in the menu.
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app
 
-1. Back in the [Azure portal], navigate to your App Service app. Click **Authentication/Authorization**. If the Authentication/Authorization feature is not enabled, turn the switch to **On**. Click on **Azure Active Directory**, under Authentication Providers, to configure your app.
+1. In the [Azure portal], navigate to your App Service app. From the left menu, select **Authentication / Authorization**. If the Authentication/Authorization feature is not enabled, select **On**. 
+1. (Optional) By default, App Service authentication allows unauthenticated access to your app. To enforce user authentication, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**.
+1. Under Authentication Providers, select **Azure Active Directory**.
+1. In **Management mode**, select **Advanced** and configure App Service authentication according to the following table:
 
-    (Optional) By default, App Service provides authentication but does not restrict authorized access to your site content and APIs. You must authorize users in your app code. Set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This option requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
-2. In the Active Directory Authentication configuration, click **Advanced** under **Management Mode**. Paste the Application ID into the Client ID box (from step 8) and paste in the URL (from step 9) into the Issuer URL value. Then click **OK**.
-3. On the Active Directory Authentication configuration page, click **Save**.
+    |Field|Description|
+    |-|-|
+    |Client ID| Use the **Application (client) ID** of the app registration. |
+    |Issuer ID| Use `https://login.microsoftonline.com/<tenant-id>`, and replace *\<tenant-id>* with the **Directory (tenant) ID** of the app registration. |
+    |Client Secret (Optional)| Use the client secret you generated in the app registration.|
+    |Allowed Token Audiences| If this is a *back-end* app and you want to allow authentication tokens from a front-end app, add the **Application ID URI** of the *front end* here. |
+
+    > [!NOTE]
+    > The configured **Client ID** is *always* implicitly considered to be an allowed audience, regardless of how you configured the **Allowed Token Audiences**.
+1. Select **OK**, then select **Save**.
 
 You are now ready to use Azure Active Directory for authentication in your App Service app.
 
 ## Configure a native client application
-You can register native clients, which provides greater control over permissions mapping. You need this if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
+You can register native clients if you wish to perform sign-ins using a client library such as the **Active Directory Authentication Library**.
 
-1. Navigate to **Azure Active Directory** in the [Azure portal].
-2. In the left navigation, select **App registrations**. Click **New app registration** at the top.
-4. In the **Create** page, enter a **Name** for your app registration. Select **Native** in **Application type**.
-5. In the **Redirect URI** box, enter your site's */.auth/login/done* endpoint, using the HTTPS scheme. This value should be similar to *https://contoso.azurewebsites.net/.auth/login/done*. If creating a Windows application, instead use the [package SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI.
-5. Click **Create**.
-6. Once the app registration has been added, select it to open it. Find the **Application ID** and make a note of this value.
-7. Click **All settings** > **Required permissions** > **Add** > **Select an API**.
-8. Type the name of the App Service app that you registered earlier to search for it, then select it and click **Select**.
-9. Select **Access \<app_name>**. Then click **Select**. Then click **Done**.
+1. In the [Azure portal], from the left menu, select **Active Directory** > **App registrations** > **New registration**. 
+1. In the **Register an application** page, enter a **Name** for your app registration.
+1. In **Redirect URI**, select **Public client (mobile & desktop)** and type the URL of your App Service app and append the path `/.auth/login/aad/callback`. For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`. Then select **Create**.
+
+    > [!NOTE]
+    > For a Windows application, use the [package SID](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) as the URI instead.
+1. Once the app registration is created, copy the value of **Application (client) ID**.
+1. From the left menu, select **API permissions** > **Add a permission** > **My APIs**.
+1. Select the app registration you created earlier for your App Service app. If you don't see the app registration, check that you've added the **user_impersonation** scope in [Create an app registration in Azure AD for your App Service app](#register).
+1. Select **user_impersonation** and click **Add permissions**.
 
 You have now configured a native client application that can access your App Service app.
 

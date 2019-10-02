@@ -3,21 +3,16 @@ title: Use Case - Customer Profiling
 description: Learn how Azure Data Factory is used to create a data-driven workflow (pipeline) to profile gaming customers.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: e07d55cf-8051-4203-9966-bdfa1035104b
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Use Case - Customer Profiling
 Azure Data Factory is one of many services used to implement the Cortana Intelligence Suite of solution accelerators.  For more information about Cortana Intelligence, visit [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). In this document, we describe a simple use case to help you get started with understanding how Azure Data Factory can solve common analytics problems.
 

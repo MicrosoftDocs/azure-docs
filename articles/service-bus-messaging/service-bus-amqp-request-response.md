@@ -270,13 +270,7 @@ The response message must include the following application properties:
 |Key|Value Type|Required|Value Contents|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed.|  
-|statusDescription|string|No|Description of the status.|  
-  
-The response message body must consist of an **amqp-value** section containing a map with the following entries:  
-  
-|Key|Value Type|Required|Value Contents|  
-|---------|----------------|--------------|--------------------|  
-|sequence-numbers|array of long|Yes|Sequence number of scheduled messages. Sequence number is used to cancel.|  
+|statusDescription|string|No|Description of the status.|   
   
 ## Session Operations  
   

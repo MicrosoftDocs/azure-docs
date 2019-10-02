@@ -5,7 +5,7 @@ author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 05/16/2019
+ms.date: 09/22/2019
 ---
 
 # Mapping data flows performance and tuning guide
@@ -85,6 +85,13 @@ Clicking that icon will display the execution plan and subsequent performance pr
 * Inside of the Data Flow designer, use the Data Preview tab on transformations to view the results of your transformation logic.
 * Unit test your data flows from the pipeline designer by placing a Data Flow activity on the pipeline design canvas and use the "Debug" button to test.
 * Testing in debug mode will work against a live warmed cluster environment without the need to wait for a just-in-time cluster spin-up.
+* During Data Preview debugging inside of the Data Flow designer experience, you can limit the amount of data that you test with for each source by setting the row limit from the Debug Settings link on the Data Flow designer UI. Please note that you must turn on Debug Mode first.
+
+![Debug Settings](media/data-flow/debug-settings.png "Debug Settings")
+
+* When testing your data flows from a pipeline debug execution, you can limit the number of rows used for testing by setting the sampling size on each of your sources. Be sure to disable sampling when scheduling your pipelines on a regular operationalized schedule.
+
+![Row Sampling](media/data-flow/source1.png "Row Sampling")
 
 ### Disable indexes on write
 * Use an ADF pipeline stored procedure activity prior to your Data Flow activity that disables indexes on your target tables that are being written to from your Sink.
@@ -135,6 +142,10 @@ For example, if I have a list of data files from July 2019 that I wish to proces
 ```DateFiles/*_201907*.txt```
 
 This will perform better than a Lookup against the Blob Store in a pipeline that then iterates across all matched files using a ForEach with an Execute Data Flow activity inside.
+
+### Increase the size of your debug cluster
+
+By default, turning on debug will use the default Azure Integration runtime that is created automatically for each data factory. This default Azure IR is set for 8 cores, 4 for a driver node and 4 for a worker node, using General Compute properties. As you test with larger data, you can increase the size of your debug cluster by creating a new Azure IR with larger configurations and choose this new Azure IR when you switch on debug. This will instruct ADF to use this Azure IR for data preview and pipeline debug with data flows.
 
 ## Next steps
 

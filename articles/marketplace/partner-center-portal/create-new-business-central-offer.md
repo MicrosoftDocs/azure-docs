@@ -1,12 +1,12 @@
 ---
 title: Create a new Dynamics 365 Business Central offer in the Commercial Marketplace 
 description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: JnHs 
+author: ChJenk 
 manager: evansma
-ms.author: jenhayes 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 09/26/2019
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -189,11 +189,11 @@ The hero image is optional. If you provide one, it must measure 815 x 290 pixels
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
+Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to five videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
 
 #### Additional marketplace listing resources
 
@@ -349,7 +349,7 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-This page lets you provide additional required information about your offer.
+This page lets you provide additional information about your offer to help us validate your offer. This information is not shown to customers or published to the marketplace.
 
 ### Target release
 
@@ -357,19 +357,19 @@ Indicate which release of Microsoft Dynamics Business Central your solution targ
 
 ### Supported editions
 
-Indicate whether your solution supports the Essentials and/or Premium edition of Microsoft Dynamics 365 Business Central. At least one value must be selected.
+If your offer requires the Premium edition of Microsoft Dynamics 365 Business Central, select **Premium** only. Otherwise, select both **Essentials** and **Premium**.
 
 ### Key usage scenario
 
-Upload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+You must pload a `.pdf` file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ### App tests automation
 
-Also upload an **App tests automation** file here (.app).
+You can optionally upload an **App tests automation** file here (.app).
 
 ### Test accounts
 
-If a test account is needed in order for our certification team to properly review your offer, upload a .pdf, .doc, or .docx file with your **Test accounts** info.
+If a test account is needed in order for our certification team to properly review your offer, upload a .pdf, .doc, or .docx file with your **Test accounts** information.
 
 ## Publish
 

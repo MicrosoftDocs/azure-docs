@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 09/27/2019
 ms.author: tomfitz
 
 ---
@@ -38,13 +38,13 @@ When used with a variable or property, the copy object has the following format:
 
 Both uses are described in greater detail in this article. For a tutorial, see [Tutorial: create multiple resource instances using Resource Manager templates](./resource-manager-tutorial-create-multiple-instances.md).
 
-If you need to specify whether a resource is deployed at all, see [condition element](resource-group-authoring-templates.md#condition).
+If you need to specify whether a resource is deployed at all, see [condition element](conditional-resource-deployment.md).
 
 ## Copy limits
 
 To specify the number of iterations, you provide a value for the count property. The count can't exceed 800.
 
-The count can't be a negative number. If you deploy a template with REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of the REST API don't support zero for count. Currently, Azure CLI or PowerShell don't support zero for count, but that support will be added in a future release.
+The count can't be a negative number. If you deploy a template with Azure PowerShell 2.6 or later, Azure CLI 2.0.74 or later, or REST API version **2019-05-10** or later, you can set count to zero. Earlier versions of PowerShell, CLI, and the REST API don't support zero for count.
 
 Be careful using [complete mode deployment](deployment-modes.md) with copy. If you redeploy with complete mode to a resource group, any resources that aren't specified in the template after resolving the copy loop are deleted.
 
@@ -52,7 +52,7 @@ The limits for the count are the same whether used with a resource, variable, or
 
 ## Resource iteration
 
-When you must decide during deployment to create one or more instances of a resource, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
+If you want to create more than one instance of a resource in a deployment, add a `copy` element to the resource type. In the copy element, specify the number of iterations and a name for this loop.
 
 The resource to create several times takes the following format:
 
@@ -108,25 +108,25 @@ Creates these names:
 The copy operation is helpful when working with arrays because you can iterate through each element in the array. Use the `length` function on the array to specify the count for iterations, and `copyIndex` to retrieve the current index in the array. So, the following example:
 
 ```json
-"parameters": { 
-  "org": { 
-    "type": "array", 
-    "defaultValue": [ 
-      "contoso", 
-      "fabrikam", 
-      "coho" 
-    ] 
+"parameters": {
+  "org": {
+    "type": "array",
+    "defaultValue": [
+      "contoso",
+      "fabrikam",
+      "coho"
+    ]
   }
-}, 
-"resources": [ 
-  { 
-    "name": "[concat('storage', parameters('org')[copyIndex()])]", 
-    "copy": { 
-      "name": "storagecopy", 
-      "count": "[length(parameters('org'))]" 
-    }, 
+},
+"resources": [
+  {
+    "name": "[concat('storage', parameters('org')[copyIndex()])]",
+    "copy": {
+      "name": "storagecopy",
+      "count": "[length(parameters('org'))]"
+    },
     ...
-  } 
+  }
 ]
 ```
 
@@ -179,7 +179,7 @@ To create more than one value for a property on a resource, add a `copy` array i
 
 * name - the name of the property to create several values for
 * count - the number of values to create.
-* input - an object that contains the values to assign to the property  
+* input - an object that contains the values to assign to the property
 
 The following example shows how to apply `copy` to the dataDisks property on a virtual machine:
 
@@ -445,9 +445,9 @@ You specify that a resource is deployed after another resource by using the `dep
       }
     },
     {
-      "apiVersion": "2015-06-15", 
-      "type": "Microsoft.Compute/virtualMachines", 
-      "name": "[concat('VM', uniqueString(resourceGroup().id))]",  
+      "apiVersion": "2015-06-15",
+      "type": "Microsoft.Compute/virtualMachines",
+      "name": "[concat('VM', uniqueString(resourceGroup().id))]",
       "dependsOn": ["storagecopy"],
       ...
     }
@@ -483,7 +483,7 @@ For example, suppose you typically define a dataset as a child resource within a
 
 To create more than one data set, move it outside of the data factory. The dataset must be at the same level as the data factory, but it's still a child resource of the data factory. You preserve the relationship between data set and data factory through the type and name properties. Since type can no longer be inferred from its position in the template, you must provide the fully qualified type in the format: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.  
+To establish a parent/child relationship with an instance of the data factory, provide a name for the data set that includes the parent resource name. Use the format: `{parent-resource-name}/{child-resource-name}`.
 
 The following example shows the implementation:
 

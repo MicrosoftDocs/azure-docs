@@ -30,7 +30,7 @@ confidently get started with Azure.
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready governance. This environment is composed of:
 
-- An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
+- An [Azure Key Vault](../../../../key-vault/key-vault-overview.md) instance used to host secrets used
   for the Certificates, Keys, and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
   and services log to a central location from the moment you start your migration
@@ -61,7 +61,7 @@ You've reviewed the overview and architecture of the CAF Migrate landing zone bl
 
 Addition articles about blueprints and how to use them:
 
-- Learn about the [blueprint life-cycle](../../concepts/lifecycle.md).
+- Learn about the [blueprint lifecycle](../../concepts/lifecycle.md).
 - Understand how to use [static and dynamic parameters](../../concepts/parameters.md).
 - Learn to customize the [blueprint sequencing order](../../concepts/sequencing-order.md).
 - Find out how to make use of [blueprint resource locking](../../concepts/resource-locking.md).

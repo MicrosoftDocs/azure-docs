@@ -10,8 +10,6 @@ editor:
 ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang

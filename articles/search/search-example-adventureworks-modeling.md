@@ -1,22 +1,22 @@
 ---
 title: 'Example: Model the AdventureWorks Inventory database - Azure Search'
 description: Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Search.
-author: cstone
+author: HeidiSteen
 manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/25/2019
-ms.author: chstone
+ms.date: 09/05/2019
+ms.author: heidist
 
 ---
 # Example: Model the AdventureWorks Inventory database for Azure Search
 
-Modeling structured database content into an efficient search index is rarely a straightforward exercise. Scheduling and change management aside, there exists the challenge of denormalizing source rows away from their table-joined state into search-friendly entities. This article uses the AdventureWorks sample data, available online, to highlight common experiences in the transition from database to search. 
+Azure Search accepts a flattened rowset as inputs to the [indexing (data ingestion) pipeline](search-what-is-an-index.md). If your source data originates from a SQL Server relational database, this article demonstrates one approach for creating a flattened rowset prior to indexing, using the AdventureWorks sample database as an example.
 
 ## About AdventureWorks
 
-If you have a SQL Server instance, you might be familiar with the AdventureWorks sample database. Among the tables included in this database are five tables that expose product information.
+If you have a SQL Server instance, you might be familiar with the [AdventureWorks sample database](https://docs.microsoft.com/sql/samples/adventureworks-install-configure?view=sql-server-2017). Among the tables included in this database are five tables that expose product information.
 
 + **ProductModel**: name
 + **Product**: name, color, cost, size, weight, image, category (each row joins to a specific ProductModel)
@@ -24,7 +24,7 @@ If you have a SQL Server instance, you might be familiar with the AdventureWorks
 + **ProductModelProductDescription**: locale (each row joins a ProductModel to a specific ProductDescription for a specific language)
 + **ProductCategory**: name, parent category
 
-Combining all of this data into a flattened rowset that can be ingested into a search index is the task at hand. 
+Combining all of this data into a flattened rowset that can be ingested into a search index is the objective of this example. 
 
 ## Considering our options
 
@@ -38,7 +38,7 @@ Resolving this issue is not as simple as moving the target index to the ProductM
 
 ## Use a Collection data type
 
-The "correct approach" is to utilize a search-schema feature that does not have a direct parallel in the database model: **Collection(Edm.String)**. A Collection data type is used when you have a list of individual strings, rather than a very long (single) string. If you have tags or keywords, you would use a Collection data type for this field.
+The "correct approach" is to utilize a search-schema feature that does not have a direct parallel in the database model: **Collection(Edm.String)**. This construct is defined in the Azure Search index schema. A Collection data type is used when you need to represent a list of individual strings, rather than a very long (single) string. If you have tags or keywords, you would use a Collection data type for this field.
 
 By defining multi-value index fields of **Collection(Edm.String)** for "color", "size", and "image", the ancillary information is retained for faceting and filtering without polluting the index with duplicate entries. Similarly, apply aggregate functions to the numeric Product fields, indexing **minListPrice** instead of every single product **listPrice**.
 
@@ -159,5 +159,3 @@ WHERE
 
 > [!div class="nextstepaction"]
 > [Example: Multi-level facet taxonomies in Azure Search](search-example-adventureworks-multilevel-faceting.md)
-
-

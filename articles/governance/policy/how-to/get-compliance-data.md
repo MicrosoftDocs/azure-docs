@@ -7,7 +7,6 @@ ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Get compliance data of Azure resources
 
@@ -31,8 +30,6 @@ updated and the frequency and events that trigger an evaluation cycle.
 > If compliance state is being reported as **Not registered**, verify that the
 > **Microsoft.PolicyInsights** Resource Provider is registered and that the user has the appropriate
 > role-based access control (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
-
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Evaluation triggers
 

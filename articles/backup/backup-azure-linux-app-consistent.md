@@ -7,7 +7,7 @@ manager: carmonm
 keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/12/2018
+ms.date: 01/12/2018
 ms.author: dacurwin
 ---
 

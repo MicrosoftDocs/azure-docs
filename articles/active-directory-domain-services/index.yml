@@ -52,7 +52,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Enable password hash synchronization
-            url: active-directory-ds-getting-started-password-sync-synced-tenant.md
+            url: tutorial-configure-password-hash-sync.md
           - text: Create an organizational unit (OU)
             url: create-ou.md
           - text: Configure Kerberos Constrained Delegation

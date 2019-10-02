@@ -1,9 +1,9 @@
 ---
 title: Integration with App Service Mobile Apps
 description: Learn how Azure Notification Hubs works with Azure App Service Mobile Apps.
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: ''
 
@@ -15,7 +15,9 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
 # Integration with App Service Mobile Apps

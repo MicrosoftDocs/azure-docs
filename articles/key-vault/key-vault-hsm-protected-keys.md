@@ -2,14 +2,14 @@
 title: How to generate and transfer HSM-protected keys for Azure Key Vault - Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault. Also known as BYOK or bring your own key.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.author: barclayn
+ms.author: mbaldwin
 
 ---
 # How to generate and transfer HSM-protected keys for Azure Key Vault
@@ -23,7 +23,7 @@ Use the information in this topic to help you plan for, generate, and then trans
 This functionality is not available for Azure China.
 
 > [!NOTE]
-> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-whatis.md)  
+> For more information about Azure Key Vault, see [What is Azure Key Vault?](key-vault-overview.md)  
 > For a getting started tutorial, which includes creating a key vault for HSM-protected keys, see [What is Azure Key Vault?](key-vault-overview.md).
 
 More information about generating and transferring an HSM-protected key over the Internet:
@@ -37,7 +37,7 @@ More information about generating and transferring an HSM-protected key over the
 
 ## More information about nCipher HSMs and Microsoft services
 
-nCipher Security is a leading global provider of data encryption and cyber security solutions to the financial services, high technology, manufacturing, government, and technology sectors. With a 40-year track record of protecting corporate and government information, nCipher Security cryptographic solutions are used by four of the five largest energy and aerospace companies. Their solutions are also used by 22 NATO countries/regions, and secure more than 80 per cent of worldwide payment transactions.
+nCipher Security, an Entrust Datacard company, is a leader in the general purpose HSM market, empowering world-leading organizations by delivering trust, integrity and control to their business critical information and applications. nCipher’s cryptographic solutions secure emerging technologies – cloud, IoT, blockchain, digital payments – and help meet new compliance mandates, using the same proven technology that global organizations depend on today to protect against threats to their sensitive data, network communications and enterprise infrastructure. nCipher delivers trust for business critical applications, ensuring the integrity of data and putting customers in complete control – today, tomorrow, at all times.
 
 Microsoft has collaborated with nCipher Security to enhance the state of art for HSMs. These enhancements enable you to get the typical benefits of hosted services without relinquishing control over your keys. Specifically, these enhancements let Microsoft manage the HSMs so that you do not have to. As a cloud service, Azure Key Vault scales up at short notice to meet your organization’s usage spikes. At the same time, your key is protected inside Microsoft’s HSMs: You retain control over the key lifecycle because you generate the key and transfer it to Microsoft’s HSMs.
 
@@ -283,6 +283,10 @@ This program creates a **Security World** file at %NFAST_KMDATA%\local\world, wh
 
 > [!NOTE]
 > If your HSM does not support the newer cypher suite DLf3072s256mRijndael, you can replace --cipher-suite= DLf3072s256mRijndael with --cipher-suite=DLf1024s160mRijndael
+> 
+> Security world created with new-world.exe that ships with nCipher software version 12.50 is not compatible with this BYOK procedure. There are two options available:
+> 1) Downgrade nCipher software version to 12.40.2 to create a new security world.
+> 2) Contact nCipher support and request them to provide a hotfix for 12.50 software version, which allows you to use 12.40.2 version of new-world.exe that is compatible with this BYOK procedure.
 
 Then do the following:
 

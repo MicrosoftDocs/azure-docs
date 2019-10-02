@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 08/22/2019
+ms.date: 09/30/2019
 ms.author: dalek
 
 ---
@@ -26,7 +26,7 @@ If you have questions about how pricing works for Application Insights, you can 
 
 ## Pricing model
 
-Pricing for [Azure Application Insights][start] is based on data volume ingested. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription.
+Pricing for [Azure Application Insights][start] is based on data volume ingested and optionally for longer data retention. Each Application Insights resource is charged as a separate service and contributes to the bill for your Azure subscription.
 
 ### Data volume details
 
@@ -43,7 +43,7 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
-## Review usage and estimate costs
+## Understand your usage and estimate costs
 
 Application Insights makes it easy to understand what your costs are likely to be based on recent usage patterns. To get started, in the Azure portal, for the Application Insights resource, go to the **Usage and estimated costs** page:
 
@@ -106,15 +106,23 @@ Here are some things you can do to reduce your data volume:
 * Split your telemetry among separate instrumentation keys. 
 * Pre-aggregate metrics. If you put calls to TrackMetric in your app, you can reduce traffic by using the overload that accepts your calculation of the average and standard deviation of a batch of measurements. Or, you can use a [pre-aggregating package](https://www.myget.org/gallery/applicationinsights-sdk-labs).
 
-## Manage the maximum daily data volume
+## Manage your maximum daily data volume
 
 You can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is *not advisable* to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.
 
 Instead of using the daily volume cap, use [sampling](../../azure-monitor/app/sampling.md) to tune the data volume to the level you want. Then, use the daily cap only as a "last resort" in case your application unexpectedly begins to send much higher volumes of telemetry.
 
+### Identify what daily data limit to define
+
+Review Application Insights Usage and estimated costs to understand the data ingestion trend and what is the daily volume cap to define. It should be considered with care, since you won’t be able to monitor your resources after the limit is reached. 
+
+### Set the Daily Cap
+
 To change the daily cap, in the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** page, select  **Daily Cap**.
 
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-003.png)
+
+To [change the daily cap via Azure Resource Manager](../../azure-monitor/app/powershell.md), the property to change is the `dailyQuota`.  Via Azure Resource Manager you can also set the `dailyQuotaResetTime` and the daily cap's `warningThreshold`. 
 
 ## Sampling
 [Sampling](../../azure-monitor/app/sampling.md) is a method of reducing the rate at which telemetry is sent to your app, while retaining the ability to find related events during diagnostic searches. You also retain correct event counts.
@@ -144,6 +152,9 @@ In each retained record, `itemCount` indicates the number of original records th
 
 ## Change the data retention period
 
+> [!NOTE]
+> We've temporarily removed this feature while we address a possible issue.  We'll have it back by the first week in October 2019.
+
 The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 90, 120, 180, 270, 365, 550 or 730 days. 
 
 To change the retention, from your Application Insights resource, go to the **Usage and Estimated Costs** page and select the **Data Retention** option:
@@ -152,6 +163,10 @@ To change the retention, from your Application Insights resource, go to the **Us
 
 When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. 
 Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/). Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+
+## Data transfer charges using Application Insights
+
+Sending data to Application Insights might incur data bandwidth charges. As described in the [Azure Bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/), data transfer between Azure services located in two regions charged as outbound data transfer at the normal rate. Inbound data transfer is free. However, this charge is very small (few %) compared to the costs for Application Insights log data ingestion. Consequently controlling costs for Log Analytics needs to focus on your ingested data volume, and we have guidance to help understand that [here](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
 
 ## Limits summary
 

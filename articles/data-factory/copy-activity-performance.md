@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
@@ -38,30 +38,30 @@ After reading this article, you will be able to answer the following questions:
 
 ADF offers a serverless architecture that allows parallelism at different levels, which allows developers to build pipelines to fully utilize your network bandwidth as well as storage IOPS and bandwidth to maximize data movement throughput for your environment.  This means the throughput you can achieve can be estimated by measuring the minimum throughput offered by the source data store, the destination data store, and network bandwidth in between the source and destination.  The table below calculates the copy duration based on data size and the bandwidth limit for your environment. 
 
-| Data size \ bandwidth | 50 Mbps    | 100 Mbps  | 200 Mbps  | 500 Mbps  | 1 Gbps   | 10 Gbps  |
-| --------------------- | ---------- | --------- | --------- | --------- | -------- | -------- |
-| 1 GB                  | 2.7 min    | 1.4 min   | 0.7 min   | 0.3 min   | 0.1 min  | 0.0 min  |
-| 10 GB                 | 27.3 min   | 13.7 min  | 6.8 min   | 2.7 min   | 1.3 min  | 0.1 min  |
-| 100 GB                | 4.6 hrs    | 2.3 hrs   | 1.1 hrs   | 0.5 hrs   | 0.2 hrs  | 0.0 hrs  |
-| 1 TB                  | 46.6 hrs   | 23.3 hrs  | 11.7 hrs  | 4.7 hrs   | 2.3 hrs  | 0.2 hrs  |
-| 10 TB                 | 19.4 days  | 9.7 days  | 4.9 days  | 1.9 days  | 0.9 days | 0.1 days |
-| 100 TB                | 194.2 days | 97.1 days | 48.5 days | 19.4 days | 9.5 days | 0.9 days |
-| 1 PB                  | 64.7 mo    | 32.4 mo   | 16.2 mo   | 6.5 mo    | 3.2 mo   | 0.3 mo   |
-| 10 PB                 | 647.3 mo   | 323.6 mo  | 161.8 mo  | 64.7 mo   | 31.6 mo  | 3.2 mo   |
+| Data size / <br/> bandwidth | 50 Mbps    | 100 Mbps  | 500 Mbps  | 1 Gbps   | 5 Gbps   | 10 Gbps  | 50 Gbps   |
+| --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
+| **1 GB**                    | 2.7 min    | 1.4 min   | 0.3 min   | 0.1 min  | 0.03 min | 0.01 min | 0.0 min   |
+| **10 GB**                   | 27.3 min   | 13.7 min  | 2.7 min   | 1.3 min  | 0.3 min  | 0.1 min  | 0.03 min  |
+| **100 GB**                  | 4.6 hrs    | 2.3 hrs   | 0.5 hrs   | 0.2 hrs  | 0.05 hrs | 0.02 hrs | 0.0 hrs   |
+| **1 TB**                    | 46.6 hrs   | 23.3 hrs  | 4.7 hrs   | 2.3 hrs  | 0.5 hrs  | 0.2 hrs  | 0.05 hrs  |
+| **10 TB**                   | 19.4 days  | 9.7 days  | 1.9 days  | 0.9 days | 0.2 days | 0.1 days | 0.02 days |
+| **100 TB**                  | 194.2 days | 97.1 days | 19.4 days | 9.7 days | 1.9 days | 1 days   | 0.2 days  |
+| **1 PB**                    | 64.7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0.6 mo   | 0.3 mo   | 0.06 mo   |
+| **10 PB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
 
 ADF copy is scalable at different levels:
 
 ![how ADF copy scales](media/copy-activity-performance/adf-copy-scalability.png)
 
-- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes.
-- A single copy activity reads from and writes to the data store using multiple threads.
 - ADF control flow can start multiple copy activities in parallel, for example using [For Each loop](control-flow-for-each-activity.md).
+- A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify [up to 256 DIUs](#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines ([up to 4 nodes](create-self-hosted-integration-runtime.md#high-availability-and-scalability)), and a single copy activity will partition its file set across all nodes.
+- A single copy activity reads from and writes to the data store using multiple threads [in parallel](#parallel-copy).
 
 ## Performance tuning steps
 
 Take these steps to tune the performance of your Azure Data Factory service with the copy activity.
 
-1. **Establish a baseline.** During the development phase, test your pipeline by using the copy activity against a representative data sample. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-overview.md#monitoring).
+1. **Pick up a test dataset and establish a baseline.** During the development phase, test your pipeline by using the copy activity against a representative data sample. The dataset you choose should represent your typical data patterns (folder structure, file pattern, data schema, etc.), and is big enough to evaluate copy performance, for example it takes 10 minutes or beyond for copy activity to complete. Collect execution details and performance characteristics following [copy activity monitoring](copy-activity-overview.md#monitoring).
 
 2. **How to maximize performance of a single copy activity**:
 
@@ -75,19 +75,19 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    Copy activity should scale almost perfectly linearly as you increase the DIU setting.  If by doubling the DIU setting you are not seeing the throughput double, two things could be happening:
 
-   - The specific copy pattern you are running does not benefit from adding more DIUs.  Even though you had specified a larger DIU value, the actual DIU used remained the same, and therefore you are getting the same throughput as before.  If this is the case, go to step #3
+   - The specific copy pattern you are running does not benefit from adding more DIUs.  Even though you had specified a larger DIU value, the actual DIU used remained the same, and therefore you are getting the same throughput as before.  If this is the case, maximize aggregate throughput by running multiple copies concurrently referring step 3.
    - By adding more DIUs (more horsepower) and thereby driving higher rate of data extraction, transfer, and loading, either the source data store, the network in between, or the destination data store has reached its bottleneck and possibly being throttled.  If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, reduce the DIU setting until throttling stops occurring.
 
    **If the copy activity is being executed on a self-hosted Integration Runtime:**
 
-   We recommend that you use a dedicated machine separate from the server hosting the data store to host integration runtime
+   We recommend that you use a dedicated machine separate from the server hosting the data store to host integration runtime.
 
    Start with default values for [parallel copy](#parallel-copy) setting and using a single node for the self-hosted IR.  Perform a performance test run and take a note of the performance achieved.
 
    If you would like to achieve higher throughput, you can either scale up or scale out the self-hosted IR:
 
    - If the CPU and available memory on the self-hosted IR node are not fully utilized, but the execution of concurrent jobs is reaching the limit, you should scale up by increasing the number of concurrent jobs that can run on a node.  See [here](create-self-hosted-integration-runtime.md#scale-up) for instructions.
-   - If, on the other hand, the CPU is high on the self-hosted IR node and available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
+   - If, on the other hand, the CPU is high on the self-hosted IR node or available memory is low, you can add a new node to help scale out the load across the multiple nodes.  See [here](create-self-hosted-integration-runtime.md#high-availability-and-scalability) for instructions.
 
    As you scale up or scale out the capacity of the self-hosted IR, repeat the performance test run to see if you are getting increasingly better throughput.  If throughput stops improving, most likely either the source data store, the network in between, or the destination data store has reached its bottleneck and is starting to get throttled. If this is the case, try contacting your data store administrator or your network administrator to raise the upper limit, or alternatively, go back to your previous scaling setting for the self-hosted IR. 
 
@@ -95,9 +95,7 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    Now that you have maximized the performance of a single copy activity, if you have not yet achieved the throughput upper limits of your environment – network, source data store, and destination data store - you can run multiple copy activities in parallel using ADF control flow constructs such as [For Each loop](control-flow-for-each-activity.md).
 
-4. **Diagnose and optimize performance.** If the performance you observe doesn't meet your expectations, identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks.
-
-   In some cases, when you run a copy activity in Azure Data Factory, you see a "Performance tuning tips" message on top of the [copy activity monitoring](copy-activity-overview.md#monitor-visually), as shown in the following example. The message tells you the bottleneck that was identified for the given copy run. It also guides you on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like:
+4. **Performance tuning tips and optimization features.** In some cases, when you run a copy activity in Azure Data Factory, you see a "Performance tuning tips" message on top of the [copy activity monitoring](copy-activity-overview.md#monitor-visually), as shown in the following example. The message tells you the bottleneck that was identified for the given copy run. It also guides you on what to change to boost copy throughput. The performance tuning tips currently provide suggestions like:
 
    - Use PolyBase when you copy data into Azure SQL Data Warehouse.
    - Increase Azure Cosmos DB Request Units or Azure SQL Database DTUs (Database Throughput Units) when the resource on the data store side is the bottleneck.
@@ -111,12 +109,11 @@ Take these steps to tune the performance of your Azure Data Factory service with
 
    ![Copy monitoring with performance tuning tips](media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
-   In addition, the following are some common considerations. A full description of performance diagnosis is beyond the scope of this article.
+   In addition, the following are some performance optimization features you should be aware of:
 
-   - Performance optimization features:
-     - [Parallel copy](#parallel-copy)
-     - [Data Integration Units](#data-integration-units)
-     - [Staged copy](#staged-copy)
+   - [Parallel copy](#parallel-copy)
+   - [Data Integration Units](#data-integration-units)
+   - [Staged copy](#staged-copy)
    - [Self-hosted integration runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime)
 
 5. **Expand the configuration to your entire dataset.** When you're satisfied with the execution results and performance, you can expand the definition and pipeline to cover your entire dataset.
@@ -133,7 +130,9 @@ Azure Data Factory provides the following performance optimization features:
 
 A Data Integration Unit is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Azure Data Factory. Data Integration Unit only applies to [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime), but not [self-hosted integration runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-The allowed DIUs to empower a copy activity run is between 2 and 256. If not specified, the following table lists the default DIUs used in different copy scenarios:
+You will be charged **# of used DIUs \* copy duration \* unit price/DIU-hour**. See the current prices [here](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/). Local currency and separate discounting may apply per subscription type.
+
+The allowed DIUs to empower a copy activity run is **between 2 and 256**. If not specified or you choose “Auto” on the UI, Data Factory dynamically apply the optimal DIU setting based on your source-sink pair and data pattern. The following table lists the default DIUs used in different copy scenarios:
 
 | Copy scenario | Default DIUs determined by service |
 |:--- |:--- |
@@ -148,7 +147,7 @@ You can see the DIUs used for each copy run in the copy activity output when you
 > [!NOTE]
 > Setting of DIUs larger than four currently applies only when you copy multiple files from Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, cloud FTP, or cloud SFTP to any other cloud data stores.
 
-**Example**
+**Example:**
 
 ```json
 "activities":[
@@ -170,10 +169,6 @@ You can see the DIUs used for each copy run in the copy activity output when you
 ]
 ```
 
-#### Data Integration Units billing impact
-
-Remember that you're charged based on the total time of the copy operation. The total duration you're billed for data movement is the sum of duration across DIUs. If a copy job used to take one hour with two cloud units and now it takes 15 minutes with eight cloud units, the overall bill remains almost the same.
-
 ### Parallel copy
 
 You can use the **parallelCopies** property to indicate the parallelism that you want the copy activity to use. You can think of this property as the maximum number of threads within the copy activity that can read from your source or write to your sink data stores in parallel.
@@ -183,6 +178,7 @@ For each copy activity run, Azure Data Factory determines the number of parallel
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
 | Copy data between file-based stores |Depends on the size of the files and the number of DIUs used to copy data between two cloud data stores, or the physical configuration of the self-hosted integration runtime machine. |
+| Copy from relational data store with partition option enabled (including [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source))|4 |
 | Copy data from any source store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
@@ -190,6 +186,15 @@ For each copy activity run, Azure Data Factory determines the number of parallel
 > When you copy data between file-based stores, the default behavior usually gives you the best throughput. The default behavior is auto-determined based on your source file pattern.
 
 To control the load on machines that host your data stores, or to tune copy performance, you can override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, the copy activity uses a value that is less than or equal to the value that you set.
+
+**Points to note:**
+
+- When you copy data between file-based stores, **parallelCopies** determines the parallelism at the file level. The chunking within a single file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to **parallelCopies**. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, the copy activity can't take advantage of file-level parallelism.
+- When you copy data from stores that are not file-based (except [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) connector as source with data partitioning enabled) to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
+- The **parallelCopies** property is orthogonal to **dataIntegrationUnits**. The former is counted across all the Data Integration Units.
+- When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores. Also consider the load increase to the self-hosted integration runtime if the copy activity is empowered by it, for example, for hybrid copy. This load increase happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or the self-hosted integration runtime is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
+
+**Example:**
 
 ```json
 "activities":[
@@ -210,13 +215,6 @@ To control the load on machines that host your data stores, or to tune copy perf
     }
 ]
 ```
-
-**Points to note:**
-
-* When you copy data between file-based stores, **parallelCopies** determines the parallelism at the file level. The chunking within a single file happens underneath automatically and transparently. It's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to **parallelCopies**. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, the copy activity can't take advantage of file-level parallelism.
-* When you copy data from stores that are not file-based (except [Oracle](connector-oracle.md#oracle-as-source), [Teradata](connector-teradata.md#teradata-as-source), [SAP Table](connector-sap-table.md#sap-table-as-source), and [SAP Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) connector as source with data partitioning enabled) to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
-* The **parallelCopies** property is orthogonal to **dataIntegrationUnits**. The former is counted across all the Data Integration Units.
-* When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores. Also consider the load increase to the self-hosted integration runtime if the copy activity is empowered by it, for example, for hybrid copy. This load increase happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or the self-hosted integration runtime is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
 
 ### Staged copy
 
@@ -302,5 +300,5 @@ Here are performance monitoring and tuning references for some of the supported 
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)
-- [Copy activity schema mapping](copy-activity-schema-and-type-mapping.md)
-- [Copy activity fault tolerance](copy-activity-fault-tolerance.md)
+- [Use Azure Data Factory to migrate data from your data lake or data warehouse to Azure](data-migration-guidance-overview.md)
+- [Migrate data from Amazon S3 to Azure Storage](data-migration-guidance-s3-azure-storage.md)

@@ -86,6 +86,9 @@ To create a fine-grained password policy, you use the Active Directory Administr
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
 1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*.
+1. Open the **System** container, then the **Password Settings** container.
+
+    A built-in FGPP for the Azure AD DS managed domain is shown. You can't modify this built-in FGPP. Instead, create a new custom FGPP to override the default FGPP.
 1. In the **Tasks** panel on the right, select **New > Password Settings**.
 1. In the **Create Password Settings** dialog, enter a name for the policy, such as *MyCustomFGPP*. Set the precedence to appropriately to override the default FGPP (which is *200*), such as *1*.
 

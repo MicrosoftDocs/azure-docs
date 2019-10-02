@@ -4,14 +4,14 @@ description: Introduce the steps to troubleshoot the issue in which VM startup i
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
