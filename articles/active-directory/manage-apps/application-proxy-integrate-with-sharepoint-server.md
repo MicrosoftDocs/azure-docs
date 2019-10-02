@@ -172,7 +172,7 @@ To register SPN `HTTP/sharepoint` for the SharePoint application pool account `C
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-The Setspn command searches for the SPN before it adds it. In it already exists, you will see a **Duplicate SPN Value** error. In this case, consider to remove the existing SPN if it's not set under the correct application pool account.  
+The Setspn command searches for the SPN before it adds it. If it already exists, you will see a **Duplicate SPN Value** error. In this case, consider removing the existing SPN if it's not set under the correct application pool account.  
 You can verify that the SPN was added successfully by running the Setspn command with the -L option. To learn more about this command, see [Setspn](https://technet.microsoft.com/library/cc731241.aspx).
 
 ### Ensure that the connector is trusted for delegation to the SPN added to the SharePoint application pool account
