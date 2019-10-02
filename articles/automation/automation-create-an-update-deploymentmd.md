@@ -134,6 +134,10 @@ Next, select the **History** tab and click on the most recent run of your **Upda
 
 To view an update deployment from the REST API, see [Software Update Configuration Runs](/rest/api/automation/softwareupdateconfigurationruns).
 
+After the agent refreshes(?) we see that our machines now have no missing updates.
+
+![No missing updates](./media/automation-create-an-update-deployment/automation-create-deployment-no-missing-updates.png)
+
 ## Clean up resources
 
 ## Next Steps
