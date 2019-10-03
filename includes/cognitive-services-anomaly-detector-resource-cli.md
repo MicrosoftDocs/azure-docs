@@ -7,7 +7,7 @@ ms.date: 06/20/2019
 ---
 
 >[!NOTE]
-> Endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints., see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains) 
+> Endpoints for resources created after July 1, 2019 use the custom subdomain format shown below. For more information and a complete list of regional endpoints., see [Custom subdomain names for Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains). 
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Anomaly Detector using the [Azure portal](../articles/cognitive-services/cognitive-services-apis-create-account.md). You can also:
 
@@ -20,8 +20,6 @@ After creating a resource:
 
 2. Create two [environment variables]():
 
-    * `ANOMALY_DETECTOR_ENDPOINT` - The endpoint for your resource. It will look like this: 
-
-            `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+    * `ANOMALY_DETECTOR_ENDPOINT` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
     * `ANOMALY_DETECTOR_SUBSCRIPTION_KEY` - The subscription key for authenticating your requests.   
