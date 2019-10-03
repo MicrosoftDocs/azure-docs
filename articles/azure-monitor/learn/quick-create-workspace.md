@@ -41,7 +41,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
   
 2. Click **Add**, and then select choices for the following items:
 
-   * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. 
+   * Provide a name for the new **Log Analytics workspace**, such as *DefaultLAWorkspace*. This name must be globally unique across all Azure Monitor subscriptions.
    * Select a **Subscription** to link to by selecting from the drop-down list if the default selected is not appropriate.
    * For **Resource Group**, choose to use an existing resource group already setup or create a new one.  
    * Select an available **Location**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/) and search for Azure Monitor from the **Search for a product** field.  
