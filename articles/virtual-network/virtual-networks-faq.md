@@ -250,7 +250,6 @@ The following resources use Basic Load Balancers which means you cannot communic
 - Logic Apps
 - HDInsight
 -	Azure Batch
-- AKS
 - App Service Environment
 
 You can connect to these resources via ExpressRoute or VNet-to-VNet through VNet Gateways.
