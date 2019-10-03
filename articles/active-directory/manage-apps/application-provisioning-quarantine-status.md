@@ -46,7 +46,7 @@ There are three ways to check whether an application is in quarantine:
 
 ## Why is my application in quarantine?
 
-You can use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to get the status of the provisioning job. The response contains a synchronization status that shows whether the provisioning job is in quarantine. A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
+A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
 
