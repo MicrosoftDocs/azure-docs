@@ -84,8 +84,8 @@ While a few errors may be acceptable, what if your app experiences significant f
 
 There are two pieces required to implement a circuit breaker in an event process:
 
-1. Shared state across all instances to track and monitor health of the circuit
-2. Master process that can manage the circuit state (open or closed)
+- Shared state across all instances to track and monitor health of the circuit
+- Master process that can manage the circuit state (open or closed)
 
 Implementation details may vary, but to share state among instances you need a storage mechanism. You may choose to store state in Azure Storage, a Redis cache, or any other account that is accessible by a collection of functions.
 
@@ -101,9 +101,9 @@ A rule you may choose to implement might enforce that:
 
 The implementation details will vary given your needs, but in general you can create a system that:
 
-- Log failures to a storage account (Azure Storage, Redis, etc.)
-- When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
-- If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
+1. Log failures to a storage account (Azure Storage, Redis, etc.)
+1. When new failure is logged, inspect the rolling count to see if the threshold is met (for example, more than 100 in last 30 seconds).
+1. If the threshold is met, emit an event to Azure Event Grid telling the system to break the circuit.
 
 ### Managing circuit state with Azure Logic Apps
 
