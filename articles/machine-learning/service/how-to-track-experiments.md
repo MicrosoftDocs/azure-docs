@@ -1,7 +1,7 @@
 ---
-title: Log metrics during training runs
-titleSuffix: Azure Machine Learning service
-description: You can track your experiments and monitor metrics to enhance the model creation process. Learn how to add logging to your training script, how to submit the experiment, how to check the progress of a running job, and how to view the logged results of a run.  
+title: Log ML experiments & metrics
+titleSuffix: Azure Machine Learning
+description: Monitor your Azure ML experiments and monitor run metrics to enhance the model creation process. Add logging to your training script and view the logged results of a run.  Use run.log, Run.start_logging, or ScriptRunConfig.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -10,17 +10,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/11/2019
+ms.date: 09/11/2019
 
 ms.custom: seodec18
 ---
 
-# Track machine learning training metrics with Azure Machine Learning
+# Monitor Azure ML experiment runs and metrics
 
-Enhance the model creation process by tracking your experiments and monitoring metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning service.
+Enhance the model creation process by tracking your experiments and monitoring run metrics. In this article, learn how to add logging code to your training script, submit an experiment run, monitor that run, and inspect the results in Azure Machine Learning.
 
 > [!NOTE]
-> Azure Machine Learning service may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
+> Azure Machine Learning may also log information from other sources during training, such as automated machine learning runs, or the Docker container that runs the training job. These logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
 
 ## Available metrics to track
 
@@ -61,7 +61,7 @@ Before adding logging and submitting an experiment, you must set up the workspac
 
 **start_logging** creates an interactive run for use in scenarios such as notebooks. Any metrics that are logged during the session are added to the run record in the experiment.
 
-The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
+The following example trains a simple sklearn Ridge model locally in a local Jupyter notebook. To learn more about submitting experiments to different environments, see [Set up compute targets for model training with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-set-up-training-targets).
 
 1. Create a training script in a local Jupyter notebook. 
 
@@ -87,7 +87,7 @@ The following example trains a simple sklearn Ridge model locally in a local Jup
    joblib.dump(value = reg, filename = 'model.pkl');
    ```
 
-2. Add experiment tracking using the Azure Machine Learning service SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
+2. Add experiment tracking using the Azure Machine Learning SDK, and upload a persisted model into the experiment run record. The following code adds tags, logs, and uploads a model file to the experiment run.
 
    ```python
     # Get an experiment object from Azure Machine Learning

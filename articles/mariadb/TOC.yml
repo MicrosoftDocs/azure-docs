@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MariaDB?
     href: overview.md
+  - name: Which MariaDB option should I choose?
+    href: select-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
@@ -151,7 +153,7 @@
       href: howto-data-in-replication.md
     - name: Create read replicas Azure portal
       href: howto-read-replicas-portal.md
-    - name: Create read replicas Azure CLI
+    - name: Create read replicas Azure CLI, REST API
       href: howto-read-replicas-cli.md
   - name: Troubleshoot
     items:
@@ -183,8 +185,8 @@
     href: /rest/api/mariadb
   - name: Resource Manager template
     href: /azure/templates/microsoft.dbformariadb/allversions
-  - name: Data-in replication stored procedures
-    href: reference-data-in-stored-procedures.md
+  - name: Azure stored procedures
+    href: reference-stored-procedures.md
 - name: Resources
   items:
   - name: Deployment templates

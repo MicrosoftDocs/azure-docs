@@ -304,6 +304,8 @@ The firewall log is generated only if you have enabled it for each application g
 |details.data     | Specific data found in request that matched the rule.         |
 |details.file     | Configuration file that contained the rule.        |
 |details.line     | Line number in the configuration file that triggered the event.       |
+|hostname   | Hostname or IP address of the Application Gateway.    |
+|transactionId  | Unique ID for a given transaction which helps group multiple rule violations that occurred within the same request.   |
 
 ```json
 {
@@ -328,6 +330,8 @@ The firewall log is generated only if you have enabled it for each application g
       "file": "rules/REQUEST-941-APPLICATION-ATTACK-XSS.conf",
       "line": "865"
     }
+    "hostname": "40.90.218.100", 
+    "transactionId": "AYAcUqAcAcAcAcAcASAcAcAc"
   }
 } 
 

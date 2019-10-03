@@ -14,6 +14,7 @@ This table shows the bindings that are supported in the two major versions of th
 | [Event Grid](../articles/azure-functions/functions-bindings-event-grid.md)              |✔|✔|✔| | |
 | [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md)              |✔|✔|✔| |✔|
 | [HTTP & webhooks](../articles/azure-functions/functions-bindings-http-webhook.md)             |✔|✔|✔| |✔|
+| [IoT Hub](../articles/azure-functions/functions-bindings-event-iot.md)             |✔|✔|✔| |✔|
 | [Microsoft Graph<br/>Excel tables](../articles/azure-functions/functions-bindings-microsoft-graph.md)   ||✔| |✔|✔|
 | [Microsoft Graph<br/>OneDrive files](../articles/azure-functions/functions-bindings-microsoft-graph.md) ||✔| |✔|✔|
 | [Microsoft Graph<br/>Outlook email](../articles/azure-functions/functions-bindings-microsoft-graph.md)  ||✔| | |✔|

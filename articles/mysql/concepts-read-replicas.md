@@ -150,4 +150,4 @@ The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-va
 ## Next steps
 
 - Learn how to [create and manage read replicas using the Azure portal](howto-read-replicas-portal.md)
-- Learn how to [create and manage read replicas using the Azure CLI](howto-read-replicas-cli.md)
+- Learn how to [create and manage read replicas using the Azure CLI and REST API](howto-read-replicas-cli.md)
