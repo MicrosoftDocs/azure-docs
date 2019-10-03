@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/03/2019
 ms.author: diberry
 ---
 # What's new in Language Understanding
