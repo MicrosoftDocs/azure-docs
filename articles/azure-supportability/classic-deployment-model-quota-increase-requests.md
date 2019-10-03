@@ -12,11 +12,15 @@ ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
 
 # Classic Deployment Model
 
-Classic deployment model is the older generation Azure deployment mode land enforces a global vCPU quota limit for virtual machines and virtual machine scale sets. Classic deployment model is not recommended anymore and is now superseded by Resource Manager model. To learn more about these two deployment models and advantage of Resource Manager refer to Resource Manager Deployment Model page. 
-When a new subscription is created, a default quota of vCPUs is assigned to it. Anytime a new VM is to be deployed using Classic deployment model, the sum of new and existing vCPUs usage across all regions must not exceed the vCPU quota approved for the Classic deployment model. 
-Learn more about quotas on [Azure subscription and service limits page](https://aka.ms/quotalimits)
+The Classic deployment model is the older generation Azure deployment model. It enforces a global vCPU quota limit for virtual machines and virtual machine scale sets. The Classic deployment model is no longer recommended, and is now superseded by the Resource Manager model. 
 
-You can request an increase in vCPUs limit for Classic deployment model via Help + Support blade or the Usages + Quota blade in the portal.
+To learn more about these two deployment models and the advantages of using Resource Manager, refer to the [Resource Manager and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) page.
+ 
+When a new subscription is created, a default quota of vCPUs is assigned to it. Anytime a new VM is to be deployed using the Classic deployment model, the sum of new and existing vCPU usage across all regions must not exceed the vCPU quota approved for the Classic deployment model.
+ 
+Learn more about quotas on the [Azure subscription and service limits](https://aka.ms/quotalimits) page.
+
+You can request an increase in the vCPU quota limit for the Classic deployment model via the 'Help + Support' blade or the 'Usages + Quota' blade in the portal.
 
 ## Request per VM Series vCPU quota increase at subscription level using the **Help + Support** blade
 

@@ -148,12 +148,6 @@ Examples of valid suppression rules:
 
 #### What are recommended guidelines for managing secrets?
 
-It's helpful to detect hard-coded secrets quickly and to mitigate the risks. But preventing secrets from getting checked in at all is even better.
-
-To help in this regard, Microsoft has released an early preview of Credential Scanner Code Analyzer as part of the [Microsoft DevLabs extension](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) for Visual Studio. The analyzer is an early-preview release. It gives developers an inline experience for detecting potential secrets in their code. By doing so, the analyzer also gives developers the chance to fix those issues in real time.
-
-For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
-
 The following resources help you securely manage secrets and access sensitive information from within your applications:
 
  - [Azure Key Vault](../../key-vault/index.yml)
@@ -162,6 +156,9 @@ The following resources help you securely manage secrets and access sensitive in
  - [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Managed identities in Azure App Service and Azure Functions](../../app-service/overview-managed-identity.md)
  - [AppAuthentication library](../../key-vault/service-to-service-authentication.md)
+
+
+For more information, see the blog post [Managing Secrets Securely in the Cloud](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
 #### Can I write my own custom searchers?
 
