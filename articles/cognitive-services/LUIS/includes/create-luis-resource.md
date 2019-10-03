@@ -27,4 +27,4 @@ ms.author: dapine
 1. Click **Create** and wait for the resource to be created. After it is created, navigate to the resource page.
 1. Collect configured `endpoint` and an API key, see [gathering required parameters](#gathering-required-parameters).
 
-[Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)
+[!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
