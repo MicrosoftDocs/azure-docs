@@ -7,12 +7,7 @@
  manager: bertvanhoof
  ms.service: digital-twins
  ms.topic: include
-<<<<<<< HEAD
  ms.date: 10/03/2019
- ms.author: alinast
-=======
- ms.date: 08/16/2019
->>>>>>> c93177cead6b823a663371bbd53ae125a199e0d3
  ms.custom: include file
 ---
 
