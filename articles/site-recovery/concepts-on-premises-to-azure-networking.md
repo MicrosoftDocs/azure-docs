@@ -119,6 +119,7 @@ In order to retain the addresses, here's what they do.
 6. On-premises, Woodgrove needs to make network changes, including modifying routes to reflect that 192.168.1.0/24 has moved to Azure.  
 
 **Infrastructure before failover**
+
 ![Before subnet failover](./media/site-recovery-network-design/network-design7.png)
 
 
