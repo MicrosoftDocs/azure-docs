@@ -240,6 +240,8 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Quarantine status
+          href: application-provisioning-quarantine-status.md
         - name: Sync an attribute for mapping - gallery app
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Taking hours - gallery app
