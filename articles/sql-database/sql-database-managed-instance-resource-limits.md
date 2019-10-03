@@ -80,6 +80,17 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 > You can create another readable replica in different Azure region using Auto-failover groups.
 > - Max instance IOPS depend on the file layout and distribution of workload. As an example, if you create 7 x 1GB files with max 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some amount of IOPS is also used for auto-backups.
 
+### File IO characteristics in General Purpose tier
+
+In General Purpose tier all database files are getting dedicated IOPS and throughput that depends on the file size. Bigger files are getting more IOPS and throughput that they can use. IO characteristics of the database files are shown in the following table:
+
+| File size           | 0 - 128 GiB | 128 - 256 GiB | 256 - 512 GiB | 0.5 - 1 TiB    | 1 - 2 TiB    | 2 - 4 TiB | 4 - 8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12,500   |
+| Throughput per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+
+If you notice high IO latency on some database file or you see that IOPS/throughput is reaching the limit, you might improve performance by increasing the file size.
+
 > [!NOTE]
 > Find more information about the [resource limits in managed instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
 
