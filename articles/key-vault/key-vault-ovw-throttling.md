@@ -112,9 +112,10 @@ Code that implements exponential backoff is shown below.
 Using this code in a client C\# application is straightforward. The following example shows how, using the HttpClient class.
 
 ```csharp
-public async Task<Cart> GetCartItems(int page)
+public async Task<Cart> GetCartItemsAsync(string catalogUrl)
 {
     _apiClient = new HttpClient();
+    
     //
     // Using HttpClient with Retry and Exponential Backoff
     //
@@ -124,6 +125,7 @@ public async Task<Cart> GetCartItems(int page)
         // work with HttpClient call
         dataString = await _apiClient.GetStringAsync(catalogUrl);
     });
+
     return JsonConvert.DeserializeObject<Cart>(dataString);
 }
 ```
