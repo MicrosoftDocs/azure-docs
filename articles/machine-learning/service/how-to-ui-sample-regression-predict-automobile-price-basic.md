@@ -1,5 +1,5 @@
 ---
-title: "Visual interface example #1: regression to predict price"
+title: "Designer example #1: regression to predict price"
 titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model to predict an automobile's price without writing a single line of code.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Sample 1 - Regression: Predict price
 
-Learn how to build a machine learning regression model without writing a single line of code using the visual interface.
+Learn how to build a machine learning regression model without writing a single line of code using the designer.
 
 This experiment trains a **decision forest regressor** to predict a car's price based on technical features such as make, model, horsepower, and size. Because you're trying to answer the question "How much?" this is called a regression problem. However, you can apply the same fundamental steps in this example to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
@@ -43,7 +43,7 @@ This sample uses the **Automobile price data (Raw)** dataset, which is from the 
 
 ## Pre-process the data
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the visual interface, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. Then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
@@ -77,7 +77,7 @@ Pass the scores to the **Evaluate Model** module to generate evaluation metrics.
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
 - [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)

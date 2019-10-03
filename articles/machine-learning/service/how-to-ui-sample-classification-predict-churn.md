@@ -1,7 +1,7 @@
 ---
-title: "Visual interface example #5: Classification to predict churn + appetency + up-selling"
+title: "Designer example #5: Classification to predict churn + appetency + up-selling"
 titleSuffix: Azure Machine Learning
-description: This visual interface sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: This designer sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,9 +14,9 @@ ms.date: 05/10/2019
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
 
-Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface.
+Learn how to build a complex machine learning experiment without writing a single line of code using the designer.
 
-This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the visual interface to combine data sets and train a model using the scrambled values.
+This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the scrambled values.
 
 Because you're trying to answer the question "Which one?" this is called a classification problem, but you can apply the same logic in this project to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
@@ -38,7 +38,7 @@ The data for this experiment is from KDD Cup 2009. It has 50,000 rows and 230 fe
 
 ## Experiment summary
 
-This visual interface sample experiment shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
+This sample experiment in the designer shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
 
 First, do some simple data processing.
 
@@ -68,7 +68,7 @@ Visualize the output of the **Evaluate Model** module to see the performance of 
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)

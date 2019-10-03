@@ -85,21 +85,27 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Deploy applications to Azure AD DS
+    - name: Deploy applications
       items:
         - name: Deploy Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
         - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
-      items:
+      items: 
         - name: Common errors
           href: troubleshoot.md
-        - name: Mismatched tenant errors
+        - name: Domain-join issues
+          href: troubleshoot-domain-join.md
+        - name: Account lockouts
+          href: troubleshoot-account-lockout.md
+        - name: Sign-in problems
+          href: troubleshoot-sign-in.md
+        - name: Resolve mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains
           href: suspension.md
-        - name: Secure LDAP
+        - name: Secure LDAP issues
           href: tshoot-ldaps.md
         - name: Known issues
           items:

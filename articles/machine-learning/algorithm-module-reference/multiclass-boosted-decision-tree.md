@@ -15,7 +15,7 @@ ROBOTS: NOINDEX
 
 # Multiclass Boosted Decision Tree
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a machine learning model that is based on the boosted decision trees algorithm.
 

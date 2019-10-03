@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 ---
 # Train Clustering Model
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to train a clustering model.
 

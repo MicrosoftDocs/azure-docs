@@ -34,7 +34,7 @@ The diagram shows the following components of a workspace:
 + [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
     + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
     + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal or your workspace landing page (preview).
-    + The [visual interface (preview)](ui-concept-visual-interface.md).
+    + The [designer](ui-concept-visual-interface.md).
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
@@ -47,7 +47,7 @@ You can interact with your workspace in the following ways:
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com)
     + [Azure Machine Learning designer](ui-concept-visual-interface.md)
-+ In aany Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 

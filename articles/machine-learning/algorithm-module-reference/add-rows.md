@@ -14,7 +14,7 @@ ms.date: 05/02/2019
 
 # Add Rows module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to concatenate two datasets. In concatenation, the rows of the second dataset are added to the end of the first dataset.  
   

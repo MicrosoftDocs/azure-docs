@@ -13,7 +13,7 @@ ms.date: 09/01/2019
 ---
 # Extract N-Gram Features from Text module reference
 
-This article describes a module of the visual interface (preview) for the Azure Machine Learning service. Use the Extract N-Gram Features from Text module to *featurize* unstructured text data. 
+This article describes a module in Azure Machine Learning designer. Use the Extract N-Gram Features from Text module to *featurize* unstructured text data. 
 
 ## Configuration of the Extract N-Gram Features from Text module
 

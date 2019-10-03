@@ -25,7 +25,7 @@ Learn about the architecture, concepts, and workflow for Azure Machine Learning.
 The machine learning model workflow generally follows this sequence:
 
 1. **Train**
-    + Develop machine learning training scripts in **Python** or with the visual interface.
+    + Develop machine learning training scripts in **Python** or with the visual designer.
     + Create and configure a **compute target**.
     + **Submit the scripts** to the configured compute target to run in that environment. During training, the scripts can read from or write to **datastore**. And the records of execution are saved as **runs** in the **workspace** and grouped under **experiments**.
 
@@ -45,7 +45,7 @@ Use these tools for Azure Machine Learning:
 + Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use the [visual interface (preview) for Azure Machine Learning](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
 
 
 > [!NOTE]

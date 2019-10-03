@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Deploy a machine learning model with the visual interface'
+title: 'Tutorial: Deploy a machine learning model with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a predictive analytics solution in Azure Machine Learning's visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
+description: Learn how to build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
 ms.author: peterlu
@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ---
 
-# Tutorial: Deploy a machine learning model with the visual interface
+# Tutorial: Deploy a machine learning model with the designer
 
 To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as an Azure web service. So far, you've been experimenting with training your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
@@ -25,7 +25,7 @@ To give others a chance to use the predictive model developed in [part one of th
 
 ## Prerequisites
 
-Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the visual interface.
+Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
 ## Prepare for deployment
 
@@ -61,7 +61,7 @@ Your experiment should now look like this:
 
 1. Select the **Compute Target** that you'd like to run your web service.
 
-    Currently, the visual interface only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
+    Currently, the designer only supports deployment to Azure Kubernetes Service (AKS) compute targets. You can choose from available AKS compute targets in your machine learning service workspace or configure a new AKS environment using the steps in the dialogue that appears.
 
     ![Screenshot showing a possible configuration for a new compute target](./media/ui-tutorial-automobile-price-deploy/deploy-compute.png)
 
@@ -71,7 +71,7 @@ Your experiment should now look like this:
 
 ## Test the web service
 
-You can test and manage your visual interface web services by navigating to the **Web Services** tab.
+You can test and manage your web services in the designer by navigating to the **Web Services** tab.
 
 1. Go to the web service section. You'll see the web service you deployed with the name **Tutorial - Predict Automobile Price[Predictive Exp]**.
 
@@ -101,7 +101,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 ## Manage models and deployments
 
-The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning workspace.
+The models and web service deployments you create in the designer can also be managed from the Azure Machine Learning workspace.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
@@ -123,7 +123,7 @@ You can also find these models and deployments in the **Models** and **Endpoints
 
 ## Next steps
 
-In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample experiments.
+In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see out our other sample experiments.
 
 > [!div class="nextstepaction"]
 > [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

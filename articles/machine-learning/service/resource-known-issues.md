@@ -17,9 +17,9 @@ ms.custom: seodec18
 
 This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
-## Visual interface issues
+## Azure Machine Learning designer issues
 
-Visual interface for machine learning service issues.
+Known issues with the designer.
 
 ### Long compute preparation time
 
