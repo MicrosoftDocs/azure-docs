@@ -50,11 +50,12 @@ Indexer read the document from the data source, but there was an issue convertin
 | Could not read field value | Could not read the value of column `'fieldName'` at index `'fieldIndex'`. A transport-level error has occurred when receiving results from the server. (provider: TCP Provider, error: 0 - An existing connection was forcibly closed by the remote host.) | These errors are typically due to unexpected connectivity issues with the data source's underlying service. Try running the document through your indexer again later. |
 
 ### Could not index document
-Indexer read and processed the document but failed to add the data to the search index. This can happen due to:
+The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
 
 | Reason | Example | Action |
 | --- | --- | --- |
-| A field contains a term that is too large | A term in your document is larger than the [32KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| A field contains a term that is too large | A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| Document is too large to be indexed | A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | [How to index large data sets](search-howto-large-index)
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
