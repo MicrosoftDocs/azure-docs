@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
 ---
 # Deploy a Windows 7 virtual machine on Windows Virtual Desktop
@@ -44,11 +44,9 @@ To set up a Windows 7 VM on Windows Virtual Desktop:
 14. Open the Windows Virtual Desktop Agent installer and follow the instructions. When prompted, give the registration key you created in step 11.
 15. Open the Windows Virtual Desktop installer and follow the instructions.
 16. Optionally, block the TCP/3389 port to remove direct Remote Desktop Protocol access to the VM.
-17. [Download the latest version of the Windows Virtual Desktop client](https://aka.ms/wvd/clients/windows).
-
-Your Windows Virtual Desktop deployment is now ready to go. Open the client to start using Windows Virtual Desktop.
 
 ## Next steps
 
-For a list of known issues and troubleshooting instructions for Windows 7 on Windows Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
+Your Windows Virtual Desktop deployment is now ready to use. [Download the latest version of the Windows Virtual Desktop client](https://aka.ms/wvd/clients/windows) to get started.
 
+For a list of known issues and troubleshooting instructions for Windows 7 on Windows Virtual Desktop, see our troubleshooting article at [Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
