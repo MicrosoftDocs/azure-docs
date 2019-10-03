@@ -26,18 +26,18 @@ ms.author: jeconnoc
 
 | az spring-cloud app | Commands to manage apps in the Azure Spring Cloud.  |
 | ---- | ----: |
-| az spring-cloud app create | Create a new app with a default deployment in the Azure Spring Cloud. |
-| az spring-cloud app delete | Deleate an app in the Azure Spring Cloud. | 
-| az spring-cloud app deploy | Deploy from source code or a pre-built binary to an app and update related configurations. |
-| az spring-cloud app list | List all apps in the Azure Spring Cloud. |
-| az spring-cloud app restart | Restart instances of the app using production deployment defaults. | 
-| az spring-cloud app scale | Manually scale an app or its deployments. | 
-| az spring-cloud app set-deployment | Set production deployment of an app. |
-| az spring-cloud app show | Show the details of an app in the Azure Spring Cloud. |
-| az spring-cloud app show-deploy-log | Show build logs for the latest deployment from source using production deployment defaults. |
-| az spring-cloud app start | Start instances of the app using production deployment defaults. |
-| az spring-cloud app stop | Stop instances of the app using production deployment defaults. |
-| az spring-cloud app update | Update the specified app's configuration. |
+| [az spring-cloud app create](#az-spring-cloud-app-create) | Create a new app with a default deployment in the Azure Spring Cloud. |
+| [az spring-cloud app delete](#az-spring-cloud-app-delete) | Deleate an app in the Azure Spring Cloud. | 
+| [az spring-cloud app deploy](#az-spring-cloud-app-deploy) | Deploy from source code or a pre-built binary to an app and update related configurations. |
+| [az spring-cloud app list](#az-spring-cloud-app-list) | List all apps in the Azure Spring Cloud. |
+| [az spring-cloud app restart](#az-spring-cloud-app-restart) | Restart instances of the app using production deployment defaults. | 
+| [az spring-cloud app scale](#az-spring-cloud-app-scale) | Manually scale an app or its deployments. | 
+| [az spring-cloud app set-deployment](#az-spring-cloud-app-set-deployment) | Set production deployment of an app. |
+| [az spring-cloud app show](#az-spring-cloud-app-show) | Show the details of an app in the Azure Spring Cloud. |
+| [az spring-cloud app show-deploy-log](#az-spring-cloud-app-deploy-log) | Show build logs for the latest deployment from source using production deployment defaults. |
+| [az spring-cloud app start](#az-spring-cloud-app-start) | Start instances of the app using production deployment defaults. |
+| [az spring-cloud app stop](#az-spring-cloud-app-stop) | Stop instances of the app using production deployment defaults. |
+| [az spring-cloud app update](#az-spring-cloud-app-update) | Update the specified app's configuration. |
 
 | az spring-cloud app binding | Commands to manage bindings with Azure Data Services.  The app must be restarted before these settings take effect. |
 | --- | ---: |
@@ -244,3 +244,116 @@ az spring cloud app deploy  --name -n
 | --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
 | --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
+| Optional Parameters | |
+| --- | ---: |
+| --cpu | Number of virtual CPI cores per instance. |
+| --deployment -d | Name of an existing app deployment.  Defaults to the production deployment if not specified. |
+| --env | Space-separated environment variables in 'key[=value]' format. |
+| --instance-count | Number of instances. |
+| --jar-path | If provided, deploy jar from given path. Otherwise, deploy current folder as a tar. |
+| --jvm-options | A string containing JVM options.  Use '=' instead of ' ' to avoid shell parsing errors. E.g.,  `--jvm-options='-Xms1024m -Xmx2048m`. |
+| --memory | Number of GB of memory per instance. |
+| --no-wait | Do not wait for long running operations to finish. |
+| --runtime-version | Runtime version of the language used in the app.  Allowed values: `Java_11`, `Java_8`. |
+| --target-module | Child module to be deployed.  Required when multiple jar packages are built from the source code. |
+| --version | Deployment version.  Unchanged if not set. |
+
+### Examples
+
+Deploy source code to an app. This will pack the current directory, build a binary using the Pivotal Build Service, and then deploy to the app.
+
+```cli
+az spring-cloud app deploy -n MyApp -s MyService
+```
+
+Deploy a pre-built jar to an app using JVM options and environment variables.
+
+```cli
+az spring-cloud app deploy -n MyApp -s MyService --jar-path app.jar --jvm-options="-XX:+UseG1GC -XX:+UseStringDeduplication" --env foo=bar
+```
+
+Deploy source code to a specific deployment of an app.
+```cli
+az spring-cloud app deploy -n MyApp -s Myspring-cloud -d green-deployment
+```
+
+## az spring-cloud app list
+
+List all apps in the Azure Spring Cloud instance.
+
+```cli
+az spring-cloud app list --resource-group -g
+                         --service -s
+```
+
+|Required Parameters | |
+| --- | ---: |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
+
+## az spring-cloud app restart
+
+Restart instances of the app.  Defaults to the production deployment.
+
+```cli
+az spring-cloud app restart --name -n
+                            --resource-group -g
+                            --service -s
+                            --deployment -d
+                            --no-wait
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the app. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
+
+| Optional Parameters | |
+| --- | ---: |
+| --deployment -d | Name of the existing deployment of the app.  Defaults to the production deployment if not specified. |
+| --no-wait | Do not wait for long running operations to finish. |
+
+## az spring-cloud app scale 
+
+Manually scale an app or its deployments.
+
+```cli
+az spring-cloud app scale --name -n
+                          --resource-group -g
+                          --service -s
+                          --cpu
+                          --deployment -d
+                          --instance-count
+                          --memory
+                          --no-wait
+```
+
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the app. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
+
+| Optional Parameters | |
+| --- | ---: |
+| --cpu | Number of virtual CPU cores per app instance. |
+| --deployment -d | Name of the existing deployment of the app.  Defaults to the production deployment if not specified. |
+| --instance-count | Number of instances of this app. |
+| --memory | Number of GB of memory per app instance. |
+| --no-wait | Do not wait for long-running operations to finish. |
+
+### Examples
+
+Scale up an app to 4 CPU cores and 8 GB of memory per instance. 
+
+```cli
+az spring-cloud app scale -n MyApp -s MyService --cpu 3 --memory 8
+```
+
+Scale out a deployment of the app to 5 instances.
+
+```cli
+az spring-cloud app scale -n MyApp -s MyService -d green-deployment --instance-count 5
+```
