@@ -1,7 +1,7 @@
 ---
-title: "Visual interface example #6: Classification to predict  flight delays"
+title: "Designer example #6: Classification to predict  flight delays"
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a machine learning model to predict flight delays using the drag-and-drop visual interface and custom R code.
+description: This article shows you how to build a machine learning model to predict flight delays using the drag-and-drop designer and custom R code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -32,14 +32,14 @@ Here's the final experiment graph for this sample:
 
 ## Get the data
 
-This experiment uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October  2013. Before uploading the data to the visual interface, it has been pre-processed as follows:
+This experiment uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October  2013. Before uploading the data to the designer, it has been pre-processed as follows:
 
 * Filtered to include the 70 busiest airports in the continental United States.
 * For canceled flights, relabeled as delayed by more than 15 mins.
 * Filtered out diverted flights.
 * Selected 14 columns.
 
-To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period of April-October 2013. Before uploading to Azure ML visual interface, it has been pre-processed as  follows:
+To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period of April-October 2013. Before uploading to the designer, it has been pre-processed as follows:
 
 * Weather station IDs were mapped to corresponding airport IDs.
 * Weather stations not associated with the 70 busiest airports were removed.
@@ -114,7 +114,7 @@ The logistic regression model has AUC of 0.631 on the test set.
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)

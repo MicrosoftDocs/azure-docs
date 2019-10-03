@@ -1,7 +1,7 @@
 ---
-title: "Visual interface example #4: Classification to predict  credit risk (cost sensitive)"
+title: "Designer example #4: Classification to predict  credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+description: This article shows you how to build a complex machine learning experiment using the designer. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
 
-This article shows you how to build a complex machine learning experiment using the visual interface. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
+This article shows you how to build a complex machine learning experiment using the designer. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
@@ -153,7 +153,7 @@ From these results, you can see that the best accuracy is provided by the model 
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)

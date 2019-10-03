@@ -26,7 +26,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 Azure Machine Learning provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 Explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ A [visual interface](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
++ The [designer](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
 + [Jupyter notebooks](https://jupyter.org) in which you use the [Python SDK](https://docs.microsoft.com/azure/machine-learning) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
 + R scripts or notebooks in which you use the [R SDK](https://github.com/Azure/azureml-sdk-for-r) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
@@ -42,11 +42,11 @@ Learn how to [upgrade your workspace from Basic to Enterprise SKU](concept-works
 
 ## What can I do with Azure Machine Learning?
 
-Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
+Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
-Whether you write code or use the visual interface, you can track multiple runs as you experiment to find the best solution as well as manage the deployed models.
+Whether you write code or use the designer, you can track multiple runs as you experiment to find the best solution as well as manage the deployed models.
 
 ### Code-first experience
 
@@ -59,8 +59,8 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 For code-free training, try:
 
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
-+ The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).
-  ![Visual interface for Azure Machine Learning](media/overview-what-is-azure-ml/visual-interface.png)
++ The [drag-n-drop experimenting in the designer](ui-tutorial-automobile-price-train-score.md).
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/visual-interface.png)
 
 ### Operationalization (MLOps)
 
@@ -83,22 +83,22 @@ To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
 [Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
-Azure Machine Learning provides both SDKs **-and-** a visual interface(preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning.
+Azure Machine Learning provides both SDKs **-and-** the designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio | Azure Machine Learning:<br/>Visual interface|
+|| Machine Learning Studio | Azure Machine Learning:<br/>The designer|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal /workspace landing page.) |
+|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal /workspace landing page.) |
 
-Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
+Try out the designer with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
-> Models created in Studio can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning workspace.
+> Models created in Studio can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 ## Free trial
 
