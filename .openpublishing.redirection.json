@@ -14421,6 +14421,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
@@ -14629,6 +14639,31 @@
       "source_path": "articles/cognitive-services/Bing-Custom-Search/supported-countries-markets.md",
       "redirect_url": "/azure/cognitive-services/Bing-Custom-Search/language-support",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/paging-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/page-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/paging-news.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/paging-videos.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/paging-images.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-supported-languages.md",
