@@ -40,7 +40,7 @@ You will also need to install the [Azure App Service extension](vscode:extension
 
 Once the extension is installed, log into your Azure account. In the Activity Bar, select on the Azure logo to show the **AZURE APP SERVICE** explorer. Select **Sign in to Azure...** and follow the instructions.
 
-![sign in to Azure](./media/quickstart-nodejs/sign-in.png)
+![sign in to Azure](containers/media/quickstart-nodejs/sign-in.png)
 
 ### Troubleshooting
 
@@ -96,7 +96,7 @@ npm start
 
 Now, open your browser and navigate to [http://localhost:3000](http://localhost:3000), where you should see something like this:
 
-![Running Express Application](./media/quickstart-nodejs/express.png)
+![Running Express Application](containers/media/quickstart-nodejs/express.png)
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=create-app)
@@ -115,7 +115,7 @@ code .
 
 In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy your app to Azure.
 
-![Deploy to Web App](./media/quickstart-nodejs/deploy.png)
+![Deploy to Web App](containers/media/quickstart-nodejs/deploy.png)
 
 > [!TIP]
 > You can also deploy from the **Command Palette** (CTRL + SHIFT + P) by typing 'deploy to web app' and running the **Azure App Service: Deploy to Web App** command.
@@ -142,11 +142,11 @@ In the **AZURE APP SERVICE** explorer, select the blue up arrow icon to deploy y
 
 1. Select **Yes** when prompted to update your configuration to run `npm install` on the target server. Your app is then deployed.
 
-    ![Configured deployment](./media/quickstart-nodejs/server-build.png)
+    ![Configured deployment](containers/media/quickstart-nodejs/server-build.png)
 
 1. When the deployment starts, you're prompted to update your workspace so that later deployments will automatically target the same App Service Web App. Choose **Yes** to ensure your changes are deployed to the correct app.
 
-    ![Configured deployment](./media/quickstart-nodejs/save-configuration.png)
+    ![Configured deployment](containers/media/quickstart-nodejs/save-configuration.png)
 
 > [!TIP]
 > Be sure that your application is listening on the port provided by the PORT environment variable: `process.env.PORT`.
@@ -174,9 +174,9 @@ Find the app in the **AZURE APP SERVICE** explorer, right-click the app, and cho
 
 When prompted, choose to enable logging and restart the application. Once the app is restarted, the VS Code output window opens with a connection to the log stream.
 
-![View Streaming Logs](./media/quickstart-nodejs/view-logs.png)
+![View Streaming Logs](containers/media/quickstart-nodejs/view-logs.png)
 
-![Enable Logging and Restart](./media/quickstart-nodejs/enable-restart.png)
+![Enable Logging and Restart](containers/media/quickstart-nodejs/enable-restart.png)
 
 After a few seconds, you'll see a message indicating that you're connected to the log-streaming service. Refresh the page a few times to see more activity.
 
