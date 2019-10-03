@@ -71,7 +71,7 @@ This step involves downloading Azure configuration and setting up connectivity f
   * If Azure VNets are attached to the virtual hub, they will appear as ConnectedSubnets.
   * VPN connectivity uses route-based configuration and supports both IKEv1, and IKEv2 protocols.
 
-## <a name="devicefile"></a>About the device configuration file
+## <a name="devicefile"></a>Device configuration file
 
 The device configuration file contains the settings to use when configuring your on-premises VPN device. When you view this file, notice the following information:
 
@@ -201,7 +201,7 @@ The device configuration file contains the settings to use when configuring your
    }
   ```
 
-## <a name="default"></a>About connectivity
+## <a name="default"></a>Connectivity details
 
 Your on-premises SDWAN/VPN device or SD-WAN configuration must match or contain the following algorithms and parameters, which you specify in the Azure IPsec/IKE policy.
 
