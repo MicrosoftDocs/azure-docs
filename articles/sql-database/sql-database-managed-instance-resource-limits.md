@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
+ms.date: 10/02/2019
 ---
 # Overview Azure SQL Database managed instance resource limits
 
@@ -41,18 +41,18 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 
 #### In-memory OLTP available space 
 
-The amount of In-memory OLTP space depends on the number of vCores and hardware generation. In the following table are listed limits of memory that can be used for In-memory OLTP objects.
+The amount of In-memory OLTP space in [Business Critical](sql-database-service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. In the following table are listed limits of memory that can be used for In-memory OLTP objects.
 
-| In-memory OLTP space per vCore	| **Gen5** | **Gen4** |
+| In-memory OLTP space	| **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4	| 3.14 GB | |	
-| 8	| 6.28 GB | 8 GB |
-| 16	| 15.77	GB | 20 GB |
-| 24	| 25.25	GB | 36 GB |
-| 32	| 37.94	GB | |
-| 40	| 52.23	GB | |
-| 64	| 99.9 GB	| |
-| 80	| 131.68	GB| |
+| 4 vCores	| 3.14 GB | |	
+| 8 vCores	| 6.28 GB | 8 GB |
+| 16	vCores | 15.77	GB | 20 GB |
+| 24	vCores | 25.25	GB | 36 GB |
+| 32	vCores | 37.94	GB | |
+| 40	vCores | 52.23	GB | |
+| 64	vCores | 99.9 GB	| |
+| 80	vCores | 131.68	GB| |
 
 ### Service tier characteristics
 
