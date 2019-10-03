@@ -24,9 +24,8 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 ## Install the data libraries
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
-pip install adal
-pip install msrestazure
 pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
@@ -39,8 +38,7 @@ Sets a retention policy with a 10 day soft-delete period.
 ```python
 from azure.mgmt.kusto import KustoManagementClient
 from azure.mgmt.kusto.models import DatabaseUpdate
-from adal import AuthenticationContext
-from msrestazure.azure_active_directory import AdalAuthentication
+from azure.common.credentials import ServicePrincipalCredentials
 import datetime
 
 #Directory (tenant) ID
@@ -50,11 +48,11 @@ client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Client Secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                        resource="https://management.core.windows.net/",
-                                        client_id=client_id,
-                                        client_secret=client_secret)
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";
@@ -73,8 +71,7 @@ Sets a cache policy for the database that the last five days of data and indexes
 ```python
 from azure.mgmt.kusto import KustoManagementClient
 from azure.mgmt.kusto.models import DatabaseUpdate
-from adal import AuthenticationContext
-from msrestazure.azure_active_directory import AdalAuthentication
+from azure.common.credentials import ServicePrincipalCredentials
 import datetime
 
 #Directory (tenant) ID
@@ -84,11 +81,11 @@ client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Client Secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                        resource="https://management.core.windows.net/",
-                                        client_id=client_id,
-                                        client_secret=client_secret)
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";
@@ -132,8 +129,7 @@ Add a new Azure AD application as admin principal for the database
 ```python
 from azure.mgmt.kusto import KustoManagementClient
 from azure.mgmt.kusto.models import DatabasePrincipal
-from adal import AuthenticationContext
-from msrestazure.azure_active_directory import AdalAuthentication
+from azure.common.credentials import ServicePrincipalCredentials
 
 #Directory (tenant) ID
 tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
@@ -144,11 +140,11 @@ client_secret = "xxxxxxxxxxxxxx"
 #Application ID
 client_id_to_add = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                        resource="https://management.core.windows.net/",
-                                        client_id=client_id,
-                                        client_secret=client_secret)
+credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
 resource_group_name = "testrg";

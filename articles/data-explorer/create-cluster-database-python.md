@@ -30,9 +30,8 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
 
 ```
+pip install azure-common
 pip install azure-mgmt-kusto
-pip install adal
-pip install msrestazure
 ```
 ## Authentication
 For running the examples in this article, we need an Azure AD Application and service principal that can access resources. Check [create an Azure AD application](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) to create a free Azure AD Application and add role assignment at the subscription scope. It also shows how to get the `Directory (tenant) ID`, `Application ID`, and `Client Secret`.
@@ -42,10 +41,9 @@ For running the examples in this article, we need an Azure AD Application and se
 1. Create your cluster by using the following command:
 
     ```Python
-    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
-    from adal import AuthenticationContext
-    from msrestazure.azure_active_directory import AdalAuthentication
+    from azure.common.credentials import ServicePrincipalCredentials
 
     #Directory (tenant) ID
     tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
@@ -54,11 +52,11 @@ For running the examples in this article, we need an Azure AD Application and se
     #Client Secret
     client_secret = "xxxxxxxxxxxxxx"
     subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
-    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
-                                         resource="https://management.core.windows.net/",
-                                         client_id=client_id,
-                                         client_secret=client_secret)
+    credentials = ServicePrincipalCredentials(
+        client_id=client_id,
+        secret=client_secret,
+        tenant=tenant_id
+    )
 
     location = 'Central US'
     sku_name = 'Standard_D13_v2'
