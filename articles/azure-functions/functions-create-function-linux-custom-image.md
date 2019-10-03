@@ -305,6 +305,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 > [!TIP]
 > When using Visual Studio, you can also use the NuGet package manager to add this package.
+
 ---
 
 Now, you can add a Storage output binding to your project.
@@ -320,6 +321,7 @@ In Functions, each type of binding requires a `direction`, `type`, and a unique 
 # [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
 ---
 
 ### Add code that uses the output binding
@@ -337,6 +339,7 @@ After the binding is defined, you can use the `name` of the binding to access it
 # [C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
 ---
 
 ### Update the hosted container
