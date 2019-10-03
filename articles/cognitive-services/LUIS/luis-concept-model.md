@@ -69,4 +69,4 @@ This utterance _may_ have several entities:
 
 ## Next steps
 
-* Understand [intents](luis-concept-intents.md) and [entities](luis-concept-entity-types.md). 
+* Understand [intents](luis-concept-intents.md) and [entities](luis-concept-entity-type.md). 
