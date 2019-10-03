@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
@@ -52,11 +52,11 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
 
     try:
         conn = http.client.HTTPSConnection('<Endpoint>')
-        conn.request("POST", "/formrecognizer/v1.0-preview/prebuilt/receipt/asyncBatchAnalyze", body, headers)
+        conn.request("POST", "/formrecognizer/v1.0-preview/prebuilt/receipt/analyze", body, headers)
         response = conn.getresponse()
         data = response.read()
-        operationURL = "" + response.getheader("Operation-Location")
-        print ("Operation-Location header: " + operationURL)
+        operationURL = "" + response.getheader("Location")
+        print ("Location header: " + operationURL)
         conn.close()
     except Exception as e:
         print(e)
@@ -67,7 +67,7 @@ To start analyzing a receipt, you call the **Analyze Receipt** API using the Pyt
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python form-recognizer-receipts.py`.
 
-You'll receive a `202 (Success)` response that includes an **Operation-Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the operation and get the analysis results. In the following example value, the string after `operations/` is the operation ID.
+You'll receive a `201 (Success)` response that includes an **Location** header, which the script will print to the console. This header contains an operation ID that you can use to query the status of the operation and get the analysis results. In the following example value, the string after `operations/` is the operation ID.
 
 ```console
 https://cognitiveservice/formrecognizer/v1.0-preview/prebuilt/receipt/operations/54f0b076-4e38-43e5-81bd-b85b8835fdfb
@@ -83,12 +83,12 @@ operationId = operationURL.split("operations/")[1]
 conn = http.client.HTTPSConnection('<Endpoint>')
 while True:
     try:
-        conn.request("GET", f"/formrecognizer/v1.0-preview/prebuilt/receipt/operations/{operationId}", "", headers)
+        conn.request("GET", f"/formrecognizer/v1.0-preview/prebuilt/receipt/analyzeResults/{operationId}", "", headers)
         responseString = conn.getresponse().read().decode('utf-8')
         responseDict = json.loads(responseString)
         conn.close()
         print(responseString)
-        if 'status' in responseDict and responseDict['status'] not in ['NotStarted','Running']:
+        if 'status' in responseDict and responseDict['status'] not in ['notStarted','running']:
             break
         time.sleep(1)
     except Exception as e:
@@ -97,13 +97,13 @@ while True:
 ```
 
 1. Save the script.
-1. Again use the `python` command to run the sample. For example, `python form-recognize-analyze.py`.
+1. Again use the `python` command to run the sample. For example, `python form-recognizer-receipts.py`.
 
 ### Examine the response
 
 The script will print responses to the console until the Analyze operation completes. Then, it will print the extracted text data in JSON format. The `"recognitionResults"` field contains every line of text that was extracted from the receipt, and the `"understandingResults"` field contains key/value information for the most relevant parts of the receipt.
 
-See the following receipt image and its corresponding JSON output. The output has been shortened for readability.
+See the following receipt image and its corresponding JSON output.
 
 ![A receipt from Contoso store](../media/contoso-receipt.png)
 
