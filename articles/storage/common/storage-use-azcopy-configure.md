@@ -33,7 +33,11 @@ To configure the proxy settings for AzCopy, set the `https_proxy` environment va
 
 Currently, AzCopy doesn't support proxies that require authentication with NTLM or Kerberos.
 
-## Optimize throughput
+## Optimize performance
+
+Put something here.
+
+### Optimize throughput
 
 You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. For example, the following command caps throughput to `10` megabits (MB) per second.
 
@@ -41,7 +45,9 @@ You can use the `cap-mbps` flag to place a ceiling on the throughput data rate. 
 azcopy cap-mbps 10
 ```
 
-Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `300`, but you can manually set this value higher or lower.
+Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
+
+If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `1000`, but you can manually set this value higher or lower. 
 
 | Operating system | Command  |
 |--------|-----------|
@@ -50,6 +56,37 @@ Throughput can decrease when transferring small files. You can you can increase 
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
 Use the `azcopy env` to check the current value of this variable.  If the value is blank, then the `AZCOPY_CONCURRENCY_VALUE` variable is set to the default value of `300`.
+
+### Optimize memory use
+
+Set the `AZCOPY_BUFFER_GB` environment variable to specify the maximum amount of your system memory you want AzCopy to use when downloading and uploading files.
+Express this value in gigabytes (GB).
+
+| Operating system | Command  |
+|--------|-----------|
+| **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
+| **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
+| **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+
+### Run benchmark tests
+
+You can run a performance benchmark test on specific blob containers to view general performance statics and to identity performance bottlenecks. 
+
+> [!NOTE]
+> In the current release, this feature is available only for Blob Storage containers.
+
+Use the following command to run a performance benchmark test.
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>` |
+| **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
+
+
+This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, and then deleted from memory after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
+
+To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
 ## Troubleshoot issues
 

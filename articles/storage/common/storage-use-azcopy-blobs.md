@@ -45,6 +45,7 @@ This section contains the following examples:
 
 > [!div class="checklist"]
 > * Upload a file
+> * Upload specific files
 > * Upload a directory
 > * Upload the contents of a directory 
 
@@ -65,6 +66,34 @@ You can also upload a file by using a wildcard symbol (*) anywhere in the file n
 
 > [!NOTE]
 > AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+### Upload specific files
+
+You can specify complete file names, or use partial names with wildcard characters (*).
+
+#### Specify complete file names
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolin (`;`).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolin-separated-file-list>` |
+| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'myFile1.txt;myFile2.txt'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'myFile1.txt;myFile2.txt'` |
+
+You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
+#### Use wildcard characters
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy '<local-directory-path>' 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>' --include-path <semicolin-separated-file-list-with-wildcard-characters>` |
+| **Example** | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --include-path 'myFile*.txt;*.pdf*'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory' 'https://mystorageaccount.dfs.core.windows.net/mycontainer' --include-path 'myFile*.txt;*.pdf*'` |
+
+You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 ### Upload a directory
 
@@ -106,6 +135,7 @@ This section contains the following examples:
 
 > [!div class="checklist"]
 > * Download a file
+> * Download specific files
 > * Download a directory
 > * Download the contents of a directory
 
@@ -121,6 +151,34 @@ For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
 | **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>/<blob-path>' '<local-file-path>'` |
 | **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
 | **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt' 'C:\myDirectory\myTextFile.txt'` |
+
+### Download specific files
+
+You can specify complete file names, or use partial names with wildcard characters (*).
+
+#### Specify complete file names
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolin (`;`).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>'  --include-path <semicolin-separated-file-list>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'myFile1.txt;myFile2.txt' --recursive` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'myFile1.txt;myFile2.txt' --recursive` |
+
+You can also exclude files by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+
+#### Use wildcard characters
+
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy copy 'https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-or-directory-name>' '<local-directory-path>' --include-path <semicolin-separated-file-list-with-wildcard-characters>` |
+| **Example** | `azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'myFile*.txt;*.pdf*'` |
+| **Example** (hierarchical namespace) | `azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-path 'myFile*.txt;*.pdf*'` |
+
+You can also exclude files by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
 
 ### Download a directory
 
@@ -149,7 +207,7 @@ You can download the contents of a directory without copying the containing dire
 
 ## Copy blobs between storage accounts
 
-You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied.
+You can use AzCopy to copy blobs to other storage accounts. The copy operation is synchronous so when the command returns, that indicates that all files have been copied. 
 
 AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer. You can increase the throughput of these operations by setting the value of the `AZCOPY_CONCURRENCY_VALUE` environment variable. To learn more, see [Optimize throughput](storage-use-azcopy-configure.md#optimize-throughput).
 
