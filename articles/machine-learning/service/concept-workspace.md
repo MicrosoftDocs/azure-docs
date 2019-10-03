@@ -45,10 +45,10 @@ The diagram shows the following components of a workspace:
 You can interact with your workspace in the following ways:
 
 + On the web:
-    + The [Azure portal](https://portal.azure.com)
-    + Your [workspace landing page (preview)](https://ml.azure.com)
-    + The [visual interface (preview)](ui-concept-visual-interface.md)
-+ In Python using Azure Machine Learning [SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+    + [Azure Machine Learning studio ](https://ml.azure.com)
+    + [Azure Machine Learning designer](ui-concept-visual-interface.md)
++ In aany Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++ In any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
 ## Machine learning with a workspace
