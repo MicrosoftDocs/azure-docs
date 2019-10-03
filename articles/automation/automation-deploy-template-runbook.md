@@ -3,9 +3,9 @@ title: Deploy an Azure Resource Manager template in an Azure Automation runbook
 description: How to deploy an Azure Resource Manager template stored in Azure Storage from a runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
@@ -19,23 +19,23 @@ that deploys an Azure resource by using an
 [Azure Resource Management template](../azure-resource-manager/resource-manager-create-first-template.md).
 
 By doing this, you can automate deployment of Azure resources. You can maintain your Resource Manager
-templates in a central,secure location such as Azure Storage.
+templates in a central, secure location such as Azure Storage.
 
-In this topic, we create a PowerShell runbook that uses an Resource Manager template stored in
+In this article, we create a PowerShell runbook that uses a Resource Manager template stored in
 [Azure Storage](../storage/common/storage-introduction.md) to deploy a new Azure Storage account.
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need the following items:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
-* Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
+* Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) for information about how to get Azure PowerShell.
 
 ## Create the Resource Manager template
 
-For this example, we use an Resource Manager template that deploys a new Azure Storage account.
+For this example, we use a Resource Manager template that deploys a new Azure Storage account.
 
 In a text editor, copy the following text:
 
@@ -180,7 +180,7 @@ Save the file locally as `DeployTemplate.ps1`.
 Now we use PowerShell to import the runbook into your Azure Automation account,
 and then publish the runbook.
 For information about how to import and publish a runbook in the Azure portal, see 
-[Creating or importing a runbook in Azure Automation](automation-creating-importing-runbook.md).
+[Manage runbooks in Azure Automation](manage-runbooks.md).
 
 To import `DeployTemplate.ps1` into your Automation account as a PowerShell runbook,
 run the following PowerShell commands:
@@ -209,7 +209,7 @@ Publish-AzureRmAutomationRunbook @publishParams
 ## Start the runbook
 
 Now we start the runbook by calling the 
-[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook?view=azurermps-4.1.0)
+[Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook)
 cmdlet.
 
 For information about how to start a runbook in the Azure portal, see
@@ -258,4 +258,5 @@ and Resource Manager templates to deploy all your Azure resources.
 * To find other useful Azure Automation runbooks, see
 [Runbook and module galleries for Azure Automation](automation-runbook-gallery.md).
 * To find other useful Resource Manager templates, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/)
+
 

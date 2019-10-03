@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send requests to the Bing Web Search REST API using C#, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 8/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
@@ -16,20 +16,19 @@ ms.custom: seodec2018
 
 # Quickstart: Search the web using the Bing Web Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Web Search API and receive a JSON response.  
-
-[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
-
-See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Use this quickstart to make your first call to the Bing Web Search API and receive the JSON response. This C# application sends a search request to the API, and shows the response. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages.
 
 ## Prerequisites
+
 Here are a few things that you'll need before running this quickstart:
 
-* Windows: [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](http://www.mono-project.com/)  
+* Windows: [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
+* Linux/macOS: [Mono](https://www.mono-project.com/)  
 * A subscription key
 
 This example program only uses .NET Core classes.
+
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare dependencies
 
@@ -59,7 +58,7 @@ namespace BingSearchApisQuickstart
 
 ## Define variables
 
-A few variables must be set before we can continue. Confirm that the `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`.
+A few variables must be set before we can continue. Confirm that the `uriBase` is valid and replace the `accessKey` value with a valid subscription key from your Azure account. Feel free to customize the search query by replacing the value for `searchTerm`. Remember to add this code to the `Program` class as noted above.
 
 ```csharp
 // Enter a valid subscription key.
@@ -75,7 +74,7 @@ const string searchTerm = "Microsoft Cognitive Services";
 
 ## Declare the Main method
 
-The `Main()` is required and it's the first method invoked when the program is started. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
+The `Main()` method is required and it's the first method invoked when the program is started. In this application, the main method  validates the `accessKey`, makes a request, and prints the response.
 
 Keep in mind that `main()` is dependent on methods that are created in the next few sections.
 
@@ -106,7 +105,7 @@ static void Main()
 
 ## Create a struct for search results
 
-This struct returns search results with relevant headers. It is called when making a request to the Bing Web Search API to create a result object.
+This struct returns search results with relevant headers. It's called when making a request to the Bing Web Search API to create a result object.
 
 ```csharp
 // Returns search results with headers.

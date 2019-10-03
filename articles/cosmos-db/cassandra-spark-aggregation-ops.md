@@ -254,7 +254,9 @@ spark
 select max(book_price) from books_vw;
 ```
 **Output:**
-```22.45 ```
+```
+22.45
+```
 
 ## Sum operation
 

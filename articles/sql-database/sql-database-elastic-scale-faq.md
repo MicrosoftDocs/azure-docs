@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 01/03/2019
+ms.date: 01/25/2019
 ---
 # Elastic database tools frequently asked questions (FAQ)
 
@@ -37,13 +36,13 @@ No—the creation of the Shard Map Manager (for example, [ShardMapManagerFactory
 
 ## I have questions about using elastic database tools, how do I get them answered
 
-Please reach out to us on the [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Please reach out to us on the [SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
 ## When I get a database connection using a sharding key, I can still query data for other sharding keys on the same shard.  Is this by design
 
 The Elastic Scale APIs give you a connection to the correct database for your sharding key, but do not provide sharding key filtering.  Add **WHERE** clauses to your query to restrict the scope to the provided sharding key, if necessary.
 
-## Can I use a different Azure Database edition for each shard in my shard set
+## Can I use a different SQL Database edition for each shard in my shard set
 
 Yes, a shard is an individual database, and thus one shard could be a Premium edition while another be a Standard edition. Further, the edition of a shard can scale up or down multiple times during the lifetime of the shard.
 

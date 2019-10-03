@@ -16,7 +16,7 @@ ms.author: ghogen
 ---
 # Publish an ASP.NET Web App to an Azure VM from Visual Studio
 
-This document describes how to publish an ASP.NET web application to an Azure virtual machine (VM) using the **Microsoft Azure Virtual Machines** publishing feature in Visual Studio 2017.  
+This document describes how to publish an ASP.NET web application to an Azure virtual machine (VM) using the **Microsoft Azure Virtual Machines** publishing feature in Visual Studio 2019.  
 
 ## Prerequisites
 In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the VM must be correctly set up.
@@ -28,7 +28,7 @@ In order to use Visual Studio to publish an ASP.NET project to an Azure VM, the 
 ## Publish your ASP.NET web app to the Azure VM using Visual Studio
 The following section describes how to publish an existing ASP.NET web application to an Azure virtual machine.
 
-1. Open your web app solution in Visual Studio 2017.
+1. Open your web app solution in Visual Studio 2019.
 2. Right-click the project in Solution Explorer and choose **Publish...**
 3. Use the arrow on the right of the page to scroll through the publishing options until you find **Microsoft Azure Virtual Machines**.  
 
@@ -52,7 +52,7 @@ The following section describes how to publish an existing ASP.NET web applicati
 
 7. Click OK to begin publishing.
 
-8. When prompted for credentials, supply the username and password of a user account on the target VM that is configured with publishing rights (typically the admin username and password used when creating the VM).  
+8. When prompted for credentials, supply the username and password of a user account on the target VM that is configured with publishing rights. These credentials are typically the admin username and password used when creating the VM.  
 
    ![WebDeploy Login]
 
@@ -93,12 +93,12 @@ Your settings should look something like this:
 ![Publish Settings - Connection page]
 
 #### Save User name and Password
-- To avoid providing authentication information every time you publish, you can populate the **User name** and **Password** fields and select the **Save password** box.
+- Avoid providing authentication information every time you publish. To do so, populate the **User name** and **Password** fields, and select the **Save password** box.
 - Use the **Validate Connection** button to confirm that you have entered the right information.
 
 #### Deploy to clean web server
 
-- If you want to ensure that the web server has a clean copy of the web application after each upload (and that no other files are left hanging around from a previous deployment), you can check the **Remove additional files at destination** checkbox in the **Settings** tab.
+- If you want to ensure that the web server has a clean copy of the web application after each upload and that no other files are left from a previous deployment, you can check the **Remove additional files at destination** checkbox in the **Settings** tab.
 
 - Warning: Publishing with this setting deletes all files that exist on the web server (wwwroot directory). Be sure you know the state of the machine before publishing with this option enabled. 
 

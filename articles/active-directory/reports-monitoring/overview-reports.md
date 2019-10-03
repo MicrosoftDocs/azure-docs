@@ -4,8 +4,8 @@ title: What are Azure Active Directory reports? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: cawrites
+manager: daveba
 editor: ''
 
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: chadam
 ms.reviewer: dhanyahk  
 
 # Customer intent: As an Azure AD administrator, I want to understand what Azure AD reports are available and how I can use them to gain insights into my environment. 
+ms.collection: M365-identity-device-management
 ---
 
 # What are Azure Active Directory reports?
@@ -52,9 +53,9 @@ All editions of Azure AD provide you with users flagged for risk and risky sign-
 
 - In the **Azure Active Directory Free and Basic editions**, you get a list of users flagged for risk and risky sign-ins. 
 
-- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
+- The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk detections that have been detected for each report. 
 
-- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about the underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
+- The **Azure Active Directory Premium 2** edition provides you with the most detailed information about the underlying risk detections and it also enables you to configure security policies that automatically respond to configured risk levels.
 
 
 ## Activity reports

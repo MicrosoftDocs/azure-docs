@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/28/2018
+ms.date: 03/08/2019
 ms.author: troyhop
 
 # As an IT Pro, I need to create simulated devices to test my IoT solution.
@@ -33,7 +33,7 @@ Click the **Device Simulation** tile:
 
 Click **Try now** on the Device Simulation description page:
 
-![Click Try Now](./media/quickstart-device-simulation-deploy/devicesimulationPDP.png)
+![Click Try Now](./media/quickstart-device-simulation-deploy/devicesimulationpdp1.png)
 
 On the **Create Device Simulation solution** page, enter a unique **Solution name**.
 
@@ -41,7 +41,7 @@ Select the **Subscription** and **Region** you want to use to deploy the solutio
 
 Check the box to deploy an IoT hub to use with your Device Simulation solution. You can always change the IoT hub your simulation uses later.
 
-Click **Create Solution** to begin provisioning your solution. This process takes at least five minutes to run:
+Click **Create** to begin provisioning your solution. This process takes at least five minutes to run:
 
 ![Device Simulation solution details](./media/quickstart-device-simulation-deploy/createform.png)
 
@@ -55,7 +55,7 @@ Click **Accept** to accept the permissions request, the Device Simulation soluti
 
 When first opened, you see the Device Simulation dashboard with a **Getting started** guide. Click on the first tile to open a sample simulation. If you close the **Getting started** guide, you can open the **Sample Simple Simulation** from the dashboard by clicking its tile:
 
-![Solution dashboard](./media/quickstart-device-simulation-deploy/GettingStarted.png)
+![Solution dashboard](./media/quickstart-device-simulation-deploy/gettingstarted1.png)
 
 ## Sample Simulation
 
@@ -69,7 +69,7 @@ As a sample simulation, it can't be edited. The simulation is configured with th
 | Telemetry frequency | 10 seconds                  |
 | Simulation duration | Run indefinitely            |
 
-![Simulation configuration](./media/quickstart-device-simulation-deploy/SampleSimulation.png)
+![Simulation configuration](./media/quickstart-device-simulation-deploy/samplesimulation1.png)
 
 ## Run the simulation
 

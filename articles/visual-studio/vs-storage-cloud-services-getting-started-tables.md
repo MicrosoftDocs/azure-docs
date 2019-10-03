@@ -3,7 +3,7 @@ title: Get started with table storage and Visual Studio connected services (clou
 description: How to get started using Azure Table storage in a cloud service project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: a3a11ed8-ba7f-4193-912b-e555f5b72184
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -28,7 +28,7 @@ To get started, you first need to create a table in your storage account. We'll 
 * See [Get started with Azure Table storage using .NET](../storage/storage-dotnet-how-to-use-tables.md) for more information on programmatically manipulating tables.
 * See [Storage documentation](https://azure.microsoft.com/documentation/services/storage/) for general information about Azure Storage.
 * See [Cloud Services documentation](https://azure.microsoft.com/documentation/services/cloud-services/) for general information about Azure cloud services.
-* See [ASP.NET](http://www.asp.net) for more information about programming ASP.NET applications.
+* See [ASP.NET](https://www.asp.net) for more information about programming ASP.NET applications.
 
 ## Access tables in code
 To access tables in cloud service projects, you need to include the following items to any C# source files that access Azure table storage.

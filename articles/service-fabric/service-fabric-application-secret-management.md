@@ -4,7 +4,7 @@ description: Learn how to secure secret values in a Service Fabric application (
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
@@ -37,7 +37,7 @@ Specify an encrypted [parameter][parameters-link] in your service's Settings.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MySettings">
     <Parameter Name="MySecret" IsEncrypted="true" Value="I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM=" />
   </Section>
@@ -52,6 +52,17 @@ Specify an encrypted [environment variable][environment-variables-link] in your 
 </CodePackage>
 ```
 
+The secrets can also be included in your Service Fabric application by specifying a certificate in the application manifest. Add a **SecretsCertificate** element to **ApplicationManifest.xml** and include the desired certificate's thumbprint.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
 ### Inject application secrets into application instances
 Ideally, deployment to different environments should be as automated as possible. This can be accomplished by performing secret encryption in a build environment and providing the encrypted secrets as parameters when creating application instances.
 
@@ -60,7 +71,7 @@ The Settings.xml configuration file allows overridable parameters that can be pr
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
   <Section Name="MySettings">
     <Parameter Name="MySecret" IsEncrypted="true" Value="" MustOverride="true" />
   </Section>

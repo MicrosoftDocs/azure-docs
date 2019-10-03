@@ -3,8 +3,8 @@ title: Tutorial - Deploy LEMP on a Linux virtual machine in Azure | Microsoft Do
 description: In this tutorial, you learn how to install the LEMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: dlepow
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -14,8 +14,8 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 11/27/2017
-ms.author: danlep
+ms.date: 01/30/2019
+ms.author: cynthn
 
 #Customer intent: As an IT administrator, I want to learn how to install the LEMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
@@ -44,17 +44,15 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 Run the following command to update Ubuntu package sources and install NGINX, MySQL, and PHP. 
 
 ```bash
-sudo apt update && sudo apt install nginx mysql-server php-mysql php php-fpm
+sudo apt update && sudo apt install nginx && sudo apt install mysql-server php-mysql php-fpm
 ```
 
-You are prompted to install the packages and other dependencies. When prompted, set a root password for MySQL, and then [Enter] to continue. Follow the remaining prompts. This process installs the minimum required PHP extensions needed to use PHP with MySQL. 
-
-![MySQL root password page][1]
+You are prompted to install the packages and other dependencies. This process installs the minimum required PHP extensions needed to use PHP with MySQL.  
 
 ## Verify installation and configuration
 
 
-### NGINX
+### Verify NGINX
 
 Check the version of NGINX with the following command:
 ```bash
@@ -66,7 +64,7 @@ With NGINX installed, and port 80 open to your VM, the web server can now be acc
 ![NGINX default page][3]
 
 
-### MySQL
+### Verify and secure MySQL
 
 Check the version of MySQL with the following command (note the capital `V` parameter):
 
@@ -74,24 +72,24 @@ Check the version of MySQL with the following command (note the capital `V` para
 mysql -V
 ```
 
-To help secure the installation of MySQL, run the `mysql_secure_installation` script. If you are only setting up a temporary server, you can skip this step. 
+To help secure the installation of MySQL, including setting a root password, run the `mysql_secure_installation` script. 
 
 ```bash
-mysql_secure_installation
+sudo mysql_secure_installation
 ```
 
-Enter a root password for MySQL, and configure the security settings for your environment.
+You can optionally set up the Validate Password Plugin (recommended). Then, set a password for the MySQL root user, and configure the remaining security settings for your environment. We recommend that you answer "Y" (yes) to all questions.
 
 If you want to try MySQL features (create a MySQL database, add users, or change configuration settings), login to MySQL. This step is not required to complete this tutorial. 
 
 
 ```bash
-mysql -u root -p
+sudo mysql -u root -p
 ```
 
 When done, exit the mysql prompt by typing `\q`.
 
-### PHP
+### Verify PHP
 
 Check the version of PHP with the following command:
 
@@ -107,7 +105,7 @@ sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/default_ba
 sudo sensible-editor /etc/nginx/sites-available/default
 ```
 
-In the editor, replace the contents of `/etc/nginx/sites-available/default` with the following. See the comments for explanation of the settings. Substitute the public IP address of your VM for *yourPublicIPAddress*, and leave the remaining settings. Then save the file.
+In the editor, replace the contents of `/etc/nginx/sites-available/default` with the following. See the comments for explanation of the settings. Substitute the public IP address of your VM for *yourPublicIPAddress*, confirm the PHP version in `fastcgi_pass`, and leave the remaining settings. Then save the file.
 
 ```
 server {
@@ -127,7 +125,7 @@ server {
     # Include FastCGI configuration for NGINX
     location ~ \.php$ {
         include snippets/fastcgi-php.conf;
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
     }
 }
 ```
@@ -175,6 +173,5 @@ Advance to the next tutorial to learn how to secure web servers with SSL certifi
 > [!div class="nextstepaction"]
 > [Secure web server with SSL](tutorial-secure-web-server.md)
 
-[1]: ./media/tutorial-lemp-stack/configmysqlpassword-small.png
 [2]: ./media/tutorial-lemp-stack/phpsuccesspage.png
 [3]: ./media/tutorial-lemp-stack/nginx.png

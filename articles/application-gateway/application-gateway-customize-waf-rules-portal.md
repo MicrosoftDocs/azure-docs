@@ -1,30 +1,15 @@
 ---
-title: Customize web application firewall rules in Azure Application Gateway - Azure portal | Microsoft Docs
+title: Customize web application firewall rules in Azure Application Gateway - Azure portal
 description: This article provides information on how to customize web application firewall rules in Application Gateway with the Azure portal.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-
-ms.assetid: 1159500b-17ba-41e7-88d6-b96986795084
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom:
-ms.workload: infrastructure-services
-ms.date: 03/28/2017
+ms.date: 2/22/2019
 ms.author: victorh
-
+ms.topic: conceptual
 ---
 
 # Customize web application firewall rules through the Azure portal
-
-> [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-customize-waf-rules-portal.md)
-> * [PowerShell](application-gateway-customize-waf-rules-powershell.md)
-> * [Azure CLI](application-gateway-customize-waf-rules-cli.md)
 
 The Azure Application Gateway web application firewall (WAF) provides protection for web applications. These protections are provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). Some rules can cause false positives and block real traffic. For this reason, Application Gateway provides the capability to customize rule groups and rules. For more information on the specific rule groups and rules, see [List of web application firewall CRS rule groups and rules](application-gateway-crs-rulegroups-rules.md).
 
@@ -44,13 +29,16 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ## Search for rules to disable
 
-The **Web application firewall settings** blade provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
+The **Web application firewall settings** page provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
 
 ![Search for rules][2]
 
 ## Disable rule groups and rules
 
-When your're disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
+> [!IMPORTANT]
+> Use caution when disabling any rule groups or rules. This may expose you to increased security risks.
+
+When you're disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
 
 **To disable rule groups or specific rules**
 
@@ -59,6 +47,21 @@ When your're disabling rules, you can disable an entire rule group or specific r
    2. Select **Save**. 
 
 ![Save changes][3]
+
+## Mandatory rules
+
+The following list contains conditions that cause the WAF to block the request while in Prevention Mode. In Detection Mode, they're logged as exceptions.
+
+These can't be configured or disabled:
+
+* Failure to parse the request body results in the request being blocked, unless body inspection is turned off (XML, JSON, form data)
+* Request body (with no files) data length is larger than the configured limit
+* Request body (including files) is larger than the limit
+* An internal error happened in the WAF engine
+
+CRS 3.x specific:
+
+* Inbound anomaly score exceeded threshold
 
 ## Next steps
 

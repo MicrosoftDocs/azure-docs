@@ -151,7 +151,7 @@ Open the config.txt file that you downloaded from your Genomics account. The sec
 ![Genomics config](./media/quickstart-run-genomics-workflow-portal/genomics-config.png "Genomics config")
 
 
-If you would like to run GATK4, set the `process_name` parameter to gatk4 or gatk4-promo. For more information about the GATK4 promotion, visit [this page](https://aka.ms/msgatk4).
+If you would like to run GATK4, set the `process_name` parameter to `gatk4`.
 
 By default, the Genomics service outputs VCF files. If you would like a gVCF output rather than a VCF output (equivalent to `-emitRefConfidence` in GATK 3.x and `emit-ref-confidence` in GATK 4.x), add the  `emit_ref_confidence` parameter to your `config.txt` and set it to `gvcf`, as shown in the above figure.  To change back to VCF output, either remove it from the `config.txt` file or set the `emit_ref_confidence` parameter to `none`. 
 

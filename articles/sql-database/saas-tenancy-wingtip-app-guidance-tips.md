@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
 
@@ -88,7 +87,7 @@ To ensure a successful demo connection, all servers have a [firewall rule](sql-d
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Demo credentials are: Login = *developer*, Password = *P@ssword1*
+3. Demo credentials are: Login = *developer*, Password = *P\@ssword1*
 
     The image below demonstrates the login for the *Database per tenant* pattern. 
     ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

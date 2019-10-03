@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ---
-<!--author=alkohli last changed: 07/05/2017-->
 
 > [!NOTE] 
 > You cannot modify the encryption settings and the storage account credentials associated with a volume container after it is created.

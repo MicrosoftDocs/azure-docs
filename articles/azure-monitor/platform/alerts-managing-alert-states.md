@@ -6,8 +6,8 @@ services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: anantr
-ms.component: alerts
+ms.author: robb
+ms.subservice: alerts
 ---
 
 
@@ -43,3 +43,4 @@ Alerts in Azure Monitor now have an [alert state and a monitor condition](https:
 
 1. Once this is done, the state change is recorded in the history of the respective smart group. This can be viewed by opening the respective Details page, and checking the history section.     
 ![Monitoring](./media/alerts-managing-alert-states/state-sg-history.jpg)
+

@@ -3,17 +3,17 @@ title: Azure Service Bus message sessions | Microsoft Docs
 description: Handle sequences of Azure Service Bus messages with sessions.
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/02/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 
@@ -22,7 +22,7 @@ ms.author: spelluru
 Microsoft Azure Service Bus sessions enable joint and ordered handling of unbounded sequences of related messages. To realize a FIFO guarantee in Service Bus, use Sessions. Service Bus is not prescriptive about the nature of the relationship between the messages, and also does not define a particular model for determining where a message sequence starts or ends.
 
 > [!NOTE]
-> The basic tier of Service Bus does not support sessions. The standard and premium tiers support sessions. For more information, see [Service Bus pricing](service-bus-pricing-billing.md).
+> The basic tier of Service Bus does not support sessions. The standard and premium tiers support sessions. For more information, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
 
 Any sender can create a session when submitting messages into a topic or queue by setting the [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid#Microsoft_Azure_ServiceBus_Message_SessionId) property to some application-defined identifier that is unique to the session. At the AMQP 1.0 protocol level, this value maps to the *group-id* property.
 
@@ -38,6 +38,9 @@ In the portal, set the flag with the following check box:
 
 ![][2]
 
+> [!NOTE]
+> When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
+
 The APIs for sessions exist on queue and subscription clients. There is an imperative model that controls when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
 
 ## Session features
@@ -48,7 +51,7 @@ Sessions provide concurrent de-multiplexing of interleaved message streams while
 
 A [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) receiver is created by the client accepting a session. The client calls [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) or [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) in C#. In the reactive callback model, it registers a session handler.
 
-When the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is accepted and while it is held by a client, that client holds an exclusive lock on all messages with that session's [SessionId](/en-us/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) that exist in the queue or subscription, and also on all messages with that **SessionId** that still arrive while the session is held.
+When the [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) object is accepted and while it is held by a client, that client holds an exclusive lock on all messages with that session's [SessionId](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) that exist in the queue or subscription, and also on all messages with that **SessionId** that still arrive while the session is held.
 
 The lock is released when **Close** or **CloseAsync** are called, or when the lock expires in cases in which the application is unable to perform the close operation. The session lock should be treated like an exclusive lock on a file, meaning that the application should close the session as soon as it no longer needs it and/or does not expect any further messages.
 
@@ -74,10 +77,19 @@ All existing sessions in a queue or subscription can be enumerated with the **Se
 
 The session state held in a queue or in a subscription counts towards that entity's storage quota. When the application is finished with a session, it is therefore recommended for the application to clean up its retained state to avoid external management cost.
 
+## Impact of delivery count
+
+The definition of delivery count per message in the context of sessions varies slightly from the definition in the absense of sessions. Here is a table summarizing when the delivery count is incremented.
+
+| Scenario | Is the message's delivery count incremented |
+|----------|---------------------------------------------|
+| Session is accepted, but the session lock expires (due to timeout) | Yes |
+| Session is accepted, the messages within the session are not completed (even if they are locked), and the session is closed | No |
+| Session is accepted, messages are completed, and then the session is explicitly closed | N/A (this is the standard flow. Here messages are removed from the session) |
+
 ## Next steps
 
-- [A complete example](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) of sending and receiving session-based messages from Service Bus queues using the .NET Standard library.
-- [A sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) that uses the .NET Framework client to handle session-aware messages. 
+- See either the [Microsoft.Azure.ServiceBus samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) or [Microsoft.ServiceBus.Messaging samples](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) for an example that uses the .NET Framework client to handle session-aware messages. 
 
 To learn more about Service Bus messaging, see the following topics:
 

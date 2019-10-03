@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/04/2018
+ms.date: 01/08/2019
 ms.author: mbullwin
 ---
 # Use Stream Analytics to process exported data from Application Insights
@@ -142,7 +142,7 @@ Paste this query:
 
 * export-input is the alias we gave to the stream input
 * pbi-output is the output alias we defined
-* We use [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) clause groups the elements into time periods of one minute.
+* We use [OUTER APPLY GetElements](https://docs.microsoft.com/stream-analytics-query/apply-azure-stream-analytics) because the event name is in a nested JSON array. Then the Select picks the event name, together with a count of the number of instances with that name in the time period. The [Group By](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) clause groups the elements into time periods of one minute.
 
 ### Query to display metric values
 ```SQL

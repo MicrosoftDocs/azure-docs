@@ -3,15 +3,17 @@ title: 'What is federation with Azure AD? | Microsoft Docs'
 description: Describes federation with Azure AD.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 11/28/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.topic: conceptual
+ms.collection: M365-identity-device-management
 ---
 
 # What is federation with Azure AD?
@@ -29,7 +31,7 @@ You can federate your on-premises environment with Azure AD and use this federat
 
 ## Next Steps
 
-- [What is hybrid identity?](whatis-phs.md)
+- [What is hybrid identity?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [What is Azure AD Connect and Connect Health?](whatis-azure-ad-connect.md)
 - [What is password hash synchronization?](whatis-phs.md)
 - [What is federation?](whatis-fed.md)

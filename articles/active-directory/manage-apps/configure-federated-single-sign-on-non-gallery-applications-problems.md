@@ -3,19 +3,21 @@ title: Problem configuring federated single sign-on for a non-gallery applicatio
 description: Address some of the common problems you may encounter when configuring federated single sign-on to your custom SAML application that is not listed in the Azure AD Application Gallery
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
+ROBOTS: NOINDEX
 ---
 
 # Problem configuring federated single sign-on for a non-gallery application
@@ -42,23 +44,23 @@ Azure AD selects the format for the NameID attribute (User Identifier) based on 
 
 To download the application metadata or certificate from Azure AD, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator** or **Co-admin.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
+4. click **Enterprise Applications** from the Azure Active Directory left-hand navigation menu.
 
-5.  click **All Applications** to view a list of all your applications.
+5. click **All Applications** to view a list of all your applications.
 
    * If you do not see the application you want show up here, use the **Filter** control at the top of the **All Applications List** and set the **Show** option to **All Applications.**
 
-6.  Select the application you have configured single sign-on.
+6. Select the application you have configured single sign-on.
 
-7.  Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
+7. Once the application loads, click the **Single sign-on** from the application’s left-hand navigation menu.
 
-8.  Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
+8. Go to **SAML Signing Certificate** section, then click **Download** column value. Depending on what the application requires configuring single sign-on, you see either the option to download the Metadata XML or the Certificate.
 
 Azure AD doesn’t provide a URL to get the metadata. The metadata can only be retrieved as an XML file.
 

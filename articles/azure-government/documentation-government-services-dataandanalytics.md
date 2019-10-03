@@ -1,6 +1,6 @@
 ---
 title: Azure Government Data + Analytics
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 author: jglixon
@@ -24,7 +24,7 @@ The following HDInsight features are not currently available in Azure Government
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option currently.
 
-The URLs for Log Analytics are different in Azure Government:
+The URLs for Azure Monitor logs are different in Azure Government:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
@@ -34,8 +34,12 @@ For secured virtual networks, you will want to allow Network Security Groups (NS
 
 | Region | Allowed IP addresses | Allowed port |
 | ---- | ---- | ---- |
-| USGov Iowa | 13.72.184.124</br>13.72.190.110 | 443 |
-| USGov Virginia | 13.72.49.126</br>13.72.55.55 | 443 |
+| USDoD Central | 52.180.249.174</br>52.180.250.239 | 443 |
+| USDoD East | 52.181.164.168</br>52.181.164.151 | 443 |
+| USGov Iowa | 13.72.184.124</br>13.72.190.110 </br>13.72.49.126</br>13.72.55.55| 443 |
+| USGov Texas | 52.238.116.212</br>52.238.112.86 | 443 |
+| USGov Virginia | 13.72.49.126</br>13.72.55.55</br> 13.72.184.124</br>13.72.190.110 | 443 |
+
 
 For more information, see [HDInsight public documentation](../hdinsight/hadoop/apache-hadoop-introduction.md).
 
@@ -54,6 +58,9 @@ The URLs for Power BI are different in US Government:
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
+> [!NOTE]
+> The content pack that typically makes activity logs and such available is not intended for use on Government tenants. The intention is to use Log Analytics for the purpose of the logs that aren't available through the content pack. 
+
 ## Power BI Embedded 
 For details on this service and how to use it, see [Azure Power BI Embedded Documentation](../power-bi-embedded/index.md).
 
@@ -62,7 +69,7 @@ Power BI Embedded does not yet have Portal support in the Azure Government Porta
 
 ## Azure Analysis Services
 
-For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.md).
+For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.yml).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

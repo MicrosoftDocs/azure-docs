@@ -12,11 +12,12 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Enabling device writeback
 > [!NOTE]
@@ -26,9 +27,10 @@ ms.author: billmath
 
 The following documentation provides information on how to enable the device writeback feature in Azure AD Connect. Device Writeback is used in the following scenarios:
 
-* Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
+* Enable [Windows Hello for Business using hybrid certificate trust deployment](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Enable Conditional Access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access-azure-portal.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on Conditional Access, see [Managing Risk with Conditional Access](../active-directory-conditional-access-azure-portal.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
@@ -76,7 +78,7 @@ Device writeback should now be working properly. Be aware that it can take up to
 
    ![Active Directory Admin Center Registered Devices List](./media/how-to-connect-device-writeback/devicewriteback6.png)
 
-## Enable conditional access
+## Enable Conditional Access
 Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](../../active-directory/active-directory-device-registration-on-premises-setup.md).
 
 ## Troubleshooting
@@ -85,7 +87,7 @@ If the checkbox for device writeback is not enabled even though you have followe
 
 First things first:
 
-* Make sure at least one forest has Windows Server 2012R2. The device object type must be present.
+* The forest where the devices are present must have the forest schema upgraded to Windows 2012 R2 level so that the device object and associated attributes are present .
 * If the installation wizard is already running, then any changes will not be detected. In this case, complete the installation wizard and run it again.
 * Make sure the account you provide in the initialization script is actually the correct user used by the Active Directory Connector. To verify this, follow these steps:
   * From the start menu, open **Synchronization Service**.

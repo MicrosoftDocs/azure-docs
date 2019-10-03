@@ -2,13 +2,13 @@
 title: Azure messaging comparison - Event Grid, Event Hubs, Service Bus
 description: Describes the three Azure messaging services - Azure Event Grid, Event Hubs, and Service Bus. Recommends which service to use for different scenarios.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 12/07/2018
-ms.author: tomfitz
+ms.date: 01/30/2019
+ms.author: spelluru
 ms.custom: seodec18
 ---
 
@@ -30,7 +30,7 @@ There's an important distinction to note between services that deliver an event 
 
 An event is a lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer of the event decides what to do with the notification. Events can be discrete units or part of a series.
 
-Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for [serverless](http://azure.com/serverless) solutions that need to scale.
+Discrete events report state change and are actionable. To take the next step, the consumer only needs to know that something happened. The event data has information about what happened but doesn't have the data that triggered the event. For example, an event notifies consumers that a file was created. It may have general information about the file, but it doesn't have the file itself. Discrete events are ideal for [serverless](https://azure.com/serverless) solutions that need to scale.
 
 Series events report a condition and are analyzable. The events are time-ordered and interrelated. The consumer needs the sequenced series of events to analyze what happened.
 
@@ -73,7 +73,7 @@ It has the following characteristics:
 
 ### Service Bus
 
-Service Bus is intended for traditional enterprise applications. These enterprise applications require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes. When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus. Service Bus also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
+Service Bus is intended for traditional enterprise applications. These enterprise applications require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables [cloud-native](https://azure.microsoft.com/overview/cloudnative/) applications to provide reliable state transition management for business processes. When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus. Service Bus also facilitates highly secure communication across hybrid cloud solutions and can connect existing on-premises systems to cloud solutions.
 
 Service Bus is a brokered messaging system. It stores messages in a "broker" (for example, a queue) until the consuming party is ready to receive the messages.
 
@@ -93,9 +93,10 @@ In other cases, you link them together to form an event and data pipeline. You u
 ![Stream data overview](./media/compare-messaging-services/overview.png)
 
 ## Next steps
+See the following articles: 
 
-* For more information about the Azure messaging services, see the blog post [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-* For an introduction to Event Grid, see [About Event Grid](overview.md).
-* To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
-* To get started with Event Hubs, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
-* To get started with Service Bus, see [Create a Service Bus namespace using the Azure portal](../service-bus-messaging/service-bus-create-namespace-portal.md).
+- [Events, Data Points, and Messages - Choosing the right Azure messaging service for your data](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Storage queues and Service Bus queues - compared and contrasted](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- To get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).
+- To get started with Event Hubs, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
+- To get started with Service Bus, see [Create a Service Bus namespace using the Azure portal](../service-bus-messaging/service-bus-create-namespace-portal.md).

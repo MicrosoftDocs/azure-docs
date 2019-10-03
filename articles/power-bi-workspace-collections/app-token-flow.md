@@ -1,17 +1,15 @@
 ---
 title: Authenticating and authorizing with Power BI Workspace Collections | Microsoft Docs
 description: Authenticating and authorizing with Power BI Workspace Collections.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 1c1369ea-7dfd-4b6e-978b-8f78908fd6f6
+services: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.service: power-bi-embedded
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-
 ---
+
 # Authenticating and authorizing with Power BI Workspace Collections
 
 Power BI Workspace Collections use **Keys** and **App Tokens** for authentication and authorization, instead of explicit end-user authentication. In this model, your application manages authentication and authorization for your end users. When necessary, your app creates and sends the app tokens that tell our service to render the requested report. This design doesn't require your app to use Azure Active Directory for user authentication and authorization, although you still can.
@@ -79,7 +77,7 @@ Body
 
 ```
 
-There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methods.
+There are methods available within the SDKs that make creation of app tokens easier. For example, for .NET you can look at the [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) class and the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) methods.
 
 For the .NET SDK, you can refer to [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
@@ -101,7 +99,7 @@ The following are the available scopes for Power BI Workspace Collections.
 
 You can supply multiple scopes by using a space between the scopes like the following.
 
-```
+```csharp
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
@@ -171,10 +169,10 @@ After **Power BI Workspace Collections** sends a report to the user, the user ca
 
 ## See Also
 
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Get started with Microsoft Power BI Workspace Collections sample](get-started-sample.md)  
 [Common Microsoft Power BI Workspace Collections scenarios](scenarios.md)  
 [Get started with Microsoft Power BI Workspace Collections](get-started.md)  
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/15/2017
-ms.author: zsk0646
+ms.date: 03/06/2019
+ms.author: zakramer
 
 ---
 # Azure Government Databases
@@ -85,6 +85,63 @@ The following information identifies the Azure Government boundary for Azure Cac
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | All data stored and processed in Azure Cache for Redis can contain Azure Government-regulated data. |Azure Cache for Redis metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
+
+## Azure Database for PostgreSQL
+For details on this service and how to use it, see [Azure Database for PostgreSQL documentation](../postgresql/index.yml).
+
+### Variations
+Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for PostgreSQL are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for PostgreSQL in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| PostgreSQL endpoint |*.postgres.database.azure.com |*.postgres.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for PostgreSQL:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for PostgreSQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for PostgreSQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
+
+## Azure Database for MariaDB
+For details on this service and how to use it, see [Azure Database for MariaDB documentation](../mariadb/index.yml).
+
+### Variations
+Query Performance Insights and Performance Recommendations for Azure Database for MariaDB are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for MariaDB in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| MariaDB endpoint |*.mariadb.database.azure.com |*.mariadb.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for MariaDB:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for MariaDB can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for MariaDB metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
+
+## Azure Database for MySQL
+For details on this service and how to use it, see [Azure Database for MySQL documentation](../mysql/index.yml).
+
+### Variations
+Advanced Threat Protection, Query Performance Insights and Performance Recommendations for Azure Database for MySQL are **not** available in Azure Government.
+
+The URLs for accessing and managing Azure Database for MySQL in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| MySQL endpoint |*.mysql.database.azure.com |*.mysql.database.usgovcloudapi.net |
+
+### Considerations
+The following information identifies the Azure Government boundary for Azure Database for MySQL:
+
+| Regulated/controlled data permitted | Regulated/controlled data not permitted |
+| --- | --- |
+| All data stored and processed in Azure Database for MySQL can contain Azure Government-regulated data. Use database tools for data transfer of Azure Government-regulated data. |Azure Database for MySQL metadata is not permitted to contain export-controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter regulated/controlled data into the following fields: Database name, Subscription name, Resource groups, Server name, Server admin login, Deployment names, Resource names, Resource tags. |
 
 ## Next steps
 For supplemental information and updates subscribe to the

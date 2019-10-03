@@ -3,7 +3,7 @@ title: Use event hub from Apache Kafka app - Azure Event Hubs | Microsoft Docs
 description: This article provides information on Apache Kafka support by Azure Event Hubs. 
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 
 ms.service: event-hubs
@@ -27,7 +27,7 @@ Conceptually Kafka and Event Hubs are nearly identical: they are both partitione
 | Kafka Concept | Event Hubs Concept|
 | --- | --- |
 | Cluster | Namespace |
-| Topic | Event Hubs |
+| Topic | Event Hub |
 | Partition | Partition|
 | Consumer Group | Consumer Group |
 | Offset | Offset|
@@ -72,6 +72,4 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 - [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 

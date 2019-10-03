@@ -11,7 +11,7 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/19/2018
+ms.date: 04/22/2019
 ms.author: juliako
 ---
 
@@ -30,17 +30,13 @@ This tutorial shows you how to:
 > * Access the Media Services API
 > * Download Postman files
 > * Configure Postman
-> * Send reqests using Postman
+> * Send requests using Postman
 > * Test the streaming URL
 > * Clean up resources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
-
-- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
-
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](create-account-cli-how-to.md).
 
@@ -97,10 +93,10 @@ In this section, we send requests that are relevant to encoding and creating URL
 
 1. Get Azure AD Token for Service Principal Authentication
 2. Create an output asset
-3. Create a transform
-4. Create a job 
-5. Create a streaming locator
-6. List paths of the streaming locator
+3. Create a **Transform**
+4. Create a **Job**
+5. Create a **Streaming Locator**
+6. List paths of the **Streaming Locator**
 
 > [!Note]
 >  This tutorial assumes you are creating all resources with unique names.  
@@ -147,7 +143,7 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 
 ### Create a transform
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new Jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
 
 When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transforms) instance, you need to specify what you want it to produce as an output. The required parameter is a **TransformOutput** object. Each **TransformOutput** contains a **Preset**. **Preset** describes the step-by-step instructions of video and/or audio processing operations that are to be used to generate the desired **TransformOutput**. The sample described in this article uses a built-in Preset called **AdaptiveStreaming**. The Preset encodes the input video into an auto-generated bitrate ladder (bitrate-resolution pairs) based on the input resolution and bitrate, and produces ISO MP4 files with H.264 video and AAC audio corresponding to each bitrate-resolution pair. For information about this Preset, see [auto-generating bitrate ladder](autogen-bitrate-ladder.md).
 
@@ -189,7 +185,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 
 A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply the created **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the job's input is based on an HTTPS URL ("https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
 1. In the left window of the Postman, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
@@ -226,18 +222,22 @@ The job takes some time to complete and when it does you want to be notified. To
 
 The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
 
+#### Job error codes
+
+See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+
 ### Create a streaming locator
 
-After the encoding job is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding job is complete, the next step is to make the video in the output **Asset** available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
 
-The process of creating a **StreamingLocator** is called publishing. By default, the **StreamingLocator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
+When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), you need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted) content, so the predefined clear streaming policy "Predefined_ClearStreamingOnly" is used.
 
 > [!IMPORTANT]
 > When using a custom [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. 
 
-Your Media Service account has a quota for the number of StreamingPolicy entries. You should not be creating a new StreamingPolicy for each StreamingLocator.
+Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each **Streaming Locator**.
 
 1. In the left window of the Postman, select "Streaming Policies".
 2. Then, select "Create a Streaming Locator".
@@ -263,7 +263,7 @@ Your Media Service account has a quota for the number of StreamingPolicy entries
 
 #### List paths
 
-Now that the [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
+Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
 1. In the left window of the Postman, select "Streaming Policies".
 2. Then, select "List Paths".
@@ -334,7 +334,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Make sure the streaming endpoint from which you want to stream is running.
+> Make sure the **Streaming Endpoint** from which you want to stream is running.
 
 To test the stream, this article uses Azure Media Player. 
 
@@ -346,7 +346,7 @@ Azure Media Player can be used for testing but should not be used in a productio
 
 ## Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  
+Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse **Transforms**, and you will persist **Streaming Locators**, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  
 
 To delete a resource, select "Delete ..." operation under whichever resource you want to delete.
 
@@ -359,6 +359,10 @@ Execute the following CLI command:
 ```azurecli
 az group delete --name amsResourceGroup
 ```
+
+## Ask questions, give feedback, get updates
+
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
 ## Next steps
 

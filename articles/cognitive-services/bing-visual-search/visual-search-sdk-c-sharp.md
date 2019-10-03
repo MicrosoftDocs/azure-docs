@@ -3,14 +3,14 @@ title: "Quickstart: Get image insights using the Bing Visual Search SDK for C#"
 titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image using the Bing Visual Search SDK and get insights about it.
 services: cognitive-services
-author: mikedodaro
-manager: cgronlun
+author: aahill
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/16/2018
-ms.author: v-gedod
+ms.date: 05/15/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search SDK for C#
@@ -19,10 +19,10 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 * The NuGet Visual Search package. 
-    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet packages also installs the following:
+    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.VisualSearch` package. Installing the NuGet packages also installs the following:
         - Microsoft.Rest.ClientRuntime
         - Microsoft.Rest.ClientRuntime.Azure
         - Newtonsoft.Json
@@ -44,7 +44,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 2. Instantiate the client with your subscription key.
     
     ```csharp
-    var client = new WebSearchAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
+    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
     ```
     
 ## Send a search request 
@@ -52,7 +52,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 1. Create a `FileStream` to your images (in this case `TestImages/image.jpg`). Then use the client to send a search request using `client.Images.VisualSearchMethodAsync()`. 
     
     ```csharp
-     System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open;
+     System.IO.FileStream stream = new FileStream(Path.Combine("TestImages", "image.jpg"), FileMode.Open);
      // The knowledgeRequest parameter is not required if an image binary is passed in the request body
      var visualSearchResults = client.Images.VisualSearchMethodAsync(image: stream, knowledgeRequest: (string)null).Result;
     ```
@@ -73,13 +73,13 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
     // List of tags
     if (visualSearchResults.Tags.Count > 0)
     {
-        var firstTagResult = visualSearchResults.Tags.First();
+        var firstTagResult = visualSearchResults.Tags[0];
         Console.WriteLine($"Visual search tag count: {visualSearchResults.Tags.Count}");
     
         // List of actions in first tag
         if (firstTagResult.Actions.Count > 0)
         {
-            var firstActionResult = firstTagResult.Actions.First();
+            var firstActionResult = firstTagResult.Actions[0];
             Console.WriteLine($"First tag action count: {firstTagResult.Actions.Count}");
             Console.WriteLine($"First tag action type: {firstActionResult.ActionType}");
         }
@@ -87,6 +87,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
         {
             Console.WriteLine("Couldn't find tag actions!");
         }
+    }
     ```
 
 ## Next steps

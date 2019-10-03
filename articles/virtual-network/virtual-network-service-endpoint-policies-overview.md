@@ -6,11 +6,11 @@ documentationcenter: na
 author: sumeetmittal
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sumeet.mittal
+ms.author: sumi
 ---
 
 # Virtual network service endpoint policies (Preview)
@@ -19,7 +19,7 @@ Virtual Network (VNet) service endpoint policies allow you to filter virtual net
 
 This feature is available in __preview__ for following Azure services and regions:
 
-__Azure Storage__: WestCentralUS, WestUS2.
+__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 For most up-to-date notifications for preview, refer to [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
@@ -142,7 +142,7 @@ Virtual network service endpoint policies provide following benefits:
 - **Peered, connected or multiple virtual networks**: To filter traffic in peered virtual networks, endpoint policies should be applied individually to these virtual networks.
 - **Filtering Internet traffic with Network Appliances or Azure Firewall**: Filter Azure service traffic with policies, over endpoints, and filter rest of the Internet or Azure traffic via appliances or Azure Firewall. 
 - **Filtering traffic on Azure services deployed into Virtual Networks**: During preview, service endpoint policies are not supported for any managed Azure services that are deployed into your virtual network. 
- For specific services, see [limitations.](#Limitations)
+ For specific services, see [limitations.](#limitations)
 - **Filtering traffic to Azure services from on-premises**:
 Service endpoint policies only apply to the traffic from subnets associated to the policies. To allow access to specific Azure service resources from on-premises, traffic should be filtered using network virtual appliances or firewalls.
 
@@ -152,15 +152,15 @@ No centralized logging is available for service endpoint policies. For service d
 ### Troubleshooting scenarios
 - Access allowed to storage accounts not listed in the endpoint policies
   - Network security groups may be allowing access to the Internet or Azure Storage accounts in other regions.
-  - Network security groups should be configured to deny all outbound Internet traffic and allow only traffic to specific Azure Storage regions. For details, see [Network security groups](#network-security-groups).
+  - Network security groups should be configured to deny all outbound Internet traffic and allow only traffic to specific Azure Storage regions. For details, see Network security groups.
 - Access is denied for accounts listed in the endpoint policies
   - Network security groups or firewall filtering could be blocking access
   - If removing/re-applying the policy results in connectivity loss:
-   - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
+    - Validate whether the Azure service is configured to allow access from the virtual network, over endpoints, or that the default policy for the resource is set to *Allow All*.
       > [!NOTE]      
       > Service resources need not be secured to virtual networks to get access over endpoint policies. However, as a security best practice, we recommend that the service resources are secured to your trusted networks, such as your Azure virtual networks, via service endpoints, and on-premises, via an IP firewall.
   
-   - Validate that the service diagnostics show the traffic over endpoints.
+    - Validate that the service diagnostics show the traffic over endpoints.
     - Check whether network security group flow logs show the access and that storage logs show the access, as expected, over service endpoints.
     - Contact Azure support.
 - Access is denied for accounts not listed in the service endpoint policies

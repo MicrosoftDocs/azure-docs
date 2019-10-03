@@ -1,20 +1,20 @@
 ---
-title: LCS Subscription | Microsoft Docs
-description: Introduction to a tuutorial for creating a subscription.
+title: LCS Subscription 
+description: Introduction to a tutorial for creating a subscription.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # LCS Subscription
@@ -36,7 +36,7 @@ environment. You will also set up additional users in your Microsoft Online tena
 you develop can be deployed to the cloud.
 
 **Microsoft Azure Active Directory** - The cloud environment includes Azure Active Directory (AD), which helps you manage users, groups, security roles, and licenses for online applications, similarly to the
-way that you manage them for on-premise environments.
+way that you manage them for on-premises environments.
 
 **Users** - Users of the services that your organization has subscribed to are managed in Azure AD. Any users in your tenant can be added and assigned to security roles.
 

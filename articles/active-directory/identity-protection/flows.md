@@ -1,25 +1,22 @@
 ---
 title: Sign-in experiences with Azure AD Identity Protection| Microsoft Docs
 description: Provides an overview of the user experience when Identity Protection has mitigated or remediated a user or when multi-factor authentication is required by a policy.
+
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-
-ms.assetid: de5bf637-75a7-4104-b6d8-03686372a319
 ms.service: active-directory
-ms.component: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/24/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.subservice: identity-protection
+ms.topic: conceptual
+ms.date: 01/15/2018
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
+
+ms.collection: M365-identity-device-management
 ---
 # Sign-in experiences with Azure AD Identity Protection
+
 With Azure Active Directory Identity Protection, you can:
 
 * require users to register for multi-factor authentication
@@ -53,18 +50,13 @@ Administrators can set a policy that requires users to set up their accounts for
 
 1. In the first step, the user gets a notification about the requirement to set the account up for multi-factor authentication. 
    
-    ![Remediation](./media/flows/301.png "Remediation")
-
+    ![Remediation](./media/flows/140.png "Remediation")
 2. To set up multi-factor authentication, you need to let the system know how you want to be contacted.
    
-    ![Remediation](./media/flows/302.png "Remediation")
-
-3. Provide the system with your number phone number and how you want to be contacted.
-
-    ![Remediation](./media/flows/303.png "Remediation")
-
-To complete the registration, you either need to respond to a phone call or enter a code. 
-
+    ![Remediation](./media/flows/141.png "Remediation")
+3. The system submits a challenge to you and you need to respond.
+   
+    ![Remediation](./media/flows/142.png "Remediation")
 
 ## Risky sign-in recovery
 When an administrator has configured a policy for sign-in risks, the affected users are notified when they try to sign in. 
@@ -110,5 +102,5 @@ If compromised users are blocked from signing in, an administrator can generate 
 ![Remediation](./media/flows/160.png "Remediation")
 
 ## See also
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
 
+* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 

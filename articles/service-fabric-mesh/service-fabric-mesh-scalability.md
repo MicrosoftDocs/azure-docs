@@ -3,8 +3,8 @@ title: Scalability of Azure Service Fabric Mesh apps | Microsoft Docs
 description: Learn about scaling services in Azure Service Fabric Mesh.
 services: service-fabric-mesh
 keywords:  
-author: rwike77
-ms.author: ryanwi
+author: dkkapur
+ms.author: dekapur
 ms.date: 10/26/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh

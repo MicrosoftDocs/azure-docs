@@ -10,7 +10,6 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: cephalin
@@ -34,7 +33,7 @@ For security reasons, certain specifics of security information are not publishe
 
 Azure manages OS patching on two levels, the physical servers and the guest virtual machines (VMs) that run the App Service resources. Both are updated monthly, which aligns to the monthly [Patch Tuesday](https://technet.microsoft.com/security/bulletins.aspx) schedule. These updates are applied automatically, in a way that guarantees the high-availability SLA of Azure services. 
 
-For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://blogs.msdn.microsoft.com/appserviceteam/2018/01/18/demystifying-the-magic-behind-app-service-os-updates/).
+For detailed information on how updates are applied, see [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html).
 
 ## How does Azure deal with significant vulnerabilities?
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door Service - Load Balancing with Azure's applciation delivery suite | Microsoft Docs
+title: Azure Front Door Service - Load Balancing with Azure's application delivery suite | Microsoft Docs
 description: This article helps you learn about how Azure recommends load balancing with it's application delivery suite
 services: frontdoor
 documentationcenter: ''
@@ -21,10 +21,10 @@ Microsoft Azure provides multiple global and regional services for managing how 
 ![Application Delivery Suite ][1]
  
 These services are broken into two categories:
-1. **Global load balancing services** such as Traffic Manager and Front Door distribute traffic from your end users across your regional backends, across clouds or even your hybrid on-premise services. Global load balancing routes your traffic to your closest service backend and reacts to changes in service reliability or performance to maintain always-on, maximal performance for your users. 
+1. **Global load balancing services** such as Traffic Manager and Front Door distribute traffic from your end users across your regional backends, across clouds or even your hybrid on-premises services. Global load balancing routes your traffic to your closest service backend and reacts to changes in service reliability or performance to maintain always-on, maximal performance for your users. 
 2. **Regional load balancing services** such as Standard Load Balancer or Application Gateway provide the ability to distribute traffic within virtual networks (VNETs) across your virtual machines (VMs) or zonal service endpoints within a region.
 
-Combining global and regional services in your application provides an end-to-end reliable, performant, and secure way to route traffic to and from your users to your IaaS, PaaS, or on-premise services. In the next section, we describe each of these services.
+Combining global and regional services in your application provides an end-to-end reliable, performant, and secure way to route traffic to and from your users to your IaaS, PaaS, or on-premises services. In the next section, we describe each of these services.
 
 ## Global load balancing
 **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy backend, in accordance with the routing policy the customer has selected. Options for routing methods are:
@@ -54,7 +54,7 @@ When choosing a global load balancer between Traffic Manager and Azure Front Doo
 | Traffic Manager |	Azure Front Door Service |
 | --------------- | ------------------------ |
 |**Any protocol:** Because Traffic Manager works at the DNS layer, you can route any type of network traffic; HTTP, TCP, UDP, etc. | **HTTP acceleration:** With Front Door traffic is proxied at the Edge of Microsoft’s network.  Because of this, HTTP(S) requests see latency and throughput improvements reducing latency for SSL negotiation and using hot connections from AFD to your application.|
-|**On-premise routing:** With routing at a DNS layer, traffic always goes from point to point.  Routing from your branch office to your on-prem datacenter can take a direct path; even on your own network using Traffic Manager. | **Independent scalability:** Because Front Door works with the HTTP request, requests to different URL paths can be routed to different backend / regional service pools (microservices) based on rules and the health of each application microservice.|
+|**On-premises routing:** With routing at a DNS layer, traffic always goes from point to point.  Routing from your branch office to your on premises datacenter can take a direct path; even on your own network using Traffic Manager. | **Independent scalability:** Because Front Door works with the HTTP request, requests to different URL paths can be routed to different backend / regional service pools (microservices) based on rules and the health of each application microservice.|
 |**Billing format:** DNS-based billing scales with your users and for services with more users, plateaus to reduce cost at higher usage. |**Inline security:** Front Door enables rules such as rate limiting and IP ACL-ing to let you protect your backends before traffic reaches your application. 
 
 </br>Because of the performance, operability and security benefits to HTTP workloads with Front Door, we recommend customers use Front Door for their HTTP workloads.    Traffic Manager and Front Door can be used in parallel to serve all traffic for your application. 

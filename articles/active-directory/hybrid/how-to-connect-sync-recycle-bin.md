@@ -5,18 +5,19 @@ services: active-directory
 keywords: AD Recycle Bin, accidental deletion, source anchor
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: afec4207-74f7-4cdd-b13a-574af5223a90
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect sync: Enable AD recycle bin
 It is recommended that you enable the AD Recycle Bin feature for your on-premises Active Directories, which are synchronized to Azure AD. 
@@ -34,9 +35,6 @@ This feature helps with restoring Azure AD user objects by doing the following:
 
 > [!NOTE]
 > By default, Azure AD keeps deleted Azure AD user objects in soft-deleted state for 30 days before they are permanently deleted. However, administrators can accelerate the deletion of such objects. Once the objects are permanently deleted, they can no longer be recovered, even if on-premises AD Recycle Bin feature is enabled.
-
->[!NOTE]
->Previously when a user was removed from the on-premises synchronization scope, and deleted in the cloud, the DirSyncEnabled status of the account was erroneously set to "False". If afterwards, that user was manually restored from Azure AD Recycle Bin, it showed an incorrect state of “Cloud-Only” account. This has now been fixed and the value of the DirSyncEnabled status is always kept “True” when a user is removed from sync scope, then soft-deleted, and manually restored from Azure AD Recycle Bin.
 
 ## Next steps
 **Overview topics**

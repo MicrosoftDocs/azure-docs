@@ -24,7 +24,7 @@ After you run the script, take note of the service principal's **ID** and **pass
 <!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh -->
 [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
-## Use an existing service principal
+### Use an existing service principal
 
 To grant registry access to an existing service principal, you must assign a new role to the service principal. As with creating a new service principal, you can grant pull, push and pull, and owner access, among others.
 
@@ -35,5 +35,5 @@ The following script uses the [az role assignment create][az-role-assignment-cre
 [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
-[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
-[az-role-assignment-create]: /cli/azure/role/assignment#az_role_assignment_create
+[az-ad-sp-create-for-rbac]: /cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create

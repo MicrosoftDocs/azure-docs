@@ -1,13 +1,13 @@
 ---
-title: Advanced Threat Protection - Azure Database for PostgreSQL
+title: Advanced Threat Protection - Azure Database for PostgreSQL - Single Server
 description: Threat Protection detects anomalous database activities indicating potential security threats to the database. 
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 5/6/2019
 ---
-# Advanced Threat Protection for Azure Database for PostgreSQL
+# Advanced Threat Protection for Azure Database for PostgreSQL - Single Server
 
 Advanced Threat Protection for Azure Database for PostgreSQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
 
@@ -16,6 +16,9 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 > [!NOTE]
 > The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/global-infrastructure/services/) for general product availability.
 >
+
+> [!NOTE]
+> This feature is available in all regions of Azure where Azure Database for PostgreSQL is deployed for General Purpose and Memory Optimized servers.
 
 ## Set up threat detection
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -49,7 +52,7 @@ Advanced Threat Protection integrates its alerts with [Azure Security Center](ht
 
 Click **Security alerts** under **THREAT PROTECTION** to launch the Azure Security Center alerts page and get an overview of active SQL threats detected on the database.
 
-  ![Threat protectoin asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Threat protection asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## Next steps
 

@@ -3,8 +3,7 @@ title: Azure PowerShell Script Sample - Migrate blobs across storage accounts us
 description: Using AzCopy, copies the Blob contents of one Azure Storage Account to another.
 services: storage
 documentationcenter: na
-author: roygara
-manager: jeconnoc
+author: normesta
 
 ms.custom: mvc
 ms.service: storage
@@ -13,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 02/01/2018
-ms.author: rogarana
+ms.author: normesta
 ---
 
 # Migrate blobs across storage accounts using AzCopy on Windows
@@ -33,7 +32,7 @@ This sample takes in a source storage account name and key, a target storage acc
 The following are examples of the input for this sample:
 
 If AzCopy is installed at the default directory:
-```PowerShell
+```powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
 DestStorageAccountName: ExampleTargetStorageAccountName

@@ -7,15 +7,14 @@
   - name: Compare Azure Government and global Azure
     href: compare-azure-government-global-azure.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Get started with Azure Government
-    items:
-    - name: Azure Government Portal
-      href: documentation-government-get-started-connect-with-portal.md
-    - name: Azure CLI
-      href: documentation-government-get-started-connect-with-cli.md
-    - name: PowerShell
-      href: documentation-government-get-started-connect-with-ps.md
+  - name: Azure Government Portal
+    href: documentation-government-get-started-connect-with-portal.md
+  - name: Azure CLI
+    href: documentation-government-get-started-connect-with-cli.md
+  - name: PowerShell
+    href: documentation-government-get-started-connect-with-ps.md
 - name: Tutorials
   items:
   - name: Deploy App Services
@@ -36,7 +35,7 @@
       href: documentation-government-plan-identity.md
   - name: Manage
     items:
-    - name: Log Analytics
+    - name: Azure Monitor logs
       href: documentation-government-manage-oms.md
     - name: Marketplace
       href: documentation-government-manage-marketplace.md
@@ -44,8 +43,6 @@
   items: 
   - name: Deploy with Azure Pipelines
     href: connect-with-azure-pipelines.md
-  - name: Use Visual Studio
-    href: documentation-government-get-started-connect-with-vs.md
   - name: Use SQL Server Management Studio
     href: documentation-government-connect-ssms.md
   - name: Use Azure Storage
@@ -58,7 +55,8 @@
     href: documentation-government-aad-auth-qs.md
   - name: Use DISA CAP
     href: documentation-government-ase-disa-cap.md
-        
+  - name: Impact Level 5 Isolation Guidance 
+    href: documentation-government-impact-level-5.md
 - name: Reference
   items:
   - name: Marketplace
@@ -111,6 +109,14 @@
       href: documentation-government-overview-jps.md
     - name: Department of Defense
       href: documentation-government-overview-dod.md
+- name: Compliance
+  items:
+  - name: Trusted Internet Connection with Azure
+    href: compliance/compliance-tic.md
+  - name: Azure Services by Audit Scope
+    href: compliance/azure-services-in-fedramp-auditscope.md
+  - name: Secure Azure Computing Architecture 
+    href: compliance/secure-azure-computing-architecture.md
 - name: Resources
   items:
   - name: Azure Government Website

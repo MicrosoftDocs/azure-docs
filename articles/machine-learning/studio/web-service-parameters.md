@@ -3,18 +3,18 @@ title: Web service parameters - Azure Machine Learning Studio | Microsoft Docs
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 
 editor: cgronlun
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
-ms.component: studio
+ms.subservice: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/12/2017
 ---
 # Use Azure Machine Learning Studio web service parameters
@@ -52,7 +52,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 
 3. Click the icon to the right of the **Path to blob beginning with container parameter**. It looks like this:
    
-   ![Web Service Parameter icon][icon]
+   ![Web Service Parameter icon](./media/web-service-parameters/icon.png)
    
    Select "Set as web service parameter".
    
@@ -60,7 +60,7 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 4. To rename the Web Service Parameter, click the name, enter "Blob path", and press the **Enter** key. 
 5. To provide a default value for the Web Service Parameter, click the icon to the right of the name, select "Provide default value", enter a value (for example, "container1/output1.csv"), and press the **Enter** key.
    
-   ![Web Service Parameter][parameter]
+   ![Web Service Parameter](./media/web-service-parameters/parameter.png)
 6. Click **Run**. 
 7. Click **Deploy Web Service** and select **Deploy Web Service [Classic]** or **Deploy Web Service [New]** to deploy the web service.
 
@@ -70,14 +70,9 @@ As an example, let's assume we have an experiment with an [Export Data][writer] 
 The user of the web service can now specify a new destination for the [Export Data][writer] module when accessing the web service.
 
 ## More information
-For a more detailed example, see the [Web Service Parameters](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entry in the [Machine Learning Blog](http://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
+For a more detailed example, see the [Web Service Parameters](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx) entry in the [Machine Learning Blog](https://blogs.technet.com/b/machinelearning/archive/2014/11/25/azureml-web-service-parameters.aspx).
 
 For more information on accessing a Machine Learning web service, see [How to consume an Azure Machine Learning Web service](consume-web-services.md).
-
-<!-- Images -->
-[icon]: ./media/web-service-parameters/icon.png
-[parameter]: ./media/web-service-parameters/parameter.png
-
 
 <!-- Module References -->
 [feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/

@@ -4,13 +4,13 @@ description: Quickly get Oracle Data Guard up and running in your Azure environm
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 editor: 
 tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -36,7 +36,7 @@ The Marketplace image that you use to create the VMs is Oracle:Oracle-Database-E
 
 ### Sign in to Azure 
 
-Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index#az_login) command and follow the on-screen directions.
+Sign in to your Azure subscription by using the [az login](/cli/azure/reference-index) command and follow the on-screen directions.
 
 ```azurecli
 az login
@@ -66,7 +66,7 @@ az vm availability-set create \
 
 ### Create a virtual machine
 
-Create a VM by using the [az vm create](/cli/azure/vm#az_vm_create) command. 
+Create a VM by using the [az vm create](/cli/azure/vm) command. 
 
 The following example creates two VMs named `myVM1` and `myVM2`. It also creates SSH keys, if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.
 

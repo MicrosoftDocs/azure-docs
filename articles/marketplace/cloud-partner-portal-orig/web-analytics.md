@@ -1,20 +1,20 @@
 ---
-title: Web Analytics | Microsoft Docs
+title: Web Analytics 
 description: .
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 
@@ -50,7 +50,7 @@ There are two ways to generate your own campaign.
 For example you can use:
 <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Advanced): Use one of our supported, generic campaign IDs in the
+1. (Advanced): Use one of our supported, generic campaign IDs in the
     URL. We want to be accommodating with additional ref tags that you
     need to use, so we support the convention to automatically recognize these additional tags:
     
@@ -92,7 +92,7 @@ Here is an example:
         <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
     2. Landing Page URL (**Ensure that this URL has utm\_campaign and
         utm\_source added to this URL**) =
-        [https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/en-us/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+        [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 How to evaluate the success of a Campaign
 -----------------------------------------

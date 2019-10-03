@@ -3,18 +3,19 @@ title: Get started with the Microsoft Speech Recognition API in Java on Android 
 titlesuffix: Azure Cognitive Services
 description: Use the Microsoft Speech API to develop Android applications that convert spoken audio to text.
 services: cognitive-services
-author: zhouwangzw
-manager: wolfma
+author: nitinme
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
-ms.author: zhouwang
+ms.author: nitinme
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
-[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
-
 # Quickstart: Use the Bing Speech recognition API in Java on Android
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 With the Bing Speech Recognition API, you can develop Android applications that use the cloud-based Bing Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.
 
@@ -24,7 +25,7 @@ This article uses a sample application to demonstrate how to use the Speech clie
 
 ### Platform requirements
 
-The sample is developed by [Android Studio](http://developer.android.com/sdk/index.html) for Windows in Java.
+The sample is developed by [Android Studio](https://developer.android.com/sdk/index.html) for Windows in Java.
 
 ### Get the client library and sample application
 

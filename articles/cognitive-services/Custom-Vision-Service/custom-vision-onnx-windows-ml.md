@@ -1,15 +1,15 @@
 ---
 title: "Tutorial: Use an ONNX model with Windows ML - Custom Vision Service"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to create a Windows UWP app that uses an ONNX model exported from Azure Cognitive Services.
 services: cognitive-services
 author: larryfr
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 07/03/2019
 ms.author: larryfr
 # As a developer, I want to use a custom vision model with Windows ML.
 ---
@@ -47,7 +47,7 @@ The example application is available at [https://github.com/Azure-Samples/cognit
 
 1. Use the `F5` key to start the application from Visual Studio. You may be prompted to enable Developer mode. For more information, see the [Enable your device for development](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development) document.
 
-2. When the application starts, use the button to select an image for scoring.
+1. When the application starts, use the button to select an image for scoring.
 
 ## Use your own model
 
@@ -61,8 +61,8 @@ To use your own model, use the following steps:
 
 1. In Solutions Explorer, right-click the Assets Folder and select __Add Existing Item__. Select the ONNX file.
 
-1. In Solutions Explorer, select the ONNX file from the Assets folder. Change the following properties for the file: 
-    
+1. In Solutions Explorer, select the ONNX file from the Assets folder. Change the following properties for the file:
+
     * __Build Action__ -> __Content__
     * __Copy to Output Directory__ -> __Copy if newer__
 
@@ -81,4 +81,4 @@ To discover other ways to export and use a Custom Vision model, see the followin
 * [Use exported CoreML model in a Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Use exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
 
-For more information on using ONNX models with Windows ML, see the [Integrate a model into your app with Windows ML](https://docs.microsoft.com/windows/uwp/machine-learning/integrate-model) document.
+For more information on using ONNX models with Windows ML, see the [Integrate a model into your app with Windows ML](/windows/ai/windows-ml/integrate-model) document.

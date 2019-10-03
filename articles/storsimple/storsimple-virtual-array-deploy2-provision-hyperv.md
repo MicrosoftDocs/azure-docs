@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 03/15/2017
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
@@ -21,6 +21,9 @@ ms.custom: H1Hack27Feb2017
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/hyperv4.png)
 
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
+
 This tutorial describes how to provision a StorSimple Virtual Array on a host system running Hyper-V on Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2. This article applies to the deployment of StorSimple Virtual Arrays in Azure portal and Microsoft Azure Government Cloud.
 
 You need administrator privileges to provision and configure a virtual array. The provisioning and initial setup can take around 10 minutes to complete.
@@ -200,7 +203,7 @@ Perform the following steps to start your virtual array and connect to it.
        >
        >
 
-If your device does not meet the minimum configuration requirements, you see the following error in the banner text (shown below). Modify the device configuration so that the machine has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in [Step 1: Ensure that the host system meets minimum virtual array requirements](#step-1-ensure-that-the-host-system-meets-minimum-virtual-device-requirements).
+If your device does not meet the minimum configuration requirements, you see the following error in the banner text (shown below). Modify the device configuration so that the machine has adequate resources to meet the minimum requirements. You can then restart and connect to the device. Refer to the minimum configuration requirements in Step 1: Ensure that the host system meets minimum virtual array requirements.
 
 ![](./media/storsimple-virtual-array-deploy2-provision-hyperv/image32.png)
 

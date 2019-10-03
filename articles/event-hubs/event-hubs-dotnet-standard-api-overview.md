@@ -32,7 +32,7 @@ An [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) object
 var eventHubClient = EventHubClient.CreateFromConnectionString("Event Hubs connection string");
 ```
 
-To programmatically edit the connection string, you can use the [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_CreateFromConnectionString_System_String_).
+To programmatically edit the connection string, you can use the [EventHubsConnectionStringBuilder](/dotnet/api/microsoft.azure.eventhubs.eventhubsconnectionstringbuilder) class, and pass the connection string as a parameter to [EventHubClient.CreateFromConnectionString](/dotnet/api/microsoft.azure.eventhubs.eventhubclient).
 
 ```csharp
 var connectionStringBuilder = new EventHubsConnectionStringBuilder("Event Hubs connection string")
@@ -62,7 +62,7 @@ The recommended way to receive events from Event Hubs is using the [Event Proces
 
 #### Create a receiver
 
-Receivers are tied to specific partitions, so in order to receive all events in an event hub, you must create multiple instances. It is a good practice to get the partition information programatically, rather than hard-coding the partition IDs. In order to do so, you can use the [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient#Microsoft_Azure_EventHubs_EventHubClient_GetRuntimeInformationAsync) method.
+Receivers are tied to specific partitions, so in order to receive all events in an event hub, you must create multiple instances. It is a good practice to get the partition information programmatically, rather than hard-coding the partition IDs. In order to do so, you can use the [GetRuntimeInformationAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) method.
 
 ```csharp
 // Create a list to keep track of the receivers

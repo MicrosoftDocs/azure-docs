@@ -41,11 +41,11 @@ you can create an X12 agreement by following these steps.
 
 ## Create an X12 agreement
 
-1. Sign in to the [Azure portal](http://portal.azure.com "Azure portal"). 
+1. Sign in to the [Azure portal](https://portal.azure.com "Azure portal"). 
 
 2. From the main Azure menu, select **All services**. 
-In the search box, enter "integration", 
-and then select **Integration accounts**.  
+   In the search box, enter "integration", 
+   and then select **Integration accounts**.  
 
    ![Find your integration account](./media/logic-apps-enterprise-integration-x12/account-1.png)
 
@@ -54,24 +54,24 @@ and then select **Integration accounts**.
    > At the top of the collapsed menu, select **Show menu**.
 
 3. Under **Integration Accounts**, 
-select the integration account where you want to add the agreement.
+   select the integration account where you want to add the agreement.
 
    ![Select integration account where to create the agreement](./media/logic-apps-enterprise-integration-x12/account-3.png)
 
 4. Select **Overview**, then select the **Agreements** tile. 
-If you don't have an Agreements tile, add the tile first. 
+   If you don't have an Agreements tile, add the tile first. 
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Under **Agreements**, choose **Add**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
-For the agreement type, select **X12**. 
-Select the **Host Partner**, **Host Identity**, 
-**Guest Partner**, and **Guest Identity** for your agreement. 
-For more property details, see the table in this step.
+   For the agreement type, select **X12**. 
+   Select the **Host Partner**, **Host Identity**, 
+   **Guest Partner**, and **Guest Identity** for your agreement. 
+   For more property details, see the table in this step.
 
 	![Provide agreement details](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
@@ -86,10 +86,10 @@ For more property details, see the table in this step.
 	| Receive Settings |These properties apply to all messages received by an agreement. |
 	| Send Settings |These properties apply to all messages sent by an agreement. |  
 
-  > [!NOTE]
-  > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
-  > and the receiver qualifier and identifier defined in the partner and incoming message. 
-  > If these values change for your partner, update the agreement too.
+   > [!NOTE]
+   > Resolution of X12 agreement depends on matching the sender qualifier and identifier, 
+   > and the receiver qualifier and identifier defined in the partner and incoming message. 
+   > If these values change for your partner, update the agreement too.
 
 ## Configure how your agreement handles received messages
 

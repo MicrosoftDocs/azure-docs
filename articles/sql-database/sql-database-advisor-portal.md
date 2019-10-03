@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/19/2018
 ---
 # Find and apply performance recommendations
 
@@ -72,6 +71,7 @@ You can review and accept recommendations one at a time.
 Selected recommendation are applied on the database.
 
 ### Removing recommendations from the list
+
 If your list of recommendations contains items that you want to remove from the list, you can discard the recommendation:
 
 1. Select a recommendation in the list of **Recommendations** to open the details.
@@ -104,18 +104,21 @@ You can set the Azure SQL Database to implement recommendations automatically. A
 
 Once you have selected your desired configuration, click Apply.
 
-### Manually run the recommended T-SQL script
+### Manually apply recommendations through T-SQL
+
 Select any recommendation and then click **View script**. Run this script against your database to manually apply the recommendation.
 
-*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Indexes that are manually executed are not monitored and validated for performance impact by the service* so it is suggested that you monitor these indexes after creation to verify they provide performance gains and adjust or delete them if necessary. For details about creating indexes, see [CREATE INDEX (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). In addition, manually applied recommendations will remain active and shown in the list of recommendations for 24-48 hrs. before the system automatically withdraws them. If you would like to remove a recommendation sooner, you can manually discard it.
 
 ### Canceling recommendations
+
 Recommendations that are in a **Pending**, **Validating**, or **Success** status can be canceled. Recommendations with a status of **Executing** cannot be canceled.
 
 1. Select a recommendation in the **Tuning History** area to open the **recommendations details** page.
 2. Click **Cancel** to abort the process of applying the recommendation.
 
 ## Monitoring operations
+
 Applying a recommendation might not happen instantaneously. The portal provides details regarding the status of recommendation. The following are possible states that an index can be in:
 
 | Status | Description |

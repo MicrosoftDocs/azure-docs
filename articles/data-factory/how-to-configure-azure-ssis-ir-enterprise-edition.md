@@ -39,19 +39,21 @@ Some of these features require you to install additional components to customize
 
 ## Instructions
 
-1.  Download and install [Azure PowerShell (version 5.4 or later)](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-2.  When you provision or reconfigure the Azure-SSIS IR with PowerShell, run `Set-AzureRmDataFactoryV2IntegrationRuntime` with **Enterprise** as the value for the **Edition** parameter before you start the Azure-SSIS IR. Here is a sample script:
+1.  Download and install [Azure PowerShell](/powershell/azure/install-az-ps).
+
+2.  When you provision or reconfigure the Azure-SSIS IR with PowerShell, run `Set-AzDataFactoryV2IntegrationRuntime` with **Enterprise** as the value for the **Edition** parameter before you start the Azure-SSIS IR. Here is a sample script:
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"
 
-    Set-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                -Name $MyAzureSsisIrName
                                                -ResourceGroupName $MyResourceGroupName
                                                -Edition $MyAzureSsisIrEdition
 
-    Start-AzureRmDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
+    Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName
                                                  -Name $MyAzureSsisIrName
                                                  -ResourceGroupName $MyResourceGroupName
     ```

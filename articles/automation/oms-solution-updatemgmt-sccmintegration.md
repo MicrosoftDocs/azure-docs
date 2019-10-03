@@ -3,9 +3,9 @@ title: Target Updates using SCCM Collections in Azure Automation - Update Manage
 description: This article is intended to help you configure System Center Configuration Manager with this solution to manage updates of SCCM managed computers.
 services: automation
 ms.service: automation
-ms.component: update-management
-author: georgewallace
-ms.author: gwallace
+ms.subservice: update-management
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
@@ -21,7 +21,7 @@ You can report and update managed Windows servers by creating and pre-staging so
 
 * You must have the [Update Management solution](automation-update-management.md) added to your Automation account.
 * Windows servers currently managed by your System Center Configuration Manager environment also need to report to the Log Analytics workspace that also has the Update Management solution enabled.
-* This feature is enabled in System Center Configuration Manager current branch version 1606 and higher. To integrate your Configuration Manager central administration site or a stand-alone primary site with Log Analytics and import collections, review [Connect Configuration Manager to Log Analytics](../azure-monitor/platform/collect-sccm.md).  
+* This feature is enabled in System Center Configuration Manager current branch version 1606 and higher. To integrate your Configuration Manager central administration site or a stand-alone primary site with Azure Monitor logs and import collections, review [Connect Configuration Manager to Azure Monitor logs](../azure-monitor/platform/collect-sccm.md).  
 * Windows agents must either be configured to communicate with a Windows Server Update Services (WSUS) server or have access to Microsoft Update if they don't receive security updates from Configuration Manager.   
 
 How you manage clients hosted in Azure IaaS with your existing Configuration Manager environment primarily depends on the connection you have between Azure datacenters and your infrastructure. This connection affects any design changes you may need to make to your Configuration Manager infrastructure and related cost to support those necessary changes. To understand what planning considerations you need to evaluate before proceeding, review [Configuration Manager on Azure - Frequently Asked Questions](/sccm/core/understand/configuration-manager-on-azure#networking).
@@ -47,3 +47,4 @@ To manage updates for Windows Server VMs that are Configuration Manager clients,
 After performing this configuration change, you create a new deployment following the steps described in [Creating an Update Deployment](automation-tutorial-update-management.md#schedule-an-update-deployment) and select **Imported groups** on the **Type** drop-down to select the appropriate Configuration Manager collection.
 
 ## Next steps
+

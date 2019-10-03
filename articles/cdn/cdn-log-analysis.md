@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 95e18b3c-b987-46c2-baa8-a27a029e3076
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,7 +24,7 @@ After you enable CDN for your application, you can monitor CDN usage, check the 
 
 ## Core analytics via Azure diagnostic logs
 
-Core analytics is available for CDN endpoints for all pricing tiers. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Azure Log Analytics. Azure Log Analytics offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
+Core analytics is available for CDN endpoints for all pricing tiers. Azure diagnostics logs allow core analytics to be exported to Azure storage, event hubs, or Azure Monitor logs. Azure Monitor logs offers a solution with graphs that are user-configurable and customizable. For more information about Azure diagnostic logs, see [Azure diagnostic logs](cdn-azure-diagnostic-logs.md).
 
 ## Verizon core reports
 

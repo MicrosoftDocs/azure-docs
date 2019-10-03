@@ -1,56 +1,48 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Klue | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Klue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/28/2018
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Klue
 
 In this tutorial, you learn how to integrate Klue with Azure Active Directory (Azure AD).
-
 Integrating Klue with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Klue
-- You can enable your users to automatically get signed-on to Klue (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Klue.
+* You can enable your users to be automatically signed-in to Klue (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Klue, you need the following items:
 
-- An Azure AD subscription
-- A Klue single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Klue single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-1. Adding Klue from the gallery
-2. Configuring and testing Azure AD single sign-on
+* Klue supports **SP and IDP** initiated SSO
+* Klue supports **Just In Time** user provisioning
 
 ## Adding Klue from the gallery
 
@@ -58,205 +50,188 @@ To configure the integration of Klue into Azure AD, you need to add Klue from th
 
 **To add Klue from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
 3. To add new application, click **New application** button on the top of dialog.
 
-	![Applications][3]
+	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Klue**.
+4. In the search box, type **Klue**, select **Klue** from result panel then click **Add** button to add the application.
 
-	![Creating an Azure AD test user](./media/klue-tutorial/tutorial_klue_search.png)
+	 ![Klue in the results list](common/search-new-app.png)
 
-5. In the results panel, select **Klue**, and then click **Add** button to add the application.
+## Configure and test Azure AD single sign-on
 
-	![Creating an Azure AD test user](./media/klue-tutorial/tutorial_klue_addfromgallery.png)
-
-##  Configuring and testing Azure AD single sign-on
-
-In this section, you configure and test Azure AD single sign-on with Klue based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Klue is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Klue needs to be established.
-
-In Klue, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Klue based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Klue needs to be established.
 
 To configure and test Azure AD single sign-on with Klue, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Klue test user](#creating-a-klue-test-user)** - to have a counterpart of Britta Simon in Klue that is linked to the Azure AD representation of user.
-4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Klue Single Sign-On](#configure-klue-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Klue test user](#create-klue-test-user)** - to have a counterpart of Britta Simon in Klue that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Klue application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Klue, perform the following steps:**
+To configure Azure AD single sign-on with Klue, perform the following steps:
 
-1. In the Azure portal, on the **Klue** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Klue** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_samlbase.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Klue Domain and URLs** section, If you wish to configure the application in **IDP** initiated mode:
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url1.png)
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `urn:klue:<Customer ID>`
+4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    ![Klue Domain and URLs single sign-on information](common/idp-intiated.png)
 
-4. Check **Show advanced URL settings**. If you wish to configure the application in **SP** initiated mode:
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `urn:klue:<Customer ID>`
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_url2.png)
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
+5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    ![Klue Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL, Identifier, and Sign-On URL. Contact [Klue Client support team](mailto:support@klue.com) to get these values.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Klue Client support team](mailto:support@klue.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. The Klue application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. You can manage the values of these attributes from the "**User Attributes**" section on application integration page.
+6. Klue application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![Configure Single Sign-On](./media/klue-tutorial/attribute.png)
+	![image](common/edit-attribute.png)
 
-6. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
+7. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps: 
 
-	| Attribute Name      | Attribute Value      |
+	| Name | Source Attribute|
 	| ------------------- | -------------------- |
 	| first_name          | user.givenname |
 	| last_name 		  | user.surname |
 	| email               | user.userprincipalname|
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_attribute_04.png)
+	![image](common/new-save-attribute.png)
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_attribute_05.png)
+	![image](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. Leave the **Namespace** blank.
 
-	d. Click **Ok**.
+	d. Select Source as **Attribute**.
 
-	> [!NOTE]
-	> Please leave the **Namespace** value blank.
+	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-7. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	f. Click **Ok**
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_certificate.png) 
+	g. Click **Save**.
 
-8. Click **Save** button.
+8. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_general_400.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-9. On the **Klue Configuration** section, click **Configure Klue** to open **Configure sign-on** window. Copy the **SAML Entity ID and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+9. On the **Set up Klue** section, copy the appropriate URL(s) as per your requirement.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_configure.png) 
+	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-10. To configure single sign-on on **Klue** side, you need to send the downloaded **Certificate(Base64), SAML Single Sign-On Service URL, and SAML Entity ID** to [Klue support team](mailto:support@klue.com).
+	a. Login URL
 
-### Creating an Azure AD test user
+	b. Azure Ad Identifier
+
+	c. Logout URL
+
+### Configure Klue Single Sign-On
+
+To configure single sign-on on **Klue** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Klue support team](mailto:support@klue.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/klue-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-2. To display the list of users, go to **Users and groups** and click **All users**.
+3. In the User properties, perform the following steps.
 
-	![Creating an Azure AD test user](./media/klue-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-3. To open the **User** dialog, click **Add** on the top of the dialog.
+    a. In the **Name** field, enter **BrittaSimon**.
+  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-	![Creating an Azure AD test user](./media/klue-tutorial/create_aaduser_03.png)
-
-4. On the **User** dialog page, perform the following steps:
-
-	![Creating an Azure AD test user](./media/klue-tutorial/create_aaduser_04.png) 
-
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
 
-### Creating a Klue test user
-
-The objective of this section is to create a user called Britta Simon in Klue. Klue supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Klue if it doesn't exist yet.
-
-> [!Note]
-> If you need to create a user manually, Contact [Klue support team](mailto:support@klue.com).
-
-### Assigning the Azure AD test user
+### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Klue.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Klue**.
 
-**To assign Britta Simon to Klue, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Klue**.
 
-	![Configure Single Sign-On](./media/klue-tutorial/tutorial_klue_app.png) 
+	![The Klue link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![Assign User][202]
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![Assign User][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Click **Assign** button on **Add Assignment** dialog.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Testing single sign-on
+### Create Klue test user
+
+In this section, a user called Britta Simon is created in Klue. Klue supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Klue, a new one is created after authentication.
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Klue tile in the Access Panel, you should get automatically signed-on to your Klue application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Klue tile in the Access Panel, you should be automatically signed in to the Klue for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/klue-tutorial/tutorial_general_01.png
-[2]: ./media/klue-tutorial/tutorial_general_02.png
-[3]: ./media/klue-tutorial/tutorial_general_03.png
-[4]: ./media/klue-tutorial/tutorial_general_04.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-[100]: ./media/klue-tutorial/tutorial_general_100.png
-
-[200]: ./media/klue-tutorial/tutorial_general_200.png
-[201]: ./media/klue-tutorial/tutorial_general_201.png
-[202]: ./media/klue-tutorial/tutorial_general_202.png
-[203]: ./media/klue-tutorial/tutorial_general_203.png

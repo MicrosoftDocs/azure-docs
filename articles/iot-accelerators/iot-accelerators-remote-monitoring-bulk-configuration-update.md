@@ -147,7 +147,7 @@ Use your Azure storage account to host your new firmware file in the cloud.
 
 ## Create a device configuration
 
-A device configuration specifies the desired state of your devices. Typically, a developer [creates the configuration](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) on the **IoT device configuration** page in the Azure portal. A device configuration is a JSON document that specifies the desired state of your devices and a set of metrics.
+A device configuration specifies the desired state of your devices. Typically, a developer [creates the configuration](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) on the **IoT device configuration** page in the Azure portal. A device configuration is a JSON document that specifies the desired state of your devices and a set of metrics.
 
 Save the following configuration as file called **firmware-update.json** on your local machine. Replace the `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, and `YOURPACKAGESIZE` placeholders with the values you made a note of previously:
 

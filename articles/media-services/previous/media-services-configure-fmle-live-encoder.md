@@ -4,7 +4,7 @@ description: This topic shows how to configure the Flash Media Live Encoder (FML
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 3113f333-517a-47a1-a1b3-57e200c6b2a2
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/05/2017
-ms.author: juliako;cenkdin;anilmur
+ms.date: 03/14/2019
+ms.author: juliako
+ms.reviewer: cenkdin;anilmur
 
 ---
-# Use the FMLE encoder to send a single bitrate live stream
+# Use the FMLE encoder to send a single bitrate live stream 
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
@@ -25,11 +26,11 @@ ms.author: juliako;cenkdin;anilmur
 >
 >
 
-This article shows how to configure the [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
+This article shows how to configure the [Flash Media Live Encoder](https://www.adobe.com/products/flash-media-encoder.html) (FMLE) encoder to send a single bitrate stream to AMS channels that are enabled for live encoding. For more information, see [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 This tutorial shows how to manage Azure Media Services (AMS) with Azure Media Services Explorer (AMSE) tool. This tool only runs on Windows PC. If you are on Mac or Linux, use the Azure portal to create [channels](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) and [programs](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-This tutorial describes using AAC. However, FMLE doesn’t supports AAC by default. You would need to purchase a plugin for AAC encoding such as from MainConcept: [AAC plugin](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+This tutorial describes using AAC. However, FMLE doesn’t supports AAC by default. You would need to purchase a plugin for AAC encoding such as from MainConcept: [AAC plugin](https://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## Prerequisites
 * [Create an Azure Media Services account](media-services-portal-create-account.md)
@@ -60,7 +61,7 @@ This tutorial describes using AAC. However, FMLE doesn’t supports AAC by defau
 >
 >
 
-While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
+While the channel is starting, you can [configure the encoder](media-services-configure-fmle-live-encoder.md).
 
 > [!IMPORTANT]
 > Note that billing starts as soon as Channel goes into a ready state. For more information, see [Channel's states](media-services-manage-live-encoder-enabled-channels.md#states).

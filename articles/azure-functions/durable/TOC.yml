@@ -1,4 +1,5 @@
 - name: Durable Functions Documentation
+  href: durable-functions-overview.md
 - name: Overview
   items:
   - name: About Azure Functions
@@ -7,6 +8,8 @@
     href: durable-functions-overview.md
   - name: Serverless comparison
     href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Preview features
+    href: durable-functions-preview.md
 - name: Quickstarts
   expanded: true
   items:
@@ -18,6 +21,8 @@
     href: quickstart-js-vscode.md
 - name: Tutorials
   items:
+  - name: Function chaining
+    href: durable-functions-sequence.md
   - name: Fan-in/fan-out
     href: durable-functions-cloud-backup.md
   - name: Monitors
@@ -34,46 +39,56 @@
     href: ../functions-cli-samples.md   
 - name: Concepts
   items:
-  - name: Patterns and concepts
-    href: durable-functions-concepts.md
-  - name: Function types and features
+  - name: Function types
     href: durable-functions-types-features-overview.md
-  - name: Bindings
-    href: durable-functions-bindings.md
+  - name: Orchestrations
+    href: durable-functions-orchestrations.md
+  - name: Orchestrator code constraints
+    href: durable-functions-code-constraints.md
+  - name: Sub-orchestrations
+    href: durable-functions-sub-orchestrations.md
+  - name: Custom orchestration status
+    href: durable-functions-custom-orchestration-status.md
   - name: Timers
     href: durable-functions-timers.md
   - name: External events
     href: durable-functions-external-events.md
-  - name: Sub-orchestrations
-    href: durable-functions-sub-orchestrations.md
+  - name: Error handling
+    href: durable-functions-error-handling.md    
+  - name: Eternal orchestrations
+    href: durable-functions-eternal-orchestrations.md
+  - name: Singleton orchestrations
+    href: durable-functions-singletons.md
+  - name: HTTP features
+    href: durable-functions-http-features.md
+  - name: Stateful entities
+    href: durable-functions-entities.md
   - name: Task hubs
     href: durable-functions-task-hubs.md
-  - name: Reliable execution 
-    href: durable-functions-checkpointing-and-replay.md
+  - name: Instance management
+    href: durable-functions-instance-management.md
   - name: Versioning
     href: durable-functions-versioning.md
+  - name: Performance and scale
+    href: durable-functions-perf-and-scale.md
+  - name: High availability
+    href: durable-functions-disaster-recovery-geo-distribution.md
+- name: Reference
+  items:
+  - name: Host.json settings
+    href: durable-functions-bindings.md#host-json
+  - name: Bindings
+    href: durable-functions-bindings.md
+  - name: HTTP API
+    href: durable-functions-http-api.md
 - name: How-to guides
   items:
-  - name: Plan and design
-    items: 
-    - name: Function chaining
-      href: durable-functions-sequence.md
-    - name: Eternal orchestrations
-      href: durable-functions-eternal-orchestrations.md
-    - name: Singleton orchestrations
-      href: durable-functions-singletons.md
-    - name: Performance and scale
-      href: durable-functions-perf-and-scale.md
-    - name: High availability
-      href: durable-functions-disaster-recovery-geo-distribution.md  
   - name: Develop
     items:
     - name: Create in Azure portal
       href: durable-functions-create-portal.md
     - name: Manage connections
       href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-    - name: Error handling
-      href: durable-functions-error-handling.md
     - name: Unit testing
       href: durable-functions-unit-testing.md
     - name: Create as WebJobs
@@ -86,24 +101,14 @@
       href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Run from package
       href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-  - name: Manage
-    items:
-    - name: Instance management
-      href: durable-functions-instance-management.md
   - name: Monitor
     items:
-    - name: Monitor functions
-      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json 
-    - name: Custom orchestration status
-      href: durable-functions-custom-orchestration-status.md
-  - name: Troubleshoot
-    items:
     - name: Diagnostics
-      href: durable-functions-diagnostics.md  
-- name: Reference
-  items:
-  - name: HTTP API
-    href: durable-functions-http-api.md   
+      href: durable-functions-diagnostics.md
+    - name: Monitoring
+      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json 
+    - name: Pricing
+      href: durable-functions-billing.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn

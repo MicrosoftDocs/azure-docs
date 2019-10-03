@@ -1,20 +1,20 @@
 ---
 title: How to configure Azure Cache for Redis | Microsoft Docs
 description: Understand the default Redis configuration for Azure Cache for Redis and learn how to configure your Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: na
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: tysonn
 
 ms.assetid: d0bf2e1f-6a26-4e62-85ba-d82b35fc5aa6
 ms.service: cache
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Azure Cache for Redis
@@ -53,7 +53,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Properties](#properties)
 	* [Locks](#locks)
 	* [Automation script](#automation-script)
-* [Administration](#administration)
+* Administration
 	* [Import data](#importexport)
 	* [Export data](#importexport)
 	* [Reboot](#reboot)
@@ -61,7 +61,7 @@ You can view and configure the following settings using the **Resource Menu**.
 	* [Redis metrics](#redis-metrics)
 	* [Alert rules](#alert-rules)
 	* [Diagnostics](#diagnostics)
-* [Support & troubleshooting settings](#support-amp-troubleshooting-settings)
+* Support & troubleshooting settings
 	* [Resource health](#resource-health)
 	* [New support request](#new-support-request)
 
@@ -353,10 +353,10 @@ Click **Alert rules** to configure alerts based on Azure Cache for Redis metrics
 
 ### Diagnostics
 
-By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-collection.md#metrics) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
+By default, cache metrics in Azure Monitor are [stored for 30 days](../azure-monitor/platform/data-platform-metrics.md) and then deleted. To persist your cache metrics for longer than 30 days, click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#export-cache-metrics) used to store cache diagnostics.
 
 >[!NOTE]
->In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>In addition to archiving your cache metrics to storage, you can also [stream them to an Event hub or send them to Azure Monitor logs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 
@@ -426,7 +426,7 @@ New Azure Cache for Redis instances are configured with the following default Re
 For more information about databases, see [What are Redis databases?](cache-faq.md#what-are-redis-databases)
 
 > [!NOTE]
-> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzureRmRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
+> The `databases` setting can be configured only during cache creation and only using PowerShell, CLI, or other management clients. For an example of configuring `databases` during cache creation using PowerShell, see [New-AzRedisCache](cache-howto-manage-redis-cache-powershell.md#databases).
 > 
 > 
 

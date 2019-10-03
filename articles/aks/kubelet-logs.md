@@ -1,18 +1,26 @@
 ---
 title: View kubelet logs in Azure Kubernetes Service (AKS)
-description: How to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
+description: Learn how to view troubleshooting information in the kubelet logs from Azure Kubernetes Service (AKS) nodes
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/21/2018
-ms.author: iainfou
+ms.date: 03/05/2019
+ms.author: mlearned
+
+#Customer intent: As a cluster operator, I want to view the logs for the kubelet that runs on each node in an AKS cluster to troubleshoot problems.
 ---
 
 # Get kubelet logs from Azure Kubernetes Service (AKS) cluster nodes
 
-Occasionally, you may need to get *kubelet* logs from an Azure Kubernetes Service (AKS) node for troubleshooting purposes. This article shows you how you can use `journalctl` to view the *kubelet* logs.
+As part of operating an AKS cluster, you may need to review logs to troubleshoot a problem. Built-in to the Azure portal is the ability to view logs for the [AKS master components][aks-master-logs] or [containers in an AKS cluster][azure-container-logs]. Occasionally, you may need to get *kubelet* logs from an AKS node for troubleshooting purposes.
+
+This article shows you how you can use `journalctl` to view the *kubelet* logs on an AKS node.
+
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
 ## Create an SSH connection
 
@@ -59,3 +67,7 @@ If you need additional troubleshooting information from the Kubernetes master, s
 <!-- LINKS - internal -->
 [aks-ssh]: ssh.md
 [aks-master-logs]: view-master-logs.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[aks-master-logs]: view-master-logs.md
+[azure-container-logs]: ../azure-monitor/insights/container-insights-overview.md

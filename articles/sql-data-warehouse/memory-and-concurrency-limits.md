@@ -1,13 +1,13 @@
 ---
-title: Memory and concurrency limits - Azure SQL Data Warehouse | Microsoft Docs
+title: Memory and concurrency limits in Azure SQL Data Warehouse | Microsoft Docs
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
-ms.date: 10/04/2018
+ms.subservice: workload-management
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ---
@@ -66,7 +66,7 @@ The service levels for Gen1 range from DW100 to DW6000.
 | DW6000            | 60            | 1                              | 1440                           |
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue where they wait until enough [concurrency slots](resource-classes-for-workload-management.md#concurrency-slots) are available. Concurrency slots also determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 ### Gen2
  
@@ -74,7 +74,7 @@ To ensure each query has enough resources to execute efficiently, SQL Data Wareh
 
 The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md).  
 
-| Service Level | Maximum concurrent queries | Concurrency slots available |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -129,7 +129,7 @@ Static resource classes
 
 The following table shows the maximum concurrent queries and concurrency slots for each [static resource class](resource-classes-for-workload-management.md) on **Gen1**.
 
-| Service level | Maximum concurrent queries | Maximum concurrency slots |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
+| Service level | Maximum concurrent queries | Maximum concurrency slots | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -152,7 +152,7 @@ Dynamic resource classes
 
 The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md) on **Gen1**.
 
-| Service level | Maximum concurrent queries | Concurrency slots available | smallrc | mediumrc | largerc | xlargerc |
+| Service level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

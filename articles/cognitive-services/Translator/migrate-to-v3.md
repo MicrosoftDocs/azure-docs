@@ -1,21 +1,23 @@
 ---
 title: Migrate to V3 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 03/27/2018
-ms.author: v-jansko
+ms.date: 02/01/2019
+ms.author: swmachan
 ---
 
 # Translator Text API V2 to V3 Migration
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
+> 
+> The Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).  
 
 The Microsoft Translator team has released Version 3 (V3) of the Translator Text API. This release includes new features, deprecated methods and a new format for sending to, and receiving data from the Microsoft Translator Service. This document provides information for changing applications to use V3. 
 
@@ -36,19 +38,19 @@ The following list of V2 and V3 methods identifies the V3 methods and APIs that 
 
 | V2 API Method   | V3 API Compatibility |
 |:----------- |:-------------|
-| Translate     | [Translate](reference/v3-0-translate.md)          |
-| TranslateArray      | [Translate](reference/v3-0-translate.md)        |
-| GetLanguageNames      | [Languages](reference/v3-0-languages.md)         |
-| GetLanguagesForTranslate     | [Languages](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Detect](reference/v3-0-detect.md)         |
-| DetectArray     | [Detect](reference/v3-0-detect.md)         |
-| AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
-| AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
-| BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
-| GetTranslations      | Feature is no longer supported         |
-| GetTranslationsArray      | Feature is no longer supported         |
+| `Translate`     | [Translate](reference/v3-0-translate.md)          |
+| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Detect](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
+| `AddTranslation`     | Feature is no longer supported       |
+| `AddTranslationArray`    | Feature is no longer supported          |
+| `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
+| `GetTranslations`      | Feature is no longer supported         |
+| `GetTranslationsArray`      | Feature is no longer supported         |
 
 ## Move to JSON format
 
@@ -70,12 +72,12 @@ Microsoft Translator V3 is priced in the same way V2 was priced; per character, 
 
 | V3 Method   | Characters Counted for Billing |
 |:----------- |:-------------|
-| Languages     | No characters submitted, none counted, no charge.          |
-| Translate     | Count is based on how many characters are submitted for translation, and how many languages the characters are translated into. 50 characters submitted, and 5 languages requested will be 50x5.           |
-| Transliterate     | Number of characters submitted for transliteration are counted.         |
-| Dictionary lookup & example     | Number of characters submitted for Dictionary lookup and examples are counted.         |
-| BreakSentence     | No Charge.       |
-| Detect     | No Charge.      |
+| `Languages`     | No characters submitted, none counted, no charge.          |
+| `Translate`     | Count is based on how many characters are submitted for translation, and how many languages the characters are translated into. 50 characters submitted, and 5 languages requested will be 50x5.           |
+| `Transliterate`     | Number of characters submitted for transliteration are counted.         |
+| `Dictionary lookup & example`     | Number of characters submitted for Dictionary lookup and examples are counted.         |
+| `BreakSentence`     | No Charge.       |
+| `Detect`     | No Charge.      |
 
 ## V3 End Points
 
@@ -83,28 +85,31 @@ Global
 
 * api.cognitive.microsofttranslator.com
 
-
 ## V3 API text translations methods
 
-[Languages](reference/v3-0-languages.md)
+[`Languages`](reference/v3-0-languages.md)
 
-[Translate](reference/v3-0-translate.md)
+[`Translate`](reference/v3-0-translate.md)
 
-[Transliterate](reference/v3-0-transliterate.md)
+[`Transliterate`](reference/v3-0-transliterate.md)
 
-[BreakSentence](reference/v3-0-break-sentence.md)
+[`BreakSentence`](reference/v3-0-break-sentence.md)
 
-[Detect](reference/v3-0-detect.md)
+[`Detect`](reference/v3-0-detect.md)
 
-[Dictionary/lookup](reference/v3-0-dictionary-lookup.md)
+[`Dictionary/lookup`](reference/v3-0-dictionary-lookup.md)
 
-[Dictionary/example](reference/v3-0-dictionary-examples.md)
+[`Dictionary/example`](reference/v3-0-dictionary-examples.md)
 
 ## Compatibility and customization
 
+> [!NOTE]
+> 
+> The Microsoft Translator Hub will be retired on May 17, 2019. [View important migration information and dates](https://www.microsoft.com/translator/business/hub/).   
+
 Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
-Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, text, generalnn).
+Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, tech, generalnn).
 
 | |Endpoint|	GDPR Processor Compliance|	Use Translator Hub|	Use Custom Translator (Preview)|
 |:-----|:-----|:-----|:-----|:-----|
@@ -120,20 +125,18 @@ Neural translation with the V3 text API does not support the use of standard cat
 You are using Version 3 of the Translator Text API If you are using the api.cognitive.microsofttranslator.com endpoint.
 
 **Translator Text API Version 2**
-* Is deprecated. It will be discontinued on April 30, 2019. 
 * Does not satisfy all ISO 20001,20018 and SOC 3 certification requirements. 
 * Does not allow you to invoke the neural network translation systems you have customized with the Translator customization feature.
 * Provides access to custom translation systems created using the Microsoft Translator Hub.
 * You are using Version 2 of the Translator Text API If you are using the api.microsofttranslator.com endpoint.
 
-No version of the Translator API creates a record of your translations. Your translations are never shared with anyone. More information on the [Translator No-Trace](http://www.aka.ms/NoTrace) webpage.
-
+No version of the Translator API creates a record of your translations. Your translations are never shared with anyone. More information on the [Translator No-Trace](https://www.aka.ms/NoTrace) webpage.
 
 ## Links
 
 * [Microsoft Privacy Policy](https://privacy.microsoft.com/privacystatement)
 * [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal)
-* [Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
+* [Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## Next steps
 

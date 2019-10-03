@@ -2,13 +2,13 @@
 title: Get container logs and events with Azure Container Instances
 description: Learn how to debug with container logs and events with Azure Container Instances
 services: container-instances
-author: jluk
-manager: jeconnoc
+author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 05/30/18
-ms.author: juluk
+ms.date: 03/21/2019
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -55,10 +55,12 @@ $ az container attach --resource-group myResourceGroup --name mycontainer
 Container 'mycontainer' is in state 'Unknown'...
 Container 'mycontainer' is in state 'Waiting'...
 Container 'mycontainer' is in state 'Running'...
-(count: 1) (last timestamp: 2018-03-09 23:21:33+00:00) pulling image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Successfully pulled image "microsoft/aci-wordcount:latest"
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Created container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
-(count: 1) (last timestamp: 2018-03-09 23:21:49+00:00) Started container with id e495ad3e411f0570e1fd37c1e73b0e0962f185aa8a7c982ebd410ad63d238618
+(count: 1) (last timestamp: 2019-03-21 19:42:39+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-wordcount:latest"
+Container 'mycontainer1' is in state 'Running'...
+(count: 1) (last timestamp: 2019-03-21 19:42:39+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-wordcount:latest"
+(count: 1) (last timestamp: 2019-03-21 19:42:52+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-wordcount:latest"
+(count: 1) (last timestamp: 2019-03-21 19:42:55+00:00) Created container
+(count: 1) (last timestamp: 2019-03-21 19:42:55+00:00) Started container
 
 Start streaming logs:
 [('the', 22979),
@@ -89,38 +91,38 @@ The output includes the core properties of your container, along with deployment
     {
       "command": null,
       "environmentVariables": [],
-      "image": "microsoft/aci-helloworld",
+      "image": "mcr.microsoft.com/azuredocs/aci-helloworld",
       ...
         "events": [
           {
             "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:49+00:00",
-            "lastTimestamp": "2017-12-21T22:50:49+00:00",
-            "message": "pulling image \"microsoft/aci-helloworld\"",
+            "firstTimestamp": "2019-03-21T19:46:22+00:00",
+            "lastTimestamp": "2019-03-21T19:46:22+00:00",
+            "message": "pulling image \"mcr.microsoft.com/azuredocs/aci-helloworld\"",
             "name": "Pulling",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Successfully pulled image \"microsoft/aci-helloworld\"",
+            "firstTimestamp": "2019-03-21T19:46:28+00:00",
+            "lastTimestamp": "2019-03-21T19:46:28+00:00",
+            "message": "Successfully pulled image \"mcr.microsoft.com/azuredocs/aci-helloworld\"",
             "name": "Pulled",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Created container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "firstTimestamp": "2019-03-21T19:46:31+00:00",
+            "lastTimestamp": "2019-03-21T19:46:31+00:00",
+            "message": "Created container",
             "name": "Created",
             "type": "Normal"
           },
           {
             "count": 1,
-            "firstTimestamp": "2017-12-21T22:50:59+00:00",
-            "lastTimestamp": "2017-12-21T22:50:59+00:00",
-            "message": "Started container with id 2677c7fd54478e5adf6f07e48fb71357d9d18bccebd4a91486113da7b863f91f",
+            "firstTimestamp": "2019-03-21T19:46:31+00:00",
+            "lastTimestamp": "2019-03-21T19:46:31+00:00",
+            "message": "Started container",
             "name": "Started",
             "type": "Normal"
           }

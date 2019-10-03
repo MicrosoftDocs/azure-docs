@@ -12,11 +12,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 03/20/2019
 ms.author: juliako
 
 ---
-# Troubleshooting guide for live streaming
+# Troubleshooting guide for live streaming  
+
 This article gives suggestions on how to troubleshoot some live streaming problems.
 
 ## Issues related to on-premises encoders

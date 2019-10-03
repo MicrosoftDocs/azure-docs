@@ -1,5 +1,5 @@
 ---
-title: Use the Video Indexer API
+title: Use the Video Indexer API - Azure
 titlesuffix: Azure Media Services
 description: This article shows how to get started using the Video Indexer API.
 services: media-services
@@ -7,19 +7,17 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
-# Use the Video Indexer API
-
-> [!Note]
-> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
+# Tutorial: Use the Video Indexer API
 
 Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft in one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of insight and player widgets in order to embed them into your application, and other tasks.
 
-When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and a Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Azure Media Services account related charges. 
+When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Azure Media Services account related charges. 
 
 This article shows how the developers can take advantage of the [Video Indexer API](https://api-portal.videoindexer.ai/).
 
@@ -29,10 +27,10 @@ This article shows how the developers can take advantage of the [Video Indexer A
 	
 	![Sign in](./media/video-indexer-use-apis/video-indexer-api01.png)
 
-    > [!Important]
-    > * You must use the same provider you used when you signed up for Video Indexer.
-    > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
-    > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
+   > [!Important]
+   > * You must use the same provider you used when you signed up for Video Indexer.
+   > * Personal Google and Microsoft (outlook/live) accounts can only be used for trial accounts. Accounts connected to Azure require Azure AD.
+   > * There can be only one active account per E-Mail. If a user tries to sign-in with user@gmail.com for LinkedIn and after that with user@gmail.com for Google the later will display an error page, saying the user already exist.
 
 2. Subscribe.
 
@@ -68,20 +66,7 @@ To make things easier, you can use the **Authorization** API > **GetAccounts** t
 
 Access tokens expire after 1 hour. Make sure your access token is valid before using the Operations API. If expires, call the Authorization API again to get a new access token.
  
-You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](http://api-portal.videoindexer.ai/).
-
-## Location
-
-All operation APIs require a Location parameter, which indicates the region to which the call should be routed and in which the account was created.
-
-The values described in the following table apply. The **Param value** is the value you pass when using the API.
-
-|**Name**|**Param value**|**Description**|
-|---|---|---|
-|Trial|trial|Used for trial accounts.|
-|West US|westus2|Used for the Azure West US 2 region.|
-|North Europe |northeurope|Used for the Azure North Europe region.|
-|East Asia|eastasia|Used for the Azure East Asia region.|
+You are ready to start integrating with the API. Find [the detailed description of each Video Indexer REST API](https://api-portal.videoindexer.ai/).
 
 ## Account ID 
 
@@ -218,8 +203,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
+## See also
+
+- [Video Indexer overview](video-indexer-overview.md)
+- [Regions](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
 ## Next steps
 
 [Examine details of the output JSON](video-indexer-output-json-v2.md).
 
-[Video Indexer overview](video-indexer-overview.md)

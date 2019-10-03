@@ -4,7 +4,7 @@ description: Learn about application and service level events and logs used to m
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

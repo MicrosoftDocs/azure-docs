@@ -1,5 +1,5 @@
 ---
-title: Examine the Video Indexer output produced by v2 API
+title: Examine the Azure Media Services Video Indexer output produced by v2 API
 titlesuffix: Azure Media Services
 description: This topic examines the Video Indexer output produced by v2 API.
 services: media-services
@@ -7,17 +7,15 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
-# Examine the Video Indexer output produced by v2 API
+# Examine the Video Indexer output produced by API
 
-> [!Note]
-> The Video Indexer V1 API was deprecated on August 1st, 2018. You should now use the Video Indexer v2 API. <br/>To develop with Video Indexer v2 APIs, please refer to the instructions found [here](https://api-portal.videoindexer.ai/). 
-
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, OCRs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -78,11 +76,11 @@ This section shows the summary of the insights.
 |privacyMode|Your breakdown can have one of the following modes: **Private**, **Public**. **Public** - the video is visible to everyone in your account and anyone that has a link to the video. **Private** - the video is visible to everyone in your account.|
 |duration|Contains one duration that describes the time an insight occurred. Duration is in seconds.|
 |thumbnailVideoId|The ID of the video from which the thumbnail was taken.
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail, call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it thumbnailVideoId and  thumbnailId.|
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioEffects).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
@@ -105,7 +103,7 @@ This section shows the summary of the insights.
 |metadata|The video's external metadata (if specified by the user).|
 |isAdult|Indicates whether the video was manually reviewed and identified as an adult video.|
 |insights|The insights object. For more information, see [insights](#insights).|
-|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) and pass it the video ID and thumbnailId.|
+|thumbnailId|The video's thumbnail ID. To get the actual thumbnail call [Get-Thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) and pass it the video ID and thumbnailId.|
 |publishedUrl|A url to stream the video.|
 |publishedUrlProxy|A url to stream the video from (for Apple devices).|
 |viewToken|A short lived view token for streaming the video.|
@@ -152,7 +150,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |sourceLanguage|The video's source language (assuming one master language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |language|The insights language (translated from the source language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |transcript|The [transcript](#transcript) dimension.|
-|ocr|The [ocr](#ocr) dimension.|
+|ocr|The [OCR](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
 |blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
@@ -162,7 +160,7 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|The [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
 |emotions| The [emotions](#emotions) dimension.|
 |topics|The [topics](#topics) dimension.|
 
@@ -183,7 +181,7 @@ Example:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -241,34 +239,26 @@ Example:
 |confidence|The recognition confidence.|
 |language|The OCR language.|
 |instances|A list of time ranges where this OCR appeared (the same OCR can appear multiple times).|
+|height|The height of the OCR rectangle|
+|top|The top location in px|
+|left| The left location in px|
+|width|The width of the  OCR rectangle|
 
 ```json
 "ocr": [
     {
       "id": 0,
       "text": "LIVE FROM NEW YORK",
-      "confidence": 0.91,
+      "confidence": 675.971,
+      "height": 35,
       "language": "en-US",
+      "left": 31,
+      "top": 97,
+      "width": 400,      
       "instances": [
         {
           "start": "00:00:26",
           "end": "00:00:52"
-        }
-      ]
-    },
-    {
-      "id": 1,
-      "text": "NOTICIAS EN VIVO",
-      "confidence": 0.9,
-      "language": "es-ES",
-      "instances": [
-        {
-          "start": "00:00:26",
-          "end": "00:00:28"
-        },
-        {
-          "start": "00:00:32",
-          "end": "00:00:38"
         }
       ]
     }
@@ -286,40 +276,24 @@ Example:
 |instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+	id: 0,
+	text: "technology",
+	confidence: 1,
+	language: "en-US",
+	instances: [{
+			adjustedStart: "0:05:15.782",
+			adjustedEnd: "0:05:16.249",
+			start: "0:05:15.782",
+			end: "0:05:16.249"
+	},
+	{
+			adjustedStart: "0:04:54.761",
+			adjustedEnd: "0:04:55.228",
+			start: "0:04:54.761",
+			end: "0:04:55.228"
+	}]
 }
-] 
 ```
 
 #### faces
@@ -330,7 +304,7 @@ Example:
 |name|The name of the face. It can be 'Unknown #0, an identified celebrity or a customer trained person.|
 |confidence|The face identification confidence.|
 |description|A description of the celebrity. |
-|thumbnalId|The ID of the thumbnail of that face.|
+|thumbnailId|The ID of the thumbnail of that face.|
 |knownPersonId|If it is a known person, its internal ID.|
 |referenceId|If it is a Bing celebrity, its Bing ID.|
 |referenceType|Currently, just Bing.|
@@ -426,61 +400,85 @@ Example:
   ] 
 ```
 
+#### scenes
+
+|Name|Description|
+|---|---|
+|id|The scene ID.|
+|instances|A list of time ranges of this scene (a scene can only have 1 instance).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### shots
 
 |Name|Description|
 |---|---|
 |id|The shot ID.|
-|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
-|instances|A list of time ranges of this shot (shots have only 1 instance).|
+|keyFrames|A list of keyFrames within the shot (each has an ID and a list of instances time ranges). Each keyFrame instance has a thumbnailId field, which holds the keyFrame's thumbnail ID.|
+|instances|A list of time ranges of this shot (a shot can only have 1 instance).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-	            "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-	        "thumbnailId": "00000000-0000-0000-0000-000000000000",	
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-	            "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-	  "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### brands
@@ -554,7 +552,7 @@ Business and product brand names detected in the speech to text transcript and/o
 |SpeakerLongestMonolog|The speaker's longest monolog. If the speaker has silences inside the monolog it is included. Silence at the beginning and the end of the monolog is removed.| 
 |SpeakerTalkToListenRatio|The calculation is based on the time spent on the speaker's monolog (without the silence in between) divided by the total time of the video. The time is rounded to the third decimal point.|
 
-#### audioEffects
+#### <a id="audioEffects"/>audioEffects
 
 |Name|Description|
 |---|---|
@@ -658,7 +656,7 @@ Videos that are found to contain adult or racy content might be available for pr
 ] 
 ```
 
-#### textualConentModeration 
+#### textualContentModeration 
 
 |Name|Description|
 |---|---|

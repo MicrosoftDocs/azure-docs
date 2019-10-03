@@ -38,19 +38,19 @@ In this guide, you use Storage Table service or Azure Cosmos DB features that ca
 ## Get the client library
 
 1. Create a file named composer.json in the root of your project and add the following code to it:
-```json
-{
-  "require": {
+   ```json
+   {
+   "require": {
     "microsoft/azure-storage-table": "*"
-  }
-}
-```
+   }
+   }
+   ```
 2. Download [composer.phar](https://getcomposer.org/composer.phar) in your root. 
 3. Open a command prompt and execute the following command in your project root:
-```
-php composer.phar install
-```
-Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
+   ```
+   php composer.phar install
+   ```
+   Alternatively, go to the [Azure Storage Table PHP Client Library](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table) on GitHub to clone the source code.
 
 
 ## Add required references

@@ -2,11 +2,10 @@
 title: Monitors in Durable Functions - Azure
 description: Learn how to implement a status monitor using the Durable Functions extension for Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -37,7 +36,7 @@ This sample monitors a location's current weather conditions and alerts a user b
 
 This sample involves using the Weather Underground API to check current weather conditions for a location.
 
-The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
+The first thing you need is a Weather Underground account. You can create one for free at [https://www.wunderground.com/signup](https://www.wunderground.com/signup). Once you have an account, you will need to acquire an API key. You can do so by visiting [https://www.wunderground.com/weather/api](https://www.wunderground.com/weather/api/?MR=1), then selecting Key Settings. The Stratus Developer plan is free and sufficient to run this sample.
 
 Once you have an API key, add the following **app setting** to your function app.
 
@@ -63,7 +62,7 @@ The **E3_Monitor** function uses the standard *function.json* for orchestrator f
 
 Here is the code that implements the function:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
@@ -84,7 +83,7 @@ Multiple orchestrator instances can run simultaneously by sending multiple **Mon
 
 ## Strongly-typed data transfer (.NET only)
 
-The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -99,7 +98,7 @@ As with other samples, the helper activity functions are regular functions that 
 
 And here is the implementation. Like the POCOs used for data transfer, logic to handle the API call and parse the response JSON is abstracted into a shared class in C#. You can find it as part of the [Visual Studio sample code](#run-the-sample).
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
@@ -113,7 +112,7 @@ The **E3_SendGoodWeatherAlert** function uses the Twilio binding to send an SMS 
 
 And here is the code that sends the SMS message:
 
-### C#
+### C# Script
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
@@ -162,7 +161,7 @@ You can see the orchestration's activity by looking at the function logs in the 
 2018-03-01T01:14:54.030 Function completed (Success, Id=561d0c78-ee6e-46cb-b6db-39ef639c9a2c, Duration=62ms)
 ```
 
-The orchestration will [terminate](durable-functions-instance-management.md#terminating-instances) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` (.NET) or `terminate` (JavaScript) inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
+The orchestration will [terminate](durable-functions-instance-management.md) once its timeout is reached or clear skies are detected. You can also use `TerminateAsync` (.NET) or `terminate` (JavaScript) inside another function or invoke the **terminatePostUri** HTTP POST webhook referenced in the 202 response above, replacing `{text}` with the reason for termination:
 
 ```
 POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}

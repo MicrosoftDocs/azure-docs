@@ -3,18 +3,19 @@ title: How to configure managed Identities for Azure resources on a virtual mach
 description: Step by step instructions for configuring managed identities for Azure resources on a virtual machine scale set using the Azure portal.
 services: active-directory
 documentationcenter: ''
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using the Azure portal
@@ -54,7 +55,7 @@ To enable the system-assigned managed identity on a virtual machine scale set th
 
 3. Under **System assigned**, **Status**, select **On** and then click **Save**:
 
-   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
+   ![Configuration page screenshot](./media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png) 
 
 ### Remove system-assigned managed identity from a virtual machine scale set
 

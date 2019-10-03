@@ -6,7 +6,7 @@ author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
@@ -24,7 +24,7 @@ resources such as [user-defined routes](../../virtual-network/virtual-networks-u
 and the [Layer 4 Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs#az_acs_create) command to create the Kubernetes cluster and the service principal at the same time.
+This article shows different options to set up a service principal for your Kubernetes cluster. For example, if you installed and set up the [Azure CLI](/cli/azure/install-az-cli2), you can run the [`az acs create`](/cli/azure/acs) command to create the Kubernetes cluster and the service principal at the same time.
 
 
 ## Requirements for the service principal
@@ -147,7 +147,7 @@ Output (shown here truncated):
 ...
 ```
 
-If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) command to update the credentials:
+If your service principal credentials have expired, use the [az ad sp reset-credentials](/cli/azure/ad/sp) command to update the credentials:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

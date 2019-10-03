@@ -4,30 +4,30 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 04/26/2019
 ms.author: scottwhi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and C#
 
-Use this quickstart to make your first call to the Bing Visual Search API and view the search results. This simple C# application uploads an image to the API, and displays the information returned about it.
+This quickstart demonstrates how to upload an image to the Bing Visual Search API and to view the insights that it returns.
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package.
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* The [Json.NET framework](https://www.newtonsoft.com/json), available as a NuGet package.
+* If you're using Linux/MacOS, you can run this application using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## Create and initialize a project
 
-1. create a new console solution named `BingSearchApisQuickStart` in Visual Studio. Then add the following namespaces into the main code file.
+1. In Visual Studio, create a new console solution named BingSearchApisQuickStart. Add the following namespaces to the main code file:
 
     ```csharp
     using System;
@@ -37,16 +37,15 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
     using System.Collections.Generic;
     ```
 
-2. Add variables for your subscription key, endpoint, and the path for the image you want to upload.
+2. Add variables for your subscription key, endpoint, and path to the image you want to upload:
 
     ```csharp
-        const string accessKey = "<yoursubscriptionkeygoeshere>";
+        const string accessKey = "<my_subscription_key>";
         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch";
-        static string imagePath = @"<pathtoimagegoeshere>";
+        static string imagePath = @"<path_to_image>";
     ```
 
-
-1. Create a method called `GetImageFileName()` to get the path for your image
+3. Create a method named `GetImageFileName()` to get the path for your image:
     
     ```csharp
     static string GetImageFileName(string path)
@@ -55,7 +54,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
             }
     ```
 
-2. Create a method to get the binary characters of the image.
+4. Create a method to get the binary data of the image:
 
     ```csharp
     static byte[] GetImageBinary(string path)
@@ -66,7 +65,7 @@ Use this quickstart to make your first call to the Bing Visual Search API and vi
 
 ## Build the form data
 
-When uploading a local image, the form data sent to the API must be formatted correctly. It must include the Content-Disposition header, its `name` parameter must be set to "image", and the `filename` parameter may be set to any string. The contents of the form contain the binary of the image. The maximum image size you may upload is 1 MB.
+To upload a local image, you first build the form data to send to the API. The form data must include the `Content-Disposition` header, its `name` parameter must be set to "image", and the `filename` parameter can be set to any string. The contents of the form contain the binary data of the image. The maximum image size you can upload is 1 MB.
 
     ```
     --boundary_1234-abcd
@@ -77,7 +76,7 @@ When uploading a local image, the form data sent to the API must be formatted co
     --boundary_1234-abcd--
     ```
 
-1. To format the form data, Add boundary strings for formatting the POST form data correctly, which determine the beginning, end, and newline characters for the data.
+1. Add boundary strings to format the POST form data. Boundary strings determine the start, end, and newline characters for the data:
 
     ```csharp
     // Boundary strings for form data in body of POST.
@@ -87,14 +86,14 @@ When uploading a local image, the form data sent to the API must be formatted co
     static string EndBoundaryTemplate = "--{0}--";
     ```
 
-2. The following variables will be used to add parameters to the form data. 
+2. Use the following variables to add parameters to the form data:
 
     ```csharp
     const string CONTENT_TYPE_HEADER_PARAMS = "multipart/form-data; boundary={0}";
     const string POST_BODY_DISPOSITION_HEADER = "Content-Disposition: form-data; name=\"image\"; filename=\"{0}\"" + CRLF +CRLF;
     ```
 
-3. Create a function called `BuildFormDataStart()` to create the beginning part of the required form data, using the boundary strings and your image path.
+3. Create a function named `BuildFormDataStart()` to create the start of the form data using the boundary strings and image path:
     
     ```csharp
         static string BuildFormDataStart(string boundary, string filename)
@@ -108,7 +107,7 @@ When uploading a local image, the form data sent to the API must be formatted co
         }
     ```
 
-4. Create a function called `BuildFormDataEnd()` to create the ending part of the required form data, using the boundary strings.
+4. Create a function named `BuildFormDataEnd()` to create the end of the form data using the boundary strings:
     
     ```csharp
         static string BuildFormDataEnd(string boundary)
@@ -119,11 +118,11 @@ When uploading a local image, the form data sent to the API must be formatted co
 
 ## Call the Bing Visual Search API
 
-1. Create a function to call the Bing Visual Search endpoint, and return the json response. The function should take the beginning and ending parts fo the form data, a byte array containing the image data, and a contentType value.
+1. Create a function to call the Bing Visual Search endpoint and return the JSON response. The function takes the start and end of the form data, a byte array containing the image data, and a `contentType` value.
 
 2. Use a `WebRequest` to store your URI, contentType value, and headers.  
 
-3. Use `request.GetRequestStream()` to write your form and image data. Then get the response. This function should look like the code below:
+3. Use `request.GetRequestStream()` to write your form and image data, then get the response. Your function should be similar to the one below:
         
     ```csharp
         static string BingImageSearch(string startFormData, string endFormData, byte[] image, string contentTypeValue)
@@ -153,16 +152,16 @@ When uploading a local image, the form data sent to the API must be formatted co
         }
     ```
 
-## Create the main method
+## Create the Main method
 
-1. In the main method of your application, get the filename and image binary for your image. 
+1. In the `Main` method of your application, get the filename and binary data of your image:
 
     ```csharp
     var filename = GetImageFileName(imagePath);
     var imageBinary = GetImageBinary(imagePath);
     ```
 
-2. Set up the POST body by formatting the boundary for it. Then call `startFormData()` and `endFormData` to create the form data. 
+2. Set up the POST body by formatting the boundary for it. Then call `startFormData()` and `endFormData` to create the form data:
 
     ```csharp
     // Set up POST body.
@@ -171,13 +170,13 @@ When uploading a local image, the form data sent to the API must be formatted co
     var endFormData = BuildFormDataEnd(boundary);
     ```
 
-3. Create the ContentType value by formatting `CONTENT_TYPE_HEADER_PARAMS` and the form data boundary.
+3. Create the `ContentType` value by formatting `CONTENT_TYPE_HEADER_PARAMS` and the form data boundary:
 
     ```csharp
     var contentTypeHdrValue = string.Format(CONTENT_TYPE_HEADER_PARAMS, boundary);
     ```
 
-4. Get the API response by calling `BingImageSearch()`. Then print the response.
+4. Get the API response by calling `BingImageSearch()` and print the response:
 
     ```csharp
     var json = BingImageSearch(startFormData, endFormData, imageBinary, contentTypeHdrValue);
@@ -188,9 +187,9 @@ When uploading a local image, the form data sent to the API must be formatted co
 
 ## Using HttpClient
 
-If you use HttpClient, you can use MultipartFormDataContent to build the form data. Just use the following sections of code to replace the same named methods in the previous example.
+If you use `HttpClient`, you can use the `MultipartFormDataContent` class to build the form data. Just use the following sections of code to replace the corresponding methods in the previous example.
 
-Replace the Main method with this code:
+Replace the `Main` method with this code:
 
 ```csharp
         static void Main()
@@ -230,7 +229,7 @@ Replace the Main method with this code:
         }
 ```
 
-Replace the BingImageSearch method with this code:
+Replace the `BingImageSearch` method with this code:
 
 ```csharp
         /// <summary>
@@ -267,4 +266,4 @@ Replace the BingImageSearch method with this code:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build a Custom Search web app](../tutorial-bing-visual-search-single-page-app.md)
+> [Create a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

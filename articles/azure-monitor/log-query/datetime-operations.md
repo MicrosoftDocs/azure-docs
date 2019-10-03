@@ -1,6 +1,6 @@
 ---
-title: Working with date time values in Azure Log Analytics queries| Microsoft Docs
-description: Describes how to work with date and time data in Log Analytics queries.
+title: Working with date time values in Azure Monitor log queries| Microsoft Docs
+description: Describes how to work with date and time data in Azure Monitor log queries.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,18 +15,18 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Working with date time values in Log Analytics queries
+# Working with date time values in Azure Monitor log queries
 
 > [!NOTE]
 > You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this lesson.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes how to work with date and time data in Log Analytics queries.
+This article describes how to work with date and time data in Azure Monitor log queries.
 
 
 ## Date time basics
-The Log Analytics query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
+The Kusto query language has two main data types associated with dates and times: datetime and timespan. All dates are expressed in UTC. While multiple datetime formats are supported, the ISO8601 format is preferred. 
 
 Timespans are expressed as a decimal followed by a time unit:
 
@@ -40,7 +40,7 @@ Timespans are expressed as a decimal followed by a time unit:
 |microsecond | microsecond  |
 |tick        | nanosecond   |
 
-Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, you can make use of the [between operator](/azure/kusto/query/betweenoperator) which is convenient to specify a time range..
+Datetimes can be created by casting a string using the `todatetime` operator. For example, to review the VM heartbeats sent in a specific timeframe, use the `between` operator to specify a time range.
 
 ```Kusto
 Heartbeat
@@ -77,7 +77,7 @@ Heartbeat
 ```
 
 ## Converting time units
-It can be useful to express a datetime or timespan in a time unit other than the default one. For example, suppose you're reviewing error events from the last 30 minutes, and need a calculated column that shows how long ago the event happened:
+You may want to express a datetime or timespan in a time unit other than the default. For example, if you're reviewing error events from the last 30 minutes and need a calculated column showing how long ago the event happened:
 
 ```Kusto
 Event
@@ -86,7 +86,7 @@ Event
 | extend timeAgo = now() - TimeGenerated 
 ```
 
-You can see the _timeAgo_ column holds values such as: "00:09:31.5118992", meaning they are formatted as hh:mm:ss.fffffff. If you'd like to format these values to the _numver_ of minutes since the start time, simply divide that value by "1 minute":
+The `timeAgo` column holds values such as: "00:09:31.5118992", meaning they're formatted as hh:mm:ss.fffffff. If you want to format these values to the `numver` of minutes since the start time, divide that value by "1 minute":
 
 ```Kusto
 Event
@@ -98,7 +98,7 @@ Event
 
 
 ## Aggregations and bucketing by time intervals
-Another very common scenario is the need to obtain statistics over a certain time period in a particular time grain. For this, a `bin` operator can be used as part of a summarize clause.
+Another common scenario is the need to obtain statistics over a certain time period in a particular time grain. For this scenario, a `bin` operator can be used as part of a summarize clause.
 
 Use the following query to get the number of events that occurred every 5 minutes during the last half hour:
 
@@ -108,7 +108,8 @@ Event
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
 ```
 
-This produces the following table:  
+This query produces the following table:  
+
 |TimeGenerated(UTC)|events_count|
 |--|--|
 |2018-08-01T09:30:00.000|54|
@@ -126,7 +127,7 @@ Event
 | summarize events_count=count() by startofday(TimeGenerated) 
 ```
 
-This produces the following results:
+This query produces the following results:
 
 |timestamp|count_|
 |--|--|
@@ -134,11 +135,11 @@ This produces the following results:
 |2018-07-29T00:00:00.000|12,315|
 |2018-07-30T00:00:00.000|16,847|
 |2018-07-31T00:00:00.000|12,616|
-|2018-08-01T00:00:00.000|5,416	|
+|2018-08-01T00:00:00.000|5,416|
 
 
 ## Time zones
-Since all datetime values are expressed in UTC, it's often useful to convert these into the local timezone. For example, use this calculation to convert UTC to PST times:
+Since all datetime values are expressed in UTC, it's often useful to convert these values into the local timezone. For example, use this calculation to convert UTC to PST times:
 
 ```Kusto
 Event
@@ -153,10 +154,10 @@ Event
 | Round value to bin size | [bin](/azure/kusto/query/binfunction) |
 | Get a specific date or time | [ago](/azure/kusto/query/agofunction) [now](/azure/kusto/query/nowfunction)   |
 | Get part of value | [datetime_part](/azure/kusto/query/datetime-partfunction) [getmonth](/azure/kusto/query/getmonthfunction) [monthofyear](/azure/kusto/query/monthofyearfunction) [getyear](/azure/kusto/query/getyearfunction) [dayofmonth](/azure/kusto/query/dayofmonthfunction) [dayofweek](/azure/kusto/query/dayofweekfunction) [dayofyear](/azure/kusto/query/dayofyearfunction) [weekofyear](/azure/kusto/query/weekofyearfunction) |
-| Get a date relative to value  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
+| Get a relative date value  | [endofday](/azure/kusto/query/endofdayfunction) [endofweek](/azure/kusto/query/endofweekfunction) [endofmonth](/azure/kusto/query/endofmonthfunction) [endofyear](/azure/kusto/query/endofyearfunction) [startofday](/azure/kusto/query/startofdayfunction) [startofweek](/azure/kusto/query/startofweekfunction) [startofmonth](/azure/kusto/query/startofmonthfunction) [startofyear](/azure/kusto/query/startofyearfunction) |
 
 ## Next steps
-See other lessons for using the Log Analytics query language:
+See other lessons for using the [Kusto query language](/azure/kusto/query/) with Azure Monitor log data:
 
 - [String operations](string-operations.md)
 - [Aggregation functions](aggregations.md)

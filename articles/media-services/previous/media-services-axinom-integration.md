@@ -4,7 +4,7 @@ description: This article describes how you can use Azure Media Services (AMS) t
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 9c93fa4e-b4da-4774-ab6d-8b12b371631d
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
-ms.author: willzhan;Mingfeiy;rajputam;Juliako
+ms.date: 03/14/2019
+ms.author: willzhan
+ms.reviewer: Mingfeiy;rajputam;Juliako
 
 ---
-# Using Axinom to deliver Widevine licenses to Azure Media Services
+# Using Axinom to deliver Widevine licenses to Azure Media Services 
 > [!div class="op_single_selector"]
 > * [castLabs](media-services-castlabs-integration.md)
 > * [Axinom](media-services-axinom-integration.md)
@@ -25,9 +26,9 @@ ms.author: willzhan;Mingfeiy;rajputam;Juliako
 > 
 
 ## Overview
-Azure Media Services (AMS) has added Google Widevine dynamic protection (see [Mingfei’s blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) for details). In addition, Azure Media Player (AMP) has also added Widevine support (see [AMP document](http://amp.azure.net/libs/amp/latest/docs/) for details). This is a major accomplishment in streaming DASH content protected by CENC with multi-native-DRM (PlayReady and Widevine) on modern browsers equipped with MSE and EME.
+Azure Media Services (AMS) has added Google Widevine dynamic protection (see [Mingfei’s blog](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) for details). In addition, Azure Media Player (AMP) has also added Widevine support (see [AMP document](https://amp.azure.net/libs/amp/latest/docs/) for details). This is a major accomplishment in streaming DASH content protected by CENC with multi-native-DRM (PlayReady and Widevine) on modern browsers equipped with MSE and EME.
 
-Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure Widevine license template and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](http://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](http://ezdrm.com/), [castLabs](http://castlabs.com/company/partners/azure/).
+Starting with the Media Services .NET SDK version 3.5.2, Media Services enables you to configure Widevine license template and get Widevine licenses. You can also use the following AMS partners to help you deliver Widevine licenses: [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 This article describes how to integrate and test Widevine license server managed by Axinom. Specifically, it covers:  
 
@@ -40,7 +41,7 @@ The complete system and the flow of content key, key ID, key seed, JTW token, an
 ![DASH and CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
 ## Content Protection
-For configuring dynamic protection and key delivery policy, please see Mingfei’s blog: [How to configure Widevine packaging with Azure Media Services](http://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
+For configuring dynamic protection and key delivery policy, please see Mingfei’s blog: [How to configure Widevine packaging with Azure Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 You can configure dynamic CENC protection with multi-DRM for DASH streaming having both of the following:
 
@@ -60,7 +61,7 @@ The Widevine license server provided by Axinom requires JWT token authentication
 
     <script>AzureHtml5JS.KeySystem.WidevineCustomAuthorizationHeader = "X-AxDRM-Message"</script>
 
-The rest of AMP code is standard AMP API as in AMP document [here](http://amp.azure.net/libs/amp/latest/docs/).
+The rest of AMP code is standard AMP API as in AMP document [here](https://amp.azure.net/libs/amp/latest/docs/).
 
 The above javascript for setting custom authorization header is still a short-term approach before the official long-term approach in AMP is released.
 
@@ -126,7 +127,7 @@ Below is the code for generating JWT token with the needed claims as required by
 
 Axinom Widevine license server
 
-    <add key="ax:laurl" value="http://drm-widevine-licensing.axtest.net/AcquireLicense" />
+    <add key="ax:laurl" value="https://drm-widevine-licensing.axtest.net/AcquireLicense" />
     <add key="ax:com_key_id" value="69e54088-e9e0-4530-8c1a-1eb6dcd0d14e" />
     <add key="ax:com_key" value="4861292d027e269791093327e62ceefdbea489a4c7e5a4974cc904b840fd7c0f" />
     <add key="ax:keyseed" value="8888000000000000000000000000000000000000" />
@@ -156,7 +157,7 @@ Of course, there are multiple ways to get hold of key ID. For example, one may s
         objXmlNamespaceManager.AddNamespace("cenc", "urn:mpeg:cenc:2013");
         objXmlNamespaceManager.AddNamespace("ms",   "urn:microsoft");
         objXmlNamespaceManager.AddNamespace("mspr", "urn:microsoft:playready");
-        objXmlNamespaceManager.AddNamespace("xsi",  "http://www.w3.org/2001/XMLSchema-instance");
+        objXmlNamespaceManager.AddNamespace("xsi",  "https://www.w3.org/2001/XMLSchema-instance");
         objXmlNamespaceManager.PushScope();
 
         XPathNodeIterator objXPathNodeIterator;

@@ -4,7 +4,7 @@ description: Learn how to secure service remoting based communication for C# rel
 services: service-fabric
 documentationcenter: .net
 author: suchiagicha
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: fc129c1a-fbe4-4339-83ae-0e69a41654e0
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: suchiagicha
+ms.author: chackdan
 
 ---
 # Secure service remoting communications in a C# service
@@ -125,7 +125,7 @@ To help secure a service when you're using service remoting with C# services, fo
        }
        ```
 
-        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings ` will load all the settings from this section by default.
+        If you add a `TransportSettings` section in the settings.xml file , `FabricTransportRemotingListenerSettings` will load all the settings from this section by default.
 
         ```xml
         <!--"TransportSettings" section .-->

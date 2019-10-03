@@ -3,8 +3,8 @@ title: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog | M
 description: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog
@@ -25,7 +25,7 @@ Before you begin this tutorial, you must have the following:
 * **Enable your Azure subscription** for Data Lake Storage Gen1. See [instructions](data-lake-store-get-started-portal.md).
 * **A Data Lake Storage Gen1 account**. Follow the instructions at [Get started with Azure Data Lake Storage Gen1 using the Azure Portal](data-lake-store-get-started-portal.md). For this tutorial, create a Data Lake Storage Gen1 account called **datacatalogstore**.
 
-    Once you have created the account, upload a sample data set to it. For this tutorial, let us upload all the .csv files under the **AmbulanceData** folder in the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). You can use various clients, such as [Azure Storage Explorer](http://storageexplorer.com/), to upload data to a blob container.
+    Once you have created the account, upload a sample data set to it. For this tutorial, let us upload all the .csv files under the **AmbulanceData** folder in the [Azure Data Lake Git Repository](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). You can use various clients, such as [Azure Storage Explorer](https://storageexplorer.com/), to upload data to a blob container.
 * **Azure Data Catalog**. Your organization must already have an Azure Data Catalog created for your organization. Only one catalog is allowed for each organization.
 
 ## Register Data Lake Storage Gen1 as a source for Data Catalog

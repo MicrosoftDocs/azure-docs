@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
-ms.date: 05/14/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
 ---
 # Video indexed and annotated for multi-tenant SaaS app using Azure SQL Database

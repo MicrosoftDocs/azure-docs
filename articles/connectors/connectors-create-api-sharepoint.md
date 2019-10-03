@@ -44,7 +44,7 @@ If you're new to logic apps, review [What is Azure Logic Apps?](../logic-apps/lo
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
+[sign up for a free Azure account](https://azure.microsoft.com/free/). 
 
 * Your SharePoint site address and user credentials
 
@@ -100,7 +100,7 @@ Under the triggers list, select the trigger you want.
 1. When you're prompted to sign in, 
 provide the necessary connection information. 
 If you're using SharePoint Server, 
-make sure you select **Connect via on-premise data gateway**. 
+make sure you select **Connect via on-premises data gateway**. 
 When you're done, choose **Create**.
 
 1. Provide the necessary details for your selected trigger 

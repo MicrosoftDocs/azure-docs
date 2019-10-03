@@ -7,20 +7,26 @@ ms.subservice: development
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jodebrui
-ms.author: jodebrui
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 12/18/2018
+ms.date: 03/19/2019
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
 
-In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
+In-Memory technologies in Azure SQL Database enable you to improve performance of your application, and potentially reduce cost of your database. 
+
+## When to use In-Memory technologies
+
+By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads:
+
 - **Transactional** (online transactional processing (OLTP)) where most of the requests read or update smaller set of data (for example, CRUD operations).
 - **Analytic** (online analytical processing (OLAP)) where most of the queries have complex calculations for the reporting purposes, with a certain number of queries that load and append data to the existing tables (so called bulk-load), or delete the data from the tables. 
 - **Mixed** (hybrid transaction/analytical processing (HTAP)) where both OLTP and OLAP queries are executed on the same set of data.
 
-In-memory technologies can improve performance of these workloads by keeping the data that should be processed into the memory, using native compilation of the queries, or advanced processing such as batch processing and SIMD instructions that are available on the underlying hardware.
+In-memory technologies can improve performance of these workloads by keeping the data that should be processed into the memory, using native compilation of the queries, or advanced processing such as batch processing and SIMD instructions that are available on the underlying hardware. 
+
+## Overview
 
 Azure SQL Database has the following In-Memory technologies:
 - *[In-Memory OLTP](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization)* increases number of transactions per second and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
@@ -37,13 +43,13 @@ Because of the more efficient query and transaction processing, In-Memory techno
 Here are two examples of how In-Memory OLTP helped to significantly improve performance:
 
 - By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs by 70%](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
-    - DTU means *database transaction unit*, and it includes a measurement of resource consumption.
+
+  - DTU means *database transaction unit*, and it includes a measurement of resource consumption.
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database Video](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-    - For more information, see the blog post: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+  - For more information, see the blog post: [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
 
 > [!NOTE]  
->  
->  In-Memory technologies are available in Premium and Business Critical tier Azure SQL databases and Premium elastic pools.
+> In-Memory technologies are available in Premium and Business Critical tier Azure SQL databases and Premium elastic pools.
 
 The following video explains potential performance gains with In-Memory technologies in Azure SQL Database. Remember that the performance gain that you see always depends on many factors, including the nature of the workload and data, access pattern of the database, and so on.
 
@@ -52,11 +58,13 @@ The following video explains potential performance gains with In-Memory technolo
 >
 
 This article describes aspects of In-Memory OLTP and columnstore indexes that are specific to Azure SQL Database and also includes samples:
+
 - You'll see the impact of these technologies on storage and data size limits.
 - You'll see how to manage the movement of databases that use these technologies between the different pricing tiers.
 - You'll see two samples that illustrate the use of In-Memory OLTP, as well as columnstore indexes in Azure SQL Database.
 
 For more information, see:
+
 - [In-Memory OLTP Overview and Usage Scenarios](https://msdn.microsoft.com/library/mt774593.aspx) (includes references to customer case studies and information to get started)
 - [Documentation for In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
@@ -64,10 +72,11 @@ For more information, see:
 
 ## In-memory OLTP
 
-In-memory OLTP technology provides extremely fast data access operations by keeping all data in memory. It also uses specialized indexes, native compilation of queries, and latch-free data-acccess to improve performance of the OLTP workload. There are two ways to organize your In-Memory OLTP data:
+In-memory OLTP technology provides extremely fast data access operations by keeping all data in memory. It also uses specialized indexes, native compilation of queries, and latch-free data-access to improve performance of the OLTP workload. There are two ways to organize your In-Memory OLTP data:
+
 - **Memory-optimized rowstore** format where every row is a separate memory object. This is a classic In-Memory OLTP format optimized for high-performance OLTP workloads. There are two types of memory-optimized tables that can be used in the memory-optimized rowstore format:
   - *Durable tables* (SCHEMA_AND_DATA) where the rows placed in memory are preserved after server restart. This type of tables behaves like a traditional rowstore table with the additional benefits of in-memory optimizations.
-  - *Non-durable tables* (SCEMA_ONLY) where the rows are not-preserved after restart. This type of table is designed for temporary data (for example, replacement of temp tables), or tables where you need to quickly load data before you move it to some persisted table (so called staging tables).
+  - *Non-durable tables* (SCHEMA_ONLY) where the rows are not-preserved after restart. This type of table is designed for temporary data (for example, replacement of temp tables), or tables where you need to quickly load data before you move it to some persisted table (so called staging tables).
 - **Memory-optimized columnstore** format where data is organized in a columnar format. This structure is designed for HTAP scenarios where you need to run analytic queries on the same data structure where your OLTP workload is running.
 
 > [!Note]
@@ -78,7 +87,7 @@ A quick primer on In-Memory OLTP: [Quickstart 1: In-Memory OLTP Technologies for
 In-depth videos about the technologies:
 
 - [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB) (which contains a demo of performance benefits and steps to reproduce these results yourself)
-- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
+- [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 ```
@@ -131,6 +140,7 @@ Before you downgrade the database to Standard/Basic, remove all memory-optimized
 
 In-memory columnstore technology is enabling you to store and query a large amount of data in the tables. Columnstore technology uses column-based data storage format and batch query processing to achieve gain up to 10 times the query performance in OLAP workloads over traditional row-oriented storage. You can also achieve gains up to 10 times the data compression over the uncompressed data size.
 There are two types of columnstore models that you can use to organize your data:
+
 - **Clustered columnstore** where all data in the table is organized in the columnar format. In this model, all rows in the table are placed in columnar format that highly compresses the data and enables you to execute fast analytical queries and reports on the table. Depending on the nature of your data, the size of your data might be decreased 10x-100x. Clustered columnstore model also enables fast ingestion of large amount of data (bulk-load) since large batches of data greater than 100K rows are compressed before they are stored on disk. This model is a good choice for the classic data warehouse scenarios. 
 - **Non-clustered columnstore** where the data is stored in traditional rowstore table and there is an index in the columnstore format that is used for the analytical queries. This model enables Hybrid Transactional-Analytic Processing (HTAP): the ability to run performant real-time analytics on a transactional workload. OLTP queries are executed on rowstore table that is optimized for accessing a small set of rows, while OLAP queries are executed on columnstore index that is better choice for scans and analytics. Azure SQL Database Query optimizer dynamically chooses rowstore or columnstore format based on the query. Non-clustered columnstore indexes don't decrease the size of the data since original data-set is kept in the original rowstore table without any change. However, the size of additional columnstore index should be in order of magnitude smaller than the equivalent B-tree index.
 
@@ -138,7 +148,8 @@ There are two types of columnstore models that you can use to organize your data
 > In-memory columnstore technology keeps only the data that is needed for processing in the memory, while the data that cannot fit into the memory is stored on-disk. Therefore, the amount of data in In-memory columnstore structures can exceed the amount of available memory. 
 
 In-depth video about the technology:
-- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
+
+- [Columnstore Index: In-Memory Analytics Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 
 ### Data size and storage for columnstore indexes
 
@@ -152,51 +163,40 @@ When you use nonclustered columnstore indexes, the base table is still stored in
 
 ### Changing service tiers of databases containing Columnstore indexes
 
-*Downgrading Single Database to Basic or Standard* might not be possible if your target tier is below S3. Columnstore indexes are supported only on the Business Critical/Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
+*Downgrading single database to Basic or Standard* might not be possible if your target tier is below S3. Columnstore indexes are supported only on the Business Critical/Premium pricing tier and on the Standard tier, S3 and above, and not on the Basic tier. When you downgrade your database to an unsupported tier or level, your columnstore index becomes unavailable. The system maintains your columnstore index, but it never leverages the index. If you later upgrade back to a supported tier or level, your columnstore index is immediately ready to be leveraged again.
 
 If you have a **clustered** columnstore index, the whole table becomes unavailable after the downgrade. Therefore we recommend that you drop all *clustered* columnstore indexes before you downgrade your database to an unsupported tier or level.
 
 > [!Note]
-> Managed Instance supports Columstore indexes in all tiers.
+> Managed Instance supports ColumnStore indexes in all tiers.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 
 ## Next steps
 
 - [Quickstart 1: In-Memory OLTP Technologies for faster T-SQL Performance](https://msdn.microsoft.com/library/mt694156.aspx)
-
 - [Use In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
-
 - [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP
-
 - [Try In-memory features in Azure SQL Database](sql-database-in-memory-sample.md)
 
 ## Additional resources
 
-#### Deeper information
+### Deeper information
 
 - [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
-
 - [In-Memory OLTP in Azure SQL Database Blog Post](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
-
 - [Learn about In-Memory OLTP](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Learn about columnstore indexes](https://msdn.microsoft.com/library/gg492088.aspx)
-
 - [Learn about real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
-
 - See [Common Workload Patterns and Migration Considerations](https://msdn.microsoft.com/library/dn673538.aspx) (which describes workload patterns where In-Memory OLTP commonly provides significant performance gains)
 
-#### Application design
+### Application design
 
 - [In-Memory OLTP (In-Memory Optimization)](https://msdn.microsoft.com/library/dn133186.aspx)
-
 - [Use In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
 
-#### Tools
+### Tools
 
 - [Azure portal](https://portal.azure.com/)
-
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
-
 - [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx)

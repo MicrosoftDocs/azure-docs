@@ -2,7 +2,7 @@
 title: Embedding a MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js | Microsoft Docs
 description: This topic demonstrates how to embed an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
-# Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js
+# Embedding an MPEG-DASH Adaptive Streaming Video in an HTML5 Application with DASH.js  
+
 ## Overview
 MPEG-DASH is an ISO standard for the adaptive streaming of video content, which offers significant benefits for developers wanting to deliver high-quality, adaptive video streaming output. With MPEG-DASH, the video stream adjusts automatically to a lower definition when the network becomes congested. This reduces the likelihood of the viewer seeing a "paused" video while the player downloads the next few seconds to play (aka buffering). As network congestion reduces, the video player will in turn return to a higher-quality stream. This ability to adapt the bandwidth required also results in a faster start time for video. That means that the first few seconds can be played in a fast-to-download lower quality segment and then step up to a higher quality once sufficient content has been buffered.
 
@@ -50,7 +51,7 @@ The first step is to create a standard HTML page containing the **video** elemen
 ```
 
 ## Adding the DASH.js Player
-To add the dash.js reference implementation to the application, you need to grab the dash.all.js file from the 1.0 release of dash.js project. This should be saved in the JavaScript folder of your application. This file is a convenience file that pulls together all the necessary dash.js code into a single file. If you have a look around the dash.js repository, you find the individual files, test code and much more, but if all you want to do is use dash.js, then the dash.all.js file is what you need.
+To add the dash.js reference implementation to the application, you need to grab the dash.all.js file from the latest version of dash.js project. This should be saved in the JavaScript folder of your application. This file is a convenience file that pulls together all the necessary dash.js code into a single file. If you have a look around the dash.js repository, you find the individual files, test code and much more, but if all you want to do is use dash.js, then the dash.all.js file is what you need.
 
 To add the dash.js player to your applications, add a script tag to the head section of basicPlayer.html:
 
@@ -81,7 +82,7 @@ Next, instantiate the primary class of the dash.js framework, MediaPlayer. This 
 
 The startup() function of the MediaPlayer class is called to ensure that the player is ready to play video. Among other things, the function ensures that all the necessary classes (as defined by the context) have been loaded. Once the player is ready, you can attach the video element to it using the attachView() function. The startup function enables the MediaPlayer to inject the video stream into the element and also control playback as necessary.
 
-Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play. The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your <body> element to:
+Pass the URL of the MPD file to the MediaPlayer so that it knows about the video it is expected to play. The setupVideo() function just created will need to be executed once the page has fully loaded. Do this by using the onload event of the body element. Change your `<body>` element to:
 
 ```html
     <body onload="setupVideo()">

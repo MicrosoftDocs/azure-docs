@@ -1,16 +1,15 @@
 ---
 title: Create a new report from a dataset in Power BI Workspace Collections | Microsoft Docs
 description: Power BI Workspace Collection reports can now be created from a dataset in your own application. 
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Create a new report from a dataset in Power BI Workspace Collections
 
 Power BI Workspace Collection reports can now be created from a dataset in your own application.
@@ -26,7 +25,7 @@ When creating an Embedded report, the tokens issued are for a specific dataset. 
 
 Power BI Workspace Collections use an embed token, which is HMAC signed JSON Web Tokens. The tokens are signed with the access key from your Power BI Workspace Collection. Embed tokens, by default, are used to provide read-only access to a report to embed into an application. Embed tokens are issued for a specific report and should be associated with an embed URL.
 
-Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) method. Here is an example of what this would look like using the .NET SDK for Power BI.
+Access tokens should be created on the server as the access keys are used to sign/encrypt the tokens. For information on how to create an access token, see [Authenticating and authorizing with Power BI Workspace Collections](app-token-flow.md). You can also review the [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) method. Here is an example of what this would look like using the .NET SDK for Power BI.
 
 In this example, we have our dataset ID that we want to create the new report on. We also need to add the scopes for *Dataset.Read and Workspace.Report.Create*.
 
@@ -34,13 +33,13 @@ The *PowerBIToken class* requires that you install the [Power BI Core NuGut Pack
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.Core
 ```
 
 **C# code**
 
-```
+```csharp
 using Microsoft.PowerBI.Security;
 
 // rlsUsername and roles are optional
@@ -59,15 +58,16 @@ In order to create a new report, the create configuration should be provided. Th
 
 **NuGet package install**
 
-```
+```powershell
 Install-Package Microsoft.PowerBI.JavaScript
 ```
 
 **JavaScript code**
 
-```
+```html
 <div id="reportContainer"></div>
-  
+
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -79,6 +79,7 @@ var embedCreateConfiguration = {
 
     // Create report
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
+</script>
 ```
 
 Calling *powerbi.createReport()* makes a blank canvas in edit mode appear within the *div* element.
@@ -89,7 +90,7 @@ Calling *powerbi.createReport()* makes a blank canvas in edit mode appear within
 
 The report is not created until you call the **save as** operation. This can be done from file menu or from JavaScript.
 
-```
+```javascript
  // Get a reference to the embedded report.
     report = powerbi.get(reportContainer);
     
@@ -110,9 +111,9 @@ The report is not created until you call the **save as** operation. This can be 
 
 In order to interact with the new report you need to embed it in the same way the application embeds a regular report, meaning, a new token must be issued specifically for the new report and then call the embed method.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -124,13 +125,14 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
+</script>
 ```
 
 ## Automate save and load of a new report using the "saved" event
 
 In order to automate the process of "save as" and then loading the new report, you can make use of the "saved" Event. This event is fired when the save operation is complete and it returns a Json object containing the new reportId, report name, the old reportId (if there was one) and if the operation was saveAs or save.
 
-```
+```json
 {
   "reportObjectId": "5dac7a4a-4452-46b3-99f6-a25915e0fe54",
   "reportName": "newReport",
@@ -141,9 +143,9 @@ In order to automate the process of "save as" and then loading the new report, y
 
 To Automate the process you can listen on the "saved" event, take the new reportId, create the new token, and embed the new report with it.
 
-```
+```html
 <div id="reportContainer"></div>
-  
+<script>
 var embedCreateConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
         embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
@@ -186,6 +188,7 @@ var embedCreateConfiguration = {
    // report.off removes a given event handler if it exists.
    report.off("saved");
     });
+</script>
 ```
 
 ## See also
@@ -199,4 +202,4 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

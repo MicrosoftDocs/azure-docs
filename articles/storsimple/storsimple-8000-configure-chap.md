@@ -49,8 +49,8 @@ In unidirectional authentication, the target authenticates the initiator. This a
    1. Provide a user name for your CHAP initiator.
    2. Supply a password for your CHAP initiator.
       
-    > [!IMPORTANT]
-    > The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password results in an authentication failure on the Windows host.
+      > [!IMPORTANT]
+      > The CHAP user name must contain fewer than 233 characters. The CHAP password must be between 12 and 16 characters. A longer user name or password results in an authentication failure on the Windows host.
    
    3. Confirm the password.
 

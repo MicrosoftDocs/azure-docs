@@ -1,16 +1,16 @@
 ---
-title: Configure and access server logs for Azure Database for MariaDB in Azure Portal
-description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure Portal.
-author: rachel-msft
-ms.author: raagyema
+title: Configure and access server logs for Azure Database for MariaDB in Azure portal
+description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure portal.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/30/2019
 ---
 
 # Configure and access server logs in the Azure portal
 
-You can configure, list, and download the [Azure Database for MariaDB server logs](concepts-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -37,7 +37,7 @@ Configure access to the slow query log.
 6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 
 ## View list and download logs
-Once logging begins, you can view a list of available logs and download individual log files on the Server Logs pane. 
+Once logging begins, you can view a list of available slow query logs and download individual log files on the Server Logs pane. 
 
 1. Open the Azure portal.
 
@@ -56,8 +56,26 @@ Once logging begins, you can view a list of available logs and download individu
 
    ![Click download icon](./media/howto-configure-server-logs-portal/5-download.png)
 
-## Next steps
-- Learn more about [Server Logs](concepts-server-logs.md) in Azure Database for MariaDB.
-- For more information about the parameter definitions and logging, see the MariaDB documentation on [Logs](https://mariadb.com/kb/en/library/slow-query-log-overview/).
+## Set up diagnostic logs
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+1. Under the **Monitoring** section in the sidebar, select **Diagnostic settings**.
+
+1. Click on "+ Add diagnostic setting"
+![Add diagnostic setting](./media/howto-configure-server-logs-portal/add-diagnostic-setting.png)
+
+1. Provide a diagnostic setting name.
+
+1. Specify which data sinks to send the slow query logs (storage account, event hub, and/or Log Analytics workspace).
+
+1. Select "MySqlSlowLogs" as the log type.
+![Configure diagnostic setting](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
+
+1. Once you've configured the data sinks to pipe the slow query logs to, you can click **Save**.
+![Save diagnostic setting](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
+
+1. Access the slow query logs by exploring them in the data sinks you configured. It may take up to 10 minutes for the logs to appear.
+
+## Next steps
+- See [access slow query Logs in CLI](howto-configure-server-logs-cli.md) to learn how to download slow query logs programmatically.
+- Learn more about [slow query Logs](concepts-server-logs.md) in Azure Database for MariaDB.
+- For more information about the parameter definitions and logging, see the MariaDB documentation on [Logs](https://mariadb.com/kb/en/library/slow-query-log-overview/).

@@ -2,19 +2,12 @@
 title: Enable a Microsoft AppSource and Azure Marketplace listing by using Azure Active Directory | Azure
 description: Enable a listing type by using Azure Active Directory in the Azure Marketplace and AppSource for app and service publishers.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: qianw211
 manager: pabutler
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: qianw211
+ms.author: pabutler
 
 ---
 # Enable an AppSource and Marketplace listing by using Azure Active Directory
@@ -55,7 +48,7 @@ For more information about SaaS technical requirements, see [SaaS applications O
 
 Automated customer setup can increase the likelihood of conversion. When your customer selects your trial listing and is redirected to your trial environment, you can set up the customer directly without requiring additional sign-in steps.
 
-During authentication, Azure AD sends a token to your app or offer. The user information provided by the token enables the creation of a user account in your app or offer. To learn more, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+During authentication, Azure AD sends a token to your app or offer. The user information provided by the token enables the creation of a user account in your app or offer. To learn more, see [Sample tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
 When you use Azure AD to enable one-click authentication in your app or trial listing, you:
 
@@ -91,4 +84,4 @@ Use Azure AD to support one of the following actions:
 ## Next steps
 
 - Make sure you've [registered in the Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-- Sign in to [Cloud Partner Portal](https://cloudpartner.azure.com/) to create or complete your offer.
+- See [how to create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information on how to create or complete your offer.

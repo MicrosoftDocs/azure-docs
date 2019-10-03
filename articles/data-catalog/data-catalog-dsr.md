@@ -1,19 +1,16 @@
 ---
 title: Supported data sources in Azure Data Catalog
-description: This article lists specifications of the currently supported data sources.
-services: data-catalog
-author: markingmyname
-ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
+description: This article lists specifications of the currently supported data sources for Azure Data Catalog.
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 08/01/2019
 ---
 
 # Supported data sources in Azure Data Catalog
 
 You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Azure Data Catalog web portal. The following table summarizes all data sources that are supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each data source can launch from our portal "open-in" experience. The second table contains a more technical specification of each data-source connection property.
-
 
 ## List of supported data sources
 
@@ -27,7 +24,7 @@ You can publish metadata by using a public API or a click-once registration tool
        <td><b>Notes</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store directory</td>
+      <td>Azure Data Lake Store directory (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -35,7 +32,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store file</td>
+      <td>Azure Data Lake Store file (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -64,10 +61,8 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>
-        <font size="2">
       </td>
       <td>
-        <font size="2">
       </td>
     </tr>
     <tr>
@@ -151,7 +146,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse view</td>
+      <td>Azure SQL Data Warehouse view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -164,7 +159,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services KPI</td>
@@ -172,7 +167,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services measure</td>
@@ -180,7 +175,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>SQL Server Analysis Services table</td>
@@ -188,7 +183,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services report</td>
@@ -196,7 +191,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Browser</td>
-      <td>Native mode servers only. SharePoint mode is not supported.</td>
+      <td>Native mode servers only. SharePoint mode is not supported. SQL Server 2008 and later versions only</td>
     </tr>
     <tr>
       <td>SQL Server table</td>
@@ -204,7 +199,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>SQL Server view</td>
@@ -212,7 +207,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop, SQL Server data tools</td>
-      <td></td>
+      <td>SQL Server 2008 and later versions.</td>
     </tr>
     <tr>
       <td>Teradata table</td>
@@ -229,6 +224,14 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>Excel</td>
       <td></td>
+    </tr>
+    <tr>
+      <td>SAP Business Warehouse</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td>✓</td>
+      <td></td>
+      <td>Only works in English. Measures are unsupported.</td>
     </tr>
     <tr>
       <td>SAP HANA view</td>

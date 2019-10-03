@@ -4,9 +4,9 @@ titlesuffix: Azure Cognitive Services
 description: How to use the Analyze method in Linguistic Analysis API to analyze certain natural-language inputs.
 services: cognitive-services
 author: RichardSunMS
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
 > The Linguistic Analysis preview was decommissioned on August 9, 2018. We recommend using [Azure Machine Learning text analytics modules](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) for text processing and analysis.
 
 The **analyze** REST API is used to analyze a given natural language input.
-That might involve just finding the [sentences and tokens](Sentences-and-Tokens.md) within that input, finding the [part-of-speech tags](POS-tagging.md), or finding the [constitutency tree](Constituency-Parsing.md).
+That might involve just finding the [sentences and tokens](Sentences-and-Tokens.md) within that input, finding the [part-of-speech tags](POS-tagging.md), or finding the [constituency tree](Constituency-Parsing.md).
 You can specify which results you want by picking the relevant analyzers.
 To list all available analyzers, look at the **[analyzers](AnalyzersMethod.md)**.
 

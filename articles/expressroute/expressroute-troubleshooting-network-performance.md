@@ -176,25 +176,25 @@ Test setup:
 | | | | | | |
 |-|-|-|-|-|-|
 |ExpressRoute<br/>Location|Azure<br/>Region|Estimated<br/>Distance (km)|Latency|1 Session<br/>Bandwidth|Maximum<br/>Bandwidth|
-| Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec | 21
-| Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec | 20
-| Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec | 17
-| Seattle | South Central US |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec | 19
-| Seattle | North Central US |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec | 18
-| Seattle | East US 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec | 16
-| Seattle | East US          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec | 15
-| Seattle | Japan East       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec | 28
-| Seattle | UK South         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec | 24
-| Seattle | West Europe      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec | 23
-| Seattle | Australia East   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec | 26
-| Seattle | Southeast Asia   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec | 25
-| Seattle | Brazil South *   | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec | 22
-| Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec | 27
+| Seattle | West US 2        |    191 km |   5 ms | 262.0 Mbits/sec |  3.74 Gbits/sec |
+| Seattle | West US          |  1,094 km |  18 ms |  82.3 Mbits/sec |  3.70 Gbits/sec |
+| Seattle | Central US       |  2,357 km |  40 ms |  38.8 Mbits/sec |  2.55 Gbits/sec |
+| Seattle | South Central US |  2,877 km |  51 ms |  30.6 Mbits/sec |  2.49 Gbits/sec |
+| Seattle | North Central US |  2,792 km |  55 ms |  27.7 Mbits/sec |  2.19 Gbits/sec |
+| Seattle | East US 2        |  3,769 km |  73 ms |  21.3 Mbits/sec |  1.79 Gbits/sec |
+| Seattle | East US          |  3,699 km |  74 ms |  21.1 Mbits/sec |  1.78 Gbits/sec |
+| Seattle | Japan East       |  7,705 km | 106 ms |  14.6 Mbits/sec |  1.22 Gbits/sec |
+| Seattle | UK South         |  7,708 km | 146 ms |  10.6 Mbits/sec |   896 Mbits/sec |
+| Seattle | West Europe      |  7,834 km | 153 ms |  10.2 Mbits/sec |   761 Mbits/sec |
+| Seattle | Australia East   | 12,484 km | 165 ms |   9.4 Mbits/sec |   794 Mbits/sec |
+| Seattle | Southeast Asia   | 12,989 km | 170 ms |   9.2 Mbits/sec |   756 Mbits/sec |
+| Seattle | Brazil South *   | 10,930 km | 189 ms |   8.2 Mbits/sec |   699 Mbits/sec |
+| Seattle | South India      | 12,918 km | 202 ms |   7.7 Mbits/sec |   634 Mbits/sec |
 
 \* The latency to Brazil is a good example where the straight-line distance significantly differs from the fiber run distance. I would expect that the latency would be in the neighborhood of 160 ms, but is actually 189 ms. This difference against my expectation could indicate a network issue somewhere, but most likely that the fiber run does not go to Brazil in a straight line and has an extra 1,000 km or so of travel to get to Brazil from Seattle.
 
 ## Next steps
-1. Download the Azure Connectivity Toolkit from GitHub at [http://aka.ms/AzCT][ACT]
+1. Download the Azure Connectivity Toolkit from GitHub at [https://aka.ms/AzCT][ACT]
 2. Follow the instructions for [link performance testing][Performance Doc]
 
 <!--Image References-->
@@ -206,17 +206,6 @@ Test setup:
 <!--Link References-->
 [Performance Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/PerformanceTesting.md
 [Availability Doc]: https://github.com/Azure/NetworkMonitoring/blob/master/AzureCT/AvailabilityTesting.md
-[Network Docs]: https://docs.microsoft.com/azure/index#pivot=services&panel=network
+[Network Docs]: https://docs.microsoft.com/azure/index
 [Ticket Link]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview
-[ACT]: http://aka.ms/AzCT
-
-
-
-
-
-
-
-
-
-
-
+[ACT]: https://aka.ms/AzCT

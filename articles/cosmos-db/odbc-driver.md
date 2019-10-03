@@ -4,7 +4,7 @@ description: Learn how to use the Azure Cosmos DB ODBC driver to create tables a
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/22/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---
@@ -19,9 +19,9 @@ The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 s
 > Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB SQL API accounts only.
 
 ## Why do I need to normalize my data?
-Azure Cosmos DB is a schemaless database, which enables rapid application development and the ability to iterate on data models without being confined to a strict schema. A single Azure Cosmos DB database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
+Azure Cosmos DB is a schemaless database, which enables rapid application development and the ability to iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.
 
-This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalize data in Azure Cosmos DB into tables and views that fit your data analytics and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them. Rather, they enable you to leverage ODBC-compliant tools to access the data. So, now your Azure Cosmos DB database will not only be a favorite for your development team, but your data analysts will love it too.
+This is where the ODBC driver comes in. By using the ODBC driver, you can now renormalize data in Azure Cosmos DB into tables and views that fit your data analytics and reporting needs. The renormalized schemas have no impact on the underlying data and do not confine developers to adhere to them. Rather, they enable you to leverage ODBC-compliant tools to access the data. So, now your Azure Cosmos database will not only be a favorite for your development team, but your data analysts will love it too.
 
 Let's get started with the ODBC driver.
 
@@ -44,7 +44,7 @@ Let's get started with the ODBC driver.
 
     ![Azure Cosmos DB ODBC Data Source Administrator](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>Step 2: Connect to your Azure Cosmos DB database
+## <a id="connect"></a>Step 2: Connect to your Azure Cosmos database
 
 1. After [Installing the Azure Cosmos DB ODBC driver](#install), in the **ODBC Data Source Administrator** window, click **Add**. You can create a User or System DSN. In this example, you are creating a User DSN.
 
@@ -67,8 +67,8 @@ Let's get started with the ODBC driver.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
         - By default, leaving this entry as is (blank), the driver scans the first page of data for all collections to determine the schema of each collection. This is known as Collection Mapping. Without a schema file defined, the driver has to perform the scan for each driver session and could result in a higher startup time of an application using the DSN. We recommend that you always associate a schema file for a DSN.
-        - If you already have a schema file (possibly one that you created using the [Schema Editor](#schema-editor)), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
-        - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the [Schema Editor](#schema-editor) information. After creating the new schema file, remember to go back to the **Advanced Options** window to include the newly created schema file.
+        - If you already have a schema file (possibly one that you created using the Schema Editor), you can click **Browse**, navigate to your file, click **Save**, and then click **OK**.
+        - If you want to create a new schema, click **OK**, and then click **Schema Editor** in the main window. Then proceed to the Schema Editor information. After creating the new schema file, remember to go back to the **Advanced Options** window to include the newly created schema file.
 
 1. Once you complete and close the **Azure Cosmos DB ODBC Driver DSN Setup** window, the new User DSN is added to the User DSN tab.
 
@@ -78,7 +78,7 @@ Let's get started with the ODBC driver.
 
 There are two types of sampling methods that you can use: **collection mapping** or **table-delimiters**. A sampling session can utilize both sampling methods, but each collection can only use a specific sampling method. The steps below create a schema for the data in one or more collections using the collection mapping method. This sampling method retrieves the data in the page of a collection to determine the structure of the data. It transposes a collection to a table on the ODBC side. This sampling method is efficient and fast when the data in a collection is homogenous. If a collection contains heterogenous type of data, we recommend you use the [table-delimiters mapping method](#table-mapping) as it provides a more robust sampling method to determine the data structures in the collection. 
 
-1. After completing steps 1-4 in [Connect to your Azure Cosmos DB database](#connect), click **Schema Editor** in the **Azure Cosmos DB ODBC Driver DSN Setup** window.
+1. After completing steps 1-4 in [Connect to your Azure Cosmos database](#connect), click **Schema Editor** in the **Azure Cosmos DB ODBC Driver DSN Setup** window.
 
     ![Schema editor button in the Azure Cosmos DB ODBC Driver DSN Setup window](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. In the **Schema Editor** window, click **Create New**.
@@ -93,7 +93,7 @@ There are two types of sampling methods that you can use: **collection mapping**
 
 1. Once you have finished defining the schema, click **File** | **Save**, navigate to the directory to save the schema, and then click **Save**.
 
-    If in the future you want to use this schema with a DSN, open the Azure Cosmos DB ODBC Driver DSN Setup window (via the ODBC Data Source Administrator), click Advanced Options, and then in the Schema File box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
+1. To use this schema with a DSN, open the **Azure Cosmos DB ODBC Driver DSN Setup window** (via the ODBC Data Source Administrator), click **Advanced Options**, and then in the **Schema File** box, navigate to the saved schema. Saving a schema file to an existing DSN modifies the DSN connection to scope to the data and structure defined by schema.
 
 ## <a id="table-mapping"></a>Step 4: Create a schema definition using the table-delimiters mapping method
 
@@ -101,7 +101,7 @@ There are two types of sampling methods that you can use: **collection mapping**
 
 The following steps create a schema for the data in one or more collections using the **table-delimiters** mapping method. We recommend that you use this sampling method when your collections contain heterogeneous type of data. You can use this method to scope the sampling to a set of attributes and its corresponding values. For example, if a document contains a "Type" property, you can scope the sampling to the values of this property. The end result of the sampling would be a set of tables for each of the values for Type you have specified. For example, Type = Car will produce a Car table while Type = Plane would produce a Plane table.
 
-1. After completing steps 1-4 in [Connect to your Azure Cosmos DB database](#connect), click **Schema Editor** in the Azure Cosmos DB ODBC Driver DSN Setup window.
+1. After completing steps 1-4 in [Connect to your Azure Cosmos database](#connect), click **Schema Editor** in the Azure Cosmos DB ODBC Driver DSN Setup window.
 
 1. In the **Schema Editor** window, click **Create New**.
     The **Generate Schema** window displays all the collections in the Azure Cosmos DB account. 

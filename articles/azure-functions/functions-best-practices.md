@@ -9,7 +9,6 @@ keywords: azure functions, patterns, best practice, functions, event processing,
 
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
@@ -36,7 +35,7 @@ to be processed by a queue trigger function. This approach allows you to defer t
 
 ### Cross function communication
 
-[Durable Functions](durable/durable-functions-concepts.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
+[Durable Functions](durable/durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
 
 If not using Durable Functions or Logic Apps to integrate with multiple functions, it is generally a best practice to use storage queues for cross function communication.  The main reason is storage queues are cheaper and much easier to provision. 
 
@@ -83,7 +82,7 @@ Functions within a function app share resources. For example, memory is shared. 
 
 Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
-If you have a shared assembly referenced in multiple .Net functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
+If you have a shared assembly referenced in multiple .NET functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
 
 	#r "..\Shared\MyAssembly.dll". 
 

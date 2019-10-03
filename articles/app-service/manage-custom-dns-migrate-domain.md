@@ -12,7 +12,6 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
@@ -121,7 +120,7 @@ For the `contoso.com` root domain example, remap the A or CNAME record like the 
 | FQDN example | Record type | Host | Value |
 | - | - | - | - |
 | contoso.com (root) | A | `@` | IP address from [Copy the app's IP address](#info) |
-| www.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com (wildcard) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 Save your settings.

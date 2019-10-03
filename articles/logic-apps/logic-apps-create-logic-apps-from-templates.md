@@ -53,7 +53,7 @@ If you don't have an Azure subscription,
    | **Subscription** | *your-Azure-subscription-name* | Select the Azure subscription that you want to use. | 
    | **Resource group** | *your-Azure-resource-group-name* | Create or select an [Azure resource group](../azure-resource-manager/resource-group-overview.md) for this logic app and to organize all resources associated with this app. | 
    | **Location** | *your-Azure-datacenter-region* | Select the datacenter region for deploying your logic app, for example, West US. | 
-   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
+   | **Log Analytics** | **Off** (default) or **On** | Turn on [diagnostic logging](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) for your logic app through [Azure Monitor logs](../log-analytics/log-analytics-overview.md). Requires that you already have a Log Analytics workspace. | 
    |||| 
 
 4. When you're ready, select **Pin to dashboard**. 

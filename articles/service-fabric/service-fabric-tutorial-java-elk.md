@@ -145,7 +145,7 @@ You can use a preconfigured ELK environment for this tutorial and if you already
     curl 'localhost:9200/_cat/indices?v'
     ```
 
-8. Access your Kibana dashboard at **http://SERVER-IP** and enter the username and password for Kibana. If you used the ELK image in Azure, the default username is 'user' and the password is the one obtained from the **Boot Diagnostics**.
+8. Access your Kibana dashboard at **http:\//SERVER-IP** and enter the username and password for Kibana. If you used the ELK image in Azure, the default username is 'user' and the password is the one obtained from the **Boot Diagnostics**.
 
     ![Kibana](./media/service-fabric-tutorial-java-elk/kibana.png)
 

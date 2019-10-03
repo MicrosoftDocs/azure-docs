@@ -1,11 +1,11 @@
 ---
-title: Smart Contract integration patterns in Azure Blockchain Workbench
-description: Overview of smart contract integration patterns in Azure Blockchain Workbench.
+title: Smart Contract integration patterns in Azure Blockchain Workbench Preview
+description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/14/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
@@ -187,7 +187,7 @@ In this model where a message in a standard format cannot be sent directly, the 
 A common integration scenario is the inclusion of telemetry data retrieved from sensors in a smart contract. Based on data delivered by sensors, smart contracts could take informed actions and alter the state of the contract.
 
 For example, if a truck delivering medicine had its temperature soar to 110 degrees, it may impact the effectiveness of the medicine and may cause a public safety issue if not detected and removed from the supply chain. If a driver accelerated their car to 100 miles per hour, the resulting sensor information could trigger a cancellation of insurance by
-his insurance provider. If the car was a rental car, GPS data could indicate when the driver went outside a geography covered by their rental agreement and charge a penalty.
+their insurance provider. If the car was a rental car, GPS data could indicate when the driver went outside a geography covered by their rental agreement and charge a penalty.
 
 The challenge is that these sensors can be delivering data on a constant basis and it is not appropriate to send all of this data to a smart contract. A typical approach is to limit the number of messages sent to the blockchain while delivering all messages to a secondary store. For example, deliver messages received at only fixed interval, for example, once per hour, and when a contained value falls outside of an agreed upon range for a smart contract. Checking values that fall outside of tolerances, ensures that the data relevant to the contracts business logic is received and executed. Checking the value at the interval confirms that the sensor is still reporting. All data is sent to a secondary reporting store to enable broader reporting, analytics, and machine learning. For example, while getting sensor readings for GPS may not be required every minute for a smart contract, they could provide interesting data to be used in reports or mapping routes.
 

@@ -4,7 +4,7 @@ description: Understand some of the common error codes encountered when you prov
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -95,8 +95,8 @@ This section lists the common error messages you may encounter when managing VMs
 |  InvalidParameter  |  "The supplied password must be between {0}-{1} characters long and must satisfy at least {2} of password complexity requirements from the following: <ol><li> Contains an uppercase character</li><li>Contains a lowercase character</li><li>Contains a numeric digit</li><li>Contains a special character.</li></ol>  |
 |  InvalidParameter  |  The Admin Username specified is not allowed.  |
 |  InvalidParameter  |  Cannot attach an existing OS disk if the VM is created from a platform or user image.  |
-|  InvalidParameter  |  Container name {0} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceeded and followed by an alphanumeric character.  |
-|  InvalidParameter  |  Container name {0} in URL {1} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceeded and followed by an alphanumeric character.  |
+|  InvalidParameter  |  Container name {0} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceded and followed by an alphanumeric character.  |
+|  InvalidParameter  |  Container name {0} in URL {1} is invalid. Container names must be 3-63 characters in length and may contain only lower-case alphanumeric characters and hyphen. Hyphen must be preceded and followed by an alphanumeric character.  |
 |  InvalidParameter  |  The blob name in URL {0} contains a slash. This is presently not supported for disks.  |
 |  InvalidParameter  |  The URI {0} does not look to be correct blob URI.  |
 |  InvalidParameter  |  A disk named '{0}' already uses the same LUN: {1}.  |

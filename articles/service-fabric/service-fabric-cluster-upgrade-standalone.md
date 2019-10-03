@@ -3,8 +3,8 @@ title: Upgrade an Azure Service Fabric standalone cluster | Microsoft Docs
 description: Learn about upgrading the version or configuration of an Azure Service Fabric standalone cluster.  T
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Upgrading and updating a Service Fabric standalone cluster
@@ -22,7 +22,7 @@ ms.author: aljo
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric standalone cluster is a resource that you own. This article describes what can be upgraded or updated.
 
 ## Controlling the fabric version that runs on your cluster
-Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
+Make sure that your cluster always runs a [supported Service Fabric version](service-fabric-versions.md). When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
 
 You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can manually select a supported fabric version you want your cluster to be on. For more information, read [Upgrade the Service Fabric version that runs on your cluster](service-fabric-cluster-upgrade-windows-server.md).
 

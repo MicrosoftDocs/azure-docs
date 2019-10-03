@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: b34a6edf-e745-4aec-b0b2-7337473d64c5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with 8x8 Virtual Office
 
@@ -125,41 +126,41 @@ To configure Azure AD single sign-on with 8x8 Virtual Office, perform the follow
 
 ### Configure 8x8 Virtual Office Single Sign-On
 
-7. Sign-on to your 8x8 Virtual Office tenant as an administrator.
+1. Sign-on to your 8x8 Virtual Office tenant as an administrator.
 
-8. Select **Virtual Office Account Mgr** on Application Panel.
+1. Select **Virtual Office Account Mgr** on Application Panel.
 
     ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_001.png)
 
-9. Select **Business** account to manage and click **Sign In** button.
+1. Select **Business** account to manage and click **Sign In** button.
 
     ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_002.png)
 
-10. Click **ACCOUNTS** tab in the menu list.
+1. Click **ACCOUNTS** tab in the menu list.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
+   ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_003.png)
 
-11. Click **Single Sign On** in the list of Accounts.
+1. Click **Single Sign On** in the list of Accounts.
   
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
+   ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_004.png)
 
-12. Select **Single Sign On** under Authentication methods and click **SAML**.
+1. Select **Single Sign On** under Authentication methods and click **SAML**.
 
-    ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
+   ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_005.png)
 
-13. In the **SAML Single Sign on** section, perform the following steps:
+1. In the **SAML Single Sign on** section, perform the following steps:
 
-	![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
+   ![Configure On App Side](./media/8x8virtualoffice-tutorial/tutorial_8x8virtualoffice_006.png)
 
-	a. In the **Sign In URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
+   a. In the **Sign In URL** textbox, paste **Login URL** value which you have copied from the Azure portal.
 
-	b. In the **Sign Out URL** textbox, paste **Logout URL** value which you have copied from the Azure portal.
+   b. In the **Sign Out URL** textbox, paste **Logout URL** value which you have copied from the Azure portal.
 
-	c. In the **Issuer URL** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
+   c. In the **Issuer URL** textbox, paste **Azure AD Identifier** value which you have copied from the Azure portal.
 
-	d. Click **Browse** button to upload the certificate which you downloaded from Azure portal.
+   d. Click **Browse** button to upload the certificate which you downloaded from Azure portal.
 
-	e. Click the **Save** button.
+   e. Click the **Save** button.
 
 ### Create an Azure AD test user 
 
@@ -179,7 +180,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -227,9 +228,9 @@ When you click the 8x8 Virtual Office tile in the Access Panel, you should be au
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -3,13 +3,15 @@ title: 'What is Azure AD Connect and Connect Health. | Microsoft Docs'
 description: Describes the tools used to synchronize and monitor your on-premises environment with Azure AD.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
-ms.date: 11/28/2018
-ms.component: hybrid
+ms.topic: overview
+ms.date: 02/26/2019
+ms.subservice: hybrid
 ms.author: billmath
+ms.topic: conceptual
+ms.collection: M365-identity-device-management
 ---
 
 # What is Azure AD Connect?
@@ -44,6 +46,25 @@ Integrating your on-premises directories with Azure AD makes your users more pro
 
 ## Why use Azure AD Connect Health?
 When with Azure AD, your users are more productive because there's a common identity to access both cloud and on-premises resources. Ensuring the environment is reliable, so that users can access these resources, becomes a challenge.  Azure AD Connect Health helps monitor and gain insights into your on-premises identity infrastructure thus ensuring the reliability of this environment. It is as simple as installing an agent on each of your on-premises identity servers.
+
+Azure AD Connect Health for AD FS supports AD FS 2.0 on Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 and Windows Server 2016. It also supports monitoring the AD FS proxy or web application proxy servers that provide authentication support for extranet access. With an easy and quick installation of the Health Agent, Azure AD Connect Health for AD FS provides you a set of key capabilities.
+
+Key benefits and best practices:
+
+|Key Benefits|Best Practices|
+|-----|-----|
+|Enhanced security|[Extranet lockout trends](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Failed sign-ins report](how-to-connect-health-adfs-risky-ip.md)</br>[In privacy compliant](reference-connect-health-user-privacy.md)|
+|Get alerted on [all critical ADFS system issues](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Server configuration and availability</br>[Performance and connectivity](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regular maintenance|
+|Easy to deploy and manage|[Quick agent installation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Agent auto upgrade to the latest</br>Data available in portal within minutes|
+Rich [usage metrics](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Top applications usage</br>Network locations and TCP connection</br>Token requests per server|
+|Great user experience|Dashboard fashion from Azure portal</br>[Alerts through emails](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
+## License requirements for using Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
+
+
 
 
 ## Next steps

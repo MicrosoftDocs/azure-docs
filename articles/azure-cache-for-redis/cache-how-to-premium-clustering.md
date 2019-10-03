@@ -1,20 +1,20 @@
 ---
 title: How to configure Redis clustering for a Premium Azure Cache for Redis | Microsoft Docs
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Cache for Redis instances
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: ''
 
 ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
 ms.workload: tbd
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
-ms.author: wesmc
+ms.author: yegu
 
 ---
 # How to configure Redis clustering for a Premium Azure Cache for Redis
@@ -117,7 +117,7 @@ For more information, see [Keys distribution model](https://redis.io/topics/clus
 For sample code on working with clustering and locating keys in the same shard with the StackExchange.Redis client, see the [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) portion of the [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) sample.
 
 ### What is the largest cache size I can create?
-The largest premium cache size is 53 GB. You can create up to 10 shards giving you a maximum size of 530 GB. If you need a larger size you can [request more](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
+The largest premium cache size is 120 GB. You can create up to 10 shards giving you a maximum size of 1.2TB GB. If you need a larger size you can [request more](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). For more information, see [Azure Cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 ### Do all Redis clients support clustering?
 At the present time not all clients support Redis clustering. StackExchange.Redis is one that does support for it. For more information on other clients, see the [Playing with the cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) section of the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial). 

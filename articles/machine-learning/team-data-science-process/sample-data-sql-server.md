@@ -6,7 +6,7 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
@@ -16,7 +16,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 This article shows how to sample data stored in SQL Server on Azure using either SQL or the Python programming language. It also shows how to move sampled data into Azure Machine Learning by saving it to a file, uploading it to an Azure blob, and then reading it into Azure Machine Learning Studio.
 
-The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the [Pandas](http://pandas.pydata.org/) library to do the sampling.
+The Python sampling uses the [pyodbc](https://code.google.com/p/pyodbc/) ODBC library to connect to SQL Server on Azure and the [Pandas](https://pandas.pydata.org/) library to do the sampling.
 
 > [!NOTE]
 > The sample SQL code in this document assumes that the data is in a SQL Server on Azure. If it is not, refer to [Move data to SQL Server on Azure](move-sql-server-virtual-machine.md) article for instructions on how to move your data to SQL Server on Azure.
@@ -54,7 +54,7 @@ Tablesample can be used for sampling the data as well. This may be a better appr
 > 
 
 ### <a name="sql-aml"></a>Connecting to Azure Machine Learning
-You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screen shot of using the reader module to read the sampled data is shown here:
+You can directly  use the sample queries above in the Azure Machine Learning [Import Data][import-data] module to down-sample the data on the fly and bring it into an Azure Machine Learning experiment. A screenshot of using the reader module to read the sampled data is shown here:
 
 ![reader sql][1]
 
@@ -65,12 +65,12 @@ This section demonstrates using the [pyodbc library](https://code.google.com/p/p
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas](http://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The  following code reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data:
+The [Pandas](https://pandas.pydata.org/) library in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The  following code reads a 0.1% sample of the data from a table in Azure SQL database into a Pandas data:
 
     import pandas as pd
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select column1, cloumn2... from <table_name> tablesample (0.1 percent)''', conn)
+    data_frame = pd.read_sql('''select column1, column2... from <table_name> tablesample (0.1 percent)''', conn)
 
 You can now work with the sampled data in the Pandas data frame. 
 

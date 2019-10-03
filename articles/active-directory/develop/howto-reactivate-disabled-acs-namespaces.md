@@ -3,19 +3,20 @@ title: How to reactivate disabled Azure Access Control Service (ACS) namespaces
 description: Learn how to find and enable your Azure Access Control Service (ACS) namespaces and request an extension to keep them enabled until February 4, 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.author: celested
+ms.date: 01/21/2019
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Reactivate disabled Access Control Service namespaces
@@ -28,7 +29,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 
 ## Why your namespace is disabled
 
-If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
+If you haven't opted in for the extension, we'll start to disable ACS namespaces starting November 7, 2018. You must have requested the extension to February 4, 2019 already; otherwise, you will not be able to enable the namespaces through PowerShell.
 
 > [!NOTE]
 > You must be a service administrator or co-administrator of the subscription to run the PowerShell commands and request an extension.
@@ -53,7 +54,7 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 
         To get help on a specific command, run:
 
-        ```
+        ```powershell
         Get-Help [Command-Name] -Full
         ```
     
@@ -75,6 +76,32 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 
 ## Request an extension
 
+We are taking new extension requests starting on January 21, 2019.
+
+We will start disabling namespaces for customers who have requested extensions to February 4, 2019. You can still re-enable namespaces through PowerShell, but the namespaces will be disabled again after 48 hours.
+
+After March 4, 2019, customers will no longer be able to re-enable any namespaces through PowerShell.
+
+Further extensions will no longer be automatically approved. If you need additional time to migrate, contact [Azure support](https://portal.azure.com/#create/Microsoft.Support) to provide a detailed migration timeline.
+
+### To request an extension
+
+1. Sign in to the Azure portal and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
+1. Fill in the new support request form as shown in the following example.
+
+    | Support request field | Value |
+    |-----------------------|--------------------|
+    | **Issue type** | `Technical` |
+    | **Subscription** | Set to your subscription |
+    | **Service** | `All services` |
+    | **Resource** | `General question/Resource not available` |
+    | **Problem type** | `ACS to SAS Migration` |
+    | **Subject** | Describe the issue |
+
+   ![Shows an example of a new technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+
+<!--
+
 1. Navigate to your ACS namespace's management portal by going to `https://{your-namespace}.accesscontrol.windows.net`.
 1. Select the **Read Terms** button to read the [updated Terms of Use](https://azure.microsoft.com/support/legal/access-control/), which will direct you to a page with the updated Terms of Use.
 
@@ -87,6 +114,7 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
 1. After the extension request is registered, the page will refresh with a new banner at the top of the page.
 
     [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
+-->
 
 ## Help and support
 

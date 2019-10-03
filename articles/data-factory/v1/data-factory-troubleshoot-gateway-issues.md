@@ -136,7 +136,7 @@ You might see the following error message.
 This error happens when your gateway is in an environment that requires an HTTP proxy to access Internet resources, or your proxy's authentication password is changed but it's not updated accordingly in your gateway.
 
 #### Resolution
-Follow the instructions in the [Proxy server considerations](#proxy-server-considerations) section of this article, and configure proxy settings with Data Management Gateway Configuration Manager.
+Follow the instructions in the Proxy server considerations section of this article, and configure proxy settings with Data Management Gateway Configuration Manager.
 
 ## Gateway is online with limited functionality
 ### 1. Problem
@@ -167,8 +167,8 @@ Gateway cannot connect to the cloud service through Service Bus.
 Follow these steps to get the gateway back online:
 
 1. Allow IP address outbound rules on the gateway machine and the corporate firewall. You can find IP addresses from the Windows Event Log (ID == 401): An attempt was made to access a socket in a way forbidden by its access permissions XX.XX.XX.XX:9350.
-* Configure proxy settings on the gateway. See the [Proxy server considerations](#proxy-server-considerations) section for details.
-* Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See the [Ports and firewall](#ports-and-firewall) section for details. This step is optional, but we recommend it for performance consideration.
+1. Configure proxy settings on the gateway. See the Proxy server considerations section for details.
+1. Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See the Ports and firewall section for details. This step is optional, but we recommend it for performance consideration.
 
 ### 3. Problem
 You see the following error.
@@ -182,7 +182,7 @@ A transient error in network connectivity.
 Follow these steps to get the gateway back online:
 
 1. Wait for a couple of minutes, the connectivity will be automatically recovered when the error is gone.
-* If the error persists, restart the gateway service.
+1. If the error persists, restart the gateway service.
 
 ## Failed to author linked service
 ### Problem
@@ -280,6 +280,6 @@ You can find detailed gateway log information in the Windows event logs.
 1. Start Windows **Event Viewer**.
 2. Locate logs in the **Application and Services Logs** > **Data Management Gateway** folder.
 
- When you're troubleshooting gateway-related issues, look for error level events in the event viewer.
+   When you're troubleshooting gateway-related issues, look for error level events in the event viewer.
 
 ![Data Management Gateway logs in event viewer](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)

@@ -1,19 +1,18 @@
-﻿---
-title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio | Microsoft Docs"
+---
+title: "Create a Kubernetes dev space in the cloud using .NET Core and Visual Studio"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "07/09/2018"
-ms.topic: "tutorial"
+ms.date: 07/09/2018
+ms.topic: tutorial
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 ---
-# Get Started on Azure Dev Spaces with .NET Core and Visual Studio
+# Get started on Azure Dev Spaces with .NET Core and Visual Studio
 
 In this guide, you will learn how to:
 
@@ -23,23 +22,22 @@ In this guide, you will learn how to:
 - Productively develop and test your code in a team environment.
 
 > [!Note]
-> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section, or post a comment on this page.
+> **If you get stuck** at any time, see the [Troubleshooting](troubleshooting.md) section.
 
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-1. Sign in to the Azure portal at http://portal.azure.com.
+1. Sign in to the Azure portal at https://portal.azure.com.
 1. Choose **Create a resource** > search for **Kubernetes** > select **Kubernetes Service** > **Create**.
 
-   Complete the following steps under each heading of the create AKS cluster form.
+   Complete the following steps under each heading of the *Create Kubernetes cluster* form and verify your selected [region supports Azure Dev Spaces][supported-regions].
 
-    - **PROJECT DETAILS**:  select an Azure subscription and a new or existing Azure resource group.
-    - **CLUSTER DETAILS**: enter a name, region (currently, you must choose EastUS, EastUS2, Central US, WestEurope, WestUS2, SoutheastAsia, CanadaCentral, or CanadaEast), version, and DNS name prefix for the AKS cluster.
-    - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
-
-   Make sure to choose Kubernetes version 1.9.6 or later.
+   - **PROJECT DETAILS**: select an Azure subscription and a new or existing Azure resource group.
+   - **CLUSTER DETAILS**: enter a name, region, version, and DNS name prefix for the AKS cluster.
+   - **SCALE**: select a VM size for the AKS agent nodes and the number of nodes. If you’re getting started with Azure Dev Spaces, one node is enough to explore all the features. The node count can be easily adjusted any time after the cluster is deployed. Note that the VM size can’t be changed once an AKS cluster has been created. However, once an AKS cluster has been deployed, you can easily create a new AKS cluster with larger VMs and use Dev Spaces to redeploy to that larger cluster if you need to scale up.
 
    ![Kubernetes configuration settings](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Select **Next: Authentication** when complete.
 
@@ -47,28 +45,18 @@ In this guide, you will learn how to:
 
     ![RBAC setting](media/common/k8s-RBAC.PNG)
 
-1. Make sure that Http Application Routing is enabled.
-
-   ![Enable Http Application Routing](media/common/Kubernetes-Create-Cluster-3.PNG)
-
-    > [!Note]
-    > To enable [Http Application Routing](/azure/aks/http-application-routing) on an existing cluster, use the command: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
-
 1. Select **Review + create** and then **Create** when complete.
 
 ## Get the Visual Studio tools
-1. Install the latest version of [Visual Studio 2017](https://www.visualstudio.com/vs/)
-1. In the Visual Studio installer make sure the following Workload is selected:
-    * ASP.NET and web development
-1. Install [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio)
+Install the latest version of [Visual Studio](https://www.visualstudio.com/vs/). For Visual Studio 2019 on Windows you need to install the Azure Development workload. For Visual Studio 2017 on Windows you need to install the ASP.NET and web development workload as well as [Visual Studio Tools for Kubernetes](https://aka.ms/get-azds-visualstudio).
 
 ## Create a web app running in a container
 
-In this section, you'll create a ASP.NET Core web app and get it running in a container in Kubernetes.
+In this section, you'll create an ASP.NET Core web app and get it running in a container in Kubernetes.
 
 ### Create an ASP.NET web app
 
-From within Visual Studio 2017, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
+From within Visual Studio, create a new project. Currently, the project must be an **ASP.NET Core Web Application**. Name the project '**webfrontend**'.
 
 ![](media/get-started-netcore-visualstudio/NewProjectDialog1.png)
 
@@ -131,9 +119,16 @@ Click on the **About** link at the top of the page to trigger the breakpoint. Yo
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
 ### Update a content file
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
-1. Save the file.
-1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
+
+
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: 
+  
+    ```html
+    <h2>Hello k8s in Azure!</h2>`
+    ```
+
+2. Save the file.
+3. Go to your browser and refresh the page. You should see the web page display the updated HTML.
 
 What happened? Edits to content files, like HTML and CSS, don't require recompilation in a .NET Core web app, so an active F5 session automatically syncs any modified content files into the running container in AKS, so you can see your content edits right away.
 
@@ -152,4 +147,7 @@ Refresh the web app in the browser, and go to the About page. You should see you
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn about team development](team-development-netcore-visualstudio.md)
+> [Learn about multi-service development](multi-service-netcore-visualstudio.md)
+
+
+[supported-regions]: about.md#supported-regions-and-configurations

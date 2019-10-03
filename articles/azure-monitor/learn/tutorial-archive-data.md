@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.component: metrics
+ms.subservice: metrics
 ---
 
 # Archive Azure metric and log data using Azure Storage
@@ -194,3 +194,4 @@ To get more out of your data and derive additional insights, also  send your dat
 
 > [!div class="nextstepaction"]
 > [Get started with Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
+

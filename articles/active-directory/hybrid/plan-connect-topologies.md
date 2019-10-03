@@ -4,17 +4,18 @@ description: This topic details supported and unsupported topologies for Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 1034c000-59f2-4fc8-8137-2416fa5e4bfe
 ms.service: active-directory
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
@@ -53,11 +54,11 @@ Having multiple Azure AD Connect sync servers connected to the same Azure AD ten
 
 Many organizations have environments with multiple on-premises Active Directory forests. There are various reasons for having more than one on-premises Active Directory forest. Typical examples are designs with account-resource forests and the result of a merger or acquisition.
 
-When you have multiple forests, all forests must be reachable by a single Azure AD Connect sync server. You don't have to join the server to a domain. If necessary to reach all forests, you can place the server in a perimeter network (also known as DMZ, demilitarized zone, and screened subnet).
+When you have multiple forests, all forests must be reachable by a single Azure AD Connect sync server. The server must be joined to a domain. If necessary to reach all forests, you can place the server in a perimeter network (also known as DMZ, demilitarized zone, and screened subnet).
 
 The Azure AD Connect installation wizard offers several options to consolidate users who are represented in multiple forests. The goal is that a user is represented only once in Azure AD. There are some common topologies that you can configure in the custom installation path in the installation wizard. On the **Uniquely identifying your users** page, select the corresponding option that represents your topology. The consolidation is configured only for users. Duplicated groups are not consolidated with the default configuration.
 
-Common topologies are discussed in the sections about [separate topologies](#multiple-forests-separate-topologies), [full mesh](#multiple-forests-full-mesh-with-optional-galsync), and [the account-resource topology](#multiple-forests-account-resource-forest).
+Common topologies are discussed in the sections about separate topologies, [full mesh](#multiple-forests-full-mesh-with-optional-galsync), and [the account-resource topology](#multiple-forests-account-resource-forest).
 
 The default configuration in Azure AD Connect sync assumes:
 

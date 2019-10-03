@@ -7,11 +7,11 @@ author: kraigb
 manager: douge
 
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
 ---
@@ -46,13 +46,13 @@ This Quickstart demonstrates the process of migrating a notebook from your local
 
    (Again, if your notebook is in a GitHub repository, follow the steps on [Quickstart: Clone a notebook](quickstart-clone-jupyter-notebook.md) instead.)
 
-    - If using **From Computer**, drag and drop your *.ipynb* files into the popup, or select **Choose Files**, then browse to and select the files you want to import. Then select **Upload**. The uploaded files are given the same name as the local files. (You don't need to upload the contents of any *.ipynb_checkpoints* folders.)
+   - If using **From Computer**, drag and drop your *.ipynb* files into the popup, or select **Choose Files**, then browse to and select the files you want to import. Then select **Upload**. The uploaded files are given the same name as the local files. (You don't need to upload the contents of any *.ipynb_checkpoints* folders.)
 
-    ![Upload from computer popup](media/quickstarts/upload-from-computer-popup.png)
+     ![Upload from computer popup](media/quickstarts/upload-from-computer-popup.png)
 
-    - If using **From URL**, enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **Upload**. If you have multiple files with separate URLs, use the **+ Add File** command to check the first URL you entered, after which the popup provides new fields for another file.
+   - If using **From URL**, enter the source address in the **File URL** field and the filename to assign to the notebook in your project in the **File Name** field. Then select **Upload**. If you have multiple files with separate URLs, use the **+ Add File** command to check the first URL you entered, after which the popup provides new fields for another file.
 
-    ![Upload from URL popup](media/quickstarts/upload-from-url-popup.png)
+     ![Upload from URL popup](media/quickstarts/upload-from-url-popup.png)
 
 1. Open and run your newly uploaded notebook to verify its contents and operation. When you're done, select **File** > **Halt and close** to close the notebook.
 

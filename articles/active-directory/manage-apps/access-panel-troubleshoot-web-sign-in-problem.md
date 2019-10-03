@@ -3,19 +3,20 @@ title: Problem signing in to the access panel website | Microsoft Docs
 description: Guidance to troubleshoot issues you may encounter while trying to sign in to use the Access Panel
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.assetid: 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: barbkess
+ms.author: mimart
 ms.reviwer: japere,asteen
+ms.collection: M365-identity-device-management
 ---
 
 # Problem signing in to the access panel website
@@ -155,31 +156,31 @@ To reset a user’s password, follow these steps:
 
 To enable self-service password reset, follow these deployment steps:
 
--   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-their-azure-ad-passwords)
+-   [Enable users to reset their Azure Active Directory passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
--   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started#enable-users-to-reset-or-change-their-ad-passwords)
+-   [Enable users to reset or change their Active Directory on-premises passwords](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
 ### Check a user’s multi-factor authentication status
 
 To check a user’s multi-factor authentication status, follow these steps:
 
-1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1. Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2. Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
+3. Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
 
-4.  click **Users and groups** in the navigation menu.
+4. click **Users and groups** in the navigation menu.
 
-5.  click **All users**.
+5. click **All users**.
 
-6.  click the **Multi-Factor Authentication** button at the top of the pane.
+6. click the **Multi-Factor Authentication** button at the top of the pane.
 
-7.  Once the **Multi-Factor Authentication Administration Portal** loads, ensure you are on the **Users** tab.
+7. Once the **Multi-Factor Authentication Administration Portal** loads, ensure you are on the **Users** tab.
 
-8.  Find the user in the list of users by searching, filtering, or sorting.
+8. Find the user in the list of users by searching, filtering, or sorting.
 
-9.  Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
+9. Select the user from the list of users and **Enable**, **Disable**, or **Enforce** multi-factor authentication as desired.
 
    >[!NOTE]
    >If a user is in an **Enforced** state, you may set them to **Disabled** temporarily to let them back into their account. Once they are back in, you can then change their state to **Enabled** again to require them to re-register their contact information during their next sign-in. Alternatively, you can follow the steps in the [Check a user’s authentication contact info](#check-a-users-authentication-contact-info) to verify or set this data for them.

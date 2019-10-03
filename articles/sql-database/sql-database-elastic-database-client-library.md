@@ -10,17 +10,19 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 09/25/2018
 ---
 # Building scalable cloud databases
-Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases. [Elastic jobs](sql-database-elastic-jobs-powershell.md) can then be used to help ease management of these databases.
+
+Scaling out databases can be easily accomplished using scalable tools and features for Azure SQL Database. In particular, you can use the **Elastic Database client library** to create and manage scaled-out databases. This feature lets you easily develop sharded applications using hundreds—or even thousands—of Azure SQL databases.
 
 To download:
+
 * The Java version of the library, see [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 * The .NET version of the library, see [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
 
 ## Documentation
+
 1. [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md)
 2. [Elastic Database features](sql-database-elastic-scale-introduction.md)
 3. [Shard map management](sql-database-elastic-scale-shard-map-management.md)
@@ -39,6 +41,7 @@ To download:
 16. [FAQ for Elastic database tools](sql-database-elastic-scale-faq.md)
 
 ## Client capabilities
+
 Scaling out applications using *sharding* presents challenges for both the developer as well as the administrator. The client library simplifies the management tasks by providing tools that let both developers and administrators manage scaled-out databases. In a typical example, there are many databases, known as "shards," to manage. Customers are co-located in the same database, and there is one database per customer (a single-tenant scheme). The client library includes these features:
 
 - **Shard Map Management**: A special database called the "shard map manager" is created. Shard map management is the ability for an application to manage metadata about its shards. Developers can use this functionality to register databases as shards, describe mappings of individual sharding keys or key ranges to those databases, and maintain this metadata as the number and composition of databases evolves to reflect capacity changes. Without the elastic database client library, you would need to spend a lot of time writing the management code when implementing sharding. For details, see [Shard map management](sql-database-elastic-scale-shard-map-management.md).
@@ -52,7 +55,7 @@ In general, customers using elastic database tools can expect to get full T-SQL 
 
 ## Next steps
 
-- Elastic Database Client Library ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - to **download** the library.
+- Elastic Database Client Library ([Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22), [.NET](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/)) - to **download** the library.
 
 - [Get started with elastic database tools](sql-database-elastic-scale-get-started.md) - to try the **sample app** that demonstrates client functions.
 

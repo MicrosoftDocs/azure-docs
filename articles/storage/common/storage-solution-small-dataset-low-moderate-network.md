@@ -5,7 +5,7 @@ services: storage
 author: alkohli
 
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: alkohli
@@ -45,16 +45,16 @@ The options recommended in this scenario are:
 
 The following table summarizes the differences in key capabilities.
 
-| Feature                                                            | Azure Storage Explorer                    | Azure portal  | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST APIs or SDKs |
-|----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
-| Availability                                                       | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal           | Command line tool |Programmable interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby and PHP                                                         |
-| Graphical   interface                                              | Yes                                       | Yes                                                     | No                | No                                                      |
-| Supported   platforms                                              | Windows, Mac, Linux                       | Web-based     |Windows, Mac, Linux     |All platforms                                                         |
-| Allowed Blob storage operations<br>for blobs and folders            | Upload<br>Download<br>Manage    | Upload<br>Download<br>Manage  |Upload<br>Download<br>Manage             | Yes, customizable                                                        |
-| Allowed Data Lake Gen1 storage<br>operations for files and folders  | Upload<br>Download<br>Manage                | No |Upload<br>Download<br>Manage                   |      No                                                   |
-| Allowed File storage operations<br>for files and directories        | Upload<br>Download<br>Manage       | Upload<br>Download<br>Manage   |Upload<br>Download<br>Manage |                                                         |Yes, customizable
-| Allowed Table storage operations<br>for tables                      |Manage                            | No            |Table support in AzCopy v7 |Yes, customizable|
-| Allowed Queue storage                                              | Manage                                    | No  |No | Yes, is customizable|
+| Feature | Azure Storage Explorer | Azure portal | AzCopy<br>Azure PowerShell<br>Azure CLI | Azure Storage REST APIs or SDKs |
+|---------|------------------------|--------------|-----------------------------------------|---------------------------------|
+| Availability | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal | Command line tool |Programmable interfaces in .NET, Java, Python, JavaScript, C++, Go, Ruby and PHP |
+| Graphical   interface | Yes | Yes | No | No |
+| Supported   platforms | Windows, Mac, Linux | Web-based |Windows, Mac, Linux |All platforms |
+| Allowed Blob storage operations<br>for blobs and folders | Upload<br>Download<br>Manage | Upload<br>Download<br>Manage |Upload<br>Download<br>Manage | Yes, customizable |
+| Allowed Data Lake Gen1 storage<br>operations for files and folders | Upload<br>Download<br>Manage | No |Upload<br>Download<br>Manage                   | No |
+| Allowed File storage operations<br>for files and directories | Upload<br>Download<br>Manage | Upload<br>Download<br>Manage   |Upload<br>Download<br>Manage | Yes, customizable |
+| Allowed Table storage operations<br>for tables |Manage | No |Table support in AzCopy v7 |Yes, customizable|
+| Allowed Queue storage | Manage | No  |No | Yes, is customizable|
 
 
 ## Next steps

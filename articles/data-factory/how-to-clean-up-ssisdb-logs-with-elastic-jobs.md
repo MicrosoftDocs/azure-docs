@@ -26,6 +26,8 @@ The following sections describe how to trigger the stored procedure `[internal].
 
 ## Clean up logs with Power Shell
 
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+
 The following sample PowerShell scripts create a new Elastic Job to trigger the stored procedure for SSISDB log cleanup. For more info, see [Create an Elastic Job agent using PowerShell](../sql-database/elastic-jobs-powershell.md).
 
 ### Create parameters

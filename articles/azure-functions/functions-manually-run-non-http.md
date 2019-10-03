@@ -4,7 +4,7 @@ description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 services: functions
 keywords: 
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.topic: tutorial
@@ -31,6 +31,9 @@ To run a non HTTP-triggered function, you need to a way to send a request to Azu
 - **Function name:** The name of the function you want to run.
 
 You use this request location in Postman along with the function's master key in the request to Azure to run the function.
+
+> [!NOTE]
+> When running locally, the function's master key is not required. You can directly [call the function](#call-the-function) omitting the `x-functions-key` header.
 
 ## Get the function's master key
 

@@ -1,9 +1,9 @@
 ---
-author: dominicbetts
+author: robinsh
+ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: dobett
 ---
 > [!div class="op_single_selector"]
 > * [Azure portal](../articles/iot-hub/iot-hub-configure-file-upload.md)

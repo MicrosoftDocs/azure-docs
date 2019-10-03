@@ -1,16 +1,15 @@
 ---
 title: Interact with reports using the JavaScript API | Microsoft Docs
 description: The Power BI JavaScript API enables you to easily embed Power BI reports into your applications.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: bdd885d3-1b00-4dcf-bdff-531eb1f97bfb
+services: power-bi-workspace-collections
 ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
 ---
+
 # Interact with Power BI reports using the JavaScript API
 
 The Power BI JavaScript API enables you to easily embed Power BI reports into your applications. With the API, your applications can programmatically interact with different report elements like pages and filters. This interactivity makes Power BI reports a more integrated part of your application.
@@ -37,29 +36,29 @@ With the JavaScript API you can manage reports, navigate to pages in a report, f
 ### Manage reports
 The Javascript API enables you to manage behavior at the report and page level:
 
-* Embed a specific Power BI Report securely in your application - try the [embed demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* Embed a specific Power BI Report securely in your application - try the [embed demo application](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Set access token
 * Configure the report
-  * Enable and disable the filter pane and page navigation pane - try the [update settings demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * Set defaults for pages and filters - try the [set defaults demo](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  * Enable and disable the filter pane and page navigation pane - try the [update settings demo application](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Set defaults for pages and filters - try the [set defaults demo](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * Enter and exit full screen mode
 
 [Learn more about embedding a report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### Navigate to pages in a report
-The JavaScript API enables you to discover all pages in a report and to set the current page. Try the [navigation demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
+The JavaScript API enables you to discover all pages in a report and to set the current page. Try the [navigation demo application](https://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Learn more about page navigation](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### Filter a report
-The JavaScript API provides basic and advanced filtering capabilities for embedded reports and report pages. Try the [filtering demo application](http://azure-samples.github.io/powerbi-angular-client/#/scenario4), and review some introductory code here.
+The JavaScript API provides basic and advanced filtering capabilities for embedded reports and report pages. Try the [filtering demo application](https://azure-samples.github.io/powerbi-angular-client/#/scenario4), and review some introductory code here.
 
 #### Basic filters
 A basic filter is placed on a column or hierarchy level and contains a list of values to include or exclude.
 
-```
+```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -86,9 +85,9 @@ Advanced filters use the logical operator AND or OR, and accept one or two condi
 * IsBlank
 * IsNotBlank
 
-```
+```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

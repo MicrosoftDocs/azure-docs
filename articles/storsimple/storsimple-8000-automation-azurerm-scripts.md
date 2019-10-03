@@ -58,10 +58,10 @@ This section takes an example script and details the various steps required to r
 Before you begin, ensure that you have:
 
 *	Azure PowerShell installed. To install Azure PowerShell modules:
-    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
-    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux?view=azurermps-4.4.0).
+    * In a Windows environment, follow the steps in [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). You can install Azure PowerShell on your Windows Server host for your StorSimple if using one.
+    * In a Linux or MacOS environment, follow the steps in [Install and configure Azure PowerShell on MacOS or Linux](https://docs.microsoft.com/powershell/azure/azurerm/install-azurermps-maclinux).
 
-For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.4.0).
+For more information about using Azure PowerShell, go to [Get started with using Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 ### Run Azure PowerShell script
 
@@ -73,7 +73,7 @@ The script used in this example lists all the jobs on a StorSimple device. This 
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Download NuGet CLI](http://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
+2. [Download NuGet CLI](https://www.nuget.org/downloads) under the folder created in the previous step. There are various versions of _nuget.exe_. Choose the version corresponding to your SDK. Each download link points directly to an _.exe_ file. Be sure to right-click and save the file to your computer rather than running it from the browser.
 
     You can also run the following command to download and store the script in the same folder that you created earlier.
     

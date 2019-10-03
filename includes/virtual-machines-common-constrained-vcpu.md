@@ -16,7 +16,7 @@ The vCPU count can be  constrained to one half or one quarter of the original VM
 
 For example, the current VM size Standard_GS5 comes with 32 vCPUs, 448 GB RAM, 64 disks (up to 256 TB), and 80,000 IOPs or 2 GB/s of I/O bandwidth. The new VM sizes Standard_GS5-16 and Standard_GS5-8 comes with 16 and 8 active vCPUs respectively, while maintaining the rest of the specs of the Standard_GS5 for memory, storage, and I/O bandwidth.
 
-The licensing fees charged for SQL Server or Oracle are constrained to the new vCPU count, and other products should be charged based on the new vCPU count. This results in a 50% to 75% increase in the ratio of the VM specs to active (billable) vCPUs. These new VM sizes that are only available in Azure, allowing workloads to push higher CPU utilization at a fraction of the (per-core) licensing cost. At this time, the compute cost, which includes OS licensing, remains the same one as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
+The licensing fees charged for SQL Server or Oracle are constrained to the new vCPU count, and other products should be charged based on the new vCPU count. This results in a 50% to 75% increase in the ratio of the VM specs to active (billable) vCPUs. These new VM sizes allow customer workloads to use the same memory, storage, and I/O bandwidth while optimizing their software licensing cost. At this time, the compute cost, which includes OS licensing, remains the same one as the original size. For more information, see [Azure VM sizes for more cost-effective database workloads](https://azure.microsoft.com/blog/announcing-new-azure-vm-sizes-for-more-cost-effective-database-workloads/).
 
 
 | Name                | vCPU | Specs           |
@@ -36,7 +36,7 @@ The licensing fees charged for SQL Server or Oracle are constrained to the new v
 | Standard_E8-2s_v3   | 2    | Same as E8s_v3  |
 | Standard_E16-8s_v3  | 8    | Same as E16s_v3 |
 | Standard_E16-4s_v3  | 4    | Same as E16s_v3 |
-| Standard_E32-16_v3  | 16   | Same as E32s_v3 |
+| Standard_E32-16s_v3 | 16   | Same as E32s_v3 |
 | Standard_E32-8s_v3  | 8    | Same as E32s_v3 |
 | Standard_E64-32s_v3 | 32   | Same as E64s_v3 |
 | Standard_E64-16s_v3 | 16   | Same as E64s_v3 |

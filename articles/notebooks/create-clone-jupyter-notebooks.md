@@ -7,12 +7,12 @@ author: kraigb
 manager: douge
 
 ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/25/2019
 ms.author: kraigb
 ---
 
@@ -26,7 +26,7 @@ A project also maintains metadata and other configuration settings that affect t
 
 Your **My Projects** dashboard at `https://notebooks.azure.com/<userID>/projects` is where you view, manage, and create projects:
 
-[![](media/my-projects-dashboard.png "My Projects dashboard in Azure Notebooks")](media/my-projects-dashboard.png#lightbox)
+[![My Projects dashboard in Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 What you can do on the dashboard depends on whether you're signed in with the account that owns the user ID:
 
@@ -45,7 +45,7 @@ What you can do on the dashboard depends on whether you're signed in with the ac
 
 When you use the **Share** command and select the **Embed** tab, you can copy either HTML code or Markdown that creates a "launch notebook" badge:
 
-![Launch notebook badge ](https://notebooks.azure.com/launch.png)
+![Launch notebook badge](https://notebooks.azure.com/launch.png)
 
 If you don't have an Azure Notebooks project, you can create a link that clones from GitHub directly using the following templates, substituting the appropriate username and repository names:
 
@@ -63,10 +63,26 @@ When you use the **+ New Project** command, Azure Notebooks displays a **Create 
 
 | Field | Description |
 | --- | --- |
-| Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "Ny Notebook Project". |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens, and is limited to 30 characters. If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
+| Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "My Notebook Project". |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 | Initialize this project with a README | If set, creates a default *README.md* file in the project. A *README.md* file is where you provide documentation for your project, if desired. |
+
+### Reserved project IDs
+
+The following reserved words cannot be used by themselves as project IDs. These reserved words can, however, be used as part of longer project IDs.
+
+| | | | | | |
+| --- | --- | --- | --- | --- | --- |
+| about | account | administration | api | blog | classroom |
+| content | dashboard | explore | faq | help | html |
+| home | import | library | management | new | notebook |
+| notebooks | pdf | preview | pricing | profile | search |
+| status | support | test | | | |
+
+If you attempt to use one of these words as a project ID, the **Create New Project** and **Project Settings** popups indicate, "Library id is a reserved identifier."
+
+Because a project ID is also part of a project's URL, ad blocker software might block the use of certain keywords, such as "advert." In such cases, use a different word in the project ID.
 
 ## Import a project from GitHub
 
@@ -77,7 +93,7 @@ You can easily import an entire public GitHub repo as a project including any da
 | GitHub repository | The name of the source repository on github.com. For example, to clone the Jupyter notebooks for Azure Cognitive Services at [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks), enter "Microsoft/cognitive-services-notebooks".  |
 | Clone recursively | GitHub repositories can contain multiple child repositories. Set this option if you want to clone the parent repository and all its children. Because it's possible for a repository to have many children, leave this option clear unless you know you need it. |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens. |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 
 Importing a repository from GitHub also imports its history. You can use standard Git commands from the terminal to commit new changes, pull changes from GitHub, and so on.

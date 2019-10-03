@@ -3,8 +3,8 @@ title: Tutorial - Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenk
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
 ---
@@ -58,6 +58,9 @@ and [kubectl][kubectl-install].
 ## Prepare your app
 
 In this article, you use a sample Azure vote application that contains a web interface hosted in one or more pods, and a second pod hosting Redis for temporary data storage. Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment is version one of the application, and lets you see the application in action.
+
+> [!NOTE]
+> The sample Azure vote application uses a Linux pod that is scheduled to run on a Linux node. The flow outlined in this article also works for a Windows Server pod scheduled on a Windows Server node.
 
 Fork the following GitHub repository for the sample application - [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). To fork the repo to your own GitHub account, select the **Fork** button in the top right-hand corner.
 
@@ -237,15 +240,15 @@ Click **OK** and return to the Jenkins portal.
 From the home page of your Jenkins portal, select **New item** on the left-hand side:
 
 1. Enter *azure-vote* as job name. Choose **Freestyle project**, then select **OK**
-1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Under the **General** section, select **GitHub project** and enter your forked repo URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis*
+1. Under the **Source code management** section, select **Git**, enter your forked repo *.git* URL, such as *https:\//github.com/\<your-github-account\>/azure-voting-app-redis.git*
 
 1. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**
 1. Under **Build Environment**, select **Use secret texts or files**
 1. Under **Bindings**, select **Add** > **Username and password (separated)**
-    - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
+   - Enter `ACR_ID` for the **Username Variable**, and `ACR_PASSWORD` for the **Password Variable**
 
-    ![Jenkins bindings](media/aks-jenkins/bindings.png)
+     ![Jenkins bindings](media/aks-jenkins/bindings.png)
 
 1. Choose to add a **Build Step** of type **Execute shell** and use the following text. This script builds a new container image and pushes it to your ACR registry.
 

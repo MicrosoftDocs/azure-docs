@@ -4,7 +4,7 @@ description:
 services: virtual-machines-windows
 documentationcenter: ''
 author: Deland-Han
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: ''
 
@@ -95,7 +95,7 @@ In the Serial Console Access instance, you can query the current status of the f
 
 ### Offline Mitigations
 
-1.	To enable or disable firewall rules, refer to [Enable or disable a firewall rule on a Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
+1.	To enable or disable firewall rules, refer to [Enable or disable a firewall rule on an Azure VM Guest OS](enable-disable-firewall-rule-guest-os.md).
 
 2.	Check whether you are in the [Guest OS firewall blocking inbound traffic scenario](guest-os-firewall-blocking-inbound-traffic.md).
 

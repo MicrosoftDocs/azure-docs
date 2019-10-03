@@ -2,12 +2,12 @@
 title: Understand the Linux agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 12/14/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -21,9 +21,12 @@ The following list are the three readiness states a machine can be in:
 * **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
 * **Not configured** -  The update agent isn't found or hasn't finished onboarding.
 
+> [!NOTE]
+> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+
 ## Start the troubleshooter
 
-For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the [offline instructions](#offline) to troubleshoot a Non-Azure machine.
+For Azure machines, clicking the **Troubleshoot** link under the **Update Agent Readiness** column in the portal launches the **Troubleshoot Update Agent** page. For Non-Azure machines, the link brings you to this article. See the offline instructions to troubleshoot a Non-Azure machine.
 
 ![vm list page](../media/update-agent-issues-linux/vm-list.png)
 
@@ -34,7 +37,7 @@ On the **Troubleshoot Update Agent** page, click **Run Checks**, to start the tr
 
 ![Troubleshoot page](../media/update-agent-issues-linux/troubleshoot-page.png)
 
-When complete, the results are returned in the window. The [check sections](#pre-requisistes-checks) provide information on what each check is looking for.
+When complete, the results are returned in the window. The check sections provide information on what each check is looking for.
 
 ![Update agent checks page](../media/update-agent-issues-linux/update-agent-checks.png)
 
@@ -172,3 +175,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 ## Next steps
 
 To troubleshoot additional issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md)
+

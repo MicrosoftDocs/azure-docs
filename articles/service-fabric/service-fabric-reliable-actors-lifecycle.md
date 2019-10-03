@@ -4,7 +4,7 @@ description: Explains Service Fabric Reliable Actor lifecycle, garbage collectio
 services: service-fabric
 documentationcenter: .net
 author: amanbha
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: b91384cc-804c-49d6-a6cb-f3f3d7d65a8e
@@ -119,7 +119,7 @@ Garbage collection of deactivated actors only cleans up the actor object, but it
 * [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
 * [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
 * [C# Sample code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Java Sample code](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Java Sample code](https://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

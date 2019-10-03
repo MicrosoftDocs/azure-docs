@@ -15,22 +15,9 @@ ms.date: 12/07/2017
 
 This article lists the top queries you might have related to Microsoft Genomics. For more information on the Microsoft Genomics service, see [What is Microsoft Genomics?](overview-what-is-genomics.md). For more information about troubleshooting, see our [Troubleshooting Guide](troubleshooting-guide-genomics.md). 
 
-## What is the Microsoft Genomics service GATK 4 promotion?
-Until the end of the calendar year, 2018, the Microsoft Genomics service is offering 20 WGS runs with GATK4 at no cost. To participate in this offering register [here](https://aka.ms/msgatk4). 
 
-### What are the common issues I might encounter while running the Microsoft Genomics service GATK4 promotion
-Here is the list of common errors you might encounter and their recommended resolution:
-
-| **Message**                                                                                                                                                                                    | **Cause**                                                                                                    | **Resolution**                                                                                                                                                                                                       |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `gatk4-promo` is not enabled for your account. For more information, see https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                               | You are trying to run GATK4 workflows with the Microsoft Genomics service without being activated.       | Please visit [here](https://aka.ms/msgatk4) to activate your account. Note that the trial expires at the end of the calendar year 2018. You will not be able to activate  your account for the promotional runs after this date. |
-| Thank you for trying `gatk4-promo`.Your trial period has ended. For more information, https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics                  | The GATK4 trial has expired at the end of the calendar year, and you are trying to invoke the `gatk4-promo` process_name.  | Switch the process_name parameter to, `gatk4`, instead of `gatk4-promo`. This is the official gatk4 version, and your workflow will be billed if you use this parameter.                                         |
-| Thank you for trying `gatk4-promo` You have used all of your allocated runs. For more information, see https://docs.microsoft.com/azure/genomics/frequently-asked-questions-genomics | You have successfully submitted all of your 20 promotional runs for GATK4.                               | Submit any new gatk4 runs with process_name argument set to `gatk4` instead of `gatk4-promo`. Your workflow will be billed when you use this parameter.                                                          |        
-
-
-## Can I run GATK4 workflows on Microsoft Genomics without signing up for the GATK4 promotion?
-Yes, in the Microsoft Genomics service's config.txt file, specify the process_name to `gatk4`. Note that you will be billed at regular billing rates, and the 20 free runs will not apply to your Microsoft Genomics account.
-
+## How do I run GATK4 workflows on Microsoft Genomics?
+In the Microsoft Genomics service's config.txt file, specify the process_name to `gatk4`. Note that you will be billed at regular billing rates.
 
 
 ## What is the SLA for Microsoft Genomics?
@@ -68,6 +55,7 @@ Your storage account key is used to create short-term access tokens for the Micr
 ## What genome references can I use?
 
 These references are supported:
+
  |Reference              | Value of `-pa/--process-args` |
  |:-------------         |:-------------                 |
  |b37                    | `R=b37m1`                     |
@@ -79,19 +67,19 @@ These references are supported:
 
 msgen understands configuration files in the following format:
 * All options are provided as key-value pairs with values separated from keys by a colon.
-Whitespace is ignored.
+  Whitespace is ignored.
 * Lines starting with `#` are ignored.
 * Any command-line argument in the long format can be converted to a key by stripping its leading dashes and replacing dashes between words with underscores. Here are some conversion examples:
 
- |Command-line argument            | Configuration file line |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Command-line argument            | Configuration file line |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## Next steps
 
 Use the following resources to get started with Microsoft Genomics:
-- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service ](quickstart-run-genomics-workflow-portal.md)
+- Get started by running your first workflow through the Microsoft Genomics service. [Run a workflow through the Microsoft Genomics service](quickstart-run-genomics-workflow-portal.md)
 - Submit your own data for processing by the Microsoft Genomics service: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md) 
 

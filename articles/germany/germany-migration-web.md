@@ -25,8 +25,7 @@ Migrating apps that you created by using the Web Apps feature of Azure App Servi
 For more information:
 
 - Refresh your knowledge by completing the [App Service tutorials](https://docs.microsoft.com/azure/app-service/#step-by-step-tutorials).
-- Get information about how to [export an Azure Resource Manager template](../azure-resource-manager/resource-manager-export-template.md).
-- Learn how to [export an Azure Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template).
+- Get information about how to [export Azure Resource Manager templates](../azure-resource-manager/manage-resource-groups-portal.md#export-resource-groups-to-templates).
 - Review the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 - Review the [App Service overview](../app-service/overview.md).
 - Get an [overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -36,9 +35,9 @@ For more information:
 
 To migrate settings from one Azure Notification Hubs instance to another instance, export and import all registration tokens with their tags:
 
-1. [Export the existing notification hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) to an Azure Blob storage container.
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
 1. Create a new notification hub in the target environment.
-1. [Import your registration tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Blob storage to your new notification hub.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
 For more information:
 

@@ -8,13 +8,12 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 09/07/2018
+ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-
 ---
+
 # Create your first function using Visual Studio Code
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
@@ -23,25 +22,26 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently fully supports C#, JavaScript, and Java functions, with Python support currently in Preview. The steps in this article may vary depending on your choice of language for your Azure Functions project. The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
+The extension currently supports C#, JavaScript, Java, and Python functions. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Deploy Python to Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+
+The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
 ## Prerequisites
 
 To complete this quickstart:
 
-* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
+* Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms).
 
-* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2), which is still in preview.
+* Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2).
 
 * Install the specific requirements for your chosen language:
 
-    | Language | Extension |
+    | Language | Requirement |
     | -------- | --------- |
-    | **C#** | [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)*   |
-    | **Java** | [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3+](https://maven.apache.org/) |
-    | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
-
-    \* Also required by Core Tools.
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)  |
+    | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> | 
+ 
+    <sup>*</sup>Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,47 +49,7 @@ To complete this quickstart:
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## Create an HTTP triggered function
-
-1. From **Azure: Functions**, choose the Create Function icon.
-
-    ![Create a function](./media/functions-create-first-function-vs-code/create-function.png)
-
-1. Select the folder with your function app project and select the **HTTP trigger** function template.
-
-    ![Choose the HTTP trigger template](./media/functions-create-first-function-vs-code/create-function-choose-template.png)
-
-1. Type `HTTPTrigger` for the function name and press Enter, then select **Anonymous** authentication.
-
-    ![Choose anonymous authentication](./media/functions-create-first-function-vs-code/create-function-anonymous-auth.png)
-
-    A function is created in your chosen language using the template for an HTTP-triggered function.
-
-    ![HTTP triggered function template in Visual Studio Code](./media/functions-create-first-function-vs-code/new-function-full.png)
-
-You can add input and output bindings to your function by modifying the function.json file. For more information, see  [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
-
-Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
-
-## Test the function locally
-
-Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
-
-1. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel.
-
-1. In the **Terminal** panel, copy the URL endpoint of your HTTP-triggered function.
-
-    ![Azure local output](./media/functions-create-first-function-vs-code/functions-vscode-f5.png)
-
-1. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. Execution is paused when the breakpoint is hit.
-
-    ![Function hitting breakpoint in Visual Studio Code](./media/functions-create-first-function-vs-code/function-debug-vscode-js.png)
-
-1. When you continue the execution, the following shows the response in the browser to the GET request:
-
-    ![Function localhost response in the browser](./media/functions-create-first-function-vs-code/functions-test-local-browser.png)
-
-1. To stop debugging, press Shift + F5.
+[!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
 After you've verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -97,13 +57,13 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## Test your function in Azure
+## Run the function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
+1. Copy the URL of the HTTP trigger from the **Output** panel. This URL includes the function key, which is passed to the `code` query parameter. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
 
     The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 
@@ -111,12 +71,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
-
-Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. The next article also shows you how to clean up these new Azure resources by removing the resource group you created.
 
 > [!div class="nextstepaction"]
-> [Code and test locally](functions-run-local.md)
+> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions

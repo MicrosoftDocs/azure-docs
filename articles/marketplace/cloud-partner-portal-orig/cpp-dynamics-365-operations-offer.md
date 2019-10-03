@@ -1,20 +1,12 @@
 ---
-title: Dynamics 365 for Finance and Operations offer for the Azure Marketplace | Microsoft Docs
+title: Dynamics 365 for Finance and Operations offer for the Azure Marketplace 
 description: Explains how to create a Dynamics 365 for Finance and Operations offer in the Cloud Partner Portal.
 services: Azure Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 11/01/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Dynamics 365 for Finance and Operations offer
@@ -27,7 +19,7 @@ ms.author: pbutlerm
 Use the following steps to develop your Dynamics 365 for Finance and Operations
 app and publish it to AppSource:
 
-1. As a prerequisite, you must become [Dev Center Certified](https://dev.windows.com/en-us/registration?accountProgram=Azure).
+1. As a prerequisite, you must become [Dev Center Certified](https://dev.windows.com/registration?accountProgram=Azure).
 2. Upgrade your code.
 3. Build, package, and deploy your data using [Lifecycle Services](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/lifecycle-services/lcs) (LCS).
 4. Create an implementation methodology in LCS.

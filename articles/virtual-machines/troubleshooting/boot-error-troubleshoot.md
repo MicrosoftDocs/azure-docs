@@ -3,12 +3,12 @@ title: 'Troubleshoot boot errors in Azure Virtual Machines | Microsoft Docs'
 description: This article helps link you to articles to troubleshoot boot errors in Azure Virtual Machines.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
-manager: cshepard
+author: genlin
+manager: dcscontentpm
 editor: ''
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure

@@ -6,8 +6,6 @@ ms.date: 10/26/2018
 ms.author: alkohli
 ---
 
-<!--author=alkohli last changed: 01/20/2017-->
-
 #### To create a manual backup
 
 1. Go to your StorSimple Device Manager service and then click **Devices**. From the tabular listing of devices, select your device. Go to **Settings > Manage > Backup policies**.

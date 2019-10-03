@@ -4,7 +4,7 @@ description: Understanding static internal IPs (DIPs) and how to manage them
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: tysonn
 
 ms.assetid: 93444c6f-af1b-41f8-a035-77f5c0302bf0
@@ -24,7 +24,7 @@ In most cases, you won’t need to specify a static internal IP address for your
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use the [Resource Manager deployment model](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
-## Install the Azure PowerShell Service Management module
+> ## Install the Azure PowerShell Service Management module
 
 Before you run the following commands, make sure that the [Azure PowerShell Service Management module](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
 ) is installed on the machine. For the version history of Azure PowerShell Service Management module, see [Azure module in PowerShell Gallery](https://www.powershellgallery.com/packages/Azure/5.3.0).

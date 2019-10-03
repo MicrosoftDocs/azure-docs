@@ -4,7 +4,7 @@ description: 'Service Fabric offers two frameworks for building services: the ac
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
@@ -61,7 +61,7 @@ Because Reliable Actors is an application framework built on Reliable Services, 
 
 [Reliable Actors overview](service-fabric-reliable-actors-introduction.md)
 
-[Service Fabric and ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
+[Service Fabric and ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 
 

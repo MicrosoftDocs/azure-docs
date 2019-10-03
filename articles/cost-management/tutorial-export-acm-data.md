@@ -1,11 +1,11 @@
 ---
 title: Tutorial - Create and manage exported data from Azure Cost Management | Microsoft Docs
-description: This article shows you how you can create an manage exported Azure Cost Management data so that you can use it in external systems.
+description: This article shows you how you can create and manage exported Azure Cost Management data so that you can use it in external systems.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 01/04/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -16,6 +16,8 @@ ms.custom: seodec18
 
 If you read the Cost Analysis tutorial, then you're familiar with manually downloading your Cost Management data. However, you can create a recurring task that automatically exports your Cost Management data to Azure storage on a daily, weekly, or monthly basis. Exported data is in CSV format and it contains all the information that's collected by Cost Management. You can then use the exported data in Azure storage with external systems and combine it with your own custom data. And you can use your exported data in an external system like a dashboard or other financial system.
 
+Watch the [How to schedule exports to storage with Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) video about creating a scheduled export of your Azure cost data to Azure Storage.
+
 The examples in this tutorial walk you though exporting your cost management data and then verify that the data was successfully exported.
 
 In this tutorial, you learn how to:
@@ -25,8 +27,7 @@ In this tutorial, you learn how to:
 > * Verify that data is collected
 
 ## Prerequisites
-
-Data export is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. The following Azure permissions are supported per subscription for data export by user and group:
+Data export is available for a variety of Azure account types, including [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). The following Azure permissions, or scopes, are supported per subscription for data export by user and group. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
 
 - Owner – Can create, modify, or delete scheduled exports for a subscription.
 - Contributor – Can create, modify, or delete their own scheduled exports. Can modify the name of scheduled exports created by others.
@@ -41,9 +42,15 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a daily export
 
-Cost Management + Billing &gt; Cost Management &gt; select a subscription or resource group in a subscription &gt; Export &gt; **Add**.
+To create or view a data export or to schedule an export, open the desired scope in the Azure portal and select **Cost analysis** in the menu. For example, navigate to **Subscriptions**, select a subscription from the list, and then select **Cost analysis** in the menu. At the top of the Cost analysis page, click **Export** and then choose an export option. For example, click **Schedule export**.  
 
-Type a name for the export and select the "Daily export of month-to-date costs" option. Click **Next**.
+> [!NOTE]
+> Besides subscriptions, you can create exports on resource groups, accounts, departments, and enrollments. For more information about scopes, see [Understand and work with scopes](understand-work-scopes.md).
+>
+>
+
+
+Click **Add**, type a name for the export, and then select the **Daily export of month-to-date costs** option. Click **Next**.
 
 ![New export example showing export type](./media/tutorial-export-acm-data/basics_exports.png)
 
@@ -67,9 +74,13 @@ There are three types of export options:
 
 **Daily export of month-to-date costs** – The initial export runs immediately. Subsequent exports run the next day at the same time as the initial export. The latest data is aggregated from previous daily exports.
 
-**Weekly costs for the last seven days** – The initial export runs immediately. Subsequent exports run on the day of the week and at the same time as the initial export. Costs are for the last seven days.
+**Weekly export of costs for the last 7 days** – The initial export runs immediately. Subsequent exports run on the day of the week and at the same time as the initial export. Costs are for the last seven days.
 
 **Custom** – Allows you to schedule weekly and monthly exports with week-to-date and month-to-date options. *The initial export will run immediately.*
+
+If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those types of subscriptions and resource groups, you can create an export that's aligned to your invoice period or to calendar months. To create an export aligned to your invoice month, navigate to **Custom**, then select **Billing-period-to-date**.  To create an export aligned to the calendar month, select **Month-to-date**.
+>
+>
 
 ![New export - Basics tab showing a custom weekly week-to-date selection](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
@@ -88,6 +99,7 @@ In Storage Explorer, navigate to the container that you want to open and select 
 The file opens with the program or application that's set to open CSV file extensions. Here's an example in Excel.
 
 ![Example exported CSV data shown in Excel](./media/tutorial-export-acm-data/example-export-data.png)
+
 
 ## Access exported data from other systems
 

@@ -1,13 +1,12 @@
 ---
 title: Understanding Azure File Sync Cloud Tiering | Microsoft Docs
 description: Learn about Azure File Sync's feature Cloud Tiering
-services: storage
-author: sikoo
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2018
-ms.author: sikoo
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 ---
 
 # Cloud Tiering Overview
@@ -16,9 +15,12 @@ Cloud tiering is an optional feature of Azure File Sync in which frequently acce
 When a user opens a tiered file, Azure File Sync seamlessly recalls the file data from Azure Files without the user needing to know that the file is actually stored in Azure. 
  
  > [!Important]  
-    > Important: Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
+ > Cloud tiering is not supported for server endpoints on the Windows system volumes, and only files greater than 64 KiB in size can be tiered to Azure Files.
     
 Azure File Sync does not support tiering files smaller than 64 KiB as the performance overhead of tiering and recalling such small files would outweigh the space savings.
+
+ > [!Important]  
+ > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files may fail to recall with a timeout error.
 
 ## Cloud Tiering FAQ
 
@@ -77,7 +79,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
    * **Use `fsutil` to check for reparse points on a file.**
        As described in the preceding option, a tiered file always has a reparse point set. A reparse pointer is a special pointer for the Azure File Sync file system filter (StorageSync.sys). To check whether a file has a reparse point, in an elevated Command Prompt or PowerShell window, run the `fsutil` utility:
     
-        ```PowerShell
+        ```powershell
         fsutil reparsepoint query <your-file-name>
         ```
 
@@ -93,10 +95,19 @@ The easiest way to recall a file to disk is to open the file. The Azure File Syn
 
 You also can use PowerShell to force a file to be recalled. This option might be useful if you want to recall multiple files at once, such as all the files in a folder. Open a PowerShell session to the server node where Azure File Sync is installed, and then run the following PowerShell commands:
     
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+```
+
+Specifying `-Order CloudTieringPolicy` will recall the most recently modified files first.
+Other optional parameters:
+* `-ThreadCount` determines how many files can be recalled in parallel.
+* `-PerFileRetryCount`determines how often a recall will be attempted of a file that is currently blocked.
+* `-PerFileRetryDelaySeconds`determines the time in seconds between retry to recall attempts and should always be used in combination with the previous parameter.
+
+> [!Note]  
+> If the local volume hosting the server does not have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
 <a id="sizeondisk-versus-size"></a>
 ### Why doesn't the *Size on disk* property for a file match the *Size* property after using Azure File Sync? 
@@ -106,10 +117,10 @@ Windows File Explorer exposes two properties to represent the size of a file: **
 ### How do I force a file or directory to be tiered?
 When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes, though, you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
 
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
+```
 
 ## Next Steps
 * [Planning for an Azure File Sync Deployment](storage-sync-files-planning.md)

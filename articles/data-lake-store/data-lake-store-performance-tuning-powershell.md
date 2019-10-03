@@ -4,7 +4,7 @@ description: Tips on how to improve performance when using Azure PowerShell with
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
@@ -18,6 +18,8 @@ ms.author: stewu
 
 This article lists the properties that can be tuned to get a better performance while using PowerShell to work with Azure Data Lake Storage Gen1:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Performance-related properties
 
 | Property            | Default | Description |
@@ -29,7 +31,7 @@ This article lists the properties that can be tuned to get a better performance 
 
 This command downloads files from Data Lake Storage Gen1 to the user's local drive using 20 threads per file and 100 concurrent files.
 
-	Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
+	Export-AzDataLakeStoreItem -AccountName <Data Lake Storage Gen1 account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
 ## How do I determine the value for these properties?
 

@@ -1,20 +1,12 @@
 ---
-title: Troubleshooting common authentication errors | Microsoft Docs
+title: Troubleshooting common authentication errors | Azure Marketplace
 description: Provides assistance with common authentication errors when using the Cloud Partner Portal APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Troubleshooting common authentication errors

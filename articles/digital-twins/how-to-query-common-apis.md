@@ -1,13 +1,13 @@
 ---
 title: Azure Digital Twins common query patterns | Microsoft Docs
 description: Learn common patterns of querying the Azure Digital Twins management APIs.
-author: dsk-2015
+author: kingdomofends
 manager: philmea
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 1/7/2019
-ms.author: dkshir
+ms.date: 08/29/2019
+ms.author: v-adgera
 ---
 
 # How to query Azure Digital Twins APIs for common tasks
@@ -233,4 +233,4 @@ This section shows some sample API queries for managing users in Azure Digital T
 
 To learn how to authenticate with your Management API, read [Authenticating with APIs](./security-authenticating-apis.md).
 
-To see all API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).
+To learn more about your API endpoints, read [How to use Digital Twins Swagger](./how-to-use-swagger.md).

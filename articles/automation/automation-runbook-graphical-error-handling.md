@@ -3,9 +3,9 @@ title: Error handling in Azure Automation graphical runbooks
 description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
-author: georgewallace
-ms.author: gwallace
+ms.subservice: process-automation
+author: bobbytreed
+ms.author: robreed
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
@@ -64,3 +64,4 @@ Error links flow from these activities to a single **error management** activity
 * To learn more about links and link types in graphical runbooks, see [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow).
 
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md).
+

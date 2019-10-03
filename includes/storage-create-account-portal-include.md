@@ -5,7 +5,7 @@
  author: tamram
  ms.service: storage
  ms.topic: include
- ms.date: 09/18/2018
+ ms.date: 05/06/2019
  ms.author: tamram
  ms.custom: include file
 ---
@@ -28,7 +28,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
    |Deployment model     |Resource Manager         |
    |Performance     |Standard         |
    |Account kind     |StorageV2 (general-purpose v2)         |
-   |Replication     |Locally redundant storage (LRS)         |
+   |Replication     |Read-access geo-redundant storage (RA-GRS)         |
    |Access tier     |Hot         |
 
 1. Select **Review + Create** to review your storage account settings and create the account.

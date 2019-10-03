@@ -4,7 +4,7 @@ description: This article helps you automate installation of the Mobility Servic
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/14/2019
 ms.author: ramamill
 ---
 
@@ -19,7 +19,7 @@ This article provides you an example of how you can use System Center Configurat
 
 This article uses System Center Configuration Manager 2012 R2 to demonstrate the deployment activity. We assumes you are using version **9.9.4510.1** or higher of the Mobility service.
 
-Alternately, you can automate Mobility Service installation with [Azure Automation DSC ](vmware-azure-mobility-deploy-automation-dsc.md).
+Alternately, you can automate Mobility Service installation with [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## Prerequisites
 
@@ -157,25 +157,25 @@ IF NOT %ERRORLEVEL% EQU 0 (
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
-  | **Parameter name** | **Value** |
-  |--|--|
-  | Name | Install Microsoft Azure Mobility Service (Windows) |
-  | Command line | install.bat |
-  | Program can run | Whether or not a user is logged on |
+   | **Parameter name** | **Value** |
+   |--|--|
+   | Name | Install Microsoft Azure Mobility Service (Windows) |
+   | Command line | install.bat |
+   | Program can run | Whether or not a user is logged on |
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
 9. On the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, and Windows Server 2008 R2.
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
 
 10. To complete the wizard, click **Next** twice.
 
@@ -185,19 +185,19 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### Deploy the package
 1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. After the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Select the Windows Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
+   ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.
@@ -382,24 +382,24 @@ cd /tmp
 5. Select the **This package contains source files** check box.
 6. Click **Browse**, and select the network share where the installer is stored (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
 7. On the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**.
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
 8. On the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can use their default values.)
 
     | **Parameter name** | **Value** |
-  |--|--|
-  | Name | Install Microsoft Azure Mobility Service (Linux) |
-  | Command line | ./install_linux.sh |
-  | Program can run | Whether or not a user is logged on |
+   |--|--|
+   | Name | Install Microsoft Azure Mobility Service (Linux) |
+   | Command line | ./install_linux.sh |
+   | Program can run | Whether or not a user is logged on |
 
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
 9. On the next page, select **This program can run on any platform**.
-  ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+   ![Screenshot of Create Package and Program wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
 
 10. To complete the wizard, click **Next** twice.
 
@@ -408,19 +408,19 @@ cd /tmp
 
 ### Deploy the package
 1. In the Configuration Manager console, right-click your package, and select **Distribute Content**.
-  ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
+   ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
 2. Select the **[distribution points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied.
 3. Complete the wizard. The package then starts replicating to the specified distribution points.
 4. After the package distribution is done, right-click the package, and select **Deploy**.
-  ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
+   ![Screenshot of Configuration Manager console](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
 
-  ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
 6. On the **Specify the content destination** page, select your **Distribution Points**.
 7. On the **Specify settings to control how this software is deployed** page, ensure that the purpose is **Required**.
 
-  ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Screenshot of Deploy Software wizard](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
 8. On the **Specify the schedule for this deployment** page, specify a schedule. For more information, see [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx).
 9. On the **Distribution Points** page, configure the properties according to the needs of your datacenter. Then complete the wizard.

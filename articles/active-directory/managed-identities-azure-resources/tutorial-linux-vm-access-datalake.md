@@ -3,25 +3,26 @@ title: Use a Linux VM system-assigned managed identity to access Azure Data Lake
 description: A tutorial that shows you how to use a Linux VM system-assigned managed identity to access Azure Data Lake Store.
 services: active-directory
 documentationcenter: 
-author: daveba
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: 
 
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
+ms.author: markvi
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Use a Linux VM system-assigned managed identity to access Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Cosmos DB. You learn how to: 
+This tutorial shows you how to use a system-assigned managed identity for a Linux virtual machine (VM) to access Azure Data Lake Store. You learn how to: 
 
 In this tutorial, you learn how to:
 
@@ -66,7 +67,7 @@ To complete these steps, you need an SSH client. If you are using Windows, you c
 
 1. In the portal, browse to your Linux VM. In **Overview**, select **Connect**.  
 2. Connect to the VM by using the SSH client of your choice. 
-3. In the terminal window, by using cURL, make a request to the local managed identities Azure for Azure resources endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is "https://datalake.azure.net/".  It's important to include the trailing slash in the resource identifier.
+3. In the terminal window, by using cURL, make a request to the local managed identities Azure for Azure resources endpoint to get an access token for the Data Lake Store file system. The resource identifier for Data Lake Store is `https://datalake.azure.net/`.  It's important to include the trailing slash in the resource identifier.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

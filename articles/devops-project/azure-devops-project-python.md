@@ -6,12 +6,11 @@ ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
@@ -60,7 +59,7 @@ Web App For Containers is the default deployment target. The application framewo
 
    	![Dashboard view](_img/azure-devops-project-python/dashboardnopreview.png) 
 	
- DevOps Projects automatically configures a CI build and release trigger. You're now ready to collaborate with a team on a Python app by using a CI/CD process that automatically deploys your latest work to your website.
+   DevOps Projects automatically configures a CI build and release trigger. You're now ready to collaborate with a team on a Python app by using a CI/CD process that automatically deploys your latest work to your website.
 
 ## Commit code changes and execute CI/CD
 

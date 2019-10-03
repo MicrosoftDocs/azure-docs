@@ -13,14 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/11/2019
+ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
 ---
 # Deploy StorSimple Virtual Array - Prepare the Azure portal
 
 ![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+
+
 ## Overview
+
+[!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
 This is the first article in the series of deployment tutorials required to completely deploy your virtual array as a file server or an iSCSI server using the Resource Manager model. This article describes the preparation required to create and configure your StorSimple Device Manager service prior to provisioning a virtual array. This article also links out to a deployment configuration checklist and configuration prerequisites.
 
@@ -150,15 +154,15 @@ Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) 
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
    
-    1. For **Subscription**, select **Current**.
+   1. For **Subscription**, select **Current**.
    
-    2. Provide the name of your Azure storage account.
+   2. Provide the name of your Azure storage account.
    
-    3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
+   3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
    
-    4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
+   4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
    
-     ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+      ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 ## Next step
 

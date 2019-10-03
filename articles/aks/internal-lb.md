@@ -2,12 +2,14 @@
 title: Create an internal load balancer in Azure Kubernetes Service (AKS)
 description: Learn how to create and use an internal load balancer to expose your services with Azure Kubernetes Service (AKS).
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 10/08/2018
-ms.author: iainfou
+ms.date: 03/04/2019
+ms.author: mlearned
+
+#Customer intent: As a cluster operator or developer, I want to learn how to create a service in AKS that uses an internal Azure load balancer for enhanced security and without an external endpoint.
 ---
 
 # Use an internal load balancer with Azure Kubernetes Service (AKS)
@@ -15,7 +17,15 @@ ms.author: iainfou
 To restrict access to your applications in Azure Kubernetes Service (AKS), you can create and use an internal load balancer. An internal load balancer makes a Kubernetes service accessible only to applications running in the same virtual network as the Kubernetes cluster. This article shows you how to create and use an internal load balancer with Azure Kubernetes Service (AKS).
 
 > [!NOTE]
-> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison]. AKS currently supports the *Basic* SKU. If you wish to use the *Standard* SKU, you can use the upstream [aks-engine][aks-engine].
+> Azure Load Balancer is available in two SKUs - *Basic* and *Standard*. By default, the *Basic* SKU is used when a service manifest is used to create a load balancer on AKS. For more information, see [Azure load balancer SKU comparison][azure-lb-comparison].
+
+## Before you begin
+
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+
+You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+
+The AKS cluster service principal needs permission to manage network resources if you use an existing subnet or resource group. In general, assign the *Network contributor* role to your service principal on the delegated resources. For more information on permissions, see [Delegate AKS access to other Azure resources][aks-sp].
 
 ## Create an internal load balancer
 
@@ -36,9 +46,15 @@ spec:
     app: internal-app
 ```
 
-Once deployed with `kubectl apply -f internal-lb.yaml`, an Azure load balancer is created and made available on the same virtual network as the AKS cluster.
+Deploy the internal load balancer using the [kubectl apply][kubectl-apply] and specify the name of your YAML manifest:
 
-When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. It may take a minute or two for the IP address to change from *\<pending\>* to an actual internal IP address, as shown in the following example:
+```console
+kubectl apply -f internal-lb.yaml
+```
+
+An Azure load balancer is created in the node resource group and connected to the same virtual network as the AKS cluster.
+
+When you view the service details, the IP address of the internal load balancer is shown in the *EXTERNAL-IP* column. In this context, *External* is in relation to the external interface of the load balancer, not that it receives a public, external IP address. It may take a minute or two for the IP address to change from *\<pending\>* to an actual internal IP address, as shown in the following example:
 
 ```
 $ kubectl get service internal-app
@@ -67,7 +83,7 @@ spec:
     app: internal-app
 ```
 
-When you view the service details, the IP address in the *EXTERNAL-IP* column reflects your specified IP address:
+When deployed and you view the service details, the IP address in the *EXTERNAL-IP* column reflects your specified IP address:
 
 ```
 $ kubectl get service internal-app
@@ -78,7 +94,7 @@ internal-app   LoadBalancer   10.0.184.168   10.240.0.25   80:30225/TCP   4m
 
 ## Use private networks
 
-When you create your AKS cluster, you can specify advanced networking settings. This approach lets you deploy the cluster into an existing Azure virtual network and subnets. One scenario is to deploy your AKS cluster into a private network connected to your on-premises environment and run services only accessible internally. For more information, see [advanced network configuration in AKS][advanced-networking].
+When you create your AKS cluster, you can specify advanced networking settings. This approach lets you deploy the cluster into an existing Azure virtual network and subnets. One scenario is to deploy your AKS cluster into a private network connected to your on-premises environment and run services only accessible internally. For more information, see configure your own virtual network subnets with [Kubenet][use-kubenet] or [Azure CNI][advanced-networking].
 
 No changes to the previous steps are needed to deploy an internal load balancer in an AKS cluster that uses a private network. The load balancer is created in the same resource group as your AKS cluster but connected to your private virtual network and subnet, as shown in the following example:
 
@@ -123,11 +139,17 @@ You can also directly delete a service as with any Kubernetes resource, such as 
 Learn more about Kubernetes services at the [Kubernetes services documentation][kubernetes-services].
 
 <!-- LINKS - External -->
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubernetes-services]: https://kubernetes.io/docs/concepts/services-networking/service/
 [aks-engine]: https://github.com/Azure/aks-engine
 
 <!-- LINKS - Internal -->
-[advanced-networking]: configure-advanced-networking.md
+[advanced-networking]: configure-azure-cni.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[use-kubenet]: configure-kubenet.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[aks-sp]: kubernetes-service-principal.md#delegate-access-to-other-azure-resources

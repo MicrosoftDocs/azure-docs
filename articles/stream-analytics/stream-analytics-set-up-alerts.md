@@ -3,20 +3,20 @@ title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
 services: stream-analytics
 author: jseb225
-ms.author: jeanb
+ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18 
+ms.date: 06/21/2019
 ---
 # Set up alerts for Azure Stream Analytics jobs
 
 It's important to monitor your Azure Stream Analytics job to ensure the job is running continuously without any problems. This article describes how to set up alerts for common scenarios that should be monitored. 
 
-Rules can be set up on metrics through the portal and can be configured [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a) over Operation Logs data.
+You can define rules on metrics from Operation Logs data through the portal, as well as [programmatically](https://code.msdn.microsoft.com/windowsazure/Receive-Email-Notifications-199e2c9a).
 
 ## Set up alerts in the Azure portal
+### Get alerted when a job stops unexpectedly
 
 The following example demonstrates how to set up alerts for when your job enters a failed state. This alert is recommended for all jobs.
 
@@ -24,7 +24,7 @@ The following example demonstrates how to set up alerts for when your job enters
 
 2. On the **Job** page, navigate to the **Monitoring** section.  
 
-3. Select **Metrics**, and then click **New alert rule**.
+3. Select **Metrics**, and then **New alert rule**.
 
    ![Azure portal Stream Analytics alerts setup](./media/stream-analytics-set-up-alerts/stream-analytics-set-up-alerts.png)  
 
@@ -32,7 +32,7 @@ The following example demonstrates how to set up alerts for when your job enters
 
    ![Select signal name for Stream Analytics alert](./media/stream-analytics-set-up-alerts/stream-analytics-condition-signal.png)  
 
-5. Under **Configure signal logic**, change **Event Level** to **All** and change **Status** to **Failed**. Leave **Event initiated by** blank and click **Done**.
+5. Under **Configure signal logic**, change **Event Level** to **All** and change **Status** to **Failed**. Leave **Event initiated by** blank and select **Done**.
 
    ![Configure signal logic for Stream Analytics alert](./media/stream-analytics-set-up-alerts/stream-analytics-configure-signal-logic.png) 
 
@@ -40,17 +40,17 @@ The following example demonstrates how to set up alerts for when your job enters
 
    ![Setting up an alert for an Azure Streaming Analytics job](./media/stream-analytics-set-up-alerts/stream-analytics-add-group-email-action.png)
 
-7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry.
+7. The **RESOURCE**, **CONDITION**, and **ACTION GROUPS** should each have an entry. Note that in order for the alerts to fire, the conditions defined need to be met. For example, you can measure a metric's average value of over the last 15 minutes, every 5 minutes.
 
    ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule-2.png)
 
    Add an **Alert rule name**, **Description**, and your **Resource Group** to the **ALERT DETAILS** and click **Create alert rule** to create the rule for your Stream Analytics job.
 
    ![Create Stream Analytics alert rule](./media/stream-analytics-set-up-alerts/stream-analytics-create-alert-rule.png)
-
+   
 ## Scenarios to monitor
 
-The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period. If your job suffers from performance issues, you can use query parallelization to make it more optimal and try increasing the number of streaming units.
+The following alerts are recommended for monitoring the performance of your Stream Analytics job. These metrics should be evaluated every minute over the last 5-minute period.
 
 |Metric|Condition|Time Aggregation|Threshold|Corrective Actions|
 |-|-|-|-|-|
@@ -69,6 +69,6 @@ For further assistance, try our [Azure Stream Analytics forum](https://social.ms
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Get started using Azure Stream Analytics](stream-analytics-get-started.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

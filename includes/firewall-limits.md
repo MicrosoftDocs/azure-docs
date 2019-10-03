@@ -5,20 +5,18 @@
  author: vhorne
  ms.service: firewall
  ms.topic: include
- ms.date: 12/14/2018
+ ms.date: 7/16/2019
  ms.author: victorh
  ms.custom: include file
 ---
 
 | Resource | Default limit |
 | --- | --- |
-| Data processed |1000 TB/firewall/month <sup>1</sup> |
-|Rules|10k - all rule types combined|
-|Global peering|Not supported. You should have at least one firewall deployment per region.|
-|Maximum ports in a single network rule|15<br>A range of ports (for example: 2 - 10) is counted as two.
+| Data throughput |30 Gbps<sup>1</sup> |
+|Rules|10,000, all rule types combined.|
 |Minimum AzureFirewallSubnet size |/26|
 |Port range in network and application rules|0-64,000. Work is in progress to relax this limitation.|
-|
+|Public IP addresses|100 maximum|
+|Route table|By default, AzureFirewallSubnet has a 0.0.0.0/0 route with the NextHopType value set to **Internet**.<br><br>Azure Firewall must have direct Internet connectivity. If your AzureFirewallSubnet learns a default route to your on-premises network via BGP, you must override that with a 0.0.0.0/0 UDR with the **NextHopType** value set as **Internet** to maintain direct Internet connectivity. By default, Azure Firewall doesn't support forced tunneling to an on-premises network.<br><br>However, if your configuration requires forced tunneling to an on-premises network, Microsoft will support it on a case by case basis. Contact Support so that we can review your case. If accepted, we'll allow your subscription and ensure the required firewall Internet connectivity is maintained.|
 
-
-<sup>1</sup> Contact Azure Support in case you need to increase these limits.
+<sup>1</sup>If you need to increase these limits, contact Azure Support.

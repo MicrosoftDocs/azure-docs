@@ -7,7 +7,7 @@ manager: darosa
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/01/2019
 ms.author: babanisa
 ---
 
@@ -47,8 +47,6 @@ Click on the "View Files" link in your Azure Function (right most pane in the Az
 ## Endpoint validation
 
 The first thing you want to do is handle `Microsoft.EventGrid.SubscriptionValidationEvent` events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a `validationCode` in the data payload. The endpoint is required to echo this back in the response body to [prove the endpoint is valid and owned by you](security-authentication.md#webhook-event-delivery). If you're using an [Event Grid Trigger](../azure-functions/functions-bindings-event-grid.md) rather than a WebHook triggered Function, endpoint validation is handled for you. If you use a third-party API service (like [Zapier](https://zapier.com) or [IFTTT](https://ifttt.com/)), you might not be able to programmatically echo the validation code. For those services, you can manually validate the subscription by using a validation URL that is sent in the subscription validation event. Copy that URL in the `validationUrl` property and send a GET request either through a REST client or your web browser.
-
-Manual validation is in preview. To use it, you must install the [Event Grid extension](/cli/azure/azure-cli-extensions-list) for [Azure CLI](/cli/azure/install-azure-cli). You can install it with `az extension add --name eventgrid`. If you're using the REST API, make sure you're using `api-version=2018-05-01-preview`.
 
 In C#, the `DeserializeEventGridEvents()` function deserializes the Event Grid events. It deserializes the event data into the appropriate type, such as StorageBlobCreatedEventData. Use the `Microsoft.Azure.EventGrid.EventTypes` class to get supported event types and names.
 
@@ -366,6 +364,6 @@ You can also test this functionality live by [sending a custom event with CURL f
 
 ## Next steps
 
-* Explore the [Azure Event Grid Mangement and Publish SDKs](./sdk-overview.md)
+* Explore the [Azure Event Grid Management and Publish SDKs](./sdk-overview.md)
 * Learn how to [post to a custom topic](./post-to-custom-topic.md)
 * Try one of the in-depth Event Grid and Functions tutorials such as [resizing images uploaded to Blob storage](resize-images-on-storage-blob-upload-event.md)

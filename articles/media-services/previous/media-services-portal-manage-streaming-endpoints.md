@@ -6,7 +6,7 @@ services: media-services
 documentationcenter: ''
 author: Juliako
 writer: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: bb1aca25-d23a-4520-8c45-44ef3ecd5371
@@ -15,12 +15,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 03/19/2019
 ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with the Azure portal
+# Manage streaming endpoints with the Azure portal 
 
 This article shows  how to use the Azure portal to manage streaming endpoints. 
 

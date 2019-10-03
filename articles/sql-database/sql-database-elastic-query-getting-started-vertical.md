@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
-ms.date: 07/03/2018
+ms.date: 01/25/2019
 ---
 # Get started with cross-database queries (vertical partitioning) (preview)
 
@@ -27,7 +26,7 @@ ALTER ANY EXTERNAL DATA SOURCE permission is required. This permission is includ
 
 ## Create the sample databases
 
-To start with, create two databases, **Customers** and **Orders**, either in the same or different logical servers.
+To start with, create two databases, **Customers** and **Orders**, either in the same or different SQL Database servers.
 
 Execute the following queries on the **Orders** database to create the **OrderInformation** table and input the sample data.
 

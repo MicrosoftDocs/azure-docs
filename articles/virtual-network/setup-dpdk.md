@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: virtual-network
 ms.devlang: NA
-ms.topic: 
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/27/2018
@@ -122,12 +122,12 @@ After restarting, run the following commands once:
      /sys/devices/system/node/node*/hugepages/hugepages-2048kB/nr_hugepages
      ```
 
-   *  Create a directory for mounting with `mkdir /mnt/huge`.
-   *  Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
-   *  Check that hugepages are reserved with `grep Huge /proc/meminfo`.
+   * Create a directory for mounting with `mkdir /mnt/huge`.
+   * Mount hugepages with `mount -t hugetlbfs nodev /mnt/huge`.
+   * Check that hugepages are reserved with `grep Huge /proc/meminfo`.
 
      > [!NOTE]
-     > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
+     > There is a way to modify the grub file so that hugepages are reserved on boot by following the [instructions](https://dpdk.org/doc/guides/linux_gsg/sys_reqs.html#use-of-hugepages-in-the-linux-environment) for the DPDK. The instructions are at the bottom of the page. When you're using an Azure Linux virtual machine, modify files under **/etc/config/grub.d** instead, to reserve hugepages across reboots.
 
 2. MAC & IP addresses: Use `ifconfig –a` to view the MAC and IP address of the network interfaces. The *VF* network interface and *NETVSC* network interface have the same MAC address, but only the *NETVSC* network interface has an IP address. VF interfaces are running as subordinate interfaces of NETVSC interfaces.
 
@@ -142,7 +142,7 @@ After restarting, run the following commands once:
 
 DPDK applications must run over the failsafe PMD that is exposed in Azure. If the application runs directly over the VF PMD, it doesn't receive **all** packets that are destined to the VM, since some packets show up over the synthetic interface. 
 
-If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](http://doc.dpdk.org/guides/nics/fail_safe.html).
+If you run a DPDK application over the failsafe PMD, it guarantees that the application receives all packets that are destined to it. It also makes sure that the application keeps running in DPDK mode, even if the VF is revoked when the host is being serviced. For more information about failsafe PMD, see [Fail-safe poll mode driver library](https://doc.dpdk.org/guides/nics/fail_safe.html).
 
 ## Run testpmd
 
@@ -240,7 +240,7 @@ The following commands periodically print the packets per second statistics:
      -w <pci address NIC2> \
      --vdev="net_vdev_netvsc<id>,iface=<the iface to attach to>" \
      --vdev="net_vdev_netvsc<2nd id>,iface=<2nd iface to attach to>" (you need as many --vdev arguments as the number of devices used by testpmd, in this case) \
-     -- --nb-cores <number of cores to use for test pmd> \
+     -- --nb-cores <number of cores to use for test pmd> \
      --forward-mode=io \
      --eth-peer=<recv port id>,<sender peer MAC address> \
      --stats-period <display interval in seconds>

@@ -3,7 +3,7 @@ title: How to Use Apache Cordova Plugin for Azure Mobile Apps
 description: How to Use Apache Cordova Plugin for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 
@@ -13,13 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # How to use Apache Cordova client library for Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library) today.
+>
+
+## Overview
 This guide teaches you to perform common scenarios using the latest [Apache Cordova Plugin for Azure Mobile Apps]. If you are new to Azure Mobile
 Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table, and download a pre-built Apache Cordova project. In this
 guide, we focus on the client-side Apache Cordova Plugin.
@@ -56,7 +60,7 @@ ionic plugin add cordova-plugin-ms-azure-mobile-apps
 
 Add the following lines to `app.component.ts` to create the client object:
 
-```
+```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
@@ -117,8 +121,8 @@ Follow these instructions to add your local settings to the configuration:
              "https://localhost:3000"
          ],
 
-    Replace the URLs with the URLs of your service.  Examples include "http://localhost:3000" (for the Node.js sample
-    service), or "http://localhost:4400" (for the Ripple service).  However, these URLs are examples - your situation,
+    Replace the URLs with the URLs of your service.  Examples include `http://localhost:3000` (for the Node.js sample
+    service), or `http://localhost:4400` (for the Ripple service).  However, these URLs are examples - your situation,
     including for the services mentioned in the examples, may be different.
 8. Click the **Read/Write** button in the top-right corner of the screen.
 9. Click the green **PUT** button.
@@ -141,7 +145,7 @@ Install the [phonegap-plugin-push] to handle push notifications.  This plugin ca
 `cordova plugin add` command on the command line, or via the Git plugin installer within Visual Studio.  The
 following code in your Apache Cordova app registers your device for push notifications:
 
-```
+```javascript
 var pushOptions = {
     android: {
         senderId: '<from-gcm-console>'

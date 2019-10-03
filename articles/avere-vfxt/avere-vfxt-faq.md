@@ -4,7 +4,7 @@ description: Frequently asked questions about Avere vFXT for Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 02/28/2019
 ms.author: v-erkell
 ---
 
@@ -59,7 +59,7 @@ Avere vFXT is a cache. It doesn't specifically store data. It uses a combination
 
 ### What regions are supported?
 
-As of November 1, 2018, Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany) and government regions. Make sure that the region you want to use can support the large quantity of compute cores and the VM instances needed to create the Avere vFXT cluster.
+Avere vFXT for Azure is supported in all regions except for sovereign regions (China, Germany). Make sure that the region you want to use can support the large quantity of compute cores and the VM instances needed to create the Avere vFXT cluster.
 
 ### How do I get help with Avere vFXT?
 
@@ -84,15 +84,17 @@ Avere vFXT is a clustered appliance made of multiple Azure virtual machines. A P
 
 ### What kind of Azure virtual machines does Avere vFXT run on?  
 
-An Avere vFXT for Azure cluster uses either Microsoft Azure E32s_v3 or D16s_v3 virtual machines. 
+An Avere vFXT for Azure cluster uses Microsoft Azure E32s_v3 virtual machines. 
 
-### Can I mix and match virtual machine types for my cluster?
+<!-- ### Can I mix and match virtual machine types for my cluster?
 
 No, you must choose one virtual machine type or the other.
 	
 ### Can I move between virtual machine types?
 
 Yes, there is a migration path to move from one VM type to the other. [Open a support ticket](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) to learn how.
+
+-->
 
 ### Does the Avere vFXT environment scale?
 
@@ -171,7 +173,7 @@ Yes, you can create your Avere vFXT system in a different virtual network. Read 
 
 ### Does Avere vFXT require its own subnet?
 
-Yes. Avere vFXT runs strictly as an HA cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within the existing virtual network as long as no IP addresses overlap.
+Yes. Avere vFXT runs strictly as a high availability (HA) cluster and requires multiple IP addresses to operate. If the cluster is in its own subnet, you avoid the risk of IP address conflicts, which can cause problems for installation and normal operation. The cluster's subnet can be within the existing virtual network as long as no IP addresses overlap.
 
 ### Can I run Avere vFXT on InfiniBand?
 
@@ -194,6 +196,14 @@ For latency-sensitive environments, you should use a fiber solution with a minim
 
 No, Avere vFXT is meant to be operated in a network environment secured through best practices.  
 
+### Can I restrict internet access from my cluster's virtual network? 
+
+In general, you can configure additional security on your vnet as needed, but some restrictions can interfere with the operation of the cluster.
+
+For example, restricting outbound internet access from your vnet causes problems for the cluster unless you also add a rule that explicitly allows access to AzureCloud. This situation is described in [supplemental documentation on GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+For help with customized security, contact support as described in [Get help with your system](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
 ## Technical: Back-end storage (core filers)
 
 ### How many core filers does a single Avere vFXT environment support?
@@ -210,6 +220,10 @@ In general terms, Avere vFXT for Azure supports the following systems as core fi
 
 * Dell EMC Isilon (OneFS 7.1, 7.2, 8.0, and 8.1) 
 * NetApp ONTAP (Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) and (7-Mode 7.*, 8.0-8.3) 
+
+  > [!NOTE] 
+  > Azure NetApp Files currently is not supported. 
+
 * Azure blob containers (locally redundant storage only) 
 * AWS S3 buckets 
 * Google Cloud buckets

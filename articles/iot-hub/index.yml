@@ -50,6 +50,24 @@ sections:
         - href: /azure/iot-hub/quickstart-control-device-java
         - href: /azure/iot-hub/quickstart-control-device-python
         - href: /azure/iot-hub/quickstart-control-device-android
+      - title: Communicate using device streams (preview)
+        values: 
+        - href: /azure/iot-hub/quickstart-device-streams-echo-nodejs
+        - href: /azure/iot-hub/quickstart-device-streams-echo-csharp
+        - href: 
+        - href: 
+        - href: 
+        - href: /azure/iot-hub/quickstart-device-streams-echo-c
+        - href: 
+      - title: SSH/RDP using device streams (preview)
+        values: 
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-nodejs
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-csharp
+        - href: 
+        - href: 
+        - href: 
+        - href: /azure/iot-hub/quickstart-device-streams-proxy-c
+        - href: 
 - title: Step-by-Step Tutorials
   items:
   - type: list

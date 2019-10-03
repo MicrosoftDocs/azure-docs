@@ -1,15 +1,13 @@
 ---
 title: Spark Structured Streaming in Azure HDInsight 
 description: How to use Spark Structured Streaming applications on HDInsight Spark clusters.
-services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: maxluk
+ms.author: hrasheed
 ---
 # Overview of Apache Spark Structured Streaming
 
@@ -19,7 +17,7 @@ Structured Streaming applications run on HDInsight Spark clusters, and connect  
 
 Structured Streaming creates a long-running query during which you  apply operations to the input data, such as selection, projection, aggregation, windowing, and joining the streaming DataFrame with reference DataFrames. Next, you output the results to file storage (Azure Storage Blobs or Data Lake Storage) or to any datastore by using custom code (such as SQL Database or Power BI). Structured Streaming also provides output to the console for debugging locally, and to an in-memory table so you can see the data generated for debugging in HDInsight. 
 
-![Stream Processing with HDInsight and Spark Structured Streaming ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Stream Processing with HDInsight and Spark Structured Streaming](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
 > [!NOTE]  
 > Spark Structured Streaming is  replacing Spark Streaming (DStreams). Going forward, Structured Streaming will receive enhancements and maintenance, while DStreams will be in maintenance mode only. Structured Streaming is currently not as feature-complete as DStreams for the sources and sinks that it supports out of the box, so evaluate your requirements to choose the appropriate Spark stream processing option. 

@@ -62,7 +62,7 @@ The Avere vFXT uses the following Azure resources:
 
 |Azure component|   |
 |----------|-----------|
-|Virtual machines|3 or more D16s_v3 or E32s_v3|
+|Virtual machines|3 or more E32s_v3|
 |Premium SSD storage|200 GB OS space plus 1 TB to 4 TB cache space per node |
 |Storage account (optional) |v2|
 |Data backend storage (optional) | One empty LRS Blob container |

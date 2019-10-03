@@ -4,7 +4,7 @@ description: Build hierarchies of .NET interfaces and types in the Reliable Acto
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: ef0eeff6-32b7-410d-ac69-87cba8b8fd46

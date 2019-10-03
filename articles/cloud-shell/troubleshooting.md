@@ -21,6 +21,8 @@ ms.author: damaerte
 
 Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General troubleshooting
 
 ### Early timeouts in FireFox
@@ -71,7 +73,7 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolution**:  Run `Enable-AzureRmVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
+- **Resolution**:  Run `Enable-AzVMPSRemoting` to enable all aspects of PowerShell remoting on the target machine.
 
 ### `dir` does not update the result in Azure drive
 
@@ -106,10 +108,6 @@ Cloud Shell supports the latest versions of following browsers:
 
 [!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
-### For a given user, only one shell can be active
-
-Users can only launch one type of shell at a time, either **Bash** or **PowerShell**. However, you may have multiple instances of Bash or PowerShell running at one time. Swapping between Bash or PowerShell causes Cloud Shell to restart, which terminates existing sessions.
-
 ### Usage limits
 
 Cloud Shell is intended for interactive use cases. As a result, any long-running non-interactive sessions are ended without warning.
@@ -137,10 +135,6 @@ The `SqlServer` module included in Cloud Shell has only prerelease support for P
 ### Default file location when created from Azure drive
 
 Using PowerShell cmdlets, users cannot create files under the Azure drive. When users create new files using other tools, such as vim or nano, the files are saved to the `$HOME` by default.
-
-### Commands that create GUI pop-ups are not supported
-
-If the user runs a command that would create a Windows dialog box, such as `Connect-AzureAD` or `Connect-AzureRmAccount`, one sees an error message such as: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### Tab completion can throw PSReadline exception
 

@@ -23,7 +23,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -45,6 +44,9 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Read through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) article and complete the **prerequisite** steps.       
 2. To create Data Factory instances, you must be a member of the [Data Factory Contributor](../../role-based-access-control/built-in-roles.md#data-factory-contributor) role at the subscription/resource group level.
 3. You must have the following installed on your computer: 
@@ -127,8 +129,8 @@ Here, you use the term "tables" rather than "datasets". A table is a rectangular
 2. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
 3. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
 
-  ```json   
-  {
+   ```json   
+   {
     "name": "InputDataset",
     "properties": {
       "structure": [
@@ -156,8 +158,8 @@ Here, you use the term "tables" rather than "datasets". A table is a rectangular
         "interval": 1
       }
     }
-  }
-  ``` 
+   }
+   ``` 
     The following table provides descriptions for the JSON properties used in the snippet:
 
 	| Property | Description |
@@ -180,7 +182,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 2. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 3. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
 
-  ```json
+   ```json
 	{
 	 "name": "OutputDataset",
 	 "properties": {
@@ -205,7 +207,7 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 	   }
 	 }
 	}
-	```
+    ```
     The following table provides descriptions for the JSON properties used in the snippet:
 
 	| Property | Description |
@@ -228,7 +230,7 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 2. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
 
-  ```json   
+   ```json   
 	{
 	 "name": "ADFTutorialPipeline",
 	 "properties": {
@@ -271,20 +273,20 @@ Currently, output dataset is what drives the schedule. In this tutorial, output 
 	   "isPaused": false
 	 }
 	}
-	```   
-	- In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
-	- Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
-	- In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
+    ```   
+   - In the activities section, there is only one activity whose **type** is set to **Copy**. For more information about the copy activity, see [data movement activities](data-factory-data-movement-activities.md). In Data Factory solutions, you can also use [data transformation activities](data-factory-data-transformation-activities.md).
+   - Input for the activity is set to **InputDataset** and output for the activity is set to **OutputDataset**. 
+   - In the **typeProperties** section, **BlobSource** is specified as the source type and **SqlSink** is specified as the sink type. For a complete list of data stores supported by the copy activity as sources and sinks, see [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). To learn how to use a specific supported data store as a source/sink, click the link in the table.  
      
-	Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
+     Replace the value of the **start** property with the current day and **end** value with the next day. You can specify only the date part and skip the time part of the date time. For example, "2016-02-03", which is equivalent to "2016-02-03T00:00:00Z"
      
-	Both start and end datetimes must be in [ISO format](http://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
+     Both start and end datetimes must be in [ISO format](https://en.wikipedia.org/wiki/ISO_8601). For example: 2016-10-14T16:32:41Z. The **end** time is optional, but we use it in this tutorial. 
      
-	If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
+     If you do not specify value for the **end** property, it is calculated as "**start + 48 hours**". To run the pipeline indefinitely, specify **9999-09-09** as the value for the **end** property.
      
-	In the preceding example, there are 24 data slices as each data slice is produced hourly.
+     In the preceding example, there are 24 data slices as each data slice is produced hourly.
 
-	For descriptions of JSON properties in a pipeline definition, see [create pipelines](data-factory-create-pipelines.md) article. For descriptions of JSON properties in a copy activity definition, see [data movement activities](data-factory-data-movement-activities.md). For descriptions of JSON properties supported by BlobSource, see [Azure Blob connector article](data-factory-azure-blob-connector.md). For descriptions of JSON properties supported by SqlSink, see [Azure SQL Database connector article](data-factory-azure-sql-connector.md).
+     For descriptions of JSON properties in a pipeline definition, see [create pipelines](data-factory-create-pipelines.md) article. For descriptions of JSON properties in a copy activity definition, see [data movement activities](data-factory-data-movement-activities.md). For descriptions of JSON properties supported by BlobSource, see [Azure Blob connector article](data-factory-azure-blob-connector.md). For descriptions of JSON properties supported by SqlSink, see [Azure SQL Database connector article](data-factory-azure-sql-connector.md).
 
 ## Publish/deploy Data Factory entities
 In this step, you publish Data Factory entities (linked services, datasets, and pipeline) you created earlier. You also specify the name of the new data factory to be created to hold these entities.  
@@ -330,19 +332,19 @@ Note the following points:
   
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
 
-	```PowerShell    
-	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+	```powershell    
+	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
-	```PowerShell
-	Get-AzureRmResourceProvider
-	```
+	```powershell
+	Get-AzResourceProvider
+    ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 * The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 
 > [!IMPORTANT]
-> To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
+> To create Data Factory instances, you need to be an admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
 Navigate to the home page for your data factory:
@@ -357,7 +359,7 @@ Navigate to the home page for your data factory:
 4. Click your data factory in the results list to see the home page for your data factory.
 
 	![Data factory home page](media/data-factory-copy-activity-tutorial-using-visual-studio/data-factory-home-page.png)
-5. Follow instructions from [Monitor datasets and pipeline](data-factory-copy-activity-tutorial-using-azure-portal.md#monitor-pipeline) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
+5. Follow instructions from [Monitor datasets and pipeline](data-factory-monitor-manage-pipelines.md) to monitor the pipeline and datasets you have created in this tutorial. Currently, Visual Studio does not support monitoring Data Factory pipelines. 
 
 ## Summary
 In this tutorial, you created an Azure data factory to copy data from an Azure blob to an Azure SQL database. You used Visual Studio to create the data factory, linked services, datasets, and a pipeline. Here are the high-level steps you performed in this tutorial:  
@@ -369,7 +371,7 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 3. Created **datasets**, which describe input data and output data for pipelines.
 4. Created a **pipeline** with a **Copy Activity** with **BlobSource** as source and **SqlSink** as sink. 
 
-To see how to use a HDInsight Hive Activity to transform data by using Azure HDInsight cluster, see [ Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
+To see how to use a HDInsight Hive Activity to transform data by using Azure HDInsight cluster, see [Tutorial: Build your first pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 You can chain two activities (run one activity after another) by setting the output dataset of one activity as the input dataset of the other activity. See [Scheduling and execution in Data Factory](data-factory-scheduling-and-execution.md) for detailed information. 
 
@@ -437,9 +439,9 @@ Add a configuration file for each environment by performing the following steps:
 	        }
 	    ]
 	}
-	```
+    ```
 
-    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](http://goessner.net/articles/JsonPath/).   
+    This example configures connectionString property of an Azure Storage linked service and an Azure SQL linked service. Notice that the syntax for specifying name is [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     If JSON has a property that has an array of values as shown in the following code:  
 
@@ -454,7 +456,7 @@ Add a configuration file for each environment by performing the following steps:
             "type": "String"
         }
     ],
-	```
+    ```
 
     Configure properties as shown in the following configuration file (use zero-based indexing):
 
@@ -475,7 +477,7 @@ Add a configuration file for each environment by performing the following steps:
         "name": "$.properties.structure[1].type",
         "value": "String"
     }
-	```
+    ```
 
 ### Property names with spaces
 If a property name has spaces in it, use square brackets as shown in the following example (Database server name):

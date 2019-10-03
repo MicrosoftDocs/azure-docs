@@ -5,52 +5,43 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 2ca2298d-9a0c-4f14-925c-fa23f2659d28
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/23/2017
+ms.topic: tutorial
+ms.date: 02/15/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Halogen Software
 
 In this tutorial, you learn how to integrate Halogen Software with Azure Active Directory (Azure AD).
-
 Integrating Halogen Software with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Halogen Software
-- You can enable your users to automatically get signed-on to Halogen Software (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to Halogen Software.
+* You can enable your users to be automatically signed-in to Halogen Software (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Halogen Software, you need the following items:
 
-- An Azure AD subscription
-- A Halogen Software single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Halogen Software single sign-on enabled subscription
 
 ## Scenario description
 
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-1. Adding Halogen Software from the gallery
-1. Configuring and testing Azure AD single sign-on
+* Halogen Software supports **SP** initiated SSO
 
 ## Adding Halogen Software from the gallery
 
@@ -58,142 +49,169 @@ To configure the integration of Halogen Software into Azure AD, you need to add 
 
 **To add Halogen Software from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **Halogen Software**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/tutorial_halogensoftware_search.png)
+4. In the search box, type **Halogen Software**, select **Halogen Software** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **Halogen Software**, and then click **Add** button to add the application.
+	 ![Halogen Software in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/tutorial_halogensoftware_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with Halogen Software based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Halogen Software is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Halogen Software needs to be established.
-
-In Halogen Software, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Halogen Software based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Halogen Software needs to be established.
 
 To configure and test Azure AD single sign-on with Halogen Software, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a Halogen Software test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in Halogen Software that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Halogen Software Single Sign-On](#configure-halogen-software-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Halogen Software test user](#create-halogen-software-test-user)** - to have a counterpart of Britta Simon in Halogen Software that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Halogen Software application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Halogen Software, perform the following steps:**
+To configure Azure AD single sign-on with Halogen Software, perform the following steps:
 
-1. In the Azure portal, on the **Halogen Software** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Halogen Software** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **Halogen Software Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://global.hgncloud.com/<companyname>`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://global.halogensoftware.com/<companyname>`, `https://global.hgncloud.com/<companyname>`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [Halogen Software Client support team](https://support.halogensoftware.com/) to get these values. 
- 
+    ![Halogen Software Domain and URLs single sign-on information](common/sp-identifier.png)
 
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://global.hgncloud.com/<companyname>`
 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_certificate.png) 
+    | |
+    |--|
+    | `https://global.halogensoftware.com/<companyname>`|
+    | `https://global.hgncloud.com/<companyname>`|
+    | |
 
-1. Click **Save** button.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Halogen Software Client support team](https://support.halogensoftware.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_general_400.png)
+4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/metadataxml.png)
+
+6. On the **Set up Halogen Software** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure Ad Identifier
+
+	c. Logout URL
+
+### Configure Halogen Software Single Sign-On
 
 1. In a different browser window, sign-on to your **Halogen Software** application as an administrator.
 
-1. Click the **Options** tab. 
-   
-    ![What is Azure AD Connect][12]
-
-1. In the left navigation pane, click **SAML Configuration**. 
-   
-    ![What is Azure AD Connect][13]
-
-1. On the **SAML Configuration** page, perform the following steps: 
-
-    ![What is Azure AD Connect][14]
-
-     a. As **Unique Identifier**, select **NameID**.
-
-     b. As **Unique Identifier Maps To**, select **Username**.
+2. Click the **Options** tab.
   
-     c. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
- 
-     d. To test the configuration, click **Run Test**. 
-    
-	>[!NOTE]
-    >You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. The **Enable SAML** checkbox is only enabled if the test has been completed. 
-     
-	 e. Select **Enable SAML**.
-    
-	 f. Click **Save Changes**. 
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_12.png)
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+3. In the left navigation pane, click **SAML Configuration**.
+  
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_13.png)
 
+4. On the **SAML Configuration** page, perform the following steps:
 
-### Creating an Azure AD test user
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_14.png)
+
+    a. As **Unique Identifier**, select **NameID**.
+
+    b. As **Unique Identifier Maps To**, select **Username**.
+  
+    c. To upload your downloaded metadata file, click **Browse** to select the file, and then **Upload File**.
+
+    d. To test the configuration, click **Run Test**.
+
+	> [!NOTE]
+    > You need to wait for the message "*The SAML test is complete. Please close this window*". Then, close the opened browser window. The **Enable SAML** checkbox is only enabled if the test has been completed.
+
+    e. Select **Enable SAML**.
+
+	f. Click **Save Changes**.
+
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/halogen-software-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    a. In the **Name** textbox, type name as **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a Halogen Software test user
+
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to Halogen Software.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Halogen Software**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **Halogen Software**.
+
+	![The Halogen Software link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create Halogen Software test user
 
 The objective of this section is to create a user called Britta Simon in Halogen Software.
 
@@ -201,87 +219,34 @@ The objective of this section is to create a user called Britta Simon in Halogen
 
 1. Sign on to your **Halogen Software** application as an administrator.
 
-1. Click the **User Center** tab, and then click **Create User**.
-   
-    ![What is Azure AD Connect][300]  
+2. Click the **User Center** tab, and then click **Create User**.
 
-1. On the **New User** dialog page, perform the following steps:
-   
-    ![What is Azure AD Connect][301]
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_300.png)  
+
+3. On the **New User** dialog page, perform the following steps:
+
+    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial_halogen_301.png)
 
     a. In the **First Name** textbox, type first name of the user like **Britta**.
-	
-    b. In the **Last Name** textbox, type last name of the user like **Simon**. 
+
+    b. In the **Last Name** textbox, type last name of the user like **Simon**.
 
     c. In the **Username** textbox, type **Britta Simon**, the user name as in the Azure portal.
 
     d. In the **Password** textbox, type a password for Britta.
-    
+
 	e. Click **Save**.
 
-### Assigning the Azure AD test user
+### Test single sign-on
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Halogen Software.
+In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-![Assign User][200] 
+When you click the Halogen Software tile in the Access Panel, you should be automatically signed in to the Halogen Software for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-**To assign Britta Simon to Halogen Software, perform the following steps:**
+## Additional Resources
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-	![Assign User][201] 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-1. In the applications list, select **Halogen Software**.
-
-	![Configure Single Sign-On](./media/halogen-software-tutorial/tutorial_halogensoftware_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
-
-The objective of this section is to test your Azure AD SSO configuration using the Access Panel.
-
-When you click the Halogen Software tile in the Access Panel, you should get automatically signed-on to your Halogen Software application.
-
-## Additional resources
-
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
-
-
-<!--Image references-->
-
-[1]: ./media/halogen-software-tutorial/tutorial_general_01.png
-[2]: ./media/halogen-software-tutorial/tutorial_general_02.png
-[3]: ./media/halogen-software-tutorial/tutorial_general_03.png
-[4]: ./media/halogen-software-tutorial/tutorial_general_04.png
-
-[12]: ./media/halogen-software-tutorial/tutorial_halogen_12.png
-
-[13]: ./media/halogen-software-tutorial/tutorial_halogen_13.png
-
-[14]: ./media/halogen-software-tutorial/tutorial_halogen_14.png
-
-[100]: ./media/halogen-software-tutorial/tutorial_general_100.png
-
-[200]: ./media/halogen-software-tutorial/tutorial_general_200.png
-[201]: ./media/halogen-software-tutorial/tutorial_general_201.png
-[202]: ./media/halogen-software-tutorial/tutorial_general_202.png
-[203]: ./media/halogen-software-tutorial/tutorial_general_203.png
-
-[300]: ./media/halogen-software-tutorial/tutorial_halogen_300.png
-
-[301]: ./media/halogen-software-tutorial/tutorial_halogen_301.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

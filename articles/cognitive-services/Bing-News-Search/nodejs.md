@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Perform a news search with Node.js - Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send a request to the Bing News Search REST API using Node.js, and receive a JSON response.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-news-search
+ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 1/10/2019
+ms.date: 6/18/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -65,7 +65,7 @@ See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.
         });
         ```
 
-    3. When an **end** flag is signalled, the JSON and headers can be viewed.
+    3. When an **end** flag is signaled, the JSON and headers can be viewed.
 
         ```javascript
         response.on('end', function () {
@@ -178,4 +178,4 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-[Create a single-page web app](tutorial-bing-news-search-single-page-app.md)
+> [Create a single-page web app](tutorial-bing-news-search-single-page-app.md)

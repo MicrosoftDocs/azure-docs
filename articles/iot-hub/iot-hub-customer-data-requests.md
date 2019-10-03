@@ -1,9 +1,9 @@
 ---
 title: Customer data request features​
 description: Summary of customer data request features
-author: dominicbetts
-ms.author: dobett
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robinsh
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub

@@ -30,31 +30,31 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * **Estimate your throughput needs:** Before migrating data to the Cassandra API account in Azure Cosmos DB, you should estimate the throughput needs of your workload. In general, it's recommended to start with the average throughput required by the CRUD operations and then include the additional throughput required for the Extract Transform Load (ETL) or spiky operations. You need the following details to plan for migration: 
 
-   * **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If you are estimating data size for a new application, you can assume that the data is uniformly distributed across the rows and estimate the value by multiplying with the data size. 
+  * **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If you are estimating data size for a new application, you can assume that the data is uniformly distributed across the rows and estimate the value by multiplying with the data size. 
 
-   * **Required throughput:** Approximate read (query/get) and write (update/delete/insert) throughput rate. This value is required to compute the required request units along with steady state data size.  
+  * **Required throughput:** Approximate read (query/get) and write (update/delete/insert) throughput rate. This value is required to compute the required request units along with steady state data size.  
 
-   * **The schema:** Connect to your existing Cassandra cluster through cqlsh and export the schema from Cassandra: 
+  * **The schema:** Connect to your existing Cassandra cluster through cqlsh and export the schema from Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   After you identify the requirements of your existing workload, you should create an Azure Cosmos account, database, and containers according to the gathered throughput requirements.  
+    After you identify the requirements of your existing workload, you should create an Azure Cosmos account, database, and containers according to the gathered throughput requirements.  
 
-   * **Determine the RU charge for an operation:** You can determine the RUs by using any of the SDKs supported by the Cassandra API. This example shows the .NET version of getting RU charges.
+  * **Determine the RU charge for an operation:** You can determine the RUs by using any of the SDKs supported by the Cassandra API. This example shows the .NET version of getting RU charges.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         double value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Allocate the required throughput:** Azure Cosmos DB can automatically scale storage and throughput as your requirements grow. You can estimate your throughput needs by using the [Azure Cosmos DB request unit calculator](https://www.documentdb.com/capacityplanner). 
 

@@ -3,8 +3,8 @@ title: Filter network traffic - Azure CLI | Microsoft Docs
 description: In this article, you learn how to filter network traffic to a subnet, with a network security group, using the Azure CLI.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/30/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom:
 ---
 
@@ -42,7 +42,7 @@ A network security group contains security rules. Security rules specify a sourc
 
 ### Create application security groups
 
-First create a resource group for all the resources created in this article with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group in the *eastus* location: 
+First create a resource group for all the resources created in this article with [az group create](/cli/azure/group). The following example creates a resource group in the *eastus* location: 
 
 ```azurecli-interactive
 az group create \
@@ -50,7 +50,7 @@ az group create \
   --location eastus
 ```
 
-Create an application security group with [az network asg create](/cli/azure/network/asg#az_network_asg_create). An application security group enables you to group servers with similar port filtering requirements. The following example creates two application security groups.
+Create an application security group with [az network asg create](/cli/azure/network/asg). An application security group enables you to group servers with similar port filtering requirements. The following example creates two application security groups.
 
 ```azurecli-interactive
 az network asg create \
@@ -66,7 +66,7 @@ az network asg create \
 
 ### Create a network security group
 
-Create a network security group with [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNsg*: 
+Create a network security group with [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNsg*: 
 
 ```azurecli-interactive 
 # Create a network security group
@@ -77,7 +77,7 @@ az network nsg create \
 
 ### Create security rules
 
-Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). The following example creates a rule that allows traffic inbound from the internet to the *myWebServers* application security group over ports 80 and 443:
+Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *myWebServers* application security group over ports 80 and 443:
 
 ```azurecli-interactive
 az network nsg rule create \
@@ -115,7 +115,7 @@ In this article, SSH (port 22) is exposed to the internet for the *myAsgMgmtServ
 
 ## Create a virtual network
 
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual named *myVirtualNetwork*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual named *myVirtualNetwork*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -124,7 +124,7 @@ az network vnet create \
   --address-prefixes 10.0.0.0/16
 ```
 
-Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
+Add a subnet to a virtual network with [az network vnet subnet create](/cli/azure/network/vnet/subnet). The following example adds a subnet named *mySubnet* to the virtual network and associates the *myNsg* network security group to it:
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -139,7 +139,7 @@ az network vnet subnet create \
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM that will serve as a web server. The `--asgs myAsgWebServers` option causes Azure to make the network interface it creates for the VM a member of the *myAsgWebServers* application security group.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that will serve as a web server. The `--asgs myAsgWebServers` option causes Azure to make the network interface it creates for the VM a member of the *myAsgWebServers* application security group.
 
 The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. To streamline this article, a password is used. Keys are typically used in production deployments. If you use keys, you must also configure SSH agent forwarding for the remaining steps. For more information, see the documentation for your SSH client. Replace `<replace-with-your-password>` in the following command with a password of your choosing.
 
@@ -192,7 +192,7 @@ The VM takes a few minutes to create. After the VM is created, note the **public
 
 ## Test traffic filters
 
-Use the command that follows to create an SSH session with the *myVmMgmt* VM. Replace *<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
+Use the command that follows to create an SSH session with the *myVmMgmt* VM. Replace *\<publicIpAddress>* with the public IP address of your VM. In the example above, the IP address is *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>
@@ -230,7 +230,7 @@ Logout of the *myVmMgmt* VM. To confirm that you can access the *myVmWeb* web se
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group#az_group_delete) to remove the resource group and all of the resources it contains.
+When no longer needed, use [az group delete](/cli/azure/group) to remove the resource group and all of the resources it contains.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup --yes
