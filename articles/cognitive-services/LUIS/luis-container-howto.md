@@ -240,7 +240,7 @@ The container provides REST-based query prediction endpoint APIs. Endpoints for 
 
 Use the host, `http://localhost:5000`, for container APIs.
 
-# [API v2](#tab/v2)
+# [V2 prediction endpoint](#tab/v2)
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
@@ -257,7 +257,7 @@ The query parameters configure how and what is returned in the query response:
 |`staging`|boolean|Returns query from staging environment results if set to true. |
 |`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
 
-# [API v3](#tab/v3)
+# [V3 prediction endpoint](#tab/v3)
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
@@ -279,7 +279,7 @@ The query parameters configure how and what is returned in the query response:
 
 An example CURL command for querying the container for a published app is:
 
-# [API v2](#tab/v2)
+# [V2 prediction endpoint](#tab/v2)
 
 ```bash
 curl -X GET \
@@ -290,7 +290,7 @@ To make queries to the **Staging** environment, change the **staging** query str
 
 `staging=true`
 
-# [API v3](#tab/v3)
+# [V3 prediction endpoint](#tab/v3)
 
 ```bash
 curl -G \
@@ -308,7 +308,7 @@ To make queries to the **Staging** environment, replace **production** route wit
 
 An example CURL command for querying the container for a trained app is:
 
-# [API v2](#tab/v2)
+# [V2 prediction endpoint](#tab/v2)
 
 ```bash
 curl -X GET \
@@ -317,7 +317,7 @@ curl -X GET \
 ```
 The version name has a maximum of 10 characters and contains only characters allowed in a URL.
 
-# [API v3](#tab/v3)
+# [V3 prediction endpoint](#tab/v3)
 
 ```bash
 curl -G \
