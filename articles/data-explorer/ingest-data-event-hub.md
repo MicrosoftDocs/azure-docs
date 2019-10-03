@@ -126,7 +126,8 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
     | | |
 
     > [!NOTE]
-    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > * Only events enqueued after you create the data connection are ingested.
 
 ## Copy the connection string
 
