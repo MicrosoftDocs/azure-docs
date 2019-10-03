@@ -1,0 +1,20 @@
+- name: Azure Spring Cloud Documentation
+  href: index.yml
+  displayName: Azure Spring Cloud
+- name: Overview
+  href: spring-cloud-overview.md
+- name: Quickstarts
+  expanded: true 
+  items:
+    - name: Launch your Spring Cloud app from source
+      href: spring-cloud-launch-from-source.md
+    - name: Launch a Java Spring app using the Portal
+      href: spring-cloud-quickstart-launch-app-portal.md 
+- name: Concepts
+  items: 
+    - name: Service plans and quotas for Azure Spring Cloud
+      href: spring-cloud-quotas.md
+- name: How-to guides
+  items: 
+    - name: How to enable Service Registration
+      href: spring-cloud-service-registration.md
