@@ -1,10 +1,10 @@
 ---
-title: Set pricing and availability
+title: Specify availability for your Office solution
 description: 
 localization_priority: Normal
 ---
 
-# Set pricing and availability
+# Specify availability for your Office solution
 
 You can define the markets, visibility, and publishing schedule for your solution on the Pricing and availability page in Partner Center.
 

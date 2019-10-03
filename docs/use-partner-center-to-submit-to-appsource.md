@@ -35,10 +35,13 @@ On the Product overview page, add the details associated with your submission. T
 
 |**Task**|**More information**|
 |:-------------|:-------|
-|Add setup and lead management details|[Add-in setup](add-in-setup.md)|
+|Add setup and lead management details|[Add setup details](add-setup-details.md)|
 |Upload your add-in manifest or app package|[Upload your submission package](upload-package.md)|
 |Define your Store settings|[Define properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
-|Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|
+|Specify the availability for your solution|[Specify availability](specify-availability.md)|
+
+> [!NOTE]
+> Partner Center does not support pricing model management for Office solutions. Existing paid add-ins that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-add-ins.md).
 
 ### Review and publish
 

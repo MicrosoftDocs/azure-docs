@@ -88,16 +88,16 @@
       href: use-partner-center-to-submit-to-appsource.md
     - name: Reserve add-in name
       href: reserve-add-in-name.md
-    - name: Add-in setup
-      href: add-in-setup.md
+    - name: Add setup details
+      href: add-setup-details.md
     - name: Upload your package
       href: upload-package.md
     - name: Define add-in properties
       href: define-add-in-properties.md
     - name: Create your AppSource listing
       href: appsource-listing.md
-    - name: Set pricing and availability
-      href: set-pricing-and-availability.md
+    - name: Specify availability
+      href: specify-availability.md
     - name: AppSource submission FAQ
       href: appsource-submission-faq.md
     - name: Create effective AppSource listings

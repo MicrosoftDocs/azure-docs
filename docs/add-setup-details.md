@@ -1,12 +1,12 @@
 ---
-title: Add-in setup
+title: Add setup details for your Office solution
 description: 
 localization_priority: Normal
 ---
 
-# Add-in setup
+# Add setup details for your Office solution
 
-On the Add-in setup page, you can indicate whether you want your add-in to be available in the Apple Store, provide authorization information, and add lead management details.
+On the Product setup page, you can indicate whether you want your solution to be available in the Apple Store, provide authorization information, and add lead management details.
 
 ## Setup details
 
