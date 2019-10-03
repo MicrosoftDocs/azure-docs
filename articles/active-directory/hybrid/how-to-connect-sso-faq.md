@@ -103,26 +103,26 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
    **Step 1. Disable the feature on your tenant**
 
-    **Option A: Disable using Azure AD Connect**
+   **Option A: Disable using Azure AD Connect**
+    
+   1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
+   2. Uncheck the **Enable single sign on** option. Continue through the wizard.
 
-     1. Run Azure AD Connect, choose **Change user sign-in page** and click **Next**.
-     2. Uncheck the **Enable single sign on** option. Continue through the wizard.
+   After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
 
-     After completing the wizard, Seamless SSO will be disabled on your tenant. However, you will see a message on screen that reads as follows:
+   "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
 
-     "Single sign-on is now disabled, but there are additional manual steps to perform in order to complete clean-up. Learn more"
+   To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
 
-     To complete the clean-up process, follow steps 2 and 3 on the on-premises server where you are running Azure AD Connect.
+   **Option B: Disable using PowerShell**
 
-    **Option B: Disable using PowerShell**
+   Run the following steps on the on-premises server where you are running Azure AD Connect:
 
-     Run the following steps on the on-premises server where you are running Azure AD Connect:
-
-     1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
-     2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
-     3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
-     4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
-     5. Call `Enable-AzureADSSO -Enable $false`.
+   1. First, download, and install [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   2. Navigate to the `%programfiles%\Microsoft Azure Active Directory Connect` folder.
+   3. Import the Seamless SSO PowerShell module using this command: `Import-Module .\AzureADSSO.psd1`.
+   4. Run PowerShell as an Administrator. In PowerShell, call `New-AzureADSSOAuthenticationContext`. This command should give you a popup to enter your tenant's Global Administrator credentials.
+   5. Call `Enable-AzureADSSO -Enable $false`.
 
      >[!IMPORTANT]
      >Disabling Seamless SSO using PowerShell will not change the state in Azure AD Connect. Seamless SSO will show as enabled in the **Change user sign-in** page.
