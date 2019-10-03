@@ -41,11 +41,11 @@ There are several things to consider when cloning an IoT hub.
 
 * Data for Event Hubs and for Service Bus Topics and Queues can not be migrated. This is point-in-time data and is not stored after the messages are processed.
 
-* You will need to schedule downtime for the migration. Cloning the devices to the new hub will take time. It can take up to a second to move 100 devices. If you interpolate that upward, it may take 3 hours to move a million devices. 
+* You need to schedule downtime for the migration. Cloning the devices to the new hub takes time. It can take up to a second to move 100 devices. If you interpolate that upward, it may take 3 hours to move a million devices. 
 
 * You can copy the devices to the new hub without shutting down or changing the devices. The device have to be modified to use the new hub. For example, if using a connection string on the device to the hub, it has to be updated to point to the new hub instead of the old one.
 
-* You will need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere -- this will need to be updated as well.
+* You need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere -- this needs to be updated as well.
 
 ## Methodology 
 
@@ -87,111 +87,111 @@ This section outlines provides instructions for migrating a hub.
 
 1. Go to the Downloads folder (or to whatever folder you exported the template) and find the zip file. In the zip file, the template name is in the format `ExportedTemplate-<ResourceGroupName>`. This example shows a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub29358** in region **westus**. Extract that one file (template.json) from the zip file so you can edit it. Here is the template exported in this example.
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "IotHubs_ContosoTestHub29358_name": {
-            "defaultValue": "ContosoTestHub29358",
-            "type": "String"
-        }
-    },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Devices/IotHubs",
-            "apiVersion": "2018-04-01",
-            "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
-            "location": "westus",
-            "sku": {
-                "name": "S1",
-                "tier": "Standard",
-                "capacity": 1
-            },
-            "properties": {
-                "operationsMonitoringProperties": {
-                    "events": {
-                        "None": "None",
-                        "Connections": "None",
-                        "DeviceTelemetry": "None",
-                        "C2DCommands": "None",
-                        "DeviceIdentityOperations": "None",
-                        "FileUploadOperations": "None",
-                        "Routes": "None"
-                    }
-                },
-                "ipFilterRules": [],
-                "eventHubEndpoints": {
-                    "events": {
-                        "retentionTimeInDays": 1,
-                        "partitionCount": 2,
-                        "partitionIds": [
-                            "0",
-                            "1"
-                        ],
-                        "path": "contosotesthub29358",
-                        "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-                    },
-                    "operationsMonitoringEvents": {
-                        "retentionTimeInDays": 1,
-                        "partitionCount": 2,
-                        "partitionIds": [
-                            "0",
-                            "1"
-                        ],
-                        "path": "contosotesthub29358-operationmonitoring",
-                        "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
-                    }
-                },
-                "routing": {
-                    "endpoints": {
-                        "serviceBusQueues": [],
-                        "serviceBusTopics": [],
-                        "eventHubs": [],
-                        "storageContainers": []
-                    },
-                    "routes": [],
-                    "fallbackRoute": {
-                        "name": "$fallback",
-                        "source": "DeviceMessages",
-                        "condition": "true",
-                        "endpointNames": [
-                            "events"
-                        ],
-                        "isEnabled": true
-                    }
-                },
-                "storageEndpoints": {
-                    "$default": {
-                        "sasTtlAsIso8601": "PT1H",
-                        "connectionString": "",
-                        "containerName": ""
-                    }
-                },
-                "messagingEndpoints": {
-                    "fileNotifications": {
-                        "lockDurationAsIso8601": "PT1M",
-                        "ttlAsIso8601": "PT1H",
-                        "maxDeliveryCount": 10
-                    }
-                },
-                "enableFileUploadNotifications": false,
-                "cloudToDevice": {
-                    "maxDeliveryCount": 10,
-                    "defaultTtlAsIso8601": "PT1H",
-                    "feedback": {
-                        "lockDurationAsIso8601": "PT1M",
-                        "ttlAsIso8601": "PT1H",
-                        "maxDeliveryCount": 10
-                    }
-                },
-                "features": "None"
+    ```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "IotHubs_ContosoTestHub29358_name": {
+                "defaultValue": "ContosoTestHub29358",
+                "type": "String"
             }
-        }
-    ]
-}
-```
+        },
+        "variables": {},
+        "resources": [
+            {
+                "type": "Microsoft.Devices/IotHubs",
+                "apiVersion": "2018-04-01",
+                "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
+                "location": "westus",
+                "sku": {
+                    "name": "S1",
+                    "tier": "Standard",
+                    "capacity": 1
+                },
+                "properties": {
+                    "operationsMonitoringProperties": {
+                        "events": {
+                            "None": "None",
+                            "Connections": "None",
+                            "DeviceTelemetry": "None",
+                            "C2DCommands": "None",
+                            "DeviceIdentityOperations": "None",
+                            "FileUploadOperations": "None",
+                            "Routes": "None"
+                        }
+                    },
+                    "ipFilterRules": [],
+                    "eventHubEndpoints": {
+                        "events": {
+                            "retentionTimeInDays": 1,
+                            "partitionCount": 2,
+                            "partitionIds": [
+                                "0",
+                                "1"
+                            ],
+                            "path": "contosotesthub29358",
+                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
+                        },
+                        "operationsMonitoringEvents": {
+                            "retentionTimeInDays": 1,
+                            "partitionCount": 2,
+                            "partitionIds": [
+                                "0",
+                                "1"
+                            ],
+                            "path": "contosotesthub29358-operationmonitoring",
+                            "endpoint": "sb://iothub-ns-contosotes-2227755-92aefc8b73.servicebus.windows.net/"
+                        }
+                    },
+                    "routing": {
+                        "endpoints": {
+                            "serviceBusQueues": [],
+                            "serviceBusTopics": [],
+                            "eventHubs": [],
+                            "storageContainers": []
+                        },
+                        "routes": [],
+                        "fallbackRoute": {
+                            "name": "$fallback",
+                            "source": "DeviceMessages",
+                            "condition": "true",
+                            "endpointNames": [
+                                "events"
+                            ],
+                            "isEnabled": true
+                        }
+                    },
+                    "storageEndpoints": {
+                        "$default": {
+                            "sasTtlAsIso8601": "PT1H",
+                            "connectionString": "",
+                            "containerName": ""
+                        }
+                    },
+                    "messagingEndpoints": {
+                        "fileNotifications": {
+                            "lockDurationAsIso8601": "PT1M",
+                            "ttlAsIso8601": "PT1H",
+                            "maxDeliveryCount": 10
+                        }
+                    },
+                    "enableFileUploadNotifications": false,
+                    "cloudToDevice": {
+                        "maxDeliveryCount": 10,
+                        "defaultTtlAsIso8601": "PT1H",
+                        "feedback": {
+                            "lockDurationAsIso8601": "PT1M",
+                            "ttlAsIso8601": "PT1H",
+                            "maxDeliveryCount": 10
+                        }
+                    },
+                    "features": "None"
+                }
+            }
+        ]
+    }
+    ```
 
 ### Edit the template 
 
@@ -264,7 +264,7 @@ Now create the new hub in the new location.
 
 1. In the search box, put in "template deployment" and select Enter.
 
-1. Select **template deployment (deploy using custom**. This will take you to a screen for the Template deployment. Select **Create**. You see this screen:
+1. Select **template deployment (deploy using custom**. This takes you to a screen for the Template deployment. Select **Create**. You see this screen:
 
    ![Screenshot showing the command for building your own template](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 
@@ -284,13 +284,13 @@ Now create the new hub in the new location.
 
    **Resource group**: create a new resource group in a new location. If you already have a new one set up, you can select it instead of creating a new one.
 
-   **Location**: this will be filled in for you to match the location of the resource group.
+   **Location**: this is be filled in for you to match the location of the resource group.
 
    **I agree checkbox**: this basically says that you agree to pay for the resource(s) you're creating.
 
 1. Select the **Purchase** button.
 
-It will now validate your template and deploy your cloned hub. 
+It now validates your template and deploys your cloned hub. 
 
 ## Managing the devices registered to the IoT hub
 
@@ -328,7 +328,7 @@ You can run the application by setting environment variables and then running th
 
 1. To get the connection string values, sign in to the [Azure portal](https://portal.azure.com). 
 
-1. Put the connection strings somewhere you can retrieve them, such as NotePad. Copy the following, then you can paste the connection strings in directly. Don't add spaces around the equal sign, or it will change the variable name. Also, you do not need double-quotes around the connection strings. If you put quotes around the storage account connection string, it won't work.
+1. Put the connection strings somewhere you can retrieve them, such as NotePad. Copy the following, then you can paste the connection strings in directly. Don't add spaces around the equal sign, or it changes the variable name. Also, you do not need double-quotes around the connection strings. If you put quotes around the storage account connection string, it won't work.
 
 For Windows, this is how the environment variables are defined on the command line:
 
@@ -358,9 +358,9 @@ Now that your environment variables are ready, let's set them and run the applic
 
 #### Running the sample application
 
-1. Open a Command Prompt window and navigate to `./iot-hub/Samples/service/` in your unzipped project folder. This is where you will run the application.
+1. Open a Command Prompt window and navigate to `./iot-hub/Samples/service/` in your unzipped project folder. This is where you run the application.
 
-1. Copy the commands that set the environment variables, one at a time, and paste them into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it will show your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
+1. Copy the commands that set the environment variables, one at a time, and paste them into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it shows your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
 
 1.  Make sure the methods you don't want to run (such as DeleteAllDevicesFromHub) are commented out in ImportExportDevicesSample.cs. 
 
@@ -374,7 +374,7 @@ Now that your environment variables are ready, let's set them and run the applic
     
     Select F5 to run the application. 
 
-1. To run the application without using Visual Studio, you can type this command in the same command window where you set the environment variables. It will build and then run the application.
+1. To run the application without using Visual Studio, you can type this command in the same command window where you set the environment variables. It builds and then runs the application.
 
     ```command
     dotnet run --project ImportExportDevicesSample
@@ -382,13 +382,13 @@ Now that your environment variables are ready, let's set them and run the applic
 
 1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the clone. You can also view the properties for the clone. 
 
-1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty, there were no errors. If you try to import the same device more than once, it will reject the device the second time and add an error message to the log file.
+1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty, there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
 
-At this point, you have copied your hub to the new regions, and migrated the devices to the new clone. Make the changes needed to make sure the devices will work with the cloned hub, and you should be finished.
+At this point, you have copied your hub to the new regions, and migrated the devices to the new clone. Make the changes needed to make sure the devices work with the cloned hub, and you should be finished.
 
 ## Routing 
 
-If you have [custom routing](iot-hub-devguide-messages-read-custom.md) defined for the original hub, exporting the template for the hub includes the routing configuration. However, it does not export resources used for the routing. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
+If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration. However, it does not export resources used for the routing. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
 
 ### Migrate the routing resources
 
@@ -402,9 +402,9 @@ In these steps, you export the template for the hub, then create resources used 
     
     1. Update the name and location of the resource. 
 
-    1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. In most cases, the routing section in the template for the hub will be the only other template that references the resource. 
+    1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. In most cases, the routing section in the template for the hub is the only other template that references the resource. 
 
-    1. Import each of the templates, which will deploy the resource.
+    1. Import each of the templates, which deploys each resource.
 
     Once the resources used by the routing are set up and running, you can continue.
 
@@ -428,7 +428,7 @@ For more information about IoT Hub and development for the hub, please see the f
 
 * [IoT Hub developer's guide](iot-hub-devguide.md)
 
-* [IoT Hub routing](tutorial-routing.md)
+* [IoT Hub routing tutorial](tutorial-routing.md)
 
 * [IoT Hub device management overview](iot-hub-device-management-overview.md)
 
