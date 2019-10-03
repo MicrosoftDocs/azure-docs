@@ -455,7 +455,7 @@ Corresponding JSON:
       {
         "name": "myrule2",
         "ruleType": "MatchRule",
-        "priority": 10,
+        "priority": 20,
         "action": "block",
         "matchConditions": [
           {
