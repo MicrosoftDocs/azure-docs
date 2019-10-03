@@ -62,7 +62,7 @@ For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
 | **Example** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'` |
 | **Example** (hierarchical namespace) | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFile.txt'` |
 
-You can also upload a file by using a wildcard symbol (*) anywhere in the file name. For example: `'C:\myDirectory\*.txt'`
+You can also upload a file by using a wildcard symbol (*) anywhere in the file name. For example: `'C:\myDirectory\*.txt'`.
 
 > [!NOTE]
 > AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
@@ -85,7 +85,7 @@ You can also exclude files by using the `--exclude-path` option. To learn more, 
 
 #### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`). 
 
 |    |     |
 |--------|-----------|

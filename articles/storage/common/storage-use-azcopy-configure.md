@@ -35,7 +35,25 @@ Currently, AzCopy doesn't support proxies that require authentication with NTLM 
 
 ## Optimize performance
 
-Put something here.
+You can benchmark performance, and then use commands and environment variables to find an optimal tradeoff between performance and resource consumption.
+
+### Run benchmark tests
+
+You can run a performance benchmark test on specific blob containers to view general performance statics and to identity performance bottlenecks. 
+
+> [!NOTE]
+> In the current release, this feature is available only for Blob Storage containers.
+
+Use the following command to run a performance benchmark test.
+
+|    |     |
+|--------|-----------|
+| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>` |
+| **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
+
+This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, and then deleted from memory after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
+
+To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
 ### Optimize throughput
 
@@ -67,26 +85,6 @@ Express this value in gigabytes (GB).
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
-
-
-### Run benchmark tests
-
-You can run a performance benchmark test on specific blob containers to view general performance statics and to identity performance bottlenecks. 
-
-> [!NOTE]
-> In the current release, this feature is available only for Blob Storage containers.
-
-Use the following command to run a performance benchmark test.
-
-|    |     |
-|--------|-----------|
-| **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>` |
-| **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
-
-
-This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, and then deleted from memory after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
-
-To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
 ## Troubleshoot issues
 
@@ -176,7 +174,7 @@ Use the `azcopy env` to check the current value of this variable. If the value i
 
 By default, AzCopy log level is set to `INFO`. If you would like to reduce the log verbosity to save disk space, overwrite this setting by using the ``--log-level`` option. 
 
-Available log levels are: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
+Available log levels are: `NONE`, `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC`, and `FATAL`.
 
 ## Remove plan and log files
 
