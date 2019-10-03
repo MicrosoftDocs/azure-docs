@@ -84,6 +84,8 @@ landingContent:
             url: test-your-model.md
           - text: Improve your model
             url: getting-started-improving-your-classifier.md
+          - text: Use suggested tags
+            url: suggested-tags.md
 
   - title: Export models
     linkLists:
@@ -97,6 +99,8 @@ landingContent:
             url: export-model-python.md
       - linkListType: tutorial
         links:
+          - text: IoT Visual Alerts app
+            url: iot-visual-alerts-tutorial.md
           - text: Logo detector for mobile
             url: logo-detector-mobile.md
   

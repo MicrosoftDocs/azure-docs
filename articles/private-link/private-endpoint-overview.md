@@ -1,11 +1,11 @@
 ---
 title: What is an Azure Private Endpoint?
 description: Learn about Azure Private Endpoint
-services: virtual-network
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
@@ -39,7 +39,7 @@ Here are some key details about private endpoints:
  
 - Multiple private endpoints can be created using the same private link resource. For a single network using a common DNS server configuration, the recommended practice is to use a single private endpoint for a given private link resource to avoid duplicate entries or conflicts in DNS resolution. 
  
-- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits.md#networking-limits).
+- Multiple private endpoints can be created on the same or different subnets within the same virtual network. There are limits to the number of private endpoints you can create in a subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
 
 
  
@@ -120,8 +120,9 @@ The following table includes a list of known limitations when using private endp
 |Network Security Group (NSG) rules do not apply to Private Endpoint    |NSG is not supported on private endpoints. While subnets containing the private endpoint can have NSG associated with it, the rules will not be effective on traffic processed by the private endpoint. You must have [network policies enforcement disabled](disable-private-endpoint-network-policy.md) to deploy private endpoints in a subnet. NSG is still enforced on other workloads hosted on the same subnet.   | Control the traffic by using NSG rules for outbound traffic on source clients.        |
 |Private Endpoints cannot be created in subnets enabled for service endpoint or specialized workloads    |Private Endpoints cannot be deployed on subnets enabled for service endpoints or subnets delegated to specialized workloads|  Create a separate subnet to deploy the private endpoints.        |
 |private endpoint can only be mapped to private link service (customer owned) in the same region    |   Connecting to a private link service (your own) from a different region is not supported       |  During Preview, you must deploy your Private Link service in the same region.        |
+|  Peered Virtual Network with Private endpoints only are not supported   |   When connecting to private endpoints on a peered Virtual Network without any other workload is not supported       | Deploy a single VM on the peered Virtual Network to enable the connectivity |
 |Specialized workloads cannot access private endpoints    |   The following services deployed into your virtual network cannot access any private link resource using private endpoints:<br>App Service Plan</br>Azure Container Instance</br>Azure NetApp Files</br>Azure Dedicated HSM<br>       |   No mitigation during preview.       |
-|  Portal does not support creation of private endpoints using Alias  |   Portal only allows creating private endpoints using resource URI      | Use resource URI for requesting private endpoint connections        |
+
 
 ## Next steps
 - [Create a Private Endpoint for SQL Database Server using Portal ](create-private-endpoint-portal.md)

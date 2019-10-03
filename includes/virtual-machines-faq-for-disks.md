@@ -178,8 +178,26 @@ No, Azure Backup support is not yet available.
 **Can I attach an ultra disk to a VM running in an availability set?**
 No, this is not yet supported.
 
-**Can I enable Azure Site Recovery (ASR) for VMs using ultra disks?**
-No, ASR is not yet supported for ultra disks.
+**Can I enable Azure Site Recovery for VMs using ultra disks?**
+No, Azure Site Recovery is not yet supported for ultra disks.
+
+## Uploading to a managed disk
+
+**Can I upload data to an existing managed disk?**
+
+No, upload can only be used during the creation of a new empty disk with the **ReadyToUpload** state.
+
+**How do I upload to a managed disk?**
+
+Create a managed disk with the [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) property of [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) set to "Upload", then you can upload data to it.
+
+**Can I attach a disk to a VM while it is in an upload state?**
+
+No.
+
+**Can I take a snapshot of a manged disk in an upload state?**
+
+No.
 
 ## Standard SSD disks
 

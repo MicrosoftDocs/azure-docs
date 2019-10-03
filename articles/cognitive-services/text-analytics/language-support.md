@@ -43,7 +43,7 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Arabic      | `ar`          |           |             | ✔ \*                     | |
 | Czech       | `cs`          |           |             | ✔ \*                     | |
 | Chinese-Simplified | `zh-hans`| ✔ \***     |             | ✔         |    |
-| Chinese-Traditional | `zh-hant`| ✔ \***     |             | ✔         |    |
+| Chinese-Traditional | `zh-hant`| ✔ \***     |             |          |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
