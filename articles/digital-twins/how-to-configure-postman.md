@@ -117,7 +117,8 @@ After completing the previous steps, configure Postman to make an authenticated 
    [![Content type multipart/mixed](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize non-text data into files. JSON data would be saved as a JSON file.
-1. Under the **Body** tab, add each file by assigning a **key** name, selecting `file` or `text`.
+1. Under the **Body** tab, select `form-data`. 
+1. Add each file by assigning a **key** name, selecting `file`.
 1. Then, select each file through the **Choose File** button.
 
    [![Postman client example](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
