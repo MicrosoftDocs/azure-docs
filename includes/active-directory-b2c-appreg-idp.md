@@ -13,7 +13,7 @@ ms.author: marsma
 1. Enter a **Name** for the application. For example, *testapp1*.
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
-1. Under **Permissions**, select *Grant admin consent to openid and offline_access permissions* check box.
+1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
 
 Once the application registration is complete, enable the implicit grant flow:
