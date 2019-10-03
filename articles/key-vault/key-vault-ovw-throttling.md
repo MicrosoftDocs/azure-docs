@@ -37,7 +37,7 @@ The following are **best practices** you should implement when your service is t
 When you implement your app's error handling, use the HTTP error code 429 to detect the need for client-side throttling. If the request fails again with an HTTP 429 error code, you are still encountering an Azure service limit. Continue to use the recommended client-side throttling method, retrying the request until it succeeds.
 
 Code that implements exponential backoff is shown below. 
-```
+```csharp
     public sealed class RetryWithExponentialBackoff
     {
         private readonly int maxRetries, delayMilliseconds, maxDelayMilliseconds;
@@ -56,22 +56,30 @@ Code that implements exponential backoff is shown below.
             ExponentialBackoff backoff = new ExponentialBackoff(this.maxRetries,
                 this.delayMilliseconds,
                 this.maxDelayMilliseconds);
-            retry:
-            try
-            {
-                await func();
-            }
-            catch (Exception ex) when (ex is TimeoutException ||
-                ex is System.Net.Http.HttpRequestException)
-            {
-                Debug.WriteLine("Exception raised is: " +
-                    ex.GetType().ToString() +
-                    " –Message: " + ex.Message +
-                    " -- Inner Message: " +
-                    ex.InnerException.Message);
-                await backoff.Delay();
-                goto retry;
-            }
+            
+            bool isRetryNeeded = false;
+            
+            do{
+                isRetryNeeded = false;
+
+                try
+                {
+                    await func();
+                }
+                catch (Exception ex) when (ex is TimeoutException ||
+                    ex is System.Net.Http.HttpRequestException)
+                {
+                    Debug.WriteLine("Exception raised is: " +
+                        ex.GetType().ToString() +
+                        " –Message: " + ex.Message +
+                        " -- Inner Message: " + ex.InnerException.Message);
+                    await backoff.Delay();
+                    
+                    isRetryNeeded = true;
+                }
+                
+            } while (isRetryNeeded);
+            
         }
     }
 
@@ -97,10 +105,7 @@ Code that implements exponential backoff is shown below.
                 throw new TimeoutException("Max retry attempts exceeded.");
             }
             ++m_retries;
-            if (m_retries < 31)
-            {
-                m_pow = m_pow << 1; // m_pow = Pow(2, m_retries - 1)
-            }
+            m_pow = m_pow << 1;
             int delay = Math.Min(m_delayMilliseconds * (m_pow - 1) / 2,
                 m_maxDelayMilliseconds);
             return Task.Delay(delay);
@@ -115,7 +120,7 @@ Using this code in a client C\# application is straightforward. The following ex
 public async Task<Cart> GetCartItemsAsync(string catalogUrl)
 {
     _apiClient = new HttpClient();
-    
+
     //
     // Using HttpClient with Retry and Exponential Backoff
     //
