@@ -30,8 +30,6 @@ To [set a version](luis-how-to-manage-versions.md#set-active-version) as the act
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-[![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
-
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 
 

@@ -45,8 +45,6 @@ LUIS stores all logged utterances in the query log, available for download on th
 
 Any utterances LUIS is unsure of are listed in the **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** page of the [LUIS](luis-reference-regions.md) website. 
 
-![Review endpoint utterances](./media/luis-concept-test/review-endpoint-utterances.png)
- 
 ## Remember to train
 Remember to [train](luis-how-to-train.md) LUIS after you make changes to the model. Changes to the LUIS app are not seen in testing until the app is trained. 
 

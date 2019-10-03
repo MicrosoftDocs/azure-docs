@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/03/2019
 ms.author: diberry
 ---
 
@@ -172,7 +172,11 @@ The owner and all contributors have access to author the app.
 
 Access to query the prediction endpoint is controlled by a setting on the **Application Information** page in the **Manage** section. 
 
-![Set app to public](./media/luis-concept-security/set-application-as-public.png)
+<!--
+
+!!!Ignite - screen shot
+
+-->
 
 |[Private endpoint](#runtime-security-for-private-apps)|[Public endpoint](#runtime-security-for-public-apps)|
 |:--|:--|
