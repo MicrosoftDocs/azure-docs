@@ -74,7 +74,7 @@ For instructions on creating an Oozie metastore with Azure SQL Database, see [Us
 
 ## Custom Ambari DB
 
-
+To use your own external database with Apache Ambari on HDInsight, see [Custom Apache Ambari database](hdinsight-custom-ambari-db.md).
 
 ## Next steps
 

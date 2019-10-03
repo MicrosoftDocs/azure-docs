@@ -1,6 +1,6 @@
 ---
-title: Bring your own Ambari DB 
-description: Learn how to create HDInsight clusters with your own custom Ambari database.
+title: Custom Apache Ambari database 
+description: Learn how to create HDInsight clusters with your own custom Apache Ambari database.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
