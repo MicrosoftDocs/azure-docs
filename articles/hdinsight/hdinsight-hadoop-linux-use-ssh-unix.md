@@ -170,9 +170,9 @@ The worker nodes and Zookeeper nodes aren't directly accessible from the interne
 
 2. From the SSH connection to the head or edge node, use the `ssh` command to connect to a worker node in the cluster:
 
-        ```bash
-        ssh sshuser@wn0-myhdi
-        ```
+    ```bash
+    ssh sshuser@wn0-myhdi
+    ```
 
     To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
