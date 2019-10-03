@@ -108,27 +108,21 @@
     href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
-  - name: Best practices
-    href: luis-concept-best-practices.md
-    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
-  - name: Using LUIS and QnA Maker
-    href: choose-natural-language-processing-service.md
-    displayName: nlp, qna maker
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
   - name: Authoring and runtime keys
     displayName: shared, transfer, ownership, author, access, import
     href: luis-concept-keys.md    
-  - name: Author app's model
+  - name: Authoring models
     items:
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
     - name: Versioning
       href: luis-concept-version.md
       displayName: import
-  - name: Design Model
-    items:
+    - name: Types of models
+      href: luis-concept-model.md
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
@@ -168,6 +162,12 @@
       href: luis-concept-test.md
     - name: Batch testing
       href: luis-concept-batch-test.md
+  - name: Best practices
+    href: luis-concept-best-practices.md
+    displayName: phrase list, pattern, intent, utterance, version, do, don't, example utterances, iteration, cycle, correct, right
+  - name: Using LUIS and QnA Maker
+    href: choose-natural-language-processing-service.md
+    displayName: nlp, qna maker
   - name: Enterprise
     items:
     - name: Design strategies
