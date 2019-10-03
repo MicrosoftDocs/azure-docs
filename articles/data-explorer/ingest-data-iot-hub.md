@@ -99,7 +99,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
     
     > [!NOTE]
-    > Once the connection is set, it ingest data starting from events enqueued after its creation time.
+    > Only events enqueued after you create the data connection are ingested.
 
 ## Generate sample data for testing
 
