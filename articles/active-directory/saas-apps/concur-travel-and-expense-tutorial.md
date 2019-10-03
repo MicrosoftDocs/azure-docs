@@ -144,7 +144,7 @@ In this section, you create a user called B.Simon in Concur Travel and Expense. 
 > B.Simon's Concur login id needs to match B.Simon's unique identifier at Azure AD. For example, if B.Simon's Azure AD unique identifer is `B.Simon@contoso.com`. B.Simon's Concur login id needs to be `B.Simon@contoso.com` as well. 
 
 ## Configure Concur Mobile SSO
-To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follw steps below to get **User access URL** from Azure AD:
+To enable Concur mobile SSO, you need to give Concur support team **User access URL**. Follow steps below to get **User access URL** from Azure AD:
 1. Go to **Enterprise applications**
 1. Click **Concur Travel and Expense**
 1. Click **Properties**
