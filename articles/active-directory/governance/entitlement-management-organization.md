@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/28/2019
+ms.date: 10/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -46,7 +46,7 @@ Follow these steps to add an external Azure AD directory or a domain as a connec
 
 1. On the **Directories** tab, click **Add connected organization**.
 
-1. Enter a domain name to search for the Azure AD directory or domain.
+1. Type a domain name to search for the Azure AD directory or domain. You must type the entire domain name.
 
 1. Verify it is the correct organization by the provided directory name and initial domain.
 
