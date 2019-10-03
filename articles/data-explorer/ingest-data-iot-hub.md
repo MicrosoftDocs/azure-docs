@@ -73,11 +73,11 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
 
     **Setting** | **Field description**
     |---|---|
-    | Data connection name | The name of the connection you want to create in Azure Data Explorer.
-    | IoT Hub | IoT Hub name. |
-    | Shared access policy | The name of the shared access policy. Must have read permissions. |
-    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint. |
-	| Event system properties | The IoT Hub event system properties. In case that there are multiple records per event message, the system properties will be added to the first one. |
+    | Data connection name | The name of the connection you want to create in Azure Data Explorer
+    | IoT Hub | IoT Hub name |
+    | Shared access policy | The name of the shared access policy. Must have read permissions |
+    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint |
+	| Event system properties | The [IoT Hub event system properties](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) If there are multiple records per event message, the system properties will be added to the first one.|
     | | 
 
     > [!NOTE]
@@ -91,7 +91,7 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **testdb**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, and TXT. |
     | Column mapping | *TestMapping* | The mapping you created in **testdb**, which maps incoming JSON data to the column names and data types of **testdb**. Required for JSON, MULTILINE JSON, and AVRO, and optional for other formats.|
     | | |
 
