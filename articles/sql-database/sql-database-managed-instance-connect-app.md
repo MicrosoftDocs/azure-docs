@@ -9,11 +9,11 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ---
 
-# Connect your application to Azure SQL Database Managed Instance
+# Connect your application to Azure SQL Database managed instance
 
 Today you have multiple choices when deciding how and where you host your application.
 

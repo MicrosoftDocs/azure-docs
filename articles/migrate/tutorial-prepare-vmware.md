@@ -4,7 +4,7 @@ description: Describes how to prepare for assessment and migration of on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -158,5 +158,5 @@ In this tutorial, you:
 Continue to the second tutorial to set up an Azure Migrate project, and assess VMware VMs for migration to Azure.
 
 > [!div class="nextstepaction"] 
-> [Assess VMware VMs](./tutorial-migrate-vmware.md) 
+> [Assess VMware VMs](./tutorial-assess-vmware.md) 
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 09/02/2019
 ms.author: jingwang
 
 ---
@@ -28,6 +28,11 @@ This article outlines how to use Copy Activity in Azure Data Factory to copy dat
 >This connector only support copy data to/from Cosmos DB SQL API. For MongoDB API, refer to [connector for Azure Cosmos DB's API for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types are not supported now.
 
 ## Supported capabilities
+
+This Azure Cosmos DB (SQL API) connector is supported for the following activities:
+
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Lookup activity](control-flow-lookup-activity.md)
 
 You can copy data from Azure Cosmos DB (SQL API) to any supported sink data store, or copy data from any supported source data store to Azure Cosmos DB (SQL API). For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
 
@@ -212,6 +217,7 @@ The following properties are supported in the Copy Activity **source** section:
 | writeBehavior |Describes how to write data to Azure Cosmos DB. Allowed values: **insert** and **upsert**.<br/><br/>The behavior of **upsert** is to replace the document if a document with the same ID already exists; otherwise, insert the document.<br /><br />**Note**: Data Factory automatically generates an ID for a document if an ID isn't specified either in the original document or by column mapping. This means that you must ensure that, for **upsert** to work as expected, your document has an ID. |No<br />(the default is **insert**) |
 | writeBatchSize | Data Factory uses the [Azure Cosmos DB bulk executor library](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) to write data to Azure Cosmos DB. The **writeBatchSize** property controls the size of documents that ADF provide to the library. You can try increasing the value for **writeBatchSize** to improve performance and decreasing the value if your document size being large - see below tips. |No<br />(the default is **10,000**) |
 | nestingSeparator |A special character in the **source** column name that indicates that a nested document is needed. <br/><br/>For example, `Name.First` in the output dataset structure generates the following JSON structure in the Azure Cosmos DB document when the **nestedSeparator** is **.** (dot): `"Name": {"First": "[value maps to this column from source]"}`  |No<br />(the default is **.** (dot)) |
+| disableMetricsCollection | Data Factory collects metrics such as Cosmos DB RUs for copy performance optimization and recommendations. If you are concerned with this behavior, specify `true` to turn it off. | No (default is `false`) |
 
 >[!TIP]
 >Cosmos DB limits single request's size to 2MB. The formula is Request Size = Single Document Size * Write Batch Size. If you hit error saying **"Request size is too large."**, **reduce the `writeBatchSize` value** in copy sink configuration.
@@ -247,6 +253,9 @@ The following properties are supported in the Copy Activity **source** section:
     }
 ]
 ```
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
 ## Import or export JSON documents
 

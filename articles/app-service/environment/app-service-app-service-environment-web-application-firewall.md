@@ -11,7 +11,6 @@ ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml

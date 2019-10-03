@@ -3,7 +3,7 @@ title: Azure Resource Manager template functions - string | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
 
@@ -1909,10 +1909,33 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. |
+| baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing `http://contoso.com/resources/azuredeploy.json` as the baseUri parameter results in a base URI of `http://contoso.com/resources/`.
+* If **baseUri** ends in a trailing slash, the result is simply
+  **baseUri** followed by **relativeUri**.
+
+* If **baseUri** does not end in a trailing slash one of two things
+  happens.  
+
+   * If **baseUri** has no slashes at all (aside from the "//" near
+     the front) the result is simply **baseUri** followed by **relativeUri**.
+
+   * If **baseUri** has some slashes, but does not end with a slash,
+     everything from the last slash onward is removed from **baseUri**
+     and the result is **baseUri** followed by **relativeUri**.
+     
+Here are some examples:
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+For complete details, the **baseUri** and **relativeUri** parameters are
+resolved as specified in 
+[RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### Return value
 

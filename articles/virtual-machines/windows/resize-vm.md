@@ -12,7 +12,7 @@ ms.assetid: 057ff274-6dad-415e-891c-58f8eea9ed78
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn

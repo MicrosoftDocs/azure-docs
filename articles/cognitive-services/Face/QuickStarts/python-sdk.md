@@ -21,6 +21,7 @@ Use the Face client library for Python to:
 * Find similar faces
 * Create and train a person group
 * Identify a face
+* Verify faces
 * Take a snapshot for data migration
 
 [Reference documentation](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [Package (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
@@ -85,6 +86,7 @@ These code snippets show you how to do the following tasks with the Face client 
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
+* [Verify faces](#verify-faces)
 * [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 ## Authenticate the client
@@ -103,6 +105,14 @@ The following code detects a face in a remote image. It prints the detected face
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_detect)]
 
 See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py) for more detection scenarios.
+
+### Display and frame faces
+
+The following code outputs the given image to the display and draws rectangles around the faces, using the DetectedFace.faceRectangle property.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
+
+![A young woman with a red rectangle drawn around the face](../images/face-rectangle-result.png)
 
 ## Find similar faces
 
@@ -130,7 +140,7 @@ The following code creates a **PersonGroup** with three different **Person** obj
 
 ### Create PersonGroup
 
-To step this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
+To step through this scenario, you need to save the following images to the root directory of your project: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 This group of images contains three sets of face images corresponding to three different people. The code will define three **Person** objects and associate them with image files that start with `woman`, `man`, and `child`.
 
@@ -156,7 +166,7 @@ Once you've assigned faces, you must train the **PersonGroup** so that it can id
 
 ## Identify a face
 
-The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects that each have several faces associated with them. 
+The following code takes an image with multiple faces and looks to find the identity of each person in the image. It compares each detected face to a **PersonGroup**, a database of different **Person** objects whose facial features are known.
 
 > [!IMPORTANT]
 > In order to run this example, you must first run the code in [Create and train a person group](#create-and-train-a-person-group).
@@ -173,6 +183,32 @@ The **identify** method takes an array of detected faces and compares them to a 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify)]
 
+## Verify faces
+
+The Verify operation takes a face ID and either another face ID or a **Person** object and determines whether they belong to the same person.
+
+The following code detects faces in two source images and then verifies them against a face detected from a target image.
+
+### Get test images
+
+The following code blocks declare variables that will point to the source and target images for the verification operation.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_baseurl)]
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_photos)]
+
+### Detect faces for verification
+
+The following code detects faces in the source and target images and saves them to variables.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify_detect)]
+
+### Get verification results
+
+The following code compares each of the source images to the target image and prints a message indicating whether they belong to the same person.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_verify)]
+
 ## Take a snapshot for data migration
 
 The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You may want to use this feature if, for example, you've created a **PersonGroup** object using a free trial subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
@@ -183,7 +219,7 @@ In this example, you will migrate the **PersonGroup** you created in [Create and
 
 First, you must have a second Azure subscription with a Face resource; you can do this by following the steps in the [Setting up](#setting-up) section. 
 
-Then, create the following variables near the top of your script. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key and subscription ID of your new (target) account. 
+Then, create the following variables near the top of your script. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshotvars)]
 
@@ -244,7 +280,7 @@ If you migrated data using the Snapshot feature in this quickstart, you'll also 
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for Java to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

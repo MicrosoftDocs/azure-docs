@@ -12,7 +12,7 @@
   - name: Connect a device to IoT Hub
     href: quickstart-connect-pnp-device.md
   - name: Connect a device to IoT Central
-    href: https://aka.ms/iot-central-connect-qs
+    href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Connect to a device in your solution
     href: quickstart-connect-pnp-device-solution.md
 - name: Tutorials
@@ -37,10 +37,12 @@
     href: concepts-limits-quotas.md
 - name: How-to guides
   items:
-  - name: Use IoT Device Workbench
-    href: howto-use-iot-device-workbench.md
+  - name: Develop with Visual Studio and Visual Studio Code
+    href: howto-develop-with-vs-vscode.md
   - name: Install IoT explorer
     href: howto-install-iot-explorer.md
+  - name: Install Azure CLI extension
+    href: howto-install-pnp-cli.md    
   - name: Onboard to the IoT portal
     href: howto-onboard-portal.md
   - name: Manage models
@@ -50,7 +52,7 @@
 - name: Reference
   items:
   - name: REST
-    href: https://aka.ms/iot-pnp-rest
+    href: https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/createorupdatemodel
   - name: Generate a REST security token
     href: howto-generate-sas-token.md
 - name: Related
@@ -58,7 +60,7 @@
   - name: Solutions
     items:
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /azure/iot-central
     - name: IoT solution accelerators
       href: /azure/iot-accelerators
   - name: Platform Services

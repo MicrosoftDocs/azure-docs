@@ -32,7 +32,7 @@ In this tutorial, you learn how to create Python applications to send messages t
 
         > [!NOTE]
         > You will create a **queue** in the Service Bus namespace by using Python in this tutorial. 
-1. Install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md). See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python).
+1. Install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](/azure/python/python-sdk-azure-install). See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Create a queue
 The **ServiceBusClient** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:

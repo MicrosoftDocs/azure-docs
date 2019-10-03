@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 7/5/2019
+ms.date: 8/21/2019
 ms.author: dapine
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -25,15 +25,9 @@ Container support in Azure Cognitive Services allows developers to use the same 
 * [Speech Service API][sp-containers]
 * [Text Analytics][ta-containers]
 
-<!--
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
--->
+> [!VIDEO https://www.youtube.com/embed/hdfbn4Q8jbo]
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
-
-The following video demonstrates using a Cognitive Services container.
-
-[![Container demonstration for Cognitive Services](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
 Cognitive Services resources are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
@@ -51,6 +45,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | Service | Supported Pricing Tier | Container | Description |
 |---------|----------|----------|-------------|
 |[Anomaly detector][ad-containers] |F0, S0|**Anomaly-Detector** |The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access](https://aka.ms/adcontainer)|
+|[Computer Vision][cv-containers] |F0, S1|**Read** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container also detects *handwritten text* in images and provides PDF/TIFF/multi-page support.<br/><br/>**Important:** The Read container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Computer Vision][cv-containers] |F0, S1|**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face][fa-containers] |F0, S0|**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form recognizer][fr-containers] |F0, S0|**Form Recognizer** |Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access](https://aka.ms/FormRecognizerContainerRequestAccess)|
@@ -100,6 +95,8 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
 
+[!INCLUDE [Cognitive Services container security](containers/includes/cognitive-services-container-security.md)]
+
 [!INCLUDE [Discoverability of more container information](../../includes/cognitive-services-containers-discoverability.md)]
 
 ## Next steps
@@ -118,7 +115,6 @@ Install and explore the functionality provided by containers in Azure Cognitive 
 
 <!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 -->
-
 
 [ad-containers]: anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: computer-vision/computer-vision-how-to-install-containers.md

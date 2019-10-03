@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/16/2019
+ms.date: 08/21/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -75,24 +75,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Cisco Webex Meetings** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
-
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
-
-1. On the **Basic SAML Configuration** section, upload the downloaded **Service Provider metadata** file and configure the application in **IDP** initiated mode, by performing the following steps:
-
-	>[!Note]
-	>You will get the Service Provider Metadata file, which is explained later in the **Configure Cisco Webex Meetings SSO** section of the tutorial. 
+1. On the **Set up Single Sign-On with SAML** page, you can configure the application in **IDP** initiated mode by uploading the **Service Provider metadata** file as follows:
 
 	a. Click **Upload metadata file**.
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	c. After successful completion of uploading Service Provider metadata file the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section:
+	c. After successful completion of uploading Service Provider metadata file the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section.
 
-5. If you wish to configure the application in **SP** initiated mode, perform the following step:
+	>[!Note]
+	>You will get the Service Provider Metadata file from **Configure Cisco Webex Meetings SSO** section, which is explained later in the tutorial. 
+
+1. If you wish to configure the application in **SP** initiated mode, perform the following steps:	
+
+	a. On the **Basic SAML Configuration** section, click the edit/pen icon.
+
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 	
-	In the **Sign on URL** textbox, type the URL using the following pattern: `https://<customername>.webex.com`
+	b. In the **Sign on URL** textbox, type the URL using the following pattern: ` https://<customername>.my.webex.com`
 
 5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
@@ -115,7 +115,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	d. Select Source as **Attribute**.
 
-	e. From the **Source attribute** list, type the attribute value shown for that row.
+	e. From the **Source attribute** list, select the attribute value shown for that row from the drop-down list.
 
 	f. Click **Save**.
 

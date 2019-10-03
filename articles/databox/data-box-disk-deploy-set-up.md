@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 07/23/2019
+ms.date: 09/04/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
@@ -25,6 +26,16 @@ In this tutorial, you learn how to:
 > * Connect to disks and get the passkey
 > * Unlock disks on Windows client
 > * Unlock disks on Linux client
+
+::: zone-end
+
+::: zone target="chromeless"
+
+## Unpack, connect, and unlock Azure Data Box Disk
+
+::: zone-end
+
+::: zone target="docs"
 
 ## Prerequisites
 
@@ -278,7 +289,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
         ``` 
         .\DataBoxDiskUnlock.exe
         ```
-    -  Supply the passkey you obtained from **General > Device details** in the Azure portal. The drive letter assigned to the disk is displayed. 
+    -  Get the passkey from **General > Device details** in the Azure portal and provide it here. The drive letter assigned to the disk is displayed. 
 4. To unlock the disks on a Linux client, open a terminal. Go to the folder where you downloaded the software. Type the following commands to change the file permissions so that you can execute these files: 
 
     ```
@@ -290,7 +301,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
     ```
     sudo ./DataBoxDiskUnlock_Prep.sh
     ```
-    Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal by going to **General > Device details**. Optionally specify a list of BitLocker encrypted volumes within single quotes to unlock.
+    Run the Data Box Disk Unlock tool. Get the passkey from **General > Device details** in the Azure portal and provide it here. Optionally specify a list of BitLocker encrypted volumes within single quotes to unlock.
 
     ```
     sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
@@ -299,7 +310,7 @@ If you run into any issues while unlocking the disks, see how to [troubleshoot u
 
 After the disk is unlocked, you can view the contents of the disk.
 
-For more information on how to set up and unlock the disks, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+For more information on how to set up and unlock disks, go to [Set up Data Box Disk](data-box-disk-deploy-set-up.md).
 
 ::: zone-end
 

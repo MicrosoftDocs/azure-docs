@@ -12,7 +12,6 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn

@@ -81,7 +81,7 @@ Once the encryption key is revoked, the Event Hubs service on the encrypted name
 > If you delete an existing encryption key from your key vault and replace it with a new key on the Event Hubs namespace, since the delete key is still valid (as it is cached) for up to an hour, your old data (which was encrypted with the old key) may still be accessible along with the new data, which is now accessible only using the new key. This behavior is by design in the preview version of the feature. 
 
 ## Set up diagnostic logs 
-Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations when a namespace is encrypted with customer-managed keys. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations when a namespace is encrypted with customer-managed keys. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
 
 ## Enable user logs
 Follow these steps to enable logs for customer-managed keys.
@@ -167,7 +167,7 @@ Following are the common errors codes to look for when BYOK encryption is enable
 > To enable Geo-DR on a namespace that's using the BYOK encryption, the secondary namespace for pairing must be in a dedicated cluster and must have a system assigned managed identity enabled on it. To learn more, see [Managed Identities for Azure Resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
-> For BYOK encrypted Event Hubs namespaces, virtual network (VNet) service endpoints isn't supported in the preview release. 
+> If virtual network (VNet) service endpoints are configured on Azure Key Vault for your Event Hubs namespace, BYOK will not be supported. 
 
 
 ## Next steps

@@ -12,7 +12,7 @@ keywords: spectre,meltdown,specter
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: cynthn

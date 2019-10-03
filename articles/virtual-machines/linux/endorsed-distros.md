@@ -12,7 +12,7 @@ ms.assetid: 2777a526-c260-4cb9-a31a-bdfe1a55fffc
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: szark

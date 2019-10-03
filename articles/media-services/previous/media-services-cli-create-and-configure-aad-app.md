@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 08/26/2019
 ms.author: juliako
 
 ---
@@ -42,7 +42,7 @@ For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/over
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> --password <strong password>
+az ad sp create-for-rbac --name <appName> 
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 

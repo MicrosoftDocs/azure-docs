@@ -121,12 +121,13 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
      **Setting** | **Suggested value** | **Field description**
     |---|---|---|
     | Table | *TestTable* | The table you created in **TestDatabase**. |
-    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. |
+    | Data format | *JSON* | Supported formats are Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV, and TXT. Supported compression options: GZip |
     | Column mapping | *TestMapping* | The mapping you created in **TestDatabase**, which maps incoming JSON data to the column names and data types of **TestTable**. Required for JSON, MULTILINE JSON, or AVRO, and optional for other formats.|
     | | |
 
     > [!NOTE]
-    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > * Only events enqueued after you create the data connection are ingested.
 
 ## Copy the connection string
 

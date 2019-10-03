@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package configuration using Azure Active Directory Domain Services - Azure HDInsight
+title: Enterprise Security Package with Azure Active Directory in HDInsight
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 04/23/2019
 ---
-# Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services
+
+# Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight
 
 Enterprise Security Package (ESP) clusters provide multi-user access on Azure HDInsight clusters. HDInsight clusters with ESP are connected to a domain so that domain users can use their domain credentials to authenticate with the clusters and run big data jobs.
 
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
 > [!NOTE]  
-> ESP is generally available in HDInsight 3.6 and 4.0 for cluster types: Apache Spark, Interactive, Apache Hadoop and HBase. ESP for Apache Kafka cluster type is in preview.
+> ESP is generally available in HDInsight 3.6 and 4.0 for cluster types: Apache Spark, Interactive, Hadoop and HBase. ESP for Apache Kafka cluster type is in preview with best effort support only. ESP clusters created before ESP GA date (October 1, 2018) are not supported.
 
 ## Enable Azure AD-DS
 
@@ -68,7 +69,7 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 
-![Locate IP Addresses for Local DNS Servers](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns.png)
+![Locate IP Addresses for Local DNS Servers](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png)
 
 Change the configuration of the DNS servers in the Azure AD-DS VNET to use these custom IPs by selecting **DNS Servers** under the **Settings** category. Then click the radio button next to **Custom**, enter the first IP Address in the text box below, and click **Save**. Add additional IP Addresses using the same steps.
 
@@ -112,7 +113,7 @@ The following screenshot shows a successful configuration in the Azure portal:
 
 The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
 
-![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
 
 ## Next steps
 

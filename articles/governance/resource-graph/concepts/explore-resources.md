@@ -7,15 +7,12 @@ ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.custom: seodec18
 ---
 # Explore your Azure resources with Resource Graph
 
 Azure Resource Graph provides the ability to explore and discover your Azure resources quickly and
 at scale. Engineered for fast responses, it's a great way to learn about your environment and also
 about the properties that make up your Azure resources.
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Explore virtual machines
 

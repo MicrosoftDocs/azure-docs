@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 07/03/2019
+ms.date: 09/06/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and PHP
@@ -45,10 +45,8 @@ Add the following code inside the `body` element of the document. This code sets
 // Replace <Subscription Key> with a valid subscription key.
 $ocpApimSubscriptionKey = '<Subscription Key>';
 
-// You must use the same location in your REST call as you used to obtain
-// your subscription keys. For example, if you obtained your subscription keys
-// from westus, replace "westcentralus" in the URL below with "westus".
-$uriBase = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/';
+// Replace <My Endpoint String> with the string in your endpoint URL.
+$uriBase = 'https:/<My Endpoint String>.com/face/v1.0/';
 
 $imageUrl =
     'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg';
@@ -96,7 +94,9 @@ catch (HttpException $ex)
 ?>
 ```
 
-You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Run the script
 

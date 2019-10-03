@@ -27,9 +27,9 @@ The more important features have stronger weights in the model. Because these fe
 
 ## Getting feature importance evaluation
 
-To see feature importance results, you must run an evaluation. The resulting information about feature importance represents the current Personalizer online model. The evaluation analyzes feature importance of the model saved at the end date of the evaluation period. 
+To see feature importance results, you must run an evaluation. The evaluation creates human-readable feature labels based on the feature names observed during the evaluation period.
 
-The evaluation creates human-readable feature labels based on the feature names observed during the evaluation period.
+The resulting information about feature importance represents the current Personalizer online model. The evaluation analyzes feature importance of the model saved at the end date of the evaluation period, after undergoing all the training done during the evaluation, with the current online learning policy. 
 
 The feature importance results do not represent other policies and models tested or created during the evaluation.  The evaluation will not include features sent to Personalizer after the end of the evaluation period.
 
