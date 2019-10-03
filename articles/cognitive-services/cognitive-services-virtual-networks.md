@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: dapine
 ---
 
@@ -18,9 +18,11 @@ Azure Cognitive Services provides a layered security model. This model enables y
 An application that accesses a Cognitive Services resource when network rules are in effect requires authorization. Authorization is supported with [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) credentials or with a valid API key.
 
 > [!IMPORTANT]
-> Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet). Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
+> Turning on firewall rules for your Cognitive Services account blocks incoming requests for data by default. In order to allow requests through, one of the following conditions needs to be met:
+> * The request should originate from a service operating within an Azure Virtual Network (VNet) on the allowed subnet list of the target Cognitive Services account.
+> * Or the request should originate from an allowed list of IP addresses.
 >
-> You can grant access to Azure services that operate from within a VNet by allowing traffic from the subnet hosting the service instance.
+> Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -28,14 +30,14 @@ An application that accesses a Cognitive Services resource when network rules ar
 
 To secure your Cognitive Services resource, you should first configure a rule to deny access to traffic from all networks (including internet traffic) by default. Then, you should configure rules that grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications. You can also configure rules to grant access to traffic from select public internet IP address ranges, enabling connections from specific internet or on-premises clients.
 
-Network rules are enforced on all network protocols to Azure Cognitive Services, including REST and WebSocket. To access data using tools such as the Azure portal, explicit network rules must be configured. You can apply network rules to existing Cognitive Services resources, or when you create new Cognitive Services resources. Once network rules are applied, they're enforced for all requests.
+Network rules are enforced on all network protocols to Azure Cognitive Services, including REST and WebSocket. To access data using tools such as the Azure test consoles, explicit network rules must be configured. You can apply network rules to existing Cognitive Services resources, or when you create new Cognitive Services resources. Once network rules are applied, they're enforced for all requests.
 
 ## Change the default network access rule
 
 By default, Cognitive Services resources accept connections from clients on any network. To limit access to selected networks, you must first change the default action.
 
 > [!WARNING]
-> Making changes to network rules can impact your applications' ability to connect to Azure Cognitive Services. Setting the default network rule to **deny** blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access.
+> Making changes to network rules can impact your applications' ability to connect to Azure Cognitive Services. Setting the default network rule to **deny** blocks all access to the data unless specific network rules that **grant** access are also applied. Be sure to grant access to any allowed networks using network rules before you change the default rule to deny access. If you are allow listing IP addresses for your on-premises network, be sure to add all possible outgoing public IP addresses from your on-premises network.
 
 ### Managing default network access rules
 
@@ -131,7 +133,7 @@ Each Cognitive Services resource supports up to 100 virtual network rules, which
 
 ### Required permissions
 
-To apply a virtual network rule to a Cognitive Services resource, the user must have the appropriate permissions for the subnets being added. The permission needed is the *Cognitive Services Contributor* role. It can also be added to custom role definitions.
+To apply a virtual network rule to a Cognitive Services resource, the user must have the appropriate permissions for the subnets being added. The permission needed is either the default *Contributor* role or the *Cognitive Services Contributor* role. It is not required to explicitly assign this *Contributor* a new *Cognitive Services Contributor* role. Required permissions can also be added to custom role definitions.
 
 Cognitive Services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
