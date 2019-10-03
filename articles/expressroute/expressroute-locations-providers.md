@@ -2,18 +2,11 @@
 title: 'Locations and connectivity providers: Azure ExpressRoute | Microsoft Docs'
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions. Sorted by location.
 services: expressroute
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
 
-ms.assetid: feb67da3-5abc-4acb-bad4-f78e3c541ded
 ms.service: expressroute
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.date: 09/23/2019
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -69,9 +62,11 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 ## <a name="partners"></a>ExpressRoute connectivity providers
 
-The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md). 
+The following table shows connectivity locations and the service providers for each location. If you want to view service providers and the locations for which they can provide service, see [Locations by service provider](expressroute-locations.md).
 
-**Local Azure Regions** are the ones that [ExpressRoute Local](expressroute-faqs.md) at each peering location can access. **n/a** indicates that ExpressRoute Local is not available at that peering location.
+* **Local Azure Regions** are the ones that [ExpressRoute Local](expressroute-faqs.md) at each peering location can access. **n/a** indicates that ExpressRoute Local is not available at that peering location.
+
+* **Zone** refers to [pricing](https://azure.microsoft.com/pricing/details/expressroute/).
 
 
 ### Production Azure
