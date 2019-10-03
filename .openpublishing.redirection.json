@@ -17095,6 +17095,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md",
+      "redirect_url": "prepare-for-migration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/how-to-prepare-linux-for-migration.md",
       "redirect_url": "tutorial-prepare-vmware",
       "redirect_document_id": false
