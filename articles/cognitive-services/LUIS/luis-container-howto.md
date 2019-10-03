@@ -236,7 +236,7 @@ Both V2 and [V3](luis-migration-api-v3.md) versions of the API are available wit
 
 ## Query the container's prediction endpoint
 
-The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
+The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps.
 
 Use the host, `http://localhost:5000`, for container APIs.
 
@@ -244,8 +244,8 @@ Use the host, `http://localhost:5000`, for container APIs.
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
-|Published|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>&staging<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>|
-|Trained|GET, POST|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+|Published|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
+|Trained|GET, POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 The query parameters configure how and what is returned in the query response:
 
@@ -261,8 +261,8 @@ The query parameters configure how and what is returned in the query response:
 
 |Package type|Method|Route|Query parameters|
 |--|--|--|--|
-|Published|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433), [POST](https://westus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)|/luis/v3.0/apps/{appId}/slots/{slotName}/predict?|query={query}<br>[&verbose]<br>[&log]<br>[&show-all-intents]|
-|Trained|GET, POST|/luis/v3.0/apps/{appId}/versions/{versionId}/predict?|query={query}<br>[&verbose]<br>[&log]<br>[&show-all-intents]|
+|Published|GET, POST|`/luis/v3.0/apps/{appId}/slots/{slotName}/predict?`|`query={query}`<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
+|Trained|GET, POST|`/luis/v3.0/apps/{appId}/versions/{versionId}/predict?`|query={query}<br>[`&verbose`]<br>[`&log`]<br>[`&show-all-intents`]|
 
 The query parameters configure how and what is returned in the query response:
 
@@ -297,10 +297,12 @@ curl -G \
 -d verbose=false \
 -d log=true \
 --data-urlencode "query=turn the lights on" \
-"http://localhost:5000/luis/v3.0-preview/apps/{APP_ID}/slots/production/predict"
+"http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/production/predict"
 ```
 
-To make queries to the **Staging** environment, replace **production** route with **staging**.
+To make queries to the **Staging** environment, replace **production** route with **staging**:
+
+`http://localhost:5000/luis/v3.0/apps/{APP_ID}/slots/staging/predict`
 
 ***
 
@@ -324,7 +326,7 @@ curl -G \
 -d verbose=false \
 -d log=false \
 --data-urlencode "query=turn the lights on" \
-"http://localhost:5000/luis/v3.0-preview/apps/{APP_ID}/versions/{APP_VERSION}/predict"
+"http://localhost:5000/luis/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
 ***
