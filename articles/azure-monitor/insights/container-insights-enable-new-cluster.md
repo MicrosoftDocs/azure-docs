@@ -30,7 +30,7 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 
 >[!NOTE]
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.74 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
->If you have installed the aks-preview CLI extension version 0.4.12 or higher, remove any changes you have made to enable a preview extension as it can override the default Azure CLI behavior since AKS Preview features aren't available in Az US Governmnet cloud.
+>If you have installed the aks-preview CLI extension version 0.4.12 or higher, remove any changes you have made to enable a preview extension as it can override the default Azure CLI behavior since AKS Preview features aren't available in Azure US Governmnet cloud.
 
 ## Enable using Terraform
 
