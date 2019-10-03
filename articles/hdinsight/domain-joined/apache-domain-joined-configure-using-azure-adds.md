@@ -109,7 +109,7 @@ When you create a HDInsight cluster with ESP, you must supply the following para
 
 The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
 
-![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking_identity.png).
+![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
 ## Next steps
 
