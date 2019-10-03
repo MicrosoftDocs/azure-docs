@@ -70,8 +70,8 @@ landingContent:
           - text: Train with Keras
             url: service/how-to-train-keras.md
 
-  # VISUAL INTERFACE
-  - title: 'Experiment: visual interface'
+  # DESIGNER
+  - title: 'Experiment: Azure Machine Learning designer'
     linkLists:
       - linkListType: tutorial
         links:
