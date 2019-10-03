@@ -14,6 +14,8 @@ ms.author: chlandsi
 
 # Quickstart: Recognize speech in Objective-C on macOS using the Speech SDK
 
+Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-objectivec-macos.md).
+
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you learn how to create a macOS app in Objective-C using the Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
@@ -28,8 +30,6 @@ Before you get started, here's a list of prerequisites:
 ## Get the Speech SDK for macOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-The current version of the Cognitive Services Speech SDK is `1.6.0`.
 
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle.
 It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/), or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This guide uses a CocoaPod.
@@ -63,7 +63,7 @@ In the dialogs that follow, make the following selections:
 
 1. Install the CocoaPod dependency manager as described in its [installation instructions](https://guides.cocoapods.org/using/getting-started.html).
 1. Navigate to the directory of your sample app (`helloworld`). Place a text file with the name `Podfile` and the following content in that directory:  
-   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
+   [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/Podfile)]
 1. Navigate to the `helloworld` directory in a terminal and run the command `pod install`. This will generate a `helloworld.xcworkspace` Xcode workspace containing both the sample app and the Speech SDK as a dependency. This workspace will be used in the following.
 
 ## Add the sample code
