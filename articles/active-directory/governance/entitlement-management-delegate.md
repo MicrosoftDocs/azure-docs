@@ -31,20 +31,17 @@ ms.collection: M365-identity-device-management
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required. Typically it is users within departments who know who need to collaborate. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
 
+This video provides an overview of delegation from IT administrator to department manager:
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq00]
+
 This article describes how to delegate access governance to others in entitlement management. 
 
 ## Delegate example for department adoption
 
 To understand how you might delegate access governance in entitlement management, it helps to consider an example. Suppose your organization has the following administrator and department managers.
 
-![Entitlement management delegate from IT to department managers](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
-
-| Name | Job |
-| --- | --- |
-| Hana | IT administrator |
-| Mamta | Marketing manager |
-| Mark | Finance manager |
-| Joe | Legal manager |
+![Delegate from IT administrator to department managers](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
 As the IT administrator, Hana has contacts in each department -- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
@@ -56,7 +53,7 @@ Here is one way that Hana could delegate access governance to marketing, finance
 
 1. Hana adds that group to the catalog creators role.
 
-    Mamta, Mark, and Joe can now create catalogs for the their departments, add resources that their department needs, and further delegate within the catalog.
+    Mamta, Mark, and Joe can now create catalogs for their departments, add resources that their department needs, and further delegate within the catalog.
 
     Note that Mamta, Mark, and Joe cannot see each other's catalogs.
 
@@ -64,15 +61,11 @@ Here is one way that Hana could delegate access governance to marketing, finance
 
 1. Mamta adds the resources her marketing department owns to the catalog.
 
-1. Mamta can add any catalog owners that she wants to co-own that catalog. This helps share the catalog management tasks.
+1. Mamta can add any catalog owners that she wants to be a co-owner for that catalog. This helps share the catalog management tasks.
 
 1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog. An access package is a bundle of resources for a team or project that users can request.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
-
-This video provides an overview of delegation from IT to department manager:
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq00]
 
 ## As an IT administrator, delegate to department manager
 
@@ -88,7 +81,7 @@ Follow these steps to assign a user to the catalog creator role.
 
 1. Click **Edit**.
 
-    ![Settings to manage the lifecyle of external users](./media/entitlement-management-shared/settings-external-users.png)
+    ![Settings to manage the lifecycle of external users](./media/entitlement-management-shared/settings-external-users.png)
 
 1. In the **Delegate entitlement management** section, click **Add catalog creators** to select the users or groups who will be the members for this entitlement management role.
 
