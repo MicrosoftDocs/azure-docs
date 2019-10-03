@@ -14,7 +14,7 @@ ms.custom: seodec2018
 
 The Azure portal provides an **Import data** wizard on the Azure Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Search index using the Azure portal](search-get-started-portal.md) quickstart.
 
-Steps performed by the wizard include:
+Operations that this wizard performs include:
 
 1 - Connect to a supported Azure data source.
 
@@ -44,23 +44,23 @@ Known limitations are summarized as follows:
 
 + AI enrichment, as exposed in the portal, is limited to a few built-in skills. 
 
-+ A knowledge store as created by the wizard is limited to a few default projections. If you want to save enriched documents created by the wizard, the blob container and tables come with default names and structure.
++ A [knowledge store](knowledge-store-concept-intro.md), which can be created by the wizard, is limited to a few default projections. If you want to save enriched documents created by the wizard, the blob container and tables come with default names and structure.
 
 <a name="data-source-inputs"></a>
 
 ## Data source input
 
-The **Import data** wizard connects to an external data source using the internal logic provided by Azure Search indexers, which are equipped to sample the source, read metadata, and selectively crack open documents to read content and structure.
+The **Import data** wizard connects to an external data source using the internal logic provided by Azure Search indexers, which are equipped to sample the source, read metadata, crack documents to read content and structure, and serialize contents as JSON for subsequent import to Azure Search.
 
 You can only import from a single table, database view, or equivalent data structure, however the structure can include hierarchical or nested substructures. For more information, see [How to model complex types](search-howto-complex-data-types.md).
 
-You should create the single table or view before running the wizard, and it must contain content. For obvious reasons, it doesn't make sense to run the **Import data** wizard on an empty data source.
+You should create this single table or view before running the wizard, and it must contain content. For obvious reasons, it doesn't make sense to run the **Import data** wizard on an empty data source.
 
 |  Selection | Description |
 | ---------- | ----------- |
-| **Existing data source** |If you already have indexers defined in your search service, you can select an existing data source definition for another import. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard.|
-| **Samples**| Azure Search provides two hosted built-in samples. A real estate SQL database and a Hotels database on Cosmos DB. For a walk through based on the Hotels sample, see the [Create an index in the Azure portal](search-get-started-portal.md) quickstart. |
-| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
+| **Existing data source** |If you already have indexers defined in your search service, you might have an existing data source definition that you can reuse. In Azure Search, data source objects are only used by indexers. You can create a data source object programmatically or through the **Import data** wizard, and reuse them as needed.|
+| **Samples**| Azure Search provides two built-in sample data sources that are used in tutorials and quickstarts: a real estate SQL database and a Hotels database hosted on Cosmos DB. For a walk through based on the Hotels sample, see the [Create an index in the Azure portal](search-get-started-portal.md) quickstart. |
+| [**Azure SQL Database**](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md) |Service name, credentials for a database user with read permission, and a database name can be specified either on the page or via an ADO.NET connection string. Choose the connection string option to view or customize properties. <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection.|
 | **SQL Server on Azure VM** |Specify a fully qualified service name, user ID and password, and database as a connection string. To use this data source, you must have previously installed a certificate in the local store that encrypts the connection. For instructions, see [SQL VM connection to Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>The table or view that provides the rowset must be specified on the page. This option appears after the connection succeeds, giving a drop-down list so that you can make a selection. |
 | [**Azure Cosmos DB**](search-howto-index-cosmosdb.md)|Requirements include the account, database, and collection. All documents in the collection will be included in the index. You can define a query to flatten or filter the rowset, or leave the query blank. A query is not required in this wizard.|
 | [**Azure Blob Storage**](search-howto-indexing-azure-blob-storage.md) |Requirements include the storage account and a container. Optionally, if blob names follow a virtual naming convention for grouping purposes, you can specify the virtual directory portion of the name as a folder under container. See [Indexing Blob Storage](search-howto-indexing-azure-blob-storage.md) for more information. |
@@ -68,7 +68,7 @@ You should create the single table or view before running the wizard, and it mus
 
 ## Wizard output
 
-Behind the scenes, the wizard creates, configures, and invokes the following objects. Links to the REST API provide comprehensive and definitive descriptions of each object. After the wizard runs, you can find its output in the portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets. Index definitions can be viewed in full JSON in the portal. For other definitions, you can use the [REST API](https://docs.microsoft.com/rest/api/searchservice/) to GET specific objects.
+Behind the scenes, the wizard creates, configures, and invokes the following objects. After the wizard runs, you can find its output in the portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets. Index definitions can be viewed in full JSON in the portal. For other definitions, you can use the [REST API](https://docs.microsoft.com/rest/api/searchservice/) to GET specific objects.
 
 | Object | Description | 
 |--------|-------------|
@@ -104,7 +104,7 @@ The wizard generates an incomplete index, which will be populated with documents
 
 1. Set attributes to determine how that field is used in an index. 
 
-   Take your time with this step because attributes impact the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a neglible impact on storage. Enabling filters and using suggesters increase storage requirements. 
+   Take your time with this step because attributes determine the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a [negligible impact on storage](search-what-is-an-index.md#storage-implications). Enabling filters and using suggesters increase storage requirements. 
    
    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 
@@ -120,7 +120,7 @@ The wizard generates an incomplete index, which will be populated with documents
 
   The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms. Only language analyzers can be specified in the portal. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, must be done programmatically. For more information about analyzers, see [Add language analyzers](search-language-support.md).
 
-1. Select the **Suggester** the checkbox to enable [typeahead query suggestions and autocomplete](index-add-suggesters.md) on selected fields.
+1. Select the **Suggester** the checkbox to enable [typeahead query suggestions and autocomplete](index-add-suggesters.md) on selected fields. Suggesters add to the number of tokenized terms in your index, and thus add to storage requirements.
 
 
 ## Next steps
