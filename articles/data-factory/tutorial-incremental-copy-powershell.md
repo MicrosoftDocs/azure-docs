@@ -14,6 +14,9 @@ ms.date: 01/22/2018
 ms.author: yexu
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
 
 You perform the following steps in this tutorial:
