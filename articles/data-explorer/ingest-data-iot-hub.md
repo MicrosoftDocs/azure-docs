@@ -95,11 +95,9 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
     | Column mapping | *TestMapping* | The mapping you created in **testdb**, which maps incoming JSON data to the column names and data types of **testdb**. Required for JSON, MULTILINE JSON, and AVRO, and optional for other formats.|
     | | |
 
-    > [!TIP]
-    > Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
-    
     > [!NOTE]
-    > Only events enqueued after you create the data connection are ingested.
+    > * Select **My data includes routing info** to use dynamic routing, where your data includes the necessary routing information as seen in the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comments. If both static and dynamic properties are set, the dynamic properties override the static ones. 
+    > * Only events enqueued after you create the data connection are ingested.
 
 ## Generate sample data for testing
 
