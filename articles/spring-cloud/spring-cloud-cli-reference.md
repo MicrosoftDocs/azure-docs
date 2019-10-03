@@ -76,9 +76,7 @@ ms.author: jeconnoc
 | az spring-cloud test-endpoint list | List test endpoint keys. |
 | az spring-cloud test-endpoint renew-key | Regenerate a test-endpoint key. |
 
-## Command Details
-
-### az spring-cloud create
+## az spring-cloud create
 
 Create a new app with a default deployment in the Azure Spring Cloud.
 
@@ -90,25 +88,159 @@ az spring-cloud create  --name -n
                         
 ```
 
-#### Examples
+| Required Parameters | |
+| --- | ---: |
+| `--name -n` | Name for this Azure Spring Cloud instance. |
+| `--resource-group -g` | Specifies the resource group for this app.  Configure the default group using `az configure --defaults group=<name>` |
+
+| Optional Parameters | |
+| --- | ---: |
+| `--location -l` | Specifies server location for this app.  Find valid locations using `az account list-locations` |
+| `--no-wait` | Do not for long running operations to complete.
+
+### Examples
 
 Create a new Azure Spring Cloud in WestUS
 ```cli
 az spring-cloud create -n MyService -g MyResourceGroup -l westus
 ```
 
+## az spring-cloud delete
+
+Delete an Azure Spring Cloud instance.
+
+```cli
+az spring cloud --name -n
+                --resource-group -g
+                --no-wait
+```
+
+| Required Parameters | | 
+| --- | ---: |
+| `--name -n` | Name of the Azure Spring Cloud instance to be deleted. |
+| `--resource-group -g` | Name of the resource group to which the Azure Spring Cloud belongs. |
+
+| Optional Parameters | | 
+| --- | ---: |
+| `-no-wait` | Do not wait for long running operations to finish. |
+
+### Example
+
+Delete an Azure Spring Cloud instance called 'MyService' from 'MyResourceGroup'.
+
+```cli
+az spring-cloud delete -n MyService -g MyResourceGroup
+```
+
+## az spring-cloud list
+
+List all Azure Spring Cloud instances associated with the given resource group. If no resource group is specified, list the subscription IDs.
+
+```cli
+az spring-cloud list --resource-group -g
+```
+
 | Required Parameters | |
-| --- | --- |
-| `name -n` | Name for this Azure Spring Cloud instance. |
-| `resource-group -g` | Specifies the resource group for this app.  Configure the default group using `az configure --defaults group=<name>` |
+| --- | ---: |
+| --resource-group -g | Name of the resource group. |
+
+## az spring-cloud show
+
+Show the details for the specified Azure Spring Cloud instance.
+
+```cli
+az spring-cloud show --name -n
+                     -- resource-group -g
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the Azure Spring Cloud instance. |
+| --resource-group -g | Name of the Resource Group to which the Azure Spring Cloud instance belongs.
+
+## az spring-cloud show app create
+
+Create a new app in an Azure Spring Cloud.
+
+```cli
+az spring-cloud appp create --name -n
+                            --resource-group -g
+                            --service -s
+                            --cpu
+                            --enable-persistent-storage
+                            --instance-count
+                            --is-public
+                            --memory
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the app. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
 
 | Optional Parameters | |
-| --- | --- |
-| `location -l` | Specifies server location for this app.  Find valid locations using `az account list-locations` |
-| `no-wait` | Do not wait for long running operations to complete. |
+| --- | ---: |
+| --cpu | Number of virtual cores per instance.  Default: 1. |
+| --enable-persistent-storage | Boolean value.  If true, mounts a 50GB disk with default path. |
+| --instance-count | Number of instance.  Default: 1. |
+| --is-public | Boolean value.  If true, assigns a public domain. |
+| --memory | Number of GB of memory per instance.  Default: 1. |
 
-### az spring-cloud delete
+### Examples
 
-### az spring-cloud list
+Create an app with the default configuration.
 
-### az spring-cloud show
+```cli
+az spring-cloud app create -n MyApp -s MyService
+```
+
+Create a publicly accessible app with 3 instances.  Each instance has 3 GB of memory and 2 CPU cores.
+
+```cli
+az spring-cloud app create -n MyApp -s MyService --is-public true --cpu 2 --memory 3
+```
+
+## az spring-cloud app delete
+
+Deletes an app in the Azure Spring Cloud.
+
+```cli
+az spring cloud app delete  --name -n
+                            --resource-group -g
+                            --service -s
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the app. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
+
+## az spring-cloud app deploy
+
+Deploy an app to the Azure Spring Cloud from source code or a pre-built binary, and update related configurations.
+
+```cli
+az spring cloud app deploy  --name -n
+                            --resource-group -g
+                            --service -s
+                            --cpu
+                            --deployment -d
+                            --env
+                            --instance-count
+                            --jar-path
+                            --jvm-options
+                            --memory
+                            --no-wait
+                            --runtime-version
+                            --target-module
+                            --version
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name -n | Name of the app. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --service -s | Name of the Azure Spring Cloud.  You can configure the default service using `az configure --defaults spring-cloud=<name>`. |
+
