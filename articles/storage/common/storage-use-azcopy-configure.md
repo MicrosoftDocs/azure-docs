@@ -53,7 +53,7 @@ Use the `azcopy env` to check the current value of this variable.  If the value 
 
 ## Change the location of the log files
 
-By default, log files are located in the `%USERPROFILE\\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location if you need to by using these commands.
+By default, log files are located in the `%USERPROFILE%\.azcopy` directory on Windows, or in the `$HOME\\.azcopy` directory on Mac and Linux. You can change this location if you need to by using these commands.
 
 | Operating system | Command  |
 |--------|-----------|
