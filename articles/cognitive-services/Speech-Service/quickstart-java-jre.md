@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Recognize speech, Java (Windows, Linux, macOS) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services
@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
+Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md), and [speech synthesis](quickstart-text-to-speech-java-jre.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -90,6 +90,7 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Quickstart: Translate speech, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
+- [Quickstart: Synthesize speech, Java (Windows, Linux, macOS)](quickstart-text-to-speech-java-jre.md)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)

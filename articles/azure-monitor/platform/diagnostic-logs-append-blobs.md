@@ -23,11 +23,11 @@ Azure Monitor offers a capability that enables you to send resource diagnostic d
 * On Thursday, November 1, 2018 at 12:00 midnight UTC, the blob format will change to be [JSON Lines](http://jsonlines.org/). This means each record will be delimited by a newline, with no outer records array and no commas between JSON records.
 * The blob format changes for all diagnostic settings across all subscriptions at once. The first PT1H.json file emitted for November 1 will use this new format. The blob and container names remain the same.
 * Setting a diagnostic setting between now and November 1 continues to emit data in the current format until November 1.
-* This change will occur at once across all public cloud regions. The change will not occur in Azure China, Azure Germany, or Azure Government clouds yet.
+* This change will occur at once across all public cloud regions. The change will not occur in Microsoft Azure Operated by 21Vianet, Azure Germany, or Azure Government clouds yet.
 * This change impacts the following data types:
-  * [Azure resource diagnostic logs](./../../azure-monitor/platform/archive-diagnostic-logs.md) ([see list of resources here](./../../azure-monitor/platform/diagnostic-logs-schema.md))
-  * [Azure resource metrics being exported by diagnostic settings](./../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings)
-  * [Azure Activity log data being exported by log profiles](./../../azure-monitor/platform/archive-activity-log.md)
+  * [Azure resource diagnostic logs](archive-diagnostic-logs.md) ([see list of resources here](diagnostic-logs-schema.md))
+  * [Azure resource metrics being exported by diagnostic settings](diagnostic-settings.md)
+  * [Azure Activity log data being exported by log profiles](archive-activity-log.md)
 * This change does not impact:
   * Network flow logs
   * Azure service logs not made available through Azure Monitor yet (for example, Azure App Service diagnostic logs, storage analytics logs)

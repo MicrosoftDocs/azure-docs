@@ -3,9 +3,9 @@ title: Registration Management
 description: This topic explains how to register devices with notification hubs in order to receive push notifications.
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
@@ -13,8 +13,10 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.author: jowargo
 ms.date: 04/08/2019
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 04/08/2019
 ---
 
 # Registration management

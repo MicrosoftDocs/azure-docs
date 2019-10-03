@@ -68,7 +68,7 @@ A WAF policy can consist of two types of security rules - custom rules, authored
 
 You can configure custom rules WAF as follows:
 
-- **IP allow list and block list:** You can configure custom rules to control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list.
+- **IP allow list and block list:** You can configure custom rules to control access to your web applications based on a list of client IP addresses or IP address ranges. Both IPv4 and IPv6 address types are supported. This list can be configured to either block or allow those requests where the source IP matches an IP in the list. A client IP address can be different from the IP address WAF observes, for example, when a client accesses WAF via a proxy. You can create [IP restriction rules](https://docs.microsoft.com/azure/frontdoor/waf-front-door-configure-ip-restriction) based on either Client IP addresses (RemoteAddr) or IP addresses seen by WAF (SocketAddr). Configuration of a SocketAddr IP restriction rule is currently supported using Powershell and Azure CLI.
 
 - **Geographic based access control:** You can configure custom rules to control access to your web applications based on the country code associated with a client’s IP address.
 
@@ -78,7 +78,7 @@ You can configure custom rules WAF as follows:
 
 - **Size constraint:** You can configure custom rules based on the lengths of specific parts of a request such as query string, Uri, or request body.
 
-- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. This is distinct from an IP list-based allow/block custom rule that either allows all or blocks all request from a client IP. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
+- **Rate limiting rules:** A rate control rule is to limit abnormal high traffic from any client IP. You may configure a threshold on the number of web requests allowed from a client IP during a one-minute duration. Note that additional requests above the threshold may be able to get through while requests count are being updated. Rate limiting can be combined with additional match conditions such as HTTP(S) parameters matching for granular rate control.
 
 ### Azure-managed rule sets
 

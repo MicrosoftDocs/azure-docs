@@ -4,7 +4,7 @@ description: Describes the cause of the RequestDisallowedByPolicy error.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 
 ms.service: azure-resource-manager

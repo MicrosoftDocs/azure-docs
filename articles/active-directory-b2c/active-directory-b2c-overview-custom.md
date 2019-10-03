@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Custom policies are configuration files that define the behavior of your Azure Active Directory (Azure AD) B2C tenant. User flows are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
+Custom policies are configuration files that define the behavior of your Azure Active Directory B2C (Azure AD B2C) tenant. User flows are predefined in the Azure AD B2C portal for the most common identity tasks. Custom policies can be fully edited by an identity developer to complete many different tasks.
 
 ## Comparing user flows and custom policies
 
@@ -51,7 +51,7 @@ The customer identity and access management (CIAM) service in Azure includes:
 
 Azure AD B2C interacts with identity providers, users, other systems, and with the local user directory in sequence to achieve an identity task. For example, sign in a user, register a new user, or reset a password. The Identity Experience Framework and a policy (also called a user journey or a trust framework policy) establishes multi-party trust and explicitly defines the actors, the actions, the protocols, and the sequence of steps to complete.
 
-The Identity Experience Framework is a fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, WSFed, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences that support HTML and CSS.
+The Identity Experience Framework is a fully configurable, policy-driven, cloud-based Azure platform that orchestrates trust between entities in standard protocol formats such as OpenID Connect, OAuth, SAML, and a few non-standard ones, for example REST API-based system-to-system claims exchanges. The framework creates user-friendly, white-labeled experiences that support HTML and CSS.
 
 A custom policy is represented as one or several XML-formatted files that refer to each other in a hierarchical chain. The XML elements define the claims schema, claims transformations, content definitions, claims providers, technical profiles, and user journey orchestration steps, among other elements. A custom policy is accessible as one or several XML files that are executed by the Identity Experience Framework when invoked by a relying party. Developers configuring custom policies must define the trusted relationships in careful detail to include metadata endpoints, exact claims exchange definitions, and configure secrets, keys, and certificates as needed by each identity provider.
 

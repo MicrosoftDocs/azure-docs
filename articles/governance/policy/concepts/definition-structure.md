@@ -3,11 +3,10 @@ title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2019
+ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.custom: seodec18
 ---
 # Azure Policy definition structure
 
@@ -18,7 +17,7 @@ you can specify that only certain types of virtual machines are allowed. Or, you
 all resources have a particular tag. Policies are inherited by all child resources. If a policy is
 applied to a resource group, it's applicable to all the resources in that resource group.
 
-The schema used by Azure Policy can be found here: [https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+The schema used by Azure Policy can be found here: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
 
 You use JSON to create a policy definition. The policy definition contains elements for:
 
@@ -65,8 +64,6 @@ For example, the following JSON shows a policy that limits where resources are d
 ```
 
 All Azure Policy samples are at [Azure Policy samples](../samples/index.md).
-
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## Mode
 
@@ -473,6 +470,7 @@ Azure Policy supports the following types of effect:
 - **Disabled**: doesn't evaluate resources for compliance to the policy rule
 - **EnforceRegoPolicy**: configures the Open Policy Agent admissions controller in Azure Kubernetes
   Service (preview)
+- **Modify**: adds, updates, or removes the defined tags from a resource
 
 For **append**, you must provide the following details:
 
@@ -504,6 +502,10 @@ definition](../how-to/remediate-resources.md#configure-policy-definition).
     ]
 }
 ```
+
+Similarly, **Modify** requires **roleDefinitionId** property in the **details** portion of the
+policy rule for the [remediation task](../how-to/remediate-resources.md). **Modify** also requires
+an **operations** array to define what actions to take on the resources tags.
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Azure Policy Effects](effects.md).

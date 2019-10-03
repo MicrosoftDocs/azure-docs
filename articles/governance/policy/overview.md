@@ -164,7 +164,7 @@ In this scenario, when defining the initiative parameters for **initiativeC**, y
 options:
 
 - Use the parameters of the policy definitions within this initiative: In this example, *allowedLocations* and *allowedSingleLocation* become initiative parameters for **initiativeC**.
-- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA’s parameter – allowedLocations** and **policyB’s parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
+- Provide values to the parameters of the policy definitions within this initiative definition. In this example, you can provide a list of locations to **policyA's parameter – allowedLocations** and **policyB's parameter – allowedSingleLocation**. You can also provide values when assigning this initiative.
 - Provide a list of *value* options that can be used when assigning this initiative. When you assign this initiative, the inherited parameters from the policy definitions within the initiative, can only have values from this provided list.
 
 When creating value options in an initiative definition, you're unable to input a different value

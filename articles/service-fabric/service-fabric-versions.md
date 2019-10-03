@@ -19,7 +19,7 @@ ms.author: atsenthi
 ---
 # Supported Service Fabric versions
 
-Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+Make sure your cluster is always running a supported Azure Service Fabric version. A minimum of 60 days after we announce the release of a new version of Service Fabric, support for the previous version ends. You'll find announcements of new releases on the [Service Fabric team blog](https://azure.microsoft.com/updates/?product=service-fabric).
 
 Refer to the following documents for details on how to keep your cluster running a supported Service Fabric version:
 

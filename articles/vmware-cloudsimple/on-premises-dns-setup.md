@@ -53,19 +53,25 @@ zone “cloudsimple.io”
 
 ### Create a zone on a Microsoft Windows DNS server
 
-1. Right-click the DNS server and select **New Zone**.  
-![New Zone](media/DNS01.png)
+1. Right-click the DNS server and select **New Zone**. 
+  
+    ![New Zone](media/DNS01.png)
 2. Select **Stub Zone** and click **Next**.
-![New Zone](media/DNS02.png)
+
+    ![New Zone](media/DNS02.png)
 3. Select the appropriate option depending on your environment and click **Next**.
-![New Zone](media/DNS03.png)
+
+    ![New Zone](media/DNS03.png)
 4. Select **Forward lookup zone** and click **Next**.
-![New Zone](media/DNS01.png)
+
+    ![New Zone](media/DNS01.png)
 5. Enter the zone name and click **Next**.
-![New Zone](media/DNS05.png)
+
+    ![New Zone](media/DNS05.png)
 6. Enter the IP addresses of the DNS servers for your Private Cloud that you obtained
 from the CloudSimple portal.
-![New Zone](media/DNS06.png)
+
+    ![New Zone](media/DNS06.png)
 7. Click **Next** as needed to complete the wizard setup.
 
 ## Create a conditional forwarder
@@ -92,5 +98,6 @@ zone “cloudsimple.io” {
 
 1. Open the DNS Manager on the DNS server.
 2. Right-click **Conditional Forwarders** and select the option to add a new conditional forwarder.
-![Conditional Forwarder 1 Windows DNS](media/DNS08.png)
+
+    ![Conditional Forwarder 1 Windows DNS](media/DNS08.png)
 3. Enter the DNS domain and the IP address of the DNS servers in the Private Cloud, and click **OK**.
