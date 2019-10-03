@@ -20,15 +20,18 @@ Before you begin, ensure that your Azure subscription has the required dependenc
 1. [Install Git](https://git-scm.com/)
 2. [Install JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-5. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+
+> [!TIP]
+> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
 
 ## Install the Azure CLI extension
 
 Install the Azure Spring Cloud extension for the Azure CLI with the following command
 
 ```Azure CLI
-az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.4/spring_cloud-0.4.0-py2.py3-none-any.whl
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
 ```
 
 ## Provision a service instance using the Azure CLI
@@ -81,12 +84,12 @@ az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
 To deploy the fat-JAR to a specific deployment
 
 ```azurecli
-az spring-cloud app deployment create --app <app-name> -n <depployment-name> --jar-path <path-to-built-jar>
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
 ```
 
 ### Deploy from source code
 
-Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to upload your source code, build your project, and deploy it to the target application.
+Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to build your project.  You can use Azure CLI to upload your source code, build your project using kpack, and deploy it to the target application.
 
 > [!WARNING]
 > The project must produce only one JAR file with a `main-class` entry in the `MANIFEST.MF` in `target` (for Maven deployments or `build/libs` (for Gradle deployments).  Multiple JAR files with `main-class` entries will cause the deployment to fail.
@@ -94,7 +97,7 @@ Azure Spring Cloud uses [kpack](https://github.com/pivotal/kpack) to upload your
 For single module Maven / Gradle projects:
 
 ```azurecli
-cd <path-to-maven-or-gradle-soure-root>
+cd <path-to-maven-or-gradle-source-root>
 az spring-cloud app deploy -n <app-name>
 ```
 
@@ -112,3 +115,6 @@ Review the kpack build logs using the following command:
 ```azurecli
 az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
 ```
+
+> [!NOTE]
+> The kpack logs will only show the latest deployment if that deployment was built from source using kpack.
