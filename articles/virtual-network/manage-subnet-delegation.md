@@ -39,7 +39,7 @@ In this section, you create a virtual network and the subnet that you will later
     | Subnet - Name | Enter *mySubnet*. |
     | Subnet - Address range | Enter *10.0.0.0/24*. |
     |||
-1. Leave the rest as default and select **Create**.
+1. Leave the rest as default, and then select **Create**.
 
 ## Delegate a subnet to an Azure service
 
@@ -48,7 +48,7 @@ In this section, you delegate the subnet that you created in the preceding secti
 1. In the portal's search bar, enter *myVirtualNetwork*. When **myVirtualNetwork** appears in the search results, select it.
 2. In the search results, select *myVirtualNetwork*.
 3. Select **Subnets**, under **SETTINGS**, and then select **mySubnet**.
-4. In *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
+4. On the *mySubnet* page, for the **Subnet delegation** list, select from the services listed under **Delegate subnet to a service** (for example, **Microsoft.DBforPostgreSQL/serversv2**).  
 
 ## Remove subnet delegation from an Azure service
 
