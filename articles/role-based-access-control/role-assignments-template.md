@@ -154,7 +154,8 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
-Note this template is not idempotent unless the same roleNameGuid value is provided as a parameter for each deployment of the template. If no roleNameGuid is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a Conflict: RoleAssignmentExists error.
+> [!NOTE]
+> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
 
 ## Create a role assignment at a resource scope
 
