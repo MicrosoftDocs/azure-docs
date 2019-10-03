@@ -6,7 +6,7 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/02/2019
 ms.author: robinsh
 # intent: As a customer using IoT Hub, I need to clone my IoT hub to another region. 
 ---
@@ -312,7 +312,7 @@ Now that you have your clone up and running, you need to copy all of the devices
 
     **GenerateAndAddDevices** -- for testing -- this generates new devices with random device names, complete with encryption keys, and registers those new devices with the original hub. You could use this for testing -- create a hub, generate 100 devices on it, clone the hub, then copy those 100 devices to the clone and check out the results. 
 
-    **ExportDevices** -- for testing -- this exports the list of devices from the IoT Hub to a file in blob storage. You could use this to view the list of registered devices. 
+    **ExportDevices** -- this exports the list of devices from the IoT Hub to a file in blob storage. You could use this to view the list of registered devices, or to back up your existing devices before making bulk changes to your identity registry.
 
     **DeleteAllDevicesFromHub** -- this deletes all of the devices registered for an IoT hub. Use this with care. There are two of these -- one for the source hub and one for the destination hub.
 
@@ -416,7 +416,9 @@ If you have implemented routing, test that and make sure your messages are route
 
 ## Next steps
 
-You have cloned the original IoT hub into a new hub in a new region, complete with the devices. For more information about IoT Hub and development for the hub, please see the following articles.
+You have cloned an IoT hub into a new hub in a new region, complete with the devices. For more information about performing bulk operations against the identity registry in an IoT Hub, see [Import and export IoT Hub device identities in bulk](iot-hub-bulk-identity-mgmt.md).
+
+For more information about IoT Hub and development for the hub, please see the following articles.
 
 * [IoT Hub developer's guide](iot-hub-devguide.md)
 
