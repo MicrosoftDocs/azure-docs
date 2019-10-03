@@ -32,9 +32,13 @@ can't use Resource Manager templates to create management groups.
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services** > **Management + governance**.
 
-1. On the main page, select **New Management group**.
+1. Select **Cost Management + Billing**
+
+1. On the Cost Management + Billing - Management groups page, select **Management Groups**
+
+1. Select **+ Add management group**.
 
    ![Page for working with management groups](./media/main.png)
 
