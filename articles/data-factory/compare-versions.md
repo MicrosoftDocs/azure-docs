@@ -16,6 +16,9 @@ ms.author: makromer
 
 ---
 # Compare Azure Data Factory with Data Factory version 1
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article compares Data Factory with Data Factory version 1. For an introduction to Data Factory, see [Introduction to Data Factory](introduction.md).For an introduction to Data Factory version 1, see [Introduction to Azure Data Factory](v1/data-factory-introduction.md). 
 
 ## Feature comparison
