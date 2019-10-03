@@ -75,7 +75,7 @@ To set up the system-assigned identity, here are the options that you can use:
    | **Object ID** | <*identity-resource-ID*> | A Globally Unique Identifier (GUID) that represents the system-assigned identity for your logic app in an Azure AD tenant |
    ||||
 
-1. For a logic app that calls an Azure function or uses Azure API Management, and you want those resources to use the system-assigned identity, follow the step for the corresponding resource:
+1. To enable the system-assigned identity for an Azure function or Azure API Management service in your logic app, follow the corresponding step for that resource:
 
    * **Function app**: In the Azure portal, find and select your function app. On the function app pane, select **Platform features**. Under **Networking**, select **Identity**. Under **System assigned** > **Status**, select **On** > **Save** > **Yes**.
 
@@ -295,7 +295,6 @@ If your template also includes the managed identity's resource definition, you c
 | **principalId** | <*principal-ID*> | The Globally Unique Identifier (GUID) for the user-assigned managed identity in the Azure AD tenant |
 | **clientId** | <*cilent-ID*> | A Globally Unique Identifier (GUID) for your logic app's new identity that's used for calls during runtime |
 ||||
-
 
 <a name="access-other-resources"></a>
 
