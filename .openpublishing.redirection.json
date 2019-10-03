@@ -14631,6 +14631,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Bing-Web-Search/paging-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Custom-Search/page-webpages.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-News-Search/paging-news.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Video-Search/paging-videos.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Bing-Image-Search/paging-images.md",
+      "redirect_url": "/azure/cognitive-services/Bing-Web-Search/paging-search-results",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Spell-Check/bing-spell-check-supported-languages.md",
       "redirect_url": "/azure/cognitive-services/bing-spell-check/language-support",
       "redirect_document_id": true
@@ -17092,6 +17117,11 @@
     {
       "source_path": "articles/service-fabric/service-fabric-publish-app-remote-cluster.md",
       "redirect_url": "/azure/service-fabric/service-fabric-tutorial-deploy-app-to-party-cluster",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md",
+      "redirect_url": "prepare-for-migration",
       "redirect_document_id": false
     },
     {
