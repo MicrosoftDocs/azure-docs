@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 
