@@ -388,21 +388,27 @@ At this point, you have copied your hub to the new regions, and migrated the dev
 
 ## Routing 
 
-If you have custom routing defined for the original hub, exporting the template for the hub includes the routing configuration. However, it does not export resources used. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
+If you have [custom routing](iot-hub-devguide-messages-read-custom.md) defined for the original hub, exporting the template for the hub includes the routing configuration. However, it does not export resources used for the routing. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
 
 ### Migrate the routing resources
 
-In these steps, you export the template for the hub, then export a template for each of the resources used by the routing. Next, edit all of the templates to have new resource names and the new location, import the templates for the routing resources, and then import the hub's template (which includes the routing configuration).
+In these steps, you export the template for the hub, then create resources used by the routing, the use the template for the hub to create the hub. You can create the routing resources using the Azure portal]*(https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
 
 1. Export the hub and its routing configuration to a Resource Manager template. 
 
-1. Next, for each resource used by the routing, export it to a Resource Manager template and update the name and location of the resource. 
+1. Next, create each resource used by the routing. You can do this manually using the [Azure portal](https://portal.azure.com), or create the resources using Resource Manager templates. If you want to use templates, these are the steps to follow:
 
-1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. It will most likely only be the template for the IoT hub itself that references the resources used by the routing.
+    1. For each resource used by the routing, export it to a Resource Manager template.
+    
+    1. Update the name and location of the resource. 
 
-1. Edit the template for the IoT hub and change the name of the hub to its new name. Also, if you haven't already, update the resource names in the routing configuration for the IoT hub to match the new names.
+    1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. In most cases, the routing section in the template for the hub will be the only other template that references the resource. 
 
-1. Import each of the new templates except the one for the hub itself. You want the resources to be created before the routing is configured upon upload of the hub's template.
+    1. Import each of the templates, which will deploy the resource.
+
+    Once the resources used by the routing are set up and running, you can continue.
+
+1. Edit the template for the IoT hub and change the name of the hub to its new name. Also, if you haven't already done so, update the resource names in the routing section of the template to match the new resource names.
 
 1. Import the hub's template to create the hub and the routing configuration.
 
