@@ -5,10 +5,12 @@
  author: shants123
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/10/2019
+ ms.date: 10/02/2019
  ms.author: cynthn
  ms.custom: include file
 ---
+
+<!--needs links to new sub-topics and might need to not be an include file. Windows and Linux might need to change to LCI, portal and POwerShell, depending on context-->
 
 Azure periodically updates its platform to improve the reliability, performance, and security of the host infrastructure for virtual machines. The purpose of these updates ranges from patching software components in the hosting environment to upgrading networking components or decommissioning hardware. 
 
@@ -19,7 +21,7 @@ Updates rarely affect the hosted VMs. When updates do have an effect, Azure choo
 
 This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
-Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or for [Linux](../articles/virtual-machines/linux/scheduled-events.md).
+Within a VM, you can get notifications about upcoming maintenance by using Scheduled Events for [Windows](../articles/virtual-machines/windows/scheduled-events.md) or for [Linux](../articles/virtual-machines/linux/scheduled-events.md).
 
 
 

@@ -111,7 +111,7 @@
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
-    href: maintenance-and-updates.md
+    href: ../maintenance-and-updates.md
   - name: Disk storage
     items:
     - name: Introduction to managed disks
