@@ -1,5 +1,5 @@
 ---
-title: How to create a blob in Azure Storage using the client library for Java v8 | Microsoft Docs
+title: "Quickstart: Azure Blob storage client library for Java v8"
 description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Java v8 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 author: mhopkins-msft
 
@@ -10,20 +10,24 @@ ms.subservice: blobs
 ms.topic: conceptual
 ---
 
-# How to upload, download, and list blobs using the client library for Java v8
+# Quickstart: Azure Blob storage client library for Java v8
 
-In this how-to guide, you learn how to use the client library for Java v8 to upload, download, and list block blobs in a container in Azure Blob storage.
+Get started with the Azure Blob Storage client library for Java. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+
+Use the Azure Blob Storage client library for Java to:
+
+* Create a container
+* Set permissions on a container
+* Create a blob in Azure Storage
+* Download the blob to your local computer
+* List all of the blobs in a container
+* Delete a container
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-Also create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
-
-Make sure you have the following prerequisites:
-
-* Install an IDE that has Maven integration.
-
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* An IDE that has Maven integration.
 * Alternatively, install and configure Maven to work from the command line.
 
 This guide uses [Eclipse](https://www.eclipse.org/downloads/) with the "Eclipse IDE for Java Developers" configuration.
