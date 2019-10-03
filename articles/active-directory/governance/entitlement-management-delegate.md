@@ -31,11 +31,9 @@ ms.collection: M365-identity-device-management
 
 By default, Global administrators and User administrators can create and manage all aspects of Azure AD entitlement management. However, the users in these roles may not know all the scenarios where access packages are required. Typically it is users within departments who know who need to collaborate. Instead of granting unrestricted permissions to non-administrators, you can grant users the least permissions they need to perform their job and avoid creating conflicting or inappropriate access rights.
 
-This video provides an overview of delegation from IT administrator to department manager:
+This video provides an overview of how to delegate access governance from IT administrator to department manager.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq00]
-
-This article describes how to delegate access governance to others in entitlement management. 
 
 ## Delegate example for department adoption
 
@@ -47,7 +45,7 @@ As the IT administrator, Hana has contacts in each department -- Mamta in Market
 
 With entitlement management, you can delegate access governance to these department managers because they're the ones who know who needs access and to which resources. This ensures the right people are managing access for their departments, without IT involvement.
 
-Here is one way that Hana could delegate access governance to marketing, finance, and legal departments.
+Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
 1. Hana creates a new Azure AD security group, and adds Mamta, Mark, and Joe as members of the group.
 
@@ -64,6 +62,8 @@ Here is one way that Hana could delegate access governance to marketing, finance
 1. Mamta can add any catalog owners that she wants to be a co-owner for that catalog. This helps share the catalog management tasks.
 
 1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog. An access package is a bundle of resources for a team or project that users can request.
+
+The following diagram shows catalogs with resources for the marketing, finance, and legal departments. Using these catalogs, project managers can create access packages for their teams or projects.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
 
@@ -125,7 +125,7 @@ Access package managers must be familiar with the project and are typically a pr
 - Who needs to approve access
 - How long the project will last
 
-This video provides an overview of delegation from department manager to project manager:
+This video provides an overview of how to delegate access governance from department manager to project manager.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE3Lq08]
 
@@ -146,5 +146,4 @@ Follow these steps to assign a user to the access package manager role:
 ## Next steps
 
 - [Roles in entitlement management](entitlement-management-roles.md)
-- [Add approvers](entitlement-management-access-package-edit.md#policy-request)
-- [Add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Create a new access package](entitlement-management-access-package-create.md)

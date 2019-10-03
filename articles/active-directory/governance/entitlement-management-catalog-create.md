@@ -85,4 +85,4 @@ You can delete a catalog, but only if it does not have any access packages.
 ## Next steps
 
 - [Delegate access governance to others](entitlement-management-delegate.md)
-- [Create and manage an access package](entitlement-management-access-package-create.md)
+- [Create a new access package](entitlement-management-access-package-create.md)
