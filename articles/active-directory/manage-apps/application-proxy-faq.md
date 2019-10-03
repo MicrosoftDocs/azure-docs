@@ -13,12 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
 ---
 
 # Active Directory (Azure AD) Application Proxy frequently asked questions
+
+This page answers frequently asked questions about Azure Active Directory (Azure AD) Application Proxy.
 
 ## Enabling Azure AD Application Proxy
 
