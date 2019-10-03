@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -37,6 +37,17 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >Releasing a new version of Azure AD Connect is a process that requires several quality control step to ensure the operation functionality of the service, and while we go through this process the version number of a new release as well as the release status will be updated to reflect the most recent state.
 While we go through this process, the version number of the release will be shown with an "X" in the minor release number position, as in "1.3.X.0" - this indicates that the release notes in this document are valid for all versions beginning with "1.3.". As soon as we have finalized the release process the release version number will be updated to the most recently released version and the release status will be updated to "Released for download and auto upgrade".
 Not all releases of Azure AD Connect will be made available for auto upgrade. The release status will indicate whether a release is made available for auto upgrade or for download only. If auto upgrade was enabled on your Azure AD Connect server then that server will automatically upgrade to the latest version of Azure AD Connect that is released for auto upgrade. Note that not all Azure AD Connect configurations are eligible for auto upgrade. Please follow this link to read more about [auto upgrade](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## 1.4.25.0
+
+### Release status
+9/28/2019: Released for auto-upgrade to select tenants. Not available for download.
+
+This version fixes a bug where some servers that were auto-upgraded from a previous version to 1.4.18.0 and experienced issues with Self-service password reset (SSPR) and Password Writeback.
+
+### Fixed issues
+
+Under certain circumstances, servers that were auto upgraded to version 1.4.18.0 did not re-enable Self-service password reset and Password Writeback after the upgrade was completed. This auto upgrade release fixes that issue and re-enables Self-service password reset and Password Writeback.
 
 ## 1.4.18.0
 
@@ -79,9 +90,7 @@ Not all releases of Azure AD Connect will be made available for auto upgrade. Th
 - Improved diagnostics and troubleshooting around group policies that do not allow the ADSync service to start when initially installed.
 - Fixed a bug where display name for a Windows computer was written incorrectly.
 - Fix a bug where OS type for a Windows computer was written incorrectly.
-- Fixed a bug where non-Windows 10 computers were syncing unexpectedly. Note that the effect of this change is that non-Windows-10 computers that were previously synced will now be deleted. This does not affect any features as the sync of Windows computers is only used for Hybrid Azure AD domain join, which only works for Windows-10 devices. 
-- Fix a bug where display name for a Windows computer was written incorrectly.
-- Fix a bug where OS type for a Windows computer was written incorrectly.
+- Fixed a bug where non-Windows 10 computers were syncing unexpectedly. Note that the effect of this change is that non-Windows-10 computers that were previously synced will now be deleted. This does not affect any features as the sync of Windows computers is only used for Hybrid Azure AD domain join, which only works for Windows-10 devices.
 - Added several new (internal) cmdlets to the ADSync PowerShell module.
 
 
