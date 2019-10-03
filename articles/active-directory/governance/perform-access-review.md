@@ -23,7 +23,6 @@ Azure Active Directory (Azure AD) simplifies how enterprises manage access to gr
 
 This article describes how a designated reviewer performs an access review for members of a group or users with access to an application.
 
-
 ## Open the access review
 
 The first step to perform an access review is to find and open the access review.
