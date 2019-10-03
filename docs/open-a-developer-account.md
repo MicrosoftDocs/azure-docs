@@ -11,6 +11,16 @@ To publish your Office solutions to [AppSource](https://appsource.microsoft.com)
 > [!NOTE]
 > If you have an existing Microsoft account that you used to sign in to Seller Dashboard, that account will continue to work in Partner Center.
 
+Depending on your scenario, you might be able to use an existing developer account. The following table lists the possible developer account scenarios.
+
+|**Scenario**|**Developer account options**|
+|:-----------|:-----------------|
+|No existing Partner Center program registrations.|Sign up for a new account using your work or school account.|
+|Registered for another Partner Center program with your work or school account.|Reuse your existing account or choose to create a new account.|
+|Registered for another Partner Center program with your Microsoft account.|Associate your Azure AD work or school account with your existing seller account.|
+|Registered as an Office developer with your Microsoft account.|Choose to associate your Azure AD work or school account with your existing seller account or keep your existing Office developer account.|
+|Registered as an Office developer with your Microsoft account and need to register for the Commercial Marketplace program.|Choose to associate your Azure AD work or school account with your existing seller account, or sign up for the Commercial Marketplace program with your work or school account and reuse your existing seller account.|
+
 ## Before you begin
 
 To create an Office developer account on Partner Center, make sure that you have:
