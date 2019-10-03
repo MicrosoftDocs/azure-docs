@@ -61,7 +61,7 @@ Here is one way that Hana could delegate access governance to the marketing, fin
 
 1. Mamta can add any catalog owners that she wants to be a co-owner for that catalog. This helps share the catalog management tasks.
 
-1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog by assigning the Access package manager role. An access package is a bundle of resources for a team or project that users can request.
+1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog by assigning the access package manager role. An access package is a bundle of resources for a team or project that users can request.
 
 The following diagram shows catalogs with resources for the marketing, finance, and legal departments. Using these catalogs, project managers can create access packages for their teams or projects.
 
@@ -126,9 +126,8 @@ Follow these steps to assign a user to the catalog owner role:
 
 ## As a department manager, delegate to project manager
 
-To delegate creation and management of access packages in the catalog, you add users to the access package manager role.
+To delegate creation and management of access packages in a catalog, you add users to the access package manager role. Access package managers must be familiar with the project and are typically a project manager or a project lead. Access package managers are involved in the day-to-day operations of the project, and they know the following information:
 
-Access package managers must be familiar with the project and are typically a project manager or a project lead. Access package managers are involved in the day-to-day operations of the project, and they know the following information:
 - What resources are needed
 - Who will need access
 - Who needs to approve access
