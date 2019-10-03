@@ -35,8 +35,9 @@ Once you have a script setup to run on your local environment, it is much easier
 * Pausing execution and inspecting object-state
 * Catching type or logical errors that won't be exposed until runtime
 
-> [!TIP] Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before attempting to run it in a 
-> pipeline with multiple steps.
+> [!TIP] 
+> Once you can verify that your script is running as expected, a good next step is running the script in a single-step pipeline before 
+> attempting to run it in a pipeline with multiple steps.
 
 ## Debugging scripts from remote context
 
