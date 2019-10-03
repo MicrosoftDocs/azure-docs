@@ -168,7 +168,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in `AzureWebJobsStorage` which is the same storage account used by the function app.
+When the function is invoked, the HTTP request is passed to the function as `req`. An entry will be retrieved from the Azure Blob Storage based on the _ID_ in the route URL and made available as `obj` in the function body.  Here the storage account specified is the connection string found in  , which is the same storage account used by the function app.
 
 
 ## Outputs
@@ -280,10 +280,10 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Concurrency
 
-By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient in under one or more of the following conditions:
+By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient under one or more of the following conditions:
 
-+ You are trying to handle a number of invocations being made at the same time.
-+ Your are processing a large number of I/O events.
++ You're trying to handle a number of invocations being made at the same time.
++ You're processing a large number of I/O events.
 + Your application is I/O bound.
 
 In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
@@ -310,7 +310,7 @@ def main():
 
 ### Use multiple language worker processes
 
-By default, every Functions host instance has a single language worker process. However there is support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
+By default, every Functions host instance has a single language worker process. However there's support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
 
 ## Context
 
