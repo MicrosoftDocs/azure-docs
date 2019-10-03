@@ -7,6 +7,9 @@
 - name: Tutorials
 - name: Samples
 - name: Concepts
+  items:
+  - name: What is a secured virtual hub?
+    href: secured-virtual-hub.md
 - name: How-to guides
 - name: Reference
   items:
