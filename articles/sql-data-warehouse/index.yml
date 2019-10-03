@@ -27,10 +27,10 @@ landingContent:
         links:
           - text: What is SQL Data Warehouse?
             url: sql-data-warehouse-overview-what-is.md
+      - linkListType: architecture
+        links:
           - text: SQL Data Warehouse - MPP architecture
             url: massively-parallel-processing-mpp-architecture.md
-          - text: SQL Data Warehouse best practices
-            url: sql-data-warehouse-best-practices.md
       - linkListType: quickstart
         links:
           - text: Create a SQL Data Warehouse
@@ -43,44 +43,61 @@ landingContent:
         links:
           - text: Design a PolyBase data loading strategy
             url: design-elt-data-loading.md
+          - text: Data loading best practices
+            url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
           - text: Create a SQL Data Warehouse
             url: create-data-warehouse-portal.md
       - linkListType: tutorial
         links:
-          - text: Load data
+          - text: Load data from Azure bob storage
             url: load-data-from-azure-blob-storage-using-polybase.md
 
+  # Card
+  - title: Performance tuning
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: SQL Data Warehouse best practices
+            url: sql-data-warehouse-best-practices.md
+          - text: Ordered clustered columnstore index
+            url: performance-tuning-ordered-cci.md
+      # - linkListType: linkListType
+      #   links:
+      #     - text: linktext1
+      #       url: file1.md
+      #     - text: linktext2
+      #       url: file2.md
 
-  # # Card
-  # - title: Secure
-  #   linkLists:
-  #     - linkListType: concept
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
+  # Card
+  - title: Manage and monitor your SQL Data Warehouse
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Leran to manage and monitor your SQL Data Warehouse
+            url: sql-data-warehouse-overview-manageability-monitoring.md
+      #     - text: linktext2
+      #       url: file2.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor your workload using DMVs
+            url: sql-data-warehouse-manage-monitor.md
+      #     - text: linktext2
+      #       url: file2.md
 
-  # # Card
-  # - title: cardtitle4
-  #   linkLists:
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
-  #     - linkListType: linkListType
-  #       links:
-  #         - text: linktext1
-  #           url: file1.md
-  #         - text: linktext2
-  #           url: file2.md
+  # Card
+  - title: Secure your SQL Data Warehouse
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Understand the basic oof securing your SQL Data Warehouse
+            url: sql-data-warehouse-overview-manage-security.md
+          # - text: linktext2
+          #   url: file2.md
+      # - linkListType: linkListType
+      #   links:
+      #     - text: linktext1
+      #       url: file1.md
+      #     - text: linktext2
+      #       url: file2.md
