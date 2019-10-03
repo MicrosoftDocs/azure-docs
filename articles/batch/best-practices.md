@@ -22,11 +22,11 @@ In this article, you learn:
 
 ## Pools
 
-Batch pools are the computing resources for executing jobs scheduled to the Batch service. The following section provide guidance on the top best practices to follow when working with Batch pools. 
+Batch pools are the computing resources for executing jobs scheduled to the Batch service. The following sections provide guidance on the top best practices to follow when working with Batch pools. 
 
 ### Allocation modes
 
-Azure Batch can allocate computing resources in Azure managed subscriptions (Batch service allocation mode) or in your subscription (user subscription allocation mode).
+Azure Batch can allocate computing resources in Azure-managed subscriptions (Batch service allocation mode) or in your subscription (user subscription allocation mode).
 
 ### Pool configuration and naming
 
@@ -42,11 +42,11 @@ It's helpful to use unique names for pools, tasks, and jobs across different Azu
 
 ### Pool lifetime and billing
 
-Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It is your responsibility to manage the compute nodes in the pool either explicitly, or through automatic means provided by the service (i.e., auto-scale or auto-pool).
+Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes in the pool at any point in time. It is your responsibility to manage the compute nodes in the pool either explicitly, or through automatic means provided by the service (autoscale or autopool).
 
 However, you should delete your pools every couple of months to ensure you get the latest updates and bug fixes made to the node agent. Your pool won't receive node agent updates unless it is resized to 0 compute nodes, or if the pool is recreated. Before you resize or recreate your pool, it's recommended download any node agent logs for debugging purposes.
 
-On a similar note, it's not recommended to delete and recreate your pools on a daily basis. Instead, use an auto-scale formula to resize the pool to 0 compute nodes. An auto-scale formula will resize your pool automatically and save costs by quickly releasing compute nodes.
+On a similar note, it's not recommended to delete and recreate your pools on a daily basis. Instead, use an autoscale formula to resize the pool to 0 compute nodes. An autoscale formula will resize your pool automatically and save costs by quickly releasing compute nodes.
 
 Batch itself incurs no charges, but you do incur charges for the compute resources used. You're billed for every compute node in the pool, regardless of the state it's in. This includes any charges required for the virtual machine to run such as storage and networking costs. To learn more, see [Cost analysis and budgets for Azure Batch](budget.md).
 
@@ -56,9 +56,9 @@ For the purposes of isolation, if your scenario requires isolating jobs from eac
 
 ### Pool allocation failures
 
-Pool allocation failures can happen at any point during first allocation or subsequent resizes. This can be due to temporary capacity exhaustion in a region or failures in other Azure services that Azure Batch relies on. Note that your core quota is not a guarantee but rather a limit.
+Pool allocation failures can happen at any point during first allocation or subsequent resizes. This can be due to temporary capacity exhaustion in a region or failures in other Azure services that Azure Batch relies on. Your core quota is not a guarantee but rather a limit.
 
-If your workload is amenable, it is recommended to submit your jobs without waiting for compute nodes to become available or utilizing auto-pool or auto-scale functionality to maximally utilize your computing resources and potentially reduce idle time.
+If your workload is amenable, it is recommended to submit your jobs without waiting for compute nodes to become available or utilizing autopool or autoscale functionality to maximally utilize your computing resources and potentially reduce idle time.
 
 ### Unplanned downtime
 
@@ -66,7 +66,7 @@ It's possible for Batch pools to experience downtime events in Azure whether the
 
 In the case that a VM fails, Batch automatically attempts to recover these compute nodes on your behalf. This may trigger a reschedule of any running task on the VM that is recovered. See [Designing for retries](#designing-for-retries) to learn more about interrupted tasks.
 
-It's also advised to not depend on a single Azure region if you have a time sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up pools in multiple regions before your start time. Scaled pools in multiple regions provide a ready, easily accessible back up if something goes wrong with another pool.
+It's also advised to not depend on a single Azure region if you have a time sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up pools in multiple regions before your start time. Scaled pools in multiple regions provide a ready, easily accessible backup if something goes wrong with another pool.
 
 ## Jobs
 
@@ -84,17 +84,17 @@ Azure Batch tasks are individual units of work that comprise an Azure Batch job.
 
 ### Task lifetime
 
-A Batch task has a default lifetime of 7 days until it's deleted from the system. Anything generated by the task, such as log files or program output, are stored on the compute node disk until the task is deleted. It's recommended to delete tasks explicitly when they are no longer needed, or set a [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the corresponding `retentionTime` expires.
+A Batch task has a default lifetime of seven days until it's deleted from the system. Anything generated by the task, such as log files or program output, are stored on the compute node disk until the task is deleted. It's recommended to delete tasks explicitly when they are no longer needed, or set a [retentionTime](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the corresponding `retentionTime` expires.
 
 ### Task submission
 
-Tasks can be submitted on an individual basis or in collections. It is generally advisable to submit tasks in collections when doing bulk submission of tasks to reduce overhead and submission time. The C# SDK has built-in helpers to do this on your behalf while the other SDKs have separate add task collection interfaces.
+Tasks can be submitted on an individual basis or in collections. Submit tasks in collections when doing bulk submission of tasks to reduce overhead and submission time. The C# SDK has built-in helpers to do this on your behalf while the other SDKs have separate add task collection interfaces.
 
 ### Task execution
 
 Tasks within a job don't have execution ordering guarantees that may be found in other scheduling systems (for example, first in, first out order). However, job priorities can be applied to order execution priority amongst jobs, which subsequently gives priority to the tasks in those jobs.
 
-When the `maxTasksPerNode` setting is set to a higher number than the default of 1 on the pool, the Batch scheduler packs tasks within each node first. This can be controlled by setting [ComputeNodeFillType](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.computenodefilltype?view=azure-dotnet) to spread tasks across compute nodes prior to packing. If you use the pack setting, there will be more tasks per node, maximizing the use of compute nodes and allowing corresponding auto-scale formulas to minimize the target number of nodes.
+When the `maxTasksPerNode` setting is set to a higher number than the default of 1 on the pool, the Batch scheduler packs tasks within each node first. This can be controlled by setting [ComputeNodeFillType](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch.common.computenodefilltype?view=azure-dotnet) to spread tasks across compute nodes prior to packing. If you use the pack setting, there will be more tasks per node, maximizing the use of compute nodes and allowing corresponding autoscale formulas to minimize the target number of nodes.
 
 ### Designing for retries
 
@@ -106,7 +106,7 @@ Tasks should be designed to withstand failure and accommodate retry. To do this,
 
 A common example is to create a task that "copies files to a compute node." The task copies the specified files **every** time it runs, which is inefficient and isn't built to withstand failure. Instead, create a task to "ensure the files are on this compute node." This task doesn't recopy files that are already present, and the task picks up where it left off if it was interrupted.
 
-There are no design differences when executing your tasks on dedicated or low priority nodes. Whether a task is preempted while running on a low priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
+There are no design differences when executing your tasks on dedicated or low-priority nodes. Whether a task is preempted while running on a low-priority node or interrupted due to a failure on a dedicated node, both situations are mitigated by designing the task to withstand failure.
 
 ### Task commands
 
