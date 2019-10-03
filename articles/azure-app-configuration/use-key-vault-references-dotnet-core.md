@@ -157,7 +157,7 @@ To add a secret to the vault, you just need to take a couple of additional steps
     <h1>@Configuration["TestApp:Settings:Message"] and @Configuration["TestApp:Settings:KeyVaultMessage"]</h1>
     ```
 
-Note that the value of the Key Vault reference *TestApp:Settings:KeyVaultMessage* is accessed in the same way as the value of the configuration value *TestApp:Settings:Message* 
+    Note that the value of the Key Vault reference *TestApp:Settings:KeyVaultMessage* is accessed in the same way as the value of the configuration value *TestApp:Settings:Message* 
 
 ## Build and run the app locally
 
