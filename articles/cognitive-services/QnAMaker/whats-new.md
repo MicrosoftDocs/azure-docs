@@ -39,7 +39,7 @@ Learn what's new with QnA Maker.
 * Improved NLP ranker model for English, 
 
 > [!div class="nextstepaction"]
-> [Create a QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
+> [Create a QnA Maker service](how-to/set-up-qnamaker-service-azure.md)
 
 ## Cognitive Service updates
 
