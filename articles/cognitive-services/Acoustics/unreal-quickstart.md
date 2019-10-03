@@ -37,7 +37,7 @@ Open Wwise Launcher. On the **Plugins** tab, under **Install New Plug-ins**, sel
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
 1. In Wwise Launcher, select the **Unreal Engine** tab. 
-1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.uproject* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
+1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.project* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
    ![The Unreal tab in Wwise Launcher](media/wwise-unreal-tab.png)
 
@@ -64,7 +64,7 @@ When you open the Unreal project, it will prompt you to rebuild modules. Select 
 
 If opening the project fails because of build failures, check that you installed the Project Acoustics Wwise plug-in to the same version of Wwise that was used in the Project Acoustics sample project.
 
-If you use a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than version 2019.1, you won't be able to generate sound banks by using the Project Acoustics sample project. You need to integrate Wwise version 2019.1 into the sample project.
+If you use a version of [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) earlier than version 2019.1, you can't generate sound banks by using the Project Acoustics sample project. You need to integrate Wwise version 2019.1 into the sample project.
 
 ## Experiment with Project Acoustics design controls
 Listen to how the scene sounds by clicking the play button in the Unreal editor. Use the W, A, S, and D keys and the mouse to move around. To see keyboard shortcuts for additional controls, press F1.

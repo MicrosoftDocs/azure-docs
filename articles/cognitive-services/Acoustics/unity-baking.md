@@ -24,7 +24,7 @@ Software requirements:
 ## Open the Project Acoustics bake window
 In Unity, select **Acoustics** from the **Window** menu.
 
-![Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
+![The Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
 
 ## Create a navigation mesh
 Project Acoustics uses a navigation mesh to place listener probe points for simulation. You can use the Unity [navigation mesh workflow](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html). Or you can use a different 3D modeling package to design your own mesh.
@@ -68,7 +68,7 @@ The parts of the tab page (pictured below) are:
 
 If you have nothing selected in your scene, the **Objects** tab looks like the following picture.
 
-![TheAcoustics Objects tab with nothing selected](media/objects-tab-no-selection-detail.png)
+![The Acoustics Objects tab with nothing selected](media/objects-tab-no-selection-detail.png)
 
 If you have something selected in your scene or hierarchy window, the tab looks like the following picture.
 
@@ -83,7 +83,7 @@ Click the checkbox to mark all the items. Click it again to unmark all the objec
 Objects can be marked for both geometry and navigation.
 
 ## Select acoustic materials
-After your objects are marked, click the **Materials** button, and then assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system. For two objects to have separate acoustic materials, they must have separate visual materials.
+After your objects are marked, click the **Materials** button. Then assign acoustic materials. The Project Acoustics materials system is tied to the Unity visual materials system. For two objects to have separate acoustic materials, they must have separate visual materials.
 
 The acoustic material selection determines the amount of sound energy that's reflected back from each surface. The default acoustic material has absorption similar to steel. Project Acoustics suggests materials based on the visual material name. You can also assign the acoustic material *Custom* to a material to activate an adjustable absorption-coefficient slider.
 
@@ -116,17 +116,17 @@ Depending on the size of your scene and the speed of your machine, these calcula
 ### Review voxel and probe placement
 Preview both the voxel data and probe point locations to make sure you're ready to bake your scene. An incomplete navigation mesh or missing or extra acoustic geometry is usually easily visible in the preview. Enable or disable voxel and probe placement by using the **Gizmos** menu.
 
-![Gizmos menu in Unity](media/gizmos-menu.png)
+![The Gizmos menu in Unity](media/gizmos-menu.png)
 
 Voxels that contain acoustic geometry are shown as green cubes. Explore your scene, and verify that everything that should be geometry has voxels. The scene camera has to be within about 5 meters of the object for the voxels to show.
 
 If you compare voxels created with coarse resolution versus fine resolution, you'll see that the coarse voxels are twice as large.
 
-![Coarse voxels preview in Unity editor](media/voxel-cubes-preview.png)
+![The coarse voxels preview in the Unity editor](media/voxel-cubes-preview.png)
 
 Simulation results are interpolated between listener probe point locations at runtime. Check that there are probe points near any places where the player is expected go in the scene.
 
-![Probes preview in Unity editor](media/probes-preview.png)
+![The probes preview in the Unity editor](media/probes-preview.png)
 
 ### Take care with scene renames
 The scene name is used to connect the scene to files that store the probe point placement and voxelization. If you rename the scene after probe points are calculated, the material assignment and placement data are lost and should be rerun.
@@ -164,7 +164,7 @@ You can bake your scene on a compute cluster in the cloud by using the Azure Bat
 10. An estimate of the time that your job will take to run in the cloud. (But it doesn't include node startup time.) After the job starts running, this field shows an estimate of how long until you get back the results.
 11. The total amount of computing time needed to run the simulations. This value is the total amount of node compute time that will be used in Azure. For more information, see [Estimate Azure bake cost](#Estimating-bake-cost) later in this article.
 12. This message tells you where the results of the bake will be saved when the job is finished.
-13. *(Advanced use only:)* This button forces Unity to forget about a bake that you submitted. For example, if you downloaded the results by using another machine, select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *Note that this is not the same as canceling the job. The job, if running, will continue to run in the cloud.*
+13. *(Advanced use only:)* This button forces Unity to forget about a bake that you submitted. For example, if you downloaded the results by using another machine, select the **Clear State** button to forget that job. The result file, when ready, will *not* be downloaded. *This is not the same as canceling the job. The job, if running, will continue to run in the cloud.*
 14. Select this button to submit the bake to the cloud. While a job is running, this button becomes **Cancel Job**.
 15. Select this button to prepare for processing [acoustics simulation on your PC](#Local-bake).
 16. This area shows the status of the bake. When the bake is completed, it shows "Downloaded."
@@ -189,11 +189,11 @@ For security, Azure credentials are stored on your local machine and associated 
 
 3. Search for the job ID in the list of jobs.
 
-   ![Bake job status highlighted in the Azure portal](media/azure-bake-job-status.png)  
+   ![The bake job status highlighted in the Azure portal](media/azure-bake-job-status.png)  
 
 4. Select the job ID to see the status of the related tasks and the overall job status.
 
-   ![Bake task status](media/azure-batch-task-state.png)  
+   ![The bake task status](media/azure-batch-task-state.png)  
 
 
 ### <a name="Estimating-bake-cost"></a> Estimate Azure bake cost

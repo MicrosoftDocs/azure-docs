@@ -39,4 +39,4 @@ Check that:
 Project Acoustics cleans up all Azure resources for a job after successful completion or cancellation. This process can take up to 5 minutes.
 
 ## Next steps
-* Try the [Unity](unity-quickstart.md) or [Unreal](unreal-quickstart.md) sample content
+* Try the [Unity](unity-quickstart.md) or [Unreal](unreal-quickstart.md) sample content.

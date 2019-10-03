@@ -30,7 +30,7 @@ What's included in the sample package?
 Import the sample package into a new Unity project.
 1. In Unity, go to **Assets** > **Import Package** > **Custom Package**.
 
-    ![Unity Import Package options](media/import-package.png)  
+    ![The Unity Import Package options](media/import-package.png)  
 
 1. Choose **ProjectAcoustics.unitypackage**.
 
@@ -74,7 +74,7 @@ The following sections explore some of the effects that you can create by using 
 ### Modify distance-based attenuation
 The audio digital signal processing in the **Project Acoustics** Unity spatializer plug-in respects the per-source distance-based attenuation that's built into the Unity editor. The controls for distance-based attenuation are in the **Audio Source** component, which is in the **Inspector** panel of sound sources under **3D Sound Settings**:
 
-![Unity distance attenuation options panel](media/distance-attenuation.png)
+![The Unity distance attenuation options panel](media/distance-attenuation.png)
 
 Project Acoustics computes in a "simulation region" box that's centered around the player location. The acoustics assets in the sample package were baked at a simulation region size of 45 meters around the player. So, the sound attenuation should be designed to fall to 0 at about 45 m.
 
