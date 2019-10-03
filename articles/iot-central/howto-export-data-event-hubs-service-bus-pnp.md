@@ -167,7 +167,7 @@ The following example shows a message about device data in event hub or Service 
     "displayName":"Airbox - 266d30aedn5",
     "data":{ 
       "$cloudProperties":{ 
-
+        "Color":"blue"
       },
       "EnvironmentalSensor":{ 
         "thsensormodel":{ 
@@ -385,4 +385,4 @@ The following example shows a device template message in event hub or Service Bu
 Now that you know how to export your data to Azure Event Hubs and Azure Service Bus, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to trigger Azure Functions](howto-trigger-azure-functions.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to trigger Azure Functions](howto-trigger-azure-functions.md)

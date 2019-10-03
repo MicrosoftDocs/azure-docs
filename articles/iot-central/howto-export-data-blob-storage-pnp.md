@@ -159,7 +159,7 @@ Exported files contain a single line per record. The following example shows a r
   "displayName":"Airbox",
   "data":{ 
     "$cloudProperties":{ 
-
+        "Color":"blue"
     },
     "EnvironmentalSensor":{ 
       "thsensormodel":{ 
@@ -353,4 +353,4 @@ Exported files contain a single line per record. The following example shows a r
 Now that you know how to export your data, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to use the IoT Central device bridge to connect other IoT clouds](howto-build-iotc-device-bridge-pnp.md)
+> [How to use the IoT Central device bridge to connect other IoT clouds](howto-build-iotc-device-bridge.md)

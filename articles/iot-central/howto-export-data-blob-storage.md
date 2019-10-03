@@ -647,4 +647,4 @@ function load(filePath) {
 Now that you know how to export your data, continue to the next step:
 
 > [!div class="nextstepaction"]
-> [How to visualize your data in Power BI](howto-connect-powerbi-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [How to visualize your data in Power BI](howto-connect-powerbi.md)
