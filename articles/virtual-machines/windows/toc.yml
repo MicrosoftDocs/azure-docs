@@ -422,8 +422,6 @@
     - name: Create a proximity placement group
       href: proximity-placement-groups.md    
     - name: Vertically scale
-      href: vertical-scaling-automation.md
-    - name: Create VM in availability zone
       items:
       - name: PowerShell
         href: create-powershell-availability-zone.md
