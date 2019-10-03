@@ -41,7 +41,7 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Designing a PolyBase data loading strategy
+          - text: Design a PolyBase data loading strategy
             url: design-elt-data-loading.md
       - linkListType: how-to-guide
         links:
@@ -53,34 +53,34 @@ landingContent:
             url: load-data-from-azure-blob-storage-using-polybase.md
 
 
-  # Card
-  - title: cardtitle3
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+  # # Card
+  # - title: Secure
+  #   linkLists:
+  #     - linkListType: concept
+  #       links:
+  #         - text: linktext1
+  #           url: file1.md
+  #         - text: linktext2
+  #           url: file2.md
+  #     - linkListType: linkListType
+  #       links:
+  #         - text: linktext1
+  #           url: file1.md
+  #         - text: linktext2
+  #           url: file2.md
 
-  # Card
-  - title: cardtitle4
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+  # # Card
+  # - title: cardtitle4
+  #   linkLists:
+  #     - linkListType: linkListType
+  #       links:
+  #         - text: linktext1
+  #           url: file1.md
+  #         - text: linktext2
+  #           url: file2.md
+  #     - linkListType: linkListType
+  #       links:
+  #         - text: linktext1
+  #           url: file1.md
+  #         - text: linktext2
+  #           url: file2.md
