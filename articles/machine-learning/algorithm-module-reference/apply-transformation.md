@@ -14,7 +14,7 @@ ms.date: 05/02/2019
 
 # Apply Transformation module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to modify an input dataset based on a previously computed transformation.  
   

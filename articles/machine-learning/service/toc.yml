@@ -45,7 +45,7 @@
         href: tutorial-1st-experiment-R-set-up.md
       - name: 2. Train your first model
         href: tutorial-1st-experiment-R-train-model.md
-  - name: Visual interface
+  - name: Designer
     items:
     - name: 1. Train regression model
       displayName: studio
@@ -75,7 +75,7 @@
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
-  - name: Visual interface
+  - name: Designer
     displayName: studio
     href: ui-concept-visual-interface.md
   - name: Automated machine learning
@@ -166,8 +166,8 @@
         href: how-to-train-pytorch.md
       - name: Use Chainer
         href: how-to-train-chainer.md
-    - name: Use visual interface
-      displayName: sample visual interface experiments
+    - name: Use the designer
+      displayName: sample designer experiments
       items:
       - name: "Predict price"
         displayName: regression, studio
@@ -295,7 +295,7 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
-  - name: Visual interface modules
+  - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
     - name: Module reference overview

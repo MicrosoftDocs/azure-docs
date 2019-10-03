@@ -1,7 +1,7 @@
 ---
-title: Visual interface
+title: Designer
 titleSuffix: Azure Machine Learning
-description: Learn about the terms, concepts, and workflow that make up the visual interface (preview) for Azure Machine Learning.
+description: Learn about the terms, concepts, and workflow that make up the designer for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 05/15/2019
-# As a data scientist, I want to understand the big picture about how the visual interface for Azure Machine Learning works.
+# As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
-# What is the visual interface for Azure Machine Learning? 
+# What is Azure Machine Learning designer? 
 
-The visual interface (preview) for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
+The designer for Azure Machine Learning enables you to prep data, train, test, deploy, manage, and track machine learning models without writing code.
 
 There is no programming required, you visually connect [datasets](#dataset) and [modules](#module) to construct your model.
 
-The visual interface uses your Azure Machine Learning [workspace](concept-workspace.md) to:
+The designer uses your Azure Machine Learning [workspace](concept-workspace.md) to:
 
 + Write artifacts of [experiment](#experiment) runs into the workspace.
 + Access [datasets](#dataset).
@@ -26,11 +26,11 @@ The visual interface uses your Azure Machine Learning [workspace](concept-worksp
 + Register [models](concept-azure-machine-learning-architecture.md#models).
 + [Deploy](#deployment) models as web services on compute resources in the workspace.
 
-![Overview of the visual interface](media/ui-concept-visual-interface/overview.png)
+![Overview of the designer](media/ui-concept-visual-interface/overview.png)
 
 ## Workflow
 
-The visual interface gives you an interactive, visual canvas to quickly build, test, and iterate on a model. 
+The designer gives you an interactive, visual canvas to quickly build, test, and iterate on a model. 
 
 + You drag-and-drop [modules](#module) onto the canvas.
 + Connect the modules together to form an [experiment](#experiment).
@@ -51,15 +51,15 @@ An experiment consists of datasets and analytical modules, which you connect tog
 * All required parameters for each module must be set.
 
 
-To learn how to get started with the visual interface, see [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
+To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md).
 
 ## Dataset
 
-A dataset is data that has been uploaded to the visual interface to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
+A dataset is data that has been uploaded to the designer to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
 
 ## Module
 
-A module is an algorithm that you can perform on your data. The visual interface has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
+A module is an algorithm that you can perform on your data. The designer has a number of modules ranging from data ingress functions to training, scoring, and validation processes.
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model.
 
@@ -81,15 +81,15 @@ Compute targets are attached to your Machine Learning [workspace](concept-worksp
 
 ## Deployment
 
-Once your predictive analytics model is ready, you deploy it as a web service right from the visual interface.
+Once your predictive analytics model is ready, you deploy it as a web service right from the designer.
 
 The web services provide an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a web service returns prediction results to an external application. To make a call to a web service, you pass an API key that was created when you deployed the web service. The web service is based on REST, a popular architecture choice for web programming projects.
 
-To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the visual interface](ui-tutorial-automobile-price-deploy.md).
+To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](ui-tutorial-automobile-price-deploy.md).
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md)
+* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
     * [Sample 1 - Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
     * [Sample 2 - Regression: Predict price and compare algorithms](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
