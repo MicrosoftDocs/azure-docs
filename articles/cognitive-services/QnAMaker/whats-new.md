@@ -35,7 +35,7 @@ Learn what's new with QnA Maker.
 
 ### March 2019
 
-* [Active learning](how-to/improve-knowledge-base) provides suggestions for new question alternatives based on real user questions
+* [Active learning](how-to/improve-knowledge-base.md) provides suggestions for new question alternatives based on real user questions
 * Improved natural language processing (NLP) [ranker](concepts/knowledge-base.md#ranker-process) model for English 
 
 > [!div class="nextstepaction"]
