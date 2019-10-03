@@ -15,6 +15,8 @@ ms.author: yexu
 ---
 # Incrementally load data from a source data store to a destination data store
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
 ## Delta data loading from database by using a watermark
