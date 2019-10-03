@@ -18,15 +18,17 @@ ms.subservice: cognitive-search
 
 Azure Search enables content enrichment through AI cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort. 
+Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases. 
+Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. This is useful when you want the same data shaped differently for individual use cases.
 
-The knowledge store supports two types of projections:
+The knowledge store supports three types of projections:
 
-+ **Tables**: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage. 
++ **Tables**: For data that is best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
+
++ **Files**: In scenarios where you need to save the images extracted from the documents, file projections allow you to save the normalized images. 
 
 To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
@@ -36,14 +38,12 @@ In some cases, you will need to project your enriched data in different shapes t
 
 ### Mutually exclusivity
 
-All content projected into a single group is independent of data projected into other projection groups. 
-This implies that you can have the same data shaped differently, yet repeated in each projection group. 
-
-One constraint enforced in projection groups is the mutual exclusivity of projection types with a projection group. You can only define either table projections or object projections within a single group. If you want both tables and objects, define one projection group for tables, and a second projection group for objects.
+All content projected into a single group is independent of data projected into other projection groups.
+This implies that you can have the same data shaped differently, yet repeated in each projection group.
 
 ### Relatedness
 
-All content projected within a single projection group preserves relationships within the data. Relationships are based on a generated key and each child node retains a reference to the parent node. Relationships do not span projection groups, and tables or objects created in one projection group have no relationship to data generated in other projection groups.
+All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
 
 ## Input shaping
 Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
@@ -62,7 +62,7 @@ You can project a single document in your index into multiple tables, preserving
 
 When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project. 
 
-#### Projection Slicing
+#### Projection slicing
 When defining a table projection group, a single node in the enrichment tree can be sliced into multiple related tables. Adding a table with a source path that is a child of an existing table projection will result in the child node being sliced out of the parent node and projected into the new yet related table. This allows you to define a single node in a shaper skill that can be the source for all of your table projections.
 
 Each table requires three properties:
