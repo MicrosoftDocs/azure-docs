@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -42,6 +42,9 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Discovery Benefits SSO supports **IDP** initiated SSO
+
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Discovery Benefits SSO from the gallery
 
@@ -83,41 +86,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-	a. Click on **Edit** icon to open the **Unique User Identifier** dialog.
+	a. Click on **Edit**  icon to open the **Unique User Identifier (Name ID)** dialog.
 
 	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute01.png)
 
 	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute02.png)
 
-	b. Click on **Edit** icon to open the **Transformation** dialog.
+	b. Click on **Edit** icon to open the **Manage transformation** dialog.
 
-	c. In the **Transformation** textbox, type the **ToUppercase()**.
+	c. In the **Transformation** textbox, type the **ToUppercase()** shown for that row.
 
-	d. In the **Parameter 1** textbox, type the **SSORequest**.
+	d. In the **Parameter 1** textbox, type the parameter like `<Name Identifier value>`.
 
 	e. Click **Add**.
 
-1. In addition to above, Discovery Benefits SSO application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+	> [!NOTE]
+	> Discovery Benefits SSO requires a fixed string value to be passed in **Unique User Identifier (Name ID)** field to get this integration working. Azure AD currently doesn't support this feature so as a work around, you can use **ToUpper** or **ToLower** transformations of NameID to set a fixed string value as shown above in the screenshot.
 
-	| Name |  Source Attribute|
-	| ---------------| --------------- |
-	| SSOInstance | `<SSOInstance>` |
-	| SSOID | `<SSOID>` |
-	
+	f. We have auto-populated the addtional claims which are required for SSO configuration (`SSOInstance` and `SSOID`). Use the **Edit** icon to map the values as per your organization.
 
-	1. Click **Add new claim** to open the **Manage user claims** dialog.
-
-	1. In the **Name** textbox, type the attribute name shown for that row.
-
-	1. Leave the **Namespace** blank.
-
-	1. Select Source as **Attribute**.
-
-	1. From the **Source attribute** list, type the attribute value shown for that row.
-
-	1. Click **Ok**
-
-	1. Click **Save**.
+	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
