@@ -49,11 +49,11 @@ You can manage default network access rules for Cognitive Services resources thr
 
 1. Select on the **RESOURCE MANAGEMENT** menu called **Virtual network**.
 
-   ![Virtual network blade](media/vnet/virtual-network-blade.png)
+   ![Virtual network option](media/vnet/virtual-network-blade.png)
 
 1. To deny access by default, choose to allow access from **Selected networks**. To allow traffic from all networks, choose to allow access from **All networks**.
 
-   ![Virtual network deny](media/vnet/virtual-network-deny.png)
+   ![Virtual networks deny](media/vnet/virtual-network-deny.png)
 
 1. Select **Save** to apply your changes.
 
@@ -133,7 +133,7 @@ Each Cognitive Services resource supports up to 100 virtual network rules, which
 
 ### Required permissions
 
-To apply a virtual network rule to a Cognitive Services resource, the user must have the appropriate permissions for the subnets being added. The permission needed is either the default *Contributor* role or the *Cognitive Services Contributor* role. It is not required to explicitly assign this *Contributor* a new *Cognitive Services Contributor* role. Required permissions can also be added to custom role definitions.
+To apply a virtual network rule to a Cognitive Services resource, the user must have the appropriate permissions for the subnets being added. The required permission is the default *Contributor* role, or the *Cognitive Services Contributor* role. Required permissions can also be added to custom role definitions.
 
 Cognitive Services resource and the virtual networks granted access may be in different subscriptions, including subscriptions that are a part of a different Azure AD tenant.
 
@@ -154,19 +154,19 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 1. To grant access to a virtual network with an existing network rule, under **Virtual networks**, select **Add existing virtual network**.
 
-   ![Virtual network add existing](media/vnet/virtual-network-add-existing.png)
+   ![Add existing vNet](media/vnet/virtual-network-add-existing.png)
 
 1. Select the **Virtual networks** and **Subnets** options, and then select **Enable**.
 
-   ![Virtual network add existing details](media/vnet/virtual-network-add-existing-details.png)
+   ![Add existing vNet details](media/vnet/virtual-network-add-existing-details.png)
 
 1. To create a new virtual network and grant it access, select **Add new virtual network**.
 
-   ![Virtual network add new](media/vnet/virtual-network-add-new.png)
+   ![Add new vNet](media/vnet/virtual-network-add-new.png)
 
 1. Provide the information necessary to create the new virtual network, and then select **Create**.
 
-   ![Virtual network create](media/vnet/virtual-network-create.png)
+   ![Create vNet](media/vnet/virtual-network-create.png)
 
     > [!NOTE]
     > If a service endpoint for Azure Cognitive Services wasn't previously configured for the selected virtual network and subnets, you can configure it as part of this operation.
@@ -175,7 +175,7 @@ You can manage virtual network rules for Cognitive Services resources through th
 
 1. To remove a virtual network or subnet rule, select **...** to open the context menu for the virtual network or subnet, and select **Remove**.
 
-   ![Virtual network remove](media/vnet/virtual-network-remove.png)
+   ![Remove vNet](media/vnet/virtual-network-remove.png)
 
 1. Select **Save** to apply your changes.
 
@@ -329,11 +329,11 @@ You can manage IP network rules for Cognitive Services resources through the Azu
 
 1. To grant access to an internet IP range, enter the IP address or address range (in [CIDR format](https://tools.ietf.org/html/rfc4632)) under **Firewall** > **Address Range**. Only valid public IP (non-reserved) addresses are accepted.
 
-   ![Virtual network add IP range](media/vnet/virtual-network-add-ip-range.png)
+   ![Add IP range](media/vnet/virtual-network-add-ip-range.png)
 
 1. To remove an IP network rule, select the trash can <span class="docon docon-delete x-hidden-focus"></span> icon next to the address range.
 
-   ![Virtual network delete IP range](media/vnet/virtual-network-delete-ip-range.png)
+   ![Delete IP range](media/vnet/virtual-network-delete-ip-range.png)
 
 1. Select **Save** to apply your changes.
 
