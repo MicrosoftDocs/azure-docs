@@ -108,8 +108,6 @@ You should now have individual JAR files for each service in their respective fo
 az spring-cloud app create --name gateway
 ```
 
-![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
-
 2. Repeat step 1 with the **auth-service** application and **account-service** application. These three microservice applications will comprise our Azure Spring Cloud service
 
 ```Azure CLI
@@ -132,8 +130,6 @@ az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
 az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
 az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
 ```
-
-![Application Screenshot](./media/spring-cloud-quickstart-launch-app-portal/application-screenshot.png)
 
 ## Assign public endpoint to gateway
 
