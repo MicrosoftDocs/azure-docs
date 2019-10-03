@@ -28,7 +28,7 @@ ms.lastreviewed: 03/22/2019
 
 This tutorial shows you how to use Azure Notification Hubs to broadcast breaking news notifications. This tutorial covers Windows Store or Windows Phone 8.1 (non-Silverlight) applications. If you're targeting Windows Phone 8.1 Silverlight, see [Push notifications to specific Windows Phone devices by using Azure Notification Hubs](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific Windows devices running Universal Windows Platform (UWP) application. After you complete the tutorial, you can register for the breaking news categories that you're interested in. You'll receive push notifications for those categories only.
+In this tutorial, you learn how to use Azure Notification Hubs to push notifications to specific Windows devices running a Universal Windows Platform (UWP) application. After you complete the tutorial, you can register for the breaking news categories that you're interested in. You'll receive push notifications for those categories only.
 
 To enable broadcast scenarios, include one or more *tags* when you create a registration in the notification hub. When notifications are sent to a tag, all devices that are registered for the tag receive the notification. For more information about tags, see [Routing and tag expressions](notification-hubs-tags-segment-push-message.md).
 
@@ -40,7 +40,7 @@ In this tutorial, you do the following tasks:
 > [!div class="checklist"]
 > * Add category selection to the mobile app
 > * Register for notifications
-> * Send tagged notification
+> * Send tagged notifications
 > * Run the app and generate notifications
 
 ## Prerequisites
