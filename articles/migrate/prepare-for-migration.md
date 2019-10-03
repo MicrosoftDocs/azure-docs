@@ -113,7 +113,7 @@ Azure VMs are created during migration to Azure. After migration, you need to be
 On on-premises Windows machines, do the following:
 
 1. Configure Windows settings. These include removing any static persistent routes or WinHTTP proxy.
-2. Make sure [these services](../virtual-machines/windows/prepare-for-upload-vhd-image.md.#check-the-windows-services) are running.
+2. Make sure [these services](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) are running.
 3. Enable remote desktop (RDP) to allow remote connections to the on-premises machine. [Learn how](../virtual-machines/windows/prepare-for-upload-vhd-image.md#update-remote-desktop-registry-settings) to enable RDP with PowerShell.
 4. To access an Azure VM over the internet after migration, in Windows Firewall on the on-premises machine, allow TCP and UDP in the Public profile, and set RDP as an allowed app for all profiles.
 5. If you want to access an Azure VM over a site-to-site VPN after migration, in Windows Firewall on the on-premises machine, allow RDP for the Domain and Private profiles. [Learn](../virtual-machines/windows/prepare-for-upload-vhd-image.md#configure-windows-firewall-rules) how to allow RDP traffic. 
