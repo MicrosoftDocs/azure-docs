@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 10/07/2019
 author: wmengmsft
 ms.author: wmeng
 ---
@@ -16,7 +16,7 @@ ms.author: wmeng
 
 ## Overview
 
-This guide will show you common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). This article covers the following scenarios:
+This guide shows you common scenarios by using the Azure Table storage service or Azure Cosmos DB Table API. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). This article covers the following scenarios:
 
 * Creating and deleting a table
 * Working with table entities
@@ -41,11 +41,11 @@ This guide will show you common scenarios by using the Azure Table storage servi
 
 ## Create a C++ application
 
-In this guide, you use storage features from C++ application. To do so, install the Azure Storage Client Library for C++.
+In this guide, you use storage features from a C++ application. To do so, install the Azure Storage Client Library for C++.
 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
-* Linux. Follow the instructions given in [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
+* Linux. Follow the instructions given in [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).  
 * Windows. In Visual Studio, select **Tools > NuGet Package Manager > Package Manager Console**. Run the following command in the **Package Management Console**:
 
   ```powershell
@@ -56,7 +56,7 @@ For more information about **Package Management Console**, see [Install and mana
 
 ### Configure access to the Table client library
 
-Add the following include statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
+Add the following `include` statements to the top of the C++ file where you want to use the Azure storage APIs to access tables:  
 
 ```cpp
 #include <was/storage_account.h>
@@ -87,14 +87,14 @@ const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=ht
 
 Use the name of your Azure Cosmos DB account, your primary key, and endpoint listed in the [Azure portal](https://portal.azure.com).
 
-To test your application in your local Windows-based computer, you can use the Azure [storage emulator](../storage/common/storage-use-emulator.md) that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
+To test your application in your local Windows-based computer, you can use the Azure storage emulator that is installed with the [Azure SDK](https://azure.microsoft.com/downloads/). The storage emulator is a utility that simulates the Azure Blob, Queue, and Table services available on your local development machine. The following example shows how you can declare a static field to hold the connection string to your local storage emulator:  
 
 ```cpp
 // Define the connection string with Azure storage emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-To start the Azure storage emulator, select the **Start** button or press the Windows key. Enter and run *Azure Storage Emulator*.
+To start the Azure storage emulator, select the **Start** button or the Windows key. Enter and run *Azure Storage Emulator*. For more information, see [Use the Azure storage emulator for development and testing](../storage/common/storage-use-emulator.md).
 
 ### Retrieve your connection string
 
@@ -136,7 +136,7 @@ table.create_if_not_exists();
 
 To add an entity to a table, create a new `table_entity` object and pass it to `table_operation::insert_entity`. The following code uses the customer's first name as the row key and last name as the partition key. Together, an entity's partition and row key uniquely identify the entity in the table. Entities with the same partition key can be queried faster than entities with different partition keys. Using diverse partition keys allows for greater parallel operation scalability. For more information, see [Microsoft Azure storage performance and scalability checklist](../storage/common/storage-performance-checklist.md).
 
-The following code creates a new instance of `table_entity` with some customer data to store. The code next calls `table_operation::insert_entity` to create a `table_operation` object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the execute method on the `cloud_table` object. And the new `table_operation` sends a request to the Table service to insert the new customer entity into the "people" table.  
+The following code creates a new instance of `table_entity` with some customer data to store. The code next calls `table_operation::insert_entity` to create a `table_operation` object to insert an entity into a table, and associates the new table entity with it. Finally, the code calls the execute method on the `cloud_table` object. And the new `table_operation` sends a request to the Table service to insert the new customer entity into the `people` table.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -226,7 +226,7 @@ Some things to note on batch operations:
 
 ### Retrieve all entities in a partition
 
-To query a table for all entities in a partition, use a `table_query` object. The following code example specifies a filter for entities where 'Smith' is the partition key. This example prints the fields of each entity in the query results to the console.  
+To query a table for all entities in a partition, use a `table_query` object. The following code example specifies a filter for entities where `Smith` is the partition key. This example prints the fields of each entity in the query results to the console.  
 
 > [!NOTE]
 > These methods are not currently supported for C++ in Azure Cosmos DB.
@@ -265,7 +265,7 @@ The query in this example brings all the entities that match the filter criteria
 
 ### Retrieve a range of entities in a partition
 
-If you don't want to query all the entities in a partition, you can specify a range. Combine the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition 'Smith' where the row key (first name) starts with a letter earlier than 'E' in the alphabet and then prints the query results.  
+If you don't want to query all the entities in a partition, you can specify a range. Combine the partition key filter with a row key filter. The following code example uses two filters to get all entities in partition `Smith` where the row key (first name) starts with a letter earlier than `E` in the alphabet and then prints the query results.  
 
 > [!NOTE]
 > These methods are not currently supported for C++ in Azure Cosmos DB.
@@ -306,7 +306,7 @@ for (; it != end_of_results; ++it)
 
 ### Retrieve a single entity
 
-You can write a query to retrieve a single, specific entity. The following code uses `table_operation::retrieve_entity` to specify the customer 'Jeff Smith'. This method returns just one entity, rather than a collection, and the returned value is in `table_result`. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.  
+You can write a query to retrieve a single, specific entity. The following code uses `table_operation::retrieve_entity` to specify the customer `Jeff Smith`. This method returns just one entity, rather than a collection, and the returned value is in `table_result`. Specifying both partition and row keys in a query is the fastest way to retrieve a single entity from the Table service.  
 
 ```cpp
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
@@ -332,7 +332,7 @@ std::wcout << U("PartitionKey: ") << entity.partition_key() << U(", RowKey: ") <
 
 ### Replace an entity
 
-To replace an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number and email address. Instead of calling `table_operation::insert_entity`, this code uses `table_operation::replace_entity`. This approach causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved. If it has been changed, the operation fails. This failure prevents your application from overwriting a change made between the retrieval and update by another component. The proper handling of this failure is to retrieve the entity again, make your changes, if still valid, and then do another `table_operation::replace_entity` operation. The next section will show you how to override this behavior.  
+To replace an entity, retrieve it from the Table service, modify the entity object, and then save the changes back to the Table service. The following code changes an existing customer's phone number and email address. Instead of calling `table_operation::insert_entity`, this code uses `table_operation::replace_entity`. This approach causes the entity to be fully replaced on the server, unless the entity on the server has changed since it was retrieved. If it has been changed, the operation fails. This failure prevents your application from overwriting a change made between the retrieval and update by another component. The proper handling of this failure is to retrieve the entity again, make your changes, if still valid, and then do another `table_operation::replace_entity` operation. The next section shows you how to override this behavior.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -441,7 +441,7 @@ for (; it != end_of_results; ++it)
 
 ### Delete an entity
 
-You can delete an entity after you retrieve it. After you retrieve an entity, call `table_operation::delete_entity` with the entity to delete. Then call the `cloud_table.execute` method. The following code retrieves and deletes an entity with a partition key of "Smith" and a row key of "Jeff".
+You can delete an entity after you retrieve it. After you retrieve an entity, call `table_operation::delete_entity` with the entity to delete. Then call the `cloud_table.execute` method. The following code retrieves and deletes an entity with a partition key of `Smith` and a row key of `Jeff`.
 
 ```cpp
 // Retrieve the storage account from the connection string.
@@ -466,7 +466,7 @@ azure::storage::table_result delete_result = table.execute(delete_operation);
 
 ### Delete a table
 
-Finally, the following code example deletes a table from a storage account. A table that has been deleted will be unavailable to be re-created for some time following the deletion.  
+Finally, the following code example deletes a table from a storage account. A table that has been deleted is unavailable to be re-created for some time following the deletion.  
 
 ```cpp
 // Retrieve the storage account from the connection string.
