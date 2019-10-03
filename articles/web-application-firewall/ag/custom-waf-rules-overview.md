@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/30/2019
+ms.date: 10/04/2019
 ms.author: victorh
 ---
 
@@ -91,8 +91,8 @@ This is the name of the rule. This name appears in the logs.
 
 ### Priority [required]
 
-- Determines the order that rules are evaluated in. The lower the value, the earlier the evaluation of the rule.
--Must be unique amongst all custom rules. A rule with priority 100 will be evaluated before a rule with priority 200.
+- Determines the rule valuation order. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1-100. 
+- Must be unique across all custom rules. A rule with priority 40 is evaluated before a rule with priority 80.
 
 ### Rule type [required]
 
