@@ -8,6 +8,8 @@
   items:
     - name: Launch your Spring Cloud app from source
       href: spring-cloud-launch-from-source.md
+    - name: Launch a Java Spring app using the portal
+      href: spring-cloud-quickstart-launch-app-portal.md 
 - name: Concepts
   items: 
     - name: Service plans and quotas for Azure Spring Cloud
