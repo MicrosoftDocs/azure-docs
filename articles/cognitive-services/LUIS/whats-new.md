@@ -20,10 +20,19 @@ Learn what's new in the service. These items may release notes, videos, blog pos
 
 ### October 28, 2019 - Ignite
 
-* Prediction endpoint runtime
+* API - Prediction endpoint runtime
     * V3 API is now generally available (GA)
     * Japanese prebuilt age, currency, number, percentage are not support in V3
     * Italian prebuilt age, currency, dimension, number, percentage resolution changed from V2
+
+* [LUIS portal](https://www.luis.ai)
+    * New authoring experience
+
+* New capabilities
+    * Entity as a _feature_ to an intent or entity
+
+* [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
+
 
 
 ### September 3, 2019
