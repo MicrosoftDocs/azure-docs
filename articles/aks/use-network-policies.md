@@ -46,11 +46,6 @@ Azure provides two ways to implement network policy. You choose a network policy
 
 Both implementations use Linux *IPTables* to enforce the specified policies. Policies are translated into sets of allowed and disallowed IP pairs. These pairs are then programmed as IPTable filter rules.
 
-Implementation is different for the two options:
-
-* *Azure Network Policies* - the Azure CNI sets up a bridge in the VM host for intra-node networking. The filtering rules are applied when the packets pass through the bridge.
-* *Calico Network Policies* - the Azure CNI sets up local kernel routes for the intra-node traffic. The policies are applied on the pod’s network interface.
-
 ### Differences between Azure and Calico policies and their capabilities
 
 | Capability                               | Azure                      | Calico                      |
