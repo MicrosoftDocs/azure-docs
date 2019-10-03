@@ -22,21 +22,21 @@ Learn what's new with QnA Maker.
 
 ### September 2019
 
-* Export/import with XLS
+* Import and export with [XLS](concepts/data-sources-supported.md) file format 
 
 ### June 2019
 
-* Improved ranker model for French, Italian, German, Spanish, Portuguese
+* Improved [ranker model](concepts/knowledge-base.md#ranker-process) for French, Italian, German, Spanish, Portuguese
 
 ### April 2019
 
 * Support website content extraction
-* Sharepoint document support
+* [Sharepoint document](how-to/add-sharepoint-datasources.md) support from authenticated access
 
 ### March 2019
 
-* Active learning 
-* Improved NLP ranker model for English, 
+* [Active learning](how-to/improve-knowledge-base) provides suggestions for new question alternatives based on real user questions
+* Improved natural language processing (NLP) [ranker](concepts/knowledge-base.md#ranker-process) model for English 
 
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](how-to/set-up-qnamaker-service-azure.md)
