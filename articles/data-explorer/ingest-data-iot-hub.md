@@ -73,11 +73,11 @@ Now you connect to the IoT Hub from Azure Data Explorer. When this connection is
 
     **Setting** | **Field description**
     |---|---|
-    | Data connection name | The name of the connection you want to create in Azure Data Explorer
-    | IoT Hub | IoT Hub name |
-    | Shared access policy | The name of the shared access policy. Must have read permissions |
-    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint |
-	| Event system properties | The IoT Hub event system properties |
+    | Data connection name | The name of the connection you want to create in Azure Data Explorer.
+    | IoT Hub | IoT Hub name. |
+    | Shared access policy | The name of the shared access policy. Must have read permissions. |
+    | Consumer group |  The consumer group defined in the IoT Hub built-in endpoint. |
+	| Event system properties | The IoT Hub event system properties. In case that there are multiple records per event message, the system properties will be added to the first one. |
     | | 
 
     > [!NOTE]
