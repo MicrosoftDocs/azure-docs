@@ -37,7 +37,7 @@ The following table compares key management options for Azure Storage encryption
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Encryption/decryption operations    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
 |    Azure Storage services supported    |    All                                                |    Blob storage, Azure Files                                                                                                               |    Blob storage                                                                  |
-|    Key storage                         |    Azure Key Vault    |    Azure Key Vault                                                                                                                              |    Any key store                                                                 |
+|    Key storage                         |    Microsoft key store    |    Azure Key Vault                                                                                                                              |    Azure Key Vault or any other key store                                                                 |
 |    Key rotation responsibility         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    Key usage                           |    Microsoft                                          |    Azure portal, Storage Resource Provider REST API, Azure Storage management libraries, PowerShell, CLI        |    Azure Storage REST API (Blob storage), Azure Storage client libraries    |
 |    Key access                          |    Microsoft only                                     |    Microsoft, Customer                                                                                                                    |    Customer only                                                                 |
@@ -62,9 +62,9 @@ This diagram shows how Azure Storage uses Azure Active Directory and Azure Key V
 
 The following list explains the numbered steps in the diagram:
 
-1. An Azure Key Vault admin grants permissions to encryption keys to a managed identity with permissions to access the storage account.
-2. An Azure Storage admin configures a customer-managed key for the storage account.
-3. Azure Storage uses a managed identity to authenticate access to Azure Key Vault via Azure Active Directory.
+1. An Azure Key Vault admin grants permissions to encryption keys to the managed identity that's associated with the storage account.
+2. An Azure Storage admin configures encryption with a customer-managed key for the storage account.
+3. Azure Storage uses the managed identity that's associated with the storage account to authenticate access to Azure Key Vault via Azure Active Directory.
 4. Azure Storage wraps the account encryption key with the customer key in Azure Key Vault.
 5. For read/write operations, Azure Storage sends requests to Azure Key Vault to wrap and unwrap the account encryption key to perform encryption and decryption operations.
 
@@ -79,7 +79,7 @@ To learn how to use customer-managed keys with Azure Storage, see one of these a
 - [Use customer-managed keys with Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you transfer a subscription from one Azure AD directory to another, managed identities are not updated and customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys in the Azure portal, a managed identity is automatically assigned to your storage account under the covers. If you subsequently move the subscription, resource group, or storage account from one Azure AD directory to another, the managed identity associated with the storage account is not transferred to the new tenant, so customer-managed keys may no longer work. For more information, see **Transferring a subscription between Azure AD directories** in [FAQs and known issues with managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 ## Customer-provided keys (preview)
 
