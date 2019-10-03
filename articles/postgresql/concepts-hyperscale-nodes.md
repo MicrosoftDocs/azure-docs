@@ -1,6 +1,6 @@
 ---
 title: Nodes in Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
-description: The two types of nodes in a server group.
+description: Learn about the two types of nodes, coordinator and workers, in a server group in Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
