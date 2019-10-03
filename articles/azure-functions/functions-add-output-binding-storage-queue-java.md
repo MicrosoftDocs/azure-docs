@@ -48,7 +48,8 @@ The `run` method definition should now look like the following example:
 ```java
 @FunctionName("HttpTrigger-Java")
 public HttpResponseMessage run(
-        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request, 
+        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION)  
+        HttpRequestMessage<Optional<String>> request, 
         @QueueOutput(name = "msg", queueName = "outqueue", connection = "AzureWebJobsStorage") 
         OutputBinding<String> msg, final ExecutionContext context) {
     context.getLogger().info("Java HTTP trigger processed a request.");
@@ -64,7 +65,7 @@ msg.setValue(name);
 
 When you use an output binding, you don't have to use the Azure Storage SDK code for authentication, getting a queue reference, or writing data. The Functions runtime and queue output binding do those tasks for you.
 
-Your run method should now look like the following example:
+Your `run` method should now look like the following example:
 
 ```java
 @FunctionName("HttpTrigger-Java")

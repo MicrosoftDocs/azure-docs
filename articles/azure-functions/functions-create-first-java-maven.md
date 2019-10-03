@@ -168,5 +168,5 @@ You've created a Java functions project with an HTTP triggered function, run it 
 > [Adding an Azure Storage queue output binding](functions-add-output-binding-storage-queue-java.md)
 
 
-[Azure CLI]: cli/azure
+[Azure CLI]: /cli/azure
 [Azure portal]: https://portal.azure.com

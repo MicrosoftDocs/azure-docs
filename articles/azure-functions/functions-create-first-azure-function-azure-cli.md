@@ -23,7 +23,7 @@ Before running this sample, you must have the following:
 
 + Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or later.
 
-+ Install the [Azure CLI](/cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
++ Install the [Azure CLI](/cli/azure/install-azure-cli). This     article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + An active Azure subscription.
 
