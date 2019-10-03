@@ -61,7 +61,6 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Azure AD will use Persistent as the NameID format. |
 | **EmailAddress** | Azure AD will use EmailAddress as the NameID format. |
 | **Unspecified** | Azure AD will use Unspecified as the NameID format. |
-| **Transient** | Azure AD will use Transient as the NameID format. |
 
 To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
