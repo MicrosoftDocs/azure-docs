@@ -17,6 +17,7 @@ If you add more virtual machines to the virtual network, DNS records for these v
 When you delete a virtual machine, the DNS records for the virtual machine are automatically deleted from the private DNS zone.
 
 You can enable autoregistration by selecting "Enable Registration" option while creating a virtual network link.
+
 ![Enable Auto Registration](./media/privatedns-concepts/enable-autoregistration.png)
 
 ## Restrictions

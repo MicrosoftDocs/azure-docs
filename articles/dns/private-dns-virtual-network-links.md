@@ -44,7 +44,7 @@ To understand how many registration and resolution networks, you can link to pri
 
 ## Next steps
 
-* Learn how to link a virtual network to a private DNS zone using [Azure Portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+* Learn how to link a virtual network to a private DNS zone using [Azure portal](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
 
 * Learn how to create a private zone in Azure DNS by using [Azure PowerShell](./private-dns-getstarted-powershell.md) or [Azure CLI](./private-dns-getstarted-cli.md).
 
