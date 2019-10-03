@@ -33,10 +33,10 @@ steps:
     mavenPomFile: 'pom.xml'
 - task: AzureCLI@1
   inputs:
-    azureSubscription: <your azure subscription that contains the ASC instance>
+    azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.1/asc-0.3.0-py2.py3-none-any.whl
+      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
       az spring-cloud app deploy --resource-group <asc-rg> --service <asc-instance> --name <app-name> --jar-path ./target/your-result-jar.jar
       # deploy other app
 ```
@@ -47,10 +47,10 @@ It is possible to deploy directly to Azure without a separate build step.
 ```yaml
 - task: AzureCLI@1
   inputs:
-    azureSubscription: <your azure subscription that contains the ASC instance>
+    azureSubscription: <your service connection name>
     scriptLocation: inlineScript
     inlineScript: |
-      az extension add -y --source https://github.com/VSChina/azure-cli-extensions/releases/download/0.1/asc-0.3.0-py2.py3-none-any.whl
+      az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
       az spring-cloud app deploy --resource-group <asc-rg> --service <asc-instance> --name <app-name>
       # or if it's a multi-module project
       az spring-cloud app deploy --resource-group <asc-rp> --service <asc-instance> --name <app-name> --target-module relative/path/to/module
