@@ -23,7 +23,7 @@ ms.lastreviewed: 10/02/2019
 
 This tutorial builds on the previous tutorial, [Send notifications to specific users by using Azure Notification Hubs]. That tutorial describes how to push notifications to all devices that are registered to a specific authenticated user. That approach required multiple requests to send a notification to each supported client platform. Azure Notification Hubs supports templates, with which you can specify how a specific device wants to receive notifications. This method simplifies sending cross-platform notifications.
 
-This article demonstrates how to take advantage of templates to send a notification that targets all platforms. This article uses a single request to send a platform neutral notification. For more detailed information about templates, see [Azure Notification Hubs Overview][Templates].
+This article demonstrates how to take advantage of templates to send a notification that targets all platforms. This article uses a single request to send a platform neutral notification. For more detailed information about templates, see [Notification Hubs Overview][Templates].
 
 > [!IMPORTANT]
 > Windows Phone projects 8.1 and earlier are not supported in Visual Studio 2019. For more information, see [Visual Studio 2019 Platform Targeting and Compatibility](/visualstudio/releases/2019/compatibility).
@@ -33,7 +33,7 @@ This article demonstrates how to take advantage of templates to send a notificat
 
 ## Send cross-platform notifications using templates
 
-This section uses the sample code you built in [Send notifications to specific users by using Azure Notification Hubs]. You can download the sample from [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+This section uses the sample code you built in the [Send notifications to specific users by using Azure Notification Hubs] tutorial. You can download the sample from [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
 To send cross-platform notifications by using templates, do the following steps:
 
@@ -99,7 +99,7 @@ To send cross-platform notifications by using templates, do the following steps:
 
 Now that you've completed this tutorial, find out more about Notification Hubs and templates in these articles:
 
-* For a different scenario for using templates, see [Push notifications to specific Windows devices running Universal Windows Platform applications][Use Notification Hubs to send breaking news].
+* For a different scenario for using templates, see the [Push notifications to specific Windows devices running Universal Windows Platform applications][Use Notification Hubs to send breaking news] tutorial.
 * For more detailed information on templates, see [Notification Hubs Overview][Templates].
 
 <!-- Anchors. -->
