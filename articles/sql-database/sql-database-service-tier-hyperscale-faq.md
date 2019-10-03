@@ -213,7 +213,7 @@ Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, in
 
 ### Can I move my on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
-Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview.md).
+Yes. You can use all existing migration technologies to migrate to Hyperscale, including transactional replication, and any other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS). See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
 ### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
