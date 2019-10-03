@@ -63,6 +63,7 @@ Let's get started with the ODBC driver.
 1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 
 1. Click **Advanced Options** and set the following values:
+    - **REST API Version**: Select the [REST API version](https://docs.microsoft.com/rest/api/cosmos-db/) for your operations. The default 2015-12-16.
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
