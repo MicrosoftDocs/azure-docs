@@ -88,7 +88,7 @@ Nerdio is an Azure IT automation platform that makes it easy to deploy and manag
 Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Go to the partner website](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
 
 ## ThinPrint
 
