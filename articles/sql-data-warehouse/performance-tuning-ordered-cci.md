@@ -58,7 +58,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-Query #1 can have more performance benefit from ordered CCI than the other 3 queries.
+The performance of query 1 can benefit more from ordered CCI than the other 3 queries. 
 
 ```sql
 -- Query #1: 
@@ -67,7 +67,7 @@ SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
 
 -- Query #2
 
-SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c';
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
 
 -- Query #3
 SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
