@@ -7,14 +7,11 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 09/05/2019
+ms.date: 10/02/2019
 ms.author: cynthn
 ---
 
-<1-- Is it limited to isolated VM types for public preview? Isolated and Dedicated Hosts. What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? Yes. Azure functions? Separate dedicated hosts from isolated sizes? Other maintenance docs - what needs to be updated? What are the other options for --maintenancescope and how are they different? -->
-
-
-Manage platform updates that don't require a reboot using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. But customers with sensitive workloads like gaming, media streaming, and financial transactions can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives customers the option to wait on platform updates and apply them within a 35-day rolling window.  
+Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.  
 
 Maintenance control lets you decide when to apply updates to your isolated VMs.
 
@@ -26,7 +23,7 @@ With maintenance control, you can:
 
 ## Limitations
 
-- VMs must be on a dedicated host, be created using an isolated VM size or on a Dedicated Node Group (DNG).
+- VMs must be on a [dedicated host](./windows/dedicated-hosts.md), be created using an [isolated VM size](./windows/isolation.md), or in a Dedicated Node Group (DNG).
 - After 35 days, an update will automatically be applied and availability constraints will not be respected.
 - User must have **Resource Owner** access.
 
@@ -43,7 +40,7 @@ az extension add -y --source https://mrpcliextension.blob.core.windows.net/cliex
 
 ## Create a maintenance configuration
 
-Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. Replace the example subscription ID with your own. 
+Use [az maintenance configuration create]() to create a maintenance configuration. This example creates a maintenance configuration named *myConfig* scoped to the host. 
 
 ```bash
 az group create \
