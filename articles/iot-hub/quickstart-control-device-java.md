@@ -115,7 +115,7 @@ You use this value later in the quickstart. The service connection string is dif
 
 ## Listen for direct method calls
 
-The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgement back to your hub after it executes the direct method.
+The simulated device application connects to a device-specific endpoint on your IoT hub, sends simulated telemetry, and listens for direct method calls from your hub. In this quickstart, the direct method call from the hub tells the device to change the interval at which it sends telemetry. The simulated device sends an acknowledgment back to your hub after it executes the direct method.
 
 1. In a local terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\simulated-device-2** folder.
 
@@ -137,11 +137,11 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-java/SimulatedDevice-1.png)
+    ![Output from the telemetry sent by the device to your IoT hub](./media/quickstart-control-device-java/iot-hub-application-send-telemetry-output.png)
 
 ## Call the direct method
 
-The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgements. An IoT Hub back-end application typically runs in the cloud.
+The back-end application connects to a service-side endpoint on your IoT Hub. The application makes direct method calls to a device through your IoT hub and listens for acknowledgments. An IoT Hub back-end application typically runs in the cloud.
 
 1. In another local terminal window, navigate to the root folder of the sample Java project. Then navigate to the **iot-hub\Quickstarts\back-end-application** folder.
 
@@ -161,13 +161,13 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
     java -jar target/back-end-application-1.0.0-with-deps.jar
     ```
 
-    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgement:
+    The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-java/BackEndApplication.png)
+    ![Output as the application makes a direct method call through your IoT hub](./media/quickstart-control-device-java/iot-hub-direct-method-call-output.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-java/SimulatedDevice-2.png)
+    ![Console message from device shows the rate at which it changes](./media/quickstart-control-device-java/iot-hub-sent-message-change-rate.png)
 
 ## Clean up resources
 
