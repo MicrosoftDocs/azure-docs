@@ -491,9 +491,7 @@ else
 
 ## Troubleshooting
 
-* Build errors in Visual Studio 2017 Community Edition:
-
-  If your project gets build errors because of the include files *storage_account.h* and *table.h*, remove the **/permissive-** compiler switch:
+For Visual Studio 2017 Community Edition, if your project gets build errors because of the include files *storage_account.h* and *table.h*, remove the **/permissive-** compiler switch:
 
 1. In **Solution Explorer**, right-click your project and select **Properties**.
 1. In the **Property Pages** dialog box, expand **Configuration Properties**, expand **C/C++**, and select **Language**.
