@@ -384,14 +384,13 @@ def get_reward_from_simulated_data(name, weather, timeofday, prediction):
 
 ### Loop through calls to Rank and Reward
 
-### Loop through calls to Rank and Reward
-
 The next cell is the _main_ work of the Notebook, getting a random user, getting the coffee list, sending both to the Rank API. Comparing the prediction with the user's known preferences, then sending the reward back to the Personalizer service. 
 
 The loop runs for `num_requests` times. Personalizer needs a few thousand calls to Rank and Reward to create a model. 
 
 An example of the JSON sent to the Rank API follows. The list of coffee is not complete, for brevity. You can see the entire JSON for coffee in `coffee.json`.
 
+JSON sent to the Rank API:
 
 ```json
 { 
@@ -424,15 +423,9 @@ An example of the JSON sent to the Rank API follows. The list of coffee is not c
 }
 ```
 
-JSON sent to the Rank API:
-
-```console
-{'contextFeatures': [{'timeofday': 'Morning', 'weather': 'Sunny', 'name': 'Bob'}], 'actions': [{'id': 'Cappucino', 'features': [{'type': 'hot', 'origin': 'kenya', 'organic': 'yes', 'roast': 'dark'}]}, {'id': 'Cold brew', 'features': [{'type': 'cold', 'origin': 'brazil', 'organic': 'yes', 'roast': 'light'}]}, {'id': 'Iced mocha', 'features': [{'type': 'cold', 'origin': 'ethiopia', 'organic': 'no', 'roast': 'light'}]}, {'id': 'Latte', 'features': [{'type': 'hot', 'origin': 'brazil', 'organic': 'no', 'roast': 'dark'}]}], 'excludedActions': [], 'eventId': '5001bcfe3bb542a1a238e6d18d57f2d2', 'deferActivation': False}
-```
-
 JSON response from the Rank API:
 
-```
+```json
 {
     'ranking': [
         {'id': 'Latte', 'probability': 0.85 },
