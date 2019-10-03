@@ -12,7 +12,7 @@ ms.date: 07/17/2019
 ms.author: v-vasuke
 
 ---
-# Quickstart: Launch a Spring Cloud application in Azure Spring Cloud using the Azure portal
+# Quickstart: Launch a Spring Cloud app in Azure Spring Cloud via the Azure portal
 
 Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
