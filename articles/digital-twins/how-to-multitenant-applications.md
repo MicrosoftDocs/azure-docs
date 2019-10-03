@@ -1,13 +1,13 @@
 ---
 title: 'Enable multitenant applications with Azure Digital Twins | Microsoft Docs'
 description: How to configure multitenant Azure Active Directory applications for Azure Digital Twins.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: mavoge
 ---
 
 # Enable multitenant applications with Azure Digital Twins
