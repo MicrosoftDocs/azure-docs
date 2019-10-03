@@ -61,11 +61,20 @@ Here is one way that Hana could delegate access governance to the marketing, fin
 
 1. Mamta can add any catalog owners that she wants to be a co-owner for that catalog. This helps share the catalog management tasks.
 
-1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog. An access package is a bundle of resources for a team or project that users can request.
+1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog by assigning the Access package manager role. An access package is a bundle of resources for a team or project that users can request.
 
 The following diagram shows catalogs with resources for the marketing, finance, and legal departments. Using these catalogs, project managers can create access packages for their teams or projects.
 
 ![Entitlement management delegate example](./media/entitlement-management-delegate/elm-delegate.png)
+
+After delegation, the marketing department might have roles similar to the following table. For more information about roles, see [Roles in entitlement management](entitlement-management-roles.md).
+
+| User | Job role | Azure AD role | Entitlement management role |
+| --- | --- | --- | --- |
+| Hana | IT administrator | Global administrator or User administrator |  |
+| Mamta | Marketing manager | User | Catalog creator and Catalog owner |
+| Bob | Marketing lead | User | Catalog owner |
+| Jessica | Marketing project manager | User | Access package manager |
 
 ## As an IT administrator, delegate to department manager
 
