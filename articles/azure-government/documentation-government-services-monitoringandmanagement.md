@@ -173,7 +173,7 @@ Currently for Azure Government customers, the only way to enable Application Ins
     `Variable name: AzureGraphApiVersion`
     `Variable value: 2014-04-01`
 
-3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-core) depending on your project type.
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](#aspnet-core) depending on your project type.
 
 ### Snapshot Debugger
 

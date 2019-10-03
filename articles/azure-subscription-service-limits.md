@@ -84,10 +84,12 @@ In the following list of limits, a new table reflects any differences in limits 
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
   * [Load Balancer](#load-balancer)
-  * [Public IP address](#publicip-address)
   * [Network Watcher](#network-watcher-limits)
+  * [Public IP address](#publicip-address)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [Resource group](#resource-group-limits)
 * [Role-based access control](#role-based-access-control-limits)
@@ -156,6 +158,9 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 #### ExpressRoute limits
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
 
+#### Virtual WAN limits
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
+
 #### Application Gateway limits
 
 The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
@@ -163,6 +168,9 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 #### Network Watcher limits
 [!INCLUDE [network-watcher-limits](../includes/network-watcher-limits.md)]
+
+#### Private Link limits
+[!INCLUDE [private-link-limits](../includes/private-link-limits.md)]
 
 #### Traffic Manager limits
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]

@@ -373,6 +373,7 @@
         "articles/data-explorer/**/*.md": ["Azure","Kusto","Azure Data Explorer"],
         "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
         "articles/data-share/**/*.md": ["Azure","Azure Data Share"],
+        "articles/hdinsight/**/*.md": ["Azure","Azure HDInsight"],
         "articles/mariadb/**.md": ["Azure","Azure Database for MariaDB"],
         "articles/mysql/**.md": ["Azure","Azure Database for MySQL"],
         "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL"],
@@ -380,8 +381,11 @@
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
+        "articles/governance/blueprints/**/*.yml": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
+        "articles/governance/policy/**/*.yml": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/governance/resource-graph/**/*.yml": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse"
       },
       "manager": {

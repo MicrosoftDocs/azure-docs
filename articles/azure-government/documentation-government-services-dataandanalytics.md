@@ -1,6 +1,6 @@
 ---
 title: Azure Government Data + Analytics
-description: This provides a comparision of features and guidance on developing applications for Azure Government
+description: This provides a comparison of features and guidance on developing applications for Azure Government
 services: azure-government
 cloud: gov
 author: jglixon
@@ -58,6 +58,9 @@ The URLs for Power BI are different in US Government:
 | --- | --- | --- |
 | Power BI URL | app.powerbi.com | app.powerbigov.us |
 
+> [!NOTE]
+> The content pack that typically makes activity logs and such available is not intended for use on Government tenants. The intention is to use Log Analytics for the purpose of the logs that aren't available through the content pack. 
+
 ## Power BI Embedded 
 For details on this service and how to use it, see [Azure Power BI Embedded Documentation](../power-bi-embedded/index.md).
 
@@ -66,7 +69,7 @@ Power BI Embedded does not yet have Portal support in the Azure Government Porta
 
 ## Azure Analysis Services
 
-For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.md).
+For information on this service and how to use it, see [Azure Analysis Services Documentation](../analysis-services/index.yml).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the

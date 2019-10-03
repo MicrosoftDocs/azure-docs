@@ -6,7 +6,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 09/30/2019
 ms.author: banders
 ---
 

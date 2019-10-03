@@ -17,7 +17,7 @@ ms.date: 06/03/2019
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM template](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this article, you create a cluster and a database by using Python.
 
@@ -31,6 +31,8 @@ To install the Python package for Azure Data Explorer (Kusto), open a command pr
 
 ```
 pip install azure-mgmt-kusto
+pip install adal
+pip install msrestazure
 ```
 
 ## Create the Azure Data Explorer cluster
@@ -40,10 +42,19 @@ pip install azure-mgmt-kusto
     ```Python
     from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
     from azure.mgmt.kusto.models import Cluster, AzureSku
+    from adal import AuthenticationContext
+    from msrestazure.azure_active_directory import AdalAuthentication
 
-    credentials = xxxxxxxxxxxxxxx
-    
-    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    client_secret = "xxxxxxxxxxxxxx"
+    subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+    context = AuthenticationContext('https://login.microsoftonline.com/{}'.format(tenant_id))
+    credentials = AdalAuthentication(context.acquire_token_with_client_credentials,
+                                         resource="https://management.core.windows.net/",
+                                         client_id=client_id,
+                                         client_secret=client_secret)
+
     location = 'Central US'
     sku = 'D13_v2'
     capacity = 5
@@ -66,7 +77,7 @@ pip install azure-mgmt-kusto
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-1. Set [*your credentials*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Set [*your credentials*](/azure/python/python-sdk-azure-authenticate)
 
 1. Run the following command to check whether your cluster was successfully created:
 

@@ -39,7 +39,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
 
-1. Navigate to the Azure IoT Central [Application Manager](https://aka.ms/iotcentral) page.
+1. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
 
 1. If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign it using a Microsoft account:
 
@@ -65,7 +65,7 @@ To create a new Azure IoT Central application that uses preview features, includ
 
     For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Right-click on the page and select **Save as**.
+You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Right-click on the page and select **Save as**.
 
 After you download the file, open it in a text editor, and replace the two instances of `<YOUR_COMPANY_NAME_HERE>` with your name. Use only the characters a-z, A-Z, 0-9, and underscore.
 
@@ -85,11 +85,11 @@ The following steps show you how to import the capability model for an **Environ
 
 1. To add a new device template, select **+ New** on the **Device Templates** page.
 
-1. Choose **Custom** from the list of device capability models.
+1. Choose **Custom** from the list of templates.
 
 1. Enter **Environmental Sensor** as the name of your device template.
 
-1. Choose **Import Capability Model** to create a new device capability model from a JSON file. Navigate to the folder where you saved the **EnvironmentalSensorInline.capabilitymodel.json** file on your local machine. Select the file **EnvironmentalSensorInline.capabilitymodel.json** and then select import. The environmental sensor capability model includes the **Environmental Sensor** and **Device Information** interfaces:
+1. Choose **Import Capability Model** to create a new device capability model from a JSON file. Navigate to the folder where you saved the **EnvironmentalSensorInline.capabilitymodel.json** file on your local machine. Select the file **EnvironmentalSensorInline.capabilitymodel.json** and then select **Open**. The environmental sensor capability model includes the **Environmental Sensor** and **Device Information** interfaces:
 
     ![Environmental sensor device capability model](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
@@ -142,9 +142,9 @@ After you select **Generate default views**, they're automatically added under t
 
 A device dashboard lets an operator visualize a device using charts and metrics. As a builder, you can define what information displays on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** and then **Visualizing the Device**:
 
-1. All of the device properties, cloud properties, telemetry, and static options are listed in the right-hand panel. You can drag and drop any of these items out into the view. Drag out a property to the view. You can configure the tile using the gear icon.
+1. All of the device properties, cloud properties, telemetry, and static options are listed under **Properties**. You can drag and drop any of these items out into the view. Drag the **Brightness Level** property to the view. You can configure the tile using the gear icon.
 
-1. To add a chart that plots telemetry, select **Humidity** and **Temperature**, and then select **Combine**. To view this chart in any different format, such as a pie chart or bar chart, select the **Change Visualization** button at the top of the tile.
+1. To add a chart that plots telemetry, select **Humidity** and **Temperature**, and then select **Combine**. To view this chart in a different format, such as a pie chart or bar chart, select the **Change Visualization** button at the top of the tile.
 
 1. Select **Save** to save your view:
 
@@ -156,7 +156,7 @@ A device form lets an operator edit writeable device properties and cloud proper
 
 To create a form to view and edit environmental sensor properties:
 
-1. Select the **Editing Device and Cloud data** tile.
+1. Navigate to **Views** in the **Environmental Sensor** template. Select the **Editing Device and Cloud data** tile to add a new view.
 
 1. Enter the form name **Environmental Sensor properties**.
 
@@ -164,10 +164,9 @@ To create a form to view and edit environmental sensor properties:
 
 1. Select the **Brightness Level** and **Device State**  device properties. Then select **Add Section**. Edit the title of the section to be **Sensor properties**. Select **Apply**.
 
-1. Select the **Battery remaining**, **Device model**, **Firmware version**, **Manufacturer**, and **Serial number** device properties. Then select **Add Section**. Edit the title of the section to be **Device properties**. Select **Apply**.
+1. Select the **Device model**, **Software version**, **Manufacturer**, and **Processor manufacturer** device properties. Then select **Add Section**. Edit the title of the section to be **Device properties**. Select **Apply**.
 
 1. Select **Save** to save your view.
-
 
 ## Publish device template
 

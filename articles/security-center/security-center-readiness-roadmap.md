@@ -3,10 +3,8 @@ title: Azure Security Center Readiness Roadmap | Microsoft Docs
 description: This document provides you a readiness roadmap to ramp up on Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: ndicola
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: fece670cc-df70-445d-9773-b32cbaba8d4a
 ms.service: security-center
 ms.devlang: na
@@ -63,9 +61,8 @@ Use the following resources to assist you to manage security alerts and protect 
 
 Articles	
 * [Security health monitoring in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
-* [Protecting your virtual machines in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-virtual-machine-recommendations)
+* [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 * [Protecting your network in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
-* [Protecting your applications in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-application-recommendations)
 * [Protecting Azure SQL service and data in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-sql-service-recommendations)
 
 

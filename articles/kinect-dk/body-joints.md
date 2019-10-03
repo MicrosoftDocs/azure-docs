@@ -16,7 +16,7 @@ Azure Kinect body tracking can track multiple human bodies at the same time. Eac
 
 ## Joints
 
-Joint position and orientation are estimates relative to the depth sensor frame of reference. The position is specified in millimeters. The orientation is expressed as a normalized quaternion and is the local orientation of the connection (bone) with child joints.
+Joint position and orientation are estimates relative to the global depth sensor frame of reference. The position is specified in millimeters. The orientation is expressed as a normalized quaternion.
 
 ## Joint coordinates
 

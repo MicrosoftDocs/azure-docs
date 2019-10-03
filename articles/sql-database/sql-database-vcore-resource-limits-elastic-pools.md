@@ -134,8 +134,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
 |Log rate limits (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
-|Max concurrent workers per pool (requests) *|1680|1890|2100|2520|33600|4200|8400|
-|Max concurrent logins per pool (requests) *|1680|1890|2100|2520|33600|4200|8400|
+|Max concurrent workers per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
+|Max concurrent logins per pool (requests) *|1680|1890|2100|2520|3360|4200|8400|
 |Min/max elastic pool vCore choices per database|0, 0.25, 0.5, 1...16|0, 0.25, 0.5, 1...18|0, 0.25, 0.5, 1...20|0, 0.25, 0.5, 1...20, 24|0, 0.25, 0.5, 1...20, 24, 32|0, 0.25, 0.5, 1...16, 24, 32, 40|0, 0.25, 0.5, 1...16, 24, 32, 40, 80|
 |Number of replicas|1|1|1|1|1|1|1|
 |Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|

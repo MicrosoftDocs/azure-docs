@@ -17,7 +17,7 @@ ms.author: swmachan
 Translator Text API can translate behind firewalls using either domain-name or IP filtering. Domain-name filtering is the preferred method. We **do not recommend** running Microsoft Translator from behind an IP filtered firewall. The setup is likely to break in the future without notice.
 
 ## Translator IP Addresses
-The IP addresses for api.cognitive.microsofttranslator.com - Microsoft Translator Text API as of November 20, 2018:
+The IP addresses for api.cognitive.microsofttranslator.com - Microsoft Translator Text API as of August 21, 2019:
 
 * **Asia Pacific:** 20.40.125.208, 20.43.88.240, 20.184.58.62, 40.90.139.163, 104.44.89.44
 * **Europe:** 40.90.138.4, 40.90.141.99, 51.105.170.64, 52.155.218.251

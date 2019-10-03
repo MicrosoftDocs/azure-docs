@@ -28,7 +28,7 @@ Azure Multi-Factor Authentication provides a means to verify who you are using m
 We recommend that you require Azure Multi-Factor Authentication for user sign-ins because it:
 
 - Delivers strong authentication with a range of easy verification options
-- Plays a key role in preparing your organization to protect and recover from risk events in Identity Protection
+- Plays a key role in preparing your organization to protect and recover from risk detections in Identity Protection
 
 For more details on MFA, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to deploy a LUIS app in the LUIS portal so I can understand the process of putting the model on the prediction endpoint. 
 ---
@@ -55,11 +55,11 @@ Every time you create a new resource for LUIS, you need to assign the resource t
 
 1. Sign in to the [LUIS portal](https://www.luis.ai) and choose the **myEnglishApp** app from the apps list.
 
-1. Select **Manage** in the upper-right menu, and then select **Keys and endpoints**.
+1. Select **Manage** in the upper-right menu, and then select **Azure Resources**.
 
-1. To add the LUIS, select **Assign Resource +**.
+1. To add the LUIS, select **Add prediction resource**.
 
-   [![Assign a resource to your app](./media/get-started-portal-deploy-app/assign-resource-button.png)](./media/get-started-portal-deploy-app/assign-resource-button.png#lightbox)
+    <!-- TBD: get screenshot-->
 
 1. Select your tenant, subscription, and resource name. Select **Assign resource**.
 
@@ -83,43 +83,50 @@ Train the app when you're ready to test it. Publish the app when you want the cu
 
 1. Select the endpoint URL associated with your new resource name. This action opens a web browser with a correctly constructed URL to make a `GET` request to the prediction endpoint runtime.
 
-1. The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
+## Prediction endpoint request
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    The browser shows the response, which is the same JSON your client application will receive:
+The `q=` at the end of the URL is short for **query** and is where the user's utterance is appended to the GET request. After the `q=`, enter the same user utterance used at the end of the previous quickstart:
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+The browser shows the response, which is the same JSON your client application will receive:
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
+This response gives you more information than the default test pane in the previous tutorial. To see this same level of information in the test pane, you must publish the app. After the app is published, select **Compare with published** in the test pane. Use **Show JSON view** in the published test pane to see the same JSON as the previous step. In this way, you can compare the current app you're working on with an app that is published to the endpoint.
 
-    [![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare currently editing versus published version of app](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## Clean up resources
 
