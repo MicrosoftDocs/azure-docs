@@ -10,7 +10,6 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.subservice: cognitive-search
 ---
 
 # Common errors and warnings of the AI enrichment pipeline in Azure Search
