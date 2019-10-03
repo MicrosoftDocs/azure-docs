@@ -55,7 +55,9 @@ The following example sets a policy to delete any manifest in the registry as so
 az acr config retention update --registry myregistry --status enabled --days 0 --type UntaggedManifests
 ```
 
-If you enable the preceding policy, you can quickly verify that untagged manifests are deleted:
+### Validate a retention policy
+
+If you enable the preceding policy with a retention period of 0 days, you can quickly verify that untagged manifests are deleted:
 
 1. Push a test image `hello-world:latest` image to your registry, or substitute another test image of your choice.
 1. Untag the `hello-world:latest` image, for example, using the [az acr repository untag][az-acr-repository-untag] command. The untagged manifest remains in the registry.
