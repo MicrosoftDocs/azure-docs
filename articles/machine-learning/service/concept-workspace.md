@@ -53,7 +53,7 @@ You can interact with your workspace in the following ways:
 
 ## Machine learning with a workspace
 
-Machine learning tasks read and/or write artifacts to your workspace. 
+Machine learning tasks read and/or write artifacts to your workspace.
 
 + Run an experiment to train a model - writes experiment run results to the workspace.
 + Use automated ML to train a model - writes training results to the workspace.
@@ -76,7 +76,7 @@ You can also perform the following workspace management tasks:
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you pick its [SKU](overview-what-is-azure-ml.md#sku). The SKU determines the [features available in the workspace]().  
+When you create a workspace, you decide whether it is a Basic or Enterprise [SKU](overview-what-is-azure-ml.md#sku). The SKU determines the [features available in the workspace]().  
 
 There are multiple ways to create a workspace:  
 
@@ -93,7 +93,7 @@ You can upgrade your workspace from a Basic SKU to the Enterprise SKU.
 
 1. Select the workspace that you wish to upgrade.
 
-1.  Select **Upgrade**.
+1. Select **Upgrade**.
 
 > [!IMPORTANT]
 > You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
