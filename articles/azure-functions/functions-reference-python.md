@@ -280,35 +280,37 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 ## Concurrency
 
-The Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient if you are trying to handle a number of invocations at the same time and/or if your application is processing a lot of I/O events (i.e. your application is I/O bound).
+By default, the Functions Python runtime can only process one invocation of a function at a time. This concurrency level might not be sufficient in under one or more of the following conditions:
 
-For these we recommend the following
++ You are trying to handle a number of invocations being made at the same time.
++ Your are processing a large number of I/O events.
++ Your application is I/O bound.
+
+In these situations, you can improve performance by running asynchronously and by using multiple language worker processes.  
 
 ### Async
 
-We recommend that you write your Azure Function as an asynchronous coroutine using the `async def` statement.
+We recommend that you use the `async def` statement to make your function run as an asynchronous coroutine.
 
 ```python
-# Will be run with asyncio directly
-
+# Runs with asyncio directly
 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-If the main() function is synchronous (no  qualifier), we automatically run the function in an `asyncio` thread-pool.
+When the `main()` function is synchronous (without the `async` qualifier), the function is automatically run in an `asyncio` thread-pool.
 
 ```python
-# Would be run in an asyncio thread-pool
-
+# Runs in an asyncio thread-pool
 
 def main():
     some_blocking_socket_io()
 ```
+
 ### Use multiple language worker processes
 
-By default every Functions host has a single language worker process. However there is support to have multiple language worker processes per Functions host. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count) App setting to change this value. 
-
+By default, every Functions host instance has a single language worker process. However there is support to have multiple language worker processes per host instance. Function invocations can then be evenly distributed among these language worker processes. Use the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting to change this value. 
 
 ## Context
 
