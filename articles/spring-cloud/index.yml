@@ -33,7 +33,7 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Launch a Java Spring app using the Portal
+          - text: Launch a Java Spring app using the portal
             url: spring-cloud-quickstart-launch-app-portal.md ## must update when article checked in
           - text: Launch a Java Spring app using Maven
             url: spring-cloud-overview.md ## must update when article checked in
