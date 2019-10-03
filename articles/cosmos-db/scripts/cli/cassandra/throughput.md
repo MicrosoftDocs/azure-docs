@@ -39,7 +39,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
 | [az cosmosdb cassandra keyspace create](/cli/azure/cosmosdb/cassandra/keyspace#az-cosmosdb-cassandra-keyspace-create) | Creates an Azure Cosmos Cassandra keyspace. |
 | [az cosmosdb cassandra table create](/cli/azure/cosmosdb/cassandra/table#az-cosmosdb-cassandra-table-create) | Creates an Azure Cosmos Cassandra table. |
-| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughputaz-cosmosdb-cassandra-keyspace-throughput-update) | Update RU/s for an Azure Cosmos Cassandra keyspace. |
+| [az cosmosdb cassandra keyspace throughput update](/cli/azure/cosmosdb/cassandra/keyspace/throughput?view=azure-cli-latest#az-cosmosdb-cassandra-keyspace-throughput-update) | Update RU/s for an Azure Cosmos Cassandra keyspace. |
 | [az cosmosdb cassandra table throughput update](/cli/azure/cosmosdb/cassandra/table/throughput#az-cosmosdb-cassandra-table-throughput-update) | Update RU/s for an Azure Cosmos Cassandra table. |
 | [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 

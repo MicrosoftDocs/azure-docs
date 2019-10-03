@@ -1,76 +1,68 @@
 ---
-title: Run batch predictions on large data with pipelines
-titleSuffix: Azure Machine Learning
-description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning.
+title: Run batch inference on large data 
+titleSuffix: Azure Machine Learning service
+description: Learn how to get inferences asynchronously on large amounts of data using Azure Machine Learning Batch Inference service. Batch Inference provides parallel processing capabilities out of the box and optimizes for high throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
-ms.reviewer: jmartens, garye
-ms.author: jordane
-author: jpe316
-ms.date: 07/12/2019
+ms.topic: tutorial
+
+ms.reviewer: trbye, jmartens, larryfr
+ms.author: tracych
+author: tracych
+ms.date: 10/01/2019
+ms.custom: Ignite2019
 ---
-# Run batch predictions on large data sets with Azure Machine Learning pipelines
 
-In this article, you learn how to make predictions on large quantities of data asynchronously using the ML pipelines with Azure Machine Learning.
+# Run batch inference on large data with Azure Machine Learning service (Preview)
 
-Batch prediction (or batch scoring) provides cost-effective inference, with unparalleled throughput for asynchronous applications. Batch prediction pipelines can scale to perform inference on terabytes of production data. Batch prediction is optimized for high throughput, fire-and-forget predictions for a large collection of data.
+In this article, you learn how to get inferences on large quantities of data asynchronously and in parallel, by using Azure Machine Learning Batch Inference. Batch Inference is a high-performance and high-throughput service for generating inferences and processing data. It provides asynchronous capabilities out of the box and makes it straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
 
->[!TIP]
-> If your system requires low-latency processing (to process a single document or small set of documents quickly), use [real-time scoring](how-to-consume-web-service.md) instead of batch prediction.
+In this how-to you learn the following tasks:
 
-In the following steps, you create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained computer vision model ([Inception-V3](https://arxiv.org/abs/1512.00567)). Then you use the pre-trained model to do batch scoring on images available in your Azure Blob storage account. These images used for scoring are unlabeled images from the [ImageNet](http://image-net.org/) dataset.
+> [!div class="checklist"]
+> * Create a remote compute resource
+> * Write a custom inference script
+> * Create a [machine learning pipeline](concept-ml-pipelines.md) to register a pre-trained image classification model based on the [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/) data set. 
+> * Use model to run batch inference on sample images available in your Azure Blob storage account. 
 
 ## Prerequisites
 
-- If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree).
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
-- Configure your development environment to install the Azure Machine Learning SDK. For more information, see [Configure a development environment for Azure Machine Learning](how-to-configure-environment.md).
+* For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
-- Create an Azure Machine Learning workspace that will hold all your pipeline resources. You can use the following code, or for more options, see [Create a workspace configuration file](how-to-configure-environment.md#workspace).
-
-  ```python
-  from azureml.core import Workspace
-  ws = Workspace.create(name = '<workspace-name>',
-                        subscription_id = '<subscription-id>',
-                        resource_group = '<resource-group>',
-                        location = '<workspace_region>',
-                        exist_ok = True
-                        )
-  ```
+* To manage your own environment and dependencies, see the [how-to](how-to-configure-environment.md) on configuring your own environment. Run `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-contrib-pipeline-steps` in your environment to download the necessary dependencies.
 
 ## Set up machine learning resources
 
-The following steps set up the resources you need to run a pipeline:
+The following steps set up the resources you need to run a batch inference pipeline:
 
-- Access the datastore that already has the pretrained model, input labels, and images to score (this is already set up for you).
-- Set up a datastore to store your outputs.
-- Configure `DataReference` objects to point to the data in the preceding datastores.
-- Set up compute machines or clusters where the pipeline steps will run.
+- Create a datastore that points to a blob container containing images to inference.
+- Set up data references as inputs and outputs for the batch inference pipeline step.
+- Set up compute cluster where the batch inference step will run.
 
-### Access the datastores
+### Create a datastore with sample images
 
-First, access the datastore that has the model, labels, and images.
+Get the MNIST evaluation set from the public blob container `sampledata` on an account named `pipelinedata`. Create a datastore with the name `mnist_datastore`, which points to this container. In the call to `register_azure_blob_container` below, setting the `overwrite` flag to `True` overwrites any datastore that was created previously with that name. 
 
-Use a public blob container, named *sampledata*, in the *pipelinedata* account that holds images from the ImageNet evaluation set. The datastore name for this public container is
-*images_datastore*. Register this datastore with your workspace:
+This step can be changed to point to your blob container by providing your own `datastore_name`, `container_name`, and `account_name`.
 
 ```python
 from azureml.core import Datastore
+from azureml.core import Workspace
 
-account_name = "pipelinedata"
-datastore_name = "images_datastore"
-container_name = "sampledata"
+# load workspace auth details from config.json
+ws = Workspace.from_config()
 
-batchscore_blob = Datastore.register_azure_blob_container(ws,
-                                                          datastore_name=datastore_name,
-                                                          container_name=container_name,
-                                                          account_name=account_name,
-                                                          overwrite=True)
+mnist_blob = Datastore.register_azure_blob_container(ws, 
+                      datastore_name="mnist_datastore", 
+                      container_name="sampledata", 
+                      account_name="pipelinedata",
+                      overwrite=True)
 ```
 
-Next, set up to use the default datastore for the outputs.
+Next, specify the workspace default datastore as the output datastore, which you use for inference output.
 
 When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure Files is the default datastore for a workspace, but you can also use Blob storage as a datastore. For more information, see [Azure storage
 options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
@@ -79,78 +71,62 @@ options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-fi
 def_data_store = ws.get_default_datastore()
 ```
 
-### Configure data references
+### Configure data inputs and outputs
 
-Now, reference the data in your pipeline as inputs to pipeline steps.
+Now you need to configure data inputs and outputs including the directory containing the input images, the directory where the pre-trained model is stored, the directory containing the labels, and the directory for output.
 
-A data source in a pipeline is represented by a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) object. The `DataReference` object points to data that lives in, or is accessible from, a datastore. You need `DataReference` objects for the directory used for input images, the directory in which the pretrained model is stored, the directory for labels, and the output directory.
+`Dataset` is a class for exploring, transforming and managing data in Azure Machine Learning. There are two types of Dataset, TabularDataset and FileDataset. In this example, you will use FileDataset as the inputs to batch inference pipeline step (please note FileDataset support in Batch Inference is restricted to Azure blob storage for now). You can also use Dataset as side input to your script, e.g. access labels in your script to labe images.
+
+For more information about Azure Machine Learning datasets, see [create and access datasets (preview)](https://docs.microsoft.com/azure/machine-learning/service/how-to-create-register-datasets).
+
+`PipelineData` objects are used for transferring intermediate data between pipeline steps. In this example, you use it for inference outputs.
 
 ```python
-from azureml.data.data_reference import DataReference
+from azureml.core.dataset import Dataset
 
-input_images = DataReference(datastore=batchscore_blob,
-                             data_reference_name="input_images",
-                             path_on_datastore="batchscoring/images",
-                             mode="download")
+mnist_ds_name = 'mnist_sample_data'
 
-model_dir = DataReference(datastore=batchscore_blob,
-                          data_reference_name="input_model",
-                          path_on_datastore="batchscoring/models",
-                          mode="download")
+path_on_datastore = mnist_blob.path('mnist/*.png')
+input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
+registered_mnist_ds = input_mnist_ds.register(ws, mnist_ds_name, create_new_version=True)
+named_mnist_ds = registered_mnist_ds.as_named_input(mnist_ds_name)
 
-label_dir = DataReference(datastore=batchscore_blob,
-                          data_reference_name="input_labels",
-                          path_on_datastore="batchscoring/labels",
-                          mode="download")
-
-output_dir = PipelineData(name="scores",
-                          datastore=def_data_store,
-                          output_path_on_compute="batchscoring/results")
+output_dir = PipelineData(name="inferences", 
+                          datastore=def_data_store, 
+                          output_path_on_compute="mnist/results")
 ```
 
 ### Set up compute target
 
-In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. For example, you can create an Azure Machine Learning compute with the [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute%28class%29?view=azure-ml-py) class.
+In Azure Machine Learning, *compute* (or *compute target*) refers to the machines or clusters that perform the computational steps in your machine learning pipeline. Run the following code to create or re-use a GPU-enabled [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) target.
 
 ```python
-from azureml.core.compute import AmlCompute
-from azureml.core.compute import ComputeTarget
-
-compute_name = "gpucluster"
-compute_min_nodes = 0
-compute_max_nodes = 4
-vm_size = "STANDARD_NC6"
-
-if compute_name in ws.compute_targets:
-    compute_target = ws.compute_targets[compute_name]
-    if compute_target and type(compute_target) is AmlCompute:
-        print('Found compute target. just use it. ' + compute_name)
-else:
-    print('Creating a new compute target...')
-    provisioning_config = AmlCompute.provisioning_configuration(
-        vm_size=vm_size,  # NC6 is GPU-enabled
-        vm_priority='lowpriority',  # optional
-        min_nodes=compute_min_nodes,
-        max_nodes=compute_max_nodes)
-
-    # create the cluster
-    compute_target = ComputeTarget.create(ws,
-                                          compute_name,
-                                          provisioning_config)
-
-    compute_target.wait_for_completion(
-        show_output=True,
-        min_node_count=None,
-        timeout_in_minutes=20)
+# choose a name for your cluster
+aml_compute_name = os.environ.get("AML_COMPUTE_NAME", "gpu-cluster")
+cluster_min_nodes = os.environ.get("AML_COMPUTE_MIN_NODES", 0)
+cluster_max_nodes = os.environ.get("AML_COMPUTE_MAX_NODES", 4)
+vm_size = os.environ.get("AML_COMPUTE_SKU", "STANDARD_NC6")
+    
+try:
+    gpu_cluster = AmlCompute(ws, aml_compute_name)
+    if gpu_cluster and type(gpu_cluster) is AmlCompute:
+        print('found compute target: ' + aml_compute_name)
+except ComputeTargetException:
+    print('creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                vm_priority = 'lowpriority', # optional
+                                                                min_nodes = cluster_min_nodes, 
+                                                                max_nodes = cluster_max_nodes)
+    gpu_cluster = ComputeTarget.create(ws, aml_compute_name, provisioning_config)
+    
+    # can poll for a minimum number of nodes and for a specific timeout. 
+    # if no min node count is provided it will use the scale settings for the cluster
+    gpu_cluster.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
 ```
 
 ## Prepare the model
 
-Before you can use the pretrained model, you'll need to download the model and register it with your workspace.
-
-### Download the pretrained model
-
-Download the pretrained computer vision model (InceptionV3) from <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Then extract it to the `models` subfolder.
+Download the pre-trained image classification model from <https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz>, and then extract it to the `models` directory.
 
 ```python
 import os
@@ -161,197 +137,198 @@ model_dir = 'models'
 if not os.path.isdir(model_dir):
     os.mkdir(model_dir)
 
-url = "http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz"
+url="https://pipelinedata.blob.core.windows.net/mnist-model/mnist-tf.tar.gz"
 response = urllib.request.urlretrieve(url, "model.tar.gz")
 tar = tarfile.open("model.tar.gz", "r:gz")
 tar.extractall(model_dir)
 ```
 
-### Register the model
-
-Here's how to register the model:
+Then register the model with your workspace so it is available to your remote compute resource.
 
 ```python
-import shutil
 from azureml.core.model import Model
 
-# register downloaded model
-model = Model.register(
-    model_path="models/inception_v3.ckpt",
-    model_name="inception",  # This is the name of the registered model
-    tags={'pretrained': "inception"},
-    description="Imagenet trained tensorflow inception",
-    workspace=ws)
+# register downloaded model 
+model = Model.register(model_path="models/",
+                       model_name="mnist",
+                       tags={'pretrained': "mnist"},
+                       description="Mnist trained tensorflow model",
+                       workspace=ws)
 ```
 
-## Write your scoring script
+## Write your inference script
 
 >[!Warning]
->The following code is only a sample of what is contained in the [batch_score.py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). You’ll need to create your own scoring script for your scenario.
+>The following code is only a sample used by the [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb). You’ll need to create your own script for your scenario.
 
-The `batch_score.py` script takes input images in *dataset_path*, pretrained models in *model_dir,* and outputs *results-label.txt* to *output_dir*.
+The script **must contain** two functions:
+- `init()`: this function should be used for any costly or common preparation for subsequent inference, e.g. load the model into a global object.
+- `run(input_data, arguments)`: this function will run for each mini_batch.
+    - `input_data`: array of locally-accessible file paths or a Pandas dataframe, a subset of files or rows specified in the inputs list.
+    - `arguments`: arguments passed during pipeline run will be passed to this function. 
+    - `run method response`: run() method should return an array.
 
 ```python
-# Snippets from a sample scoring script
-# Refer to the accompanying batch-scoring Notebook
-# https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb
+# Snippets from a sample script
+# Refer to the accompanying digit_identification.py
+# https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/digit_identification.py
 # for the implementation script
 
-# Get labels
-def get_class_label_dict(label_file):
-  label = []
-  proto_as_ascii_lines = tf.gfile.GFile(label_file).readlines()
-  for l in proto_as_ascii_lines:
-    label.append(l.rstrip())
-  return label
+import os
+import numpy as np
+import tensorflow as tf
+from PIL import Image
+from azureml.core import Model
 
-class DataIterator:
-  # Definition of the DataIterator here
 
-def main(_):
-    # Refer to batch-scoring Notebook for implementation.
-    label_file_name = os.path.join(args.label_dir, "labels.txt")
-    label_dict = get_class_label_dict(label_file_name)
-    classes_num = len(label_dict)
-    test_feeder = DataIterator(data_dir=args.dataset_path)
-    total_size = len(test_feeder.labels)
+def init():
+    global g_tf_sess
 
-    # get model from model registry
-    model_path = Model.get_model_path(args.model_name)
-    with tf.Session() as sess:
-        test_images = test_feeder.input_pipeline(batch_size=args.batch_size)
-        with slim.arg_scope(inception_v3.inception_v3_arg_scope()):
-            input_images = tf.placeholder(tf.float32, [args.batch_size, image_size, image_size, num_channel])
-            logits, _ = inception_v3.inception_v3(input_images,
-                                                        num_classes=classes_num,
-                                                        is_training=False)
-            probabilities = tf.argmax(logits, 1)
+    # pull down model from workspace
+    model_path = Model.get_model_path("mnist")
 
-        sess.run(tf.global_variables_initializer())
-        sess.run(tf.local_variables_initializer())
-        coord = tf.train.Coordinator()
-        threads = tf.train.start_queue_runners(sess=sess, coord=coord)
-        saver = tf.train.Saver()
-        saver.restore(sess, model_path)
-        out_filename = os.path.join(args.output_dir, "result-labels.txt")
+    # contruct graph to execute
+    tf.reset_default_graph()
+    saver = tf.train.import_meta_graph(os.path.join(model_path, 'mnist-tf.model.meta'))
+    g_tf_sess = tf.Session(config=tf.ConfigProto(device_count={'GPU': 0}))
+    saver.restore(g_tf_sess, os.path.join(model_path, 'mnist-tf.model'))
 
-        # copy the file to artifacts
-        shutil.copy(out_filename, "./outputs/")
+
+def run(mini_batch):
+    print(f'run method start: {__file__}, run({mini_batch})')
+    resultList = []
+    in_tensor = g_tf_sess.graph.get_tensor_by_name("network/X:0")
+    output = g_tf_sess.graph.get_tensor_by_name("network/output/MatMul:0")
+
+    for image in mini_batch:
+        # prepare each image
+        data = Image.open(image)
+        np_im = np.array(data).reshape((1, 784))
+        # perform inference
+        inference_result = output.eval(feed_dict={in_tensor: np_im}, session=g_tf_sess)
+        # find best probability, and add to result list
+        best_result = np.argmax(inference_result)
+        resultList.append("{}: {}".format(os.path.basename(image), best_result))
+
+    return resultList
 ```
 
-## Build and run the batch scoring pipeline
+## Build and run the batch inference pipeline
+
+Now you have everything you need to build the pipeline.
 
 ### Prepare the run environment
 
-Specify the conda dependencies for your script. You'll need this object later, when you create the pipeline step.
+First specify the dependencies for your script. You use this object later when you create the pipeline step.
 
 ```python
-from azureml.core.runconfig import DEFAULT_GPU_IMAGE
-from azureml.core.runconfig import RunConfiguration
+from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-cd = CondaDependencies.create(
-    pip_packages=["tensorflow-gpu==1.10.0", "azureml-defaults"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow", "azure.storage.blob", "pandas"])
 
-# Runconfig
-amlcompute_run_config = RunConfiguration(conda_dependencies=cd)
-amlcompute_run_config.environment.docker.enabled = True
-amlcompute_run_config.environment.docker.gpu_support = True
-amlcompute_run_config.environment.docker.base_image = DEFAULT_GPU_IMAGE
-amlcompute_run_config.environment.spark.precache_packages = False
+batch_env = Environment(name="batch_environment")
+batch_env.python.conda_dependencies = batch_conda_deps
+batch_env.docker.enabled = True
+batch_env.docker.gpu_support = True
+batch_env.docker.base_image = DEFAULT_GPU_IMAGE
+batch_env.spark.precache_packages = False
 ```
 
-### Specify the parameter for your pipeline
+### Specify the parameters for your batch inference pipeline step
 
-Create a pipeline parameter by using a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
+`ParallelRunConfig` is the major configuration for the newly introduced batch inference `ParallelRunStep` within Azure Machine Learning pipeline. You use it to wrap your script and config necessary parameters including all of the following:
+- `entry_script`: user script as local file path which will be run in parallel on multiple nodes. If source_directly is present, use relative path, otherwise use any path accessible on machine.
+- `mini_batch_size`: size of the mini-batch passed to a single run() call (optional, default value 1).
+    - For FileDataset, it's number of files with minimum value of 1. Multiple files can be combined into one mini-batch.
+    - For TabularDataset, it's the size of data, e.g. 1024, 1024KB, 10MB, 1GB. The minimum value is 1MB. Please note mini-batch from TabularDataset will never cross file boundaries. For example, if you have number of csv files with various size, the smallest file is 100k and the largest is 10MB. If you set mini_batch_size = 1MB, then file with size smaller than 1MB will be treated as one mini-batch, and file with size larger than 1MB will be split into multiple mini-batches.
+- `error_threshold`: the number of record failures for TabularDataset and file failures for FileDataset that should be ignored during processing. If the error count for the entire input goes above this value, then the job will be aborted. Error threshold is for the entire input and not for individual mini-batches sent to run() method. The range is [-1, int.max]. -1 indicates ignoring all failures during processing.
+- `output_action`: one of the following values indicate how the output will be organized:
+    - `summary_only`: user script will store the output and ParallelRunStep will use the output only for error threshold calculation.
+    - `file`: for each input file, there will be a corresponding file with the same name in output folder.
+    - `append_row`: for all input files, only one file will be created in output folder appending all outputs separated by line. File name will be parallel_run_step.txt.
+- `source_directory`: paths to folders that contains all files to execute on compute target (optional).
+- `compute_target`: only AMLCompute is supported.
+- `node_count`: number of compute nodes to be used for running user script.
+- `process_count_per_node`: number of processes per node.
+- `environment`: the Python environment definition. It can be configured to use an existing Python environment or to setup a temp environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
+- `logging_level`: log verbosity. Values in increasing verbosity are: WARNING, INFO, DEBUG, default is INFO (optional).
+- `run_invocation_timeout`: run() method invocation timeout in seconds, default value is 30.
 
 ```python
-from azureml.pipeline.core.graph import PipelineParameter
-batch_size_param = PipelineParameter(
-    name="param_batch_size",
-    default_value=20)
+from azureml.contrib.pipeline.steps import ParallelRunConfig
+
+parallel_run_config = ParallelRunConfig(
+    source_directory=scripts_folder,
+    entry_script="digit_identification.py",
+    input_format="file",
+    mini_batch_size="5kb",
+    error_threshold=10,
+    output_action="append_row",
+    environment=batch_env,
+    compute_target=gpu_cluster,
+    node_count=4)
 ```
 
 ### Create the pipeline step
 
-Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target you already attached to your workspace as the target of execution of the script. Use [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) to create the pipeline step.
+Create the pipeline step by using the script, environment configuration, and parameters. Specify the compute target you already attached to your workspace as the target of execution of the script. Use `ParallelRunStep` to create the batch inference pipeline step which takes all the following parameters:
+- `name`: name of the step with the following naming restrictions: (unique, 3-32 chars and regex ^\[a-z\]([-a-z0-9]*[a-z0-9])?$
+- `models`: zero or more model names already registered in Azure Machine Learning model registry.
+- `parallel_run_config`: ParallelRunConfig object as defined above.
+- `inputs`: one or more single-typed Azure Machine Learning datasets.
+- `output`: PipelineData object corresponding to the output directory.
+- `arguments`: list of arguments passed to user script (optional).
+- `allow_reuse`: whether the step should reuse previous results when run with the same settings/inputs. If this is false, a new run will always be generated for this step during pipeline execution (optional, default value is True).
 
 ```python
-from azureml.pipeline.steps import PythonScriptStep
-inception_model_name = "inception_v3.ckpt"
+from azureml.contrib.pipeline.steps import ParallelRunStep
 
-batch_score_step = PythonScriptStep(
-    name="batch_scoring",
-    script_name="batch_score.py",
-    arguments=["--dataset_path", input_images,
-               "--model_name", "inception",
-               "--label_dir", label_dir,
-               "--output_dir", output_dir,
-               "--batch_size", batch_size_param],
-    compute_target=compute_target,
-    inputs=[input_images, label_dir],
-    outputs=[output_dir],
-    runconfig=amlcompute_run_config,
-    source_directory=scripts_folder
+parallelrun_step = ParallelRunStep(
+    name="batch-mnist",
+    models=[model],
+    parallel_run_config=parallel_run_config,
+    inputs=[named_mnist_ds],
+    output=output_dir,
+    arguments=[],
+    allow_reuse=True
+)
 ```
 
 ### Run the pipeline
 
-Now run the pipeline, and examine the output it produced. The output has a score corresponding to each input image.
+Now, run the pipeline. First, create a `Pipeline` object by using your workspace reference and the pipeline step you created. The steps parameter is an array of steps. In this case, there's only one step for batch scoring. To build pipelines that have multiple steps, place the steps in order in this array.
+
+Next, use the `Experiment.submit()` function to submit the pipeline for execution.
 
 ```python
-import pandas as pd
 from azureml.pipeline.core import Pipeline
+from azureml.core.experiment import Experiment
 
-# Run the pipeline
-pipeline = Pipeline(workspace=ws, steps=[batch_score_step])
-pipeline_run = Experiment(ws, 'batch_scoring').submit(
-    pipeline, pipeline_params={"param_batch_size": 20})
+pipeline = Pipeline(workspace=ws, steps=[parallelrun_step])
+pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
+```
 
-# Wait for the run to finish (this might take several minutes)
+## Monitor the batch inference job
+
+A batch inference job can take a long time to finish. This example monitors progress using a Jupyter widget, but you can also manage the job's progress using:
+
+* The Azure portal 
+* Console output from the [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) object
+
+```python
+from azureml.widgets import RunDetails
+RunDetails(pipeline_run).show()
+
 pipeline_run.wait_for_completion(show_output=True)
-
-# Download and review the output
-step_run = list(pipeline_run.get_children())[0]
-step_run.download_file("./outputs/result-labels.txt")
-
-df = pd.read_csv("result-labels.txt", delimiter=":", header=None)
-df.columns = ["Filename", "Prediction"]
-df.head()
-```
-
-## Publish the pipeline
-
-After you're satisfied with the outcome of the run, publish the pipeline so you can run it with different input values later. When you publish a pipeline, you get a REST endpoint. This endpoint accepts invoking of the pipeline with the set of parameters you have already incorporated by using [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py).
-
-```python
-published_pipeline = pipeline_run.publish_pipeline(
-    name="Inception_v3_scoring",
-    description="Batch scoring using Inception v3 model",
-    version="1.0")
-```
-
-## Rerun the pipeline by using the REST endpoint
-
-To rerun the pipeline, you'll need an Azure Active Directory authentication header token, as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py).
-
-```python
-from azureml.pipeline.core.run import PipelineRun
-from azureml.pipeline.core import PublishedPipeline
-
-rest_endpoint = published_pipeline.endpoint
-# specify batch size when running the pipeline
-response = requests.post(rest_endpoint,
-                         headers=aad_token,
-                         json={"ExperimentName": "batch_scoring",
-                               "ParameterAssignments": {"param_batch_size": 50}})
-
-# Monitor the run
-published_pipeline_run = PipelineRun(ws.experiments["batch_scoring"], run_id)
-
-RunDetails(published_pipeline_run).show()
 ```
 
 ## Next steps
 
-To see this working end-to-end, try the batch scoring notebook in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines), or go to the [Azure architecture center](/azure/architecture/reference-architectures/ai/batch-scoring-python) to see a sample solution architecture.
+To see this working end-to-end, try the [batch inference notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/). 
+
+For debugging and troubleshooting guidance for pipelines, see the [how-to](how-to-debug-pipelines.md).
+
+[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+

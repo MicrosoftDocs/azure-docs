@@ -19,7 +19,7 @@ ms.date: 05/02/2019
   
 ## Module overview  
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to create a regression model using a customizable neural network algorithm.
   

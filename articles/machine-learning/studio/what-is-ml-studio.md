@@ -106,22 +106,22 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 <a name="compare"></a>
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** a visual interface(preview), to quickly prep data, train and deploy machine learning models. This visual interface (preview) provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the visual interface uses your own compute resources and is fully integrated into Azure Machine Learning service.
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio | Azure Machine Learning service:<br/>Visual interface|
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Designer|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
+|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
 
-Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](../service/ui-tutorial-automobile-price-train-score.md)
+Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
-> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.
+> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
 
 ## Free trial
 

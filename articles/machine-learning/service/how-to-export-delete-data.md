@@ -227,9 +227,9 @@ Data Sources can be obtained by:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## Delete visual interface assets
+## Delete assets in the designer
 
-In the visual interface where you created your experiment, delete individual assets:
+In the designer where you created your experiment, delete individual assets:
 
 1. On the left, select the type of asset you want to delete.
 
@@ -239,9 +239,9 @@ In the visual interface where you created your experiment, delete individual ass
 
 1. On the bottom, select **Delete**.
 
-## Export visual interface data
+## Export data in the designer
 
-In the visual interface where you created your experiment, export data you have added:
+In the designer where you created your experiment, export data you have added:
 
 1. On the left, select **Data**.
 

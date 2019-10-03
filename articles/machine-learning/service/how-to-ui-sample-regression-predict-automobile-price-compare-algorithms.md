@@ -1,7 +1,7 @@
 ---
-title: "Visual interface example #3: regression to price and compare algorithms"
+title: "Designer example #3: regression to price and compare algorithms"
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning experiment without writing a single line of code using the visual interface. Learn how to train and compare multiple regression models to predict a car's price based on technical features
+description: This article shows you how to build a complex machine learning experiment without writing a single line of code using the designer. Learn how to train and compare multiple regression models to predict a car's price based on technical features
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Sample 2 - Regression: Predict price and compare algorithms
 
-Learn how to build a complex machine learning experiment without writing a single line of code using the visual interface. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
+Learn how to build a complex machine learning experiment without writing a single line of code using the designer. This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this experiment so you can tackle your own machine learning problems.
 
 If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this experiment.
 
@@ -45,7 +45,7 @@ This sample uses the **Automobile price data (Raw)** dataset, which is from the 
 
 ## Pre-process the data
 
-The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In visual interface, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
 Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
@@ -88,7 +88,7 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)

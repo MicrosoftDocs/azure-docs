@@ -1,7 +1,7 @@
 ---
-title: "Visual interface example #3: Classification to predict credit risk"
+title: "Designer example #3: Classification to predict credit risk"
 titleSuffix: Azure Machine Learning
-description: Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
+description: Learn how to build a machine learning classifier without writing a single line of code using the designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 05/10/2019
 
 # Sample 3 - Classification: Predict credit risk
 
-Learn how to build a machine learning classifier without writing a single line of code using the visual interface. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
+Learn how to build a machine learning classifier without writing a single line of code using the designer. This sample trains a **two-class boosted decision tree** to predict credit risk (high or low) based on credit application information such as credit history, age, and number of credit cards.
 
 Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
@@ -64,7 +64,7 @@ In the evaluation results, you can see that the AUC of the model is 0.776. At th
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)

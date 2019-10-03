@@ -1,7 +1,7 @@
 ---
 title:  "Algorithm & module reference"
 titleSuffix: Azure Machine Learning service
-description: Learn about the modules available in the Azure Machine Learning visual interface
+description: Learn about the modules available in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,12 +13,12 @@ ms.date: 05/02/2019
 ---
 # Algorithm & module reference overview
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface (preview) of Azure Machine Learning service.
+This reference content provides the technical background on each of the machine learning algorithms and modules available in Azure Machine Learning designer.
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 > [!TIP]
-> In any experiment in the visual interface, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
+> In any experiment in the designer, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 ## Modules
 
@@ -41,4 +41,4 @@ Modules are organized by functionality:
 
 ## Error messages
 
-Learn about the [error messages and exception codes](machine-learning-module-error-codes.md)  you might encounter using modules in the visual interface of Azure Machine Learning service.
+Learn about the [error messages and exception codes](machine-learning-module-error-codes.md)  you might encounter using modules in Azure Machine Learning designer.
