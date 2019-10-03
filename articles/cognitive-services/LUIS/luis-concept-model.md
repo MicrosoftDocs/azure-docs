@@ -32,7 +32,7 @@ Language Understanding has several types of models:
 
 Intents are applied to the utterance's intention:
 
-    `Buy a airline ticket from Seattle to Cairo`
+`Buy a airline ticket from Seattle to Cairo`
 
 This utterance has a single intention:
 
@@ -42,7 +42,7 @@ This utterance has a single intention:
 
 An utterance can have more than one intent:
 
-    `Buy an airline ticket from Seattle to Cairo and purchase the vegan meal`
+`Buy an airline ticket from Seattle to Cairo and purchase the vegan meal`
 
 This utterance has two intentions:
 
@@ -55,7 +55,7 @@ An intent is the desired outcome of the utterance while entities are pieces of d
 
 This utterance _must_ have an intent and _may_ have entities:
 
-    `Buy a airline ticket from Seattle to Cairo`
+`Buy a airline ticket from Seattle to Cairo`
 
 This utterance has a single intention:
 
