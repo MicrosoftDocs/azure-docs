@@ -32,25 +32,25 @@ There are three ways to check whether an application is in quarantine:
   
 - In the Azure portal, navigate to **Azure Active Directory** > **Enterprise applications** > &lt;*application name*&gt; > **Provisioning** and scroll to the progress bar at the bottom.  
 
+  ![Provisioning status bar showing quarantine status](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
+
 - Use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to programmatically get the status of the provisioning job:
 
         `GET https://graph.microsoft.com/beta/servicePrincipals/{id}/synchronization/jobs/{jobId}/`
 
-- Check your email. Notification emails are sent 1 day after quarantine to the email specified in your provisioning configuration. The notifications are resent **`[>>>periodically<<<]`**. If you don't see an email:
+- Check your email. When an application is placed in quarantine, a one-time notification email is sent. If the quarantine reason changes, an updated email is sent showing the new reason for quarantine. If you don't see an email:
 
-  - Make sure the following alias is not blocked: **`[>>>NEED ALIAS<<<]`**
-
-  - Make sure you have specified a valid **Notification Email** in the provisioning configuration for the application
-  - Make sure there is no spam filtering on the notification email inbox
-  - Make sure you have not unsubscribed from emails
+  - Make sure you have specified a valid **Notification Email** in the provisioning configuration for the application.
+  - Make sure there is no spam filtering on the notification email inbox.
+  - Make sure you have not unsubscribed from emails.
 
 ## Why is my application in quarantine?
 
-You can use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to get the status of the provisioning job. The response contains a synchronization status that shows whether the provisioning job is in quarantine. The [synchronizationQuarantine](https://docs.microsoft.com/graph/api/resources/synchronization-quarantine?view=graph-rest-beta) resource indicates a reason code, for example:
+You can use the Microsoft Graph request [Get synchronizationJob](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-get?view=graph-rest-beta&tabs=http) to get the status of the provisioning job. The response contains a synchronization status that shows whether the provisioning job is in quarantine. A Microsoft Graph request to get the status of the provisioning job shows the following reason for quarantine:
 
 - `EncounteredQuarantineException` indicates that invalid credentials were provided. The provisioning service is unable to establish a connection between the source system and the target system.
 
-- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 5,000 objects were unsuccessfully provisioned and **`[>>>"and" or "or"?<<<]`** more than 60% of objects were unsuccessfully provisioned.
+- `EncounteredEscrowProportionThreshold` indicates that provisioning exceeded the escrow threshold. This condition occurs when more than 60% of provisioning events failed.
 
 - `QuarantineOnDemand` means that we've detected an issue with your application and have manually set it to quarantine.
 
