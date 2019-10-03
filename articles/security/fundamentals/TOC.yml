@@ -235,8 +235,6 @@
   - name: FedRAMP
     displayName: blueprint, privacy, certifications
     items:
-    - name: Azure Services by Audit Scope
-      href: ../compliance/azure-services-in-fedramp-auditscope.md
     - name: Data analytics
       href: ../blueprints/fedramp-analytics-overview.md
     - name: Data warehouse
@@ -283,16 +281,6 @@
       href: ../blueprints/pcidss-iaaswa-overview.md
     - name: PaaS web application
       href: ../blueprints/pcidss-paaswa-overview.md
-  - name: SCCA 
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Secure Azure Computing Architecture 
-      href: ../compliance/secure-azure-computing-architecture.md
-  - name: TIC
-    displayName: blueprint, privacy, certifications
-    items:
-    - name: Trusted Internet Connection with Azure
-      href: ../compliance/compliance-tic.md
   - name: UK NHS
     displayName: blueprint, privacy, certifications
     items:
@@ -321,8 +309,8 @@
   href: best-practices-and-patterns.md
 - name: Resources
   items:
-  - name: Common security attributes
-    href: common-security-attributes.md
+  - name: Built-in security controls
+    href: security-controls.md
   - name: Azure security MVP program
     href: mvp.md
   - name: Cybersecurity consulting

@@ -50,7 +50,7 @@ Open _index.js_ and find the following line:
 const port = process.env.PORT || 1337;
 ```
 
-App Service injects process.env.PORT into your application, so the code uses the variable to know which port to listen. 
+App Service populates the environment variable, **process.env.PORT**. Use this in your application so the code knows which port to listen.
 
 In a terminal window, navigate to the **root directory** of the sample Node.js project (the directory that contains _index.js_).
 

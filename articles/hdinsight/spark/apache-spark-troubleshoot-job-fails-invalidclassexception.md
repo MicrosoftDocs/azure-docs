@@ -5,10 +5,11 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/29/2019
 ---
 
-# Scenario: Apache Spark job fails with InvalidClassException, class version mismatch, in Azure HDInsight
+# Apache Spark job fails with InvalidClassException, class version mismatch, in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 

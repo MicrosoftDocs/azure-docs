@@ -233,4 +233,4 @@ If the virtual network includes a custom DNS, the custom DNS server must be able
   - From the [Azure portal](sql-database-managed-instance-get-started.md).
   - By using [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md).
   - By using [an Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/).
-  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://portal.azure.com/). 
+  - By using [an Azure Resource Manager template (using JumpBox, with SSMS included)](https://azure.microsoft.com/en-us/resources/templates/201-sqlmi-new-vnet-w-jumpbox/). 

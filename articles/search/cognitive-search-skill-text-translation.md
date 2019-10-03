@@ -9,8 +9,7 @@ ms.service: search
 ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: cmacdo
-ms.subservice: cognitive-search
+ms.author: chalton
 ---
 #	Text Translation cognitive skill
 

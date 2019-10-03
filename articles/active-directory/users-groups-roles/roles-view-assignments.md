@@ -96,9 +96,9 @@ HTTP/1.1 200 OK
 }
 ```
 
-## View assignments of a role with single-application scope (preview)
+## View assignments of single-application scope
 
-This section describes viewing assignments of a role with single-application scope.
+This section describes viewing assignments of a role with single-application scope. This feature is currently in public preview.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
 1. Select **App registrations**, and then select the app registration to view its properties. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.

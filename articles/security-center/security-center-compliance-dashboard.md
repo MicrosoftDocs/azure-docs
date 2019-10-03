@@ -3,10 +3,8 @@ title: Improve your regulatory compliance using Azure Security Center | Microsof
 description: "Tutorial: Learn how to Improve your regulatory compliance using Azure Security Center."
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 5f50c4dc-ea42-418d-9ea8-158ffeb93706
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/30/2019
-ms.author: v-mohabe
+ms.author: memildin
 
 ---
 # Tutorial: Improve your regulatory compliance

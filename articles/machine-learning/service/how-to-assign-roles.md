@@ -1,7 +1,7 @@
 ---
 title: Manage roles in an Azure Machine Learning workspace
-titleSuffix: Azure Machine Learning service
-description: Learn how to access to an Azure Machine Learning service workspace using role-based access control (RBAC).
+titleSuffix: Azure Machine Learning
+description: Learn how to access to an Azure Machine Learning workspace using role-based access control (RBAC).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -104,11 +104,13 @@ After deployment, this role becomes available in the specified workspace. Now yo
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
+For more information on custom roles, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
 
-For more information, see [Custom roles for Azure resources](/azure/role-based-access-control/custom-roles).
+For more information on the operations (actions) usable with custom roles, see [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
 
 ## Next steps
 
 - [Enterprise security overview](concept-enterprise-security.md)
 - [Securely run experiments and inference/score inside a virtual network](how-to-enable-virtual-network.md)
 - [Tutorial: Train models](tutorial-train-models-with-aml.md)
+- [Resource provider operations](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

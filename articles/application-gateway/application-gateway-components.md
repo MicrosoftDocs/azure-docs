@@ -23,17 +23,17 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 The Azure Application Gateway V2 SKU can be configured to support either both static internal IP address and static public IP address, or only static public IP address. It cannot be configured to support only static internal IP address.
 
-The V1 SKU can be configured to support static internal IP address and dynamic public IP address, only static internal IP address, or only dynamic public IP address or only dynamic private IP address or dynamic Public IP and dynamic private IP address. The dynamic IP address of Application Gateway does not change on a running gateway. It can change only when you stop or start the Gateway. It does not change on system failures, updates, Azure host updates etc. 
+The V1 SKU can be configured to support static or dynamic internal IP address and dynamic public IP address. The dynamic IP address of Application Gateway does not change on a running gateway. It can change only when you stop or start the Gateway. It does not change on system failures, updates, Azure host updates etc. 
 
 The DNS name associated with an application gateway doesn't change over the lifecycle of the gateway. As a result, you should use a CNAME alias and point it to the DNS address of the application gateway.
 
 ## Listeners
 
-A listener is a logical entity that checks for incoming connection requests. A listener accepts a request if the protocol, port, host, and IP address associated with the request match the same elements associated with the listener configuration.
+A listener is a logical entity that checks for incoming connection requests. A listener accepts a request if the protocol, port, hostname, and IP address associated with the request match the same elements associated with the listener configuration.
 
 Before you use an application gateway, you must add at least one listener. There can be multiple listeners attached to an application gateway, and they can be used for the same protocol.
 
-After a listener detects incoming requests from clients, the application gateway routes these requests to members in the backend pool. The application gateway uses the request routing rules defined for the listener that received the incoming request.
+After a listener detects incoming requests from clients, the application gateway routes these requests to members in the backend pool configured in the rule.
 
 Listeners support the following ports and protocols.
 
@@ -44,12 +44,13 @@ A port is where a listener listens for the client request. You can configure por
 ### Protocols
 
 Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
+>[!NOTE]
+>HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
 - Specify between the HTTP and HTTPS protocols in the listener configuration.
 - Support for [WebSockets and HTTP/2 protocols](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) is provided natively, and [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
-- HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
-Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by overhead. Your apps are then free to focus on business logic.
+Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
 
 ### Custom error pages
 
@@ -75,7 +76,7 @@ Application Gateway processes listeners in the order shown. If basic listener ma
 
 A request routing rule is a key component of an application gateway because it determines how to route traffic on the listener. The rule binds the listener, the back-end server pool, and the backend HTTP settings.
 
-When a listener accepts a request, the request routing rule forwards the request to the backend or redirects it elsewhere. If the request is forwarded to the backend, the request routing rule defines which backend server pool to forward it to. Also, the request routing rule also determines if the headers in the request are to be rewritten. One listener can be attached to one rule.
+When a listener accepts a request, the request routing rule forwards the request to the backend or redirects it elsewhere. If the request is forwarded to the backend, the request routing rule defines which backend server pool to forward it to. The request routing rule also determines if the headers in the request are to be rewritten. One listener can be attached to one rule.
 
 There are two types of request routing rules:
 

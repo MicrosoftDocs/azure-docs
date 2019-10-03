@@ -4,7 +4,7 @@ description: Troubleshoot allocation failures when you create, restart, or resiz
 services: azure-service-management
 documentationcenter: ''
 author: genlin
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue,azure-resource-manager,azure-service-management
 

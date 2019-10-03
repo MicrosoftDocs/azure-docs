@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ---
 
-# HDInsight 4.0 overview
+# Azure HDInsight 4.0 overview
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight 4.0 is a cloud distribution of Apache Hadoop components. This article provides information about the most recent Azure HDInsight release and how to upgrade.
 

@@ -5,7 +5,7 @@ author: ancav
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
 ---
@@ -162,15 +162,31 @@ After custom metrics are submitted to Azure Monitor, you can browse them via the
 ## Supported regions
 During the public preview, the ability to publish custom metrics is available only in a subset of Azure regions. This restriction means that metrics can be published only for resources in one of the supported regions. The following table lists the set of supported Azure regions for custom metrics. It also lists the corresponding endpoints that metrics for resources in those regions should be published to:
 
-|Azure region|Regional endpoint prefix|
+|Azure region |Regional endpoint prefix|
 |---|---|
-|East US| https:\//eastus.monitoring.azure.com/ |
+| **US and Canada** | |
+|West Central US | https:\//westcentralus.monitoring.azure.com/ |
+|West US 2       | https:\//westus2.monitoring.azure.com/ |
+|North Central US | https:\//northcentralus.monitoring.azure.com
 |South Central US| https:\//southcentralus.monitoring.azure.com/ |
-|West Central US| https:\//westcentralus.monitoring.azure.com/ |
-|West US 2| https:\//westus2.monitoring.azure.com/ |
-|Southeast Asia| https:\//southeastasia.monitoring.azure.com/ |
-|North Europe| https:\//northeurope.monitoring.azure.com/ |
-|West Europe| https:\//westeurope.monitoring.azure.com/ |
+|Central US      | https:\//centralus.monitoring.azure.com |
+|Canada Central | https:\//canadacentral.monitoring.azure.comc
+|East US| https:\//eastus.monitoring.azure.com/ |
+| **Europe** | |
+|North Europe    | https:\//northeurope.monitoring.azure.com/ |
+|West Europe     | https:\//westeurope.monitoring.azure.com/ |
+|UK South | https:\//uksouth.monitoring.azure.com
+|France Central | https:\//francecentral.monitoring.azure.com |
+| **Africa** | |
+|South Africa North | https:\//southafricanorth.monitoring.azure.com
+| **Asia** | |
+|Central India | https:\//centralindia.monitoring.azure.com
+|Australia East | https:\//australiaeast.monitoring.azure.com
+|Japan East | https:\//japaneast.monitoring.azure.com
+|Southeast Asia  | https:\//southeastasia.monitoring.azure.com |
+|East Asia | https:\//eastasia.monitoring.azure.com
+|Korea Central   | https:\//koreacentral.monitoring.azure.com
+
 
 ## Quotas and limits
 Azure Monitor imposes the following usage limits on custom metrics:

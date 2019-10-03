@@ -12,7 +12,8 @@ ms.author: bwren
 
 # Get started with Log Analytics in Azure Monitor
 
-[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+> [!NOTE]
+> You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
 
 In this tutorial you will learn how to use Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
@@ -157,7 +158,7 @@ On a timechart, if there is a sudden spike or step in your data, you may see a h
 ![Smart diagnostics](media/get-started-portal/smart-diagnostics.png)
 
 ## Pin to dashboard
-To pin a diagram or table to one of your shared Azure dashboards, click the pin icon.
+To pin a diagram or table to one of your shared Azure dashboards, click the pin icon. Note that this icon has moved to the top of the Log Analytics window, different from the screenshot below.
 
 ![Pin to dashboard](media/get-started-portal/pin-dashboard.png)
 

@@ -166,11 +166,10 @@ The properties for Alert action resources are described in the following tables.
 
 | Element name | Required | Description |
 |:--|:--|:--|
-| `Type` | Yes | Type of the action.  This is **Alert** for alert actions. |
-| `Name` | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
-| `Description` | No | Optional description of the alert. |
-| `Severity` | Yes | Severity of the alert record from the following values:<br><br> **critical**<br>**warning**<br>**informational**
-
+| `type` | Yes | Type of the action.  This is **Alert** for alert actions. |
+| `name` | Yes | Display name for the alert.  This is the name that's displayed in the console for the alert rule. |
+| `description` | No | Optional description of the alert. |
+| `severity` | Yes | Severity of the alert record from the following values:<br><br> **critical**<br>**warning**<br>**informational**
 
 #### Threshold
 This section is required. It defines the properties for the alert threshold.
