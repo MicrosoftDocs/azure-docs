@@ -1,5 +1,5 @@
 ---
-title: Launch a Spring application on Azure using the Azure portal | Microsoft Docs
+title: Launch a Spring application in Azure Spring Cloud using the Azure portal | Microsoft Docs
 description: In this quickstart, you deploy a sample application to the Azure Spring Cloud on the Azure portal.
 services: spring-cloud
 author: v-vasuke
@@ -12,29 +12,21 @@ ms.date: 07/17/2019
 ms.author: v-vasuke
 
 ---
-# Quickstart: Launch a Spring Cloud application on Azure using the Azure portal
+# Quickstart: Launch a Spring Cloud application in Azure Spring Cloud using the Azure portal
 
 Azure Spring Cloud enables you to easily run Spring Cloud based microservice applications on Azure.
 
 This quickstart shows you how to deploy an existing Spring Cloud application to Azure. [Here is a link](https://github.com/xscript/PiggyMetrics) to the sample application code used in this tutorial. When you're finished, the provided sample application will be accessible on the web and ready to be managed via the Azure portal.
 
-Using this application you learn how to:
-
-> [!div class="checklist"]
-> * Provision a service instance
-> * Set a configuration server for an instance
-> * Build and deploy microservice applications using the Azure CLI
-> * Assign public IP for your application gateway
-
 ## Prerequisites
 
 To complete this quickstart:
 
-1. [Install Git](https://git-scm.com/)
-2. [Install JDK 8](https://docs.microsoft.com/en-us/azure/java/jdk/java-jdk-install)
-3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-5. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install Git](https://git-scm.com/)
+- [Install JDK 8](https://docs.microsoft.com/azure/java/jdk/java-jdk-install)
+- [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
+- [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+- [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 	
 
 ## Install Azure CLI extension
@@ -52,15 +44,14 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 1. Search for the **Azure Spring Cloud** and click on it to go to the overview page. Click the **Create** button to get started.
 
 1. Fill out the form, considering the following guidelines:
-
-- Service Name: Specify the name of your service instance.
-- Subscription: Select the subscription you want to be billed for this resource.
-- Resource group: Creating new resource groups for new resources is generally considered the best practice.
-- Location: Location of your service instance. East US, West US 2, West Europe, and Southeast Asia are supported at this time.
-
+    - Service Name: Specify the name of your service instance.
+    - Subscription: Select the subscription you want to be billed for this resource.
+    - Resource group: Creating new resource groups for new resources is generally considered the best practice.
+    - Location: Location of your service instance. East US, West US 2, West Europe, and Southeast Asia are supported at this time.
+    
 Normally, the service instance takes about 5 minutes to be fully deployed. When it is deployed, you will be able to see the **Overview** page for the service instance.
 
-## Setup your configuration server
+## Set up your configuration server
 
 1. Go to the service **Overview** page and click **Config Server** entry in the menu.
 
