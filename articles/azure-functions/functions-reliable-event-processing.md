@@ -111,8 +111,8 @@ The following description highlights one way you could create an Azure Logic App
 
 Azure Logic Apps comes with built-in connectors to different services, features stateful orchestrations, and is a natural choice to manage circuit state. After detecting the circuit needs to break, you can build a logic app to implement the following workflow:
 
-- Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
-- Send a notification email that includes an option to restart the workflow
+1. Trigger an Event Grid workflow and stop the Azure Function (with the Azure Resource connector)
+1. Send a notification email that includes an option to restart the workflow
 
 The email recipient can investigate the health of the circuit and, when appropriate, restart the circuit via a link in the notification email. As the workflow restarts the function, messages are processed from the last Event Hub checkpoint.
 
