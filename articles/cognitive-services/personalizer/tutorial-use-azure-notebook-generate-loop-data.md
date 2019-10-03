@@ -199,7 +199,7 @@ This cell
 
 The cell has output from the call to `get_last_updated` and `get_service_settings` functions: 
 
-```python
+```console
 -----checking model
 <Response [200]>
 {'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
@@ -214,8 +214,6 @@ Coffee count 4
 ```
 
 Verify that the `rewardWaitTime` and the `modelExportFrequency` are both set to 15 seconds. 
-
-```
 
 ```python
 # build URLs
