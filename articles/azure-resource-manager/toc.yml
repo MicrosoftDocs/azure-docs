@@ -29,7 +29,7 @@
     - name: 9 - Add tags
       href: template-tutorial-add-tags.md
     - name: 10 - Use parameter file
-      href: template-tutorial-add-parameter-file.md
+      href: template-tutorial-use-parameter-file.md
   - name: Advanced
     items:
     - name: Create templates - portal
