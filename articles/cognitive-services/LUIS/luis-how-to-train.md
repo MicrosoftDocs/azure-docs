@@ -44,9 +44,11 @@ Training date and time is GMT + 2.
 
 Training uses a small percentage of negative sampling. 
 
-If you want to use all data instead of the small negative sampling, use the [API](#version-settings-api-use-of-usealltrainingdata) or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data).
+If you want to use all data instead of the small negative sampling, use the [API](#version-settings-api-use-of-usealltrainingdata).
 
 <!--
+
+ or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
 
 ### LUIS portal setting to use all training data
 
