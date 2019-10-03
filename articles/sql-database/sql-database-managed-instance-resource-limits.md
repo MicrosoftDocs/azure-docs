@@ -19,13 +19,9 @@ This article provides an overview of the technical characteristics and resource 
 > [!NOTE]
 > For differences in supported features and T-SQL statements see [Feature differences](sql-database-features.md) and [T-SQL statement support](sql-database-managed-instance-transact-sql-information.md). For general differencess between service tiers in single database and managed instance see [Service tier comparison](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## Instance-level resource limits
+## Hardware generation characteristics
 
-Managed instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. Limits depend on hardware generation and service tier.
-
-### Hardware generation characteristics
-
-Azure SQL Database managed instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics, as described in the following table:
+Managed instance has characteristics and resource limits that depend on the underlying infrastructure and architecture. Azure SQL Database managed instance can be deployed on two hardware generations: Gen4 and Gen5. Hardware generations have different characteristics, as described in the following table:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -39,7 +35,7 @@ Azure SQL Database managed instance can be deployed on two hardware generations:
 > - Gen4 hardware is being phased out. It is recommended to deploy new managed instances on Gen5 hardware.
 > - Gen4 hardware at this time is still available only in the following regions: North Europe, West Europe, East US, South Central US, North Central US, West US 2, Central US, Canada Central, South India, Southeast Asia and Korea Central.
 
-#### In-memory OLTP available space 
+### In-memory OLTP available space 
 
 The amount of In-memory OLTP space in [Business Critical](sql-database-service-tier-business-critical.md) service tier depends on the number of vCores and hardware generation. In the following table are listed limits of memory that can be used for In-memory OLTP objects.
 
@@ -54,7 +50,7 @@ The amount of In-memory OLTP space in [Business Critical](sql-database-service-t
 | 64	vCores | 99.9 GB	| |
 | 80	vCores | 131.68	GB| |
 
-### Service tier characteristics
+## Service tier characteristics
 
 Managed instance has two service tiers: [General Purpose](sql-database-service-tier-general-purpose.md) and [Business Critical](sql-database-service-tier-business-critical.md). These tiers provide [different capabilities](sql-database-service-tiers-general-purpose-business-critical.md), as described in the table below:
 
@@ -69,7 +65,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 | Max number of database files per instance | Up to 280, unless the instance storage size or [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) limit has been reached. | 32,767 files per database, unless the instance storage size limit has been reached. |
 | Max data file size | Limited to currently available instance storage size (max 2 TB - 8 TB) and [Azure Premium Disk storage allocation space](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limited to currently available instance storage size (up to 1 TB - 4 TB). |
 | Max log file size | Limited to 2 TB and currently available instance storage size. | Limited to 2 TB and currently available instance storage size. |
-| Data/Log IOPS (approximate) | 500 - 7,500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375/vCore)<br/>Add more vCores to get better IO performance. |
+| Data/Log IOPS (approximate) | Up to 30-40K IOPS per instance*, 500 - 7500 per file<br/>\*[Increase file size to get more IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5.5 K - 110 K (1375 IOPS/vCore)<br/>Add more vCores to get better IO performance. |
 | Log write throughput limit (per instance) | 3 MB/s per vCore<br/>Max 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data throughput (approximate) | 100 - 250 MB/s per file<br/>\*[Increase the file size to get better IO performance](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Not limited. |
 | Storage IO latency (approximate) | 5-10 ms | 1-2 ms |
@@ -82,6 +78,7 @@ Managed instance has two service tiers: [General Purpose](sql-database-service-t
 > - Both data and log file size in the user and system databases are included in the instance storage size that is compared with the Max storage size limit. Use <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys.master_files</a> system view to determine the total used space by databases. Error logs are not persisted and not included in the size. Backups are not included in storage size.
 > - Throughput and IOPS also depend on the page size that is not explicitly limited by managed instance.
 > You can create another readable replica in different Azure region using Auto-failover groups.
+> - Max instance IOPS depends on the file layout and distribution of worload. As an example, if you create 7 x 1GB files with 5K IOPS each and 7 small files (smaller than 128 GB) with 500 IOPS each, you can get 38500 IOPS per instance (7x5000+7x500) if your workload can use all files. Note that some amount of IOPS is reserved for auto-backups.
 
 > [!NOTE]
 > Find more information about the [resource limits in managed instance pools in this article](sql-database-instance-pools.md#instance-pools-resource-limitations).
