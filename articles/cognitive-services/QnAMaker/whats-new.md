@@ -22,7 +22,7 @@ Learn what's new with QnA Maker.
 
 ### September 2019
 
-* Import and export with [XLS](concepts/data-sources-supported.md) file format 
+* Import and export with [XLS file format](concepts/data-sources-supported.md) 
 
 ### June 2019
 
@@ -31,7 +31,7 @@ Learn what's new with QnA Maker.
 ### April 2019
 
 * Support website content extraction
-* [Sharepoint document](how-to/add-sharepoint-datasources.md) support from authenticated access
+* [SharePoint document](how-to/add-sharepoint-datasources.md) support from authenticated access
 
 ### March 2019
 

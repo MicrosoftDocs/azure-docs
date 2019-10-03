@@ -33,8 +33,6 @@ The table below summarizes the types of content and file formats that are suppor
 
 **TSV and XLS files**, from exported knowledge bases, can only be used by importing the files from the **Settings** page in the QnA Maker portal. They can't be used as data sources during knowledge base creation or from the **+ Add file** or **+ Add URL** feature on the **Settings** page. 
 
-Learn more about using [multi-turn docs](). 
-
 ## Data source locations
 
 Data source locations are **public URLs or files**, which do not require authentication. 
