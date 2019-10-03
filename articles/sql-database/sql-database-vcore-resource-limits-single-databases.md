@@ -291,9 +291,9 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |TempDB max data size (GB)|64|128|256|384|384|384|384|384|
-|Storage type| [Note 1](#note-1) |[Note 1](#note-1)|[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) |[Note 1](#note-1) | [Note 1](#note-1) |
-|Max data IOPS (64 KB)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|[Note 2](#note-2)|
-|IO latency (approximate)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|[Note 3](#note-3)|
+|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
+|Max data IOPS (64 KB)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
 |Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
 |Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
 |Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
