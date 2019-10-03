@@ -52,28 +52,27 @@ ms.author: jeconnoc
 
 | az spring-cloud app deployment | Commands to manage the deployment life cycle of an app in Azure Spring Cloud. |
 | --- | ---: |
-| az spring-cloud app deployment create | Create a staging deployment for the app. |
-| az spring-cloud app deployment delete | Delete a deployment of the app. |
-| az spring-cloud app deployment list | List all deployments in an app. |
-| az spring-cloud app deployment show | Show details of the deployment. |
+| [az spring-cloud app deployment create](#az-spring-cloud-app-deployment-create) | Create a staging deployment for the app. |
+| [az spring-cloud app deployment delete](#az-spring-cloud-app-deployment-delete) | Delete a deployment of the app. |
+| [az spring-cloud app deployment list](#az-spring-cloud-app-deployment-list) | List all deployments in an app. |
+| [az spring-cloud app deployment show](#az-spring-cloud-app-deployment-show) | Show details of the deployment. |
 
 | az spring-cloud config-server | Commands to manage the Azure Spring Cloud Config Server. |
 | --- | ---: |
-| az spring-cloud config-server clear | Erase all settings in the Config Server. |
-| az spring-cloud config-server set | Define Config Server from a YAML file. |
-| az spring-cloud config-server show | Show Config Server configuration. |
-| az spring-cloud config server git set | Define git properties for the Config Server.  Previous values will be overwritten. |
-| az spring-cloud config server git repo add | Add a new git repository config to the Config Server. |
-| az spring-cloud config server git repo list | List all git repository configs for the Config Server. |
-| az spring-cloud config server git repo remove | Remove the specified git repository from the Config Server. |
-| az spring-cloud config server git repo update | Update the specified git repository. |
+| [az spring-cloud config-server clear](#az-spring-cloud-config-server-clear) | Erase all settings in the Config Server. |
+| [az spring-cloud config-server set](#az-spring-cloud-config-server-set) | Define Config Server from a YAML file. |
+| [az spring-cloud config-server show](#az-spring-cloud-config-server-show) | Show Config Server configuration. |
+| [az spring-cloud config server git set](#az-spring-cloud-config-server-git-set) | Define git properties for the Config Server.  Previous values will be overwritten. |
+| [az spring-cloud config server git repo add](#az-spring-cloud-config-server-git-repo-add) | Add a new git repository config to the Config Server. |
+| [az spring-cloud config server git repo list](#az-spring-cloud-config-server-git-repo-list) | List all git repository configs for the Config Server. |
+| [az spring-cloud config server git repo remove](#az-spring-cloud-config-server-git-repo-remove) | Remove the specified git repository from the Config Server. |
 
 | az spring-cloud test-endpoint | Commands to manage endpoint testing in Azure Spring Cloud |
 | --- | ---: |
-| az spring-cloud test-endpoint disable | Disable test endpoint. |
-| az spring-cloud test-endpoint enable | Enable test endpoint. |
-| az spring-cloud test-endpoint list | List test endpoint keys. |
-| az spring-cloud test-endpoint renew-key | Regenerate a test-endpoint key. |
+| [az spring-cloud test-endpoint disable](#az-spring-cloud-test-endpoint-disable) | Disable test endpoint. |
+| [az spring-cloud test-endpoint enable](#az-spring-cloud-test-endpoint-enable) | Enable test endpoint. |
+| [az spring-cloud test-endpoint list](#az-spring-cloud-test-endpoint-list) | List test endpoint keys. |
+| [az spring-cloud test-endpoint renew-key](#az-spring-cloud-test-endpoint-renew-key) | Regenerate a test-endpoint key. |
 
 ## az spring-cloud create
 
@@ -934,8 +933,107 @@ az spring-cloud config-server git repo add --name -n
 | --strict-host-key-checking | Enables strict host key checking of the added config. |
 | --username | Username of the added config. |
 
-## az spring-cloud config-server git list
+## az spring-cloud config-server git repo list
 
 List all git repos defined in the Config Server
 
 ```cli
+az spring-cloud config-server git repo list --name -n
+                                       --resource-group -g
+                                       --defer
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+
+| Optional Parameters | |
+| --- | ---: |
+| --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
+
+## az spring-cloud config-server git repo remove
+
+Remove an existing git repo configuration from the Config Server.
+
+```cli
+az spring-cloud config-server git repo remove --name -n
+                                         --repo-name
+                                         --resource-group -g
+                                         --defer
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --repo-name | URI of the repo. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+
+| Optional Parameters | |
+| --- | ---: |
+| --defer | Temporarily store the object in the local cache instead of sending to Azure.  Use `az cache` to view / clear. |
+
+## az spring-cloud test-endpoint disable
+
+Disable test endpoint of the Azure Spring Cloud
+
+```cli
+az spring-cloud test-endpoint disable --name -n
+                                      --resource-group -g
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+
+## az spring-cloud test-endpoint enable
+
+Enable test endpoint for the Azure Spring Cloud. 
+
+```cli 
+az spring-cloud test-endpoint enable --name -n
+                                     --resource-group -g
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+
+## az spring-cloud test-endpoint list 
+
+List the available test endpoint keys for the Azure Spring Cloud.
+
+```cli
+az spring-cloud test-endpoint list --name -n
+                                   --resource-group -g
+                                   --app
+                                   --deployment -d
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+
+| Optional Parameters | |
+| --- | ---: |
+| --app | Name of the app. |
+| --deployment -d | Name of an existing deployment of the app.  Defaults to production if unspecified. |
+
+## az spring-cloud test-endpoint renew-key
+
+Regenerate a test-endpoint key for the Azure Spring Cloud.
+
+```cli
+az spring-cloud test-endpoint renew-key --name -n
+                                        --resource-group -g
+                                        --type
+```
+
+| Required Parameters | |
+| --- | ---: |
+| --name | Name of the Azure Spring Cloud. |
+| --resource-group -g | Name of the resource group.  You can configure the default group using `az configure --defaults group=<name>`. |
+| --type | Type of test endpoint key.  Allowed values:  Primary, Secondary. |
