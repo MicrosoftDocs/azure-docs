@@ -23,7 +23,7 @@ Before you start this article, complete the steps in [part 1 of the Java quickst
 
 ## Download the function app settings
 
-[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## Enable extension bundles
 
@@ -117,9 +117,9 @@ mvn azure-functions:run
 
 [!INCLUDE [functions-storage-binding-run-local](../../includes/functions-storage-binding-run-local.md)]
 
-[!INCLUDE [functions-storage-binding-set-connection](../../includes/functions-storage-binding-set-connection.md)]
+[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
 
-[!INCLUDE [functions-storage-binding-query-cli](../../includes/functions-storage-binding-query-cli.md)]
+[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
 ### Redeploy the project 
 
