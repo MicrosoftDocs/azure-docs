@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
 
@@ -185,8 +185,8 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
 
@@ -199,7 +199,7 @@ After you've signed in to your account using the information you've received fro
 
 ### How to read activity search results
 
-Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify issues with the diagnostics feature](diagnostics-role-service.md#common-error-scenarios).
+Activities are sorted by timestamp, with the latest activity first. If the results return an error, first check to see if it's a service error. For service errors, create a support ticket with the activity information to help us debug the issue. All other error types can usually be solved by the user or administrator. For a list of the most common error scenarios and how to solve them, see [Identify and diagnose issues](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Service errors are called "external errors" in the linked documentation. This will be changed when we update the PowerShell reference.

@@ -1,6 +1,6 @@
 ---
-title: Using U-SQL Cognitive capabilities in Azure Data Lake Analytics
-description: Learn how to use the intelligence of Cognitive capabilities in U-SQL
+title: U-SQL Cognitive capabilities in Azure Data Lake Analytics
+description: Learn how to use the intelligence of Cognitive capabilities in U-SQL. This code samples help you get started.
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr

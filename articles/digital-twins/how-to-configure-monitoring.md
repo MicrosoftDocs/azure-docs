@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
 ---

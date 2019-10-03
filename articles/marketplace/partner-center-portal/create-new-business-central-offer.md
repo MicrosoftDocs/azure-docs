@@ -1,12 +1,12 @@
 ---
 title: Create a new Dynamics 365 Business Central offer in the Commercial Marketplace 
 description: How to create a new Dynamics 365 Business Central offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: JnHs 
+author: ChJenk 
 manager: evansma
-ms.author: jenhayes 
+ms.author: v-chjen 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/26/2019
 ---
 
 # Create a new Dynamics 365 Business Central offer
@@ -189,11 +189,11 @@ The hero image is optional. If you provide one, it must measure 815 x 290 pixels
 
 #### Screenshots
 
-Add screenshots that show how your offer works. At least one screenshot is required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
+Add screenshots that show how your offer works. At least three screenshots are required, and you can add up to five. All screenshots must be 1280 x 720 pixels.
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to five videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
 
 #### Additional marketplace listing resources
 
