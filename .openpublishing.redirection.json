@@ -17095,6 +17095,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/preserve-drive-letter-protected-virtual-machines-failed-migrated-azure.md",
+      "redirect_url": "prepare-for-migration",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/how-to-prepare-linux-for-migration.md",
       "redirect_url": "tutorial-prepare-vmware",
       "redirect_document_id": false
@@ -42114,6 +42119,21 @@
     {
       "source_path": "articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/azure-services-in-fedramp-auditscope.md",
+      "redirect_url": "/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/compliance-tic.md",
+      "redirect_url": "/azure/azure-government/compliance/compliance-tic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/compliance/secure-azure-computing-architecture.md",
+      "redirect_url": "/azure/azure-government/compliance/secure-azure-computing-architecture",
       "redirect_document_id": false
     }
   ]

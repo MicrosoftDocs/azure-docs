@@ -105,7 +105,7 @@ You can deploy the Azure Resource Manager template by [using the Azure portal](#
 
     ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
+    You can [edit and deploy the template in the Azure portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) by using the form.
 
 1. Complete **BASICS** and **SETTINGS** sections. Select unique cluster and database names.
 It takes a few minutes to create an Azure Data Explorer cluster and database.
@@ -135,9 +135,9 @@ It takes a few minutes to create an Azure Data Explorer cluster and database.
 1. Right-click the shell console, and then select **Paste**.
 It takes a few minutes to create an Azure Data Explorer cluster and database.
 
-#### Verify the deployment using powershell
+#### Verify the deployment using PowerShell
 
-To verify the deployment, use the following Azure PowerShell script.  If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Make relevant changes
+To verify the deployment, use the following Azure PowerShell script.  If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host). For more information regarding managing Azure Data Explorer resources in PowerShell, read [Az.Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -158,9 +158,9 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 Delete the resources in the Azure portal by following the steps in [clean up resources](create-cluster-database-portal.md#clean-up-resources).
 
-### Clean up resources using powershell
+### Clean up resources using PowerShell
 
-If the Cloud shell is still open, you don't need to copy/run the first line (Read-Host).
+If the Cloud Shell is still open, you don't need to copy/run the first line (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

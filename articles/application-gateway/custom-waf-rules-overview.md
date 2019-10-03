@@ -91,8 +91,8 @@ This is the name of the rule. The name appears in the logs.
 
 ### Priority (required)
 
-- The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule.
-- The priority must be unique among all the custom rules. A rule with priority of 100 is evaluated before a rule with priority of 200.
+- The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1 to 100.
+- The priority must be unique among all custom rules. A rule with a priority of 40 is evaluated before a rule with a priority of 80.
 
 ### Rule type (required)
 

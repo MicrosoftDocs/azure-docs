@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -16,10 +16,11 @@ ms.custom: seodec18
 
 The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## How to get the QnAMaker service hostname
+## How to get the QnAMaker service endpoint
 
-QnAMaker service hostname is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The hostname is a URL in this form: https://*{hostname}*.azurewebsites.net.
+QnAMaker service endpoint is useful for debugging purposes when you contact QnAMaker Support or UserVoice. The endpoint is a URL in this form: https://your-resource-name.azurewebsites.net.
 	
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
@@ -29,9 +30,9 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 
      ![Select QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. The hostname URL is available in the Overview section
+1. The endpoint URL is available in the Overview section
 
-    ![QnAMaker hostname](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker endpoint](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## Use the Help bot in the QnA Maker portal
@@ -167,7 +168,7 @@ Follow the instructions in [this](./Tutorials/create-qna-bot.md) documentation t
 You need to have the following information about your knowledge base:
 
 * Knowledge base ID.
-* Knowledge base's published endpoint host name - found on **Settings** page after you publish.
+* Knowledge base's published endpoint custom subdomain name, known as `host`, found on **Settings** page after you publish.
 * Knowledge base's published endpoint key - found on **Settings** page after you publish. 
 
 With this information, go to your bot's app service in the Azure portal. Under **Settings -> Configuration -> Application settings**, change those values.  
