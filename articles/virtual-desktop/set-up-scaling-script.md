@@ -6,10 +6,10 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Automatically scale session hosts
+# Scale session hosts dynamically
 
 For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
 
