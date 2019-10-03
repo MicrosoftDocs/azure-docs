@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 # Access data in Azure storage services
 
-In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts.
+In this article, learn how to easily access your data in Azure storage services via Azure Machine Learning datastores. Datastores are used to store connection information, like your subscription ID and token authorization. Using datastores allows you to access your storage without having to hard code connection information in your scripts. You can create datastores from these [Azure storage solutions](#matrix).
 
 This how-to shows examples of the following tasks:
 * [Register datastores](#access)
@@ -49,42 +49,40 @@ This how-to shows examples of the following tasks:
 ## Create and register datastores
 
 When you register an Azure storage solution as a datastore, you automatically create that datastore in a specific workspace. You can create and register datastores to a workspace using the Python SDK or the workspace landing page.
-You can create datastores from these [Azure storage solutions](#matrix).
 
 ### Using the Python SDK
 
 All the register methods are on the [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) class and have the form register_azure_*.
 
-The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
+The information you need to populate the register() method can be found via the [Azure portal](https://ms.portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication information, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left. 
 
-> [!NOTE]
-> Most of the information needed for datastore creation can be found on the [Azure portal](https://ms.portal.azure.com), on the workspace's **Overview** page or under the **Settings** pane of the specified workspace.
+The following examples show you to register an Azure Blob Container or an Azure File Share as a datastore.
 
 + For an **Azure Blob Container Datastore**, use [`register_azure_blob-container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-)
 
     The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure blob container, `my_blob_container`, on the Azure storage account, `my_storage_account` using the provided account key.
 
-        ```Python
-          datastore = Datastore.register_azure_blob_container(workspace=ws, 
+    ```Python
+       datastore = Datastore.register_azure_blob_container(workspace=ws, 
                                                           datastore_name='my_datastore', 
                                                           container_name='my_blob_container',
-                                                          account_name='my storage_account', 
+                                                          account_name='my_storage_account', 
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
-        ```
+    ```
 
 + For an **Azure File Share Datastore**, use [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
     The following code creates and registers the datastore, `my_datastore`, to the workspace, `ws`. This datastore accesses the Azure file share, `my_file_share`, on the Azure storage account, `my_storage_account` using the provided account key.
 
-        ```Python
-          datastore = Datastore.register_azure_file_share(workspace=ws, 
+    ```Python
+       datastore = Datastore.register_azure_file_share(workspace=ws, 
                                                       datastore_name='my_datastore', 
                                                       file_share_name='my_file_share',
                                                       account_name='my_storage account', 
                                                       account_key='your storage account key',
                                                       create_if_not_exists=True)
-        ```
+    ```
 
 ####  Storage guidance
 
@@ -94,13 +92,16 @@ We recommend Azure Blob Container. Both standard and premium storage are availab
 
 Create a new datastore in a few steps in the workspace landing page.
 
-1. Select **Datastores** in the left pane under **Manage**
+1. Sign in to the [workspace landing page](https://ml.azure.com/).
+1. Select **Datastores** in the left pane under **Manage**.
 1. Select **+ New datastore**.
 1. Complete the New datastore form. The form intelligently updates based on the Azure storage type and authentication type selections.
+  
+The information you need to populate the form can be found via the [Azure portal](https://ms.portal.azure.com). Select **Storage Accounts** on the left pane and choose the storage account you want to register. The **Overview** page provides information such as, the account name and container or file share name. For authentication items, like account key or SAS token, navigate to **Account Keys** under the **Settings** pane on the left .
 
-    The following example demonstrates what the form would look like for creating an Azure blob datastore. 
+The following example demonstrates what the form would look like for creating an Azure blob datastore. 
     
-    ![New datastore](media/how-to-access-data/new-datastore-form.png)
+ ![New datastore](media/how-to-access-data/new-datastore-form.png)
 
 
 <a name="get"></a>
