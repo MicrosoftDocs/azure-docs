@@ -79,4 +79,3 @@ For more information about hosting plans, see [Azure Functions hosting plan comp
   Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
 * [Learn more about Azure App Service](../app-service/overview.md)  
   Azure Functions leverages Azure App Service for core functionality like deployments, environment variables, and diagnostics. 
-
