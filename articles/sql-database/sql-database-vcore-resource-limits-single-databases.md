@@ -308,7 +308,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 **Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
 
-**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas. 2 ms and higher for data on page servers.
+**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
 
  
 ### Next steps
