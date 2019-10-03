@@ -48,13 +48,13 @@ This section will show you how to use PowerShell to create the Azure Active Dire
 
 1. Open PowerShell as an Administrator.
 2. Sign in to Azure with an account that has Owner or Contributor permissions on the Azure subscription you would like to use for the diagnostics tool:
-```powershell
-Login-AzAccount
-```
-2. Sign in to Azure AD with the same account:
-```powershell
-Connect-AzureAD
-```
+   ```powershell
+   Login-AzAccount
+   ```
+3. Sign in to Azure AD with the same account:
+   ```powershell
+   Connect-AzureAD
+   ```
 4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **CreateADAppRegistrationforDiagnostics.ps1** script in PowerShell.
 5.  When the script asks you to name your app, enter a unique app name.
 
