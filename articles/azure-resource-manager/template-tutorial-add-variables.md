@@ -13,7 +13,7 @@ ms.author: jgao
 
 # Tutorial: Add variables to your Resource Manager template
 
-In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes 7 minutes to complete.
+In this tutorial, you learn how to add a variable to your template. Variables simplify your templates by enabling you to write an expression once and reuse it throughout the template. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -33,7 +33,7 @@ The parameter for the storage account name is hard-to-use because you have to pr
 
 The following example highlights the changes to add a variable to your template that creates a unique storage account name. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-42&highlight=5-9,24-26,31)]
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
 
 Notice that it includes a variable named **uniqueStorageName**. This variable uses four functions to construct a string value.
 

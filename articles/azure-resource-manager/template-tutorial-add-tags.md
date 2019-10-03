@@ -13,7 +13,7 @@ ms.author: jgao
 
 # Tutorial: Add tags in your Resource Manager template
 
-In this tutorial, you learn how to add tags to resources in your template. [Tags](resource-group-using-tags.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes 8 minutes to complete.
+In this tutorial, you learn how to add tags to resources in your template. [Tags](resource-group-using-tags.md) help you logically organize your resources. The tag values show up in cost reports. This tutorial takes **8 minutes** to complete.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ You tag resources to add values that help you identify their use. For example, y
 
 The following example highlights the changes to the template. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-113&highlight=41-47,59,73,95)]
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
 ## Deploy template
 

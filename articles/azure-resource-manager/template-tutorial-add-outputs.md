@@ -13,7 +13,7 @@ ms.author: jgao
 
 # Tutorial: Add outputs to your Resource Manager template
 
-In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes 7 minutes to complete.
+In this tutorial, you learn how to return a value from your template. You use outputs when you need a value from a deployed resource. This tutorial takes **7 minutes** to complete.
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ You can use outputs to return values from the template. For example, it might be
 
 The following example highlights the change to your template to add an output value. Copy the whole file and replace your template with its contents.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-48&highlight=42-47)]
+[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
 
 There are some important items to note about the output value you added.
 
