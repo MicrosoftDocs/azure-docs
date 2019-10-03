@@ -14,6 +14,9 @@ ms.date: 01/19/2018
 ---
 
 # Visually monitor Azure data factories
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Azure Data Factory is a cloud-based data integration service. You can use it to create data-driven workflows in the cloud for orchestrating and automating data movement and data transformation. By using Azure Data Factory, you can:
 
 - Create and schedule data-driven workflows (called pipelines) that can ingest data from disparate data stores.
