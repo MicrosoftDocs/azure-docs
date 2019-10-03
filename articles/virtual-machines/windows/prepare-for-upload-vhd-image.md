@@ -204,7 +204,10 @@ Make sure the following settings are configured correctly for remote access:
 8. Remove any self-signed certificates tied to the RDP listener:
     
     ```PowerShell
-    Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SSLCertificateSHA1Hash" -Force
+    if ((Get-Item -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp').Property -contains "SSLCertificateSHA1Hash")
+    {
+        Remove-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SSLCertificateSHA1Hash" -Force
+    }
     ```
     This code ensures that you can connect at the beginning when you deploy the VM. If you need to review this later, you can do so after the VM is deployed in Azure.
 
