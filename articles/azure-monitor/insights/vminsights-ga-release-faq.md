@@ -46,25 +46,25 @@ If you decide to keep the performance counters enabled, you will be billed for t
 
 ## How will this change affect my alert rules?
 
-If you have created log based alert rules on the Perf table that target the performance counters that we enabled on the workspace you will want to update these rules to refer to the InsightsMetrics table instead.  This guidance also applies to any alert rules using ServiceMapComputer_CL and ServiceMapProcess_CL and those data sets moving to VMComputer and VMProcess.
+If you have created [Log alerts](../platform/alerts-unified-log.md) that query the `Perf` table targeting performance counters that were enabled on the workspace, you should update these rules to refer to the `InsightsMetrics` table instead. This guidance also applies to any log search rules using `ServiceMapComputer_CL` and `ServiceMapProcess_CL`, because those data sets are moving to `VMComputer` and `VMProcess` tables.
 
-We will be updating this FAQ and our documentation with example log based alert rules for the data sets we collect.
+We will update this FAQ and our documentation to include example log search alert rules for the data sets we collect.
 
 ## Will there be any changes to billing?
 
-The billing is still based on data ingested to and retained in your Log Analytics workspace.
+The billing is still based on data ingested and retained in your Log Analytics workspace.
 
 The machine level performance data that we collect is the same, is of a similar size to the data we stored in the Perf table, and will cost approximately the same amount.
 
 ## What if I only want to use Service Map?
 
-That is fine.  You will see prompts in the portal UI when viewing Azure Monitor for VMs about the upcoming update.  Once released, you will see a prompt to update to the new version.  If you prefer to only use the Service Map feature set (e.g. the Maps tab), then you can choose not to upgrade and continue to use the Maps tab in Azure Monitor for VMs and the Service Map UX accessed from your workspace or a dashboard tile.
+That is fine.  You will see prompts in the Azure portal when viewing Azure Monitor for VMs about the upcoming update. Once released, you receive a prompt requesting you update to the new version. If you prefer to only use the [Maps](vminsights-maps.md) feature, then you can choose not to upgrade and continue to use the Maps feature Azure Monitor for VMs and the Service Map solution accessed from your workspace or dashboard tile.
 
-If you had manually enabled performance counters on your workspace then you may be able to see data in some of our Performance charts viewed from Azure Monitor.  Once the new solution is released we will update our chart UI to use the data stored in the InsightsMetrics table.  If you would like to see data in these charts you will need to upgrade to the new version of Azure Monitor for VMs.
+If you manually enabled the performance counters in your workspace, then you may be able to see data in some of our Performance charts viewed from Azure Monitor. Once the new solution is released we will update our performance charts to query the data stored in the `InsightsMetrics` table.  If you would like to see data in these charts, you will need to upgrade to the new version of Azure Monitor for VMs.
 
-The changes to move data from ServiceMapComputer_CL and ServiceMapProcess_CL will affect both Service Map and Azure Monitor for VMs, so you will still need to plan for this update.
+The changes to move data from `ServiceMapComputer_CL` and `ServiceMapProcess_CL` will affect both Service Map and Azure Monitor for VMs, so you will still need to plan for this update.
 
-We will include legacy versions of our performance workbooks that will refer to data in the Perf table that you can use if you choose to keep data in the Perf table.  
+We will include legacy versions of our performance workbooks that will refer to data in the `Perf` table that you can use if you choose to keep data in the `Perf` table.  
 
 ## Will the Service Map data sets also be stored in InsightsMetrics?
 
