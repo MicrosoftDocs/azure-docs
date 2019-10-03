@@ -52,7 +52,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
          "Env":[
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
            "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>",
-           "EVENTGRID_ENDPOINT=http://eventgridmodule:5888"
+           "EVENTGRID_ENDPOINT=http://<event grid module name>:5888"
          ],
          "HostConfig":{
            "Binds":[
@@ -70,6 +70,9 @@ A deployment manifest is a JSON document that describes which modules to deploy,
    - Replace `<your storage account name>` with a name that you can remember. Account names should be 3 to 24 characters long, with lowercase letters and numbers. No spaces.
 
    - Replace `<your storage account key>` with a 64-byte base64 key. You can generate a key with tools like [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). You'll use these credentials to access the blob storage from other modules.
+
+   - Replace `<event grid module name>` with the name of your Event Grid module.
+       - If you followed [Deploy Event Grid IoT Edge module](deploy-event-grid-portal.md) tutorial then the value is **eventgridmodule**
 
    - Replace `<storage mount>` according to your container operating system.
      - For Linux containers, **my-volume:/blobroot**
