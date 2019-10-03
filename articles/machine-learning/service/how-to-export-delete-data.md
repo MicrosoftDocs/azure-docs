@@ -227,7 +227,7 @@ Data Sources can be obtained by:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## Delete asset in the designer
+## Delete assets in the designer
 
 In the designer where you created your experiment, delete individual assets:
 

@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Export Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
 
