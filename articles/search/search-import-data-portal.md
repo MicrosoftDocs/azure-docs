@@ -6,7 +6,7 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/03/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -68,14 +68,14 @@ You should create the single table or view before running the wizard, and it mus
 
 ## Wizard output
 
-Behind the scenes, the wizard creates, configures, and invokes the following objects. Links to the REST API provide comprehensive and definitive descriptions of each object. After the wizard runs, you can find all of the objects it creates in portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets.
+Behind the scenes, the wizard creates, configures, and invokes the following objects. Links to the REST API provide comprehensive and definitive descriptions of each object. After the wizard runs, you can find its output in the portal pages. The Overview page of your service has lists of indexes, indexers, data sources, and skillsets. Index definitions can be viewed in full JSON in the portal. For other definitions, you can use the [REST API](https://docs.microsoft.com/rest/api/searchservice/) to GET specific objects.
 
-| Object | Description | Reference |
-|--------|-------------|-----------|
-| data source | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | [Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source) |
-| index | Physical data structure used for full text search and other queries. | [Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  |
-| skillset | A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. Optionally, it might also contain a knowledge store definition.  | [Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  |
-| indexer | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. | [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  |
+| Object | Description | 
+|--------|-------------|
+| [Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persists connection information to source data, including credentials. A data source object is used exclusively with indexers. | 
+| [Index](https://docs.microsoft.com/rest/api/searchservice/create-index) | Physical data structure used for full text search and other queries. | 
+| [Skillset](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | A complete set of instructions for manipulating, transforming, and shaping content, including analyzing and extracting information from image files. Except for very simple and limited structures, it includes a reference to a Cognitive Services resource that provides enrichment. Optionally, it might also contain a knowledge store definition.  | 
+| [Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | A configuration object specifying a data source, target index, an optional skillset, optional schedule, and optional configuration settings for error handing and base-64 encoding. |
 
 
 ## How to start the wizard
@@ -96,40 +96,36 @@ You can also launch **Import data** from other Azure services, including Azure C
 
 The wizard generates an incomplete index, which will be populated with documents obtained from the input data source. For a functional index, make sure you have the following elements defined.
 
-1. Review the fields, adding new fields that sampling missed, removing any fields you don't want in your index.
+1. Is the field list complete? Add new fields that sampling missed, and remove any that don't add value to a search experience or that won't be used in a [filter expression](search-query-odata-filter.md) or [scoring profile](index-add-scoring-profiles.md).
 
-1. Verify the data type on fields in the index. Azure Search supports the entity data model (EDM).
+1. Is the data type appropriate for the incoming data? Azure Search supports the [entity data model (EDM) data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). For Azure SQL data, there is [mapping chart](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) that lays out equivalent values. For more background, see [Field mappings and transformations](search-indexer-field-mappings.md).
 
-1. Set attributes on the index to determine how that field is used in an index. Take your time with this step Attributes impact the physical expression of fields in the index. If you want to change them later, even through the API, you will need to drop and rebuild the index.
+1. Do you have one field that can serve as the *key*? This field must be Edm.string and it must uniquely identify a document. For relational data, it might be mapped to a primary key. For blobs, it might be the `metadata-storage-path`. If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
 
-   1. One field must be marked as a **Key**, which is used to uniquely identify each document. The **Key** must be *Edm.string*. 
+1. Set attributes to determine how that field is used in an index. 
 
-   If field values include spaces or dashes, you must set the **Base-64 Encode Key** option in the **Create an Indexer** step, under **Advanced options**, to suppress the validation check for these characters.
-
-   1. Set index attributes for each field. If you select no attributes, your index is essentially empty, except for the required key field. At a minimum, choose one or more of these attributes for each field.
+   Take your time with this step because attributes impact the physical expression of fields in the index. If you want to change attributes later, even programmatically, you will almost always need to drop and rebuild the index. Core attributes like **Searchable** and **Retrievable** have a neglible impact on storage. Enabling filters and using suggesters increase storage requirements. 
    
-    + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
-    + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accommodate the verbatim content.
-    + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
+   + **Searchable** enables full-text search. Every field used in free form queries or in query expressions must have this attribute. Inverted indexes are created for each field that you mark as **Searchable**.
 
-    1. Optionally, set these attribute as needed:
+   + **Retrievable** returns the field in search results. Every field that provides content to search results must have this attribute. Setting this field does not appreciably effect index size.
 
-    + **Sortable** allows the field to be used in a sort. Every field used in an **$Orderby** expression must have this attribute.
-    + **Facetable** enables the field for faceted navigation. Only fields also marked as **Filterable** can be marked as **Facetable**.
+   + **Filterable** allows the field to be referenced in filter expressions. Every field used in a **$filter**  expression must have this attribute. Filter expressions are for exact matches. Because text strings remain intact, additional storage is required to accommodate the verbatim content.
 
-1. Set an **Analyzer** if you want language-enhanced indexing and querying. The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms.
+   + **Facetable** enables the field for faceted navigation. Only fields also marked as **Filterable** can be marked as **Facetable**.
 
-   + Select **Searchable** to enable the **Analyzer** list.
-   + Choose an analyzer provided in the list. 
-   
-   Only language analyzers can be specified at this time. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, will require code. For more information about analyzers, see [Create an index for documents in multiple languages](search-language-support.md).
+   + **Sortable** allows the field to be used in a sort. Every field used in an **$Orderby** expression must have this attribute.
 
-1. Select the **Suggester** the checkbox to enable type-ahead query suggestions on selected fields.
+1. Do you need [lexical analysis](search-lucene-query-architecture.md#stage-2-lexical-analysis)? For Edm.string fields that are **Searchable**, you can set an **Analyzer** if you want language-enhanced indexing and querying. 
+
+  The default is *Standard Lucene* but you could choose *Microsoft English* if you wanted to use Microsoft's analyzer for advanced lexical processing, such as resolving irregular noun and verb forms. Only language analyzers can be specified in the portal. Using a custom analyzer or a non-language analyzer like Keyword, Pattern, and so forth, must be done programmatically. For more information about analyzers, see [Add language analyzers](search-language-support.md).
+
+1. Select the **Suggester** the checkbox to enable [typeahead query suggestions and autocomplete](index-add-suggesters.md) on selected fields.
 
 
 ## Next steps
 
-The best way to understand the benefits and limits of the wizard is to step through it. The following quickstart provides an explanation of each step.
+The best way to understand the benefits and limitations of the wizard is to step through it. The following quickstart guides you through each step.
 
 > [!div class="nextstepaction"]
 > [Create an Azure Search index using the Azure portal](search-get-started-portal.md)
