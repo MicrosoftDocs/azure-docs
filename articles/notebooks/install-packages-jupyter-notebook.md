@@ -4,13 +4,11 @@ description: How to install Python, R, and F# packages from within a Jupyter not
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
-
+manager: barbkess
 ms.assetid: 6f089c12-128b-4dbd-96e3-1320d37eeba4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb

@@ -779,7 +779,12 @@
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-account-settings.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-azure-subscription",
       "redirect_document_id": false
-    },    
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/create-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": false
+    },           
     {
       "source_path": "articles/cognitive-services/QnAMaker/quickstarts/csharp.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-kb-csharp-sdk",
@@ -31706,7 +31711,7 @@
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/CreateKB.md",
-      "redirect_url": "/azure/cognitive-services/QnAMaker/How-To/create-knowledge-base",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
       "redirect_document_id": false
     },
     {
@@ -35891,6 +35896,11 @@
     {
       "source_path": "articles/iot-central/howto-create-application.md",
       "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/howto-connect-powerbi-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-connect-powerbi",
       "redirect_document_id": false
     },
     {

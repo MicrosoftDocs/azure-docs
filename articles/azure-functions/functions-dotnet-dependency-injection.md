@@ -152,7 +152,9 @@ Overriding services provided by the host is currently not supported.  If there a
 
 Values defined in [app settings](./functions-how-to-use-azure-function-app-settings.md#settings) are available in an `IConfiguration` instance, which allows you to read app settings values in the startup class.
 
-You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Consider the following class that includes a property named consistent with an app setting.
+You can extract values from the `IConfiguration` instance into a custom type. Copying the app settings values to a custom type makes it easy test your services by making these values injectable. Settings read into the configuration instance must be simple key/value pairs.
+
+Consider the following class that includes a property named consistent with an app setting.
 
 ```csharp
 public class MyOptions
