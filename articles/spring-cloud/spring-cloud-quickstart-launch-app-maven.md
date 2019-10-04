@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Launch application using Maven | Microsoft Docs"
-description: Launch sample application using Maven
+title: "Quickstart: Launch an application by using Maven | Microsoft Docs"
+description: Launch a sample application by using Maven
 services: spring-cloud
 author: v-vasuke
 manager: jeconnoc
@@ -13,27 +13,27 @@ ms.author: v-vasuke
 
 ---
 
-# Quickstart: Azure Spring Cloud Maven plugin
+# Quickstart: Azure Spring Cloud Maven plug-in
 
-Azure Spring Cloud Maven plugin allows you to easily create and update your Azure Spring Cloud service applications. By pre-defining a configuration, you can deploy applications to your already existing Azure Spring Cloud service. In this article, we use a sample application called PiggyMetrics to demonstrate this feature.
+Azure Spring Cloud Maven plug-in allows you to easily create and update your Azure Spring Cloud service applications. By pre-defining a configuration, you can deploy applications to your existing Azure Spring Cloud service. In this article, we use a sample application called PiggyMetrics to demonstrate this feature.
 
 ## Prerequisites
-1. [Install Git](https://git-scm.com/)
-2. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
+1. [Install Git](https://git-scm.com/).
+2. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi).
 
 ## Provision service instance
 
-Please refer this [document](spring-cloud-quickstart-launch-app-portal.md) to provision service instance and set your config server.
+Please refer to this [document](spring-cloud-quickstart-launch-app-portal.md) to provision service instance and set your config server.
 
 
 ## Clone and build the sample application repository
 
-1. Clone git repository by running below command.
+1. Clone git repository by running the following command.
     ```
     git clone https://github.com/Azure-Samples/PiggyMetrics
     ```
   
-1. Change directory and build the project by running below command.
+1. Change directory and build the project by running the following command.
     ```
     cd PiggyMetrics
     mvn clean package -DskipTests
@@ -59,24 +59,24 @@ Please refer this [document](spring-cloud-quickstart-launch-app-portal.md) to pr
 </pluginRepositories>
 ```
 
-1. Generate configuration by running the below command.
+1. Generate a configuration by running the following command.
 
     ```
     mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:config
     ```
 
-    1. Select the modules `gateway`,`auth-service`, and `account-service`
+    1. Select the modules `gateway`,`auth-service`, and `account-service`.
 
-    1. Select your subscription and Azure Spring Cloud service cluster
+    1. Select your subscription and Azure Spring Cloud service cluster.
 
     1. From the list of projects provided, enter the number that corresponds with `gateway` to give it public access.
     
-    1. Confirm the configuration
+    1. Confirm the configuration.
 
-1. Deploy the apps using the following command:
+1. Deploy the apps by using the following command:
 
-```
-mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
-```
+   ```
+   mvn com.microsoft.azure:azure-spring-cloud-maven-plugin:0.1.0-SNAPSHOT:deploy
+   ```
 
 1. You can access PiggyMetrics using the URL printed.
