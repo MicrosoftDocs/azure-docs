@@ -57,7 +57,7 @@ configuration, waits until it has completed, and then displays its streams.
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -216,7 +216,7 @@ following:
 
 #### Credential Assets
 
-DSC configurations in Azure Automation can reference Automation credential assets using the 
+DSC configurations in Azure Automation can reference Automation credential assets using the
 `Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
 type, then you can use the `Get-AutomationPSCredential` cmdlet by passing the string name
 of an Azure Automation credential asset to the cmdlet to retrieve the credential. You can then use
