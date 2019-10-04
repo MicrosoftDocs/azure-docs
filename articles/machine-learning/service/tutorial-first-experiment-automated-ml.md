@@ -40,7 +40,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 

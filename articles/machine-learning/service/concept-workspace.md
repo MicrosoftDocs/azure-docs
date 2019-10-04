@@ -76,7 +76,7 @@ You can also perform the following workspace management tasks:
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether it is a Basic or Enterprise [SKU](overview-what-is-azure-ml.md#sku). The SKU determines the [features available in the workspace]().  
+When you create a workspace, you decide whether it is a Basic or Enterprise [SKU](overview-what-is-azure-ml.md#sku). The SKU determines the features available in the workspace. For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/en-us/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 
