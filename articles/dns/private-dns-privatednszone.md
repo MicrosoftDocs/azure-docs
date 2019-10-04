@@ -1,5 +1,5 @@
 ---
-title: What is a private DNS zone
+title: What is an Azure DNS private zone
 description: Overview of a private DNS zone
 services: dns
 author: rohinkoul
@@ -9,7 +9,7 @@ ms.date: 9/24/2019
 ms.author: rohink
 ---
 
-# What is a private DNS zone
+# What is a private Azure DNS zone
 
 Azure Private DNS provides a reliable, secure DNS service to manage and resolve domain names in a virtual network without the need to add a custom DNS solution. By using private DNS zones, you can use your own custom domain names rather than the Azure-provided names available today. 
 

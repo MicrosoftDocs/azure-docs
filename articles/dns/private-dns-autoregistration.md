@@ -1,6 +1,6 @@
 ---
-title: How does autoregistration for private DNS work
-description: Overview of how autoregistration works for private DNS zone
+title: What is autoregistration feature of Azure DNS private zones
+description: Overview of autoregistration feature of Azure DNS private zones
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -9,7 +9,7 @@ ms.date: 9/24/2019
 ms.author: rohink
 ---
 
-# What is a autoregistration
+# What is the autoregistration feature of Azure DNS private zones
 
 The Azure DNS private zones auto registration feature takes the pain out of DNS record management for virtual machines deployed in a virtual network. When you [link an virtual network](./private-dns-virtual-network-links.md) with a private DNS zone and enable auto registration for all the virtual machines, the DNS records for the virtual machines deployed in the virtual network are automatically created in the private DNS zone. In addition to forward look records (A records), reverse lookup records (PTR records) are also automatically created for the virtual machines.
 If you add more virtual machines to the virtual network, DNS records for these virtual machines are also automatically created in the linked private DNS zone.

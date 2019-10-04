@@ -1,6 +1,6 @@
 ---
-title: What is a virtual network link
-description: Overview of virtual network link sub resource a private DNS zone
+title: What is a virtual network link subresource of Azure DNS private zones
+description: Overview of virtual network link sub resource a Azure DNS private zone
 services: dns
 author: rohinkoul
 ms.service: dns
@@ -23,7 +23,7 @@ One private DNS zone can have multiple registration virtual networks, however ev
 
 ## Resolution virtual network
 
-When you create a virtual network link under a private DNS zone and choose not to enable DNS record autoregistration , the virtual network is treated as a resolution only virtual network. DNS records for virtual machines deployed in such networks will not be automatically created in the linked private DNS zone. However, the virtual machines deployed in such a network can successfully query the DNS records from the private DNS zone. These records may be manually created by you or may be populated from other virtual networks that have been linked as registration networks with the private DNS zone.
+When you create a virtual network link under a private DNS zone and choose not to enable DNS record autoregistration, the virtual network is treated as a resolution only virtual network. DNS records for virtual machines deployed in such networks will not be automatically created in the linked private DNS zone. However, the virtual machines deployed in such a network can successfully query the DNS records from the private DNS zone. These records may be manually created by you or may be populated from other virtual networks that have been linked as registration networks with the private DNS zone.
 One private DNS zone can have multiple resolution virtual networks and a virtual network can have multiple resolution zones associated to it.
 
 ## Limits
@@ -34,7 +34,7 @@ To understand how many registration and resolution networks, you can link to pri
 
 * Virtual networks deployed using classic deployment model are not supported.
 
-* You can create only one link between an private DNS zone and a virtual network.
+* You can create only one link between a private DNS zone and a virtual network.
 
 * Each virtual network link under a private DNS zone must have unique name within the context of the private DNS zone. You can have links with same name in different private DNS zones.
 
