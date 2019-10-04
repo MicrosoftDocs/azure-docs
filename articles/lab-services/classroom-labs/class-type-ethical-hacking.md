@@ -74,7 +74,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
     > [!NOTE]
     > If you need to unlock the image, press the CTRL key and drag the mouse upwards.
 
-## Set up a nested virtual machine with Metasploitable Image  
+## Set up a nested VM with Metasploitable Image  
 The Rapid7 Metasploitable image is an image purposely configured with security vulnerabilities. You'll use this image to test and find issues. The following instructions show you how to use a pre-created Metasploitable image. However, if a newer version of the Metasploitable image is needed, see [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3).
 
 1. Navigate to [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html). Fill out the form to download the image and select the **Submit** button.

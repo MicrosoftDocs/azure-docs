@@ -28,7 +28,7 @@ Before setting up a lab with nested virtualization, here are a few things to tak
 1. Host virtual machine requires setup to allow for the client machine to have internet connectivity. 
 1. Client virtual machines are licensed as independent machines. See [Microsoft Licensing](https://www.microsoft.com/licensing/default) for information about licensing for Microsoft operation systems and products. Check licensing agreements for any other software being used before setting up the template machine.
 
-## Set up a template VM to enable nested virtualization
+## Enable nested virtualization on a template VM
 The steps in this section focus on setting up nested virtualization for Windows Server 2016 or Windows Server 2019. You will use a script to set up template machine with Hyper-V. For an automated solution, see scripts at [Lab Services Hyper-V Scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/HyperV). The following steps will walk you through how to use the script.
 
 1. If you're using Internet Explorer, you may have to add `https://github.com` to the trusted sites list. 
