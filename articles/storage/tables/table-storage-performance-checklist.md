@@ -15,6 +15,48 @@ ms.subservice: tables
 
 In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the Table service.  
 
+## Checklist
+
+This article organizes the proven practices into a checklist you can follow while developing your application. Proven practices applicable to:  
+
+- All Azure Storage services (blobs, tables, queues, and files)
+- Tables
+
+| Done | Area | Category | Question |
+| --- | --- | --- | --- |
+| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#scalability-targets) |
+| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partition-naming-convention) |
+| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#link-quality) |
+| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#location) |
+| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#content-distribution) |
+| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#sas-and-cors) |
+| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#reading-data) |
+| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#uploading-data-in-batches) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; | All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
+| &nbsp; | All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload either your client capabilities or the scalability targets?](#unbounded-parallelism) |
+| &nbsp; | All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#client-libraries-and-tools) |
+| &nbsp; | All Services |Retries |[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#throttling-and-server-busy-errors) |
+| &nbsp; | All Services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; | Blobs |Scalability Targets |[Do you have a large number of clients accessing a single object concurrently?](#multiple-clients-accessing-a-single-object-concurrently) |
+| &nbsp; | Tables |Scalability Targets |[Are you approaching the scalability targets for entities per second?](#table-specific-scalability-targets) |
+| &nbsp; | Tables |Configuration |[Are you using JSON for your table requests?](#use-json) |
+| &nbsp; | Tables |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
+| &nbsp; | Tables |Tables and Partitions |[Have you properly partitioned your data?](#schema) |
+| &nbsp; | Tables |Hot Partitions |[Are you avoiding append-only and prepend-only patterns?](#append-only-and-prepend-only-patterns) |
+| &nbsp; | Tables |Hot Partitions |[Are your inserts/updates spread across many partitions?](#high-traffic-data) |
+| &nbsp; | Tables |Query Scope |[Have you designed your schema to allow for point queries to be used in most cases, and table queries to be used sparingly?](#query-scope) |
+| &nbsp; | Tables |Query Density |[Do your queries typically only scan and return rows that your application will use?](#query-density) |
+| &nbsp; | Tables |Limiting Returned Data |[Are you using filtering to avoid returning entities that are not needed?](#limiting-the-amount-of-data-returned) |
+| &nbsp; | Tables |Limiting Returned Data |[Are you using projection to avoid returning properties that are not needed?](#limiting-the-amount-of-data-returned) |
+| &nbsp; | Tables |Denormalization |[Have you denormalized your data such that you avoid inefficient queries or multiple read requests when trying to get data?](#denormalization) |
+| &nbsp; | Tables |Insert/Update/Delete |[Are you batching requests that need to be transactional or can be done at the same time to reduce round-trips?](#batching) |
+| &nbsp; | Tables |Insert/Update/Delete |[Are you avoiding retrieving an entity just to determine whether to call insert or update?](#upsert) |
+| &nbsp; | Tables |Insert/Update/Delete |[Have you considered storing series of data that will frequently be retrieved together in a single entity as properties instead of multiple entities?](#storing-data-series-in-a-single-entity) |
+| &nbsp; | Tables |Insert/Update/Delete |[For entities that will always be retrieved together and can be written in batches (for example, time series data), have you considered using blobs instead of tables?](#storing-structured-data-in-blobs) |
+
 ## Table-specific scalability targets
 
 In addition to the bandwidth limitations of an entire storage account, tables have the following specific scalability limit. The system will load balance as your traffic increases, but if your traffic has sudden bursts, you may not be able to get this volume of throughput immediately. If your pattern has bursts, you should expect to see throttling and/or timeouts during the burst as the storage service automatically load balances out your table. Ramping up slowly generally has better results as it gives the system time to load balance appropriately.
@@ -81,7 +123,7 @@ This section describes proven practices for querying the Table service.
 
 There are several ways to specify the range of entities to query. The following list describes each option for query scope.
 
-- **Point queries:*- A point query retrieves exactly one entity. It does this by specifying both the partition key and row key of the entity to retrieve. These queries are efficient, and you should use them wherever possible.
+- **Point queries:**- A point query retrieves exactly one entity. It does this by specifying both the partition key and row key of the entity to retrieve. These queries are efficient, and you should use them wherever possible.
 - **Partition queries:** A partition query is a query that retrieves a set of data that shares a common partition key. Typically, the query specifies a range of row key values or a range of values for some entity property in addition to a partition key. These are less efficient than point queries, and should be used sparingly.
 - **Table queries:** A table query is a query that retrieves a set of entities that does not share a common partition key. These queries are not efficient and you should avoid them if possible.
 
@@ -91,7 +133,7 @@ In general, avoid scans (queries larger than a single entity), but if you must s
 
 Another key factor in query efficiency is the number of entities returned as compared to the number of entities scanned to find the returned set. If your application performs a table query with a filter for a property value that only 1% of the data shares, the query will scan 100 entities for every one entity it returns. The table scalability targets discussed previously all relate to the number of entities scanned, and not the number of entities returned: a low query density can easily cause the Table service to throttle your application because it must scan so many entities to retrieve the entity you are looking for. For more information on how to avoid throttling, see the section titled [Denormalization](#denormalization).
 
-##### Limiting the amount of data returned
+#### Limiting the amount of data returned
 
 When you know that a query will return entities that you don't need in the client application, consider using a filter to reduce the size of the returned set. While the entities not returned to the client still count toward the scalability limits, your application performance will improve because of the reduced network payload size and the reduced number of entities that your client application must process. Keep in mind that the scalability targets relate to the number of entities scanned, so a query that filters out many entities may still result in throttling, even if few entities are returned. For more information on making queries efficient, see the section titled [Query density](#query-density).
 

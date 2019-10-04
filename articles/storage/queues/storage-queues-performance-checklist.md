@@ -15,6 +15,39 @@ ms.subservice: tables
 
 In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the queue service.  
 
+## Checklist
+
+This article organizes the proven practices into a checklist you can follow while developing your application. Proven practices applicable to:  
+
+* All Azure Storage services (blobs, tables, queues, and files)
+* Queues  
+
+| Done | Area | Category | Question |
+| --- | --- | --- | --- |
+| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#scalability-targets) |
+| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partition-naming-convention) |
+| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#link-quality) |
+| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#location) |
+| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#content-distribution) |
+| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#sas-and-cors) |
+| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#reading-data) |
+| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#uploading-data-in-batches) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
+| &nbsp; | All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](##take-advantage-of-improved-garbage-collection) |
+| &nbsp; | All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload either your client capabilities or the scalability targets?](#unbounded-parallelism) |
+| &nbsp; | All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#client-libraries-and-tools) |
+| &nbsp; | All Services |Retries |[Are you using an exponential backoff retry policy for throttling errors and timeouts?](#throttling-and-server-busy-errors) |
+| &nbsp; | All Services |Retries |[Is your application avoiding retries for non-retryable errors?](#non-retryable-errors) |
+| &nbsp; | Queues |Scalability Targets |[Are you approaching the scalability targets for messages per second?](#scalability-limits) |
+| &nbsp; | Queues |Configuration |[Have you turned off the Nagle algorithm to improve the performance of small requests?](#disable-nagle) |
+| &nbsp; | Queues |Message Size |[Are your messages compact to improve the performance of the queue?](#message-size) |
+| &nbsp; | Queues |Bulk Retrieve |[Are you retrieving multiple messages in a single GET operation?](#batch-retrieval) |
+| &nbsp; | Queues |Polling Frequency |[Are you polling frequently enough to reduce the perceived latency of your application?](#queue-polling-interval) |
+| &nbsp; | Queues |Update Message |[Are you using the Update Message operation to store progress in processing messages, so that you can avoid having to reprocess the entire message if an error occurs?](#update-message) |
+| &nbsp; | Queues |Architecture |[Are you using queues to make your entire application more scalable by keeping long-running workloads out of the critical path and scale then independently?](#application-architecture) |
+
 ## Scalability limits
 
 A single queue can process approximately 2,000 messages (1 KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
