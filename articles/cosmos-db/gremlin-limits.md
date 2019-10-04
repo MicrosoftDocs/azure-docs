@@ -1,22 +1,22 @@
 ---
 title: Limits of Azure Cosmos DB Gremlin
 description: Reference documentation for runtime limitations of Graph engine
-author: olignat
+author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
-ms.date: 09/10/2019
-ms.author: olignat
+ms.date: 10/04/2019
+ms.author: lbosq
 ---
 
 # Azure Cosmos DB Gremlin limits
 This article talks about the limits of Azure Cosmos DB Gremlin engine and explains how they may impact customer traversals.
 
-Cosmos DB Gremlin is built on top of Cosmos DB infrastructure that's why all limits in [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) still apply. 
+Cosmos DB Gremlin is built on top of Cosmos DB infrastructure. Due to this, all limits explained in [Azure Cosmos DB service limits](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) still apply. 
 
 ## Limits
 
-When Gremlin limit is reached, traversal is canceled with **x-ms-status-code** = 429 indicating throttling error.
+When Gremlin limit is reached, traversal is canceled with a **x-ms-status-code** of 429 indicating a throttling error. See [Gremlin server response headers](gremlin-limits.md) for more information.
 
 **Resource**	| **Default limit** | **Explanation**
 --- | --- | ---
