@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 
@@ -78,7 +78,7 @@ The following JSON is with the `verbose` parameter set to `false`:
             "money": [
                 {
                     "number": 10.99,
-                    "unit": "Dollar"
+                    "units": "Dollar"
                 }
             ]
         }
@@ -103,7 +103,7 @@ The following JSON is with the `verbose` parameter set to `true`:
             "money": [
                 {
                     "number": 10.99,
-                    "unit": "Dollar"
+                    "units": "Dollar"
                 }
             ],
             "$instance": {

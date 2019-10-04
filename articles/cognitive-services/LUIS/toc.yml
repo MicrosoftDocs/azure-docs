@@ -253,8 +253,13 @@
     - name: Migrate to V2 REST API
       href: luis-migration-api-v1-to-v2.md
     - name: Migrate to V3 REST API
-      href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
+      items: 
+      - name: Authoring changes
+        href: luis-migration-api-v3.md 
+
+      - name: Prediction endpoint
+        href: luis-migration-api-v3-endpoint.md   
+        displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override         
   - name: Use containers
     items:
     - name: Install and run containers
@@ -339,6 +344,8 @@
     - name: Authoring V2 REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
     - name: Endpoint V2 REST API
+      href: https://go.microsoft.com/fwlink/?linkid=2092356
+    - name: Endpoint V3 REST API
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429

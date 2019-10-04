@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 
@@ -105,11 +105,11 @@ The following JSON is with the `verbose` parameter set to `false`:
         },
         "entities": {
             "geographyV2": [
-                "the sphinx",
-                "gizah",
-                "egypt",
-                "africa",
-                "texas"
+                {"value" : "the sphinx", "type": "countryRegion"},
+                {"value" : "gizah", "type": "countryRegion"},
+                {"value" : "egypt", "type": "countryRegion"},
+                {"value" : "africa", "type": "countryRegion"},
+                {"value" : "texas", "type": "countryRegion"}
             ]
         }
     }
@@ -131,11 +131,11 @@ The following JSON is with the `verbose` parameter set to `true`:
         },
         "entities": {
             "geographyV2": [
-                "the sphinx",
-                "gizah",
-                "egypt",
-                "africa",
-                "texas"
+                {"value" : "the sphinx", "type": "countryRegion"},
+                {"value" : "gizah", "type": "countryRegion"},
+                {"value" : "egypt", "type": "countryRegion"},
+                {"value" : "africa", "type": "countryRegion"},
+                {"value" : "texas", "type": "countryRegion"}
             ],
             "$instance": {
                 "geographyV2": [

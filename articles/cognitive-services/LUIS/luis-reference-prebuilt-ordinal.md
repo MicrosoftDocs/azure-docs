@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 
@@ -72,12 +72,7 @@ The following JSON is with the `verbose` parameter set to `false`:
             }
         },
         "entities": {
-            "ordinal": [
-                {
-                    "offset": 2,
-                    "relativeTo": "start"
-                }
-            ]
+            "ordinal": [ 2 ]
         }
     }
 }
@@ -97,12 +92,8 @@ The following JSON is with the `verbose` parameter set to `true`:
             }
         },
         "entities": {
-            "ordinal": [
-                {
-                    "offset": 2,
-                    "relativeTo": "start"
-                }
-            ],
+            "ordinal": [ 2 ]
+            },
             "$instance": {
                 "ordinal": [
                   {
