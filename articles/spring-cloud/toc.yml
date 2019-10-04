@@ -20,4 +20,8 @@
   items: 
     - name: How to enable Service Registration
       href: spring-cloud-service-registration.md
+- name: Reference
+  items: 
+    - name: Azure CLI
+      href: spring-cloud-cli-reference.md
       
