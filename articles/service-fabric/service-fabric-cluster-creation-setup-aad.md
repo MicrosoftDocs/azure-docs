@@ -21,7 +21,7 @@ ms.author: atsenthi
 
 For clusters running on Azure, Azure Active Directory (Azure AD) is recommended to secure access to management endpoints. This article describes how to setup Azure AD to authenticate clients for a Service Fabric cluster.
 
-In this article, the term "application" is not referring to a Service Fabric application. An Azure AD application defines the authorization and authentication configuration for an endpoint or collection of endpoints. Applications are categorized as those with a web-based sign-in UI and those with a native client experience. Azure AD enables organizations (known as tenants) to manage user access to applications. For more information, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals).
+In this article, the term "application" will be used to refer to [Azure Active Directory applications](../active-directory/develop/developer-glossary.md#client-application), not Service Fabric applications; the distinction will be made where necessary. For a deeper understanding, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals).
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster: one web application and one native application.  After the applications are created, you assign users to read-only and admin roles.
 
@@ -123,7 +123,7 @@ To learn more, see [Connect-ServiceFabricCluster cmdlet](https://docs.microsoft.
 Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
 
 ### Why do I still need a server certificate while Azure AD is enabled?
-FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity to the client. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
+FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used by the client to verify the server's identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
 
 ## Next steps
 After setting up Azure Active Directory applications and setting roles for users, [configure and deploy a cluster](service-fabric-cluster-creation-via-arm.md).
