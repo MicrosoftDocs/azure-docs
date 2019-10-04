@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 10/04/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,9 +86,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![The Certificate download link](common/certificateraw.png)
 
-1. On the **Set up In Case of Crisis - Mobile** section, copy the appropriate URL(s) based on your requirement.
+1. Navigate to the **Manage** section on left side of page, click on **Properties tab** then copy the **User access URL** and save it on your computer.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Single sign-on properties](./media/in-case-of-crisis-mobile-tutorial/properties.png)
 
 ### Create an Azure AD test user
 
@@ -122,7 +122,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure In Case of Crisis - Mobile SSO
 
-To configure single sign-on on **In Case of Crisis - Mobile** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [In Case of Crisis - Mobile support team](https://www.rockdovesolutions.com/features/enterprise-ready). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **In Case of Crisis - Mobile** side, you need to send the downloaded **Certificate (Raw)** and copied **User access URL** from Azure portal to [In Case of Crisis - Mobile support team](https://www.rockdovesolutions.com/features/enterprise-ready). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create In Case of Crisis - Mobile test user
 
