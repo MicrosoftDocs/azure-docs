@@ -586,6 +586,8 @@
         href: sql-database-xevent-code-ring-buffer.md
   - name: Configure features
     items:
+    - name: Configure failover group
+      href: sql-database-configure-failover-group.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
     - name: Conditional Access

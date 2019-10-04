@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -22,13 +22,15 @@ Use the Azure Cognitive Services Management layer to create, edit, list, and del
 
 Find reference documentation based on the tool:
 
-* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list)
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
 ## Language Understanding authoring and prediction requests
 
 The Language Understanding service is accessed from an Azure resource you need to create. There are two resources: authoring and prediction endpoint resources. Both of these resources allow you to control your LUIS resources. 
+
+Learn about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 ### REST APIs
 

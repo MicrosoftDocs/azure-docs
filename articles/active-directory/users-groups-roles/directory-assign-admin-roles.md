@@ -65,8 +65,6 @@ Users with this role can set or reset non-password credentials and can update pa
 * Message Center Reader
 * Reports Reader
 
-The Authentication administrator role is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 > [!IMPORTANT]
 > Users with this role can change credentials for people who may have access to sensitive or private information or critical configuration inside and outside of Azure Active Directory. Changing the credentials of a user may mean the ability to assume that user's identity and permissions. For example:
 
@@ -168,7 +166,10 @@ This role is available for assignment only as an additional local administrator 
 
 ### [Directory Readers](#directory-readers-permissions)
 
-This is a role that should be assigned only to legacy applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Don't assign it to users.
+Users in this role can read basic directory information. This role should be used for:
+* Granting a specific set of guest users read access instead of granting it to all guest users.
+* Granting a specific set of non-admin users access to Azure Portal when “Restrict access to Azure AD portal to admins only” is set to “Yes”.
+* Granting service principals access to directory where Directory.Read.All is not an option.
 
 ### [Directory Synchronization Accounts](#directory-synchronization-accounts-permissions)
 

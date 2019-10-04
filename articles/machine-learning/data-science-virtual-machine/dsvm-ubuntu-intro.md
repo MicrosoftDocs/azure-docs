@@ -19,6 +19,7 @@ Get up and running with the Ubuntu Data Science Virtual Machine.
 ## Prerequisites
 
 To create a Windows Data Science Virtual Machine, you must have an Azure subscription. [Try Azure for free](https://azure.com/free).
+Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 
 ## Create your Data Science Virtual Machine for Linux
 
@@ -31,7 +32,7 @@ Here are the steps to create an instance of the Data Science Virtual Machine for
 
 1. On the subsequent window, select **Create**.
 
-    ![Wizard for creating a virtual machine](./media/dsvm-ubuntu-intro/create-linux.png)
+   [![](media/dsvm-ubuntu-intro/create-linux.png "Button to create an Ubuntu machine")](media/dsvm-ubuntu-intro/create-linux-expanded.png#lightbox)
 
 1. You should be redirected to the "Create a virtual machine" blade.
    
