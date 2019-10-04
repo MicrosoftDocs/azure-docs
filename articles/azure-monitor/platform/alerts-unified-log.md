@@ -123,15 +123,20 @@ Since alert is configured to trigger based on total breaches are more than two, 
 
 Log search alert rules work only on the logic you build into the query. The alert system doesn't have any other context of the state of the system, your intent, or the root cause implied by the query. As such, log alerts are referred to as state-less. The conditions are evaluated as "TRUE" or "FALSE" each time they are run.  An alert will fire each time the evaluation of the alert condition is "TRUE", regardless of it is fired previously.    
 
-Let's see this behavior in action with a practical example. Assume we have a log alert rule called *Contoso-Log-Alert*, as per configuration in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert) - where the custom alert query is designed to look for 500 result code in logs.
+Let's see this behavior in action with a practical example. Assume we have a log alert rule called *Contoso-Log-Alert*, which is configured as shown in the [example provided for Number of Results type log alert](#example-of-number-of-records-type-log-alert). The condition is a custom alert query designed to look for 500 result code in logs. If one more more 500 result codes are found in logs, the condition of the alert is true. 
 
-At each interval below, the Azure alerts system evaluates the condition for the *Contoso-Log-Alert*:
-- At 1:05 PM, the log search result returns zero records with result code having 500. Since zero is below the threshold and the alert does not fire.
-- At 1:10 PM, the log search result returns five records with result code as 500. Since five exceeds the threshold, the alert fires and the actions in the associated action groups are triggered.
-- At 1:15 PM, the log search results returns two records with a 500 result code. Since two exceeds the threshold, the alert fires and actions are again triggered.
-- At 1:20 PM, the log search result returns zero records with 500 result code. Since zero is below the threshold and the alert does not fire and so not associated actions are triggered.
+At each interval below, the Azure alerts system evaluates the condition for the *Contoso-Log-Alert*.
 
-Using the previous case as an example, 
+
+| Time    | Num of log entries containing 500 result code returned by log search query | Log condition evalution | Result 
+| ------- | ----------| ----------| ------- 
+| 1:05 PM | 0 records | FALSE | 0 < 1 so alert does not fire. No actions called.
+| 1:10 PM | 2 records | TRUE  | 2 > 1 so alert fires and action groups called. Alert state ACTIVE.
+| 1:15 PM | 5 records | TRUE  | 5 > 1 so alert fires and action groups called. Alert state ACTIVE.
+| 1:20 PM | 0 records | FALSE | 0 < 1 so alert does not fire. No actions called. Alert state left ACTIVE.
+
+Using the previous case as an example:
+
 At 1:15 PM Azure alerts can't determine if the underlying issues seen at 1:10 persist and if the records are net new failures or repeats of older failures at 1:10PM. The query provided by user may or may not be taking into account earlier records and the system doesn't know. The Azure alerts system is built to err on the side of caution, and fires the alert and associated actions again at 1:15 PM. 
 
 At 1:20 PM when zero records are seen with 500 result code, Azure alerts can't be certain that the cause of 500 result code seen at 1:10 PM and 1:15 PM is now solved. It doesn't know if the 500 error issues will happen for the same reasons again. Hence *Contoso-Log-Alert* does not change to **Resolved** in Azure Alert dashboard and/or notifications are not sent out stating the alert is resolved. Only you, who understands the exact condition or reason for the logic embedded in the analytics query, can [mark the alert as closed](alerts-managing-alert-states.md) as needed.
