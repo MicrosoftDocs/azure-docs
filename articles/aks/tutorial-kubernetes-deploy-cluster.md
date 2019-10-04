@@ -31,6 +31,9 @@ In previous tutorials, a container image was created and uploaded to an Azure Co
 
 This tutorial requires that you're running the Azure CLI version 2.0.53 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
+If you wish to get up and running with an integration for new or existing services, between [Azure Container Registry](TODO) and [Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/), the 'How-to' [Authenticate with Azure Container Registry from Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/cluster-container-registry-integration) provides some abstractions over the commands detailed in this tutorial.
+
+
 ## Create a service principal
 
 To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI or portal, or you can pre-create one and assign additional permissions. In this tutorial, you create a service principal, grant access to the Azure Container Registry (ACR) instance created in the previous tutorial, then create an AKS cluster.
