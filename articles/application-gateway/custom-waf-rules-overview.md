@@ -91,18 +91,8 @@ This is the name of the rule. The name appears in the logs.
 
 ### Priority (required)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-- The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule.
-- The priority must be unique among all the custom rules. A rule with priority of 100 is evaluated before a rule with priority of 200.
-=======
-- Determines the order that rules are evaluated in. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1-100. 
-- Must be unique amongst all custom rules. A rule with priority 40 will be evaluated before a rule with priority 80.
->>>>>>> e2e4391e26250b1c4ffc7db2ebec26987b71b639
-=======
 - The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1 to 100.
 - The priority must be unique among all custom rules. A rule with a priority of 40 is evaluated before a rule with a priority of 80.
->>>>>>> 4081f19e3bb2d431462bf25adb1774dfd6b349ae
 
 ### Rule type (required)
 
