@@ -100,8 +100,8 @@ Save the json below as simplestaticmetricalert.json for the purpose of this walk
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "int",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1141,8 +1141,8 @@ Save the json below as all-vms-in-resource-group-static.json for the purpose of 
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "int",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -1788,8 +1788,8 @@ Save the json below as all-vms-in-subscription-static.json for the purpose of th
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "int",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
@@ -2429,8 +2429,8 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
             }
         },
         "threshold": {
-            "type": "string",
-            "defaultValue": "0",
+            "type": "int",
+            "defaultValue": 0,
             "metadata": {
                 "description": "The threshold value at which the alert is activated."
             }
