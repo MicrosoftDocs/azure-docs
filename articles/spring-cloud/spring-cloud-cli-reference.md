@@ -26,7 +26,7 @@ ms.author: jeconnoc
 | az spring-cloud app | Commands to manage apps in the Azure Spring Cloud.  |
 | ---- | ----: |
 | [az spring-cloud app create](#az-spring-cloud-app-create) | Create a new app with a default deployment in the Azure Spring Cloud. |
-| [az spring-cloud app delete](#az-spring-cloud-app-delete) | Deleate an app in the Azure Spring Cloud. |
+| [az spring-cloud app delete](#az-spring-cloud-app-delete) | Delete an app in the Azure Spring Cloud. |
 | [az spring-cloud app deploy](#az-spring-cloud-app-deploy) | Deploy from source code or a pre-built binary to an app and update related configurations. |
 | [az spring-cloud app list](#az-spring-cloud-app-list) | List all apps in the Azure Spring Cloud. |
 | [az spring-cloud app restart](#az-spring-cloud-app-restart) | Restart instances of the app using production deployment defaults. |
