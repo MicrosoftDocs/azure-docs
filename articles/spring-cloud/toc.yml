@@ -6,12 +6,14 @@
 - name: Quickstarts
   expanded: true 
   items:
-    - name: Launch your Spring Cloud app from source
-      href: spring-cloud-launch-from-source.md
     - name: Launch your Spring Cloud app using the portal
       href: spring-cloud-quickstart-launch-app-portal.md 
     - name: Launch your Spring Cloud app using the Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md 
+- name: Tutorials
+  items:
+    - name: Launch your Spring Cloud app from source
+      href: spring-cloud-launch-from-source.md
 - name: Concepts
   items: 
     - name: Service plans and quotas for Azure Spring Cloud
