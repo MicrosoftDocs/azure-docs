@@ -7,21 +7,17 @@ author: shants123
 editor: ''
 tags: azure-service-management,azure-resource-manager
 
-ms.assetid: 
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
-
+ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: shants
-
 ---
-
 
 # Handling planned maintenance notifications using the Azure CLI
 
-[!INCLUDE [updated-for-az.md](maintenance-notifications-common.md)]
+[!INCLUDE [maintenance-notifications-common.md](maintenance-notifications-common.md)]
 
 You can also handle planned maintenance using the [Azure PowerShell](maintenance-notifications-powershell.md) or [portal](maintenance-notifications-portal.md).
 

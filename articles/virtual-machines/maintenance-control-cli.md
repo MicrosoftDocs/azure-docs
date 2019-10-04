@@ -1,15 +1,18 @@
 ---
-title: include file
-description: include file
-services: virtual-machines
+title: Maintenance control for Azure virtual machines | Microsoft Docs
+description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control.
+services: virtual-machines-linux
 author: cynthn
 
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.topic: article
+ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/02/2019
+ms.date: 10/04/2019
 ms.author: cynthn
 ---
+
+# Control updates with Maintenance Control and the Azure CLI
 
 Manage platform updates, that don't require a reboot, using maintenance control. Azure frequently updates its infrastructure to improve reliability, performance, security or launch new features. Most updates are transparent to users. Some sensitive workloads, like gaming, media streaming, and financial transactions, can’t tolerate even few seconds of a VM freezing or disconnecting for maintenance. Maintenance control gives you the option to wait on platform updates and apply them within a 35-day rolling window.  
 
@@ -23,7 +26,7 @@ With maintenance control, you can:
 
 ## Limitations
 
-- VMs must be on a [dedicated host](./windows/dedicated-hosts.md), be created using an [isolated VM size](./windows/isolation.md), or in a Dedicated Node Group (DNG).
+- VMs must be on a [dedicated host](./linux/dedicated-hosts.md), be created using an [isolated VM size](./linux/isolation.md), or in a Dedicated Node Group (DNG).
 - After 35 days, an update will automatically be applied and availability constraints will not be respected.
 - User must have **Resource Owner** access.
 

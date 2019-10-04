@@ -12,7 +12,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 10/02/2019
+ms.date: 10/04/2019
 ms.author: shants
 
 ---
@@ -25,11 +25,11 @@ Azure periodically updates its platform to improve the reliability, performance,
 Updates rarely affect the hosted VMs. When updates do have an effect, Azure chooses the least impactful method for updates:
 
 - If the update doesn't require a reboot, the VM is paused while the host is updated, or the VM is live-migrated to an already updated host. 
-- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 30 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see [Handling planned maintenance notifications for Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or the corresponding article for [Windows](../articles/virtual-machines/windows/maintenance-notifications.md).
+- If maintenance requires a reboot, you're notified of the planned maintenance. Azure also provides a time window in which you can start the maintenance yourself, at a time that works for you. The self-maintenance window is typically 30 days unless the maintenance is urgent. Azure is investing in technologies to reduce the number of cases in which planned platform maintenance requires the VMs to be rebooted. For instructions on managing planned maintenance, see [Handling planned maintenance notifications for Linux](../linux/maintenance-notifications.md) or the corresponding article for [Windows](../windows/maintenance-notifications.md).
 
-This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
+This page describes how Azure performs both types of maintenance. For more information about unplanned events (outages), see [Manage the availability of VMs for Windows](../windows/manage-availability.md) or the corresponding article for [Linux](../linux/manage-availability.md).
 
-Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or for [Linux](../articles/virtual-machines/linux/scheduled-events.md).
+Within a VM, you can get notifications about upcoming maintenance by [using Scheduled Events for Windows](../windows/scheduled-events.md) or for [Linux](../linux/scheduled-events.md).
 
 
 
@@ -45,7 +45,7 @@ These maintenance operations that don't require a reboot are applied one fault d
 
 These types of updates can affect some applications. When the VM is live-migrated to a different host, some sensitive workloads might show a slight performance degradation in the few minutes leading up to the VM pause. To prepare for VM maintenance and reduce impact during Azure maintenance, try [using Scheduled Events for Windows](../articles/virtual-machines/windows/scheduled-events.md) or [Linux](../articles/virtual-machines/linux/scheduled-events.md) for such applications. 
 
-There is also a feature, maintenance control, in public preview that can help manage maintenance that doesn't require a reboot. You must be using either [Azure Dedicated Hosts](../articles/virtual-machines/windows/dedicated-hosts.md) or an [isolated VM](../articles/security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see the preview maintenance control articles for [Linux](../articles/virtual-machines/linux/maintenance-control.md) or [Windows](../articles/virtual-machines/windows/maintenance-control.md)
+There is also a feature, maintenance control, in public preview that can help manage maintenance that doesn't require a reboot. You must be using either [Azure Dedicated Hosts](../windows/dedicated-hosts.md) or an [isolated VM](../security/fundamentals/isolation-choices.md). Maintenance control gives you the option to skip platform updates and apply the updates at your choice of time within a 35-day rolling window. For more information, see the preview maintenance control articles for [Linux](../linux/maintenance-control.md) or [Windows](../windows/maintenance-control.md)
 
 
 ### Live migration
@@ -73,7 +73,7 @@ If an error arises during self-service maintenance, the operation stops, the VM 
 
 When the self-service phase ends, the *scheduled maintenance phase* begins. During this phase, you can still query for the maintenance phase, but you can't start the maintenance yourself.
 
-For more information on managing maintenance that requires a reboot, see [Handling planned maintenance notifications for Linux](../articles/virtual-machines/linux/maintenance-notifications.md) or the corresponding article for [Windows](../articles/virtual-machines/windows/maintenance-notifications.md). 
+For more information on managing maintenance that requires a reboot, see [Handling planned maintenance notifications for Linux](../linux/maintenance-notifications.md) or the corresponding article for [Windows](../windows/maintenance-notifications.md). 
 
 ### Availability considerations during scheduled maintenance 
 
@@ -91,7 +91,7 @@ Within an availability set, individual VMs are spread across up to 20 update dom
 
 Virtual machine *scale sets* are an Azure compute resource that you can use to deploy and manage a set of identical VMs as a single resource. The scale set is automatically deployed across UDs, like VMs in an availability set. As with availability sets, when you use scale sets, only one UD is updated at any given time during scheduled maintenance.
 
-For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](../articles/virtual-machines/windows/manage-availability.md) or the corresponding article for [Linux](../articles/virtual-machines/linux/manage-availability.md).
+For more information about setting up your VMs for high availability, see [Manage the availability of your VMs for Windows](../windows/manage-availability.md) or the corresponding article for [Linux](../linux/manage-availability.md).
 
 #### Availability zones
 
@@ -103,4 +103,4 @@ Each infrastructure update rolls out zone by zone, within a single region. But, 
 
 ## Next steps 
 
-For information on managing planned maintenance impacting virtual machines, see Handling planned maintenance notifications using (maintenance-notifications.md).
+You can use the [Azure CLI](maintenance-notifications-cli.md), [Azure PowerShell](maintenance-notifications-powershell.md) or the [portal](maintenance-notifications-portal.md) to manage planned maintenance. 
