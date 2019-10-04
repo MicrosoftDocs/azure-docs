@@ -138,7 +138,7 @@ To configure single sign-on on **Juno Journey** side, you need to send the downl
 
 ### Create Juno Journey test user
 
-In this section, a user called Britta Simon is created in Juno Journey. Juno Journey supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Juno Journey, a new one is created after authentication.
+In this section, a user called B.Simon is created in Juno Journey. Juno Journey supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Juno Journey, a new one is created after authentication.
 
 ## Test SSO 
 
