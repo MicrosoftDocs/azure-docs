@@ -76,6 +76,23 @@ Okay, you're ready to start learning about templates.
 
 Congratulations, you've created your first template.
 
+## Sign in to Azure
+
+To start working with Azure PowerShell/Azure CLI, sign in with your Azure credentials.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Connect-AzAccount
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az login
+```
+
+---
 ## Create resource group
 
 When you deploy a template, you specify a resource group that will contain the resources. Before running the deployment command, create the resource group with either Azure CLI or Azure PowerShell. Select the tabs in the following code section to choose between Azure PowerShell and Azure CLI.
