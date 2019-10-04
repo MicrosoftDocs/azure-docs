@@ -11,17 +11,17 @@ ms.author: victorh
 
 # What is Azure Firewall Manager?
 
-Azure Firewall Manager a globally distributed management service to centrally configure, deploy, log, and manage security and route policies to protect and govern traffic flows to protect Azure workloads, devices, and users. Both Azure Firewall and third party security services can be managed. It enables you to more easily create network segments and run their Internet edge on Azure. 
+Azure Firewall Manager is a globally distributed management service to centrally configure, deploy, log, and manage security and route policies. It protects and governs traffic flows to protect Azure workloads, devices, and users. Both Azure Firewall and third-party security services can be managed. It allows you to more easily create network segments and run their Internet edge on Azure.
+
+![firewall-manager](media/overview/firewall-manger-conceptual.png)
 
 ## Azure Firewall Manager Features
 
 Azure Firewall Manager offers the following features:
 
-### Security policy configuration and logging across multiple Azure Firewall instances
+### Hierarchical policies (global and local)​
 
-
-
-### Automated multiple Azure Firewall deployment​
+You can use Firewall Manager to centrally manage firewall and route policy across multiple secured virtual hubs. You can create global policies that span multiple secured virtual hubs and add local policies for specific hubs.​
 
 ### Centralized route management for traffic attraction​
 
@@ -31,9 +31,12 @@ You can use Azure Firewall for VNet to VNet traffic policies and micro-segmentat
 
 In addition to Azure Firewall, you can integrate third-party SECaaS (Security as a Service) providers to provide additional network protection for your VNet to Internet connections.
 
-### Hierarchical policies (global and local)​
 
-You can use Firewall Manager to centrally manage firewall and route policy across multiple secured virtual hubs. You can create global policies that span multiple secured virtual hubs and add local policies for specific hubs.​
+### Security policy configuration and logging across multiple Azure Firewall instances
+
+
+### Automated multiple Azure Firewall deployment​
+
 
 ### Optimal Office 365 access from VNets (VDI) and branches
 
