@@ -10,7 +10,7 @@ tags: azure-resource-manager
 keywords: 'SAP'
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
@@ -131,7 +131,7 @@ Complete the planning process before you execute the deployment. Planning builds
 | Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer are being deployed. Can be existing or newly created. |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address. |
 | Virtual host name and virtual IP for IBM Db2 database| The virtual IP or host name that's used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip**. |
-| Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations is prevented. |
+| Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations. |
 | SBD VM | SBD virtual machine size, storage, network. |
 | Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port**. |
 | Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used. |
@@ -495,11 +495,11 @@ If you performed the installation before you created the Db2 HADR configuration,
 Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have X server installed:
  
 1. Sign in to the primary application server of the J2EE instance and execute:
-	 <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+	 `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. In the left frame, choose **security store**.
 1. In the right frame, choose the key jdbc/pool/\<SAPSID>/url.
 1. Change the host name in the JDBC URL to the virtual host name.
-	 <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+	 `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Select **Add**.
 1. To save your changes, select the disk icon at the upper left.
 1. Close the configuration tool.
@@ -592,7 +592,7 @@ Migrate the resource back to *azibmdb01* and clear the location constraints
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **crm resource migrate \<res_name> <host>:** Creates location constraints and can cause issues with takeover
+- **crm resource migrate \<res_name> \<host>:** Creates location constraints and can cause issues with takeover
 - **crm resource clear \<res_name>**: Clears location constraints
 - **crm resource cleanup \<res_name>**: Clears all errors of the resource
 

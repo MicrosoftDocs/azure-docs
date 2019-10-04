@@ -3,9 +3,8 @@ title: Adaptive Network Hardening in Azure Security Center | Microsoft Docs
 description: " Learn how to enable Adaptive Network Hardening in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: monhaber
+author: memildin
+manager: rkarlin
 
 ms.assetid: 09d62d23-ab32-41f0-a5cf-8d80578181dd
 ms.service: security-center
@@ -13,8 +12,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2019
-ms.author: monhaber
+ms.date: 05/24/2019
+ms.author: memildin
 ---
 # Adaptive Network Hardening in Azure Security Center
 Learn how to configure Adaptive Network Hardening in Azure Security Center.
@@ -64,7 +63,7 @@ For example, let’s say the existing NSG rule is to allow traffic from 140.20.3
 3. Select the rules that you want to apply on the NSG, and click **Enforce**.
 
       > [!NOTE]
-      > The enforced rules are added to the NSG(s) protecting the VM. (A VM could be protected by an NSG that is associated to its NIC, or the subnet in which it resides, or both)
+      > The enforced rules are added to the NSG(s) protecting the VM. (A VM could be protected by an NSG that is associated to its NIC, or the subnet in which the VM resides, or both)
 
     ![enforce rules](./media/security-center-adaptive-network-hardening/enforce-hard-rule2.png)
 

@@ -9,7 +9,8 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
 
@@ -54,7 +55,7 @@ PSFunctionApp
 
 At the root of the project, there's a shared [`host.json`](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (`function.json`). The name of the function.json file's parent directory is always the name of your function.
 
-Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). When developing functions in the Azure portal, this registration is done for you.
+Certain bindings require the presence of an `extensions.csproj` file. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-bindings-register.md#extension-bundles). When developing functions in the Azure portal, this registration is done for you.
 
 In PowerShell Function Apps, you may optionally have a `profile.ps1` which runs when a function app starts to run (otherwise know as a *[cold start](#cold-start)*. For more information, see [PowerShell profile](#powershell-profile).
 
@@ -250,7 +251,7 @@ In addition to these cmdlets, anything written to the pipeline is redirected to 
 
 ### Configure the function app log level
 
-Functions lets you define the threshold level to make it easy to control the way Functions writes to the logs. To set the threshold for all traces written to the console, use the `logging.logLevel.default` property in the [`host.json` file][host.json reference]. This setting applies to all functions in your function app.
+Azure Functions lets you define the threshold level to make it easy to control the way Functions writes to the logs. To set the threshold for all traces written to the console, use the `logging.logLevel.default` property in the [`host.json` file][host.json reference]. This setting applies to all functions in your function app.
 
 The following example sets the threshold to enable verbose logging for all functions, but sets the threshold to enable debug logging for a function named `MyFunction`:
 
@@ -401,14 +402,18 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 ## Dependency management
 
-PowerShell functions support managing Azure modules by the service. By modifying the host.json and setting the managedDependency enabled property to true, the requirements.psd1 file will be processed. The latest Azure modules will be automatically downloaded and made available to the function.
+PowerShell functions support downloading and managing [PowerShell gallery](https://www.powershellgallery.com) modules by the service. By modifying the host.json and setting the managedDependency enabled property to true, the requirements.psd1 file will be processed. The specified modules will be automatically downloaded and made available to the function. 
+
+The maximum number of modules currently supported is 10. The supported syntax is MajorNumber.* or exact module version as shown below. The Azure Az module is included by default when a new PowerShell function app is created.
+
+The language worker will pick up any updated modules on a restart.
 
 host.json
 ```json
 {
-    "managedDependency": {
-        "enabled": true
-    }
+  "managedDependency": {
+          "enabled": true
+       }
 }
 ```
 
@@ -417,10 +422,11 @@ requirements.psd1
 ```powershell
 @{
 	Az = '1.*'
+	SqlServer = '21.1.18147'
 }
 ```
 
-Leveraging your own custom modules or modules from the [PowerShell Gallery](https://powershellgallery.com) is a little different than how you would do it normally.
+Leveraging your own custom modules is a little different than how you would do it normally.
 
 When you install the module on your local machine, it goes in one of the globally available folders in your `$env:PSModulePath`. Since your function runs in Azure, you won't have access to the modules installed on your machine. This requires that the `$env:PSModulePath` for a PowerShell function app differs from `$env:PSModulePath` in a regular PowerShell script.
 
@@ -431,16 +437,19 @@ In Functions, `PSModulePath` contains two paths:
 
 ### Function app-level `Modules` folder
 
-To use custom modules or PowerShell modules from the PowerShell Gallery, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules.
+To use custom modules, you can place modules on which your functions depend in a `Modules` folder. From this folder, modules are automatically available to the functions runtime. Any function in the function app can use these modules. 
 
-To take advantage of this feature, create a `Modules` folder in the root of your function app. Save the modules you want to use in your functions in this location.
+> [!NOTE]
+> Modules specified in the requirements.psd1 file are automatically downloaded and included in the path so you don't need to include them in the modules folder. These are stored locally in the $env:LOCALAPPDATA/AzureFunctions folder and in the /data/ManagedDependencies folder when run in the cloud.
+
+To take advantage of the custom module feature, create a `Modules` folder in the root of your function app. Copy the modules you want to use in your functions to this location.
 
 ```powershell
 mkdir ./Modules
-Save-Module MyGalleryModule -Path ./Modules
+Copy-Item -Path /mymodules/mycustommodule -Destination ./Modules -Recurse
 ```
 
-Use `Save-Module` to save all of the modules your functions use, or copy your own custom modules to the `Modules` folder. With a Modules folder, your function app should have the following folder structure:
+With a Modules folder, your function app should have the following folder structure:
 
 ```
 PSFunctionApp
@@ -448,11 +457,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - MyGalleryModule
- | | - MyOtherGalleryModule
- | | - MyCustomModule.psm1
+ | | - MyCustomModule
+ | | - MyOtherCustomModule
+ | | - MySpecialModule.psm1
  | - local.settings.json
  | - host.json
+ | - requirements.psd1
 ```
 
 When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
@@ -501,21 +511,11 @@ You set this environment variable in the [app settings](functions-app-settings.m
 
 ### Considerations for using concurrency
 
-PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. This feature is how the Azure Functions PowerShell runtime works.
-
-There are some drawbacks with this approach.
-
-#### Concurrency is only as good as the machine it's running on
-
-If your function app is running on an [App Service plan](functions-scale.md#app-service-plan) that only supports a single core, then concurrency won't help much. That's because there are no additional cores to help balance the load. In this case, performance can vary when the single core has to context-switch between runspaces.
-
-The [Consumption plan](functions-scale.md#consumption-plan) runs using only one core, so you can't leverage concurrency. If you want to take full advantage of concurrency, instead deploy your functions to a function app running on a dedicated App Service plan with sufficient cores.
-
-#### Azure PowerShell state
+PowerShell is a _single threaded_ scripting language by default. However, concurrency can be added by using multiple PowerShell runspaces in the same process. The amount of runspaces created will match the PSWorkerInProcConcurrencyUpperBound application setting. The throughput will be impacted by the amount of CPU and memory available in the selected plan.
 
 Azure PowerShell uses some _process-level_ contexts and state to help save you from excess typing. However, if you turn on concurrency in your function app and invoke actions that change state, you could end up with race conditions. These race conditions are difficult to debug because one invocation relies on a certain state and the other invocation changed the state.
 
-There's immense value in concurrency with Azure PowerShell, since some operations can take a considerable amount of time. However, you must proceed with caution. If you suspect that you're experiencing a race condition, set the concurrency back to `1` and try the request again.
+There's immense value in concurrency with Azure PowerShell, since some operations can take a considerable amount of time. However, you must proceed with caution. If you suspect that you're experiencing a race condition, set the PSWorkerInProcConcurrencyUpperBound app setting to `1` and instead use [language worker process level isolation](functions-app-settings.md#functions_worker_process_count) for concurrency.
 
 ## Configure function `scriptFile`
 
@@ -597,7 +597,7 @@ When developing Azure Functions in the [serverless hosting model](functions-scal
 
 ### Bundle modules instead of using `Install-Module`
 
-Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](functions-scale.md#app-service-plan) set to *always on* or to a [Premium plan](functions-scale.md#premium-plan-public-preview).
+Your script is run on every invocation. Avoid using `Install-Module` in your script. Instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module. If cold starts are impacting your functions, consider deploying your function app to an [App Service plan](functions-scale.md#app-service-plan) set to *always on* or to a [Premium plan](functions-scale.md#premium-plan).
 
 ## Next steps
 

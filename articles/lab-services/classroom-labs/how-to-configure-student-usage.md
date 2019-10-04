@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 06/11/2019
 ms.author: spelluru
 
 ---
@@ -72,23 +72,28 @@ Select **Users** on the left menu to see the list of users registered with the l
 
 ![List of users registered with the lab](../media/how-to-configure-student-usage/users-list-new.png)
 
-## Set quotas per user
+## Set quotas for users
 You can set quotas per user by using the following steps: 
 
-1. Select **Users** on the left menu.
-2. Select **Quota per user: unlimited** on the toolbar. 
-3. On the **Quota per user** page, select one of the following options: 
-    1. **None**. Users can use their virtual machines only during scheduled time or when lab owner turns on virtual machines for them.
-    2. **Unlimited (default)**. Users can use their virtual machines without any time restrictions.
-    3. **Specify number of hours per user**. Users can use their virtual machines for the set number of hours (specified below) in addition to the scheduled time. If you select this option, enter the **number of hours** in the text box. 
+1. Select **Users** on the left menu if the page isn't already active. 
+2. Select **Quota per user: 10 hours** on the toolbar. 
+3. On the **Quota per user** page, specify the number of hours you want to give to each user (student): 
+    1. **Total number of lab hours per user**. Users can use their VMs for the set number of hours (specified for this field) **in addition to the scheduled time**. If you select this option, enter the **number of hours** in the text box. 
 
-        ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
+        ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 hours (schedule only)**. Users can use their VMs only during the scheduled time or when you as the lab owner turns on VMs for them.
+
+        ![Zero hours - only scheduled time](../media/how-to-configure-student-usage/zero-hours.png)
     4. Select **Save**. 
 5. You see the changed values on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 
+
+
 > [!IMPORTANT]
+> Before sending the registration link to the students, teachers must either set the schedule for the class if they pick 0 quota hours or specify the quota hours for the lab.
+>
 > The [scheduled running time of VMs](how-to-create-schedules.md) does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
 
 ### Add users by uploading a CSV file

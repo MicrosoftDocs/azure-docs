@@ -56,7 +56,9 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 ### What resources does Advisor provide recommendations for?
 
-Advisor provides recommendations for virtual machines, availability sets, application gateways, App Services, SQL servers, and Azure Cache for Redis.
+Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, SQL Data Warehouse, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
+
+Azure Advisor also includes your recommendations from [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) which may include recommendations for additional resource types.
 
 ### Can I postpone or dismiss a recommendation?
 

@@ -8,7 +8,7 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer, I want to use Azure Key Vault to store secrets for my app so that they are kept secure.
 ---
@@ -27,7 +27,7 @@ In this tutorial, you set up an Azure web application to read information from A
 > * Grant the required permissions for the console application to read data from the key vault
 > * Retrieve a secret from your key vault
 
-Before you go any further, make sure you understand the [basic concepts about Key Vault](key-vault-whatis.md#basic-concepts).
+Before you go any further, make sure you understand the [basic concepts about Key Vault](basic-concepts.md).
 
 ## Prerequisites
 

@@ -1,17 +1,10 @@
 ---
 title: Azure Resource Manager template functions - string | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to work with strings.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/08/2019
+ms.topic: conceptual
+ms.date: 07/31/2019
 ms.author: tomfitz
 
 ---
@@ -1015,13 +1008,13 @@ The output from the preceding example with the default values is:
 
 `length(string)`
 
-Returns the number of characters in a string, or elements in an array.
+Returns the number of characters in a string, elements in an array, or root-level properties in an object.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The array to use for getting the number of elements, or the string to use for getting the number of characters. |
+| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -1047,6 +1040,18 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -1058,6 +1063,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -1069,6 +1078,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 ## newGuid
 
@@ -1255,7 +1265,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type": "string",
             "value": "[replace(parameters('testString'),'-', '')]"
         },
-        "secodeOutput": {
+        "secondOutput": {
             "type": "string",
             "value": "[replace(parameters('testString'),'1234', 'xxxx')]"
         }
@@ -1268,7 +1278,7 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | firstOutput | String | 1231231234 |
-| secodeOutput | String | 123-123-xxxx |
+| secondOutput | String | 123-123-xxxx |
 
 ## skip
 
@@ -1899,10 +1909,33 @@ Creates an absolute URI by combining the baseUri and the relativeUri string.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| baseUri |Yes |string |The base uri string. |
+| baseUri |Yes |string |The base uri string. Take care to observe the behavior regarding the handling of the trailing slash ('/'), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing `http://contoso.com/resources/azuredeploy.json` as the baseUri parameter results in a base URI of `http://contoso.com/resources/`.
+* If **baseUri** ends in a trailing slash, the result is simply
+  **baseUri** followed by **relativeUri**.
+
+* If **baseUri** does not end in a trailing slash one of two things
+  happens.  
+
+   * If **baseUri** has no slashes at all (aside from the "//" near
+     the front) the result is simply **baseUri** followed by **relativeUri**.
+
+   * If **baseUri** has some slashes, but does not end with a slash,
+     everything from the last slash onward is removed from **baseUri**
+     and the result is **baseUri** followed by **relativeUri**.
+     
+Here are some examples:
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+For complete details, the **baseUri** and **relativeUri** parameters are
+resolved as specified in 
+[RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### Return value
 

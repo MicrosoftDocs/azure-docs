@@ -3,10 +3,8 @@ title: Azure Security Center Tutorial - Protect your resources with Azure Securi
 description: This tutorial shows you how to configure a just in time VM access policy and an application control policy.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/3/2018
-ms.author: v-mohabe
+ms.date: 12/03/2018
+ms.author: memildin
 
 ---
 # Tutorial: Protect your resources with Azure Security Center
@@ -68,8 +66,6 @@ Management ports do not need to be open at all times. They only need to be open 
 
 ## Harden VMs against malware
 Adaptive application controls help you define a set of applications that are allowed to run on configured resource groups, which among other benefits helps harden your VMs against malware. Security Center uses machine learning to analyze the processes running in the VM and helps you apply whitelisting rules using this intelligence.
-
-This feature is only available for Windows machines.
 
 1. Return to the Security Center main menu. Under **ADVANCED CLOUD DEFENSE**, select **Adaptive application controls**.
 

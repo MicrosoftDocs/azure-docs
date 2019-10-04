@@ -1,8 +1,6 @@
 ---
 title: Create your first function using the Azure CLI
 description: Learn how to create your first Azure Function for serverless execution using the Azure CLI and Azure Functions Core Tools.
-services: functions 
-keywords: 
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
@@ -10,8 +8,7 @@ ms.date: 11/13/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
-ms.devlang: azure-cli
-manager: jeconnoc
+manager: gwallace
 ---
 
 # Create your first function from the command line
@@ -32,35 +29,9 @@ Before running this sample, you must have the following:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the local function app project
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
-
-```bash
-func init MyFunctionProj
-```
-
-When prompted, select a worker runtime from the following language choices:
-
-+ `dotnet`: creates a .NET class library project (.csproj).
-+ `node`: creates a JavaScript project.
-
-When the command executes, you see something like the following output:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Use the following command to navigate to the new `MyFunctionProj` project folder.
-
-```bash
-cd MyFunctionProj
-```
-
-## Reference bindings
+## Enable extension bundles
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 

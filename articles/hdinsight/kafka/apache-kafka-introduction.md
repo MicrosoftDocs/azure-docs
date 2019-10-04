@@ -7,8 +7,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 05/16/2019
-# As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
+ms.date: 06/13/2019
+#Customer intent: As a developer, I want to understand how Kafka on HDInsight is different from Kafka on other platforms.
 ---
 
 # What is Apache Kafka in Azure HDInsight
@@ -41,7 +41,7 @@ The following are specific characteristics of Kafka on HDInsight:
 
 The following diagram shows a typical Kafka configuration that uses consumer groups, partitioning, and replication to offer parallel reading of events with fault tolerance:
 
-![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster.png)
+![Kafka cluster configuration diagram](./media/apache-kafka-introduction/kafka-cluster-diagram.png)
 
 Apache ZooKeeper manages the state of the Kafka cluster. Zookeeper is built for concurrent, resilient, and low-latency transactions. 
 

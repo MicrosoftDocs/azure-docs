@@ -7,7 +7,7 @@ author: longl
 manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: longl
@@ -41,15 +41,14 @@ When using the [Face - Detect] API, assign the model version with the `recogniti
 
 Optionally, you can specify the _returnRecognitionModel_ parameter (default **false**) to indicate whether _recognitionModel_ should be returned in response. So, a request URL for the [Face - Detect] REST API will look like this:
 
-`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]
-&subscription-key=<Subscription key>`
+`https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&returnFaceLandmarks][&returnFaceAttributes][&recognitionModel][&returnRecognitionModel]&subscription-key=<Subscription key>`
 
 If you are using the client library, you can assign the value for `recognitionModel` by passing a string representing the version.
 If you leave it unassigned, the default model version (_recognition_01_) will be used. See the following code example for the .NET client library.
 
 ```csharp
 string imageUrl = "https://news.microsoft.com/ceo/assets/photos/06_web.jpg";
-var faces = await faceServiceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
+var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recognitionModel: "recognition_02", returnRecognitionModel: true);
 ```
 
 ## Identify faces with specified model
@@ -63,7 +62,7 @@ See the following code example for the .NET client library.
 ```csharp
 // Create an empty PersonGroup with "recognition_02" model
 string personGroupId = "mypersongroupid";
-await faceServiceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
+await faceClient.PersonGroup.CreateAsync(personGroupId, "My Person Group Name", recognitionModel: "recognition_02");
 ```
 
 In this code, a **PersonGroup** with ID `mypersongroupid` is created, and it is set up to use the _recognition_02_ model to extract face features.
@@ -79,7 +78,7 @@ You can also specify a recognition model for similarity search. You can assign t
 See the following code example for the .NET client library.
 
 ```csharp
-await faceServiceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
+await faceClient.FaceList.CreateAsync(faceListId, "My face collection", recognitionModel: "recognition_02");
 ```
 
 This code creates a face list called `My face collection`, using the _recognition_02_ model for feature extraction. When you search this face list for similar faces to a new detected face, that face must have been detected ([Face - Detect]) using the _recognition_02_ model. As in the previous section, the model needs to be consistent.
@@ -104,7 +103,8 @@ If you normally specify a confidence threshold (a value between zero and one tha
 
 In this article, you learned how to specify the recognition model to use with different Face service APIs. Next, follow a quickstart to get started using face detection.
 
-* [Detect faces in an image](../quickstarts/csharp-detect-sdk.md)
+* [Face .NET SDK](../Quickstarts/csharp-sdk.md)
+* [Face Python SDK](../Quickstarts/python-sdk.md)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

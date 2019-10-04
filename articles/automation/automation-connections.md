@@ -4,8 +4,8 @@ description: Connection assets in Azure Automation contain the information requi
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
@@ -121,36 +121,40 @@ The following sample shows how to authenticate using the Run As connection in a 
 import azure.mgmt.resource
 import automationassets
 
+
 def get_automation_runas_credential(runas_connection):
-  """ Returns credentials to authenticate against Azure resoruce manager """
-  from OpenSSL import crypto
-  from msrestazure import azure_active_directory
-  import adal
+    """ Returns credentials to authenticate against Azure resoruce manager """
+    from OpenSSL import crypto
+    from msrestazure import azure_active_directory
+    import adal
 
-  # Get the Azure Automation Run As service principal certificate
-  cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
-  pks12_cert = crypto.load_pkcs12(cert)
-  pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
+    # Get the Azure Automation Run As service principal certificate
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+    pks12_cert = crypto.load_pkcs12(cert)
+    pem_pkey = crypto.dump_privatekey(
+        crypto.FILETYPE_PEM, pks12_cert.get_privatekey())
 
-  # Get Run As connection information for the Azure Automation service principal
-  application_id = runas_connection["ApplicationId"]
-  thumbprint = runas_connection["CertificateThumbprint"]
-  tenant_id = runas_connection["TenantId"]
+    # Get Run As connection information for the Azure Automation service principal
+    application_id = runas_connection["ApplicationId"]
+    thumbprint = runas_connection["CertificateThumbprint"]
+    tenant_id = runas_connection["TenantId"]
 
-  # Authenticate with service principal certificate
-  resource = "https://management.core.windows.net/"
-  authority_url = ("https://login.microsoftonline.com/" + tenant_id)
-  context = adal.AuthenticationContext(authority_url)
-  return azure_active_directory.AdalAuthentication(
-    lambda: context.acquire_token_with_client_certificate(
-      resource,
-      application_id,
-      pem_pkey,
-      thumbprint)
-  )
+    # Authenticate with service principal certificate
+    resource = "https://management.core.windows.net/"
+    authority_url = ("https://login.microsoftonline.com/" + tenant_id)
+    context = adal.AuthenticationContext(authority_url)
+    return azure_active_directory.AdalAuthentication(
+        lambda: context.acquire_token_with_client_certificate(
+            resource,
+            application_id,
+            pem_pkey,
+            thumbprint)
+    )
+
 
 # Authenticate to Azure using the Azure Automation Run As service principal
-runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+runas_connection = automationassets.get_automation_connection(
+    "AzureRunAsConnection")
 azure_credential = get_automation_runas_credential(runas_connection)
 ```
 

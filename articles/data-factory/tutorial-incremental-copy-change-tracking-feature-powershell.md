@@ -9,8 +9,6 @@ ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
@@ -212,7 +210,7 @@ In this step, you link your Azure Storage Account to the data factory.
         }
     }
     ```
-2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyChgTrackingTutorial** folder.
+2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder.
 3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. 
 
     ```powershell
@@ -366,7 +364,7 @@ In this step, you create a dataset for storing the change tracking version.
     ```
 
     You create the table table_store_ChangeTracking_version as part of the prerequisites.
-2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: WatermarkDataset
+2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: ChangeTrackingDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"

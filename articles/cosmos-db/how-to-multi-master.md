@@ -1,16 +1,19 @@
 ---
 title: How to configure multi-master in Azure Cosmos DB
 description: Learn how to configure multi-master in your applications in Azure Cosmos DB.
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
-ms.author: rimman
+ms.topic: conceptual
+ms.date: 07/03/2019
+ms.author: mjbrown
 ---
 
 # Configure multi-master in your applications that use Azure Cosmos DB
 
-To use the multi-master feature in your application, you must enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. To configure multi-homing, set the region where the application is deployed.
+Once an account has been created with multiple write regions enabled, you must make two changes in your application to the ConnectionPolicy for the DocumentClient to enable the multi-master and multi-homing capabilities in Azure Cosmos DB. Within the ConnectionPolicy, set UseMultipleWriteLocations to true and pass the name of the region where the application is deployed to SetCurrentLocation. This will populate the PreferredLocations property based on the geo-proximity from location passed in. If a new region is later added to the account, the application does not have to be updated or redeployed, it will automatically detect the closer region and will auto-home on to it should a regional event occur.
+
+> [!Note]
+> Cosmos accounts initially configured with single write region can be configured to multiple write regions (i.e. multi-master) with zero down time. To learn more see, [Configure multiple-write regions](how-to-manage-database-account.md#configure-multiple-write-regions)
 
 ## <a id="netv2"></a>.NET SDK v2
 
@@ -26,14 +29,25 @@ ConnectionPolicy policy = new ConnectionPolicy
 policy.SetCurrentLocation("West US 2");
 ```
 
-## <a id="netv3"></a>.NET SDK v3 (preview)
+## <a id="netv3"></a>.NET SDK v3
 
-To enable multi-master in your application, set `UseCurrentRegion` to the region in which the application is being deployed and where Cosmos DB is replicated:
+To enable multi-master in your application, set `ApplicationRegion` to the region in which the application is being deployed and where Cosmos DB is replicated:
 
 ```csharp
-CosmosConfiguration config = new CosmosConfiguration("endpoint", "key");
-config.UseCurrentRegion("West US");
-CosmosClient client = new CosmosClient(config);
+CosmosClient cosmosClient = new CosmosClient(
+    "<connection-string-from-portal>", 
+    new CosmosClientOptions()
+    {
+        ApplicationRegion = Regions.WestUS2,
+    });
+```
+
+Optionally, you can use the `CosmosClientBuilder` and `WithApplicationRegion` to achieve the same result:
+
+```csharp
+CosmosClientBuilder cosmosClientBuilder = new CosmosClientBuilder("<connection-string-from-portal>")
+            .WithApplicationRegion(Regions.WestUS2);
+CosmosClient client = cosmosClientBuilder.Build();
 ```
 
 ## <a id="java"></a>Java Async SDK
@@ -79,7 +93,8 @@ connection_policy = documents.ConnectionPolicy()
 connection_policy.UseMultipleWriteLocations = True
 connection_policy.PreferredLocations = [region]
 
-client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
+client = cosmos_client.CosmosClient(self.account_endpoint, {
+                                    'masterKey': self.account_key}, connection_policy, documents.ConsistencyLevel.Session)
 ```
 
 ## Next steps

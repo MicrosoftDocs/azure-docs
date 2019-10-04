@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Enforce multi-factor authentication for B2B guest users
 
-When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a conditional access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization.
+When collaborating with external B2B guest users, it’s a good idea to protect your apps with multi-factor authentication (MFA) policies. Then external users will need more than just a user name and password to access your resources. In Azure Active Directory (Azure AD), you can accomplish this goal with a Conditional Access policy that requires MFA for access. MFA policies can be enforced at the tenant, app, or individual guest user level, the same way that they are enabled for members of your own organization.
 
 Example:
 
@@ -33,9 +33,9 @@ In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Test the sign-in experience before MFA setup.
-> * Create a conditional access policy that requires MFA for access to a cloud app in your environment. In this tutorial, we’ll use the Microsoft Azure Management app to illustrate the process.
+> * Create a Conditional Access policy that requires MFA for access to a cloud app in your environment. In this tutorial, we’ll use the Microsoft Azure Management app to illustrate the process.
 > * Use the What If tool to simulate MFA sign-in.
-> * Test your conditional access policy.
+> * Test your Conditional Access policy.
 > * Clean up the test user and policy.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -44,7 +44,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 To complete the scenario in this tutorial, you need:
 
- - **Access to Azure AD Premium edition**, which includes conditional access policy capabilities. To enforce MFA, you need to create an Azure AD conditional access policy. Note that MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities. If you set up MFA for your organization, you’ll need to make sure you have sufficient Azure AD Premium licenses for your guest users. 
+ - **Access to Azure AD Premium edition**, which includes Conditional Access policy capabilities. To enforce MFA, you need to create an Azure AD Conditional Access policy. Note that MFA policies are always enforced at your organization, regardless of whether the partner has MFA capabilities. If you set up MFA for your organization, you’ll need to make sure you have sufficient Azure AD Premium licenses for your guest users. 
  - **A valid external email account** that you can add to your tenant directory as a guest user and use to sign in. If you don't know how to create a guest account, see [Add a B2B guest user in the Azure portal](add-users-administrator.md).
 
 ## Create a test guest user in Azure AD
@@ -68,10 +68,10 @@ To complete the scenario in this tutorial, you need:
 2.	Note that you’re able to access the Azure portal using just your sign-in credentials. No additional authentication is required.
 3.	Sign out.
 
-## Create a conditional access policy that requires MFA
-1.	Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a conditional access administrator.
+## Create a Conditional Access policy that requires MFA
+1.	Sign in to your [Azure portal](https://portal.azure.com/) as a security administrator or a Conditional Access administrator.
 2.	In the Azure portal, select **Azure Active Directory**. 
-3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional access**.
+3.	On the **Azure Active Directory** page, in the **Security** section, select **Conditional Access**.
 4.	On the **Conditional Access** page, in the toolbar on the top, select **New policy**.
 5.	On the **New** page, in the **Name** textbox, type **Require MFA for B2B portal access**.
 6.	In the **Assignments** section, select **Users and groups**.
@@ -102,7 +102,7 @@ To complete the scenario in this tutorial, you need:
 
 ## Use the What If option to simulate sign-in
 
-1.	On the **Conditional access - Policies** page, select **What If**. 
+1.	On the **Conditional Access - Policies** page, select **What If**. 
 
     ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
@@ -120,7 +120,7 @@ To complete the scenario in this tutorial, you need:
 
     ![Screenshot showing where to select the What if option](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
-## Test your conditional access policy
+## Test your Conditional Access policy
 1.	Use your test user name and password to sign in to your [Azure portal](https://portal.azure.com/).
 2.	You should see a request for additional authentication methods. Note that it could take some time for the policy to take effect.
 
@@ -129,7 +129,7 @@ To complete the scenario in this tutorial, you need:
 3.	Sign out.
 
 ## Clean up resources
-When no longer needed, remove the test user and the test conditional access policy.
+When no longer needed, remove the test user and the test Conditional Access policy.
 1.	Sign in to the [Azure portal](https://portal.azure.com/) as an Azure AD administrator.
 2.	In the left pane, select **Azure Active Directory**.
 3.	Under **Manage**, select **Users**.
@@ -139,4 +139,4 @@ When no longer needed, remove the test user and the test conditional access poli
 7.	In the **Policy Name** list, select the context menu (…) for your test policy, and then select **Delete**. Select **Yes** to confirm.
 
 ## Next steps
-In this tutorial, you’ve created a conditional access policy that requires guest users to use MFA when signing in to one of your cloud apps. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).
+In this tutorial, you’ve created a Conditional Access policy that requires guest users to use MFA when signing in to one of your cloud apps. To learn more about adding guest users for collaboration, see [Add Azure Active Directory B2B collaboration users in the Azure portal](add-users-administrator.md).

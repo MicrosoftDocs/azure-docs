@@ -2,13 +2,13 @@
 title: How Personalizer Works - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Personalizer uses machine learning to discover what action to use in a context. Each learning loop has a model that is trained exclusively on data that you have sent to it via Rank and Reward calls. Every learning loop is completely independent of each other.
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: diberry
 ---
 
 # How Personalizer works
@@ -75,6 +75,83 @@ Personalizer is based on cutting-edge science and research in the area of [Reinf
 
 * **Model**: A Personalizer model captures all data learned about user behavior, getting training data from the combination of the arguments you send to Rank and Reward calls, and with a training behavior determined by the Learning Policy. 
 
+* **Learning Policy**: How Personalizer trains a model on every event will be determined by some meta-parameters that affect how the machine learning algorithms work. New Personalizer loops will start with a default Learning Policy, which can yield moderate performance. When running [Evaluations](concepts-offline-evaluation.md), Personalizer can create new Learning Policies specifically optimized to the use cases of your loop. Personalizer will perform significantly better with policies optimized for each specific loop, generated during Evaluation.
+
+## Example use cases for Personalizer
+
+* Intent clarification & disambiguation: help your users have a better experience when their intent is not clear by providing an option that is personalized to each user.
+* Default suggestions for menus & options: have the bot suggest the most likely item in a personalized way as a first step, instead of presenting an impersonal menu or list of alternatives.
+* Bot traits & tone: for bots that can vary tone, verbosity, and writing style, consider varying these traits in a personalized ways.
+* Notification & alert content: decide what text to use for alerts in order to engage users more.
+* Notification & alert timing: have personalized learning of when to send notifications to users to engage them more.
+
+## How to use Personalizer in a web application
+
+Adding a loop to a web application includes:
+
+* Determine which experience to personalize, what actions and features you have, what context features to use, and what reward you'll set.
+* Add a reference to the Personalization SDK in your application.
+* Call the Rank API when you are ready to personalize.
+* Store the eventId. You send a reward with the Reward API later.
+1. Call Activate for the event once you're sure the user has seen your personalized page.
+1. Wait for user selection of ranked content. 
+1. Call Reward API to specify how well the output of the Rank API did.
+
+## How to use Personalizer with a chat bot
+
+In this example, you will see how to use Personalization to make a default suggestion instead of sending the user down a series of menus or choices every time.
+
+* Get the [code](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/ChatbotExample) for this sample.
+* Set up your bot solution. Make sure to publish your LUIS application. 
+* Manage Rank and Reward API calls for bot.
+    * Add code to manage LUIS intent processing. If the **None** is returned as the top intent or the top intent's score is below your business logic threshold, send the intents list to Personalizer to Rank the intents.
+    * Show intent list to user as selectable links with the first intent being the top-ranked intent from Rank API response.
+    * Capture the user's selection and send this in the Reward API call. 
+
+### Recommended bot patterns
+
+* Make Personalizer Rank API calls every time a disambiguation is needed, as opposed to caching results for each user. The result of disambiguating intent may change over time for one person, and allowing the Rank API to explore variances will accelerate overall learning.
+* Choose an interaction that is common with many users so that you have enough data to personalize. For example, introductory questions may be better fits than smaller clarifications deep in the conversation graph that only a few users may get to.
+* Use Rank API calls to enable "first suggestion is right" conversations, where the user gets asked "Would you like X?" or "Did you mean X?" and the user can just confirm; as opposed to giving options to the user where they must choose from a menu. For example User:"I'd like to order a coffee" Bot:"Would you like a double espresso?". This way the reward signal is also strong as it pertains directly to the one suggestion.
+
+## How to use Personalizer with a recommendation solution
+
+Use your recommendation engine to filter down a large catalog to a few items which can then be presented as 30 possible actions sent to the Rank API.
+
+You can use recommendation engines with Personalizer:
+
+* Set up the [recommendation solution](https://github.com/Microsoft/Recommenders/). 
+* When displaying a page, invoke the Recommendation Model to get a short list of recommendations.
+* Call Personalization to Rank the Output of Recommendation Solution.
+* Send feedback about your user action with the Reward API call.
+
+
+## Pitfalls to avoid
+
+* Don't use Personalizer where the personalized behavior isn't something that can be discovered across all users but rather something that should be remembered for specific users, or comes from a user-specific list of alternatives. For example, using Personalizer to suggest a first pizza order from a list of 20 possible menu items is useful, but which contact to call from the users' contact list when requiring help with childcare (such as "Grandma") is not something that is personalizable across your user base.
+
+
+## Adding content safeguards to your application
+
+If your application allows for large variances in content shown to users, and some of that content may be unsafe or inappropriate for some users, you should plan ahead to make sure that the right safeguards are in place to prevent your users from seeing unacceptable content. The best pattern to implement safeguards is:
+    * Obtain the list of actions to rank.
+    * Filter out the ones that are not viable for the audience.
+    * Only rank these viable actions.
+    * Display the top ranked action to the user.
+
+In some architectures, the above sequence may be hard to implement. In that case, there is an alternative approach to implementing safeguards after ranking, but a provision needs to be made so actions that falls outside the safeguard are not used to train the Personalizer model.
+
+* Obtain the list of actions to rank, with learning deactivated.
+* Rank actions.
+* Check if the top action is viable.
+    * If the top action is viable, activate learning for this rank, then show it to the user.
+    * If the top action is not viable, do not activate learning for this ranking, and decide through your own logic or alternative approaches what to show to the user. Even if you use the second-best ranked option, do not activate learning for this ranking.
+
+## Verifying adequate effectiveness of Personalizer
+
+You can monitor the effectiveness of Personalizer periodically by performing [offline evaluations](how-to-offline-evaluation.md)
+
 ## Next steps
 
 Understand [where you can use Personalizer](where-can-you-use-personalizer.md).
+Perform [Offline Evaluations](how-to-offline-evaluation.md)

@@ -3,7 +3,7 @@ title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
@@ -191,7 +191,7 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 ### Deploy the template to Azure
 
 - You are now ready to deploy your template to Azure. Open an Azure PS version 1+ command prompt.
-- Log in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
+- Sign in to your Azure Account and select the specific azure subscription. This is an important step for folks who have access to more than one azure subscription.
 
 ```powershell
 Connect-AzAccount

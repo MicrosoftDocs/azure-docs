@@ -3,13 +3,13 @@ title: Edit a knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/10/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Edit a knowledge base in QnA Maker
@@ -48,7 +48,7 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
 ## Add a QnA pair
 
-On the **Settings** page, select **Add QnA pair** to add a new row to the knowledge base table.
+On the **EDIT** page, select **Add QnA pair** to add a new row to the knowledge base table.
 
 ![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 

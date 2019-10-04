@@ -8,7 +8,7 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 01/02/2019
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key Vault to store secrets for my app, so that they are kept secure.
 ---
@@ -29,7 +29,7 @@ The tutorial shows you how to:
 > * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the Virtual Machine.
 > * Assign permissions to the VM identity.
 
-Before you begin, read [Key Vault basic concepts](key-vault-whatis.md#basic-concepts). 
+Before you begin, read [Key Vault basic concepts](basic-concepts.md). 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -43,38 +43,40 @@ For Windows, Mac, and Linux:
 
 Azure Key Vault stores credentials securely, so they're not displayed in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
+When you enable MSI for an Azure service, such as Azure Virtual Machines, Azure App Service, or Azure Functions, Azure creates a [service principal](basic-concepts.md). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the service principal credentials into that instance. 
 
 ![MSI](media/MSI.png)
 
 Next, to get an access token, your code calls a local metadata service that's available on the Azure resource. To authenticate to an Azure Key Vault service, your code uses the access token that it gets from the local MSI endpoint. 
 
-## Log in to Azure
+## Create resources and assign permissions
 
-To log in to Azure by using the Azure CLI, enter:
+Before you start coding you need to create some resources, put a secret into your key vault, and assign permissions.
+
+### Sign in to Azure
+
+To sign in to Azure by using the Azure CLI, enter:
 
 ```azurecli
 az login
 ```
 
-## Create a resource group
+### Create a resource group
 
-An Azure resource group is a logical container into which Azure resources are deployed and managed.
+An Azure resource group is a logical container into which Azure resources are deployed and managed. Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
 
-Create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. 
-
-Then, select a resource group name and fill in the placeholder. The following example creates a resource group in the West US location:
+This example creates a resource group in the West US location:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-You use your newly created resource group throughout this tutorial.
+Your newly created resource group will be used throughout this tutorial.
 
-## Create a key vault
+### Create a key vault and populate it with a secret
 
-To create a key vault in the resource group that you created in the preceding step, provide the following information:
+Create a key vault in your resource group by providing the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command with the following information:
 
 * Key vault name: a string of 3 to 24 characters that can contain only numbers (0-9), letters (a-z, A-Z), and hyphens (-)
 * Resource group name
@@ -85,9 +87,8 @@ az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGr
 ```
 At this point, your Azure account is the only one that's authorized to perform operations on this new key vault.
 
-## Add a secret to the key vault
+Now add a secret to your key vault using the [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set) command
 
-We're adding a secret to help illustrate how this works. The secret might be a SQL connection string or any other information that you need to keep both secure and available to your application.
 
 To create a secret in the key vault called **AppSecret**, enter the following command:
 
@@ -97,15 +98,15 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 
 This secret stores the value **MySecret**.
 
-## Create a virtual machine
-You can create a virtual machine by using one of the following methods:
+### Create a virtual machine
+Create a virtual machine by using one of the following methods:
 
-* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [The Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [The Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
-## Assign an identity to the VM
-In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
+### Assign an identity to the VM
+Create a system-assigned identity for the virtual machine with the [az vm identity assign](/cli/azure/vm/identity?view=azure-cli-latest#az-vm-identity-assign) command:
 
 ```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -120,31 +121,47 @@ Note the system-assigned identity that's displayed in the following code. The ou
 }
 ```
 
-## Assign permissions to the VM identity
-Now you can assign the previously created identity permissions to your key vault by running the following command:
+### Assign permissions to the VM identity
+Assign the previously created identity permissions to your key vault with the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## Log on to the virtual machine
+### Sign in to the virtual machine
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To sign in to the virtual machine, follow the instructions in [Connect and sign in to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
-## Install .NET Core
+## Set up the console app
+
+Create a console app and install the required packages using the `dotnet` command.
+
+### Install .NET Core
 
 To install .NET Core, go to the [.NET downloads](https://www.microsoft.com/net/download) page.
 
-## Create and run a sample .NET app
+### Create and run a sample .NET app
 
 Open a command prompt.
 
 You can print "Hello World" to the console by running the following commands:
 
-```batch
+```console
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
+```
+
+### Install the packages
+
+ From the console window, install the .NET packages required for this quickstart:
+
+ ```console
+dotnet add package System.IO;
+dotnet add package System.Net;
+dotnet add package System.Text;
+dotnet add package Newtonsoft.Json;
+dotnet add package Newtonsoft.Json.Linq;
 ```
 
 ## Edit the console app

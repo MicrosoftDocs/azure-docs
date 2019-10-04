@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Load data to Azure SQL Data Warehouse | Microsoft Docs'
-description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a public Azure blob to Azure SQL Data Warehouse.
+description: Tutorial uses Azure portal and SQL Server Management Studio to load the WideWorldImportersDW data warehouse from a global Azure blob to Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/17/2018
+ms.subservice: load-data
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -33,15 +33,15 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 Before you begin this tutorial, download and install the newest version of [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS).
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com/).
+Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create a blank SQL data warehouse
+## Create a blank SQL Data Warehouse
 
-An Azure SQL data warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
+An Azure SQL Data Warehouse is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
-Follow these steps to create a blank SQL data warehouse. 
+Follow these steps to create a blank SQL Data Warehouse. 
 
 1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
 
@@ -73,9 +73,9 @@ Follow these steps to create a blank SQL data warehouse.
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify whether the data warehouse is optimized for elasticity or compute, and the number of data warehouse units. 
+6. Click **Performance tier** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
 
-7. For this tutorial, select the **Optimized for Elasticity** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select the **Gen1** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-wideworldimportersdw/configure-performance.png)
 
@@ -127,7 +127,7 @@ You can now connect to the SQL server and its data warehouses using this IP addr
 
 Get the fully qualified server name for your SQL server in the Azure portal. Later you will use the fully qualified name when connecting to the server.
 
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **SQL Databases** from the left-hand menu, and click your database on the **SQL databases** page. 
 3. In the **Essentials** pane in the Azure portal page for your database, locate and then copy the **Server name**. In this example, the fully qualified name is mynewserver-20171113.database.windows.net. 
 
@@ -153,7 +153,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 4. Click **Connect**. The Object Explorer window opens in SSMS. 
 
-5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **mySampleDatabase** to view the objects in your new database.
+5. In Object Explorer, expand **Databases**. Then expand **System databases** and **master** to view the objects in the master database.  Expand **SampleDW** to view the objects in your new database.
 
     ![database objects](media/load-data-wideworldimportersdw/connected.png) 
 
@@ -212,7 +212,7 @@ The first step toward loading data is to login as LoaderRC60.
 
 You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL Data Warehouse, see the [loading overview](sql-data-warehouse-overview-load.md).
 
-Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a public Azure Blob.
+Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a global Azure Blob.
 
 1. In the previous section, you logged into your data warehouse as LoaderRC60. In SSMS, right-click **SampleDW** under your LoaderRC60 connection and select **New Query**.  A new query window appears. 
 
@@ -226,7 +226,7 @@ Run the following SQL scripts to specify information about the data you wish to 
     CREATE MASTER KEY;
     ```
 
-4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external taxi cab data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
+4. Run the following [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) statement to define the location of the Azure blob. This is the location of the external worldwide importers data.  To run a command that you have appended to the query window, highlight the commands you wish to run and click **Execute**.
 
     ```sql
     CREATE EXTERNAL DATA SOURCE WWIStorage
@@ -535,13 +535,13 @@ Run the following SQL scripts to specify information about the data you wish to 
     );
     ```
 
-8. In Object Explorer, expand SampleDW to see the list of external tables you just created.
+8. In Object Explorer, expand SampleDW to see the list of external tables you created.
 
     ![View external tables](media/load-data-wideworldimportersdw/view-external-tables.png)
 
 ## Load the data into your data warehouse
 
-This section uses the external tables you just defined to load the sample data from Azure Blob to SQL Data Warehouse.  
+This section uses the external tables you defined to load the sample data from Azure Blob to SQL Data Warehouse.  
 
 > [!NOTE]
 > This tutorial loads the data directly into the final table. In a production environment, you will usually use CREATE TABLE AS SELECT to load into a staging table. While data is in the staging table you can perform any necessary transformations. To append the data in the staging table to a production table, you can use the INSERT...SELECT statement. For more information, see [Inserting data into a production table](guidance-for-loading-data.md#inserting-data-into-a-production-table).
@@ -549,7 +549,7 @@ This section uses the external tables you just defined to load the sample data f
 
 The script uses the [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL statement to load the data from Azure Storage Blob into new tables in your data warehouse. CTAS creates a new table based on the results of a select statement. The new table has the same columns and data types as the results of the select statement. When the select statement selects from an external table, SQL Data Warehouse imports the data into a relational table in the data warehouse. 
 
-This script does not load data into the wwi.dimension_Date and wwi.fact_Sales tables. These tables are generated in a later step in order to make the tables have a sizeable number of rows.
+This script does not load data into the wwi.dimension_Date and wwi.fact_Sale tables. These tables are generated in a later step in order to make the tables have a sizeable number of rows.
 
 1. Run the following script to load the data into new tables in your data warehouse.
 
@@ -745,7 +745,7 @@ This script does not load data into the wwi.dimension_Date and wwi.fact_Sales ta
 
 ## Create tables and procedures to generate the Date and Sales tables
 
-This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also creates stored procedures that can generate millions of rows in the wwi.dimension_Date and wwi.fact_Sales tables.
+This section creates the wwi.dimension_Date and wwi.fact_Sale tables. It also creates stored procedures that can generate millions of rows in the wwi.dimension_Date and wwi.fact_Sale tables.
 
 1. Create the dimension_Date and fact_Sale tables.  
 
@@ -888,7 +888,7 @@ This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also c
 	DROP table #days;
     END;
     ```
-4. Create this procedure that populates the wwi.dimension_Date and wwi.fact_Sales tables. It calls [wwi].[PopulateDateDimensionForYear] to populate wwi.dimension_Date.
+4. Create this procedure that populates the wwi.dimension_Date and wwi.fact_Sale tables. It calls [wwi].[PopulateDateDimensionForYear] to populate wwi.dimension_Date.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -944,7 +944,7 @@ This section creates the wwi.dimension_Date and wwi.fact_Sales tables. It also c
     ```
 
 ## Generate millions of rows
-Use the stored procedures you created to generate millions of rows in the wwi.fact_Sales table, and corresponding data in the wwi.dimension_Date table. 
+Use the stored procedures you created to generate millions of rows in the wwi.fact_Sale table, and corresponding data in the wwi.dimension_Date table. 
 
 
 1. Run this procedure to seed the [wwi].[seed_Sale] with more rows.
@@ -953,7 +953,7 @@ Use the stored procedures you created to generate millions of rows in the wwi.fa
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. Run this procedure to populate wwi.fact_Sales with 100,000 rows per day for each day in the year 2000.
+2. Run this procedure to populate wwi.fact_Sale with 100,000 rows per day for each day in the year 2000.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000
@@ -1089,11 +1089,11 @@ You are being charged for compute resources and data that you loaded into your d
 
 Follow these steps to clean up resources as you desire.
 
-1. Log in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
+1. Sign in to the [Azure portal](https://portal.azure.com), click on your data warehouse.
 
     ![Clean up resources](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
+2. If you want to keep the data in storage, you can pause compute when you aren't using the data warehouse. By pausing compute, you will only be charge for data storage and you can resume the compute whenever you are ready to work with the data. To pause compute, click the **Pause** button. When the data warehouse is paused, you will see a **Start** button.  To resume compute, click **Start**.
 
 3. If you want to remove future charges, you can delete the data warehouse. To remove the data warehouse so you won't be charged for compute or storage, click **Delete**.
 

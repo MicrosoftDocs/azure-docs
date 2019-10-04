@@ -1,6 +1,6 @@
 ---
-title: Change, train app, C#
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: Change, train app, C# - LUIS"
+titleSuffix: Azure Cognitive Services
 description: In this C# quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 09/04/2019
 ms.author: diberry 
 #Customer intent: As an API or REST developer new to the LUIS service, I want to programmatically add an example utterance to an intent and train the model using C#. 
 ---
@@ -53,7 +53,7 @@ The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**.
 ### Write the C# code
 The **Program.cs** file should be:
 
-```C#
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,7 +111,7 @@ To manage command-line arguments, add the main code. Add method to the **Program
 
 ### Copy utterances.json to output directory
 
-In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output direction. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
+In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output directory. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
 
 ![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 

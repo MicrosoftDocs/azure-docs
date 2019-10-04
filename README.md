@@ -26,10 +26,9 @@ Follow the instructions provided in the [Install content authoring tools](https:
 
 ## License
 
-Please refer to [LICENSE](.github/LICENSE), [LICENSE-CODE](.github/LICENSE-CODE) and [ThirdPartyNotices](.github/ThirdPartyNotices.md) for all Licensing information.
+Please refer to [LICENSE](LICENSE), [LICENSE-CODE](LICENSE-CODE) and [ThirdPartyNotices](ThirdPartyNotices.md) for all Licensing information.
 
 ## Code of Conduct
 
 This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
 For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
-

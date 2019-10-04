@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: juliako;johndeu
+ms.author: juliako
+ms.reviewer: johndeu
 
 ---
 # Media Services operations REST API overview 

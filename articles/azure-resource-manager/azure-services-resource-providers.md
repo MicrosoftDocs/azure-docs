@@ -3,8 +3,8 @@ title: Azure Resource Manager resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 04/25/2019
+ms.topic: conceptual
+ms.date: 06/25/2019
 ms.author: tomfitz
 ---
 
@@ -28,7 +28,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
-| Microsoft.AzureStack | [Azure Stack](/azure-stack/user/) |
+| Microsoft.AzureStack | core |
 | Microsoft.Batch | [Batch](../batch/index.yml) |
 | Microsoft.Billing | [Billing](/azure/billing/) |
 | Microsoft.BingMaps | [Bing Maps](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
@@ -56,6 +56,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.CostManagement | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
+| Microsoft.CustomProviders | [Azure Custom Providers](../managed-applications/custom-providers-overview.md) |
 | Microsoft.DataBox | [Azure Data Box](/azure/databox-family/) |
 | Microsoft.DataBoxEdge | [Azure Data Box Edge](../databox-online/data-box-edge-overview.md) |
 | Microsoft.Databricks | [Azure Databricks](/azure/azure-databricks/) |
@@ -68,7 +69,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
 | Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
-| Microsoft.Devices | [IoT Hub](/azure/iot-hub/) |
+| Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -96,9 +97,9 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.Management | [Management Groups](/azure/governance/management-groups/) |
@@ -110,7 +111,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Load Balancer](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml) |
+| Microsoft.Network | [Virtual Network](../virtual-network/index.yml)<br />[Load Balancer](../load-balancer/index.yml)<br />[Application Gateway](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[VPN Gateway](../vpn-gateway/index.yml)<br />[Traffic Manager](../traffic-manager/index.yml)<br />[Network Watcher](../network-watcher/index.yml)<br />[Azure Firewall](../firewall/index.yml)<br />[Azure Front Door Service](../frontdoor/index.yml)<br />[Azure Bastion](/azure/bastion/) |
 | Microsoft.NotificationHubs | [Notification Hubs](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
@@ -121,6 +122,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft.RecoveryServices | [Site Recovery](../site-recovery/index.yml) |
 | Microsoft.Relay | [Azure Relay](../service-bus-relay/relay-what-is-it.md) |
+| Microsoft.ResourceGraph | [Azure Resource Graph](/azure/governance/resource-graph/) |
 | Microsoft.ResourceHealth | core |
 | Microsoft.Resources | [Azure Resource Manager](index.yml) |
 | Microsoft.SaaS | core |
@@ -143,6 +145,7 @@ This article shows how resource provider namespaces map to Azure services.
 | microsoft.support | core |
 | Microsoft.TimeSeriesInsights | [Time Series Insights](../time-series-insights/index.yml) |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/?view=azure-devops) |
+| Microsoft.VMwareCloudSimple | [Azure VMware Solution by CloudSimple](/azure/vmware-cloudsimple/) |
 | Microsoft.Web | [App Service](../app-service/index.yml)<br />[Functions](../azure-functions/index.yml) |
 | Microsoft.WindowsDefenderATP | [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection) |
 | Microsoft.WindowsIoT | [Windows 10 IoT Core Services](https://docs.microsoft.com/windows-hardware/manufacture/iot/iotcoreservicesoverview) |

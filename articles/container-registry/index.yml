@@ -5,14 +5,12 @@ metadata:
   title: Azure Container Registry Documentation - Tutorials | Microsoft Docs
   description: Azure Container Registry allows you to build, store, and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples.
   services: container-registry
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: container-registry
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 07/26/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Azure Container Registry allows you to build, store, and manage images for all types of container deployments. Learn how to use Azure Container Registry with these quickstarts, tutorials, and samples.
 sections:

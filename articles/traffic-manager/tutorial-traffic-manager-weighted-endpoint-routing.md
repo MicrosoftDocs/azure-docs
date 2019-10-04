@@ -46,7 +46,7 @@ In this section, you create two website instances that provide the two service e
 
 #### Create VMs for running websites
 
-In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in the East US and West Europe Azure regions.
+In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWestEurope*) in the East US and West Europe Azure regions.
 
 1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
@@ -62,14 +62,14 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
 3. Select the **Management** tab, or select **Next: Disks**, then **Next: Networking**, then **Next: Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**.
 4. Select **Review + create**.
 5. Review the settings, and then click **Create**.  
-6. Follow the steps to create a second VM named *myIISVMWEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myIISVMEastUS*.
+6. Follow the steps to create a second VM named *myIISVMWestEurope*, with a **Resource group** name of *myResourceGroupTM2*, a **location** of *West Europe*, and all the other settings the same as *myIISVMEastUS*.
 7. The VMs take a few minutes to create. Do not continue with the remaining steps until both VMs are created.
 
 ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### Install IIS and customize the default webpage
 
-In this section, you install the IIS server on the two VMs, myIISVMEastUS and myIISVMWEurope and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
+In this section, you install the IIS server on the two VMs myIISVMEastUS and myIISVMWestEurope,  and then update the default webpage. The customized webpage shows the name of the VM that you're connecting to when you visit the website from a web browser.
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, select **Connect**. In **Connect to virtual machine**, select **Download RDP file**.
@@ -78,6 +78,7 @@ In this section, you install the IIS server on the two VMs, myIISVMEastUS and my
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection.
 6. On the server desktop, browse to **Windows Administrative Tools** > **Server Manager**.
 7. Open Windows PowerShell on VM1. Use the following commands to install the IIS server and update the default .htm file.
+
     ```powershell-interactive
     # Install IIS
     Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -92,20 +93,20 @@ In this section, you install the IIS server on the two VMs, myIISVMEastUS and my
     ![Install IIS and customize the webpage](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 
 8. Close the RDP connection with **myIISVMEastUS**.
-9. Repeat steps 1-8. Create an RDP connection with the VM **myIISVMWEurope** within the **myResourceGroupTM2** resource group, to install IIS and customize its default webpage.
+9. Repeat steps 1-8. Create an RDP connection with the VM **myIISVMWestEurope** within the **myResourceGroupTM2** resource group, to install IIS and customize its default webpage.
 
 #### Configure DNS names for the VMs running IIS
 
-Traffic Manager routes user traffic based on the DNS name of the service endpoints. In this section, you configure the DNS names for the IIS servers myIISVMEastUS and myIISVMWEurope.
+Traffic Manager routes user traffic based on the DNS name of the service endpoints. In this section, you configure the DNS names for the IIS servers myIISVMEastUS and myIISVMWestEurope.
 
 1. Select **All resources** on the left menu. From the resource list, select **myIISVMEastUS** in the **myResourceGroupTM1** resource group.
 2. On the **Overview** page, under **DNS name**, select **Configure**.
 3. On the **Configuration** page, under the DNS name label, add a unique name. Then select **Save**.
-4. Repeat steps 1-3 for the VM named **myIISVMWEurope** in the **myResourceGroupTM2** resource group.
+4. Repeat steps 1-3 for the VM named **myIISVMWestEurope** in the **myResourceGroupTM2** resource group.
 
 ### Create a test VM
 
-In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**. You will use these VMs to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
+In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azure region (**East US** and **West Europe**). You will use these VMs to test how Traffic Manager routes traffic to the website endpoint that has the higher weight value.
 
 1. On the upper, left corner of the Azure portal, select **Create a resource** > **Compute** > **Windows Server 2019 Datacenter**.
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
@@ -143,7 +144,7 @@ Create a Traffic Manager profile based on the **Weighted** routing method.
 
 ## Add Traffic Manager endpoints
 
-Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWEurope, to route user traffic to them.
+Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWestEurope, to route user traffic to them.
 
 1. In the portal’s search bar, search for the Traffic Manager profile name that you created in the preceding section. Select the profile in the results that are displayed.
 2. In **Traffic Manager profile**, in the **Settings** section, select **Endpoints** > **Add**.
@@ -158,7 +159,7 @@ Add the two VMs running the IIS servers myIISVMEastUS and myIISVMWEurope, to rou
     |  Weight      | Enter **100**.        |
     |        |           |
 
-4. Repeat steps 2 and 3 to add another endpoint named **myWestEuropeEndpoint** for the public IP address **myIISVMWEurope-ip**. This address is associated with the IIS server VM named myIISVMWEurope. For **Weight**, enter **25**.
+4. Repeat steps 2 and 3 to add another endpoint named **myWestEuropeEndpoint** for the public IP address **myIISVMWestEurope-ip**. This address is associated with the IIS server VM named myIISVMWestEurope. For **Weight**, enter **25**.
 5. When the addition of both endpoints is complete, they're displayed in the Traffic Manager profile along with their monitoring status as **Online**.
 
 ## Test the Traffic Manager profile
@@ -189,7 +190,7 @@ In this section, you can see Traffic Manager in action.
 3. Open the downloaded .rdp file. If you're prompted, select **Connect**. Enter the user name and password that you specified when creating the VM. You might need to select **More choices** > **Use a different account**, to specify the credentials that you entered when you created the VM.
 4. Select **OK**.
 5. You might receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue** to proceed with the connection.
-6. In a web browser on the VM myVMEastUS, enter the DNS name of your Traffic Manager profile to view your website. You're routed to website hosted on the IIS server myIISVMEastUS because it's assigned a higher weight of **100**. The IIS server myIISVMWEurope is assigned a lower endpoint weight value of **25**.
+6. In a web browser on the VM myVMEastUS, enter the DNS name of your Traffic Manager profile to view your website. You're routed to website hosted on the IIS server myIISVMEastUS because it's assigned a higher weight of **100**. The IIS server myIISVMWestEurope is assigned a lower endpoint weight value of **25**.
 
    ![Test Traffic Manager profile](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 

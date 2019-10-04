@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/04/2019
 ms.custom: seodec18
 ---
 
@@ -24,12 +24,12 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Go to the Time Series Models selector panel, and select **Types** from the menu. Collapse the panel to focus on the Time Series Models types.
 
-    [![Create a single type](media/v2-update-how-to-tsm/portal_one.png)](media/v2-update-how-to-tsm/portal_one.png#lightbox)
+    [![Create a single type](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
-1. Select **Add**.
+1. Select **+ Add**.
 1. Input all details that pertain to types, and select **Create**. This action creates types in the environment.
 
-    [![Add a type](media/v2-update-how-to-tsm/portal_two.png)](media/v2-update-how-to-tsm/portal_two.png#lightbox)
+    [![Add a type](media/v2-update-how-to-tsm/portal-two.png)](media/v2-update-how-to-tsm/portal-two.png#lightbox)
 
 ### Bulk upload one or more types
 
@@ -37,21 +37,21 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 1. Select the file that contains the type payload.
 1. Select **Upload**.
 
-    [![Upload JSON](media/v2-update-how-to-tsm/portal_three.png)](media/v2-update-how-to-tsm/portal_three.png#lightbox)
+    [![Upload JSON](media/v2-update-how-to-tsm/portal-three.png)](media/v2-update-how-to-tsm/portal-three.png#lightbox)
 
 ### Edit a single type
 
 1. Select the type, and select **Edit**. 
 1. Make the required changes, and select **Save**.
 
-    [![Edit a type](media/v2-update-how-to-tsm/portal_four.png)](media/v2-update-how-to-tsm/portal_four.png#lightbox)
+    [![Edit a type](media/v2-update-how-to-tsm/portal-four.png)](media/v2-update-how-to-tsm/portal-four.png#lightbox)
 
 ### Delete a type
 
 1. Select the type, and select **Delete**.
 1. If no instances are associated with the types, it's deleted.
 
-    [![Delete a type](media/v2-update-how-to-tsm/portal_five.png)](media/v2-update-how-to-tsm/portal_five.png#lightbox)
+    [![Delete a type](media/v2-update-how-to-tsm/portal-five.png)](media/v2-update-how-to-tsm/portal-five.png#lightbox)
 
 ## Hierarchies
 
@@ -59,19 +59,19 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Go to the Time Series Models selector panel, and select **Hierarchies** from the menu. Collapse the panel to focus on the Time Series Models hierarchies.
 
-    [![Select hierarchies](media/v2-update-how-to-tsm/portal_six.png)](media/v2-update-how-to-tsm/portal_six.png#lightbox)
+    [![Select hierarchies](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
-1. Select **Add**.
+1. Select **+ Add**.
 
-    [![Add a hierarchy](media/v2-update-how-to-tsm/portal_seven.png)](media/v2-update-how-to-tsm/portal_seven.png#lightbox)
+    [![Add a hierarchy](media/v2-update-how-to-tsm/portal-seven.png)](media/v2-update-how-to-tsm/portal-seven.png#lightbox)
 
-1. Select **Add Level** in the right pane.
+1. Select **+ Add Level** in the right pane.
 
-    [![Add a level](media/v2-update-how-to-tsm/portal_eight.png)](media/v2-update-how-to-tsm/portal_eight.png#lightbox)
+    [![Add a level](media/v2-update-how-to-tsm/portal-eight.png)](media/v2-update-how-to-tsm/portal-eight.png#lightbox)
 
 1. Enter the hierarchy details, and select **Create**.
 
-    [![Create a level](media/v2-update-how-to-tsm/portal_nine.png)](media/v2-update-how-to-tsm/portal_nine.png#lightbox)
+    [![Create a level](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### Bulk upload one or more hierarchies
 
@@ -79,21 +79,21 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 1. Select the file that contains the hierarchy payload.
 1. Select **Upload**.
 
-    [![Bulk upload hierarchies](media/v2-update-how-to-tsm/portal_ten.png)](media/v2-update-how-to-tsm/portal_ten.png#lightbox)
+    [![Bulk upload hierarchies](media/v2-update-how-to-tsm/portal-ten.png)](media/v2-update-how-to-tsm/portal-ten.png#lightbox)
 
 ### Edit a single hierarchy
 
 1. Select the hierarchy, and select **Edit**.
 1. Make the required changes, and select **Save**.
 
-    [![Edit a single hierarchy](media/v2-update-how-to-tsm/portal_eleven.png)](media/v2-update-how-to-tsm/portal_eleven.png#lightbox)
+    [![Edit a single hierarchy](media/v2-update-how-to-tsm/portal-eleven.png)](media/v2-update-how-to-tsm/portal-eleven.png#lightbox)
 
 ### Delete a hierarchy
 
 1. Select the hierarchy, and Select **Delete**. 
 1. If no instances are associated with the hierarchy, it's deleted.
 
-    [![Delete a hierarchy](media/v2-update-how-to-tsm/portal_twelve.png)](media/v2-update-how-to-tsm/portal_twelve.png#lightbox)
+    [![Delete a hierarchy](media/v2-update-how-to-tsm/portal-twelve.png)](media/v2-update-how-to-tsm/portal-twelve.png#lightbox)
 
 ## Instances
 
@@ -101,11 +101,11 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 1. Go to the Time Series Models selector panel, and select **Instances** from the menu. Collapse the panel to focus on the Time Series Models instances.
 
-    [![Create a single instance](media/v2-update-how-to-tsm/portal_thirteen.png)](media/v2-update-how-to-tsm/portal_thirteen.png#lightbox)
+    [![Create a single instance](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
 1. Select **Add**.
 
-    [![Add an instance](media/v2-update-how-to-tsm/portal_fourteen.png)](media/v2-update-how-to-tsm/portal_fourteen.png#lightbox)
+    [![Add an instance](media/v2-update-how-to-tsm/portal-fourteen.png)](media/v2-update-how-to-tsm/portal-fourteen.png#lightbox)
 
 1. Enter the instance details, select the type and hierarchy association, and select **Create**.
 
@@ -114,7 +114,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 1. Select **Upload JSON**.
 1. Select the file that contains the instances payload.
 
-    [![Bulk upload one or more instances](media/v2-update-how-to-tsm/portal_fifteen.png)](media/v2-update-how-to-tsm/portal_fifteen.png#lightbox)
+    [![Bulk upload one or more instances](media/v2-update-how-to-tsm/portal-fifteen.png)](media/v2-update-how-to-tsm/portal-fifteen.png#lightbox)
 
 1. Select **Upload**.
 
@@ -123,7 +123,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 1. Select the instance, and select **Edit**. 
 1. Make the required changes, and select **Save**.
 
-    [![Edit a single instance](media/v2-update-how-to-tsm/portal_sixteen.png)](media/v2-update-how-to-tsm/portal_sixteen.png#lightbox)
+    [![Edit a single instance](media/v2-update-how-to-tsm/portal-sixteen.png)](media/v2-update-how-to-tsm/portal-sixteen.png#lightbox)
 
 ## Next steps
 

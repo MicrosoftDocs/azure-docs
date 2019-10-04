@@ -55,7 +55,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
-   ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
     2. Choose the pricing tier (Basic or Standard).

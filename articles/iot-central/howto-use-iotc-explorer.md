@@ -3,7 +3,7 @@ title: Monitor device connectivity using the Azure IoT Central Explorer
 description: Monitor device messages and observe device twin changes through the IoT Central Explorer CLI.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -92,7 +92,7 @@ iotc-explorer monitor-messages <your-device-id>
 You can also output a more machine-friendly format by adding
 the `--raw` option to the command:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages --raw
 ```
 

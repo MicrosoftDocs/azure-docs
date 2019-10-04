@@ -2,7 +2,7 @@
 title: How to implement faceted navigation in a category hierarchy - Azure Search
 description: Add facet navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -396,5 +396,5 @@ Watch [Azure Search Deep Dive](https://channel9.msdn.com/Events/TechEd/Europe/20
 For more insights on design principles for faceted navigation, we recommend the following links:
 
 * [Design Patterns: Faceted Navigation](https://alistapart.com/article/design-patterns-faceted-navigation)
-* [Front End Concerns When Implementing Faceted Search – Part 1 ](https://articles.uie.com/faceted_search2/)
+* [Front End Concerns When Implementing Faceted Search – Part 1](https://articles.uie.com/faceted_search2/)
 

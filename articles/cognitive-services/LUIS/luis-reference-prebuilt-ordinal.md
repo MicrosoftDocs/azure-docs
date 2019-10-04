@@ -1,6 +1,6 @@
 ---
-title: Ordinal Prebuilt entity
-titleSuffix: Azure
+title: Ordinal Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains ordinal prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -21,7 +21,7 @@ Ordinal is managed from the [Recognizers-text](https://github.com/Microsoft/Reco
 
 ## Resolution for prebuilt ordinal entity
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.ordinal** entity.
 
@@ -56,7 +56,7 @@ The following example shows the resolution of the **builtin.ordinal** entity.
 }
 ```
 
-### Preview API version 3.x
+#### [V3 prediction endpoint response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -123,6 +123,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
 
-Learn about the [percentage](luis-reference-prebuilt-percentage.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+Learn about the [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md), [phone number](luis-reference-prebuilt-phonenumber.md), and [temperature](luis-reference-prebuilt-temperature.md) entities. 

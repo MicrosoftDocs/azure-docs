@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/14/2019
+ms.date: 7/29/2019
 ms.author: mayg
 
 ---
@@ -14,12 +14,7 @@ ms.author: mayg
 The deployment planner report provides the cost estimation summary in [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) sheets and detailed cost analysis in Cost Estimation sheet. It has the detailed cost analysis per VM. 
 
 >[!Note]
->The current version of Deployment planner tool does not provide cost estimation for VMs replicating to Managed Disks.
->* DR Drill cost estimates are the same for storage accounts and managed disks, when 'Use Managed Disks' parameter is set to "Yes" on "Compute and Network" blade.
->* To get an approximate yearly cost estimate for replication, make the following temporary settings on **Cost Estimation** sheet:
->    * Set the "Cost duration" parameter in **Settings** table to "Year"
->    * In **Detailed cost analysis** table, set the "Number of DR-Drills in a year" column to 12 and "Each DR-Drill duration (Days)" to 30 
->    * The replication cost will be similar to the cost populated in column 'R' i.e. DR-Drill storage cost per year in **DR-Drill cost per year** sub-section.
+>The current version of Deployment planner tool v2.5 provides cost estimation for VMs replicating to Managed Disks.
 
 ### Cost estimation summary 
 The graph shows the summary view of the estimated total disaster recovery (DR) cost to Azure of your chosen target region and the currency that you have specified for report generation.
@@ -93,7 +88,6 @@ If you are an Azure partner or a customer and are entitled to any discount on ov
 This table shows the number of Windows and non-Windows VMs and DR drill compute cost for them.
 
 ### Settings 
-**Using managed disk**: It specifies whether managed disk is being used  at the time of DR drills. The default is yes. If you have set -UseManagedDisks to No, it uses the unmanaged disk price for cost calculation.
 
 **Currency**: The currency in which the report is generated. 
 Cost duration:  You can view all costs either for the month or for the whole year. 
@@ -109,7 +103,7 @@ To manually add VMs:
 
 * Number of VMs, IaaS size (Your selection)
 * Storage Type (Standard/Premium)
-* VM total storage size (GB)
+* VM total storage size (GB) of the source machine
 * Number of DR drills in a year 
 * Each DR drill duration (Days) 
 * OS Type
@@ -130,7 +124,7 @@ To manually add VMs:
 
 **Storage type**: The type of the storage that is used by the VM. It is either standard or premium storage.
 
-**VM total storage size (GB)**: The total storage of the VM.
+**VM total storage size (GB)**: The total storage of the source VM.
 
 **Number of DR-Drills in a year**: The number of times you perform DR-Drills in a year. By default, it is 4 times in a year. You can modify the period for specific VMs or apply the new value to all VMs by entering the new value on the top row and clicking the ‘Apply to all’ button. Based on number of DR-Drills in a year and each DR-Drill duration period, the total DR-Drill cost is calculated.  
 

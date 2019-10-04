@@ -1,42 +1,35 @@
 ---
 title: Resource Manager Template Functions | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template to retrieve values, work with strings and numerics, and retrieve deployment information.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
-ms.devlang: na
-ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: tomfitz
 
 ---
 # Azure Resource Manager template functions
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](resource-group-authoring-templates.md#syntax).
+This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
 
-<a id="array" />
-<a id="coalesce" />
-<a id="concatarray" />
-<a id="contains" />
-<a id="createarray" />
-<a id="empty" />
-<a id="first" />
-<a id="intersection" />
-<a id="json" />
-<a id="last" />
-<a id="length" />
-<a id="min" />
-<a id="max" />
-<a id="range" />
-<a id="skip" />
-<a id="take" />
-<a id="union" />
+<a id="array" aria-hidden="true" />
+<a id="coalesce" aria-hidden="true" />
+<a id="concatarray" aria-hidden="true" />
+<a id="contains" aria-hidden="true" />
+<a id="createarray" aria-hidden="true" />
+<a id="empty" aria-hidden="true" />
+<a id="first" aria-hidden="true" />
+<a id="intersection" aria-hidden="true" />
+<a id="json" aria-hidden="true" />
+<a id="last" aria-hidden="true" />
+<a id="length" aria-hidden="true" />
+<a id="min" aria-hidden="true" />
+<a id="max" aria-hidden="true" />
+<a id="range" aria-hidden="true" />
+<a id="skip" aria-hidden="true" />
+<a id="take" aria-hidden="true" />
+<a id="union" aria-hidden="true" />
 
 ## Array and object functions
 Resource Manager provides several functions for working with arrays and objects.
@@ -59,11 +52,11 @@ Resource Manager provides several functions for working with arrays and objects.
 * [take](resource-group-template-functions-array.md#take)
 * [union](resource-group-template-functions-array.md#union)
 
-<a id="equals" />
-<a id="less" />
-<a id="lessorequals" />
-<a id="greater" />
-<a id="greaterorequals" />
+<a id="equals" aria-hidden="true" />
+<a id="less" aria-hidden="true" />
+<a id="lessorequals" aria-hidden="true" />
+<a id="greater" aria-hidden="true" />
+<a id="greaterorequals" aria-hidden="true" />
 
 ## Comparison functions
 Resource Manager provides several functions for making comparisons in your templates.
@@ -74,9 +67,9 @@ Resource Manager provides several functions for making comparisons in your templ
 * [greater](resource-group-template-functions-comparison.md#greater)
 * [greaterOrEquals](resource-group-template-functions-comparison.md#greaterorequals)
 
-<a id="deployment" />
-<a id="parameters" />
-<a id="variables" />
+<a id="deployment" aria-hidden="true" />
+<a id="parameters" aria-hidden="true" />
+<a id="variables" aria-hidden="true" />
 
 ## Deployment value functions
 Resource Manager provides the following functions for getting values from sections of the template and values related to the deployment:
@@ -85,11 +78,11 @@ Resource Manager provides the following functions for getting values from sectio
 * [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
-<a id="and" />
-<a id="bool" />
-<a id="if" />
-<a id="not" />
-<a id="or" />
+<a id="and" aria-hidden="true" />
+<a id="bool" aria-hidden="true" />
+<a id="if" aria-hidden="true" />
+<a id="not" aria-hidden="true" />
+<a id="or" aria-hidden="true" />
 
 ## Logical functions
 Resource Manager provides the following functions for working with logical conditions:
@@ -100,16 +93,16 @@ Resource Manager provides the following functions for working with logical condi
 * [not](resource-group-template-functions-logical.md#not)
 * [or](resource-group-template-functions-logical.md#or)
 
-<a id="add" />
-<a id="copyindex" />
-<a id="div" />
-<a id="float" />
-<a id="int" />
-<a id="minint" />
-<a id="maxint" />
-<a id="mod" />
-<a id="mul" />
-<a id="sub" />
+<a id="add" aria-hidden="true" />
+<a id="copyindex" aria-hidden="true" />
+<a id="div" aria-hidden="true" />
+<a id="float" aria-hidden="true" />
+<a id="int" aria-hidden="true" />
+<a id="minint" aria-hidden="true" />
+<a id="maxint" aria-hidden="true" />
+<a id="mod" aria-hidden="true" />
+<a id="mul" aria-hidden="true" />
+<a id="sub" aria-hidden="true" />
 
 ## Numeric functions
 Resource Manager provides the following functions for working with integers:
@@ -125,13 +118,13 @@ Resource Manager provides the following functions for working with integers:
 * [mul](resource-group-template-functions-numeric.md#mul)
 * [sub](resource-group-template-functions-numeric.md#sub)
 
-<a id="listkeys" />
-<a id="list" />
-<a id="providers" />
-<a id="reference" />
-<a id="resourcegroup" />
-<a id="resourceid" />
-<a id="subscription" />
+<a id="listkeys" aria-hidden="true" />
+<a id="list" aria-hidden="true" />
+<a id="providers" aria-hidden="true" />
+<a id="reference" aria-hidden="true" />
+<a id="resourcegroup" aria-hidden="true" />
+<a id="resourceid" aria-hidden="true" />
+<a id="subscription" aria-hidden="true" />
 
 ## Resource functions
 Resource Manager provides the following functions for getting resource values:
@@ -146,36 +139,36 @@ Resource Manager provides the following functions for getting resource values:
 * [resourceId](resource-group-template-functions-resource.md#resourceid)
 * [subscription](resource-group-template-functions-resource.md#subscription)
 
-<a id="base64" />
-<a id="base64tojson" />
-<a id="base64tostring" />
-<a id="concat" />
-<a id="containsstring" />
-<a id="datauri" />
-<a id="datauritostring" />
-<a id="emptystring" />
-<a id="endswith" />
-<a id="firststring" />
-<a id="guid" />
-<a id="indexof" />
-<a id="laststring" />
-<a id="lastindexof" />
-<a id="lengthstring" />
-<a id="padleft" />
-<a id="replace" />
-<a id="skipstring" />
-<a id="split" />
-<a id="startswith" />
-<a id="string" />
-<a id="substring" />
-<a id="takestring" />
-<a id="tolower" />
-<a id="toupper" />
-<a id="trim" />
-<a id="uniquestring" />
-<a id="uri" />
-<a id="uricomponent" />
-<a id="uricomponenttostring" />
+<a id="base64" aria-hidden="true" />
+<a id="base64tojson" aria-hidden="true" />
+<a id="base64tostring" aria-hidden="true" />
+<a id="concat" aria-hidden="true" />
+<a id="containsstring" aria-hidden="true" />
+<a id="datauri" aria-hidden="true" />
+<a id="datauritostring" aria-hidden="true" />
+<a id="emptystring" aria-hidden="true" />
+<a id="endswith" aria-hidden="true" />
+<a id="firststring" aria-hidden="true" />
+<a id="guid" aria-hidden="true" />
+<a id="indexof" aria-hidden="true" />
+<a id="laststring" aria-hidden="true" />
+<a id="lastindexof" aria-hidden="true" />
+<a id="lengthstring" aria-hidden="true" />
+<a id="padleft" aria-hidden="true" />
+<a id="replace" aria-hidden="true" />
+<a id="skipstring" aria-hidden="true" />
+<a id="split" aria-hidden="true" />
+<a id="startswith" aria-hidden="true" />
+<a id="string" aria-hidden="true" />
+<a id="substring" aria-hidden="true" />
+<a id="takestring" aria-hidden="true" />
+<a id="tolower" aria-hidden="true" />
+<a id="toupper" aria-hidden="true" />
+<a id="trim" aria-hidden="true" />
+<a id="uniquestring" aria-hidden="true" />
+<a id="uri" aria-hidden="true" />
+<a id="uricomponent" aria-hidden="true" />
+<a id="uricomponenttostring" aria-hidden="true" />
 
 ## String functions
 Resource Manager provides the following functions for working with strings:

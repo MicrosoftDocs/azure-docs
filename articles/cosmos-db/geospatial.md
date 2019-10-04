@@ -4,7 +4,7 @@ description: Understand how to create, index and query spatial objects with Azur
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/23/2019
 ms.author: sngun
 
 ---
@@ -244,12 +244,12 @@ These functions can also be used to validate Polygons. For example, here we use 
 ### LINQ Querying in the .NET SDK
 The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
 
-Here's an example of a LINQ query that finds all documents in the Azure Cosmos DB collection whose "location" value is within a radius of 30 km of the specified point using LINQ.
+Here's an example of a LINQ query that finds all documents in the Azure Cosmos container whose "location" value is within a radius of 30 km of the specified point using LINQ.
 
 **LINQ query for Distance**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

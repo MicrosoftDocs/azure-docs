@@ -30,9 +30,6 @@ The steps in this document use [Apache Maven](https://maven.apache.org/) to crea
 
 * A text editor. This article uses Microsoft Notepad.
 
-> [!IMPORTANT]  
-> The Azure PowerShell cmdlets [Get-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightcluster) and [Get-AzHDInsightJobOutput](https://docs.microsoft.com/powershell/module/az.hdinsight/get-azhdinsightjoboutput) currently do not work when [secure transfer](../../storage/common/storage-require-secure-transfer.md) is enabled on the storage account.
-
 ## Test environment
 The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
 

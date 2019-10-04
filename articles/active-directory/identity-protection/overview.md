@@ -1,28 +1,23 @@
 ---
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
 
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: overview
 ms.date: 01/29/2019
+
 ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 # What is Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
+Azure Active Directory [Identity](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology) Protection enables organizations to configure automated responses to detected suspicious actions related to user identities.
 
 ## Get started
 
@@ -33,12 +28,11 @@ The vast majority of security breaches take place when attackers gain access to 
 As a consequence of this, you need to:
 
 - Protect all identities regardless of their privilege level
-
 - Proactively prevent compromised identities from being abused
 
 Discovering compromised identities is no easy task. Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect anomalies and suspicious incidents that indicate potentially compromised identities. Using this data, Identity Protection generates reports and alerts that enable you to evaluate the detected issues and take appropriate mitigation or remediation actions.
 
-Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other conditional access controls provided by Azure Active Directory and [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
+Azure Active Directory Identity Protection is more than a monitoring and reporting tool. To protect your organization's identities, you can configure risk-based policies that automatically respond to detected issues when a specified risk level has been reached. These policies, in addition to other Conditional Access controls provided by Azure Active Directory and [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), can either automatically block or initiate adaptive remediation actions including password resets and multi-factor authentication enforcement.
 
 ### Identity Protection capabilities
 
@@ -48,14 +42,14 @@ Azure Active Directory Identity Protection is more than a monitoring and reporti
 - Calculating sign-in risk levels
 - Calculating user risk levels
 
-**Investigating risk events:**
+**Investigating risk detections:**
 
-- Sending notifications for risk events
-- Investigating risk events using relevant and contextual information
+- Sending notifications for risk detections
+- Investigating risk detections using relevant and contextual information
 - Providing basic workflows to track investigations
 - Providing easy access to remediation actions such as password reset
 
-**Risk-based conditional access policies:**
+**Risk-based Conditional Access policies:**
 
 - Policy to mitigate risky sign-ins by blocking sign-ins or requiring multi-factor authentication challenges
 - Policy to block or secure risky user accounts
@@ -79,10 +73,10 @@ For more details, see [Assigning administrator roles in Azure Active Directory](
 
 Azure Active Directory Identity Protection analyses your configuration and detects vulnerabilities that can have an impact on your user's identities. For more details, see [Vulnerabilities detected by Azure Active Directory Identity Protection](vulnerabilities.md).
 
-### Risk events
+### Risk detections
 
-Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk events.  
-For more details, see [Azure Active Directory risk events](../active-directory-identity-protection-risk-events.md).
+Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user's identities. The system creates a record for each detected suspicious action. These records are also known as risk detections.  
+For more details, see [Azure Active Directory risk detections](../active-directory-identity-protection-risk-events.md).
 
 ## Investigation
 
@@ -92,10 +86,10 @@ Your journey through Identity Protection typically starts with the Identity Prot
 
 The dashboard gives you access to:
 
-- Reports such as **Users flagged for risk**, **Risk events** and **Vulnerabilities**
+- Reports such as **Users flagged for risk**, **Risk detections** and **Vulnerabilities**
 - Settings such as the configuration of your **Security Policies**, **Notifications** and **multi-factor authentication registration**
 
-It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk event to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
+It is typically your starting point for investigation, which is the process of reviewing the activities, logs, and other relevant information related to a risk detection to decide whether remediation or mitigation steps are necessary,  and how the identity was compromised, and understand how the compromised identity was used.
 
 You can tie your investigation activities to the [notifications](notifications.md) Azure Active Directory Protection sends per email.
 

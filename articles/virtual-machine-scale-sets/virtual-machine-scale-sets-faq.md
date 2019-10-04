@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 
@@ -171,7 +171,7 @@ For the latest example use the following azure CLI statement within azure shell,
 az sf cluster create -h
 ```
 
-Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?
 
@@ -618,11 +618,11 @@ You have some flexibility in how you handle alerts for specified thresholds. For
 
 ## Patching and operations
 
-### How do I create a scale set in an existing resource group?
+### Can I create a scale set in an existing resource group?
 
-Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+Yes, you can create a scale set in an existing resource group.
 
-### Can we move a scale set to another resource group?
+### Can I move a scale set to another resource group?
 
 Yes, you can move scale set resources to a new subscription or resource group.
 

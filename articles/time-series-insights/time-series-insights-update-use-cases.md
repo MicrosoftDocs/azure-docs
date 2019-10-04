@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
 ---
 
@@ -23,11 +23,11 @@ Specifically, this article answers the following questions:
 * What are the benefits of using Time Series Insights for [operational analysis and process efficiency](#operational-analysis-and-driving-process-efficiency)?
 * What are the benefits of using Time Series Insights for [advanced analytics](#advanced-analytics)?
 
-An overview of these use scenarios is described below.
+An overview of these use scenarios is described in the following sections.
 
 ## Introduction
 
-Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized, service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights is an end-to-end platform-as-a-service offering. It's used to collect, process, store, analyze, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible, customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## Data exploration and visual anomaly detection
 
@@ -35,11 +35,15 @@ Instantly explore and analyze billions of events to spot anomalies and discover 
 
 [![Data explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
-Most customers agree that the time to insight is among the strongest assets of Time Series Insights. Time Series Insights requires no upfront data preparation. It works fast to connect you to billions of events in your Azure IoT Hub or Azure Event Hubs in minutes. Once connected, you can visualize and analyze billions of events to spot anomalies and discover hidden trends in your data.
+Most customers agree that the minimal amount of time required to gain insight is one of the standout features of Time Series Insights:
 
-Time Series Insights is intuitive and simple to use. You can interact with your data without writing a single line of code. There’s also no new language to learn. Time Series Insights provides granular text-based querying for advanced users who are familiar with SQL. It also provides select-and-click exploration for novices.
+* Time Series Insights requires no upfront data preparation. 
+* It works fast to connect you to billions of events in your Azure IoT Hub or Azure Event Hubs in minutes. 
+* Once connected, you can visualize and analyze billions of events to spot anomalies and discover hidden trends in your data.
 
-Customers take advantage of the speed to diagnose asset-related issues quickly. They can perform DevOps to get to the root cause of a bug in an IoT solution. They also can identify areas to investigate for data science initiatives.  
+Time Series Insights is intuitive and simple to use. You can interact with your data without writing a single line of code. There’s also no new language you are required to learn although Time Series Insights provides a granular text-based querying language for advanced users who are familiar with SQL. It also provides select-and-click exploration for novices.
+
+Customers can take advantage of the speed to diagnose asset-related issues quickly. They can perform DevOps analysis to get to the root cause of a bug in an IoT solution. They also can identify areas to flag for further investigation as part of their data science initiatives.  
 
 There are three primary ways to interact with data stored in Time Series Insights:
 
@@ -49,7 +53,7 @@ There are three primary ways to interact with data stored in Time Series Insight
 
     * Read the [Time Series Insights JS client library](tutorial-explore-js-client-lib.md) and the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation to learn more about the JavaScript SDK.
 
-    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the explorer Preview](time-series-insights-update-explorer.md).
+    * Learn more about sharing URLs and the new UI by reviewing [Visualize data in the Azure Time Series Insights Preview explorer](time-series-insights-update-explorer.md).
 
 - The third way to start is to use the powerful APIs to query data stored in Time Series Insights. Time Series Insights has temporal operators such as `from`, `to`, `first`, and `last`. It has aggregations and transformations such as `average`, `min`, `max`, `split by`, `order by`, and `DateHistogram`. It also has filtering operators such as `has`, `in`, `and`, `or`, `greater than`, and `REGEX`. All these operators enable downstream applications to quickly find interesting trends and patterns in your data. Use them to populate home-grown visualizations to spot anomalies.
 
@@ -92,7 +96,5 @@ Time Series Insights bridges the gap between IoT data and advanced analytics in 
 ## Next steps
 
 - Learn more about the [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
-
-- To plan out your environment, read [Time Series Insights Preview planning](./time-series-insights-update-plan.md).
-
+- Read [Time Series Insights Preview planning](./time-series-insights-update-plan.md) to plan out your environment.
 - Read the [Time Series Insights client](https://github.com/Microsoft/tsiclient) documentation.

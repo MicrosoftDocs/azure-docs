@@ -1,6 +1,6 @@
 ---
-title: Add example utterances
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Add example utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add example utterances to an intent.
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -17,7 +17,7 @@ ms.author: diberry
 
 Example utterances are text examples of user questions or commands. To teach Language Understanding (LUIS), you need to add [example utterances](luis-concept-utterance.md) to an [intent](luis-concept-intent.md).
 
-Usually, add an example utterance to an intent first, and then create entities and label utterances on the intent page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
+Usually, you add an example utterance to an intent first, and then you create entities and label utterances on the **Intents** page. If you would rather create entities first, see [Add entities](luis-how-to-add-entities.md).
 
 ## Marking entities in example utterances
 
@@ -27,7 +27,7 @@ Certain entity types, such as prebuilt entities and regular expression entities,
 
 ## Add a simple entity
 
-In the following procedure, you create and tag a custom entity within the following utterance on the intent page:
+In the following procedure, you create and tag a custom entity within the following utterance on the **Intents** page:
 
 ```text
 Are there any SQL server jobs?
@@ -40,7 +40,7 @@ Are there any SQL server jobs?
     > [!NOTE]
     > When selecting words to tag as entities:
     > * For a single word, just select it. 
-    > * For a set of two or more words, select at the beginning and then at the end of the set.
+    > * For a set of two or more words, select the first word and then the final word.
 
 1. In the **What type of entity do you want to create?** pop-up box, verify the entity name and select the **Simple** entity type, and then select **Done**.
 
@@ -60,9 +60,9 @@ For a company's department list, you can have normalized values: `Accounting` an
 
     You can add more list items or more item synonyms by labeling other utterances, or by editing the entity from the **Entities** in the left navigation. [Editing](luis-how-to-add-entities.md#add-list-entities) the entities gives you the options of entering additional items with corresponding synonyms or importing a list. 
 
-## Add composite entity
+## Add a composite entity
 
-Composite entities are created from existing **Entities** into a parent entity. 
+Composite entities are created from existing **Entities** to form a parent entity. 
 
 Assuming the utterance, `Does John Smith work in Seattle?`, a composite utterance can return entity information of the employee name `John Smith`, and the location `Seattle` in a composite entity. The child entities must already exist in the app and be marked in the example utterance before creating the composite entity.
 
@@ -126,15 +126,15 @@ You can perform actions on example utterances as a selected group or as an indiv
 
 ### Remove entity labels from utterances
 
-You can remove machine-learned entity labels from an utterance on the Intent page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
+You can remove machine-learned entity labels from an utterance on the Intents page. If the entity is not machine-learned, it can't be removed from an utterance. If you need to remove a non-machine-learned entity from the utterance, you need to delete the entity from the entire app. 
 
 To remove a machine-learned entity label from an utterance, select the entity in the utterance. Then select **Remove Label** in the entity drop-down box that appears.
 
-### Add prebuilt entity label
+### Add a prebuilt entity label
 
 When you add the prebuilt entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about prebuilt entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
-### Add regular expression entity label
+### Add a regular expression entity label
 
 If you add the regular expression entities to your LUIS app, you don't need to tag utterances with these entities. To learn more about regular expression entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts).
 
@@ -144,7 +144,7 @@ If you add the regular expression entities to your LUIS app, you don't need to t
 See [Add pattern from existing utterance on intent or entity page](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
 
 
-### Add pattern.any entity
+### Add a pattern.any entity
 
 If you add the pattern.any entities to your LUIS app, you can't label utterances with these entities. They are only valid in patterns. To learn more about pattern.any entities and how to add them, see [Add entities](luis-how-to-add-entities.md#add-patternany-entities-to-capture-free-form-entities).
 
@@ -154,4 +154,4 @@ After you add, edit, or remove utterances, [train](luis-how-to-train.md) and [pu
 
 ## Next steps
 
-After labeling utterances in your intents, you can now create a [composite entity](luis-how-to-add-entities.md).
+After labeling utterances in your **Intents**, you can now create a [composite entity](luis-how-to-add-entities.md).

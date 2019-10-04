@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
-ms.author: alkohli@microsoft.com
+ms.author: alkohli
 
 ---
 # Use Windows PowerShell for StorSimple to administer your device

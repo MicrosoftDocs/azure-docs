@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to create a public load balancer with IPv6 using Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 ms.service: load-balancer
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Create a public load balancer with IPv6 using Azure CLI

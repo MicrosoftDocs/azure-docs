@@ -10,7 +10,8 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Project URL Preview endpoint

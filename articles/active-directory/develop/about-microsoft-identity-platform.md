@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 06/03/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
@@ -47,7 +47,7 @@ The following diagram shows the Microsoft identity experience at a high level, i
 
 ### App registration experience
 
-The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, starting using the Azure portal app registration experience instead.
+The Azure portal **[App registrations](https://go.microsoft.com/fwlink/?linkid=2083908)** experience is the one portal experience for managing all applications you’ve integrated with Microsoft identity platform. If you have been using the Application Registration Portal, start using the Azure portal app registration experience instead.
 
 For integration with Azure AD B2C (when authenticating social or local identities), you’ll need to register your application in a B2C tenant. This experience is also part of the Azure portal.
 
@@ -55,7 +55,7 @@ The **application API in Microsoft Graph** is currently in preview. Use this API
 
 ### MSAL libraries
 
-You can use the MSAL library to build applications that authenticate all Microsoft identities. The MSAL libraries in .NET are generally available. MSAL libraries for JavaScript, iOS, and Android are in preview and suitable for use in a production environment. We provide the same production level support for MSAL libraries in preview as we do for versions of MSAL and ADAL that are generally available.
+You can use the MSAL library to build applications that authenticate all Microsoft identities. The MSAL libraries in .NET and JavaScript are generally available. MSAL libraries for iOS and Android are in preview and suitable for use in a production environment. We provide the same production level support for MSAL libraries in preview as we do for versions of MSAL and ADAL that are generally available.
 
 You can also use the MSAL libraries to integrate your application with Azure AD B2C.
 

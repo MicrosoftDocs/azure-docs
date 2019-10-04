@@ -20,7 +20,7 @@ Learn how to connect Microsoft Power BI Desktop to Azure HDInsight using ODBC an
 > You can leverage the Hive ODBC driver to do import via the generic ODBC connector in Power BI Desktop. However it is not recommended for BI workloads given non-interactive nature of the Hive query engine. [HDInsight Interactive Query connector](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md) and 
 [HDInsight Spark connector](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect) are better choices for their performance.
 
-In this tutorial, you load the data from a `hivesampletable` Hive table to Power BI. The Hive table contains some mobile phone usage data. Then you plot the usage data on a world map:
+In this article, you load the data from a `hivesampletable` Hive table to Power BI. The Hive table contains some mobile phone usage data. Then you plot the usage data on a world map:
 
 ![HDInsight Power BI the map report](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-visualization.png)
 
@@ -46,7 +46,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 
 2. From the top menu, navigate to **Home** > **Get Data** > **More...**.
 
-    ![HDInsight Power BI open data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
+    ![HDInsight Excel Power BI open data](./media/apache-hadoop-connect-hive-power-bi/hdinsight-power-bi-open-odbc.png)
 
 3. From the **Get Data** dialog, select **Other** from the left, select **ODBC** from the right, and then select **Connect** on the bottom.
 

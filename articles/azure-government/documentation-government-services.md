@@ -106,7 +106,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## Enterprise Integration
 | Generally Available | Preview |
 | --- | --- |
-| [Logic Apps](documentation-government-services-integration.md#logic-apps)| |
+| [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)| |
 | [Service Bus](documentation-government-networking.md#support-for-service-bus)| |
 | [StorSimple](documentation-government-services-storage.md) | |
 | [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database) | |
@@ -114,10 +114,11 @@ The **services available in Azure Government** are listed by category, as well a
 ## Security + Identity
 | Generally Available | Preview |
 | --- | --- |
-| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)|[Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)|
+| [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)||
 | [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2) | |
 | [Key Vault](documentation-government-services-securityandidentity.md#key-vault) | |
 | [Azure Multi-Factor Authentication](documentation-government-services-securityandidentity.md#azure-multi-factor-authentication) | |
+| [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) | |
 
 ## Monitoring + Management
 | Generally Available | Preview |

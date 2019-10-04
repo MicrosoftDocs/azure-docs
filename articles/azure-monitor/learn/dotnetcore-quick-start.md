@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/22/2019
+ms.date: 06/26/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -42,14 +42,14 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Developer tools** > **Application Insights**.
 
-   ![Adding Application Insights Resource](./media/dotnetcore-quick-start/1createresourceappinsight.png)
+   > [!NOTE]
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) doc.
 
     A configuration box appears; use the following table to fill out the input fields.
 
-    | Settings        |  Value           | Description  |
+   | Settings        |  Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | ASP.NET web application | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 
@@ -65,7 +65,9 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 3. Select your account and subscription > Select the **Existing resource** you created in the Azure portal > Click **Register**.
 
-4. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
+4. Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
+
+5. Select **Debug** > **Start without Debugging** (Ctrl+F5) to Launch your app
 
     ![Application Insights Overview Menu](./media/dotnetcore-quick-start/3debug.png)
 

@@ -9,12 +9,11 @@ editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/26/2018
-ms.author: v-jamebr
+ms.date: 09/06/2019
+ms.author: chackdan
 
 ---
 # Certificates and security on Linux clusters
@@ -27,7 +26,7 @@ Service Fabric generally expects X.509 certificates to be present in the */var/l
 
 For Linux clusters, Service Fabric expects certificates to be present as either a .pem file that contains both the certificate and private key or as a .crt file that contains the certificate and a .key file that contains the private key. All files should be in PEM format. 
 
-If you install your certificate from Azure Key Vault by using either a [Resource Manager template](./service-fabric-cluster-creation-create-template.md) or [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/?view=latest#service_fabric) commands, the certificate is installed in the correct format in the */var/lib/sfcerts* directory on each node. If you install a certificate through another method, you must make sure that the certificate is correctly installed on cluster nodes.
+If you install your certificate from Azure Key Vault by using either a [Resource Manager template](./service-fabric-cluster-creation-create-template.md) or [PowerShell](https://docs.microsoft.com/powershell/module/az.servicefabric/?view=azps-2.6.0) commands, the certificate is installed in the correct format in the */var/lib/sfcerts* directory on each node. If you install a certificate through another method, you must make sure that the certificate is correctly installed on cluster nodes.
 
 ## Certificates referenced in the application manifest
 

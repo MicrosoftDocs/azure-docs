@@ -3,14 +3,15 @@ title: Project Acoustics Unreal Bake Tutorial
 titlesuffix: Azure Cognitive Services
 description: This document describes the process of submitting an acoustics bake using the Unreal editor extension.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
-ms.author: michem
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Unreal Bake Tutorial
 This document describes the process of submitting an acoustics bake using the Unreal editor extension.
@@ -203,7 +204,7 @@ After the bake completes, check that the voxels and probe points are in their ex
 There are four data files created by this plugin at various points. Only one of them is needed at runtime and is placed in your project's Content/Acoustics folder, which is automatically added to your project's packaging path. The other three are inside the Acoustics Data folder and are not packaged.
 
 * **[Project]/Config/ProjectAcoustics.cfg**: This file stores the data you enter in fields in the Acoustics Mode UI. The location and name of this file can't be changed. There are other values stored in this file that affect the bake, but they are for advanced users and should not be changed.
-* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: This file is what is created during the bake simulation, and contains the lookup data used by the runtime to render the acoustics of your scene. The location and name of this file can be changed using the fields on the **Probes** Tab.
+* **[Project]/Content/Acoustics/[LevelName]\_AcousticsData.ace**: This file is what is created during the bake simulation, and contains the lookup data used by the runtime to render the acoustics of your scene. The location and name of this file can be changed using the fields on the **Probes** Tab. If you want to rename this file after it has been created, delete the UAsset from your Unreal project, rename the file outside of Unreal in File Explorer, and then re-import this file into Unreal to produce a new UAsset. Renaming the UAsset by itself will not work.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData.vox**: This file stores the voxelized acoustics geometry and the material properties. Computed using the **Calculate** button on the **Probes** Tab. The location and name of this file can be changed using the fields on the **Probes** Tab.
 * **[Project]/Plugins/ProjectAcoustics/AcousticsData/[LevelName]\_AcousticsData\_config.xml**: This file stores parameters computed using the **Calculate** button on the **Probes** Tab. The location and name of this file can be changed using the fields on the **Probes** Tab.
 

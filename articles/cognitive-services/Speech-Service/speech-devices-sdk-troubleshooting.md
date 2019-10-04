@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot the Speech Devices SDK - Speech Services
+title: Troubleshoot the Speech Devices SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: This article provides information to help you solve issues you might encounter when you use the Speech Devices SDK.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: wellsi
 ---
 # Troubleshoot the Speech Devices SDK

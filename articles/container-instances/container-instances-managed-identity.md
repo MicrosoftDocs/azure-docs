@@ -3,6 +3,7 @@ title: Use a managed identity with Azure Container Instances
 description: Learn how to use a managed identity to authenticate with other Azure services from Azure Container Instances.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -150,7 +151,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 Run the following commands in the bash shell in the container. To get an access token to use Azure Active Directory to authenticate to Key Vault, run the following command:
 
 ```bash
-curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
+curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
 Output:

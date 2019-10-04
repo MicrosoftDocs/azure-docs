@@ -1,12 +1,12 @@
 ---
 title: Analytics for the Commercial Marketplace in Partner Center
 description: Learn how to access analytic reports to monitor sales, evaluate performance, and optimize your marketplace offers.
-author: mattwojo 
+author: chjenk
 manager: evansma
 ms.author: shthota
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 09/09/2019
 ---
 
 # Analytics for the Commercial Marketplace in Partner Center
@@ -21,6 +21,7 @@ To access the Partner Center analytics tools, open the **[Analyze](https://partn
 |[Orders](#orders-dashboard)|Information about your orders in a graphical and downloadable format|
 |[Customers](#customer-dashboard)|Information about your customers, including growth trends, presented in a  graphical and downloadable format|
 |[Downloads](#downloads-dashboard)|A list of your download requests over the last 30 days|
+|[Ratings and reviews](#ratings-and-reviews)| Information about ratings and reviews your customers leave for the offers they've acquired.
 
 ## Summary dashboard
 
@@ -51,11 +52,11 @@ The **Totals** section displays a count of all orders created, or customers acqu
 
 ### Customers by geography
 
-The **Customers by geography** heatmap displays a customer count on a world map. 
+The **Customers by geography** heatmap displays a customer count on a world map.
 
-- You can move the map to view the exact location. 
-- You can zoom into a specific location. 
-- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location. 
+- You can move the map to view the exact location.
+- You can zoom into a specific location.
+- The heatmap has a supplementary grid to view the details of customer count (or [order count](#orders-by-geography)) in the specific location.
 - You can search and select a country in the grid to zoom to the location in the map. Revert to the original view by pressing the **Home** button in the map.
 - A **new** customer has purchased one of your offers for the first time during the month within the selected date range.
 
@@ -117,7 +118,7 @@ The **Orders by geography** heatmap displays a count of your orders on a world m
 
 The **Active orders by offers** donut graph organizes all of your active orders according to their offer names.
 
-- The top 4 offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
+- The top four offers are displayed in the graph and the rest of the offers are grouped as ‘Rest All’.
 - You can select specific offers in the legend to display only those offers in the graph. 
 - Hovering over a slice in the graph will display the number of orders and percentage of that offer compared to your total number of orders across all offers.
 - **Orders by offers trend** displays month-by-month growth trends. The month column represents the number of orders by offer name. The line chart displays the growth percentage trend plotted on a z-axis.
@@ -133,7 +134,7 @@ The **Orders by marketplace license type** chart displays a month-by-month order
 
 - **Billed through Azure**: Microsoft bills customers on your behalf when you choose to [sell your offer through Microsoft](./create-new-saas-offer.md#sell-through-microsoft) with this license type. Payment types include pay-as-you-go via credit card or Enterprise invoicing.
 - **Bring your own license**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Get it now (Free)](./create-new-saas-offer.md#get-it-now-free)** in the marketplace.
-- **Free**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Free trial](./create-new-saas-offer.md#free-trial)** in the marketplace.
+- **Free**: Microsoft does not bill customers for their usage of this type of marketplace offer. Listed as **[Free trial](./create-new-saas-offer.md##free-trial-listing)** in the marketplace.
 - **Microsoft as reseller**: Represents offers sold by Microsoft resellers as a part of the **[Cloud Solution Provider (CSP) program](./create-new-saas-offer.md#csp-program-opt-in)**.
 
 ![Partner Center Analyze orders by license type](./media/analyze-license-type.png)
@@ -280,3 +281,38 @@ You will receive a pop-up notification and email containing a link to the **Down
 | Provider Name| Customer| The name of the provider involved in the relationship between Microsoft and end customer. If the customer is an Enterprise through Reseller, this will be the reseller. If a Cloud Solution Provider (CSP) is involved, this will be the CSP.|
 | SKU| Order| SKU name as defined during publishing. An offer may have many SKUs, but a SKU can only be associated with a single offer.||
 | Trial End Date| Order| The date the trial period for this order will end or has ended.||
+
+## Ratings and reviews
+
+As customers browse, search, and purchase offers in both marketplaces, they can leave ratings and reviews for the offers they've acquired. They're able to submit new ratings or reviews, and update or delete ratings or reviews they've already submitted. Reviews are posted in Azure marketplace or AppSource on the Reviews tab of the offer’s product display page. Customers can include their names for ratings or reviews, or they can post anonymously.  
+
+> [!NOTE]
+> Customers can make changes only to the ratings and reviews they own.
+
+The **Ratings & review dashboard** displays the trends and insights of customer activities. It provides graphical representations of:
+
+- Ratings & reviews  
+- Review comments
+
+### Marketplace storefront tabs
+
+Publishers can view their offer metrics separately in the AppSource & Azure Marketplace tabs. To view specific offer metrics, select **Offer** from the dropdown:
+
+![Partner Center analyze offer dropdown](./media/analyze-offer-dropdown.png)
+
+### Ratings and reviews summary
+
+The ratings & reviews summary section displays the metrics below for a selected date range:
+
+- **Average rating:** Weighted average star rating of all the ratings submitted by customers for the selected offer.
+- **Rating breakdown:** Breakdown of star rating by the count of customers who submitted ratings. The bar chart is stacked with actual and revised ratings (updated rating count).
+- **Total ratings:** Overall count of ratings submitted. This count also includes ratings with and without reviews.
+- **Ratings with reviews:** Count of reviews submitted.
+
+![Partner Center analyze ratings and reviews summary](./media/analyze-ratings-summary.png)
+
+### Review comments
+
+Reviews are displayed in chronological order for when they were posted. The default view displays all reviews. You can filter through the reviews by star rating using the **Filter** in the dropdown menu. You can also search for keywords that appear in the review.  
+
+![Partner Center analyze review comments](./media/analyze-reviews.png)

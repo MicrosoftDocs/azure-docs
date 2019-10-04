@@ -94,7 +94,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 4. Add a new method named `SendMessagesToEventHub` to the `Program` class, as follows:
 
     ```csharp
-    // Creates an event hub client and sends 100 messages to the event hub.
+    // Uses the event hub client to send 100 messages to the event hub.
     private static async Task SendMessagesToEventHub(int numMessagesToSend)
     {
         for (var i = 0; i < numMessagesToSend; i++)
@@ -164,7 +164,7 @@ Add the [`Microsoft.Azure.EventHubs`](https://www.nuget.org/packages/Microsoft.A
 	            Console.ReadLine();
 	        }
 
-	        // Creates an event hub client and sends 100 messages to the event hub.
+	        // Uses the event hub client to send 100 messages to the event hub.
 	        private static async Task SendMessagesToEventHub(int numMessagesToSend)
 	        {
 	            for (var i = 0; i < numMessagesToSend; i++)

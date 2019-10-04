@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 08/08/2019
 ms.author: juliako
 
 ---
@@ -45,15 +45,6 @@ The team also monitors questions tagged on Stack Overflow with 'azure-media-serv
 ## Contact the team
 
 Azure Media Services primary support email is: **amshelp\@microsoft.com**.
-
-The following table lists email of feature sub teams:
-
-| Feature | Email |
-| --- | --- |
-| Azure Media Player |ampinfo@microsoft.com |
-| Azure Media Explorer |amse@microsoft.com |
-| Workflow Designer |mepd@microsoft.com |
-| Live Streaming and Packaging |amslived@microsoft.com |
 
 ## Next steps
 

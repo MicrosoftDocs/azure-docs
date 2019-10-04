@@ -3,13 +3,13 @@ title: Supported languages - Translator Speech API
 titlesuffix: Azure Cognitive Services
 description: View languages supported by the Translator Speech API.
 services: cognitive-services
-author: Jann-Skotdal
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 3/5/2018
-ms.author: v-jansko
+ms.author: nitinme
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Languages supported by the Translator Speech API

@@ -68,20 +68,20 @@ The following are other parameters that can be set on your image definition so t
 
 ## Regional Support
 
-Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://www.microsoft.com/en-au/central-regions-eligibility/
+Source regions are listed in the table below. All public regions can be target regions, but to replicate to Australia Central and Australia Central 2 you need to have your subscription whitelisted. To request whitelisting, go to: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 
 | Source regions |
 |---------------------|-----------------|------------------|-----------------|
-| Australia Central   | Central US EUAP | Korea Central    | UK South 2      |
-| Australia Central 2 | East Asia       | Korea South      | UK West         |
-| Australia East      | East US         | North Central US | West Central US |
-| Australia Southeast | East US 2       | North Europe     | West Europe     |
-| Brazil South        | East US 2 EUAP  | South Central US | West India      |
-| Canada Central      | France Central  | South India      | West US         |
-| Canada East         | France South    | Southeast Asia   | West US         |
-| Central India       | Japan East      | UK North         | West US 2       |
-| Central US          | Japan West      | UK South         |                 |
+| Australia Central   | Central US EUAP | Korea Central    | West Central US |
+| Australia Central 2 | East Asia       | Korea South      | West Europe     |
+| Australia East      | East US         | North Central US | West India      |
+| Australia Southeast | East US 2       | North Europe     | West US         |
+| Brazil South        | East US 2 EUAP  | South Central US | West US 2       |
+| Canada Central      | France Central  | South India      | China East      |
+| Canada East         | France South    | Southeast Asia   | China East 2    |
+| Central India       | Japan East      | UK South         | China North     |
+| Central US          | Japan West      | UK West          | China North 2   |
 
 
 
@@ -101,8 +101,8 @@ Shared Image Gallery allows you to specify the number of replicas you want Azure
 
 With Shared Image Gallery, you can now deploy up to a 1,000 VM instances in a virtual machine scale set (up from 600 with managed images). Image replicas provide for better deployment performance, reliability and consistency.  You can set a different replica count in each target region, based on the scale needs for the region. Since each replica is a deep copy of your image, this helps scale your deployments linearly with each extra replica. While we understand no two images or regions are the same, here’s our general guideline on how to use replicas in a region:
 
-- For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
-- For every scale set deployment with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating 5 scale sets concurrently, each with 600 VM instances using the same image in a single region, we suggest you keep at least 5 replicas of your image. 
+- For non-Virtual Machine Scale Set (VMSS) Deployments - For every 20 VMs that you create concurrently, we recommend you keep one replica. For example, if you are creating 120 VMs concurrently using the same image in a region, we suggest you keep at least 6 replicas of your image. 
+- For Virtual Machine Scale Set (VMSS) deployments - For every scale set deployment with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating 5 scale sets concurrently, each with 600 VM instances using the same image in a single region, we suggest you keep at least 5 replicas of your image. 
 
 We always recommend you to overprovision the number of replicas due to factors like image size, content and OS type.
 
@@ -115,7 +115,7 @@ We always recommend you to overprovision the number of replicas due to factors l
 
 [Azure Zone Redundant Storage (ZRS)](https://azure.microsoft.com/blog/azure-zone-redundant-storage-in-public-preview/) provides resilience against an Availability Zone failure in the region. With the general availability of Shared Image Gallery, you can choose to store your images in ZRS accounts in regions with Availability Zones. 
 
-You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-zrs).
+You can also choose the account type for each of the target regions. The default storage account type is Standard_LRS, but you can choose Standard_ZRS for regions with Availability Zones. Check the regional availability of ZRS [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs).
 
 ![Graphic showing ZRS](./media/shared-image-galleries/zrs.png)
 
@@ -174,7 +174,7 @@ The following SDKs support creating Shared Image Galleries:
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
 - [Node.js](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
-- [Go](https://docs.microsoft.com/go/azure/)
+- [Go](https://docs.microsoft.com/azure/go/)
 
 ## Templates
 

@@ -31,6 +31,8 @@
             href: sdk-csharp-quick-start.md
           - name: Using Python
             href: sdk-python-quickstart.md
+          - name: Using Java
+            href: sdk-java-quickstart.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
@@ -56,19 +58,21 @@
     - name: Configure a custom autosuggest experience
       href: define-custom-suggestions.md
     - name: Handle hit highlighting
-      href: hit-highlighting.md
-    - name: Page through webpages
-      href: page-webpages.md
+      href: ../Bing-Web-Search/hit-highlighting.md
+      maintainContext: true
+    - name: Page through search results
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Reference
   items:
     - name: Bing Custom Autosuggest API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
     - name: Bing Custom Image Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
     - name: Bing Custom Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
     - name: Bing Custom Video Search API Reference
-      href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference
+      href: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
     - name: Bing Search API use and display requirements
       href: ../Bing-Web-Search/use-display-requirements.md
       maintainContext: true
@@ -77,9 +81,9 @@
       - name: .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
       - name: Java - Custom Search
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable
+        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
       - name: Java - Custom Image Search
-        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable
+        href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
       - name: Python
         href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
       - name: Node.js

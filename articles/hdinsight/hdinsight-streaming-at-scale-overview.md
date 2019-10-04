@@ -1,22 +1,22 @@
 ---
 title: Streaming at scale in Azure HDInsight
-description: How to use data streaming with scalable HDInsight clusters.
+description: How to use data streaming with scalable Apache clusters in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ---
+
 # Streaming at scale in HDInsight
 
 Real-time big data solutions  act on data that is in motion. Typically, this data is most valuable at its time of arrival. If the incoming data stream becomes greater than can be handled at that moment, you may need to throttle down resources. Alternatively, an HDInsight cluster can   scale up to meet your streaming solution by adding nodes on demand.
 
-
 In a streaming application, one or more data sources are generating events (sometimes in the millions per second) that need to be ingested  quickly  without dropping any useful information. The incoming events are handled with *stream buffering*, also called *event queuing*, by a service such as [Apache Kafka](kafka/apache-kafka-introduction.md) or [Event Hubs](https://azure.microsoft.com/services/event-hubs/). After you collect the events, you can then analyze the data using a real-time analytics system within the *stream processing* layer, such as [Apache Storm](storm/apache-storm-overview.md) or [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). The processed data can be stored in long-term storage systems, like [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), and displayed in real time on a business intelligence dashboard, such as [Power BI](https://powerbi.microsoft.com), Tableau, or a custom web page.
 
-
-![HDInsight Streaming Patterns](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
+![Azure HDInsight Streaming Patterns](./media/hdinsight-streaming-at-scale-overview/HDInsight-streaming-patterns.png)
 
 ## Apache Kafka
 
@@ -58,7 +58,7 @@ These three  parameters can be configured at the cluster level, for all applicat
 
 ## Next steps
 
-* [Get started with Apache Storm on HDInsight](storm/apache-storm-tutorial-get-started-linux.md)
+* [Create and monitor an Apache Storm topology in Azure HDInsight](storm/apache-storm-quickstart.md)
 * [Example topologies for Apache Storm on HDInsight](storm/apache-storm-example-topology.md)
 * [Introduction to Apache Spark on HDInsight](spark/apache-spark-overview.md)
 * [Start with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
