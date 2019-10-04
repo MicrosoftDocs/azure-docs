@@ -60,33 +60,33 @@ The machine level performance data that we collect is the same, is of a similar 
 
 That is fine.  You will see prompts in the Azure portal when viewing Azure Monitor for VMs about the upcoming update. Once released, you receive a prompt requesting you update to the new version. If you prefer to only use the [Maps](vminsights-maps.md) feature, then you can choose not to upgrade and continue to use the Maps feature Azure Monitor for VMs and the Service Map solution accessed from your workspace or dashboard tile.
 
-If you manually enabled the performance counters in your workspace, then you may be able to see data in some of our Performance charts viewed from Azure Monitor. Once the new solution is released we will update our performance charts to query the data stored in the `InsightsMetrics` table.  If you would like to see data in these charts, you will need to upgrade to the new version of Azure Monitor for VMs.
+If you chose to manually enable the performance counters in your workspace, then you may be able to see data in some of our performance charts viewed from Azure Monitor. Once the new solution is released we will update our performance charts to query the data stored in the `InsightsMetrics` table. If you would like to see data from that table in these charts, you will need to upgrade to the new version of Azure Monitor for VMs.
 
-The changes to move data from `ServiceMapComputer_CL` and `ServiceMapProcess_CL` will affect both Service Map and Azure Monitor for VMs, so you will still need to plan for this update.
+The changes to move data from `ServiceMapComputer_CL` and `ServiceMapProcess_CL` will affect both Service Map and Azure Monitor for VMs, so you still need to plan for this update.
 
-We will include legacy versions of our performance workbooks that will refer to data in the `Perf` table that you can use if you choose to keep data in the `Perf` table.  
+If you chose to not upgrade to the **VMInsights** solution, we will continue to provide legacy versions of our performance workbooks that refer to data in the `Perf` table.  
 
 ## Will the Service Map data sets also be stored in InsightsMetrics?
 
-The data sets will not be duplicated if you use both solutions. Both offerings share the data sets that will be stored in VMComputer (formerly ServiceMapComputer_CL), VMProcess (formerly ServiceMapProcess_CL), VMConnection, and VMBoundPort to store the map data sets that we collect.  
+The data sets will not be duplicated if you use both solutions. Both offerings share the data sets that will be stored in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort` tables to store the map data sets that we collect.  
 
-The InsightsMetrics table will be used to store VM, process, and service data sets that we collect and will only be populated if you are using Azure Monitor for VMs.
+The `InsightsMetrics` table will be used to store VM, process, and service data sets that we collect and will only be populated if you are using Azure Monitor for VMs.
 
 ## Will I be double charged if I have the Service Map and VMInsights solutions on my workspace?
 
-No, the 2 solutions share the map data sets that we store in VMComputer (formerly ServiceMapComputer_CL), VMProcess (formerly ServiceMapProcess_CL), VMConnection, and VMBoundPort.  You will not be double charged for this data if you have both solutions on your workspace.
+No, the two solutions share the map data sets that we store in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort`.  You will not be double charged for this data if you have both solutions in your workspace.
 
 ## If I remove either the Service Map or VMInsights solution will it remove my data in Log Analytics?
 
-No, the 2 solutions share the map data sets that we store in VMComputer (formerly ServiceMapComputer_CL), VMProcess (formerly ServiceMapProcess_CL), VMConnection, and VMBoundPort.  If you remove one of the solutions these data sets will notice that there is still a solution in place that uses the data and it will remain in Log Analytics.  You will need to remove both solutions from your workspace for the data to be removed from Log Analytics.
+No, the two solutions share the map data sets that we store in `VMComputer` (formerly ServiceMapComputer_CL), `VMProcess` (formerly ServiceMapProcess_CL), `VMConnection`, and `VMBoundPort`.  If you remove one of the solutions, these data sets notice that there is still a solution in place that uses the data and it remains in Log Analytics.  You need to remove both solutions from your workspace for the data to be removed from your Log Analytics workspace.
 
 ## When will this update be released?
 
-We expect to release the update for Azure Monitor for VMs in mid November.  As we get closer to the release date we will post updates here and via notifications in the portal when you visit our UI under Azure Monitor.
+We expect to release the update for Azure Monitor for VMs in mid-November. As we get closer to the release date we'll post updates here and present notifications in the Azure portal when you navigate to Azure Monitor.
 
 # Health feature to enter limited public preview
 
-We have received a lot of great feedback from customers about our VM health feature set.  There is a lot of interest around this feature and excitement over its potential for supporting monitoring workflows.  We are planning to make a series of changes to add functionality and address the feedback we have received. To minimize impact of these changes on new customers, we are moving this feature into a limited public preview.
+We have received a lot of great feedback from customers about our VM Health feature set.  There is a lot of interest around this feature and excitement over its potential for supporting monitoring workflows. We are planning to make a series of changes to add functionality and address the feedback we have received. To minimize impact of these changes to new customers, we are moving this feature into a limited public preview.
 
 This transition will begin in early October and should be completed by the end of the month.
 
@@ -100,14 +100,14 @@ Some of the areas we will be focusing on:
 
 ## How do existing customers access the Health feature?
 
-Existing customers that are using the health feature will continue to have access to it, but we will not offer it to new customers.  
+Existing customers that are using the Health feature will continue to have access to it, but it will not be offered to new customers.  
 
-To access the feature, you can add the following feature flag to your https://portal.azure.com URL “feature.vmhealth=true”. Example https://portal.azure.com/?feature.vmhealth=true
+To access the feature, you can add the following feature flag `feature.vmhealth=true` to the portal URL [https://portal.azure.com](https://portal.azure.com). Example `https://portal.azure.com/?feature.vmhealth=true`.
 
-You can also use this short url, which will set the feature flag automatically: https://aka.ms/vmhealthpreview
+You can also use this short url, which sets the feature flag automatically: [https://aka.ms/vmhealthpreview](https://aka.ms/vmhealthpreview).
 
-As an existing customer, you can continue to use the health feature on VMs that are connected to an existing workspace setup with the health functionality.  
+As an existing customer, you can continue to use the Health feature on VMs that are connected to an existing workspace setup with the health functionality.  
 
-## I use VM health now with one environment and would like to deploy it for a new environment
+## I use VM Health now with one environment and would like to deploy it for a new environment
 
 If you are an existing customer that is using Health and want to use it for a new roll-out, please contact us at vminsights@microsoft.com to request instructions.
