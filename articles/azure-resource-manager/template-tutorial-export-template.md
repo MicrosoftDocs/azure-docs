@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Export template from the Azure portal
+title: Tutorial - Export Azure Resource Manager template from the Azure portal
 description: Learn how to use an exported template to complete your template development.
 services: azure-resource-manager
 author: mumian

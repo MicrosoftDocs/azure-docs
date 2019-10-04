@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Add a resource to your Resource Manager template
+title: Tutorial - Add a resource to Azure Resource Manager template
 description: Describes the steps to create your first Azure Resource Manager template. You learn about the template file syntax and how to deploy a storage account.
 author: mumian
 manager: carmonmills
