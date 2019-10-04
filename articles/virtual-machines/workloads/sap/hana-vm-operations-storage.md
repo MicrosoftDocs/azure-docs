@@ -14,7 +14,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/15/2019
+ms.date: 10/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
