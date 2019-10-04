@@ -213,7 +213,7 @@ In this configuration, you the /hana/data and /hana/log volumes on the same disk
 | M208s_v2 | 2850 GiB | 1,000 MB/s | 4,000 GB | 900 MBps | 10,000 |  
 | M208ms_v2 | 5700 GiB | 1,000 MB/s | 7,700 GB | 900 MBps | 10,000 | 
 | M416s_v2 | 5700 GiB | 2,000 MB/s | 7,700 GB | 1,800MBps | 12,000 |  
-| M416ms_v2 | 11400 GiB | 2,000 MB/s | 15,000 GB | 1800 MBps | 12,000 |    
+| M416ms_v2 | 11400 GiB | 2,000 MB/s | 15,000 GB | 1,800 MBps | 12,000 |    
 
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
