@@ -34,7 +34,7 @@ You can have a master server in any [Azure Database for MySQL region](https://az
 [ ![Read replica regions](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### Universal replica regions
-You can always create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
+You can create a read replica in any of the following regions, regardless of where your master server is located. The supported universal replica regions include:
 
 Australia East, Australia Southeast, Central US, East Asia, East US, East US 2, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, UK South, UK West, West Europe, West US, West US 2.
 
