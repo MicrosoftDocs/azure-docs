@@ -28,7 +28,7 @@ Your offer must also use the SaaS fulfillment APIs to integrate with Commercial 
 
 ## Testing your SaaS offer
 
-You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you publish your offer as a private plan, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
+You can submit your SaaS offer as a private plan - this will make your offer private and visible only to the restricted audience of your choosing. After you test and get feedback, you can update the audience or choose to make the plan available to everyone. When a plan is published as visible to everyone, it must remain visible to everyone - you can't configure it to be a private plan again.
 
 ## Submission process for SaaS offer + add-in
 You should submit your add-in first, with test accounts (admin + non-admin). After your add-in has been approved, you can then submit your SaaS offer. 
