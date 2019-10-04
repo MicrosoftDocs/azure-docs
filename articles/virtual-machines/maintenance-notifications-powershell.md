@@ -12,7 +12,7 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 10/04/2019
 ms.author: shants
 ---
 
@@ -112,4 +112,4 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 ## Next steps
 
-Learn how you can register for maintenance events from within the VM using [Scheduled Events](scheduled-events.md).
+Learn how you can register for maintenance events from within the VM using [Scheduled Events](./windows/scheduled-events.md).
