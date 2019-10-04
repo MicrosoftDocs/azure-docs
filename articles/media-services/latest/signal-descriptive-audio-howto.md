@@ -89,23 +89,48 @@ Edit the .ism file by adding the information about the uploaded audio-only MP4 f
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
-<smil xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.w3.org/2001/SMIL20/Language">
-    <head>
-    <meta name="formats" content="mp4" />
-    </head>
-    <body>
+<smil xmlns="http://www.w3.org/2001/SMIL20/Language">
+  <head>
+    <meta name="clientManifestRelativePath" content="ignite.ismc" />
+    <meta name="formats" content="mp4-v2" />
+  </head>
+  <body>
     <switch>
-        <video src="movie_848x480.mp4" systemBitrate="2270000">
-        <param name="trackName" value="video" />
-        </video>
-        <audio src="Eng_194kbps.m4a" systemBitrate="194000" systemLanguage="eng">
-        <param name="trackName" value="aac_eng_audio_description" />
+      <audio src="ignite_320x180_AACAudio_380.m4a" systemBitrate="128041" systemLanguage="eng">
+        <param name="systemBitrate" value="128041" valuetype="data" />
+        <param name="trackID" value="2" valuetype="data" />
+        <param name="trackName" value="aac_eng_2_128041_2_1" valuetype="data" />
+        <param name="systemLanguage" value="eng" valuetype="data" />
         <param name="accessibility" value="description" />
-        <param name="role" value="alternate" />
-        </audio>
-...
+        <param name="role" value="alternate" />       
+      </audio>
+      <video src="ignite_1280x720_AACAudio_3550.mp4" systemBitrate="3550351">
+        <param name="systemBitrate" value="3550351" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+      </video>
+      <video src="ignite_960x540_AACAudio_2218.mp4" systemBitrate="2218278">
+        <param name="systemBitrate" value="2218278" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+      </video>
+      <video src="ignite_640x360_AACAudio_1153.mp4" systemBitrate="1153568">
+        <param name="systemBitrate" value="1153568" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+      </video>
+      <video src="ignite_480x270_AACAudio_722.mp4" systemBitrate="722654">
+        <param name="systemBitrate" value="722654" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+      </video>
+      <video src="ignite_320x180_AACAudio_380.mp4" systemBitrate="380850">
+        <param name="systemBitrate" value="380850" valuetype="data" />
+        <param name="trackID" value="1" valuetype="data" />
+        <param name="trackName" value="video" valuetype="data" />
+      </video>
     </switch>
-    </body>
+  </body>
 </smil>
 ```
 
