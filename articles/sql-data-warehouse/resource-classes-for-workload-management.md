@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 06/20/2019
+ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ---
@@ -15,17 +15,6 @@ ms.reviewer: jrasnick
 # Workload management with resource classes in Azure SQL Data Warehouse
 
 Guidance for using resource classes to manage memory and concurrency for queries in your Azure SQL Data Warehouse.  
-
-## What is workload management
-
-Workload management provides you the ability to optimize the overall performance of all queries. A well-tuned workload runs queries and load operations efficiently, whether they are compute-intensive or IO-intensive. SQL Data Warehouse provides workload management capabilities for multi-user environments. A data warehouse is not intended for multi-tenant workloads.
-
-The performance capacity of a data warehouse is determined by the [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md).
-
-- To view the memory and concurrency limits for all the performance profiles, see [Memory and concurrency limits](memory-and-concurrency-limits.md).
-- To adjust performance capacity, you can [scale up or down](quickstart-scale-compute-portal.md).
-
-The performance capacity of a query is determined by the query's resource class. The remainder of this article explains what resource classes are and how to adjust them.
 
 ## What are resource classes
 
