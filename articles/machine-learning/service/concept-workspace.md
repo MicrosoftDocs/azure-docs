@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/06/2019
+ms.date: 10/04/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -31,10 +31,7 @@ The diagram shows the following components of a workspace:
 + [User roles](how-to-assign-roles.md) enable you to share your workspace with other users, teams or projects.
 + [Compute targets](concept-azure-machine-learning-architecture.md#compute-targets) are used to run your experiments.
 + When you create the workspace, [associated resources](#resources) are also created for you.
-+ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  You can create and run experiments with
-    + The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-    + The [automated machine learning experiments (preview)](how-to-create-portal-experiments.md) section in the Azure portal or your workspace landing page (preview).
-    + The [designer](ui-concept-visual-interface.md).
++ [Experiments](concept-azure-machine-learning-architecture.md#experiments) are training runs you use to build your models.  
 + [Pipelines](concept-azure-machine-learning-architecture.md#ml-pipelines) are reusable workflows for training and retraining your model.
 + [Datasets](concept-azure-machine-learning-architecture.md#datasets-and-datastores) aid in management of the data you use for model training and pipeline creation.
 + Once you have a model you want to deploy, you create a registered model.
@@ -45,15 +42,15 @@ The diagram shows the following components of a workspace:
 You can interact with your workspace in the following ways:
 
 + On the web:
-    + [Azure Machine Learning studio ](https://ml.azure.com)
-    + [Azure Machine Learning designer](ui-concept-visual-interface.md)
+    + [Azure Machine Learning studio ](https://ml.azure.com) 
+    + [Azure Machine Learning designer](ui-concept-visual-interface.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
 
 ## Machine learning with a workspace
 
-Machine learning tasks read and/or write artifacts to your workspace. 
+Machine learning tasks read and/or write artifacts to your workspace.
 
 + Run an experiment to train a model - writes experiment run results to the workspace.
 + Use automated ML to train a model - writes training results to the workspace.
@@ -67,7 +64,7 @@ Machine learning tasks read and/or write artifacts to your workspace.
 
 You can also perform the following workspace management tasks:
 
-| Workspace management task   | Portal              | SDK        | CLI        |
+| Workspace management task   | Portal              | Python SDK / R SDK       | CLI        |
 |---------------------------|------------------|------------|------------|
 | Create a workspace        | **&check;**     | **&check;** | **&check;** |
 | Create and manage compute resources    | **&check;**   | **&check;** |  **&check;**   |
@@ -76,7 +73,7 @@ You can also perform the following workspace management tasks:
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you pick its [SKU](overview-what-is-azure-ml.md#sku). The SKU determines the [features available in the workspace]().  
+When you create a workspace, you decide whether to create it with [Basic or Enterprise SKU](overview-what-is-azure-ml.md#sku). The SKU determines the features available in the workspace. Among other features, Enterprise SKU gives you access to [Azure Machine Learning designer](ui-concept-visual-interface.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 
@@ -87,13 +84,13 @@ There are multiple ways to create a workspace:
 
 ## <a name="upgrade"></a> Upgrade to Enterprise SKU
 
-You can upgrade your workspace from a Basic SKU to the Enterprise SKU.  
+You can upgrade your workspace from Basic SKU to Enterprise SKU.  
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 
 1. Select the workspace that you wish to upgrade.
 
-1.  Select **Upgrade**.
+1. Select **Upgrade**.
 
 > [!IMPORTANT]
 > You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  

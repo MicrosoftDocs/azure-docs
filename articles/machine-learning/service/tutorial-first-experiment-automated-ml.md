@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 09/26/2019
+ms.date: 10/04/2019
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -40,7 +40,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 You create a workspace via the Azure Machine Learning studio, a web-based console for managing your Azure resources. 
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Take note of your **workspace** and **subscription**. You'll need these to ensure you create your experiment in the right place. 
