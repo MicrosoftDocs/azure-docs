@@ -9,7 +9,7 @@ ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Custom rules for web application firewall v2
+# Overview: Custom rules for web application firewall v2
 
 Azure Application Gateway web application firewall (WAF) v2 comes with a pre-configured, platform-managed rule set that offers protection from many different types of attacks. These attacks include cross-site scripting, SQL injection, and others. If you're a WAF admin, you might want to write your own rules to augment the core rule set rules. Your rules can either block or allow requested traffic based on matching criteria.
 
@@ -92,12 +92,17 @@ This is the name of the rule. The name appears in the logs.
 ### Priority (required)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 - The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule.
 - The priority must be unique among all the custom rules. A rule with priority of 100 is evaluated before a rule with priority of 200.
 =======
 - Determines the order that rules are evaluated in. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1-100. 
 - Must be unique amongst all custom rules. A rule with priority 40 will be evaluated before a rule with priority 80.
 >>>>>>> e2e4391e26250b1c4ffc7db2ebec26987b71b639
+=======
+- The priority determines the order in which the rules are evaluated. The lower the value, the earlier the evaluation of the rule. The allowable range is from 1 to 100.
+- The priority must be unique among all custom rules. A rule with a priority of 40 is evaluated before a rule with a priority of 80.
+>>>>>>> 4081f19e3bb2d431462bf25adb1774dfd6b349ae
 
 ### Rule type (required)
 
@@ -124,8 +129,8 @@ The selector describes the field of the matchVariable collection. For example, i
 
 The operator must be one of the following:
 
-- IPMatch: Used only when the match variable is *RemoteAddr*
-- Equals: Input is the same as the MatchValue
+- IPMatch: This operator is used only when the match variable is *RemoteAddr*.
+- Equals: The input is the same as the MatchValue.
 - Contains
 - LessThan
 - GreaterThan
