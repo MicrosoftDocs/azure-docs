@@ -6,9 +6,9 @@ description: Add facet navigation to applications that integrate with Azure Cogn
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # How to implement faceted navigation in Azure Cognitive Search
 

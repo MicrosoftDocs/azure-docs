@@ -6,9 +6,9 @@ description: Extract a positive-negative sentiment score from text in an enrichm
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Sentiment cognitive skill

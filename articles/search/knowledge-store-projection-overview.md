@@ -6,9 +6,9 @@ description: Save and shape your enriched data from the AI enrichment indexing p
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Working with projections in a knowledge store in Azure Cognitive Search

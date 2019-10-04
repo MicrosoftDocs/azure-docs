@@ -6,9 +6,9 @@ description: Define data extraction, natural language processing, or image analy
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to create a skillset in a Cognitive Search enrichment pipeline

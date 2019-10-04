@@ -6,9 +6,9 @@ description: Azure Cognitive Search supports 56 languages, leveraging language a
 manager: nitinme
 author: yahnoosh
 ms.author: jlembicz
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to create an index for multiple languages in Azure Cognitive Search

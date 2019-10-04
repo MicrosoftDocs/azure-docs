@@ -6,9 +6,9 @@ description: Configure text tokenizers and character filters used in Azure Cogni
 manager: nitinme
 author: Yahnoosh
 ms.author: jlembicz
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"

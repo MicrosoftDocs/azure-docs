@@ -7,9 +7,9 @@ manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.devlang: rest-api
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Indexing blobs producing multiple search documents in Azure Cognitive Search

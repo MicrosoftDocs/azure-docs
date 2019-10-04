@@ -6,10 +6,10 @@ description: Migrate code to the Azure Cognitive Search .NET SDK version 10 from
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
-ms.service: cognitive-search
+ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Upgrade to Azure Cognitive Search .NET SDK version 10

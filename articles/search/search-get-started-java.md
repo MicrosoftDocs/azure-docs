@@ -7,9 +7,9 @@ manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.devlang: java
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search index in Java using REST APIs
 > [!div class="op_single_selector"]

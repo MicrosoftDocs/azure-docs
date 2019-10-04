@@ -6,9 +6,9 @@ description: Service limits used for capacity planning and maximum limits on req
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Service limits in Azure Cognitive Search

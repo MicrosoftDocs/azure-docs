@@ -6,9 +6,9 @@ description: This article provides information and solutions to common errors an
 manager: nitinme
 author: amotley
 ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search

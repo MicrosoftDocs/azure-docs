@@ -7,9 +7,9 @@ manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.devlang: dotnet
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # How to use Azure Cognitive Search from a .NET Application
 

@@ -6,9 +6,9 @@ description: Evaluates text and, for each record, returns text translated to the
 manager: nitinme
 author: careyjmac
 ms.author: chalton
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 #	Text Translation cognitive skill

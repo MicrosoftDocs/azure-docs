@@ -6,9 +6,9 @@ description: Extract and enrich source data fields, and map to output fields in 
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to map enriched fields to a searchable index

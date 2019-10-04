@@ -6,9 +6,9 @@ description: Data extraction, natural language, image processing cognitive skill
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Predefined skills for content enrichment (Azure Cognitive Search)
 

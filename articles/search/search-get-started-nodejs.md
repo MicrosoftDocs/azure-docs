@@ -7,9 +7,9 @@ author: lobrien
 manager: nitinme
 ms.author: laobri
 ms.devlang: nodejs
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs
 > [!div class="op_single_selector"]

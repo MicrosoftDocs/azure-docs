@@ -6,9 +6,9 @@ description: Use optimistic concurrency to avoid mid-air collisions on updates o
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # How to manage concurrency in Azure Cognitive Search
 

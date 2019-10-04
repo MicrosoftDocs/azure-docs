@@ -6,9 +6,9 @@ description: Enable type-ahead query actions in Azure Cognitive Search by creati
 manager: nitinme
 author: Brjohnstmsft
 ms.author: brjohnst
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"

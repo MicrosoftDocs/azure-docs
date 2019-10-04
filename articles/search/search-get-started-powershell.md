@@ -6,10 +6,10 @@ description: Explains how to create an index, load data, and run queries using P
 manager: nitinme
 author: heidisteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search index in PowerShell using REST APIs
 > [!div class="op_single_selector"]

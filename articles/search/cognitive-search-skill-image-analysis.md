@@ -6,9 +6,9 @@ description: Extract semantic text through image analysis using the Image Analys
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Image Analysis cognitive skill
 

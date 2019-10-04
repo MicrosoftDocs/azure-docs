@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Search
 description: Learn how to model relational data, transforming it into a flattened data set, for indexing and full text search in Azure Search.
 author: HeidiSteen
 manager: nitinme
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: heidist

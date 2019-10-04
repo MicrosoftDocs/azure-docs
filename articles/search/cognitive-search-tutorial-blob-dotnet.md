@@ -6,9 +6,9 @@ description: Step through an example of data extraction, natural language, and i
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # C# Tutorial: Call Cognitive Services APIs in an Azure Cognitive Search indexing pipeline

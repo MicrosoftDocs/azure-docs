@@ -6,9 +6,9 @@ description: Review differences in API versions and learn which actions are requ
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Upgrade to the latest Azure Cognitive Search service REST API version

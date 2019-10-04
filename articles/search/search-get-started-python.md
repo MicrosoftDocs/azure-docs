@@ -6,10 +6,10 @@ description: Explains how to create an index, load data, and run queries using P
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks

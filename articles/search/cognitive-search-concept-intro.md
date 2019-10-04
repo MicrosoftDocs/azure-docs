@@ -6,9 +6,9 @@ description: Content extraction, natural language processing (NLP) and image pro
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # What is AI enrichment Azure Cognitive Search?
 

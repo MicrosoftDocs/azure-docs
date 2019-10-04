@@ -6,9 +6,9 @@ description: Instructions for attaching a Cognitive Services all-in-one subscrip
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Attach a Cognitive Services resource to a skillset in Azure Cognitive Search 
 

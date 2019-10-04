@@ -6,9 +6,9 @@ description: Connect an Azure Cognitive Search knowledge store with Power BI for
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
-ms.service: cognitive-search
+ms.service: search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Connect a knowledge store with Power BI

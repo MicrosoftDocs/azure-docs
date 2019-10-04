@@ -6,9 +6,9 @@ description: Search explorer is built into the Azure portal, useful for explorin
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Use Search explorer in the Azure portal for querying documents in Azure Cognitive Search 

@@ -7,9 +7,9 @@ manager: nitinme
 author: mgottein 
 ms.author: magottei
 ms.devlang: rest-api
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to index CSV blobs using a Blob indexer in Azure Cognitive Search 

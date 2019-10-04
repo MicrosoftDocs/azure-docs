@@ -6,9 +6,9 @@ description: Create an Azure Cognitive Search knowledge store for persisting enr
 author: lobrien
 manager: nitinme
 ms.author: laobri
-ms.service: cognitive-search
+ms.service: search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Create an Azure Cognitive Search knowledge store using REST

@@ -6,10 +6,10 @@ description: Step through an example of data extraction, natural language, and i
 manager: nitinme
 author: LisaLeib
 ms.author: v-lilei
-ms.service: cognitive-search
+ms.service: search
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Python Tutorial: Call Cognitive Services APIs in an Azure Cognitive Search enrichment pipeline

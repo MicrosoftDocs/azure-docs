@@ -6,9 +6,9 @@ description: Strategies for large data indexing or computationally intensive ind
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to index large data sets in Azure Cognitive Search

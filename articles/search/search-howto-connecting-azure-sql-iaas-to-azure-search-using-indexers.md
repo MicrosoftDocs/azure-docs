@@ -6,9 +6,9 @@ description: Enable encrypted connections and configure the firewall to allow co
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Configure a connection from an Azure Cognitive Search indexer to SQL Server on an Azure VM

@@ -6,9 +6,9 @@ description: Reference for the full Lucene syntax, as used with Azure Cognitive 
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"

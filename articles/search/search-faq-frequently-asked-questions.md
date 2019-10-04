@@ -6,9 +6,9 @@ description: Get answers to common questions about Microsoft Azure Cognitive Sea
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Azure Cognitive Search - frequently asked questions (FAQ)

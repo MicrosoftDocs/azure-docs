@@ -6,9 +6,9 @@ description: An annotated list of articles, tutorials, samples, and blog posts r
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Documentation resources for AI enrichment in Cognitive Search
 

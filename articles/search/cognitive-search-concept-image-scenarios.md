@@ -6,9 +6,9 @@ description: Process and extract text and other information from images in Azure
 manager: nitinme
 author: LuisCabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 #  How to process and extract information from images in cognitive search scenarios
 

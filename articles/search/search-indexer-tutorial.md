@@ -6,9 +6,9 @@ description: C# code example showing how to connect to Azure SQL database, extra
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 

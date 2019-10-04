@@ -6,10 +6,10 @@ description: Upgrade to the Azure Cognitive Search .NET Management SDK version 2
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.service: cognitive-search
+ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Upgrading versions of the Azure Cognitive Search .NET Management SDK

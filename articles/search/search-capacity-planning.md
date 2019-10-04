@@ -6,9 +6,9 @@ description: Adjust partition and replica computer resources in Azure Cognitive 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Scale up partitions and replicas to add capacity for query and index workloads in Azure Cognitive Search

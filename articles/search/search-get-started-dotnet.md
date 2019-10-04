@@ -6,10 +6,10 @@ description: Explains how to create an index, load data, and run queries using C
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 
 ---
 # Quickstart: Create an Azure Cognitive Search index in C# using the .NET SDK

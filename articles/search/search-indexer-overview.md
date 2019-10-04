@@ -6,9 +6,9 @@ description: Crawl Azure SQL database, Azure Cosmos DB, or Azure storage to extr
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Indexers in Azure Cognitive Search

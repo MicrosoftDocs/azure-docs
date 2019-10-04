@@ -6,9 +6,9 @@ description: Provision an AzureCognitive  Search resource in the Azure portal. C
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Quickstart: Create an Azure Cognitive Search service in the portal

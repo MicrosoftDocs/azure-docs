@@ -6,9 +6,9 @@ description: View and analyze an Azure Cognitive Search knowledge store with the
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: cognitive-search
+ms.service: search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # View a knowledge store with Storage Explorer

@@ -7,9 +7,9 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.devlang: rest-api
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to monitor Azure Cognitive Search indexer status and results

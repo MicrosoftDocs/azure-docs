@@ -6,9 +6,9 @@ description: Filter criteria to support multi-language search, scoping query exe
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to filter by language in Azure Cognitive Search 

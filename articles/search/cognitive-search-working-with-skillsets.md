@@ -6,9 +6,9 @@ description: Skillsets are where you author an AI enrichment pipeline in Azure C
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Working with skillsets in Azure Cognitive Search

@@ -6,9 +6,9 @@ description: Extend capabilities of Cognitive Search skillsets by calling out to
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # Custom Web API skill in a Cognitive Search enrichment pipeline

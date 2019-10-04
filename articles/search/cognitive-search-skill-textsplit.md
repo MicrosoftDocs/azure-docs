@@ -6,9 +6,9 @@ description: Break text into chunks or pages of text based on length in an enric
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Text split cognitive skill
 

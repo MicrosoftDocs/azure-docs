@@ -6,9 +6,9 @@ description: Extract different types of entities from text in an enrichment pipe
 manager: nitinme
 author: luiscabrer
 ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 #	Entity Recognition cognitive skill

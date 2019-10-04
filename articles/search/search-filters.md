@@ -6,9 +6,9 @@ description: Filter by user security identity, language, geo-location, or numeri
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # Filters in Azure Cognitive Search 
 

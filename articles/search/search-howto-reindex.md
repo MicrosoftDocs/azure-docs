@@ -6,9 +6,9 @@ description: Add new elements, update existing elements or documents, or delete 
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # How to rebuild an Azure Cognitive Search index

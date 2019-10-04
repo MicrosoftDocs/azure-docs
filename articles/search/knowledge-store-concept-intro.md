@@ -6,9 +6,9 @@ description: Send enriched documents to Azure storage where you can view, reshap
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 # What is knowledge store in Azure Cognitive Search?

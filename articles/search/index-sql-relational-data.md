@@ -6,9 +6,9 @@ description: Learn how to model relational data, de-normalized into a flat resul
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-ms.service: cognitive-search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 # How to model relational SQL data for import and indexing in Azure Cognitive Search
 
