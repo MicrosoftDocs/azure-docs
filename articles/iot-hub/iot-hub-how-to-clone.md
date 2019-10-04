@@ -390,6 +390,10 @@ At this point, you have copied your hub to the new regions, and migrated the dev
 
 If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration. However, it does not export resources used for the routing. For example, you can set up routing on your hub to send all messages containing the string *critical* to Azure Storage. When you export that hub to a template, it includes the routing configuration required to send messages meeting that condition to a storage account. However, it does not create the storage account, so the routing fails. 
 
+> [!NOTE]
+> If your hub uses [message enhancements](iot-hub-message-enhancements-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
+> 
+
 ### Migrate the routing resources
 
 In these steps, you export the template for the hub, then create resources used by the routing, the use the template for the hub to create the hub. You can create the routing resources using the Azure portal]*(https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
