@@ -41,7 +41,7 @@ steps:
       # deploy other app
 ```
 
-### Deploy from Source
+### Deploy from source
 It is possible to deploy directly to Azure without a separate build step. 
 
 ```yaml
