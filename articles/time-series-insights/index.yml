@@ -84,7 +84,7 @@ landingContent:
         links:
           - text: Create a Time Series Insights environment
             url: tutorial-create-populate-tsi-environment.md
-          - text: Client SDK Sample Visualization
+          - text: Client SDK sample visualization
             url: https://tsiclientsample.azurewebsites.net/
       - linkListType: how-to-guide
         links:
