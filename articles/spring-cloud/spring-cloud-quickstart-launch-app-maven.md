@@ -23,7 +23,7 @@ Azure Spring Cloud Maven plugin allows you to easily create and update your Azur
 
 ## Provision service instance
 
-Please refer this [document](./spring-cloud-quickstart-launch-app-portal.md) to provision service instance and set your config server.
+Please refer this [document](~/spring-cloud/spring-cloud-quickstart-launch-app-portal.md) to provision service instance and set your config server.
 
 
 ## Clone and build the sample application repository
