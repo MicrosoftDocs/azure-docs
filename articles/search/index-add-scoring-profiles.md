@@ -1,13 +1,14 @@
 ---
-title: Add scoring profiles to a search index - Azure Search
-description: Boost search rank scores for Azure Search search results by adding scoring profiles.
-ms.date: 05/02/2019
-services: search
+title: Add scoring profiles to boost relevant documents in search results
+titleSuffix: Azure Cognitive Search
+description: Boost search rank scores for Azure Cognitive Search results by adding scoring profiles.
+
+manager: nitinme
+author: Brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,7 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Add scoring profiles to an Azure Search index
+# Add scoring profiles to an Azure Cognitive Search index
 
   Scoring refers to the computation of a *search score* for every item returned in search results. The score is an indicator of an item's relevance in the context of the current search operation. The higher the score, the more relevant the item. In search results, items are rank ordered from high to low, based on the search scores calculated for each item.  
 

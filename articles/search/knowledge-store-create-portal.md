@@ -1,16 +1,17 @@
 ---
-title: 'Create a knowledge store in the Azure portal - Azure Search'
-description: Create an Azure Search knowledge store for persisting enrichments from cognitive search pipeline, using the Import data wizard in the Azure portal.
+title: Create a knowledge store in the Azure portal
+titleSuffix: Azure Cognitive Search
+description: Create an Azure Cognitive Search knowledge store for persisting enrichments from an enrichment pipeline, using the Import data wizard in the Azure portal.
 
 author: lisaleib
-services: search
+manager: nitinme
+ms.author: v-lilei
 ms.service: search
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.author: v-lilei
- 
+ms.date: 10/04/2019
 ---
-# Create an Azure Search knowledge store in the Azure portal
+
+# Create an Azure Cognitive Search knowledge store in the Azure portal
 
 > [!Note]
 > Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.

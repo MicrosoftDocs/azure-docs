@@ -1,15 +1,18 @@
 ---
-title: Service limits for tiers and skus - Azure Search
-description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Search.
-author: HeidiSteen
+title: Service limits for tiers and skus
+titleSuffix: Azure Cognitive Search
+description: Service limits used for capacity planning and maximum limits on requests and responses for Azure Cognitive Search.
+
 manager: nitinme
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.author: heidist
+ms.date: 10/04/2019
 ---
-# Service limits in Azure Search
+
+# Service limits in Azure Cognitive Search
+
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
 + **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.

@@ -1,20 +1,19 @@
 ---
-title: Index blobs containing multiple search index documents from Azure Blob indexer for full text search - Azure Search
-description: Crawl Azure blobs for text content using the Azure Search Blob indexer. Each blob might contain one or more Azure Search index documents.
+title: Index blobs containing multiple search index documents from Azure Blob indexer for full text search
+titleSuffix: Azure Cognitive Search
+description: Crawl Azure blobs for text content using the Azure Cognitive Search Blob indexer. Each blob might contain one or more search documents.
 
-ms.date: 05/02/2019
-author: arv100kri
 manager: nitinme
+author: arv100kri
 ms.author: arjagann
-
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seofeb2018
+ms.date: 10/04/2019
 ---
 
-# Indexing blobs producing multiple search documents
+# Indexing blobs producing multiple search documents in Azure Cognitive Search
+
 By default, a blob indexer will treat the contents of a blob as a single search document. Certain **parsingMode** values support scenarios where an individual blob can result in multiple search documents. The different types of **parsingMode** that allow an indexer to extract more than one search document from a blob are:
 + `delimitedText`
 + `jsonArray`

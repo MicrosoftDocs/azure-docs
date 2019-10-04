@@ -1,19 +1,18 @@
 ---
-title: Index an Azure Cosmos DB data source - Azure Search 
-description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
+title: Index an Azure Cosmos DB data source
+titleSuffix: Azure Cognitive Search
+description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Cognitive Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
-ms.date: 05/02/2019
 author: mgottein 
 manager: nitinme
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# How to index Cosmos DB using an Azure Search indexer
 
+# How to index Cosmos DB data using an indexer in Azure Cognitive Search 
 
 > [!Note]
 > MongoDB API support is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no portal or .NET SDK support at this time.

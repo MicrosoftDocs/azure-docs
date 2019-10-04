@@ -1,17 +1,17 @@
 ---
-title: Rebuild an Azure Search index or refresh searchable content - Azure Search
-description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Search index.
-services: search
-author: HeidiSteen
-manager: nitinme
+title: Rebuild an Azure Cognitive Search index
+titleSuffix: Azure Cognitive Search
+description: Add new elements, update existing elements or documents, or delete obsolete documents in a full rebuild or partial incremental indexing to refresh an Azure Cognitive Search index.
 
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# How to rebuild an Azure Search index
+
+# How to rebuild an Azure Cognitive Search index
 
 This article explains how to rebuild an Azure Search index, the circumstances under which rebuilds are required, and recommendations for mitigating the impact of rebuilds on ongoing query requests.
 

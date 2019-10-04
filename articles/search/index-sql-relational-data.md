@@ -1,16 +1,16 @@
 ---
-title: 'Model SQL relational data for import and indexing - Azure Search'
-description: Learn how to model relational data, de-normalized into a flat result set, for indexing and full text search in Azure Search.
+title: Model SQL relational data for import and indexing
+titleSuffix: Azure Cognitive Search
+description: Learn how to model relational data, de-normalized into a flat result set, for indexing and full text search in Azure Cognitive Search.
+
 author: HeidiSteen
 manager: nitinme
-services: search
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.author: heidist
-
+ms.date: 10/04/2019
 ---
-# How to model relational SQL data for import and indexing in Azure Search
+# How to model relational SQL data for import and indexing in Azure Cognitive Search
 
 Azure Search accepts a flat rowset as input to the [indexing pipeline](search-what-is-an-index.md). If your source data originates from joined tables in a SQL Server relational database, this article explains how to construct the result set, and how to model a parent-child relationship in an Azure Search index.
 

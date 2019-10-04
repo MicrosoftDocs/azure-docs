@@ -1,17 +1,18 @@
 ---
-title: How to model complex data types - Azure Search
-description: Nested or hierarchical data structures can be modeled in an Azure Search index using ComplexType and Collections data types.
-author: brjohnstmsft
+title: How to model complex data types
+titleSuffix: Azure Cognitive Search
+description: Nested or hierarchical data structures can be modeled in an Azure Cognitive Search index using ComplexType and Collections data types.
+
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
 tags: complex data types; compound data types; aggregate data types
-services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# How to model complex data types in Azure Search
+
+# How to model complex data types in Azure Cognitive Search
 
 External datasets used to populate an Azure Search index can come in many shapes. Sometimes they include hierarchical or nested substructures. Examples might include multiple addresses for a single customer, multiple colors and sizes for a single SKU, multiple authors of a single book, and so on. In modeling terms, you might see these structures referred to as *complex*, *compound*, *composite*, or *aggregate* data types. The term Azure Search uses for this concept is **complex type**. In Azure Search, complex types are modeled using **complex fields**. A complex field is a field that contains children (sub-fields) which can be of any data type, including other complex types. This works in a similar way as structured data types in a programming language.
 

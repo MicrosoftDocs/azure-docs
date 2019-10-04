@@ -1,17 +1,17 @@
 ---
-title: Sentiment cognitive search skill - Azure Search
-description: Extract a positive-negative sentiment score from text in an Azure Search enrichment pipeline.
-services: search
+title: Sentiment cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract a positive-negative sentiment score from text in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
-#	Sentiment cognitive skill
+# Sentiment cognitive skill
 
 The **Sentiment** skill evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 

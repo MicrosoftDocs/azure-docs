@@ -1,14 +1,14 @@
 ---
-title: Add typeahead queries to an index - Azure Search
-description: Enable type-ahead query actions in Azure Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
-ms.date: 09/30/2019
-services: search
+title: Add typeahead queries to an index
+titleSuffix: Azure Cognitive Search
+description: Enable type-ahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that invoke autocomplete or autosuggested query terms.
+
+manager: nitinme
+author: Brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"

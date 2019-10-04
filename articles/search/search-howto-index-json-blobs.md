@@ -1,20 +1,19 @@
 ---
-title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
-description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+title: Index JSON blobs from Azure Blob indexer for full text search
+titleSuffix: Azure Cognitive Search
+description: Crawl Azure JSON blobs for text content using the Azure Cognitive Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
-ms.date: 05/02/2019
-author: HeidiSteen
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# How to index JSON blobs using Azure Search Blob indexer
+# How to index JSON blobs using a Blob indexer in Azure Cognitive Search
+
 This article shows you how to configure an Azure Search blob [indexer](search-indexer-overview.md) to extract structured content from JSON documents in Azure Blob storage and make it searchable in Azure Search. This workflow creates an Azure Search index and loads it with existing text extracted from JSON blobs. 
 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).

@@ -1,15 +1,17 @@
 ---
-title: Create an Azure Search index in Azure portal - Azure Search
-description: Learn how to create an index for Azure Search using a built-in portal index designer.
+title: Create an Azure Search index in Azure portal
+titleSuffix: Azure Cognitive Search
+description: Learn how to create an index for Azure Cognitive Search using a built-in portal index designer.
+
 manager: nitinme
-author: heidisteen
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.author: heidist
+ms.date: 10/04/2019
 ---
-# Create an Azure Search index in the portal
+
+# Create an Azure Cognitive Search index in the portal
 
 Azure Search includes a built-in index designer in the portal useful for prototypes or creating a [search index](search-what-is-an-index.md) hosted on your Azure Search service. The tool is used for schema construction. When you save the definition, an empty index becomes fully expressed in Azure Search. How you load it with searchable content is up to you.
 

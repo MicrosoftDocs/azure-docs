@@ -1,13 +1,14 @@
 ---
-title: OData language overview - Azure Search
-description: OData language overview for filters, select, and order-by for Azure Search queries.
-ms.date: 06/13/2019
-services: search
+title: OData language overview
+titleSuffix: Azure Cognitive Search
+description: OData language overview for filters, select, and order-by for Azure Cognitive Search queries.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-author: "Brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -20,7 +21,8 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# OData language overview for `$filter`, `$orderby`, and `$select` in Azure Search
+
+# OData language overview for `$filter`, `$orderby`, and `$select` in Azure Cognitive Search
 
 Azure Search supports a subset of the OData expression syntax for **$filter**, **$orderby**, and **$select** expressions. Filter expressions are evaluated during query parsing, constraining search to specific fields or adding match criteria used during index scans. Order-by expressions are applied as a post-processing step over a result set to sort the documents that are returned. Select expressions determine which document fields are included in the result set. The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax that is used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
 

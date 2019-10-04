@@ -1,15 +1,16 @@
 ---
-title: 'Connect to a knowledge store with Power BI - Azure Search'
-description: Connect an Azure Search knowledge store with Power BI for analysis and exploration.
+title: Connect to a knowledge store with Power BI
+titleSuffix: Azure Cognitive Search
+description: Connect an Azure Cognitive Search knowledge store with Power BI for analysis and exploration.
 
 author: lisaleib
-services: search
+manager: nitinme
+ms.author: v-lilei
 ms.service: search
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.author: v-lilei
- 
+ms.date: 10/04/2019
 ---
+
 # Connect a knowledge store with Power BI
 
 > [!Note]

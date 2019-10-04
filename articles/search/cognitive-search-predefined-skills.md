@@ -1,15 +1,16 @@
 ---
-title: Built-in data extraction, natural language, image processing - Azure Search
+title: Built-in data extraction, natural language, image processing
+titleSuffix: Azure Cognitive Search
 description: Data extraction, natural language, image processing cognitive skills add semantics and structure to raw content in an Azure Search pipeline.
+
 manager: nitinme
 author: luiscabrer
-services: search
+ms.author: luisca
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: luisca
+ms.date: 10/04/2019
 ---
-# Predefined skills for content enrichment (Azure Search)
+# Predefined skills for content enrichment (Azure Cognitive Search)
 
 In this article, you learn about the cognitive skills provided with Azure Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 

@@ -1,16 +1,17 @@
 ---
-title: 'Quickstart: Create an Azure Search service in the portal - Azure Search'
-description: Provision an Azure Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
+title: 'Quickstart: Create an Azure Search service in the portal'
+titleSuffix: Azure Cognitive Search
+description: Provision an AzureCognitive  Search resource in the Azure portal. Choose resource groups, regions, and SKU or pricing tier.
+
 manager: nitinme
 author: HeidiSteen
-services: search
+ms.author: heidist
 ms.service: search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Quickstart: Create an Azure Search service in the portal
+
+# Quickstart: Create an Azure Cognitive Search service in the portal
 
 Azure Search is a standalone resource used to plug in a search experience in custom apps. Although Azure Search integrates easily with other Azure services, you can also use it as a standalone component, or integrate it with apps on network servers, or with software running on other cloud platforms.
 

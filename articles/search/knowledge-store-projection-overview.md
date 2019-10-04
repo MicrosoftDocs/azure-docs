@@ -1,15 +1,17 @@
 ---
-title: Working with projections in a knowledge store (preview) - Azure Search
-description: Save and shape your enriched data from the AI indexing pipeline for use in scenarios other than search
+title: Working with projections in a knowledge store (preview)
+titleSuffix: Azure Cognitive Search
+description: Save and shape your enriched data from the AI enrichment indexing pipeline for use in scenarios other than full text search.
+
 manager: nitinme
 author: vkurpad
-services: search
+ms.author: vikurpad
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: vikurpad
+ms.date: 10/04/2019
 ---
-# Working with projections in a knowledge store in Azure Search
+
+# Working with projections in a knowledge store in Azure Cognitive Search
 
 > [!Note]
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.

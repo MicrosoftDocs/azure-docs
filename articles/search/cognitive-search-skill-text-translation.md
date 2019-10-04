@@ -1,16 +1,16 @@
 ---
-title: Text Translation cognitive search skill - Azure Search
-description: Evaluates text and, for each record, returns text translated to the specified target language in an Azure Search enrichment pipeline.
-services: search
+title: Text Translation cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Evaluates text and, for each record, returns text translated to the specified target language in an  enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: careyjmac
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 06/25/2019
 ms.author: chalton
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
+
 #	Text Translation cognitive skill
 
 The **Text Translation** skill evaluates text and, for each record, returns the text translated to the specified target language. This skill uses the [Translator Text API v3.0](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) available in Cognitive Services.

@@ -1,20 +1,19 @@
 ---
-title: Index Azure Blob storage content for full text search - Azure Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
+title: Index Azure Blob storage content for full text search
+titleSuffix: Azure Cognitive Search
+description: Learn how to index Azure Blob Storage and extract text from documents with Azure Cognitive Search.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Indexing Documents in Azure Blob Storage with Azure Search
+# How to index documents in Azure Blob Storage with Azure Cognitive Search
+
 This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter.
 
 ## Supported document formats

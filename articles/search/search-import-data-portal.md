@@ -1,16 +1,16 @@
 ---
-title: Import data into a search index using Azure portal - Azure Search
+title: Import data into a search index using Azure portal
+titleSuffix: Azure Cognitive Search
 description: Learn how to use the Import Data wizard in the Azure portal to crawl Azure data from Cosmos DB, Blob storage, table storage, SQL Database, and SQL Server on Azure VMs.
+
 author: HeidiSteen
 manager: nitinme
-services: search
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Import data wizard for Azure Search
+# Import data wizard for Azure Cognitive Search
 
 The Azure portal provides an **Import data** wizard on the Azure Search dashboard for prototyping and loading an index. This article covers advantages and limitations of using the wizard, inputs and outputs, and some usage information. For hands-on guidance in stepping through the wizard using built-in sample data, see the [Create an Azure Search index using the Azure portal](search-get-started-portal.md) quickstart.
 

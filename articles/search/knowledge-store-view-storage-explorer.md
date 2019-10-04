@@ -1,15 +1,16 @@
 ---
-title: 'View a knowledge store with Storage Explorer - Azure Search'
-description: View and analyze an Azure Search knowledge store with the Azure portal's Storage Explorer.  
+title: View a knowledge store with Storage Explorer
+titleSuffix: Azure Cognitive Search
+description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.  
 
+manager: nitinme
 author: lisaleib
-services: search
+ms.author: v-lilei
 ms.service: search
 ms.topic: tutorial
-ms.date: 09/03/2019
-ms.author: v-lilei
- 
+ms.date: 10/04/2019
 ---
+
 # View a knowledge store with Storage Explorer
 
 > [!Note]

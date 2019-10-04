@@ -1,18 +1,18 @@
 ---
-title: OCR cognitive search skill - Azure Search
-description: Extract text from image files using optical character recognition (OCR) in an Azure Search enrichment pipeline.
-services: search
+title: OCR cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract text from image files using optical character recognition (OCR) in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 # OCR cognitive skill
 
-Optical character recognition (OCR) skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
+The **Optical character recognition (OCR)** skill recognizes printed and handwritten text in image files. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. The **OCR** skill maps to the following functionality:
 
 + The ["OCR"](../cognitive-services/computer-vision/concept-recognizing-text.md#ocr-optical-character-recognition-api) API is used for languages other than English. 
 + For English, the new ["Read"](../cognitive-services/computer-vision/concept-recognizing-text.md#read-api) API is used.

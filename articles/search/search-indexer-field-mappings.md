@@ -1,19 +1,18 @@
 ---
-title: Field mappings for automated indexing using indexers - Azure Search
-description: Configure Azure Search indexer field mappings to account for differences in field names and data representations.
+title: Field mappings for automated indexing using indexers
+titleSuffix: Azure Cognitive Search
+description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Field mappings and transformations using Azure Search indexers
+# Field mappings and transformations using Azure Cognitive Search indexers
 
 When using Azure Search indexers, you sometimes find that the input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to reshape your data during the indexing process.
 

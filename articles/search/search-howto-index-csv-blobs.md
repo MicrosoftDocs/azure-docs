@@ -1,19 +1,18 @@
 ---
-title: Index CSV blobs with Azure Search Blob indexer - Azure Search
-description: Crawl CSV blobs in Azure Blob storage for full text search using an Azure Search index. Indexers automate data ingestion for selected data sources like Azure Blob storage.
+title: Index CSV blobs with Azure Cognitive Search Blob indexer
+titleSuffix: Azure Cognitive Search
+description: Crawl CSV blobs in Azure Blob storage for full text search using an Azure Cognitive Search index. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Indexing CSV blobs with Azure Search blob indexer
+
+# How to index CSV blobs using a Blob indexer in Azure Cognitive Search 
 
 > [!Note]
 > delimitedText parsing mode is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.

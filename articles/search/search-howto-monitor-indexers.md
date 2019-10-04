@@ -1,19 +1,18 @@
 ---
-title: How to monitor indexer status and results - Azure Search
-description: Monitor the status, progress, and results of Azure Search indexers in the Azure portal, using the REST API, or the .NET SDK.
+title: How to monitor indexer status and results
+titleSuffix: Azure Cognitive Search
+description: Monitor the status, progress, and results of Azure Cognitive Search indexers in the Azure portal, using the REST API, or the .NET SDK.
 
-ms.date: 06/28/2019
-author: RobDixon22
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# How to monitor Azure Search indexer status and results
+# How to monitor Azure Cognitive Search indexer status and results
 
 Azure Search provides status and monitoring information about current and historical runs of every indexer.
 

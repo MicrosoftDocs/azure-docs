@@ -1,17 +1,17 @@
 ---
-title: Frequently asked questions (FAQ) - Azure Search
-description: Get answers to common questions about Microsoft Azure Search Service, a cloud hosted search service on Microsoft Azure.
-author: HeidiSteen
+title: Frequently asked questions (FAQ)
+titleSuffix: Azure Cognitive Search
+description: Get answers to common questions about Microsoft Azure Cognitive Search service, a cloud hosted search service on Microsoft Azure.
+
 manager: nitinme
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/03/2017
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
 
-# Azure Search - frequently asked questions (FAQ)
+# Azure Cognitive Search - frequently asked questions (FAQ)
 
  Find answers to commonly asked questions about concepts, code, and scenarios related to Azure Search.
 

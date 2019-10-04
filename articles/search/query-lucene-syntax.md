@@ -1,14 +1,14 @@
 ---
-title: Lucene query syntax - Azure Search
-description: Reference for the full Lucene syntax, as used with Azure Search.
-services: search
+title: Lucene query syntax
+titleSuffix: Azure Cognitive Search
+description: Reference for the full Lucene syntax, as used with Azure Cognitive Search.
+
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/08/2019
-
-author: "brjohnstmsft"
-ms.author: "brjohnst"
-manager: nitinme
+ms.date: 10/04/2019
 translation.priority.mt:
   - "de-de"
   - "es-es"
@@ -21,7 +21,9 @@ translation.priority.mt:
   - "zh-cn"
   - "zh-tw"
 ---
-# Lucene query syntax in Azure Search
+
+# Lucene query syntax in Azure Cognitive Search
+
 You can write queries against Azure Search based on the rich [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) syntax for specialized query forms: wildcard, fuzzy search, proximity search, regular expressions are a few examples. Much of the Lucene Query Parser syntax is [implemented intact in Azure Search](search-lucene-query-architecture.md), with the exception of *range searches* which are constructed in Azure Search through `$filter` expressions. 
 
 ## How to invoke full parsing

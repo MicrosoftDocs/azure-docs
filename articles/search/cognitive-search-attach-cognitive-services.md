@@ -1,15 +1,16 @@
 ---
-title: Attach a Cognitive Services resource with a skillset - Azure Search
-description: Instructions for attaching a Cognitive Services all-in-one subscription to a cognitive enrichment pipeline in Azure Search.
+title: Attach a Cognitive Services resource to a skillset
+titleSuffix: Azure Cognitive Search
+description: Instructions for attaching a Cognitive Services all-in-one subscription to a cognitive enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: LuisCabrer
-services: search
+ms.author: luisca
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/20/2019
-ms.author: luisca
+ms.date: 10/04/2019
 ---
-# Attach a Cognitive Services resource with a skillset in Azure Search 
+# Attach a Cognitive Services resource to a skillset in Azure Cognitive Search 
 
 AI algorithms drive the [cognitive indexing pipelines](cognitive-search-concept-intro.md) used for document enrichment in Azure Search. These algorithms are based on Azure Cognitive Services resources, including [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR) and [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for entity recognition, key phrase extraction, and other enrichments. As used by Azure Search for document enrichment purposes, the algorithms are wrapped inside a *skill*, placed in a *skillset*, and referenced by an *indexer* during indexing.
 

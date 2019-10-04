@@ -1,16 +1,18 @@
 ---
-title: Working with skillsets - Azure Search
-description: Skillsets are where you author an AI enrichment pipeline in cognitive search, understanding a few concepts and how skillsets work allows you to build simple or complex skillsets
-manager: eladz
+title: Working with skillsets
+titleSuffix: Azure Cognitive Search
+description: Skillsets are where you author an AI enrichment pipeline in Azure Cognitive Search. Learn important concepts and details about skillset composition.
+
+manager: nitinme
 author: vkurpad
-services: search
+ms.author: vikurpad
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.author: vikurpad
+ms.date: 10/04/2019
 ---
 
-# Working with skillsets
+# Working with skillsets in Azure Cognitive Search
+
 This article is for developers who need a deeper understanding of how the enrichment pipeline works and assumes you have a conceptual understanding of the cognitive search process. If you are new to cognitive search, start with:
 + [What is "cognitive search" in Azure Search?](cognitive-search-concept-intro.md)
 + [What is knowledge store in Azure Search?](knowledge-store-concept-intro.md)

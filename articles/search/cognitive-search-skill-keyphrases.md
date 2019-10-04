@@ -1,15 +1,14 @@
 ---
-title: Key phrase extraction cognitive search skill - Azure Search
-description: Evaluates unstructured text, and for each record, returns a list of key phrases in an Azure Search enrichment pipeline.
-services: search
+title: Key Phrase Extraction cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Evaluates unstructured text, and for each record, returns a list of key phrases in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: luisca
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 #	Key Phrase Extraction cognitive skill
 

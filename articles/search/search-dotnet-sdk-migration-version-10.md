@@ -1,17 +1,18 @@
 ---
-title: Upgrade to the Azure Search .NET SDK version 10 - Azure Search
-description: Migrate code to the Azure Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
-author: arv100kri
+title: Upgrade to Azure Cognitive Search .NET SDK version 10
+titleSuffix: Azure Cognitive Search
+description: Migrate code to the Azure Cognitive Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
+
 manager: nitinme
-services: search
+author: arv100kri
+ms.author: arjagann
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: arjagann
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Upgrade to the Azure Search .NET SDK version 10
+
+# Upgrade to Azure Cognitive Search .NET SDK version 10
 
 If you're using version 9.0 or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 10.
 

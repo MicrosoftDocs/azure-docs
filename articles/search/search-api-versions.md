@@ -1,18 +1,18 @@
 ---
-title: API version management for .NET SDK and REST APIs - Azure Search
-description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
-author: brjohnstmsft
-manager: nitinme
-services: search
-ms.service: search
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
+title: API version management for .NET SDK and REST APIs
+titleSuffix: Azure Cognitive Search
+description: Version policy for Azure Cognitive Search REST APIs and the client library in the .NET SDK.
 
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
-# API versions in Azure Search
+# API versions in Azure Cognitive Search
+
 Azure Search rolls out feature updates regularly. Sometimes, but not always, these updates require a new version of the API to preserve backward compatibility. Publishing a new version allows you to control when and how you integrate search service updates in your code.
 
 As a rule, the Azure Search team publishes new versions only when necessary, since it can involve some effort to upgrade your code to use a new API version. A new version is needed only if some aspect of the API has changed in a way that breaks backward compatibility. Such changes can happen because of fixes to existing features, or because of new features that change existing API surface area.

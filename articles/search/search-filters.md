@@ -1,16 +1,16 @@
 ---
-title: Filters for scoping search results in an index - Azure Search
-description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Search, a hosted cloud search service on Microsoft Azure.
-author: HeidiSteen
+title: Filters for scoping search results in an index
+titleSuffix: Azure Cognitive Search
+description: Filter by user security identity, language, geo-location, or numeric values to reduce search results on queries in Azure Cognitive Search, a hosted cloud search service on Microsoft Azure.
+
 manager: nitinme
-services: search
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.author: heidist
-ms.custom: seodec2018
+ms.date: 10/04/2019
 ---
-# Filters in Azure Search 
+# Filters in Azure Cognitive Search 
 
 A *filter* provides criteria for selecting documents used in an Azure Search query. Unfiltered search includes all documents in the index. A filter scopes a search query to a subset of documents. For example, a filter could restrict full text search to just those products having a specific brand or color, at price points above a certain threshold.
 

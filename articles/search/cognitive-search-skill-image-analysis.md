@@ -1,17 +1,16 @@
 ---
-title: Image Analysis cognitive search skill - Azure Search
-description: Extract semantic text through image analysis using the ImageAnalysis cognitive skill in an Azure Search enrichment pipeline.
-services: search
+title: Image Analysis cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract semantic text through image analysis using the Image Analysis cognitive skill in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
-#	Image Analysis cognitive skill
+# Image Analysis cognitive skill
 
 The **Image Analysis** skill extracts a rich set of visual features based on the image content. For example, you can generate a caption from an image, generate tags, or identify celebrities and landmarks. This skill uses the machine learning models provided by [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) in Cognitive Services. 
 

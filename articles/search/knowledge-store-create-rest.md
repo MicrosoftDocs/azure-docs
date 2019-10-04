@@ -1,16 +1,17 @@
 ---
-title: 'Create a knowledge store using REST - Azure Search'
-description: Create an Azure Search knowledge store for persisting enrichments from cognitive search pipeline, using the REST API and Postman.
+title: Create a knowledge store using REST
+titleSuffix: Azure Cognitive Search
+description: Create an Azure Cognitive Search knowledge store for persisting enrichments from an enrichment pipeline, using the REST API and Postman.
 
 author: lobrien
-services: search
+manager: nitinme
+ms.author: laobri
 ms.service: search
 ms.topic: tutorial
-ms.date: 10/01/2019
-ms.author: laobri
- 
+ms.date: 10/04/2019
 ---
-# Create an Azure Search knowledge store using REST
+
+# Create an Azure Cognitive Search knowledge store using REST
 
 Knowledge store is a feature in Azure Search that persists output from an AI enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves results to a knowledge store in Azure storage. You can then use tools like Power BI or Storage Explorer to explore the knowledge store.
 

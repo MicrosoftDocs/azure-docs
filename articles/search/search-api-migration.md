@@ -1,17 +1,18 @@
 ---
-title: Upgrade to the latest Azure Search Service REST API version - Azure Search
-description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Search Service REST API version.
-author: brjohnstmsft
-manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: brjohnst
+title: Upgrade to the latest Azure Search Service REST API version
+titleSuffix: Azure Cognitive Search
+description: Review differences in API versions and learn which actions are required to migrate existing code to the newest Azure Cognitive Search service REST API version.
 
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: search
+ms.topic: conceptual
+ms.date: 10/04/2019
 ---
-# Upgrade to the latest Azure Search Service REST API version
+
+# Upgrade to the latest Azure Cognitive Search service REST API version
+
 If you're using a previous version of the [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice/), this article will help you upgrade your application to use the newest generally available API version, 2019-05-06.
 
 Version 2019-05-06 of the REST API contains some changes from earlier versions. These are mostly backward compatible, so changing your code should require only minimal effort, depending on which version you were using before. [Steps to upgrade](#UpgradeSteps) outlines the code changes required for using new features.
