@@ -93,7 +93,7 @@
       - name: Attach or detach a shared image gallery
         href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
       - name: Enable nested virtualization on a template VM
-        href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+        href: classroom-labs/how-to-enable-netsted-virtualization-template-vm.md
     - name: Create and configure classroom labs (instructor)
       items:        
       - name: Create and manage classroom labs
