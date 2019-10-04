@@ -324,6 +324,7 @@ A managed instance can't access file shares and Windows folders, so the files mu
 
 - `DATASOURCE` is required in the `BULK INSERT` command while you import files from Azure Blob storage. See [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
 - `DATASOURCE` is required in the `OPENROWSET` function when you read the content of a file from Azure Blob storage. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` can be used to read data from other Azure SQL single databases, managed instances or SQL Server instances. Other sources such as Oracle databases or Excel files are not supported.
 
 ### CLR
 
