@@ -78,7 +78,7 @@ On the **Devices** list page, select a value in the **Device ID** column to view
 
 ### Device
 
-This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-todevice message** tabs.
+This section includes the **Device Identity**,  **Device Twin**, **Telemetry**, **Direct method** and **Cloud-to-device message** tabs.
 
 - You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
 - You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
