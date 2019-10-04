@@ -8,7 +8,7 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for your Azure subscription. 
