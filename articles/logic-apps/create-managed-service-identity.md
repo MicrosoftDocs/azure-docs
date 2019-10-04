@@ -348,7 +348,9 @@ For more information, see [Assign a managed identity access to a resource](../ac
 
 ## Authenticate with managed identity
 
-Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication. For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
+Now that your logic app has a managed identity and that identity can access the target resource, you can use that identity for authentication. 
+
+For example, suppose you want to use Azure Active Directory (Azure AD) authentication with an [Azure service that supports Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). This example shows how you use the managed identity to authenticate access in an HTTP action that sends an HTTP call to the target service.
 
 1. In your logic app, add the **HTTP** action.
 

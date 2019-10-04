@@ -48,7 +48,7 @@ This built-in trigger makes an HTTP call to the specified URL for an endpoint an
 
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 
-   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication) and [Authenticate access to resources with managed identities](../logic-apps/create-managed-identity.md).
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
@@ -78,7 +78,7 @@ This built-in action makes an HTTP call to the specified URL for an endpoint and
 
    ![Enter HTTP action parameters](./media/connectors-native-http/http-action-parameters.png)
 
-   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   For more information about authentication types available for HTTP, see [Authenticate HTTP triggers and actions](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication) and [Authenticate access to resources with managed identities](../logic-apps/create-managed-identity.md).
 
 1. To add other available parameters, open the **Add new parameter** list, and select the parameters that you want.
 
