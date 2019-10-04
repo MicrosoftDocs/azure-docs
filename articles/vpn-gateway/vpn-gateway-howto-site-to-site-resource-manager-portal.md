@@ -66,7 +66,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 ### Example settings
 
-* **Instance details > Region**: East US
+* **Instance details > Region:** East US
 * **Virtual Network > Virtual network:** VNet1
 * **Instance details > Name:** VNet1GW
 * **Instance details > Gateway type:** VPN
