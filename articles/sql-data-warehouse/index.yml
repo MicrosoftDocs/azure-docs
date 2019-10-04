@@ -97,8 +97,8 @@ landingContent:
             url: sql-data-warehouse-overview-manage-security.md
           # - text: linktext2
           #   url: file2.md
-      - linkListType: how-to-guide
-        links:
+      # - linkListType: how-to-guide
+      #   links:
           # - text: Configure Azure Active Directory authentication
           #   url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
       #     - text: linktext2
