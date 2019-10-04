@@ -5,7 +5,7 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
 ---
 
@@ -166,7 +166,7 @@ Yes, for Enterprise Agreement (EA) customers, the enrollment administrator may t
 
 **What payment methods are supported for commercial marketplace purchases?**
 
-Customers can purchase offerings from Azure Marketplace and Microsoft AppSource using credit cards. If you have an existing Azure subscription, purchases from Azure Marketplace will use the payment method configured on the account and appear on the same invoice as a separate line item. Some offers consume Azure monetary commitment, but most ommercial marketplace purchases do not draw down Enterprise Agreement commitments although Azure infrastructure consumption will.
+Customers can purchase offerings from Azure Marketplace and Microsoft AppSource using credit cards. If you have an existing Azure subscription, purchases from Azure Marketplace will use the payment method configured on the account and appear on the same invoice as a separate line item. Some offers consume Azure monetary commitment, but most commercial marketplace purchases do not draw down Enterprise Agreement commitments although Azure infrastructure consumption will.
 
 **Can I apply Azure subscription credits or monetary commitment funds in my account towards Azure Marketplace offers?**
 
@@ -376,9 +376,9 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-*Power BI Apps:*
+**Why aren’t my changes reflected in the offer?**
 
-Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
 ### Benefits and Go-To-Market (GTM) Resources
 
