@@ -1,6 +1,6 @@
 ---
 title: Query Store in Azure Database for MariaDB
-description: This article describes the Query Store feature in Azure Database for MariaDB
+description: Learn about the Query Store feature in Azure Database for MariaDB to help you track performance over time. 
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
@@ -46,8 +46,8 @@ Allow up to 20 minutes for the first batch of data to persist in the mysql datab
 
 Query Store has two stores:
 
-- A runtime statistics store for persisting the query execution statistics information.
-- A wait statistics store for persisting wait statistics information.
+- The runtime statistics store for persisting the query execution statistics information.
+- The wait statistics store for persisting wait statistics information.
 
 To minimize space usage, the runtime execution statistics in the runtime statistics store are aggregated over a fixed, configurable time window. The information in these stores is visible by querying the query store views.
 
