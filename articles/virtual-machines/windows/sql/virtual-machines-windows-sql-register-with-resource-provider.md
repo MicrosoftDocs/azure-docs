@@ -38,6 +38,8 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
   > [!NOTE]
   > There are no additional licensing requirements associated with registering with the resource provider. Registering with the SQL VM resource provider offers a simplified method to fulfill the requirement of notifying Microsoft that the Azure Hybrid Benefit has been enabled in the place of managing licensing registration forms for each resource. 
 
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Benefit from SQL VM Resource Provider when self-installing SQL Server on Azure - Microsoft Channel 9 Video"></iframe>
+
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
