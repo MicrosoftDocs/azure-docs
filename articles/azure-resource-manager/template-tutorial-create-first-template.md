@@ -5,7 +5,7 @@ author: mumian
 manager: carmonmills
 
 ms.service: azure-resource-manager
-ms.date: 09/13/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
 
