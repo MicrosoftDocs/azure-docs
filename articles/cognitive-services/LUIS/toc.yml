@@ -123,6 +123,8 @@
       displayName: import
     - name: Types of models
       href: luis-concept-model.md
+    - name: Prediction score
+      href: luis-concept-prediction-score.md
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
@@ -141,8 +143,6 @@
       displayName: roles
   - name: Improve app performance
     items:
-    - name: Prediction score
-      href: luis-concept-prediction-score.md
     - name: Review endpoint utterances
       href: luis-concept-review-endpoint-utterances.md
   - name: Data management
