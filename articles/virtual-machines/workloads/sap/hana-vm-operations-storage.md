@@ -36,7 +36,7 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 **Recommendation: Use Azure Premium Storage in conjunction with Azure Write Accelerator and use Azure Managed Disks for deployment**
 
-In the on-premise world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those requirements. Some of the minimum throughput characteristics that are asked are resulting in the need to:
+In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those requirements. Some of the minimum throughput characteristics that are asked are resulting in the need to:
 
 - Enable read/write on **/hana/log** of a 250 MB/sec with 1 MB I/O sizes
 - Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
