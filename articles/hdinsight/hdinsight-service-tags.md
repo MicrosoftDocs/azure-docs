@@ -14,13 +14,19 @@ HDInsight service tags for Azure firewall are groups of IP addresses for health 
 
 These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
 
-## HDInsight service tag option one
+You have two options for using service tags in your Azure firewall:
 
-The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall.
+1. Use a single HDInsight service tag - this will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This is the simplest method, but may not be appropriate for customers with restrictive security requirement.
+
+1. Use multiple regional service tags - this will open your VNet to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
+
+## Single HDInsight service tag
+
+The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall. For instructions on how to add service tags to your Azure Firewall, see []().
 
 This tag contains the IP addresses of health and management services for all of the regions where HDInsight is available, and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
-## HDInsight service tag option two
+## Regional HDInsight service tags
 
 If option one won't work because you need more restrictive permissions for your firewall, then you can allow only the service tags applicable for your region. The applicable service tags may be one, two, or three service tags, depending on the region where your cluster is created.
 
@@ -35,7 +41,7 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | Australia | Australia East | HDInsight.AustraliaEast |
 | &nbsp; | Australia Southeast | HDInsight.AustraliaSoutheast |
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
-| China | China East | HDInsight.ChinaEast |
+| China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
 | &nbsp; | North Central US | HDInsight.NorthCentralUS |
 | &nbsp; | West US 2 | HDInsight.WestUS2 |
