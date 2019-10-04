@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/04/2019
 ms.author: tamram
 ms.subservice: tables
 ---

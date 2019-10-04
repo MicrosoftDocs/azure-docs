@@ -1,5 +1,5 @@
 ---
-title: Azure Storage performance and scalability checklist
+title: Azure Blob storage performance and scalability checklist - Azure Storage
 description: A checklist of proven practices for use with Azure Storage in developing high-performance applications.
 services: storage
 author: tamram
@@ -11,7 +11,7 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Azure Storage performance and scalability checklist
+# Azure Blob storage performance and scalability checklist
 
 Microsoft has developed a number of proven practices for developing high-performance applications. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
@@ -26,17 +26,17 @@ This article organizes the proven practices into a checklist you can follow whil
 
 | Done | Area | Category | Question |
 | --- | --- | --- | --- |
-| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#subheading1) |
-| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#subheading47) |
-| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#subheading2) |
-| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#subheading3) |
-| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#subheading4) |
-| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#subheading5) |
-| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#subheading6) |
-| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#subheading7) |
-| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#subheading8) |
-| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#subheading9) |
-| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#subheading10) |
+| &nbsp; | All Services |Scalability Targets |[Is your application designed to avoid approaching the scalability targets?](#scalability-targets) |
+| &nbsp; | All Services |Scalability Targets |[Is your naming convention designed to enable better load-balancing?](#partition-naming-convention) |
+| &nbsp; | All Services |Networking |[Do client side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
+| &nbsp; | All Services |Networking |[Do client side devices have a high enough quality link?](#link-quality) |
+| &nbsp; | All Services |Networking |[Is the client application located "near" the storage account?](#location) |
+| &nbsp; | All Services |Content Distribution |[Are you using a CDN for content distribution?](#content-distribution) |
+| &nbsp; | All Services |Direct Client Access |[Are you using SAS and CORS to allow direct access to storage instead of proxy?](#sas-and-cors) |
+| &nbsp; | All Services |Caching |[Is your application caching data that is repeatedly used and changes rarely?](#reading-data) |
+| &nbsp; | All Services |Caching |[Is your application batching updates (caching them client side and then uploading in larger sets)?](#uploading-data-in-batches) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured your client to use a sufficient number of concurrent connections?](#increase-default-connection-limit) |
+| &nbsp; | All Services |.NET Configuration |[Have you configured .NET to use a sufficient number of threads?](#increase-minimum-number-of-threads) |
 | &nbsp; | All Services |.NET Configuration |[Are you using .NET 4.5 or later, which has improved garbage collection?](#subheading11) |
 | &nbsp; | All Services |Parallelism |[Have you ensured that parallelism is bounded appropriately so that you don't overload either your client capabilities or the scalability targets?](#subheading12) |
 | &nbsp; | All Services |Tools |[Are you using the latest version of Microsoft provided client libraries and tools?](#subheading13) |
@@ -78,7 +78,7 @@ This article organizes the proven practices into a checklist you can follow whil
 
 This section lists proven practices that are applicable to the use of any of the Azure Storage services (blobs, tables, queues, or files).  
 
-### <a name="subheading1"></a>Scalability targets
+### Scalability targets
 
 Each of the Azure Storage services has scalability targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](storage-scalability-targets.md).
 
@@ -105,7 +105,7 @@ If your application is approaching the scalability targets for a single storage 
     While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
 * If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. Howver, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
 
-### <a name="subheading47"></a>Partition naming convention
+### Partition naming convention
 
 Azure Storage uses a range-based partitioning scheme to scale and load balance the system. The partition key (account+container+blob) is used to partition data into ranges and these ranges are load-balanced across the system. This means naming conventions such as lexical ordering (for example, *mypayroll*, *myperformance*, *myemployees*, etc.) or using timestamps (*log20160101*, *log20160102*, *log20160102*, etc.) will lend itself to the partitions being potentially co-located on the same partition server, until a load-balancing operation splits them out into smaller ranges. For example, all blobs within a container can be served by a single server until the load on these blobs requires further re-balancing of the partition ranges. Similarly, a group of lightly loaded accounts with their names arranged in lexical order may be served by a single server until the load on one or all of these accounts require them to be split across multiple partitions servers. Each load-balancing operation may impact the latency of storage calls during the operation. The system's ability to handle a sudden burst of traffic to a partition is limited by the scalability of a single partition server until the load-balancing operation kicks-in and re-balances the partition key range.
 
@@ -122,11 +122,11 @@ While the API calls matter, often the physical network constraints of the applic
 
 #### Client network capability
 
-##### <a name="subheading2"></a>Throughput
+##### Throughput
 
 For bandwidth, the problem is often the capabilities of the client. For example, while a single storage account can handle 10 Gbps or more of ingress (see [bandwidth scalability targets](#sub1bandwidth)), the network speed in a "Small" Azure Worker Role instance is only capable of approximately 100 Mbps. Larger Azure instances have NICs with greater capacity, so you should consider using a larger instance or more VMs if you need higher network limits from a single machine. If you are accessing a Storage service from an on premises application, then the same rule applies: understand the network capabilities of the client device and the network connectivity to the Azure Storage location and either improve them as needed or design your application to work within their capabilities.  
 
-##### <a name="subheading3"></a>Link quality
+##### Link quality
 
 As with any network usage, be aware that network conditions resulting in errors and packet loss will slow effective throughput.  Using WireShark or NetMon may help in diagnosing this issue.  
 
@@ -134,19 +134,19 @@ As with any network usage, be aware that network conditions resulting in errors 
 
 For more information about virtual machine sizes and allocated bandwidth, see [Windows VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
-#### <a name="subheading4"></a>Location
+#### Location
 
 In any distributed environment, placing the client near to the server delivers in the best performance. For accessing Azure Storage with the lowest latency, the best location for your client is within the same Azure region. For example, if you have an Azure Web Site that uses Azure Storage, you should locate them both within a single region (for example, US West or Asia Southeast). This reduces the latency and the cost — at the time of writing, bandwidth usage within a single region is free.  
 
 If your client applications are not hosted within Azure (such as mobile device apps or on premises enterprise services), then again placing the storage account in a region near to the devices that will access it, will generally reduce latency. If your clients are broadly distributed (for example, some in North America, and some in Europe), then you should consider using multiple storage accounts: one located in a North American region and one in a European region. This will help to reduce latency for users in both regions. This approach is easier to implement if the data the application stores is specific to individual users, and does not require replicating data between storage accounts.  For broad content distribution, a CDN is recommended – see the next section for more details.  
 
-### <a name="subheading5"></a>Content distribution
+### Content distribution
 
 Sometimes, an application needs to serve the same content to many users (for example, a product demo video used in the home page of a website), located in either the same or multiple regions. In this scenario, you should use a Content Delivery Network (CDN) such as Azure CDN, and the CDN would use Azure storage as the origin of the data. Unlike an Azure Storage account that exists in a single region and that cannot deliver content with low latency to other regions, Azure CDN uses servers in multiple data centers around the world. Additionally, a CDN can typically support much higher egress limits than a single storage account.  
 
 For more information about Azure CDN, see [Azure CDN](https://azure.microsoft.com/services/cdn/).  
 
-### <a name="subheading6"></a>Using SAS and CORS
+### SAS and CORS
 
 When you need to authorize code such as JavaScript in a user's web browser or a mobile phone app to access data in Azure Storage, one approach is to use an application in web role as a proxy: the user's device authenticates with the web role, which in turn authorizes access to storage resources. In this way, you can avoid exposing your storage account keys on insecure devices. However, this places a significant overhead on the web role because all the data transferred between the user's device and the storage service must pass through the web role. You can avoid using a web role as a proxy for the storage service by using Shared Access Signatures (SAS), sometimes in conjunction with Cross-Origin Resource Sharing headers (CORS). Using SAS, you can allow your user's device to make requests directly to a storage service by means of a limited access token. For example, if a user wants to upload a photo to your application, your web role can generate and send to the user's device a SAS token that grants permission to write to a specific blob or container for the next 30 minutes (after which the SAS token expires).
 
@@ -162,9 +162,9 @@ For more information about CORS, see [Cross-Origin Resource Sharing (CORS) Suppo
 
 ### Caching
 
-#### <a name="subheading7"></a>Getting data
+#### Reading data
 
-In general, getting data from a service once is better than getting it twice. Consider the example of an MVC web application running in a web role that has already retrieved a 50-MB blob from the storage service to serve as content to a user. The application could then retrieve that same blob every time a user requests it, or it could cache it locally to disk and reuse the cached version for subsequent user requests. Furthermore, whenever a user requests the data, the application could issue GET with a conditional header for modification time, which would avoid getting the entire blob if it hasn't been modified. You can apply this same pattern to working with table entities.  
+In general, reading data from a service once is better than getting it twice. Consider the example of an MVC web application running in a web role that has already retrieved a 50-MB blob from the storage service to serve as content to a user. The application could then retrieve that same blob every time a user requests it, or it could cache it locally to disk and reuse the cached version for subsequent user requests. Furthermore, whenever a user requests the data, the application could issue GET with a conditional header for modification time, which would avoid getting the entire blob if it hasn't been modified. You can apply this same pattern to working with table entities.  
 
 In some cases, you may decide that your application can assume that the blob remains valid for a short period after retrieving it, and that during this period the application does not need to check if the blob was modified.
 
@@ -172,7 +172,7 @@ Configuration, lookup, and other data that are always used by the application ar
 
 For more information about conditional downloads, see [Specifying conditional headers for Blob service operations](/rest/api/storageservices/specifying-conditional-headers-for-blob-service-operations).  
 
-#### <a name="subheading8"></a>Uploading data in batches
+#### Uploading data in batches
 
 In some application scenarios, you can aggregate data locally, and then periodically upload it in a batch instead of uploading each piece of data immediately. For example, a web application might keep a log file of activities: the application could either upload details of every activity as it happens as a table entity (which requires many storage operations), or it could save activity details to a local log file, and then periodically upload all activity details as a delimited file to a blob. If each log entry is 1 KB in size, you can upload thousands in a single "Put Blob" transaction (you can upload a blob of up to 64 MB in size in a single transaction). If the local machine crashes prior to the upload, you will potentially lose some log data: the application developer must design for the possibility of client device or upload failures.  If the activity data needs to be downloaded for timespans (not just single activity), then blobs are recommended over tables.
 
@@ -180,7 +180,7 @@ In some application scenarios, you can aggregate data locally, and then periodic
 
 If using the .NET Framework, this section lists several quick configuration settings that you can use to make significant performance improvements.  If using other languages, check to see if similar concepts apply in your chosen language.  
 
-#### <a name="subheading9"></a>Increase default connection limit
+#### Increase default connection limit
 
 In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
 
@@ -194,15 +194,15 @@ For other programming languages, see that language's documentation to determine 
 
 For more information, see the blog post [Web Services: Concurrent Connections](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
-#### <a name="subheading10"></a>Increase minimum number of threads if using synchronous code with asynchronous tasks
+#### Increase minimum number of threads
 
-This code will increase the minimum number of threads in the thread pool:  
+If you are using synchronous calls together with asynchronous tasks, you may want to increase the number of threads in the thread pool:
 
 ```csharp
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-For more information, see [ThreadPool.SetMinThreads Method](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+For more information, see the [ThreadPool.SetMinThreads](/dotnet/api/system.threading.threadpool.setminthreads) method.  
 
 #### <a name="subheading11"></a>Take advantage of .NET 4.5 and higher garbage collection
 
@@ -244,7 +244,7 @@ In addition to the proven practices for [All Services](#allservices) described p
 
 If you have a large number of clients accessing a single object concurrently, you will need to consider per object and storage account scalability targets. The exact number of clients that can access a single object will vary depending on factors such as the number of clients requesting the object simultaneously, the size of the object, network conditions etc.
 
-If the object can be distributed through a CDN such as images or videos served from a website, then you should use a CDN. See [here](#subheading5).
+If the object can be distributed through a CDN such as images or videos served from a website, then you should use a CDN. See [here](#content-distribution).
 
 In other scenarios such as scientific simulations where the data is confidential you have two options. The first is to stagger your workload's access such that the object is accessed over a period of time vs being accessed simultaneously. Alternatively, you can temporarily copy the object to multiple storage accounts thus increasing the total IOPS per object and across storage accounts. In limited testing, we found that around 25 VMs could simultaneously download a 100-GB blob in parallel (each VM was parallelizing the download using 32 threads). If you had 100 clients needing to access the object, first copy it to a second storage account and then have the first 50 VMs access the first blob and the second 50 VMs access the second blob. Results will vary depending on your applications behavior so you should test this during design. 
 

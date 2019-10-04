@@ -1,5 +1,5 @@
 ---
-title: Azure Table service performance and scalability checklist - Azure Storage
+title: Azure Table storage performance and scalability checklist - Azure Storage
 description: 
 services: storage
 author: tamram
@@ -11,7 +11,7 @@ ms.author: tamram
 ms.subservice: tables
 ---
 
-# Azure Table service performance and scalability checklist
+# Azure Table storage performance and scalability checklist
 
 In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the Table service.  
 
@@ -89,13 +89,13 @@ In general, avoid scans (queries larger than a single entity), but if you must s
 
 #### Query density
 
-Another key factor in query efficiency is the number of entities returned as compared to the number of entities scanned to find the returned set. If your application performs a table query with a filter for a property value that only 1% of the data shares, the query will scan 100 entities for every one entity it returns. The table scalability targets discussed previously all relate to the number of entities scanned, and not the number of entities returned: a low query density can easily cause the Table service to throttle your application because it must scan so many entities to retrieve the entity you are looking for. See the section below on [denormalization](#subheading34) for more information on how to avoid this.
+Another key factor in query efficiency is the number of entities returned as compared to the number of entities scanned to find the returned set. If your application performs a table query with a filter for a property value that only 1% of the data shares, the query will scan 100 entities for every one entity it returns. The table scalability targets discussed previously all relate to the number of entities scanned, and not the number of entities returned: a low query density can easily cause the Table service to throttle your application because it must scan so many entities to retrieve the entity you are looking for. For more information on how to avoid throttling, see the section titled [Denormalization](#denormalization).
 
 ##### Limiting the amount of data returned
 
-When you know that a query will return entities that you don't need in the client application, consider using a filter to reduce the size of the returned set. While the entities not returned to the client still count toward the scalability limits, your application performance will improve because of the reduced network payload size and the reduced number of entities that your client application must process. See above note on [Query Density](#subheading31), however – the scalability targets relate to the number of entities scanned, so a query that filters out many entities may still result in throttling, even if few entities are returned.
+When you know that a query will return entities that you don't need in the client application, consider using a filter to reduce the size of the returned set. While the entities not returned to the client still count toward the scalability limits, your application performance will improve because of the reduced network payload size and the reduced number of entities that your client application must process. Keep in mind that the scalability targets relate to the number of entities scanned, so a query that filters out many entities may still result in throttling, even if few entities are returned. For more information on making queries efficient, see the section titled [Query density](#query-density).
 
-If your client application needs only a limited set of properties from the entities in your table, you can use projection to limit the size of the returned data set. As with filtering, this helps to reduce network load and client processing. 
+If your client application needs only a limited set of properties from the entities in your table, you can use projection to limit the size of the returned data set. As with filtering, this helps to reduce network load and client processing.
 
 #### Denormalization
 
@@ -120,7 +120,7 @@ Use table **Upsert** operations wherever possible. There are two types of **Upse
 
 Sometimes, an application stores a series of data that it frequently needs to retrieve all at once: for example, an application might track CPU usage over time in order to plot a rolling chart of the data from the last 24 hours. One approach is to have one table entity per hour, with each entity representing a specific hour and storing the CPU usage for that hour. To plot this data, the application needs to retrieve the entities holding the data from the 24 most recent hours.  
 
-Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for an efficient query (see above discussion on [query scope](#subheading30)).
+Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for an efficient query. For more information on query efficiency, see the section titled [Query scope](#query-scope)).
 
 #### Storing structured data in blobs
 
