@@ -8,9 +8,9 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Overview of business continuity with Azure Database for MariaDB
+# Understand business continuity in Azure Database for MariaDB
 
-This overview describes the capabilities that Azure Database for MariaDB provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
+This article describes the capabilities that Azure Database for MariaDB provides for business continuity and disaster recovery. Learn about options for recovering from disruptive events that could cause data loss or cause your database and application to become unavailable. Learn what to do when a user or application error affects data integrity, an Azure region has an outage, or your application requires maintenance.
 
 ## Features that you can use to provide business continuity
 
