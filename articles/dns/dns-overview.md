@@ -47,7 +47,7 @@ Your domains and records can be managed by using the Azure portal, Azure PowerSh
 
 ## Customizable virtual networks with private domains
 
-Azure DNS also supports private DNS domains with a feature that's now in public preview. This feature allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
+Azure DNS also supports private DNS domains. This feature allows you to use your own custom domain names in your private virtual networks rather than the Azure-provided names available today.
 
 For more information, see [Use Azure DNS for private domains](private-dns-overview.md).
 

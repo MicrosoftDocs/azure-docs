@@ -81,21 +81,8 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
 
-## News and updates
-
-Learn what's new with QnA Maker.
-
-* June 2019
-    * Improved ranker model for French, Italian, German, Spanish, Portuguese
-* April 2019
-    * Support website content extraction
-    * Sharepoint document support
-* March 2019
-    * Active learning 
-    * Improved NLP ranker model for English, 
-
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base. 
 
 > [!div class="nextstepaction"]
-> [Create a QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
+> [Review the latest changes](../whats-new.md)
