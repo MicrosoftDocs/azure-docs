@@ -110,4 +110,8 @@ As an existing customer, you can continue to use the Health feature on VMs that 
 
 ## I use VM Health now with one environment and would like to deploy it for a new environment
 
-If you are an existing customer that is using the Health feature and want to use it for a new roll-out, please contact us at vminsights@microsoft.com to request instructions.
+If you are an existing customer that is using the Health feature and want to use it for a new roll-out, please contact us at [vminsights@microsoft.com](vminsights@microsoft.com) to request instructions.
+
+## Next steps
+
+To understand the requirements and methods that help you monitor your virtual machines, review [Deploy Azure Monitor for VMs](vminsights-enable-overview.md).
