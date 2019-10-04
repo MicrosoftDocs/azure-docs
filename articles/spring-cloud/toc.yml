@@ -22,6 +22,8 @@
   items: 
     - name: Enable Service Registration
       href: spring-cloud-service-registration.md
+    - name: Automate your CI/CD pipeline in Azure Spring Cloud
+      href: spring-cloud-howto-cicd.md
 - name: Reference
   items: 
     - name: The Azure CLI

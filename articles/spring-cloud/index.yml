@@ -81,6 +81,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Automate your CI/CD pipeline in Azure Spring Cloud
-            url: spring-cloud-overview.md ## must update when article checked in
+            url: spring-cloud-howto-cicd.md
           - text: Enable Blue-Green deployments using Azure Spring Cloud
             url: spring-cloud-overview.md ## must update when article checked in
