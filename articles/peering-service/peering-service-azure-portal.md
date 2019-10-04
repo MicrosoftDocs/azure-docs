@@ -12,7 +12,8 @@ ms.date: 09/25/2019
 ms.author: v-meravi
 ---
 
-## Create Peering Service – Azure Portal
+# Create Peering Service – Azure Portal
+
 ## What is Peering Service? 
 
 Peering Service, also known as Microsoft Azure Peering Service [MAPS] is a networking service that aims at improving the customer’s internet experience. It provides better accessibility to Microsoft SAAS services such as Office 365 and Azure. Microsoft has partnered with Internet Service Providers and Internet Exchange Partners to provide reliable internet connectivity by meeting the technical requirements as listed below:
