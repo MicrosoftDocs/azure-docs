@@ -13,7 +13,7 @@
     - name: Launch a Java Spring app using the Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md
     - name: Launch a Java Spring app using Maven
-      href: spring-cloud-quickstart-launch-maven.md 
+      href: spring-cloud-quickstart-launch-app-maven.md 
 - name: Concepts
   items: 
     - name: Service plans and quotas for Azure Spring Cloud
