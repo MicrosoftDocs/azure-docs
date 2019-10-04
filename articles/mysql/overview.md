@@ -2,9 +2,10 @@
 title: Overview of Azure Database for MySQL relational database service
 description: Learn about the Azure Database for MySQL service, a relational database service in the Microsoft cloud based on the MySQL Community Edition.
 author: ajlam
+ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/13/2019
 ---
 
