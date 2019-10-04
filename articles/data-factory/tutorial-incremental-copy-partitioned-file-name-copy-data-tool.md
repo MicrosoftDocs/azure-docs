@@ -17,6 +17,8 @@ ms.date: 1/24/2019
 ---
 # Incrementally copy new files based on time partitioned file name by using the Copy Data tool
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that incrementally copies new files based on time partitioned file name from Azure Blob storage to Azure Blob storage. 
 
 > [!NOTE]

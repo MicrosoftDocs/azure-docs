@@ -16,6 +16,9 @@ manager: craigg
 ---
 
 # Run SQL Server Integration Services (SSIS) packages with Azure-enabled dtexec utility
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article describes the Azure-enabled **dtexec** (**AzureDTExec**) command prompt utility.  It is used to run SSIS packages on Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF).
 
 The traditional **dtexec** utility comes with SQL Server, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  It is often invoked by third party orchestrators/schedulers, such as Active Batch, Control-M, etc., to run SSIS packages on premises.  The modern **AzureDTExec** utility comes with SQL Server Management Studio (SSMS) tool.  It can also be invoked by third party orchestrators/schedulers to run SSIS packages in Azure.  It facilitates the lifting & shifting/migration of your SSIS packages to the cloud.  After migration, if you want to keep using third party orchestrators/schedulers in your day-to-day operations, they can now invoke **AzureDTExec** instead of **dtexec**.

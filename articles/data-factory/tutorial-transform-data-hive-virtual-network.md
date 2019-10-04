@@ -13,6 +13,9 @@ ms.author: abnarain
 manager: craigg
 ---
 # Transform data in Azure Virtual Network using Hive activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 In this tutorial, you use Azure PowerShell to create a Data Factory pipeline that transforms data using Hive Activity on a HDInsight cluster that is in an Azure Virtual Network (VNet). You perform the following steps in this tutorial:
 
 > [!div class="checklist"]

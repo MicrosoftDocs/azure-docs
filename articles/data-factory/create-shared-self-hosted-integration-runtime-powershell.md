@@ -16,6 +16,8 @@ ms.author: abnarain
 ---
 # Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This step-by-step guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory by using Azure PowerShell. Then you can use the shared self-hosted integration runtime in another data factory. In this tutorial, you take the following steps: 
 
 1. Create a data factory. 

@@ -14,6 +14,8 @@ ms.date: 09/25/2018
 
 # Understanding Data Factory pricing through examples
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article explains and demonstrates the Azure Data Factory pricing model with detailed examples.
 
 > [!NOTE]
