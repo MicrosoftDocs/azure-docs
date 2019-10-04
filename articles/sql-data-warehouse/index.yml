@@ -47,8 +47,8 @@ landingContent:
             url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
-          - text: 
-            url: .md
+          - text: Load data from Azure Data Lake Storage
+            url: sql-data-warehouse-load-from-azure-data-lake-store.md
       - linkListType: tutorial
         links:
           - text: Load data from Azure bob storage
@@ -68,7 +68,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Analyse your workload
-            url: /analyze-your-workload.md
+            url: analyze-your-workload.md
           # - text: linktext2
           #   url: file2.md
 
