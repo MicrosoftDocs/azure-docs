@@ -257,7 +257,7 @@ print(run.get_portal_url())
    ![Jupyter notebook widget for Automated Machine Learning](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure portal.
+To view further details of a pipeline click on the Pipeline you would like to explore in the table, and the charts will render in a pop-up from the Azure Machine Learning studio.
 
 ### Get log results upon completion
 
@@ -269,22 +269,22 @@ Model training and monitoring occur in the background so that you can run other 
 You can view the metrics of a trained model using ```run.get_metrics()```. You can now get all of the metrics that were logged in the  example above to determine the best model.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## View the experiment in the Azure portal or your [workspace landing page (preview)](https://ml.azure.com)
+## View the experiment in your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 
 When an experiment has finished running, you can browse to the recorded experiment run record. You can access the history in two ways:
 
 * Get the URL to the run directly ```print(run.get_portal_url())```
-* View the run details by submitting the name of the run (in this case, ```run```). This way points you to the experiment name, ID, type, status, details page, a link to the Azure portal, and a link to documentation.
+* View the run details by submitting the name of the run (in this case, ```run```). This way points you to the experiment name, ID, type, status, details page, a link to Azure Machine Learning studio, and a link to documentation.
 
-The link for the run brings you directly to the run details page in the Azure portal. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
+The link for the run brings you directly to the run details page in Azure Machine Learning studio. Here you can see any properties, tracked metrics, images, and charts that are logged in the experiment. In this case, we logged MSE and the alpha values.
 
-  ![Run details in the Azure portal](./media/how-to-track-experiments/run-details-page.png)
+  ![Run details in the Azure Machine Learning studio](./media/how-to-track-experiments/run-details-page.png)
 
 You can also view any outputs or logs for the run, or download the snapshot of the experiment you submitted so you can share the experiment folder with others.
 
 ### Viewing charts in run details
 
-There are various ways to use the logging APIs to record different types of metrics during a run and view them as charts in the Azure portal. 
+There are various ways to use the logging APIs to record different types of metrics during a run and view them as charts in Azure Machine Learning studio.
 
 |Logged Value|Example code| View in portal|
 |----|----|----|

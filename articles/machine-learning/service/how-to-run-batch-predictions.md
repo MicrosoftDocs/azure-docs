@@ -314,7 +314,7 @@ pipeline_run = Experiment(ws, 'digit_identification').submit(pipeline)
 
 A batch inference job can take a long time to finish. This example monitors progress using a Jupyter widget, but you can also manage the job's progress using:
 
-* The Azure portal 
+* Azure Machine Learning studio 
 * Console output from the [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py) object
 
 ```python

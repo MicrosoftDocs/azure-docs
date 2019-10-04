@@ -31,7 +31,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 ## Launch Jupyter web interface
 
-1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
+1. On your workspace page in Azure Machine Learning studio, select **Notebook VMs** on the left.
 
 1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
 
@@ -62,7 +62,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial, you use the experiment to create runs and track your model training in the Azure portal. Parameters include your workspace reference, and a string name for the experiment.
+Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial, you use the experiment to create runs and track your model training in Azure Machine Learning studio. Parameters include your workspace reference, and a string name for the experiment.
 
 
 ```python

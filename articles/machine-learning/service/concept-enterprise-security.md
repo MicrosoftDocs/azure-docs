@@ -186,7 +186,7 @@ Each workspace has an associated system-assigned managed identity that has the s
 
 ### Metrics
 
-You can use Azure Monitor metrics to view and monitor metrics for your Azure Machine Learning workspace. In the [Azure portal](https://portal.azure.com), select your workspace and then select **Metrics**:
+You can use Azure Monitor metrics to view and monitor metrics for your Azure Machine Learning workspace. In the [Azure Machine Learning studiol](https://ml.azure.com), select your workspace and then select **Metrics**:
 
 [![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 

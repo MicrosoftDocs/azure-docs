@@ -47,11 +47,11 @@ If you have an Azure Machine Learning workspace, skip to the next section.
 
 ### Create an experiment
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).
+1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. In your workspace, select **Designer**. Then select **Launch the designer**. 
 
-    ![Screenshot of the Azure portal showing how to access the designer from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
+    ![Screenshot of Azure Machine Learning studio showing how to access the designer from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
 1. Create a new experiment by selecting **+New** at the bottom of the designer window.
 

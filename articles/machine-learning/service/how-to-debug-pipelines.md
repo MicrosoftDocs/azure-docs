@@ -21,7 +21,7 @@ The following sections provide an overview of common pitfalls when building pipe
 
 ## Testing scripts locally
 
-One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure portal. 
+One of the most common failures in a pipeline is that an attached script (data cleansing script, scoring script, etc.) is not running as intended, or contains runtime errors in the remote compute context that are difficult to debug in your workspace in the Azure Machine Learning studio. 
 
 Pipelines themselves cannot be run locally, but unit-testing your underlying scripts is an easy way to make sure that your scripts are doing what you expect in isolation, without waiting for the full pipeline run duration. Some development work is required to do this:
 

@@ -54,7 +54,7 @@ You may start with a run configuration for your local computer, and then switch 
 Define the iterations, hyperparameter settings, featurization, and other settings. During training, Azure Machine Learning tries different algorithms and parameters in parallel. Training stops once it hits the exit criteria you defined. You don't have to worry about defining a run configuration when using estimators.
 
 > [!TIP]
-> In addtion to the Python SDK, you can also use Automated ML through the [workspace landing page (preview)](https://ml.azure.com).
+> In addtion to the Python SDK, you can also use Automated ML through [Azure Machine Learning studio](https://ml.azure.com).
 
 * [What is automated machine learning?](concept-automated-ml.md)
 * [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md)
@@ -62,7 +62,7 @@ Define the iterations, hyperparameter settings, featurization, and other setting
 * [Examples: Jupyter Notebook examples for automated machine learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning)
 * [How to: Configure automated ML experiments in Python](how-to-configure-auto-train.md)
 * [How to: Autotrain a time-series forecast model](how-to-auto-train-forecast.md)
-* [How to: Create, explore, and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)](how-to-create-portal-experiments.md)
+* [How to: Create, explore, and deploy automated machine learning experiments with [Azure Machine Learning studio](how-to-create-portal-experiments.md)
 
 ### Estimators
 

@@ -128,7 +128,7 @@ There are multiple ways to view drift metrics:
 
 * Use the `RunDetails`[Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py).
 * Use the [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) function on any `datadrift` run object.
-* View the metrics from the **Models** section of your [workspace landing page (preview)](https://ml.azure.com).
+* View the metrics from the **Models** section of your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
 The following Python example demonstrates how to plot relevant data drift metrics. You can use the returned metrics to build custom visualizations:
 
@@ -153,15 +153,15 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your [workspace landing page (preview)](https://ml.azure.com).
+The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your workspace in  [Azure Machine Learning studio](https://ml.azure.com).
 
-![Azure portal Data Drift](media/how-to-monitor-data-drift/drift-config.png)
+![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 
-## View results in your workspace landing page
+## View results in your Azure Machine Learning studio
 
-To view results in your workspace in [workspace landing page (preview)](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [Azure Machine Learning studio](https://ml.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A **Data drift** tab is now available visualizing the data drift metrics. 
 
-[![workspace landing page Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+[![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
 
 ## Receiving drift alerts

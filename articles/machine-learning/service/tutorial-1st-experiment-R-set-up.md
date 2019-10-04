@@ -13,7 +13,7 @@ ms.date: 09/20/2019
 
 # Tutorial: Get started with Azure Machine Learning and its R SDK
 
-In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure portal and the SDK.
+In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks. This tutorial is **part one of a two-part tutorial series**, and covers Python environment setup and configuration, as well as creating a workspace to manage your experiments and machine learning models. [**Part two**](tutorial-1st-experiment-sdk-train.md) builds on this to train multiple machine learning models and introduce the model management process using both the Azure Machine Learning studio and the SDK.
 
 In this tutorial, you:
 
@@ -35,9 +35,9 @@ This example uses the cloud notebook server in your workspace for an install-fre
 
 From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
 
-1. On your workspace page in the Azure portal, select **Notebook VMs** on the left.
+1. On your workspace page in the Azure Machine Learning studio, select **Notebook VMs** on the left.
 
 1. Select **+New** to create a notebook VM.
 

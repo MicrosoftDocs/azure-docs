@@ -1,7 +1,7 @@
 ---
 title: Create your first automated machine learning experiment
 titleSuffix: Azure Machine Learning
-description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning's workspace landing page (preview).
+description: Learn how to train and deploy a classification model with automated machine learning in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.date: 09/26/2019
 
 # Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment through the workspace landing page (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
+In this tutorial, you learn how to create your first automated machine learning experiment throughAzure Machine Learning studio without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
 With automated machine learning, you can automate away time intensive tasks. Automated machine learning rapidly iterates over many combinations of algorithms and hyperparameters to help you find the best model based on a success metric of your choosing.
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to do the following tasks:
 
 An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the service. 
 
-You create a workspace via the Azure portal, a web-based console for managing your Azure resources. 
+You create a workspace via the Azure Machine Learning studio, a web-based console for managing your Azure resources. 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -47,9 +47,9 @@ You create a workspace via the Azure portal, a web-based console for managing yo
 
 ## Create and run the experiment
 
-You complete the following experiment set-up and run steps in the workspace landing page, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The workspace landing page is not supported on Internet Explorer browsers.
+You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels. The studio is not supported on Internet Explorer browsers.
 
-1. Sign in to the [workspace landing page](https://ml.azure.com/workspaceportal/).
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com).
 
 1. Select your subscription and the workspace you created.
 
@@ -144,7 +144,7 @@ The following shows the charts and run metrics generated for each iteration such
 
 ## Deploy the model
 
-Automated machine learning in the workspace landing page allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
 
 Once the run is complete, navigate back to the **Iteration chart** and **Iterations list** detail page. 
 
@@ -173,9 +173,9 @@ Deployment files are larger than data and experiment files, so they cost more to
 
 ### Delete the deployment instance
 
-Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
+Delete just the deployment instance from the Azure Machine Learning studio, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
-1. Go to the [Azure portal](https://portal.azure.com//). Navigate to your workspace and  on the left under the **Assets** pane, select **Deployments**. 
+1. Go to the [Azure Machine Learning studio](https://ml.azure.com/). Navigate to your workspace and  on the left under the **Assets** pane, select **Endpoints**. 
 
 1. Select the deployment you want to delete and select **Delete**. 
 
@@ -187,7 +187,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 ## Next steps
 
-In this automated machine learning tutorial, you used the workspace landing page to create and deploy a classification model. See these articles for more information and next steps:
+In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
 > [Consume a web service](how-to-consume-web-service.md)

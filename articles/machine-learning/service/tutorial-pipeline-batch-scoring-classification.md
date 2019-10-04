@@ -461,7 +461,7 @@ df.head(10)
 
 ## Publish and run from a REST endpoint
 
-Run the following code to publish the pipeline to your workspace. In your workspace in the Azure portal, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the portal.
+Run the following code to publish the pipeline to your workspace. In your workspace in Azure Machine Learning studio, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the portal.
 
 Publishing the pipeline enables a REST endpoint that you can use to run the pipeline from any HTTP library on any platform.
 
@@ -485,7 +485,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in the Azure portal. 
+Get the REST URL from the `endpoint` property of the published pipeline object. You can also find the REST URL in your workspace in Azure Machine Learning studio. 
 
 Build an HTTP POST request to the endpoint. Specify your authentication header in the request. Add a JSON payload object that has the experiment name and the batch size parameter. As noted earlier in the tutorial, `param_batch_size` is passed through to your `batch_scoring.py` script because you defined it as a `PipelineParameter` object in the step configuration.
 

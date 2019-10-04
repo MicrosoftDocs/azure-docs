@@ -103,11 +103,11 @@ Navigate to the **API Doc** tab, to find more API details.
 
 The models and web service deployments you create in the designer can also be managed from the Azure Machine Learning workspace.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
+1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  
 
 1. In your workspace, select **Models**. Then select the experiment you created.
 
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
+    ![Screenshot showing how to navigate to experiments in Azure Machine Learning studio](./media/ui-tutorial-automobile-price-deploy/portal-models.png)
 
     On this page, you'll see additional details about the model.
 
@@ -115,7 +115,7 @@ The models and web service deployments you create in the designer can also be ma
 
     [![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
 
-You can also find these models and deployments in the **Models** and **Endpoints** sections of your [workspace landing page (preview)](https://ml.azure.com).
+You can also find these models and deployments in the **Models** and **Endpoints** sections of your workspace in [Azure Machine Learning studio](https://ml.azure.com).
 
 ## Clean up resources
 

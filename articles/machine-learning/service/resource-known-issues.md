@@ -132,13 +132,13 @@ If you see a `FailToSendFeather` error when reading data on Azure Databricks clu
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
-## Azure portal
+## Azure Machine Learning studio
 
-If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure Machine Learning studio](https://ml.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  
 
 > [!NOTE]
 > Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
