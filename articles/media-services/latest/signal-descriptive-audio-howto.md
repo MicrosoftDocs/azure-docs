@@ -17,26 +17,21 @@ ms.author: juliako
 
 # Signal audio description tracks
 
-A customer could annotate an audio track as audio description in the manifest. To do that, they would add “accessibility” and “role” parameters to the .ism file. Media Services will recognize audio description if an audio track has param “accessibility” with value “description”, and param "role" with value "alternate". If Media Services detects the audio description in the .ism file, the audio description information is passed to the client manifest as `Accessibility="description"` and `Role="alternate"` attributes into the `StreamIndex` element.
+A customer could signal audio description tracks by annotating the audio track in the manifest. For more information, see the [Signaling audio description tracks](dynamic-packaging-overview.md#signaling-audio-description-tracks) concept.
 
-If the combination of "accessibility" = "description" and "role" = "alternate" is set in .ism file,  the DASH manifest and Smooth manifest carry values as set in “accessibility” and “role” parameters. It is the customer’s responsibility to set these two values right and to mark an audio track as audio description. Per DASH spec, “accessibility” = “description” and “role” = “alternate” together means an audio track is audio description.
+The steps in this how to show how to perform the following workflow: 
 
-For HLS v7 and above (`format=m3u8-cmaf`), its playlist carries `CHARACTERISTICS="public.accessibility.describes-video"` only when the combination of “accessibility” = “description” and “role” = “alternate” is set in .ism file. 
-
-## Overview of the steps
-
-The steps that are covered in this article are:
-
-1. Create an input asset and upload source file containing primary video and audio (using a local file or specifying an HTTPS URL) into the asset.
-1. Create an output asset where the result of your encoding job will go.
-1. Encode the source file using a suitable transform.
-1. Upload the additional audio-only MP4 file (AAC codec) containing descriptive audio into the output asset.
-1. Edit the .ism file in the output asset blob.
-1. Publish the asset by creating a streaming locators.
+1. Create an asset.
+1. Upload a source file into the asset.
+1. Encode the source file.
+1. Upload an audio-only MP4 file (AAC codec) containing descriptive audio into the output asset.
+1. Edit the .ism file that was created as a result of encoding.
+1. Publish the asset by creating a streaming locator.
+1. Play the stream that contains the descriptive audio tracks.
 
 ## Prerequisites
 
-- [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
+- [Create a Media Services account](create-account-cli-how-to.md).
 - Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
 - Review the [Upload, encode, and stream videos](stream-files-tutorial-with-api.md) tutorial.
 
@@ -56,7 +51,7 @@ The following function performs these actions:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-## Create an output asset to store the result of a job 
+## Create an output asset to store the result of the encoding job
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. 
 
@@ -139,6 +134,21 @@ Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/strea
 > In this method, you  need the locatorName that was used when creating the **Streaming Locator** for the output Asset.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#GetStreamingURLs)]
+
+## Test with Azure Media Player
+
+To test the stream, this article uses Azure Media Player. 
+
+> [!NOTE]
+> If a player is hosted on an https site, make sure to update the URL to "https".
+
+1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
+2. In the **URL:** box, paste one of the streaming URL values you got from your application. 
+ 
+     You can paste the URL in HLS, Dash, or Smooth format and Azure Media Player will switch to an appropriate streaming protocol for playback on your device automatically.
+3. Press **Update Player**.
+
+Azure Media Player can be used for testing but should not be used in a production environment. 
 
 ## Next steps
 
