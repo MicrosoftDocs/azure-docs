@@ -273,7 +273,7 @@ Yes.
 
 **Is the boot volume encrypted by default on a managed disk?**
 
-Yes. 
+Yes. By default, all managed disks are encrypted, including the OS disk.
 
 **Who manages the encryption keys?**
 
