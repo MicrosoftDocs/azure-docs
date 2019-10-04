@@ -33,11 +33,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Launch a Java Spring app using the portal
+          - text: Launch a Java Spring app by using the portal
             url: spring-cloud-quickstart-launch-app-portal.md ## must update when article checked in
-          - text: Launch a Java Spring app using Maven
-            url: spring-cloud-overview.md ## must update when article checked in
-          - text: Launch a Java Spring app using the Azure CLI
+          - text: Launch a Java Spring app by using Maven
+            url: spring-cloud-quickstart-launch-app-maven.md
+          - text: Launch a Java Spring app by using the Azure CLI
             url: spring-cloud-quickstart-launch-app-cli.md ## must update when article checked in
       - linkListType: tutorial
         links:
@@ -49,7 +49,7 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Monitor your application using distributed tracing and App Insights
+          - text: Monitor your application by using distributed tracing and App Insights
             url: spring-cloud-overview.md ## must update when article checked in
           - text: Enable Diagnostic Services on your Java Spring application
             url: spring-cloud-overview.md ## must update when article checked in

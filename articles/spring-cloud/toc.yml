@@ -8,20 +8,22 @@
   items:
     - name: Launch your Spring Cloud app from source
       href: spring-cloud-launch-from-source.md
-    - name: Launch your Spring Cloud app using the portal
+    - name: Launch your Spring Cloud app by using the portal
       href: spring-cloud-quickstart-launch-app-portal.md 
-    - name: Launch your Spring Cloud app using the Azure CLI
-      href: spring-cloud-quickstart-launch-app-cli.md 
+    - name: Launch a Java Spring app by using the Azure CLI
+      href: spring-cloud-quickstart-launch-app-cli.md
+    - name: Launch a Java Spring app by using Maven
+      href: spring-cloud-quickstart-launch-app-maven.md 
 - name: Concepts
   items: 
     - name: Service plans and quotas for Azure Spring Cloud
       href: spring-cloud-quotas.md
 - name: How-to guides
   items: 
-    - name: How to enable Service Registration
+    - name: Enable Service Registration
       href: spring-cloud-service-registration.md
 - name: Reference
   items: 
-    - name: Azure CLI
+    - name: The Azure CLI
       href: spring-cloud-cli-reference.md
       
