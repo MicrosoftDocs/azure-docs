@@ -10,7 +10,7 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 10/04/2019
 ---
-# Quickstart: Create an AI enrichment pipeline using cognitive skills in Cognitive Azure Search
+# Quickstart: Create an AI enrichment pipeline using cognitive skills in Azure Cognitive Search
 
 Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
 
