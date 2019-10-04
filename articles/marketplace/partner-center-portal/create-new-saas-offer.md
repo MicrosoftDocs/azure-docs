@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/4/2019
 ---
 
 # Create a new SaaS offer
@@ -215,7 +215,7 @@ The Offer listing tab displays the languages (and markets) where your offer is a
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain whitespace, emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
 - **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
