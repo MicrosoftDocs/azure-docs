@@ -47,7 +47,7 @@ If you have an Azure Machine Learning workspace, skip to the next section.
 
 ### Create an experiment
 
-1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).
+1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com/).
 
 1. In your workspace, select **Designer**. Then select **Launch the designer**. 
 

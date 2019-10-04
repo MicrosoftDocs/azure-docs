@@ -28,7 +28,7 @@ ms.date: 09/09/2019
 
 ## Get started
 
-1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/workspaceportal/). 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace. 
 

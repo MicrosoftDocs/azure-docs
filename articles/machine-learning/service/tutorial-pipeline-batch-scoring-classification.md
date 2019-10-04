@@ -461,7 +461,7 @@ df.head(10)
 
 ## Publish and run from a REST endpoint
 
-Run the following code to publish the pipeline to your workspace. In your workspace in Azure Machine Learning studio, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the portal.
+Run the following code to publish the pipeline to your workspace. In your workspace in Azure Machine Learning studio, you can see metadata for the pipeline, including run history and durations. You can also run the pipeline manually from the studio.
 
 Publishing the pipeline enables a REST endpoint that you can use to run the pipeline from any HTTP library on any platform.
 

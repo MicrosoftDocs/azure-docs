@@ -103,7 +103,7 @@ Navigate to the **API Doc** tab, to find more API details.
 
 The models and web service deployments you create in the designer can also be managed from the Azure Machine Learning workspace.
 
-1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/).  
+1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com/).  
 
 1. In your workspace, select **Models**. Then select the experiment you created.
 
