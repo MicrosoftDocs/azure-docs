@@ -63,7 +63,17 @@ Let's get started with the ODBC driver.
 1. Click the **Test** button to make sure you can connect to your Azure Cosmos DB account. 
 
 1. Click **Advanced Options** and set the following values:
-    - **REST API Version**: Select the [REST API version](https://docs.microsoft.com/rest/api/cosmos-db/) for your operations. The default 2015-12-16.
+    - **REST API Version**: Select the [REST API version](https://docs.microsoft.com/rest/api/cosmos-db/) for your operations. The default 2015-12-16. 
+            - If you have containers with [large partition keys](large-partition-keys.md) and require REST API version 2018-12-31:
+                    - Type in **2018-12-31** for REST API version
+                    - In the **Start** menu, type "regedit" to find and open the **Registry Editor** application.
+                    - In Registry Editor, navigate to the path: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC.INI**
+                    - Create a new subkey with the same name as your DSN, e.g. "Contoso Account ODBC DSN".
+                    - Navigate to the "Contoso Account ODBC DSN" subkey. 
+                    - Right-click to add a new **String** value:
+                            - Value Name: **IgnoreSessionToken**
+                            - Value data: **1**
+                         ![Registry Editor settings](./media/odbc-driver/cosmos-odbc-edit-registry.png)
     - **Query Consistency**: Select the [consistency level](consistency-levels.md) for your operations. The default is Session.
     - **Number of Retries**: Enter the number of times to retry an operation if the initial request does not complete due to service rate limiting.
     - **Schema File**: You have a number of options here.
