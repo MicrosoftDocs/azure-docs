@@ -141,7 +141,7 @@ Follow these steps on the on-premises server where you are running Azure AD Conn
 
 ## Next steps
 
-- [**Quick Start**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
+- [**Quickstart**](how-to-connect-sso-quick-start.md) - Get up and running Azure AD Seamless SSO.
 - [**Technical Deep Dive**](how-to-connect-sso-how-it-works.md) - Understand how this feature works.
 - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
