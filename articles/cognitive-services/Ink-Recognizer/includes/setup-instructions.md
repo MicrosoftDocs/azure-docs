@@ -13,11 +13,9 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 * You can also get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After signing up, it and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
-After creating a resource: 
+After creating a resource, get your endpoint and key by opening your resource on the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade), and clicking **Quick start**.
 
-1. Get your endpoint and key by finding your resource on the [Azure portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade), and clicking **Quick start**. 
-
-2. Create two [environment variables]():
+Create two [environment variables](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource):
 
     * `INK_RECOGNITION_SUBSCRIPTION_KEY` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
