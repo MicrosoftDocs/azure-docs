@@ -130,7 +130,7 @@ def currentDateTime():
     print (str(currentDT))
 ```
 
-### Get the last model update date and time
+### Get the last model update time
 
 When the function, `get_last_updated`, is called, the function prints out the last modified date and time that the model was updated. 
 
@@ -186,7 +186,7 @@ def get_service_settings():
     print(response.json())
 ```
 
-### Construct URLs for REST calls and read JSON data files
+### Construct URLs and read JSON data files
 
 This cell 
 
@@ -369,7 +369,7 @@ def add_action_features(rankjsonobj):
     rankjsonobj["actions"] = actionfeaturesobj
 ```
 
-### Compare Rank API's prediction with known user preference
+### Compare prediction with known user preference
 
 This function is called after the Rank API is called, for each iteration.
 
@@ -543,7 +543,7 @@ jsonTemplate = rankactionsjsonobj
 
 
 
-## Chart results to see improvement with Personalizer
+## Chart results to see improvement 
 
 Create a chart from the `count` and `rewards`.
 
@@ -619,7 +619,7 @@ User count 4
 Coffee count 4
 ```
 
-## Validate new learning policy by running experiment for 2,000 iterations
+## Validate new learning policy 
 
 Return to the Azure notebook, and continue by running the same loop but for only 2,000 iterations. Refresh the metrics chart in the Azure portal periodically to see the total calls to the service. When you have around 4,000 calls, a rank and reward call for each iteration of the loop, the iterations are done. 
 
