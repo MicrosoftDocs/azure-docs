@@ -61,9 +61,9 @@ landingContent:
         links:
           - text: SQL Data Warehouse best practices
             url: sql-data-warehouse-best-practices.md
-          - text: Ordered clustered columnstore index
+          - text: Ordered clustered columnstore index tuning
             url: performance-tuning-ordered-cci.md
-          - text: Materialized view 
+          - text: Use materialized views for workload tuning
             url: performance-tuning-materialized-views.md
       - linkListType: how-to-guide
         links:
@@ -104,12 +104,12 @@ landingContent:
       #     - text: linktext2
       #       url: file2.md
 
-  # # Card
-  # - title: Resources
-  #   linkLists:
-  #     - linkListType: video
-  #       links:
-  #         - text: Watch the latest Azure SQL Data Warehouse videos
-  #           url: sql-data-warehouse-videos.md
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: video
+        links:
+          - text: Watch the latest Azure SQL Data Warehouse videos
+            url: sql-data-warehouse-videos.md
   #         # - text: linktext2
   #         #   url: file2.md
