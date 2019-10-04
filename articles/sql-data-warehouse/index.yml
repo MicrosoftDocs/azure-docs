@@ -77,7 +77,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Leran to manage and monitor your SQL Data Warehouse
+          - text: Learn to manage and monitor your SQL Data Warehouse
             url: sql-data-warehouse-overview-manageability-monitoring.md
       #     - text: linktext2
       #       url: file2.md
