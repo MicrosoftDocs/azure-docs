@@ -11,7 +11,7 @@ ms.date: 06/20/2019
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Anomaly Detector using the [Azure portal](../articles/cognitive-services/cognitive-services-apis-create-account.md). 
 
-* You can also get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+* You can also get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for seven days for free. After signing up, it and an endpoint will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
 After creating a resource: 
 
