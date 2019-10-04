@@ -22,7 +22,7 @@ The following sections provide sample log queries for update records that are co
 
 ### Confirm that non-Azure machines are onboarded
 
-To confirm that directly connected machines are communicating with Azure Monitor logs, after a few minutes, you can run one the following log searches.
+To confirm that directly connected machines are communicating with Azure Monitor logs, run one of the following log searches.
 
 #### Linux
 

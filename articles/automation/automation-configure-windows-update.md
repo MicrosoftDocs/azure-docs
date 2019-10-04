@@ -49,3 +49,11 @@ $ServiceManager.Services
 $ServiceID = "7971f918-a847-4430-9279-4a52d1efe18d"
 $ServiceManager.AddService2($ServiceId,7,"")
 ```
+
+## WSUS Configuration Settings
+
+**Update Management** respects WSUS configuration settings. The list of WSUS settings you can configure for working with Update Management is listed below.
+
+### Intranet Microsoft update service location
+
+You can specify sources for scanning and downloading updates under [Intranet Microsoft Update Service Location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location).

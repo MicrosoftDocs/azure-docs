@@ -53,9 +53,7 @@ You may have defined a quota in your workspace that has been reached and stoppin
   | summarize by Computer, Solutions
   ```
 
-* Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
-
-* If the above steps do not solve your problem, Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
+* Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up in the **Update Management** portal, you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
 
 * In your workspace, run the following query. If you see the result `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` you have a quota defined on your workspace that has been reached and has stopped data from being saved. In your workspace, navigate to **Usage and estimated costs** > **data volume management** and check your quota or remove the quota you have.
 
@@ -64,6 +62,8 @@ You may have defined a quota in your workspace that has been reached and stoppin
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
+
+* If the above steps do not solve your problem, Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
 
 ## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
 
@@ -224,7 +224,8 @@ The machine is already onboarded to another workspace for Update Management.
 
 ### Resolution
 
-Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
+1. Follow the steps under [Machines don't show up in the portal under Update Management](#nologs) to ensure machine is reporting to the correct workspace.
+2. Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
 
 ## <a name="machine-unable-to-communicate"></a>Scenario: Machine is unable to communicate with the service
 
@@ -274,7 +275,7 @@ Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypt
 
 ### Issue
 
-The default maintenance window for updates, is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
 
 ### Resolution
 
@@ -286,15 +287,27 @@ For more information on maintenance windows, see [Install Updates](../automation
 
 ### Issue
 
-You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+* You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+* You have machines that show as not assessed
+* You see an HRESULT error code in the portal.
 
 ### Cause
 
-Windows Update or WSUS is not configured correctly in the machine. Update Management relies of Windows Update or WSUS to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
+The Update Agent (Windows Update Agent on Windows, the package manager for your Linux distribution), is not configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
 
 ### Resolution
 
-Double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
+Trying to perform updates locally on the machine. If this fails, this typically means a configuration error with the update agent.
+
+Common causes of failure are:
+
+* Network configuration and firewalls.
+* For Linux, check the appropriate documentation to ensure you are able to reach the network endpoint of your package repository.
+* For Windows, check your agent configuration as listed in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
+  * If the machine(s) are configured for Windows Update, make sure you able to reach the endpoints listed under [](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  * If the machine(s) are configured for WSUS, make sure you are able to reach the WSUS server configured by the [WUServer Registry Key](/windows/deployment/update/waas-wu-settings).
+
+If you see an HRESULT, double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
 
 |Exception  |Resolution or Action  |
 |---------|---------|
@@ -314,7 +327,7 @@ Additionally you can download and run the [Windows Update troubleshooter](https:
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) states it is for Windows clients but it works on Windows Server as well.
 
-## Scenario: Update run starts, but encounters errors
+## Scenario: Update run returns status "Failed"
 
 ### Issue
 
@@ -324,15 +337,17 @@ An update run starts, but encounters errors during the run.
 
 Possible causes could be:
 
-* Package manager is unhealthy
-* Specific packages may interfere with cloud based patching
-* Other reasons
+* Package manager is unhealthy.
+* Update Agent (WUA for Windows, distro-specific package manager for Linux) is misconfigured.
+* Specific packages may interfere with cloud based patching.
+* Machine was unreachable.
+* Updates had dependencies which were not resolved.
 
 ### Resolution
 
-If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully, [check the job output](../manage-update-multi#view-results-of-an-update-deployment) from the affected machine in the run. You may find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
-In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
+If specific patches, packages or updates are seen immediately before the job fails, you can try [excluding](../automation-tutorial-update-management.md#schedule-an-update-deployment) those from the next update deployment. To gather log info from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
 
 If you can't resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
 
