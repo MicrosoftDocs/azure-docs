@@ -4,9 +4,6 @@ description: Learn how to create Azure management groups to manage multiple reso
 author: rthorn17
 manager: rithorn
 ms.service: governance
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
