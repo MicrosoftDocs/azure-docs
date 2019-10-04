@@ -77,9 +77,7 @@ The primary technical requirements for an IoT Edge Module, in order for it to ge
 
 If you haven’t already done so,
 
-- Register in the [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Create a [Microsoft Account](https://account.microsoft.com/account/) (required for Azure Marketplace transact offers; recommended for others).
-- Submit the [Marketplace Registration Form](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). See how to [create a Partner Center account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) for more information.
+- [Register](https://azuremarketplace.microsoft.com/sell) in the marketplace.
 
 If you're registered and are creating a new offer or working on an existing one,
 

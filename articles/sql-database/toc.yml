@@ -164,7 +164,7 @@
       href: sql-database-reserved-capacity.md
     - name: Migrate from Premium RS service tier
       href: sql-database-service-tiers-prs.md
-  - name: Compute & storage
+  - name: Service tiers
     items:
     - name: Overview
       href: sql-database-service-tiers-general-purpose-business-critical.md
@@ -302,6 +302,8 @@
           href: sql-database-vnet-service-endpoint-rule-overview.md
         - name: Virtual network endpoints - PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Private Link
+        href: sql-database-private-endpoint-overview.md
     - name: Access control
       items:
       - name: Access control
@@ -584,6 +586,8 @@
         href: sql-database-xevent-code-ring-buffer.md
   - name: Configure features
     items:
+    - name: Configure failover group
+      href: sql-database-configure-failover-group.md
     - name: Configure Azure AD auth
       href: sql-database-aad-authentication-configure.md
     - name: Conditional Access

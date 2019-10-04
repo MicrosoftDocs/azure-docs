@@ -65,8 +65,14 @@
     href: detailed-troubleshoot-ssh-connection.md
 - name: Common error messages
   href: error-messages.md
+- name: Data to collect when you open a case for Microsoft Azure Automation
+  href: collect-data-microsoft-azure-automation-case.md
 - name: Performance issues with VMs
   href: performance-diagnostics.md
+- name: Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
+  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Support for 32-bit operating systems in Azure virtual machines
+  href: support-32-bit-operating-systems-virtual-machines.md
   items:
   - name: Windows
     items:
@@ -187,3 +193,9 @@
   href: understand-vm-reboot.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
+- name: Virtual Machine Repair
+  items:
+  - name: Repair a Windows VM by using the Azure Virtual Machine repair commands
+    href: repair-windows-vm-using-azure-virtual-machine-repair-commands.md
+  - name: Repair a Linux VM by using the Azure Virtual Machine repair commands
+    href: repair-linux-vm-using-azure-virtual-machine-repair-commands.md

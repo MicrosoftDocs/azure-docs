@@ -19,7 +19,7 @@ This article describes how to schedule the starting and stopping of Azure-SSIS I
 
 Alternatively, you can create Web activities in ADF pipelines to start/stop your IR on schedule, e.g. starting it in the morning before executing your daily ETL workloads and stopping it in the afternoon after they are done.  You can also chain an Execute SSIS Package activity between two Web activities that start and stop your IR, so your IR will start/stop on demand, just in time before/after your package execution. For more info about Execute SSIS Package activity, see [Run an SSIS package using Execute SSIS Package activity in ADF pipeline](how-to-invoke-ssis-package-ssis-activity.md) article.
 
-[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites
 If you have not provisioned your Azure-SSIS IR already, provision it by following instructions in the [tutorial](tutorial-create-azure-ssis-runtime-portal.md). 
@@ -236,15 +236,15 @@ If you do not have an Azure Automation account already, create one by following 
 
 ### Import ADF modules
 
-1. Select **Modules** in **SHARED RESOURCES** section on the left menu and verify whether you have **AzureRM.DataFactoryV2** + **AzureRM.Profile** in the list of modules.
+1. Select **Modules** in **SHARED RESOURCES** section on the left menu and verify whether you have **Az.DataFactory** + **Az.Profile** in the list of modules.
 
    ![Verify the required modules](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image1.png)
 
-2.  If you do not have **AzureRM.DataFactoryV2**, go to the PowerShell Gallery for [AzureRM.DataFactoryV2 module](https://www.powershellgallery.com/packages/AzureRM.DataFactoryV2/), select **Deploy to Azure Automation**, select your Azure Automation account, and then select **OK**. Go back to view **Modules** in **SHARED RESOURCES** section on the left menu and wait until you see **STATUS** of **AzureRM.DataFactoryV2** module changed to **Available**.
+2.  If you do not have **Az.DataFactory**, go to the PowerShell Gallery for [Az.DataFactory module](https://www.powershellgallery.com/packages/Az.DataFactory/), select **Deploy to Azure Automation**, select your Azure Automation account, and then select **OK**. Go back to view **Modules** in **SHARED RESOURCES** section on the left menu and wait until you see **STATUS** of **Az.DataFactory** module changed to **Available**.
 
     ![Verify the Data Factory module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image2.png)
 
-3.  If you do not have **AzureRM.Profile**, go to the PowerShell Gallery for [AzureRM.Profile module](https://www.powershellgallery.com/packages/AzureRM.profile/), select **Deploy to Azure Automation**, select your Azure Automation account, and then select **OK**. Go back to view **Modules** in **SHARED RESOURCES** section on the left menu and wait until you see **STATUS** of the **AzureRM.Profile** module changed to **Available**.
+3.  If you do not have **Az.Profile**, go to the PowerShell Gallery for [Az.Profile module](https://www.powershellgallery.com/packages/Az.profile/), select **Deploy to Azure Automation**, select your Azure Automation account, and then select **OK**. Go back to view **Modules** in **SHARED RESOURCES** section on the left menu and wait until you see **STATUS** of the **Az.Profile** module changed to **Available**.
 
     ![Verify the Profile module](media/how-to-schedule-azure-ssis-integration-runtime/automation-fix-image3.png)
 

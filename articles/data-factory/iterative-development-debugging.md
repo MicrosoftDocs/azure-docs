@@ -46,6 +46,10 @@ You can visualize all the debug runs that are in progress for your data factory 
 
 ![Sample list of active debug runs](media/iterative-development-debugging/view-debug-runs-image2.png)
 
+If you have active Data Flow debug sessions, those sessions will appear on the bottom part of the active debug window. You can select an active data flow session and stop the respective cluster.
+
+![Sample list of active data flow debug runs](media/data-flow/dfsessions.png)
+
 ## Monitoring debug runs
 
 The test runs initiated with the **Debug** capability are not available in the list on the **Monitor** tab. You can only see runs triggered with **Trigger Now**, **Schedule**, or **Tumbling Window** triggers in the **Monitor** tab. You can see the last test run initiated with the **Debug** capability in the **Output** window of the pipeline canvas.

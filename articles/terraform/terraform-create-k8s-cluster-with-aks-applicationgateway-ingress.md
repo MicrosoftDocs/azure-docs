@@ -8,7 +8,7 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 1/10/2019
+ms.date: 09/20/2019
 ---
 
 # Create a Kubernetes cluster with Application Gateway ingress controller using Azure Kubernetes Service and Terraform
@@ -33,7 +33,7 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
   - Note the Object ID of the Service Principal by running the following command
 
-    ```bash
+    ```azurecli
     az ad sp list --display-name <displayName>
     ```
 
@@ -77,7 +77,7 @@ Create the Terraform configuration file that declares the Azure provider.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     provider "azurerm" {
         version = "~>1.18"
     }
@@ -94,17 +94,21 @@ Create the Terraform configuration file that declares the Azure provider.
     ```bash
     :wq
     ```
-   ## Define input variables
-   Create the Terraform configuration file that lists all the variables required for this deployment
-1. In Cloud Shell, create a file named `variables.tf`
+
+## Define input variables
+Create the Terraform configuration file that lists all the variables required for this deployment.
+
+1. In Cloud Shell, create a file named `variables.tf`.
+
     ```bash
     vi variables.tf
     ```
+
 1. Enter insert mode by selecting the I key.
 
-2. Paste the following code into the editor:
+1. Paste the following code into the editor:
     
-    ```JSON
+    ```hcl
     variable "resource_group_name" {
       description = "Name of the resource group already created."
     }
@@ -249,9 +253,9 @@ Create Terraform configuration file that creates all the resources.
 
 1. Paste the following code blocks  into the editor:
 
-    a. Create a locals block for computed variables to reuse
+    a. Create a locals block for computed variables to reuse.
 
-    ```JSON
+    ```hcl
     # # Locals block for hardcoded names. 
     locals {
         backend_address_pool_name      = "${azurerm_virtual_network.test.name}-beap"
@@ -263,8 +267,10 @@ Create Terraform configuration file that creates all the resources.
         app_gateway_subnet_name = "appgwsubnet"
     }
     ```
-    b. Create a data source for Resource group, new User identity
-    ```JSON
+
+    b. Create a data source for Resource group, new User identity.
+
+    ```hcl
     data "azurerm_resource_group" "rg" {
       name = "${var.resource_group_name}"
     }
@@ -279,8 +285,10 @@ Create Terraform configuration file that creates all the resources.
       tags = "${var.tags}"
     }
     ```
-    c. Create base networking resources
-   ```JSON
+
+    c. Create base networking resources.
+
+    ```hcl
     resource "azurerm_virtual_network" "test" {
       name                = "${var.virtual_network_name}"
       location            = "${data.azurerm_resource_group.rg.location}"
@@ -323,8 +331,10 @@ Create Terraform configuration file that creates all the resources.
       tags = "${var.tags}"
     }
     ```
-    d. Create Application Gateway resource
-    ```JSON
+
+    d. Create Application Gateway resource.
+
+    ```hcl
     resource "azurerm_application_gateway" "network" {
       name                = "${var.app_gateway_name}"
       resource_group_name = "${data.azurerm_resource_group.rg.name}"
@@ -388,8 +398,10 @@ Create Terraform configuration file that creates all the resources.
       depends_on = ["azurerm_virtual_network.test", "azurerm_public_ip.test"]
     }
     ```
-    e. Create role assignments
-    ```JSON
+
+    e. Create role assignments.
+
+    ```hcl
     resource "azurerm_role_assignment" "ra1" {
       scope                = "${data.azurerm_subnet.kubesubnet.id}"
       role_definition_name = "Network Contributor"
@@ -419,8 +431,10 @@ Create Terraform configuration file that creates all the resources.
       depends_on           = ["azurerm_user_assigned_identity.testIdentity", "azurerm_application_gateway.network"]
     }
     ```
-    f. Create the Kubernetes cluster
-    ```JSON
+
+    f. Create the Kubernetes cluster.
+
+    ```hcl
     resource "azurerm_kubernetes_cluster" "k8s" {
       name       = "${var.aks_name}"
       location   = "${data.azurerm_resource_group.rg.location}"
@@ -497,7 +511,7 @@ Create Terraform configuration file that creates all the resources.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     output "client_key" {
         value = "${azurerm_kubernetes_cluster.k8s.kube_config.0.client_key}"
     }
@@ -554,7 +568,7 @@ Terraform tracks state locally via the `terraform.tfstate` file. This pattern wo
 
 1. In Cloud Shell, create a container in your Azure storage account (replace the &lt;YourAzureStorageAccountName> and &lt;YourAzureStorageAccountAccessKey> placeholders with the appropriate values for your Azure storage account).
 
-    ```bash
+    ```azurecli
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
@@ -582,7 +596,7 @@ In this section, you see how to use the `terraform init` command to create the r
 
 1. Paste the following variables created earlier into the editor:
 
-    ```JSON
+    ```hcl
       resource_group_name = <Name of the Resource Group already created>
 
       location = <Location of the Resource Group>

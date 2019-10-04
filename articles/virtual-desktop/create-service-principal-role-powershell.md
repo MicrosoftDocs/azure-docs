@@ -1,6 +1,6 @@
 ---
-title: Create Windows Virtual Desktop Preview service principals and role assignments by using PowerShell  - Azure
-description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop Preview.
+title: Create Windows Virtual Desktop service principals and role assignments by using PowerShell  - Azure
+description: How to create service principals and assign roles by using PowerShell in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Tutorial: Create service principals and role assignments by using PowerShell
 
-Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop Preview, you can create a service principal to:
+Service principals are identities that you can create in Azure Active Directory to assign roles and permissions for a specific purpose. In Windows Virtual Desktop, you can create a service principal to:
 
 - Automate specific Windows Virtual Desktop management tasks.
 - Use as credentials in place of MFA-required users when running any Azure Resource Manager template for Windows Virtual Desktop.
@@ -87,6 +87,7 @@ Get-RdsTenant
 When you find the tenant name for the tenant you want to create a role assignment for, use that name in the following cmdlet:
 
 ```powershell
+$myTenantName = "<Windows Virtual Desktop Tenant Name>"
 New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
