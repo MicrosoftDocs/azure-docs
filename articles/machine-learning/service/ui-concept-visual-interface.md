@@ -1,5 +1,5 @@
 ---
-title: Designer
+title: Build ML models with designer
 titleSuffix: Azure Machine Learning
 description: Learn about the terms, concepts, and workflow that make up the designer for Azure Machine Learning.
 services: machine-learning
