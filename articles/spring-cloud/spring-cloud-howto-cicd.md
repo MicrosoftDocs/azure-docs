@@ -14,7 +14,7 @@ ms.author: v-vasuke
 ---
 # CI/CD for Azure Spring Cloud
 
-Continous integration and continuous delivery tools are useful for many applications. Azure DevOps can help you organize and control these key jobs in a thoughtful manner. Currently, Azure Spring Cloud does not offer a specific Azure DevOps plugin; however, integration with DevOps can still be achieved with an [Azure CLI task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). This article will show you how to use an Azure CLI task with Azure Spring Cloud to integrate with Azure DevOps.
+Continuous integration and continuous delivery tools are useful for many applications. Azure DevOps can help you organize and control these key jobs in a thoughtful manner. Currently, Azure Spring Cloud does not offer a specific Azure DevOps plugin; however, integration with DevOps can still be achieved with an [Azure CLI task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops). This article will show you how to use an Azure CLI task with Azure Spring Cloud to integrate with Azure DevOps.
 
 
 
