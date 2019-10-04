@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MySQL stored procedures
-description: This article introduces stored procedures specific to Azure Database for MySQL.
+description: Learn which stored procedures in Azure Database for MySQL are useful to help you configure data-in replication.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
