@@ -82,6 +82,8 @@
     href: functions-deployment-technologies.md
   - name: Events and messaging
     items:
+    - name: Reliable event processing
+      href: functions-reliable-event-processing.md
     - name: Designing for identical input
       href: functions-idempotent.md
   - name: Triggers and bindings
