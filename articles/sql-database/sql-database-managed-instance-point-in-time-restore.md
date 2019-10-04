@@ -38,7 +38,7 @@ When restoring from one managed instance to another, both instances must be in t
 > [!WARNING]
 > Be aware of the storage size of your managed instance. Depending on size of the data to be restored, you might run out of instance storage. If there isn't enough space for the restored data, use a different approach.
 
-The following table shows point-in-time recovery scenarios for managed instances:
+The following table shows point-in-time restore scenarios for managed instances:
 
 |           |Restore existing DB to same managed instance| Restore existing DB to another managed instance|Restore dropped DB to same managed instance|Restore dropped DB to another managed instance|
 |:----------|:----------|:----------|:----------|:----------|
@@ -53,13 +53,13 @@ Restore an existing database to the same instance by using the Azure portal, Pow
 # [Portal](#tab/azure-portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
-1. Go to your managed instance and select the database that you want to restore.
-1. Select **Restore** on the database page:
+2. Go to your managed instance and select the database that you want to restore.
+3. Select **Restore** on the database page:
 
     ![Restore a database by using the Azure portal](media/sql-database-managed-instance-point-in-time-restore/restore-database-to-mi.png)
 
-1. On the **Restore** page, select the point for the date and time that you want to restore the database to.
-1. Select **Confirm** to restore your database. This action starts the restore process, which creates a new database and populates it with data from the original database at the specified point in time. For more information about the recovery process, see [Recovery time](sql-database-recovery-using-backups.md#recovery-time).
+4. On the **Restore** page, select the point for the date and time that you want to restore the database to.
+5. Select **Confirm** to restore your database. This action starts the restore process, which creates a new database and populates it with data from the original database at the specified point in time. For more information about the recovery process, see [Recovery time](sql-database-recovery-using-backups.md#recovery-time).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -173,7 +173,7 @@ New-AzResource -Location $location -Properties $properties `
 To overwrite an existing database, you must:
 
 1. Drop the existing database that you want to overwrite.
-1. Rename the point-in-time-restored database to the name of the database that you dropped.
+2. Rename the point-in-time-restored database to the name of the database that you dropped.
 
 ### Drop the original database
 
@@ -187,7 +187,7 @@ DROP DATABASE WorldWideImporters;
 
 Use one of the following methods to connect to your managed-instance database:
 
-- [SQL database on a virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [SSMS/ADS via an Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
@@ -227,12 +227,12 @@ Connect directly to the managed instance and start SQL Server Management Studio.
 ALTER WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your managed instance database:
+Use one of the following methods to connect to your managed-instance database:
 
-- [SQL virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Point-to-site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## Next steps
 
-Learn about [long-term retention](sql-database-long-term-retention.md) and [automated backups](sql-database-automated-backups.md).
+Learn about [automated backups](sql-database-automated-backups.md).
