@@ -1,5 +1,5 @@
 ---
-title: Tutorial - add parameters to Resource Manager template
+title: Tutorial - add parameters to Azure Resource Manager template
 description: Add parameters to your Azure Resource Manager template to make it reusable.
 services: azure-resource-manager
 author: mumian
