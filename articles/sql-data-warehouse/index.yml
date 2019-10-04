@@ -45,7 +45,7 @@ landingContent:
   #         #   url: file2.md
 
   # Card (optional)
-  - title: Load Data
+  - title: Load data
     linkLists:
       - linkListType: concept
         links:
