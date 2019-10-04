@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 
@@ -33,17 +33,11 @@ Include a chit-chat personality to make your knowledge more engaging with your u
 
 1. On the **Create** page, select **Create a QnA service**. You are directed to the [Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) to set up a QnA Maker service in your subscription. 
 
-1. In the Qna Maker portal, select your QnA Maker service from the drop-down lists. If you created a new QnA Maker service, be sure to refresh the page.
+1. In the QnA Maker portal, select your QnA Maker service from the drop-down lists. If you created a new QnA Maker service, be sure to refresh the page.
 
    ![Screenshot of selecting a QnA Maker service knowledge base](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
 1. Name your knowledge base **My Sample QnA KB**.
-
-<!--
-
-1. Select **Enable multi-turn extraction from URLs, .pdf or .docx files.**. This allows QnA Maker to extract multi-turn question and answer sets from a data source.
-
--->
 
 1. Add a sample word document as a URL: 
 
@@ -151,18 +145,3 @@ For more information:
 > [!div class="nextstepaction"]
 > [Add questions with metadata](add-question-metadata-portal.md)
 
-<!--
-
-## Add a follow-up prompt
-
-The knowledge base has two different data sources that are not connected. When a customer begins the bot conversation with `hello`, the bot should respond and give the user some options, known as follow-up prompts.
-
-1. In the QnA Maker portal, on the **Edit** section, search for `hello`.  The primary question is **Aloha**. For the **Aloha** question and answer set, select **Add follow-up prompt**.
-1. For **Display text**, enter `Surface Pro`.
-1. In **Link to QnA**, search for `Surface Pro`. This returns existing question and answer pairs from your data sources. Select the top question then select **Save**.
-
-    The knowledge base knows that a beginning prompt should follow up with options for question and answer sets about the Surface Pro. 
-
-    `https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/multi-turn.docx`
-
---->

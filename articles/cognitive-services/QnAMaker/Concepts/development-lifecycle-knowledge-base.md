@@ -69,8 +69,3 @@ When you need to go back to a specific version, you need to import that file fro
 
 > [!div class="nextstepaction"]
 > [Confidence score](./confidence-score.md)
-
-## See also 
-
-[Knowledge base](./knowledge-base.md)
-[QnA Maker overview](../Overview/overview.md)
