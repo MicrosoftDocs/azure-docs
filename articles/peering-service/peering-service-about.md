@@ -38,7 +38,7 @@ Customers can opt for internet telemetry metrics such as BGP route monitoring an
 - It’s a value-added service intended to offer optimized and reliable routing to public IPs or SaaS traffic such as Office 365, Dynamics 365 or any SaaS traffic running on Azure.
 
 > [!Note]
-> For more information about ExpressRoute please refer here.
+> For more information about ExpressRoute please refer [here](https://docs.microsoft.com/en-us/azure/expressroute/)
 >
 
 ## Background
@@ -48,7 +48,7 @@ Office 365, Dynamics 365, or any SaaS services can be hosted in any Microsoft DC
 ![first mile ](./media/peering-service-about/peering-service-background-final.png)
 
 > [!Note]
-> For more information about the Microsoft Global Network refer here.
+> For more information about the Microsoft Global Network refer [here](https://docs.microsoft.com/en-us/azure/networking/microsoft-global-network)
 >
 
 ### Prime Focus 

@@ -27,41 +27,33 @@ landingContent:
         links:
           - text: What is Peering Service?
             url: peering-service-about.md
-          - text: Why Peering Service?
-            url: peering-service-about.md
-          - text: Benefits
-            url: peering-service-about.md
-
-  # Card
-  - title: Deploy
-    linkLists:
-      - linkListType: tutorial
-        links:
-          - text: Onboarding Peering Service
-            url: peering-service-onboarding-peering-service.md
-          - text: Create Peering Service - Azure Portal
-            url: peering-service-azure-portal.md
-          - text: Create Peering Service - Azure Powershell
-            url: peering-service-powershell.md
-
-  # Card
-  - title: Learn
-    linkLists:
       - linkListType: concept
-        links:
-          - text: Connections
-            url: peering-service-connection.md
-          - text: Connection telemetry
-            url: peering-service-connection-telemetry.md
-          - text: Route Monitoring
-            url: peering-service-route-monitoring.md
-
-  # Card
-  - title: Resources
-    linkLists:
-      - linkListType: reference
         links:
           - text: Location and Partners
             url: peering-service-location-partners.md
-          - text: Pricing
-            url: peering-service-pricing.md
+          - text: Connections
+            url: peering-service-connection.md
+          - text: Connection Telemetry
+            url: peering-service-connection-telemetry.md
+
+  # Card
+  - title: Get-started
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Onboarding Peering Service
+            url: peering-service-onboarding-peering-service.md
+          - text: Register Peering Service - Azure Portal
+            url: peering-service-azure-portal.md
+
+  # Card
+  - title: Telemetry
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Connection Telemetry
+            url: peering-service-connection-telemetry.md
+      - linkListType: how-to-guide
+        links:
+          - text: Measure Connection telemetry
+            url: peering-service-measure-connection-telemetry.md
