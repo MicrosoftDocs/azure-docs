@@ -410,7 +410,7 @@
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage
       - name: Xamarin
         href: storage-xamarin-blob-storage.md
-      - name: Legacy SDKs
+      - name: Prior SDK versions
         items:
         - name: Javascript (Node.js) (Storage SDK v2)
           href: storage-quickstart-blobs-nodejs.md
