@@ -6,6 +6,7 @@
 - name: Quickstarts
   expanded: true 
   items:
+    - name: Launch your Spring Cloud app using the portal
       href: spring-cloud-quickstart-launch-app-portal.md 
     - name: Launch your Spring Cloud app using the Azure CLI
       href: spring-cloud-quickstart-launch-app-cli.md 
@@ -21,6 +22,7 @@
       href: spring-cloud-quickstart-launch-app-maven.md 
 - name: Concepts
   items: 
+    - name: Understanding Spring Cloud quotas and limits
       href: spring-cloud-quotas.md
 - name: How-to guides
   items: 
