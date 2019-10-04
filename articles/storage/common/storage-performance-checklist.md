@@ -1,25 +1,23 @@
 ---
-title: Azure Storage performance and scalability checklist | Microsoft Docs
-description: A checklist of proven practices for use with Azure Storage in developing performant applications.
+title: Azure Storage performance and scalability checklist
+description: A checklist of proven practices for use with Azure Storage in developing high-performance applications.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/03/2019
 ms.author: tamram
 ms.subservice: common
 ---
 
-# Microsoft Azure Storage performance and scalability checklist
+# Azure Storage performance and scalability checklist
 
-Since the release of the Microsoft Azure Storage services, Microsoft has developed a number of proven practices for using these services in a performant manner, and this article serves to consolidate the most important of them into a checklist-style list. The intention of this article is to help application developers verify they are using proven practices with Azure Storage and to help them identify other proven practices they should consider adopting. This article does not attempt to cover every possible performance and scalability optimization — it excludes those that are small in their impact or not broadly applicable. To the extent that the application's behavior can be predicted during design, it's useful to keep these in mind early on to avoid designs that will run into performance problems.  
-
-Every application developer using Azure Storage should take the time to read this article, and check that their application follows each of the proven practices listed below.  
+Microsoft has developed a number of proven practices for developing high-performance applications. This checklist identifies key practices that developers can follow to optimize performance. Keep these practices in mind while you are designing your application and throughout the process.
 
 ## Checklist
 
-This article organizes the proven practices into the following groups. Proven practices applicable to:  
+This article organizes the proven practices into a checklist you can follow while developing your application. Proven practices applicable to:  
 
 * All Azure Storage services (blobs, tables, queues, and files)
 * Blobs
@@ -82,40 +80,30 @@ This section lists proven practices that are applicable to the use of any of the
 
 ### <a name="subheading1"></a>Scalability targets
 
-Azure Storage itself has a limit of 250 storage accounts per region per subscription. If you reach that limit, you will be unable to create any more storage accounts in that subscription/region combination.
+Each of the Azure Storage services has scalability targets for capacity, transaction rate, and bandwidth. For more information about Azure Storage scalability targets, see [Azure Storage scalability and performance targets for storage accounts](storage-scalability-targets.md).
 
-Each of the Azure Storage services has scalability targets for capacity (GB), transaction rate, and bandwidth. If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When a Storage service throttles your application, the service begins to return "503 Server busy" or "500 Operation timeout" error codes for some storage transactions. This section discusses both the general approach to dealing with scalability targets and bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
+If your application approaches or exceeds any of the scalability targets, it may encounter increased transaction latencies or throttling. When Azure Storage throttles your application, the service begins to return 503 (Server busy) or 500 (Operation timeout) error codes for some storage transactions. This section discusses how to design for scalability targets, and for bandwidth scalability targets in particular. Later sections that deal with individual storage services discuss scalability targets in the context of that specific service:  
 
 * [Blob bandwidth and requests per second](#subheading16)
 * [Table entities per second](#subheading24)
 * [Queue messages per second](#subheading39)  
 
-#### <a name="sub1bandwidth"></a>Bandwidth scalability target for all services
+#### Approaching a scalability target
 
-At the time of writing, the bandwidth targets in the US for a geo-redundant storage (GRS) account are 10 gigabits per second (Gbps) for ingress (data sent to the storage account) and 20 Gbps for egress (data sent from the storage account). For a locally redundant storage (LRS) account, the limits are higher – 20 Gbps for ingress and 30 Gbps for egress.  International bandwidth limits may be lower and can be found on our [scalability targets page](https://msdn.microsoft.com/library/azure/dn249410.aspx).  For more information on the storage redundancy options, see the links in Useful Resources below.  
+If you're approaching the maximum number of storage accounts permitted for a particular subscription/region combination, evaluate your scenario and determine whether any of the following conditions apply:
 
-#### What to do when approaching a scalability target
-
-If you're approaching the limit of storage accounts you can have in a particular subscription/region combination, evaluate your application and usage of storage accounts and determine if any of these conditions apply.
-
-* Using storage accounts as unmanaged disks and adding those disks to your virtual machines. In this scenario, we recommend using [managed disks](../../virtual-machines/windows/managed-disks-overview.md), as they handle storage disk scalability for you without you having to create and manage individual storage accounts.
-* Using one storage account on a per customer basis, for the purpose of data isolation. In this scenario, we recommend using storage containers for each customer rather than an entire storage account. Azure Storage now allows you to specify role-based access control on a per [container basis](storage-auth-aad-rbac-portal.md).
-* Using multiple storage accounts to shard for greater scalability of ingress/egress/iops/capacity. In this scenario, if possible, we recommend you take advantage of the [increased limits](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) of standard storage accounts to reduce the number of storage accounts required for your workload.
+* Are you using storage accounts to store unmanaged disks and adding those disks to your virtual machines (VMs)? For this scenario, Microsoft recommends using managed disks, as they handle VM disk scalability for you without the need to create and manage individual storage accounts. For more information, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md)
+* Are you using one storage account per customer, for the purpose of data isolation? For this scenario, Microsoft recommends using a blob container for each customer, instead of an entire storage account. Azure Storage now allows you to assign role-based access control (RBAC) roles on a per-container basis. For more information, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md).
+* Are you using multiple storage accounts to shard to increase ingress, egress, IOPS, or capacity? In this scenario, Microsoft recommends that you take advantage of the increased limits for standard storage accounts to reduce the number of storage accounts required for your workload if possible. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/)
 
 If your application is approaching the scalability targets for a single storage account, consider adopting one of the following approaches:  
 
+* If your application hits the transaction target, consider using block blob storage accounts, which are optimized for high transaction rates and low and consistent latency. For more information, see [Azure storage account overview](storage-account-overview.md).
 * Reconsider the workload that causes your application to approach or exceed the scalability target. Can you design it differently to use less bandwidth or capacity, or fewer transactions?
-* If an application must exceed one of the scalability targets, you should create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. At time of writing, each Azure subscription can have up to 250 storage accounts per region (when deployed with the Azure Resource Manager model).  Storage accounts also have no cost other than your usage in terms of data stored, transactions made, or data transferred.
-* If your application hits the bandwidth targets, consider compressing data in the client to reduce the bandwidth required to send the data to the storage service.  While this may save bandwidth and improve network performance, it can also have some negative impacts.  You should evaluate the performance impact of this due to the additional processing requirements for compressing and decompressing data in the client. In addition, storing compressed data can make it more difficult to troubleshoot issues since it could be more difficult to view stored data using standard tools.
-* If your application hits the scalability targets, then ensure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's better to make sure you never approach the scalability targets (by using one of the above methods), but this will ensure your application won't just keep retrying rapidly, making the throttling worse.  
-
-#### Useful resources
-
-The following links provide additional detail on scalability targets:
-
-* See [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md) for information about scalability targets.
-* See [Azure Storage replication](storage-redundancy.md) and the blog post [Azure Storage Redundancy Options and Read Access Geo Redundant Storage](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) for information about storage redundancy options.
-* For current information about pricing for Azure services, see [Azure pricing](https://azure.microsoft.com/pricing/overview/).  
+* If an application must exceed one of the scalability targets, then create multiple storage accounts and partition your application data across those multiple storage accounts. If you use this pattern, then be sure to design your application so that you can add more storage accounts in the future for load balancing. Storage accounts have no cost other than your usage in terms of data stored, transactions made, or data transferred.
+* If your application hits the bandwidth targets, consider compressing data on the client side to reduce the bandwidth required to send the data to Azure Storage.
+    While compressing data may save bandwidth and improve network performance, it can also have some negative impacts. Evaluate the performance impact of the additional processing requirements for data compression and decompression on the client side. Also be aware that storing compressed data can make troubleshooting more difficult because it may be more challenging to view the data using standard tools.
+* If your application hits the scalability targets, then make sure that you are using an exponential backoff for retries (see [Retries](#subheading14)).  It's best to avoid approaching the scalability targets by implementing the recommendations described in this article. Howver, using an exponential backoff for retries will prevent your application from retrying rapidly and making the throttling worse.  
 
 ### <a name="subheading47"></a>Partition naming convention
 
@@ -266,25 +254,9 @@ You can read or write to a single blob at up to a maximum of 60 MB/second (this 
 
 For more information about target throughput for blobs, see [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
 
-### Copying and moving blobs
+### Transferring blobs to and from Azure Storage
 
-#### <a name="subheading17"></a>Copy blob
-
-The storage REST API version 2012-02-12 introduced the useful ability to copy blobs across accounts: a client application can instruct the storage service to copy a blob from another source (possibly in a different storage account), and then let the service perform the copy asynchronously. This can significantly reduce the bandwidth needed for the application when you are migrating data from other storage accounts because you do not need to download and upload the data.  
-
-One consideration, however, is that, when copying between storage accounts, there is no time guarantee on when the copy will complete. If your application needs to complete a blob copy quickly under your control, it may be better to copy the blob by downloading it to a VM and then uploading it to the destination.  For full predictability in that situation, ensure that the copy is performed by a VM running in the same Azure region, or else network conditions may (and probably will) affect your copy performance.  In addition, you can monitor the progress of an asynchronous copy programmatically.  
-
-Copies within the same storage account itself are generally completed quickly.  
-
-For more information, see [Copy Blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
-
-#### <a name="subheading18"></a>Use AzCopy
-
-The Azure Storage team has released a command-line tool "AzCopy" that is meant to help with bulk transferring many blobs to, from, and across storage accounts.  This tool is optimized for this scenario, and can achieve high transfer rates.  Its use is encouraged for bulk upload, download, and copy scenarios. To learn more about it and download it, see [Transfer data with the AzCopy Command-Line Utility](storage-use-azcopy.md).  
-
-#### <a name="subheading19"></a>Azure Import/Export service
-
-For large volumes of data (more than 1 TB), the Azure Storage offers the Import/Export service, which allows for uploading and downloading from blob storage by shipping hard drives.  You can put your data on a hard drive and send it to Microsoft for upload, or send a blank hard drive to Microsoft to download data.  For more information, see [Use the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](../storage-import-export-service.md).  This can be much more efficient than uploading/downloading this volume of data over the network.  
+For information about efficiently transferring blobs to and from Azure Storage or between storage accounts, see [Choose an Azure solution for data transfer](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ### <a name="subheading20"></a>Use metadata
 
@@ -313,173 +285,6 @@ Azure Storage supports two types of blob: *page* blobs and *block* blobs. For a 
 
 For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
-## Tables
-
-In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the table service.  
-
-### <a name="subheading24"></a>Table-specific scalability targets
-
-In addition to the bandwidth limitations of an entire storage account, tables have the following specific scalability limit.  The system will load balance as your traffic increases, but if your traffic has sudden bursts, you may not be able to get this volume of throughput immediately.  If your pattern has bursts, you should expect to see throttling and/or timeouts during the burst as the storage service automatically load balances out your table.  Ramping up slowly generally has better results as it gives the system time to load balance appropriately.  
-
-#### Entities per second (storage account)
-
-The scalability limit for accessing tables is up to 20,000 entities (1 KB each) per second for an account.  In general, each entity that is inserted, updated, deleted, or scanned counts toward this target.  So a batch insert that contains 100 entities would count as 100 entities.  A query that scans 1000 entities and returns 5 would count as 1000 entities.  
-
-#### Entities per second (partition)
-
-Within a single partition, the scalability target for accessing tables is 2,000 entities (1 KB each) per second, using the same counting as described in the previous section.  
-
-### Configuration
-
-This section lists several quick configuration settings that you can use to make significant performance improvements in the table service:  
-
-#### <a name="subheading25"></a>Use JSON
-
-Beginning with storage service version 2013-08-15, the table service supports using JSON instead of the XML-based AtomPub format for transferring table data. This can reduce payload sizes by as much as 75% and can significantly improve the performance of your application.
-
-For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
-
-#### <a name="subheading26"></a>Disable Nagle
-
-Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle's algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.
-
-### Schema
-
-How you represent and query your data is the biggest single factor that affects the performance of the table service. While every application is different, this section outlines some general proven practices that relate to:  
-
-* Table design
-* Efficient queries
-* Efficient data updates  
-
-#### <a name="subheading27"></a>Tables and partitions
-
-Tables are divided into partitions. Every entity stored in a partition shares the same partition key and has a unique row key to identify it within that partition. Partitions provide benefits but also introduce scalability limits.  
-
-* Benefits: You can update entities in the same partition in a single, atomic, batch transaction that contains up to 100 separate storage operations (limit of 4 MB total size). Assuming the same number of entities to be retrieved, you can also query data within a single partition more efficiently than data that spans partitions (though read on for further recommendations on querying table data).
-* Scalability limit: Access to entities stored in a single partition cannot be load-balanced because partitions support atomic batch transactions. For this reason, the scalability target for an individual table partition is lower than for the table service as a whole.  
-
-Because of these characteristics of tables and partitions, you should adopt the following design principles:  
-
-* Data that your client application frequently updated or queried in the same logical unit of work should be located in the same partition.  This may be because your application is aggregating writes, or because you want to take advantage of atomic batch operations.  Also, data in a single partition can be more efficiently queried in a single query than data across partitions.
-* Data that your client application does not insert/update or query in the same logical unit of work (single query or batch update) should be located in separate partitions.  One important note is that there is no limit to the number of partition keys in a single table, so having millions of partition keys is not a problem and will not impact performance.  For example, if your application is a popular website with user login, using the User ID as the partition key could be a good choice.  
-
-#### Hot Partitions
-
-A hot partition is one that is receiving a disproportionate percentage of the traffic to an account, and cannot be load balanced because it is a single partition.  In general, hot partitions are created one of two ways:  
-
-##### <a name="subheading28"></a>Append Only and Prepend Only patterns
-
-The "Append Only" pattern is one where all (or nearly all) of the traffic to a given PK increases and decreases according to the current time.  An example is if your application used the current date as a partition key for log data.  This results in all of the inserts going to the last partition in your table, and the system cannot load balance because all of the writes are going to the end of your table.  If the volume of traffic to that partition exceeds the partition-level scalability target, then it will result in throttling.  It's better to ensure that traffic is sent to multiple partitions, to enable load balance the requests across your table.  
-
-##### <a name="subheading29"></a>High-traffic data
-
-If your partitioning scheme results in a single partition that just has data that is far more used than other partitions, you may also see throttling as that partition approaches the scalability target for a single partition.  It's better to make sure that your partition scheme results in no single partition approaching the scalability targets.  
-
-#### Querying
-
-This section describes proven practices for querying the table service.  
-
-##### <a name="subheading30"></a>Query scope
-
-There are several ways to specify the range of entities to query.  The following is a discussion of the uses of each.  
-
-In general, avoid scans (queries larger than a single entity), but if you must scan, try to organize your data so that your scans retrieve the data you need without scanning or returning significant amounts of entities you don't need.  
-
-###### Point queries
-
-A point query retrieves exactly one entity. It does this by specifying both the partition key and row key of the entity to retrieve. These queries are efficient, and you should use them wherever possible.  
-
-###### Partition queries
-
-A partition query is a query that retrieves a set of data that shares a common partition key. Typically, the query specifies a range of row key values or a range of values for some entity property in addition to a partition key. These are less efficient than point queries, and should be used sparingly.  
-
-###### Table queries
-
-A table query is a query that retrieves a set of entities that does not share a common partition key. These queries are not efficient and you should avoid them if possible.  
-
-##### <a name="subheading31"></a>Query density
-
-Another key factor in query efficiency is the number of entities returned as compared to the number of entities scanned to find the returned set. If your application performs a table query with a filter for a property value that only 1% of the data shares, the query will scan 100 entities for every one entity it returns. The table scalability targets discussed previously all relate to the number of entities scanned, and not the number of entities returned: a low query density can easily cause the table service to throttle your application because it must scan so many entities to retrieve the entity you are looking for.  See the section below on [denormalization](#subheading34) for more information on how to avoid this.  
-
-##### Limiting the amount of data returned
-
-###### <a name="subheading32"></a>Filtering
-
-Where you know that a query will return entities that you don't need in the client application, consider using a filter to reduce the size of the returned set. While the entities not returned to the client still count toward the scalability limits, your application performance will improve because of the reduced network payload size and the reduced number of entities that your client application must process.  See above note on [Query Density](#subheading31), however – the scalability targets relate to the number of entities scanned, so a query that filters out many entities may still result in throttling, even if few entities are returned.  
-
-###### <a name="subheading33"></a>Projection
-
-If your client application needs only a limited set of properties from the entities in your table, you can use projection to limit the size of the returned data set. As with filtering, this helps to reduce network load and client processing.  
-
-##### <a name="subheading34"></a>Denormalization
-
-Unlike working with relational databases, the proven practices for efficiently querying table data lead to denormalizing your data. That is, duplicating the same data in multiple entities (one for each key you may use to find the data) to minimize the number of entities that a query must scan to find the data the client needs, rather than having to scan large numbers of entities to find the data your application needs.  For example, in an e-commerce website, you may want to find an order both by the customer ID (give me this customer's orders) and by the date (give me orders on a date).  In Table Storage, it is best to store the entity (or a reference to it) twice – once with Table Name, PK, and RK to facilitate finding by customer ID, once to facilitate finding it by the date.  
-
-#### Insert/Update/Delete
-
-This section describes proven practices for modifying entities stored in the table service.  
-
-##### <a name="subheading35"></a>Batching
-
-Batch transactions are known as Entity Group Transactions (ETG) in Azure Storage; all the operations within an ETG must be on a single partition in a single table. Where possible, use ETGs to perform inserts, updates, and deletes in batches. This reduces the number of round trips from your client application to the server, reduces the number of billable transactions (an ETG counts as a single transaction for billing purposes and can contain up to 100 storage operations), and enables atomic updates (all operations succeed or all fail within an ETG). Environments with high latencies such as mobile devices will benefit greatly from using ETGs.  
-
-##### <a name="subheading36"></a>Upsert
-
-Use table **Upsert** operations wherever possible. There are two types of **Upsert**, both of which can be more efficient than a traditional **Insert** and **Update** operations:  
-
-* **InsertOrMerge**: Use this when you want to upload a subset of the entity's properties, but aren't sure whether the entity already exists. If the entity exists, this call updates the properties included in the **Upsert** operation, and leaves all existing properties as they are, if the entity does not exist, it inserts the new entity. This is similar to using projection in a query, in that you only need to upload the properties that are changing.
-* **InsertOrReplace**: Use this when you want to upload an entirely new entity, but you aren't sure whether it already exists. You should only use this when you know that the newly uploaded entity is entirely correct because it completely overwrites the old entity. For example, you want to update the entity that stores a user's current location regardless of whether or not the application has previously stored location data for the user; the new location entity is complete, and you do not need any information from any previous entity.
-
-##### <a name="subheading37"></a>Storing data series in a single entity
-
-Sometimes, an application stores a series of data that it frequently needs to retrieve all at once: for example, an application might track CPU usage over time in order to plot a rolling chart of the data from the last 24 hours. One approach is to have one table entity per hour, with each entity representing a specific hour and storing the CPU usage for that hour. To plot this data, the application needs to retrieve the entities holding the data from the 24 most recent hours.  
-
-Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for an efficient query (see above discussion on [query scope](#subheading30)).
-
-##### <a name="subheading38"></a>Storing structured data in blobs
-
-Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it's better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
-
-## Queues
-
-In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the queue service.  
-
-### <a name="subheading39"></a>Scalability limits
-
-A single queue can process approximately 2,000 messages (1 KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
-
-View current scalability targets at [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
-
-### <a name="subheading40"></a>Disable Nagle
-
-See the section on table configuration that discusses the Nagle algorithm — the Nagle algorithm is generally bad for the performance of queue requests, and you should disable it.  
-
-### <a name="subheading41"></a>Message size
-
-Queue performance and scalability decrease as message size increases. You should place only the information the receiver needs in a message.  
-
-### <a name="subheading42"></a>Batch retrieval
-
-You can retrieve up to 32 messages from a queue in a single operation. This can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
-
-### <a name="subheading43"></a>Queue polling interval
-
-Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.  
-
-For up-to-date cost information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
-
-### <a name="subheading44"></a>Update message
-
-You can use the **Update Message** operation to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **Update Message** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **Update Message** operation allows your application to save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes.  
-
-For more information, see the article [How to: Change the contents of a queued message](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
-
-### <a name="subheading45"></a>Application architecture
-
-You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  
-
-* You can use queues to create backlogs of work for processing and smooth out workloads in your application. For example, you could queue up requests from users to perform processor intensive work such as resizing uploaded images.
-* You can use queues to decouple parts of your application so that you can scale them independently. For example, a web front end could place survey results from users into a queue for later analysis and storage. You could add more worker role instances to process the queue data as required.  
 
 ## Conclusion
 
