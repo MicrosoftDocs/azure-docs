@@ -29,22 +29,26 @@ Using this application you learn how to:
 
 ## Prerequisites
 
+>[!Note]Before beginning this quickstart, ensure that your Azure subscription has access to Azure Spring Cloud.  As a preview service, we ask customers to reach out to us so that we can add your subscription to our allow-list.  If you would like to explore the capabilities of Azure Spring Cloud, please reach out to us [YAOJIN TO PROVIDE INSTRUCTIONS].
+
 To complete this quickstart:
 
 1. [Install Git](https://git-scm.com/)
 2. [Install JDK 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Install Maven 3.0 or above](https://maven.apache.org/download.cgi)
-4. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
-5. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-	
+4. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Sign up for an Azure subscription](https://azure.microsoft.com/free/)
+
+> [!TIP]
+> The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article.  It has common Azure tools preinstalled, including the latest versions of Git, JDK, Maven, and the Azure CLI. If you are logged in to your Azure subscription, launch your [Azure Cloud Shell](https://shell.azure.com) from shell.azure.com.  You can learn more about Azure Cloud Shell by [reading our documentation](../cloud-shell/overview.md)
+
 ## Install the Azure CLI extension
 
-Install the Azure Spring Cloud extension for the Azure CLI with the following command
+Install the Azure Spring Cloud extension for the Azure CLI using the following command
 
 ```Azure CLI
 az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
 ```
-
 
 ## Provision a service instance on the Azure CLI
 
@@ -56,31 +60,34 @@ az account list -o table
 az account set --subscription
 ```
 
-1. First, be ready with resource name and resource group. The following is a brief explanation of each.
+1. Prepare a name for your Azure Spring Cloud service.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
+2. Create a resource group to contain your Azure Spring Cloud service.
 
-- Resource Name: Specify the name of your service instance.
-- Resource group: Creating new resource groups for new resources is generally considered the best practice.
+    ```cli
+        az group create --location eastus --name myspringresource
+    ```. 
+    Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview).
 
-2. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud. 
+3. Open an Azure CLI window and run the following commands to provision an instance of Azure Spring Cloud.
 
-```azurecli
-az spring-cloud create -n <resource name> -g <resource group name>
-```
-The service instance will take around five minutes to be fully deployed.
+    ```azurecli
+        az spring-cloud create -n <service name> -g <resource group name>
+    ```
+    The service instance will take around five minutes to deploy.
 
-3. Set your default resource group name and cluster name using the following commands:
+4. Set your default resource group name and cluster name using the following commands:
 
-```Azure CLI
-az configure --defaults group=<service group name>
-az configure --defaults spring-cloud=<service instance name>
-```
+    ```Azure CLI
+        az configure --defaults group=<service group name>
+        az configure --defaults spring-cloud=<service instance name>
+    ```
 
 ## Setup your configuration server
 
 1. Set the your service's config server to reference an already prepared repository:
 
 ```git
-az spring-cloud config-server git set --uri https://github.com/Azure-Samples/piggymetrics --label config
+az spring-cloud config-server git set -n <your-service-name> --uri https://github.com/Azure-Samples/piggymetrics --label config
 ```
 
 ## Build the microservices applications locally
