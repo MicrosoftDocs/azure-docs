@@ -95,6 +95,10 @@ The app owner needs to [add your email to the Azure authoring resource as a coll
 
 After the migration process, any apps you own are available on the **My apps** page of the LUIS portal.  
 
+## Troubleshooting
+
+LUIS authoring keys are only visible in the LUIS portal after the migration process is complete. If you create the authoring keys, such as with the LUIS CLI, the user still needs to complete the migration process. 
+
 ## Next steps
 
 * [How to migrate your app to an authoring resource](luis-migration-authoring-steps.md)
