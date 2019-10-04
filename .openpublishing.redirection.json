@@ -14421,6 +14421,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
+      "redirect_url": "/azure/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/release-notes-april-2018.md",
       "redirect_url": "/azure/sql-data-warehouse/release-notes-10-0-10106-0",
       "redirect_document_id": false
@@ -20946,7 +20956,7 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-linux-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/linux/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
@@ -22376,7 +22386,17 @@
     },
     {
       "source_path": "articles/virtual-machines/virtual-machines-windows-vertical-scaling-automation.md",
-      "redirect_url": "/azure/virtual-machines/windows/vertical-scaling-automation",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/windows/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
+      "redirect_document_id": false
+    },
+	{
+      "source_path": "articles/virtual-machines/linux/vertical-scaling-automation.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-vertical-scale-reprovision",
       "redirect_document_id": false
     },
     {
