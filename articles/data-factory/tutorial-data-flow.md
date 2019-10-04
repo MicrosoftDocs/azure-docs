@@ -123,7 +123,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
     If you've a debug cluster active, you can verify your logic by clicking **Refresh** to see expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic using the data flow expression language.
     
-    !Filter](media/tutorial-data-flow/filter2.png)
+    ![Filter](media/tutorial-data-flow/filter2.png)
 
     Click **Save and Finish** once you're done with your expression.
 
