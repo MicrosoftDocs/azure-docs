@@ -140,7 +140,7 @@ $condition1 = New-AzApplicationGatewayFirewallCondition `
 
 $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
    -Action Block
@@ -154,7 +154,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "Block",
         "matchConditions": [
           {
@@ -203,7 +203,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
  $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1, $condition2 `
    -Action Block
@@ -218,7 +218,7 @@ Here's the corresponding JSON code:
       { 
         "name": "myrule", 
         "ruleType": "MatchRule", 
-        "priority": 100, 
+        "priority": 10, 
         "action": "block", 
         "matchConditions": [ 
             { 
@@ -275,14 +275,14 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
    -Action Block
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
-   -Priority 200 `
+   -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
    -Action Block
@@ -296,7 +296,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "block",
         "matchConditions": [
           {
@@ -312,7 +312,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule2",
         "ruleType": "MatchRule",
-        "priority": 200,
+        "priority": 20,
         "action": "block",
         "matchConditions": [
           {
@@ -395,7 +395,7 @@ $condition1 = New-AzApplicationGatewayFirewallCondition `
 
 $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule1 `
-   -Priority 100 `
+   -Priority 10 `
    -RuleType MatchRule `
    -MatchCondition $condition1 `
 -Action Block
@@ -411,7 +411,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
 
 $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule2 `
-   -Priority 200 `
+   -Priority 20 `
    -RuleType MatchRule `
    -MatchCondition $condition2 `
    -Action Block
@@ -427,7 +427,7 @@ $condition3 = New-AzApplicationGatewayFirewallCondition `
 
 $rule3 = New-AzApplicationGatewayFirewallCustomRule `
    -Name myrule3 `
-   -Priority 300 `
+   -Priority 30 `
    -RuleType MatchRule `
    -MatchCondition $condition3 `
    -Action Block
@@ -441,7 +441,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule1",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 10,
         "action": "block",
         "matchConditions": [
           {
@@ -456,7 +456,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule2",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 20,
         "action": "block",
         "matchConditions": [
           {
@@ -474,7 +474,7 @@ Here's the corresponding JSON code:
       {
         "name": "myrule3",
         "ruleType": "MatchRule",
-        "priority": 100,
+        "priority": 30,
         "action": "block",
         "matchConditions": [
           {

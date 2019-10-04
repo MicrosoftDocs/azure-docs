@@ -1,13 +1,13 @@
 ---
-title: 'Create and manage role assignments in Azure Digital Twins | Microsoft Docs'
-description: Create and manage role assignments in Azure Digital Twins.
-author: lyrana
-manager: alinast
+title: 'Create and manage role assignments - Azure Digital Twins | Microsoft Docs'
+description: Learn about creating and managing role assignments in Azure Digital Twins.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: lyhughes
+ms.date: 10/02/2019
 ms.custom: seodec18
 ---
 
@@ -160,8 +160,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | String |	The objectId for the UserId objectIdType. |
 | YOUR_PATH | True | String |	The chosen path to check access for. |
-| YOUR_ACCESS_TYPE |  True | String |	The access type to check for. |
-| YOUR_RESOURCE_TYPE | True | String |	The resource to check. |
+| YOUR_ACCESS_TYPE |  True | String |	*Read*, *Create*, *Update*, or *Delete* |
+| YOUR_RESOURCE_TYPE | True | String |	*Device*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *Endpoint*, *KeyStore*, *Matcher*, *Ontology*, *Report*, *RoleDefinition*, *Sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *System*, *UerDefinedFunction*, *User*, *UserBlobMetadata*, or *UserExtendedProperty* |
 
 A successful request will return a boolean `true` or `false` to indicate whether the access type has been assigned to the user for the given path and resource.
 
@@ -193,7 +193,7 @@ A successful request will return a JSON array with each role assignment associat
 
 ### Revoke a permission
 
-To revoke a permissions from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
+To revoke a permission from a recipient, delete the role assignment by making an authenticated HTTP DELETE request:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
