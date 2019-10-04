@@ -41,7 +41,7 @@ landingContent:
         links:
           - text: Azure Time Series Insights Preview tutorial
             url: time-series-insights-update-create-environment.md
-          - text: Client SDK Sample Visualization
+          - text: Client SDK sample visualization
             url: https://tsiclientsample.azurewebsites.net/
       - linkListType: how-to-guide
         links:
