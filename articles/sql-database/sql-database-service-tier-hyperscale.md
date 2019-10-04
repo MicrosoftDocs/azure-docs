@@ -139,7 +139,7 @@ In HyperScale databases, the `ApplicationIntent` argument in the connection stri
 Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
-Hyperscale secondary replicas are all identical, using the same Service Level Objective as the primary replica. If more than one secondary replica is present, workload is distributed across all available secondaries. Each secondary replica is being updated independently, thus different replicas could have different data latency relative to the primary replica
+Hyperscale secondary replicas are all identical, using the same Service Level Objective as the primary replica. If more than one secondary replica is present, the workload is distributed across all available secondaries. Each secondary replica is updated independently, thus different replicas could have different data latency relative to the primary replica.
 
 ## Database High Availability in Hyperscale
 
@@ -237,7 +237,7 @@ These are the current limitations to the Hyperscale service tier as of GA.  We a
 | The Manage Backups pane for a logical server does not show Hyperscale databases will be filtered from SQL server  | Hyperscale has a separate method for managing backups, and as such the Long-Term Retention and Point in Time backup Retention settings do not apply / are invalidated. Accordingly, Hyperscale databases do not appear in the Manage Backup pane. |
 | Point-in-time restore | Once a database is migrated into the Hyperscale service tier, restore to a point-in-time prior to the migration is not supported.|
 | Restore of non-Hyperscale DB to Hypserscale and vice-versa | You cannot restore a Hyperscale database into a non-Hyperscale database, nor can you restore a non-Hyperscale database into a Hyperscale database.|
-| If a database has one or more data file larger than 1 TB, migration fails | In some cases, it may be possible to work around this issue by shrinking the large files to be less than 1 TB. If migrating a database being used during the migration process, make sure that no file gets larger than 1 TB. Use the following query to determine the size of database files. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
+| If a database has one or more data files larger than 1 TB, migration fails | In some cases, it may be possible to work around this issue by shrinking the large files to be less than 1 TB. If migrating a database being used during the migration process, make sure that no file gets larger than 1 TB. Use the following query to determine the size of database files. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Managed Instance | Azure SQL Database Managed Instance is not currently supported with Hyperscale databases. |
 | Elastic Pools |  Elastic Pools are not currently supported with SQL Database Hyperscale.|
 | Migration to Hyperscale is currently a one-way operation | Once a database is migrated to Hyperscale, it cannot be migrated directly to a non-Hyperscale service tier. At present, the only way to migrate a database from Hyperscale to non-Hyperscale is to export/import using a BACPAC file or other data movement technologies (Bulk Copy, Azure Data Factory, Azure Databricks, SSIS, etc.)|
