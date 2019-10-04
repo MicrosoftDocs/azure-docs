@@ -71,11 +71,11 @@ To disable Application Insights, use the following code:
 <service_name>.update(enable_app_insights=False)
 ```
 	
-## Use portal to configure
+## Use studio to configure
 
-You can enable and disable Application Insights in the Azure portal.
+You can enable and disable Application Insights in the Azure Machine Learning studio.
 
-1. In the [Azure portal](https://portal.azure.com), open your workspace.
+1. In [Azure Machine Learning studio](https://ml.azure.com), open your workspace.
 
 1. On the **Deployments** tab, select the service where you want to enable Application Insights.
 
@@ -92,7 +92,7 @@ You can enable and disable Application Insights in the Azure portal.
 1. Select **Update** at the bottom of the screen to apply the changes. 
 
 ### Disable
-1. In the [Azure portal](https://portal.azure.com), open your workspace.
+1. In [Azure Machine Learning studio](https://ml.azure.com), open your workspace.
 1. Select **Deployments**, select the service, and select **Edit**.
 
    [![Use the edit button](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
@@ -107,7 +107,7 @@ You can enable and disable Application Insights in the Azure portal.
 ## Evaluate data
 Your service's data is stored in your Application Insights account, within the same resource group as Azure Machine Learning.
 To view it:
-1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Application Insights link.
+1. Go to your Machine Learning service workspace in [Azure Machine Learning studio](https://ml.azure.com) and click on Application Insights link.
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 

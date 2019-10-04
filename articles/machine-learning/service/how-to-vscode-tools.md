@@ -149,9 +149,9 @@ After clicking the Run Experiment button, answer the prompts as follows:
 
     [![Train in cloud](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-In a few seconds, you'll be notified that the experiment has been submitted to Azure at which time you can view its progress either in the Azure portal by clicking the **View Experiment Run** link in the VS Code notification, or inside VS Code by hitting the refresh button in the Azure tab.
+In a few seconds, you'll be notified that the experiment has been submitted to Azure at which time you can view its progress either in the Azure Machine Learning studio by clicking the **View Experiment Run** link in the VS Code notification, or inside VS Code by hitting the refresh button in the Azure tab.
 
-At the moment, viewing run metrics is only supported in the Azure portal. The **View Experiment Run** link mentioned above will take you to the run where you'll see the metrics you logged.
+At the moment, viewing run metrics is only supported in the studio. The **View Experiment Run** link mentioned above will take you to the run where you'll see the metrics you logged.
 [![Experiment run in portal](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## Azure Machine Learning in-depth with VS Code

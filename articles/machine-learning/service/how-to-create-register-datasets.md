@@ -77,7 +77,7 @@ datastore = Datastore.get(workspace, datastore_name)
 
 ### Create TabularDatasets
 
-TabularDatasets can be created via the SDK or by using the workspace landing page (preview). A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time.
+TabularDatasets can be created via the SDK or by using Azure Machine Learning studio. A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time.
 
 #### Using the SDK
 
@@ -135,11 +135,11 @@ data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Using the workspace landing page
+#### Using the Azure Machine Learning studio
 
-Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
+Sign in to [Azure Machine Learning studio](https://ml.azure.com) to create a dataset via the web experience. Currently, the studio only supports the creation of TabularDatasets.
 
-The following animation shows how to create a dataset in the workspace landing page.
+The following animation shows how to create a dataset in the studio.
 
 First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
 
@@ -179,7 +179,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 ```
 
 >[!Note]
-> Datasets created via the workspace landing page are automatically registered to the workspace.
+> Datasets created via the Azure Machine Learning studio are automatically registered to the workspace.
 
 ## Version datasets
 

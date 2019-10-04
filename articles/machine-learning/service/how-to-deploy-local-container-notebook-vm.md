@@ -30,7 +30,7 @@ Learn how to use Azure Machine Learning to deploy a model as a web service on yo
 
 An example notebook that demonstrates local deployments is included on your notebook VM. Use the following steps to load the notebook and deploy the model as a web service on the VM:
 
-1. From the [Azure portal](https://portal.azure.com), select your Azure Machine Learning notebook VMs.
+1. From [Azure Machine Learning studio](https://ml.azure.com), select your Azure Machine Learning notebook VMs.
 
 1. Open the `samples-*` subdirectory, and then open `how-to-use-azureml/deploy-to-local/register-model-deploy-local.ipynb`. Once open, run the notebook.
 

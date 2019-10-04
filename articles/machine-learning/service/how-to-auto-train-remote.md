@@ -275,7 +275,7 @@ Printing the `best_run` explanation summary variables results in the following o
 
 ![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
 
-You can also visualize feature importance through the widget UI, the web UI on Azure portal, or your [workspace landing page (preview)](https://ml.azure.com). 
+You can also visualize feature importance through the widget UI, or in your workspace in [Azure Machine Learning studio](https://ml.azure.com). 
 
 ![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 
