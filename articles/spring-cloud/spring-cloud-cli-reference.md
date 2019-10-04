@@ -33,7 +33,7 @@ ms.author: jeconnoc
 | [az spring-cloud app scale](#az-spring-cloud-app-scale) | Manually scale an app or its deployments. |
 | [az spring-cloud app set-deployment](#az-spring-cloud-app-set-deployment) | Set production deployment of an app. |
 | [az spring-cloud app show](#az-spring-cloud-app-show) | Show the details of an app in the Azure Spring Cloud. |
-| [az spring-cloud app show-deploy-log](#az-spring-cloud-app-deploy-log) | Show build logs for the latest deployment from source. Defaults to production deployment. |
+| [az spring-cloud app show-deploy-log](#az-spring-cloud-app-show-deploy-log) | Show build logs for the latest deployment from source. Defaults to production deployment. |
 | [az spring-cloud app start](#az-spring-cloud-app-start) | Start instances of the app using production deployment defaults. |
 | [az spring-cloud app stop](#az-spring-cloud-app-stop) | Stop instances of the app using production deployment defaults. |
 | [az spring-cloud app update](#az-spring-cloud-app-update) | Update the specified app's configuration. |
@@ -156,12 +156,12 @@ az spring-cloud show --name -n
 | --name -n | Name of the Azure Spring Cloud instance. |
 | --resource-group -g | Name of the Resource Group to which the Azure Spring Cloud instance belongs.
 
-## az spring-cloud show app create
+## az spring-cloud app create
 
 Create a new app in an Azure Spring Cloud.
 
 ```cli
-az spring-cloud appp create --name -n
+az spring-cloud app create --name -n
                             --resource-group -g
                             --service -s
                             --cpu
