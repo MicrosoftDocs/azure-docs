@@ -22,21 +22,21 @@ After you create the knowledge store, you can learn about how to access the know
 
 Create the following services:
 
-- [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your current subscription. You can use a free service for this tutorial.
+- Create an [Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) in your current subscription. You can use a free service for this tutorial.
 
-- [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to store the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Search service. The value for **Account kind** must be **StorageV2 (general purpose V2)** (default) or **Storage (general purpose V1)**.
+- Create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to store the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Search service. The value for **Account kind** must be **StorageV2 (general purpose V2)** (default) or **Storage (general purpose V1)**.
 
 - Recommended: Get the [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool that's capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs. We use Postman in this article. Also, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
 
-## 2 - Store the Data
+## 2 - Store the data
 
 Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Search indexer and fed through the AI enrichment pipeline.
 
-### Create an Azure Blob container by using the data
+### Create a blob container by using the data
 
-1. [Download the hotel review data saved in a CSV file (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data originates from Kaggle.com and contains customer feedback about hotels.
-1. [Sign in to the Azure portal](https://portal.azure.com) and go to your Azure storage account.
-1. [Create a blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). To create the container, in the left menu for your storage account, select **Blobs**, and then select **Container**.
+1. Download the [hotel review data](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) saved in a CSV file (HotelReviews_Free.csv). This data originates from Kaggle.com and contains customer feedback about hotels.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your Azure storage account.
+1. Create a [blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). To create the container, in the left menu for your storage account, select **Blobs**, and then select **Container**.
 1. For the new container **Name**, enter **hotel-reviews**.
 1. For **Public Access Level**, select any value. We used the default.
 1. Select **OK** to create the blob container.
@@ -46,7 +46,7 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
 1. Select **Upload** to import the CSV file into Azure Blob storage. The new container is shown:
 
-    ![Create the Azure Blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
+    ![Create the blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the blob container")
 
 ## 3 - Configure Postman
 
@@ -92,8 +92,6 @@ When you create a knowledge store, you must issue four HTTP requests:
 - **PUT request to create the indexer**: Running the indexer reads the data, applies the skillset, and stores the results. You must run this request last.
 
 The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) contains a Postman collection that has the four requests. To issue the requests, in Postman, select the tab for the request. Then, add `api-key` and `Content-Type` request headers. Set the value of `api-key` to `{{admin-key}}`. Set the value `Content-type` to `application/json`. 
-
-[!div class="mx-imgBorder"]
 
 ![Screenshot showing Postman's interface for headers](media/knowledge-store-create-rest/postman-headers-ui.png)
 
