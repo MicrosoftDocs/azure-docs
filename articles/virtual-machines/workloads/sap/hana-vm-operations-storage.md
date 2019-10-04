@@ -218,7 +218,7 @@ In this configuration, you the /hana/data and /hana/log volumes on the same disk
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
 ## Mixture between Azure Premium Storage and Ultra disk
-It is also possible to have the /hana/data volume on Premium Storage and the /hana/log vlume onto Ultra disk storage. Recommendation in sizing out of the different sections of this document apply accordingly. 
+It is also possible to have the /hana/data volume on Premium Storage and the /hana/log volume onto Ultra disk storage. Recommendation in sizing out of the different sections of this document apply accordingly. 
 
 
 
