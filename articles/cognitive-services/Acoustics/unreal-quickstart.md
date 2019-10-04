@@ -37,7 +37,7 @@ Open Wwise Launcher. On the **Plugins** tab, under **Install New Plug-ins**, sel
 
 ### Add Wwise binaries to the Project Acoustics Unreal sample project
 1. In Wwise Launcher, select the **Unreal Engine** tab. 
-1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.project* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
+1. Select the "hamburger" (icon) menu next to **Recent Unreal Engine Projects**, and then select **Browse for project**. Open the sample Unreal project *.uproject* file in the package *AcousticsSample\AcousticsGame\AcousticsGame.uproject*.
 
    ![The Unreal tab in Wwise Launcher](media/wwise-unreal-tab.png)
 

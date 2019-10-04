@@ -1,7 +1,7 @@
 ---
 title: Project Acoustics plug-in known issues
 titlesuffix: Azure Cognitive Services
-description: You might experience the following known issues in Designer Preview for Project Acoustics.
+description: You might experience the following known issues in Project Acoustics.
 services: cognitive-services
 author: NoelCross
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: noelc
 ROBOTS: NOINDEX
 ---
 # Project Acoustics known issues
-This article describes issues that you might experience when you use Designer Preview for Project Acoustics.
+This article describes issues that you might experience when you use Project Acoustics.
 
 ## Acoustic parameters are lost when you rename a scene
 
@@ -26,7 +26,7 @@ Some versions of Unity have a [bug](https://issuetracker.unity3d.com/issues/andr
 
 ## "Could not find metadata file System.Security.dll" error
 
-Make sure that the **Scripting Runtime Version** in player settings is *.NET 4.x Equivalent*, and restart Unity.
+Make sure that the **Scripting Runtime Version** in the **Player** settings is *.NET 4.x Equivalent*, and restart Unity.
 
 ## Authentication problems when connecting to Azure
 

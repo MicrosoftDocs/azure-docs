@@ -54,7 +54,7 @@ The bake portion of the acoustics toolkit requires the .NET 4.*x* scripting runt
 >This screenshot was taken from Unity 2018.*x*. The image may differ in newer versions of Unity.
 
 ## Open the Project Acoustics bake window
-In unity, select **Acoustics** on the **Window** menu.
+In Unity, select **Acoustics** on the **Window** menu.
 
 ![The Unity editor with the Acoustics option highlighted on the Window menu](media/window-acoustics.png)
 
@@ -84,7 +84,7 @@ Project Acoustics computes in a "simulation region" box that's centered around t
 * To enable through-wall transmission, move the **Transmission (dB)** slider away from the lowest setting.
 
 ### Modify wetness for a source
-* To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Though simulation, Project Acoustics computes wet levels, which provide perceptual distance cues and vary smoothly with distance. Increasing the distance warp exaggerates this effect by increasing distance-related wet levels. Warping values of less than 1 make the distance-based reverberation change more subtle.
+* To change how rapidly wetness changes with distance, use **Perceptual Distance Warp**. Through simulation, Project Acoustics computes wet levels, which provide perceptual distance cues and vary smoothly with distance. Increasing the distance warp exaggerates this effect by increasing distance-related wet levels. Warping values of less than 1 make the distance-based reverberation change more subtle.
 
    To make finer adjustments to this effect, change the **Wetness (dB)** setting.
 

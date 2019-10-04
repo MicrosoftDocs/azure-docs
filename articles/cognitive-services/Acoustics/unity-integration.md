@@ -49,7 +49,7 @@ Project Acoustics includes audio runtime DSP that integrates into the Unity audi
 
 ![The Unity Spatializer settings panel with Project Acoustics spatializer selected](media/choose-spatializer.png)
 
-Next, open the Audio Mixer (**Window** > **Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't have one, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
+Next, open the Audio Mixer (**Window** > **Audio Mixer**). Make sure that you have at least one mixer, with one group. If you don't have one, select the **+** button to the right of **Mixers**. Right-click the bottom of the channel strip in the effects section, and add the **Microsoft Acoustics Mixer** effect. Only one Project Acoustics mixer is supported at a time.
 
 ![The Unity Audio Mixer hosting the Project Acoustics mixer](media/audio-mixer.png)
 
