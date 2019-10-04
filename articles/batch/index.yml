@@ -45,7 +45,7 @@ landingContent:
             - text: Developer features
               url: batch-api-basics.md
 
-  - title: Check out tutorials
+  - title: Step-by-step guides
     linkLists:
       - linkListType: tutorial
         links:
