@@ -6,15 +6,15 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
 ---
 # Service limits in Azure Search
 Maximum limits on storage, workloads, and quantities of indexes, documents, and other objects depend on whether you [provision Azure Search](search-create-service-portal.md) at **Free**, **Basic**, **Standard**, or **Storage Optimized** pricing tiers.
 
-+ **Free** is a multi-tenant shared service that comes with your Azure subscription.
++ **Free** is a multi-tenant shared service that comes with your Azure subscription. Indexing and query requests execute on replicas and partitions that are used by other tenants.
 
-+ **Basic** provides dedicated computing resources for production workloads at a smaller scale.
++ **Basic** provides dedicated computing resources for production workloads at a smaller scale, but shares some networking infrastructure with other tenants.
 
 + **Standard** runs on dedicated machines with more storage and processing capacity at every level. Standard comes in four levels: S1, S2, S3, and S3 HD.
 
@@ -141,6 +141,18 @@ For the Storage Optimized tiers,  you should expect a lower query throughput and
 ## Data limits (cognitive search)
 
 A [cognitive search pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
+
+## Throttling limits
+
+Search query and indexing requests are throttled as the system approaches peak capacity. Throttling behaves differently for different APIs. Query APIs (Search/Suggest/Autocomplete) and indexing APIs throttle dynamically based on the load on the service. Index APIs have static request rate limits. 
+
+Static rate request limits for operations related to an index:
+
++ List Indexes (GET /indexes): 5 per second per search unit
++ Get Index (GET /indexes/myindex): 10 per second per search unit
++ Create Index (POST /indexes): 12 per minute per search unit
++ Create or Update Index (PUT /indexes/myindex): 6 per second per search unit
++ Delete Index (DELETE /indexes/myindex): 12 per minute per search unit 
 
 ## API request limits
 * Maximum of 16 MB per request <sup>1</sup>

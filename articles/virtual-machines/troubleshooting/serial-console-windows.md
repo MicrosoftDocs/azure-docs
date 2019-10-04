@@ -176,7 +176,7 @@ Network lock down system | Access the serial console from the Azure portal to ma
 Interacting with bootloader | Access BCD through the serial console. For information, see [Enable the Windows boot menu in the serial console](#enable-the-windows-boot-menu-in-the-serial-console).
 
 ## Known issues
-We're aware of some issues with the serial console. Here's a list of these issues and steps for mitigation. These issues and mitigations apply for both VMs and virtual machine scale set instances.
+We're aware of some issues with the serial console and the VM's operating system. Here's a list of these issues and steps for mitigation for Windows VMs. These issues and mitigations apply for both VMs and virtual machine scale set instances. If these don't match the error you're seeing, see the common serial console service errors at [Common Serial Console errors](./serial-console-errors.md).
 
 Issue                             |   Mitigation
 :---------------------------------|:--------------------------------------------|
@@ -186,8 +186,6 @@ Unable to type at SAC prompt if kernel debugging is enabled. | RDP to VM and run
 Pasting into PowerShell in SAC results in a third character if the original content had a repeating character. | For a workaround, run `Remove-Module PSReadLine` to unload the PSReadLine module from the current session. This action will not delete or uninstall the module.
 Some keyboard inputs produce strange SAC output (for example, **[A**, **[3~**). | [VT100](https://aka.ms/vtsequences) escape sequences aren't supported by the SAC prompt.
 Pasting long strings doesn't work. | The serial console limits the length of strings pasted into the terminal to 2048 characters to prevent overloading the serial port bandwidth.
-Serial console does not work with a storage account using Azure Data Lake Storage Gen2 with hierarchical namespaces. | This is a known issue with hierarchical namespaces. To mitigate, ensure that your VM's boot diagnostics storage account is not created using Azure Data Lake Storage Gen2. This option can only be set upon storage account creation. You may have to create a separate boot diagnostics storage account without Azure Data Lake Storage Gen2 enabled to mitigate this issue.
-
 
 ## Frequently asked questions
 

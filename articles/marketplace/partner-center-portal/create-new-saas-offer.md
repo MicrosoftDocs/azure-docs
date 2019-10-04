@@ -405,6 +405,9 @@ The ability to configure a free trial is available for each plan in your offer. 
 
 ![One month free trial checkbox](./media/free-trial-enable.png)
 
+>[!Note]
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
+
 To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
 
 >[!Note]
