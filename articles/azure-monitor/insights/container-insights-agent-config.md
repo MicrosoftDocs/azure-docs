@@ -47,7 +47,7 @@ The following are the settings that can be configured to control data collection
 | `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMap, the default value is `enabled = true`. |
 
 >[!NOTE]
-> If you want to disable collection for a specific container or every individual container and you have already deployed ConfigMaps, you specify the setting `[log_collection_settings.env_var] enabled = true` in the ConfigMap file and configure either the [Dockerfile](https://docs.docker.com/engine/reference/builder/) by specifying `ENV AZMON_COLLECT_ENV False` or in Pod spec by specifying the following under the `env:` section:
+> If you want to disable collection for a specific container or every individual container and you have already deployed ConfigMaps, you specify the setting `[log_collection_settings.env_var] enabled = true` in the ConfigMap file and configure either the [Dockerfile](https://docs.docker.com/engine/reference/builder/) by specifying `ENV AZMON_COLLECT_ENV False` or in Pod spec by specifying the following under the **env:** section:
 >
 >     - name: AZMON_COLLECT_ENV  
 >       value: "False" 
