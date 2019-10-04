@@ -103,7 +103,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> Discovery Benefits SSO requires a fixed string value to be passed in **Unique User Identifier (Name ID)** field to get this integration working. Azure AD currently doesn't support this feature so as a work around, you can use **ToUpper** or **ToLower** transformations of NameID to set a fixed string value as shown above in the screenshot.
 
-	f. We have auto-populated the addtional claims which are required for SSO configuration (`SSOInstance` and `SSOID`). Use the **Edit** icon to map the values as per your organization.
+	f. We have auto-populated the additional claims which are required for SSO configuration (`SSOInstance` and `SSOID`). Use the **Edit** icon to map the values as per your organization.
 
 	![Discovery Benefits SSO configuration](./media/discovery-benefits-sso-tutorial/attribute03.png)
 
