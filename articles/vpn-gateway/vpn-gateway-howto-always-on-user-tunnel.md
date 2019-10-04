@@ -1,6 +1,6 @@
 ---
-title: 'Configure an Always On VPN tunnel for VPN Gateway'
-description: Steps to configure Always On User VPN tunnel for VPN Gateway
+title: 'Configure an Always On VPN user tunnel for your VPN gateway'
+description: This article describes how to configure an Always On VPN user tunnel for your VPN gateway
 services: vpn-gateway
 author: cherylmc
 
@@ -12,11 +12,11 @@ ms.author: cherylmc
 ---
 # Configure an Always On VPN user tunnel
 
-A new feature of the Windows 10 VPN client is the ability to maintain a VPN connection. Always On is a Windows 10 feature that enables the active VPN profile to connect automatically and remain connected based on triggers. Such triggers include user sign-in, network state change, or device screen active.
+A new feature of the Windows 10 VPN client, Always On, is the ability to maintain a VPN connection. With Always On, the active VPN profile can connect automatically and remain connected based on triggers, such as user sign-in, network state change, or device screen active.
 
 You can use Azure virtual network gateways with Windows 10 Always On to establish persistent user tunnels and device tunnels to Azure. This article helps you configure an Always On VPN user tunnel.
 
-Always On VPN connections include two types of tunnels:
+Always On VPN connections include either of two types of tunnels:
 
 * **Device tunnel**: Connects to specified VPN servers before users sign in to the device. Pre-sign-in connectivity scenarios and device management use a device tunnel.
 
@@ -24,19 +24,19 @@ Always On VPN connections include two types of tunnels:
 
 Device tunnels and user tunnels operate independent of their VPN profiles. They can be connected at the same time, and they can use different authentication methods and other VPN configuration settings, as appropriate.
 
-In the following sections, you configure the VPN gateway and the user tunnel.
+In the following sections, you configure a VPN gateway and a user tunnel.
 
-## Step 1: Configure the gateway
+## Step 1: Configure a VPN gateway
 
-Configure the VPN gateway to use IKEv2 and certificate-based authentication using this [point-to-site article](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+You configure the VPN gateway to use IKEv2 and certificate-based authentication by following the instructions in this [point-to-site](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article.
 
-## Step 2: Configure the user tunnel
+## Step 2: Configure a user tunnel
 
-1. Install client certificates on the Windows 10 client, as shown in this [point-to-site VPN client](point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate needs to be in the Current User Store
+1. Install client certificates on the Windows 10 client, as shown in this [point-to-site VPN client](point-to-site-how-to-vpn-client-install-azure-cert.md) article. The certificate must be in the current user store.
 
 1. Configure the Always On VPN client through PowerShell, SCCM, or Intune by following the instructions in [Configure Windows 10 client Always On VPN connections](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/vpn-deploy-client-vpn-connections).
 
-### Example configuration for user tunnel
+### Example configuration for the user tunnel
 
 After you've configured the virtual network gateway and installed the client certificate in the local machine store on the Windows 10 client, configure a client device tunnel by using the following examples:
 
