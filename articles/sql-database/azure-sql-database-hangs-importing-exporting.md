@@ -1,6 +1,6 @@
 ---
-title: "Azure SQL Database Import/Export Service takes a long time to import or export a database| Microsoft Docs"
-description: "Azure SQL Database Import/Export Service takes a long time to import or export a database"
+title: "Azure SQL Database Import/Export service takes a long time to import or export a database| Microsoft Docs"
+description: "Azure SQL Database Import/Export service takes a long time to import or export a database"
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
@@ -10,7 +10,7 @@ ms.reviewer: ""
 ms.date: 09/27/2019
 ---
 
-# Azure SQL Database Import/Export Service takes a long time to import or export a database
+# Azure SQL Database Import/Export service takes a long time to import or export a database
 
 When using Azure SQL Database Import/Export service, you may notice that, sometimes the process may take a long time to complete. This article provides additional information on the potential causes for thee delays and alternate methods you can use to workaround these problems.
 
@@ -24,7 +24,8 @@ The import and export operations are not a traditional physical database backup 
 
 The Azure SQL Database Import/Export Service provides a limited number of Compute virtual machines (VMs) per region to process the import and export operations. The Compute VM is hosted per region to make sure that the import or export avoids cross-region bandwidth delays and charges. So, if too many requests are made at the same time in the same region, significant delays occur in processing the operations. The time that is required to complete requests can vary from a few seconds to many hours.
 
-**Note** If a request is not processed within four days, the service automatically cancels the request.
+> [!NOTE]
+> If a request is not processed within four days, the service automatically cancels the request.
 
 ## Recommended solutions
 

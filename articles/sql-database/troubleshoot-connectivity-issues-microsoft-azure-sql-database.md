@@ -123,7 +123,8 @@ Typically, the service administrator can use the following steps to add the logi
    GO
    ```
    
-   **Note**: You can also use `sp_addrolemember` to map specific users to specific database roles. 
+   > [!NOTE]
+   > You can also use `sp_addrolemember` to map specific users to specific database roles. 
 
 For more information, see [Managing Databases and Logins in Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 
@@ -179,15 +180,16 @@ To work around this issue, try one of the following methods:
 
 * Verify whether there are long-running queries:
 
-  **Note** This is a minimalist approach that may not necessarily resolve the issue.
+  > [!NOTE]
+  > This is a minimalist approach that may not necessarily resolve the issue.
 
   1. Check the [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests, by executing the following SQL query:
 
-   ```
-   SELECT * FROM dm_exec_requests
-   ```
+     ```
+     SELECT * FROM dm_exec_requests
+     ```
 
-  2. Determine the **inputbuffer** for the head blocker.
+  2. Determine the **input buffer** for the head blocker.
   3. Tune the head blocker query.
 
     For an in-depth troubleshooting procedure, see [Is my query running fine in the cloud?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
@@ -228,9 +230,10 @@ This error occurs when the database has reached its size quota.
 
 The following steps can help you with either working around the problem or provide you with additional options that you can consider.
 
-1. Check the current size of the database by using the dashboard in Azure management portal.
+1. Check the current size of the database by using the dashboard in the Azure portal.
 
-   **Note**: To identify which tables are consuming the most space and potential candidates for cleanup, you can use the following SQL query:
+   > [!NOTE]
+   > To identify which tables are consuming the most space and potential candidates for cleanup, you can use the following SQL query:
 
    ```
    SELECT o.name,
@@ -262,7 +265,7 @@ If you repeatedly encounter this error message, try these steps to resolve this 
    ```
    SELECT * FROM dm_exec_requests
    ```
-2. Determine the inputbuffer for the query that is long running. 
+2. Determine the input buffer for the query that is long running. 
 3. Tune the query.
 
 Also consider batching your queries. For information on batching, see [How to use batching to improve SQL Database application performance](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
@@ -294,7 +297,8 @@ Try to reduce the number of rows that are operated on immediately by implementin
 * The issue occurs because of the index rebuild operations. Make sure that you adhere to the following formula: 
 number of rows that are affected in table * (average size of field that is updated in bytes + 80) < 2 GB
 
-  **Note** For index rebuild, the average size of the field that is updated should be substituted by average index size.
+  > [!NOTE]
+  > For index rebuild, the average size of the field that is updated should be substituted by average index size.
 
 ### Error 40553: The session has been terminated because of excessive memory usage.
 
@@ -352,7 +356,8 @@ See [Get SQL Server connection information](https://docs.microsoft.com/azure/sql
 3. Try increasing the connection **timeout**. Microsoft recommends using a connection timeout of at least 30 seconds. 
 4. Test the connectivity between the application server and the Azure SQL database by using [SQL Server management Studio (SSMS)](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms), a UDL file, ping, and telnet. For more information, see [Troubleshooting SQL Server connectivity issues](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) and [Diagnostics for connectivity issues](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues#diagnostics).
 
-   **Note**: As a troubleshooting step, you can also try to test the connectivity on a different client computer.
+   > [!NOTE]
+   > As a troubleshooting step, you can also try to test the connectivity on a different client computer.
 
 5. As a best practice, ensure retry logic is in place. For more information about the retry logic, see [Troubleshoot transient faults and connection errors to SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues).
 
