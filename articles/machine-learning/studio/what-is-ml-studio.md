@@ -1,7 +1,7 @@
 ---
-title: What is
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
+title: What is ML Studio (legacy)
+titleSuffix: Azure 
+description: Azure Machine Learning Studio (legacy) is a drag-and-drop tool for quickly building models from a ready-to-use library of algorithms and modules.
 
 services: machine-learning
 documentationcenter: ''
@@ -17,20 +17,40 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/20/2019
 ---
-# What is Azure Machine Learning Studio?
+# What is Machine Learning Studio (legacy)?
 Microsoft Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
 Machine Learning Studio is where data science, predictive analytics, cloud resources, and your data meet.
 
-
-## The Machine Learning Studio interactive workspace
+## The Machine Learning Studio (legacy) interactive workspace
 To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
-**Azure Machine Learning Studio** gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
+Azure Machine Learning Studio (legacy) gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
 There is no programming required, just visually connecting datasets and modules to construct your predictive analysis model.
 
 ![Azure Machine Learning studio diagram: Create experiments, read data for many sources, write scored data, write models.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
+
+
+<a name="compare"></a>
+## How is Machine Learning Studio different from Azure Machine Learning service?
+
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
+
+Here is a quick comparison.
+
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Designer|
+|---| --- | --- |
+|| Generally available (GA) | In preview|
+|Modules for interface| Many | Initial set of popular modules|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
+|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
+|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
+
+Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
+
+> [!NOTE]
+> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
 
 ## Download the Machine Learning Studio overview diagram
 Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
@@ -38,29 +58,9 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 **Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
-## Get started with Machine Learning Studio
-When you first enter [Machine Learning Studio](https://studio.azureml.net), you see the **Home** page. From here you can view documentation, videos, and webinars and find other valuable resources.
 
-Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
-### Azure Machine Learning Studio
-There are two options here, **Home**, the page where you started, and **Studio**.
 
-Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. First you'll be asked to sign in using your Microsoft account, or your work or school account. Once signed in, you'll see the following tabs on the left:
-
-* **PROJECTS** - Collections of experiments, datasets, notebooks, and other resources representing a single project
-* **EXPERIMENTS** - Experiments that you have created and run or saved as drafts
-* **WEB SERVICES** - Web services that you have deployed from your experiments
-* **NOTEBOOKS** - Jupyter notebooks that you have created
-* **DATASETS** - Datasets that you have uploaded into Studio
-* **TRAINED MODELS** - Models that you have trained in experiments and saved in Studio
-* **SETTINGS** - A collection of settings that you can use to configure your account and resources.
-
-### Gallery
-Click **Gallery** and you'll be taken to the **[Azure AI Gallery](https://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
-
-For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
-
-## Components of an experiment
+## Components of a Studio (legacy) experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
 
 * The experiment has at least one dataset and one module
@@ -102,31 +102,6 @@ For some help navigating through the large library of machine learning algorithm
 
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
-
-<a name="compare"></a>
-## How is Machine Learning Studio different from Azure Machine Learning service?
-
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
-
-Here is a quick comparison.
-
-|| Machine Learning Studio | Azure Machine Learning service:<br/>Designer|
-|---| --- | --- |
-|| Generally available (GA) | In preview|
-|Modules for interface| Many | Initial set of popular modules|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
-|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
-
-Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
-
-> [!NOTE]
-> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
-
-## Free trial
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 
 ## Next steps
 You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
