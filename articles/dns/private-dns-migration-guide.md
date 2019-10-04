@@ -11,7 +11,7 @@ ms.author: rohink
 
 # Migrating legacy Azure DNS private zones to new resource model
 
-We shipped a new API/resource model for Azure DNS private zones as part of the preview refresh release. Preview refresh provides new functionality and removes several limitations and restrictions of the initial public preview. However, these benefits aren't available on the private DNS zones that have been created using legacy API. To get the benefits of the new release, you must migrate your legacy private DNS zone resources to new resource model. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction for migrating your Azure DNS private zones to new resource model.
+The current Azure DNS private zones release provides new functionality and removes several limitations and restrictions of the initial public preview. However, these benefits aren't available on the private DNS zones that were created using the preview API. To get the benefits of the new release, you must migrate your legacy private DNS zone resources to the new resource model. The migration process is  simple, and we've provided a PowerShell script to automate this process. This guide provides step by step instruction to migrate your Azure DNS private zones to the new resource model.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
 >[!IMPORTANT]
->The migration process is fully automated and isn't expected to cause any downtime. However, if you're using Azure DNS private zones (preview) in a critical production environment you should execute below migration process during a planned maintenance time window. Make sure that you don't modify the configuration or record-sets of a private DNS zones while you're running the migration script.
+>The migration process is fully automated and isn't expected to cause any downtime. However, if you're using Azure DNS private zones (preview) in a critical production environment you should execute the following migration process during a planned maintenance time window. Make sure that you don't modify the configuration or record-sets of a private DNS zones while you're running the migration script.
 
 ## Installing the script
 
