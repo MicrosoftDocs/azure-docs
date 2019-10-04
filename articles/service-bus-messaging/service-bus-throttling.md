@@ -25,37 +25,37 @@ The Azure Service Bus Standard tier operates as a multi-tenant setup with a pay-
 
 In the past, we've had coarse throttling limits strictly dependent on resource utilization. However, there is an opportunity to refine this and provide predictable throttling behavior to all namespaces that are sharing these resources.
 
-In an attempt to ensure fair usage and distribution of resources across all the Azure Service Bus Standard namespaces that use the same resources, we've recently polished our throttling logic to be token-based.
+In an attempt to ensure fair usage and distribution of resources across all the Azure Service Bus Standard namespaces that use the same resources, we've recently polished our throttling logic to be credit-based.
 
 > [!NOTE]
 > It is important to note that throttling is ***not new*** to Azure Service Bus, or any cloud native service.
 >
-> Token based throttling is simply refining the way various namespaces share resources in a multi-tenant Standard tier environment and thus enabling fair usage by all namespaces sharing the resources.
+> Credit based throttling is simply refining the way various namespaces share resources in a multi-tenant Standard tier environment and thus enabling fair usage by all namespaces sharing the resources.
 
-### What is token-based throttling?
+### What is credit-based throttling?
 
-Token-based throttling limits the number of operations that can be performed on a given namespace in a specific time period. 
+Credit-based throttling limits the number of operations that can be performed on a given namespace in a specific time period. 
 
-Below is the workflow for token-based throttling - 
+Below is the workflow for credit-based throttling - 
 
-  * At the start of each time period, we provide a certain number of tokens to each namespace.
-  * Any operations performed by the sender or receiver client applications will be counted against these tokens (and subtracted from the available tokens).
-  * If the tokens are depleted, subsequent operations will be throttled until the start of the next time period.
-  * Tokens are replenished at the start of the next time period.
+  * At the start of each time period, we provide a certain number of credits to each namespace.
+  * Any operations performed by the sender or receiver client applications will be counted against these credits (and subtracted from the available credits).
+  * If the credits are depleted, subsequent operations will be throttled until the start of the next time period.
+  * Credits are replenished at the start of the next time period.
 
-### What are the token limits?
+### What are the credit limits?
 
-The token limits are currently set to '1000' tokens every second (per namespace).
+The credit limits are currently set to '1000' credits every second (per namespace).
 
-Not all operations are created equal. Here are the token costs of each of the operations - 
+Not all operations are created equal. Here are the credit costs of each of the operations - 
 
-| Operation | Token cost|
+| Operation | Credit cost|
 |-----------|-----------|
-| Data operations (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 token per message |
-| Management operations (Create, Read, Update, Delete on Queues, Topics, Subscriptions, Filters) | 10 tokens |
+| Data operations (Send, SendAsync, Receive, ReceiveAsync, Peek) |1 credit per message |
+| Management operations (Create, Read, Update, Delete on Queues, Topics, Subscriptions, Filters) | 10 credits |
 
 > [!IMPORTANT]
-> While the current token limits are large, we will eventually be reducing the limits to ***30 credits per 1 second*** in a phased manner.
+> While the current credit limits are large, we will eventually be reducing the limits to ***30 credits per 1 second*** in a phased manner.
 >
 > It is recommended that when designing new solutions and architectures, the Azure Service Bus Standard tier throughput expectations should be ***30 operations/second***.
 
@@ -71,7 +71,7 @@ The request was terminated because the entity is being throttled. Error code: 50
 
 With shared resources, it is important to enforce some sort of fair usage across various Service Bus namespaces that share those resources. Throttling ensures that any spike in a single workload does not cause other workloads on the same resources to be throttled.
 
-As mentioned later in the article, there is no risk in being throttled because the client SDKs (and other Azure PaaS offerings) have the default retry policy built into them. Any throttled requests will be retried with exponential backoff and will eventually go through when the tokens are replenished.
+As mentioned later in the article, there is no risk in being throttled because the client SDKs (and other Azure PaaS offerings) have the default retry policy built into them. Any throttled requests will be retried with exponential backoff and will eventually go through when the credits are replenished.
 
 Understandably, some applications may be sensitive to being throttled. In that case, it is recommended to [migrate your current Service Bus Standard namespace to Premium](service-bus-migrate-standard-premium.md). 
 
