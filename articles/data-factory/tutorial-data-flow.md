@@ -15,7 +15,7 @@ If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](in
 
 In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using Mapping Data Flow. The configuration pattern in this tutorial can be expanded upon when transforming data using Mapping Data Flow
 
-In this tutorial, you perform the following steps:
+In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
 > * Create a data factory.
@@ -96,7 +96,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 1. Name your dataset **MoviesDB**. In the linked service dropdown, choose **New**.
 
     ![Dataset](media/tutorial-data-flow/dataset3.png)
-1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we are using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click Create when finished.
+1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click Create when finished.
 
     ![Linked Service](media/tutorial-data-flow/ls1.png)
 1. Once you're back at the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in container sample-data. As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Click OK when done.
@@ -111,9 +111,9 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 1. Name your filter transformation **FilterYears**. Click on the expression box next to **Filter on** to open the expression builder. Here you'll specify your filtering condition. 
     
     ![Filter](media/tutorial-data-flow/filter1.png)
-1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can comprise of built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](concepts-data-flow-expression-builder.md).
+1. The data flow expression builder lets you interactively build expressions to use in various transformations. Expressions can include built-in functions, columns from the input schema, and user-defined parameters. For more information on how to build expressions, see [Data Flow expression builder](concepts-data-flow-expression-builder.md).
     
-    In this tutorial, You want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, You need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
+    In this tutorial, you want to filter movies of genre comedy that came out between the years 1910 and 2000. As year is currently a string, you need to convert it to an integer using the ```toInteger()``` function. Use the greater than or equals to (>=) and less than or equals to (<=) operators to compare against literal year values 1910 and 200-. Union these expressions together with the and (&&) operator. The expression comes out as:
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000```
 
@@ -121,7 +121,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 
     ```toInteger(year) >= 1910 && toInteger(year) <= 2000 && rlike(genres, 'Comedy')```
 
-    If you've a debug cluster active, you can verify your logic by clicking **Refresh** to see expression output compared to the inputs used. There is more than one right answer on how you can accomplish this logic using the data flow expression language.
+    If you've a debug cluster active, you can verify your logic by clicking **Refresh** to see expression output compared to the inputs used. There's more than one right answer on how you can accomplish this logic using the data flow expression language.
     
     !Filter](media/tutorial-data-flow/filter2.png)
 
@@ -161,7 +161,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 1. Choose **DelimitedText**. Click Continue.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
-1. Name your sink dataset **MoviesSink**. For linked service, choose the ADLS gen2 linked service you created in step six. Enter an output folder to write your data to. In this tutorial, we are writing to folder 'output' in container 'sample-data'. The folder don't need to exist beforehand and can be dynamically created. Set **First row as header** as true and select **None** for **Import schema**. Click Finish.
+1. Name your sink dataset **MoviesSink**. For linked service, choose the ADLS gen2 linked service you created in step 6. Enter an output folder to write your data to. In this tutorial, we're writing to folder 'output' in container 'sample-data'. The folder doesn't need to exist beforehand and can be dynamically created. Set **First row as header** as true and select **None** for **Import schema**. Click Finish.
     
     ![Sink](media/tutorial-data-flow/sink3.png)
 
@@ -169,12 +169,12 @@ Now you've finished building your data flow. You're ready to run it in your pipe
 
 ## Running and monitoring the Data Flow
 
-You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview don't write data, a debug run will write data to your sink destination.
+You can debug a pipeline before you publish it. In this step, you're going to trigger a debug run of the data flow pipeline. While data preview doesn't write data, a debug run will write data to your sink destination.
 
 1. Go to the pipeline canvas. Click **Debug** to trigger a debug run.
     
     ![Pipeline](media/tutorial-data-flow/pipeline1.png)
-1. Pipeline debug of Data Flow activities use the active debug cluster but still take at least a minute to initialize. You can track the progress via the **Output** tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
+1. Pipeline debug of Data Flow activities uses the active debug cluster but still take at least a minute to initialize. You can track the progress via the **Output** tab. Once the run is successful, click on the eyeglasses icon to open the monitoring pane.
     
     ![Pipeline](media/tutorial-data-flow/pipeline2.png)
 1. In the monitoring pane, you can see the number of rows and time spent in each transformation step.
@@ -184,7 +184,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
     
     ![Monitoring](media/tutorial-data-flow/pipeline4.png)
 
-If you followed this tutorial correctly, you should've written 83 rows and 2 columns into your sink folder. You can verify the data is correct by check your blob storage.
+If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.
 
 ## Next steps
 
