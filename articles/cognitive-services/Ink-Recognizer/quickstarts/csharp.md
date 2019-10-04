@@ -36,8 +36,9 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
 
 - The example ink stroke data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+### Create an Ink Recognizer resource
 
+[!INCLUDE [creating-an-ink-recognizer-resource](../includes/setup-instructions.md)]
 
 ## Create a new application
 
@@ -45,7 +46,7 @@ The source code for this quickstart can be found on [GitHub](https://go.microsof
     
     [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
-2. Create variables for your subscription key and your endpoint. Replace the endpoint below with the one generated for your Ink Recognizer resource. Append it to the Ink recognizer URI to connect to the API.
+2. Create variables for your subscription key and endpoint, and the example JSON file. The endpoint will later be combined with `inkRecognitionUrl` to access the API. 
 
     [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
