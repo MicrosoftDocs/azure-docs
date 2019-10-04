@@ -64,7 +64,7 @@ The system receives the rank of the coffee choices, then compares that predictio
 ## Prerequisites
 
 * An [Azure Notebook](https://notebooks.azure.com/) account. 
-* An [Azure Personalizer resource](https://azure.microsoft.com/try/cognitive-services/). 
+* An [Azure Personalizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). 
     * If you have already used the Personalizer resource, make sure to [clear the data](how-to-settings.md#clear-data-for-your-learning-loop) in the Azure portal for the resource. 
 * Upload all the files for [this sample](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/samples/azurenotebook) into an Azure Notebook project. 
 
@@ -121,7 +121,7 @@ resource_key = "<your-resource-key>"
 ### Print current data and time
 Use this function to note the start and end times of the iterative function, iterations.
 
-The cell has no output.
+These cells have no output. The function does output the current date and time when called.
 
 ```python
 # Print out current datetime
@@ -166,7 +166,7 @@ def get_last_updated(currentModifiedDate):
 
 Validate the state of the service with these two REST calls.
 
-The cell has no output.
+These cells have no output. The function does output the service settings when called.
 
 ```python
 def get_service_settings():
@@ -197,23 +197,7 @@ This cell
 * calls `get_last_updated` method - learning policy has been removed in example output
 * calls `get_service_settings` method
 
-The cell has output from the call to `get_last_updated` and `get_service_settings` functions: 
-
-```console
------checking model
-<Response [200]>
-{'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
------model updated: "0001-01-01T00:00:00+00:00"
------checking service settings
-<Response [200]>
-{...learning policy...}
-<Response [200]>
-{'rewardWaitTime': '00:00:15', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:00:15', 'logRetentionDays': -1}
-User count 4
-Coffee count 4
-```
-
-Verify that the `rewardWaitTime` and the `modelExportFrequency` are both set to 15 seconds. 
+The cell has output from the call to `get_last_updated` and `get_service_settings` functions.
 
 ```python
 # build URLs
@@ -255,6 +239,22 @@ get_service_settings()
 
 print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
+```
+
+Verify that the output's `rewardWaitTime` and `modelExportFrequency` are both set to 15 seconds. 
+    
+```console
+-----checking model
+<Response [200]>
+{'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
+-----model updated: "0001-01-01T00:00:00+00:00"
+-----checking service settings
+<Response [200]>
+{...learning policy...}
+<Response [200]>
+{'rewardWaitTime': '00:00:15', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:00:15', 'logRetentionDays': -1}
+User count 4
+Coffee count 4
 ```
 
 ### Troubleshooting the first REST call
@@ -602,6 +602,21 @@ Learn more about the [reward wait time](concept-rewards.md#reward-wait-time) and
 ```python
 #Verify new learning policy and times
 get_service_settings()
+```
+
+Verify that the output's `rewardWaitTime` and `modelExportFrequency` are both set to 5 minutes. 
+```console
+-----checking model
+<Response [200]>
+{'creationTime': '0001-01-01T00:00:00+00:00', 'lastModifiedTime': '0001-01-01T00:00:00+00:00'}
+-----model updated: "0001-01-01T00:00:00+00:00"
+-----checking service settings
+<Response [200]>
+{...learning policy...}
+<Response [200]>
+{'rewardWaitTime': '00:05:00', 'defaultReward': 0.0, 'rewardAggregation': 'earliest', 'explorationPercentage': 0.2, 'modelExportFrequency': '00:05:00', 'logRetentionDays': -1}
+User count 4
+Coffee count 4
 ```
 
 ## Validate new learning policy by running experiment for 2,000 iterations
