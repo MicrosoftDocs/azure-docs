@@ -21,4 +21,4 @@ After creating a resource:
 
     * `ANOMALY_DETECTOR_ENDPOINT` - The endpoint for your resource. It will look like this: <br> `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
 
-    * `ANOMALY_DETECTOR_SUBSCRIPTION_KEY` - The subscription key for authenticating your requests.   
+    * `ANOMALY_DETECTOR_KEY` - The subscription key for authenticating your requests.   
