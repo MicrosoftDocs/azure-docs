@@ -3,8 +3,8 @@ title: Azure resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: conceptual
-ms.date: 7/30/2019
+ms.topic: reference
+ms.date: 10/4/2019
 ms.author: tomfitz
 ---
 
@@ -35,6 +35,10 @@ For some resource types, you need to contact support to have the 800 instance li
 * images
 * snapshots
 * virtualMachines
+
+## Microsoft.ContainerInstance
+
+* containerGroups
 
 ## Microsoft.ContainerRegistry
 
@@ -77,44 +81,13 @@ For some resource types, you need to contact support to have the 800 instance li
 * integrationAccounts
 * workflows
 
-## Microsoft.Network
+## Microsoft.NetApp
 
-* applicationGatewayWebApplicationFirewallPolicies
-* applicationSecurityGroups
-* bastionHosts
-* ddosProtectionPlans
-* dnszones
-* dnszones/A
-* dnszones/AAAA
-* dnszones/CAA
-* dnszones/CNAME
-* dnszones/MX
-* dnszones/NS
-* dnszones/PTR
-* dnszones/SOA
-* dnszones/SRV
-* dnszones/TXT
-* dnszones/all
-* dnszones/recordsets
-* networkIntentPolicies
-* networkInterfaces
-* privateDnsZones
-* privateDnsZones/A
-* privateDnsZones/AAAA
-* privateDnsZones/CNAME
-* privateDnsZones/MX
-* privateDnsZones/PTR
-* privateDnsZones/SOA
-* privateDnsZones/SRV
-* privateDnsZones/TXT
-* privateDnsZones/all
-* privateDnsZones/virtualNetworkLinks
-* privateEndpoints
-* privateLinkServices
-* publicIPAddresses - Contact support to extend the limit.
-* serviceEndpointPolicies
-* trafficmanagerprofiles
-* virtualNetworkTaps
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/snapshots
 
 ## Microsoft.PortalSdk
 
@@ -127,6 +100,15 @@ For some resource types, you need to contact support to have the 800 instance li
 ## Microsoft.Scheduler
 
 * jobcollections
+
+## Microsoft.ServiceFabricMesh
+
+* applications
+* containerGroups
+* gateways
+* networks
+* secrets
+* volumes
 
 ## Microsoft.Storage
 
