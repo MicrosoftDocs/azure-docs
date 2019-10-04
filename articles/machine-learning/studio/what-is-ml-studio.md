@@ -38,29 +38,30 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 **Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
-## Get started with Machine Learning Studio
-When you first enter [Machine Learning Studio](https://studio.azureml.net), you see the **Home** page. From here you can view documentation, videos, and webinars and find other valuable resources.
 
-Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
-### Azure Machine Learning Studio
-There are two options here, **Home**, the page where you started, and **Studio**.
+<a name="compare"></a>
+## How is Machine Learning Studio different from Azure Machine Learning service?
 
-Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. First you'll be asked to sign in using your Microsoft account, or your work or school account. Once signed in, you'll see the following tabs on the left:
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
 
-* **PROJECTS** - Collections of experiments, datasets, notebooks, and other resources representing a single project
-* **EXPERIMENTS** - Experiments that you have created and run or saved as drafts
-* **WEB SERVICES** - Web services that you have deployed from your experiments
-* **NOTEBOOKS** - Jupyter notebooks that you have created
-* **DATASETS** - Datasets that you have uploaded into Studio
-* **TRAINED MODELS** - Models that you have trained in experiments and saved in Studio
-* **SETTINGS** - A collection of settings that you can use to configure your account and resources.
+Here is a quick comparison.
 
-### Gallery
-Click **Gallery** and you'll be taken to the **[Azure AI Gallery](https://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Designer|
+|---| --- | --- |
+|| Generally available (GA) | In preview|
+|Modules for interface| Many | Initial set of popular modules|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
+|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
+|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
 
-For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
+Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
-## Components of an experiment
+> [!NOTE]
+> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
+
+
+
+## Components of a Studio (legacy) experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
 
 * The experiment has at least one dataset and one module
@@ -102,31 +103,6 @@ For some help navigating through the large library of machine learning algorithm
 
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
-
-<a name="compare"></a>
-## How is Machine Learning Studio different from Azure Machine Learning service?
-
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
-
-Here is a quick comparison.
-
-|| Machine Learning Studio | Azure Machine Learning service:<br/>Designer|
-|---| --- | --- |
-|| Generally available (GA) | In preview|
-|Modules for interface| Many | Initial set of popular modules|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
-|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
-
-Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
-
-> [!NOTE]
-> Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
-
-## Free trial
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 
 ## Next steps
 You can learn the basics of predictive analytics and machine learning using a [step-by-step quickstart](create-experiment.md) and by [building on samples](sample-experiments.md).
