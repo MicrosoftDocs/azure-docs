@@ -376,9 +376,9 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-*Power BI Apps:*
+**Why aren’t my changes reflected in the offer?**
 
-Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
 ### Benefits and Go-To-Market (GTM) Resources
 
