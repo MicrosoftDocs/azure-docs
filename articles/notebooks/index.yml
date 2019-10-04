@@ -6,7 +6,7 @@ metadata:
   description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks service.
   services: notebooks
   author: kraigb
-  manager: douge
+  manager: barbkess
   ms.service: azure-notebooks
   ms.tgt_pltfrm: na
   ms.devlang: na
