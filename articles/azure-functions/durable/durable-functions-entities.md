@@ -19,28 +19,53 @@ Entity functions define operations for reading and updating small pieces of stat
 > [!NOTE]
 > Entity functions and related functionality is only available in Durable Functions 2.0 and above. Entity functions are currently in public preview.
 
-## Entity identity
+## General concepts
 
-Entities (sometimes referred to as entity *instances*) are accessed via a unique identifier, the *entity ID*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
+Entities behave like tiny services that have an identity and a state. Entities can perform operations, which may update the internal state, and perform I/O (e.g. call external services). To prevent conflicts, all operations performed by the same entity are guaranteed to be executed serially, i.e. one after another. Entities provide opportunity for scale-out, if the work is distributed across many entities and the state stored within each entity is of modest size.
 
-* An **entity name**: a name that identifies the type of the entity (for example, "Counter").
+<a name="Entity-Identity"></a>
+**Entity Id.** Entities are accessed via a unique identifier, the *entity Id*. An entity ID is simply a pair of strings that uniquely identifies an entity instance. It consists of:
+
+* An **entity name**: a name that identifies the type of the entity (for example, "Counter"). This name must match the name of the entity function that implements the entity. It is case-insensitive.
 * An **entity key**: a string that uniquely identifies the entity among all other entities of the same name (for example, a GUID).
 
 For example, a *counter* entity function might be used for keeping score in an online game. Each instance of the game will have a unique entity ID, such as `@Counter@Game1`, `@Counter@Game2`, and so on. All operations that target a particular entity require specifying an entity ID as a parameter.
 
-## Programming models
+**Operations**. To invoke an operation on an entity, one specifies
 
-Durable entities support two different programming models. The first model is a dynamic "functional" model where the entity is defined by a single function. The second model is an object-oriented model where the entity is defined by a class and methods. These models and the programming models for interacting with entities are described in the next sections.
+* The *entity id* of the target entity
+* The *operation name*, a string that specifies the operation to be performed. For example, the counter entity could support "add", "get", or "reset" operations.
+* The *operation input*, which is an optional input parameter for the operation. For example, the "add" operation can take an integer amount as the input.
 
-### Defining entities
+Operations can return a result value, or an error result (such as a JavaScript error or a .NET exception).
 
-There are two optional programming models for authoring durable entities. The following code is an example of a simple *Counter* entity implemented as a standard function. This function defines three *operations*, `add`, `reset`, and `get`, each of which operate on an integer state value, `currentValue`.
+An entity operation can create, read, update, and delete the state of the entity, which is always durably persisted in storage.
+
+**Entity Communication**. Entities communicate with other entities, orchestrations and clients using messages that are implicitly sent via reliable queues. We use the following terminology to distinguish the difference between one-way and two-way communication: 
+
+* *Calling* an entity means we use two-way (round-trip) communication: we send an operation message to the entity, and then wait for the response message before continuing. The response message can provide a result value or an error result (such as a JavaScript error or a .NET exception), which is observed by the caller.
+* *Signaling* an entity means we use one-way (fire and forget) communication: we sends an operation message, but do not wait for a response. While the message is guaranteed to be eventually delivered, the sender does not know when, and cannot observe any result value or errors.
+
+Entities can be called only from within orchestrations.
+
+<a name="function-based-entity"></a>
+## Defining entities
+
+We currently offer two distinct APIs for defining entities.
+
+A **function-based syntax** where entities are represented as functions, and operations are explicitly dispatched by the application. This works well for entities with simple state, few operations, or a dynamic set of operations (such as in application frameworks). However, it can be tedious to maintain, as it does not catch type errors at compile time.
+
+A **class-based syntax** where entities and operations are represented by classes and methods. This produces more easily readable code and allows operations to be invoked in a type-safe way. The class-based syntax is just a thin layer on top of the function-based syntax, so both variants can be used interchangeably in the same application.
+
+### Function-based Syntax
+
+The following code is an example of a simple *Counter* entity implemented as a durable function. This function defines three operations, `add`, `reset`, and `get`, each of which operate on an integer state value, `currentValue`.
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
-    int currentValue = ctx.GetState<int>();
+    int currentValue = ctx.GetState<int>(); // get or create state
 
     switch (ctx.OperationName.ToLowerInvariant())
     {
@@ -60,7 +85,13 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-This model works best for simple entity implementations, or implementations that have a dynamic set of operations. However, you can also use a class-based programming model that is useful for entities that are static but have more complex implementations. The following example is an equivalent implementation of the `Counter` entity using classes and methods.
+> [!NOTE]
+> Entity trigger functions are available in Durable Functions 2.0 and above. Currently, entity trigger functions are available only to .NET function apps.
+
+<a name="class-based-entity"></a>
+### Class-based syntax
+
+The following example is an equivalent implementation of the `Counter` entity using classes and methods.
 
 ```csharp
 public class Counter
@@ -80,15 +111,50 @@ public class Counter
 }
 ```
 
+Here, the state of the entity is not just an integer as before, but an object of type `Counter`, which contains a field that stores the current value. To persist this object in storage, it is serialized and deserialized by [Json.NET](https://www.newtonsoft.com/json), which defines the `JsonObject` and `JsonProperty` attributes (with many more available options) to control details of this process, such as what property name to use in the JSON representation, or how to deal with missing fields or null values.
+
 > [!NOTE]
 > The function entry point method with the `[FunctionName]` attribute *must* be declared `static` when using entity classes. Non-static entry point methods may result in multiple object initialization and potentially other undefined behaviors.
 
-In the class-based programming model, the `IDurableEntityContext` object is available in the `Entity.Current` static property.
+### The entity context object
 
-The class-based model is similar to the programming model popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
+Entity-specific functionality can be accessed via a context object of type `IDurableEntityContext`. This context object is available as a parameter (for the function-based syntax) or via the async-local property `Entity.Current`.
+
+The following members are used to signal other entities, or start new orchestrations:
+
+* **SignalEntity(EntityId, operation, input)**: sends a one-way message to an entity.
+* **CreateNewOrchestration(orchestratorFunctionName, input)**: starts a new orchestration.
+
+The following members provide general information about the currently executing entity.
+
+* **EntityName**: the name of the currently executing entity.
+* **EntityKey**: the key of the currently executing entity.
+* **EntityId**: the ID of the currently executing entity (includes name and key).
+
+The following members are meant for use with the function-based syntax. 
+
+* **OperationName**: the name of the current operation.
+* **GetInput\<TInput>()**: gets the input for the current operation.
+* **Return(arg)**: returns a value to the orchestration that called the operation.
+
+The following members manage the state of the entity (create, read, update, delete). They are not usually needed when using the class-based syntax, though it makes sense to call them explicitly in some situations (for example, to delete the entity state).
+
+* **HasState**: whether the entity exists, that is, has some state. 
+* **GetState\<TState>()**: gets the current state of the entity. If it does not already exist, it is created.
+* **SetState(arg)**: creates or updates the state of the entity.
+* **DeleteState()**: deletes the state of the entity. 
+
+If the state returned by `GetState` is an object, it can be directly modified by the application code. There is no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
 
 > [!NOTE]
-> Entity trigger functions are available in Durable Functions 2.0 and above. Currently, entity trigger functions are available only to .NET function apps.
+> All entity states, all operation inputs, and all return values must have a primitive or otherwise JSON-serializeable type, as supported by the library [Json.NET](https://www.newtonsoft.com/json).
+
+## Accessing entities
+
+Entities can be accessed from three different contexts: from within client functions, from within orchestrator functions, or from within entity functions. These contexts are similar, yet exhibit slight differences in the set of supported operations and their syntax.
+
+> [!NOTE]
+> .NET functions support both loosely typed and type-checked methods for accessing entities. See the [Accessing Entities via Interfaces](#via-interfaces) reference documentation for details.
 
 ### Accessing entities from clients
 
@@ -106,9 +172,6 @@ public static Task Run(
     return client.SignalEntityAsync(entityId, "Add", amount);
 }
 ```
-
-> [!NOTE]
-> .NET functions support both loosely typed and type-safe methods for signaling entities. See the [entity client binding](durable-functions-bindings.md#entity-client-usage) reference documentation for details.
 
 The term *signal* means that the entity API invocation is one-way and asynchronous. It's not possible for a *client function* to know when the entity has processed the operation, nor is it possible for an entity function return a value to a client function. One-way queue-based messaging was an intentional design choice for Durable Entities to prioritize durability over performance. This design choice is one of the tradeoffs of Durable Entities compared to other, similar technologies. Currently only orchestrations are capable of handling return values from entities, as described in the next section.
 
@@ -139,11 +202,11 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-    // Synchronous call to the entity which returns a value - will await a response
+   // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
-        // Asynchronous call which updates the value - will not await a response
+        // One-way signal to the entity which updates the value - does not await a response
         context.SignalEntity(entityId, "Add", 1);
     }
 }
@@ -152,8 +215,177 @@ public static async Task Run(
 Only orchestrations are capable of calling entities and getting a response, which could be either a return value or an exception. Client functions using the [client binding](durable-functions-bindings.md#entity-client) can only *signal* entities.
 
 > [!NOTE]
-> Calling an entity from an orchestrtor function is similar to calling an [activity function](durable-functions-types-features-overview.md#activity-functions) from an orchestrator function. The main difference is that entity functions are durable objects with an address (the *entity ID*) and they support specifying an operation name. Activity functions, on the other hand, are stateless and do not have the concept of operations.
+> Calling an entity from an orchestrator function is similar to calling an [activity function](durable-functions-types-features-overview.md#activity-functions) from an orchestrator function. The main difference is that entity functions are durable objects with an address (the *entity ID*) and they support specifying an operation name. Activity functions, on the other hand, are stateless and do not have the concept of operations.
 
+### Accessing entities from other entities
+
+An entity function can send signals to other entities (or even itself!) while it executes an operation.
+For example, we can modify the counter entity example so it sends a "coupon-earned" signal to some monitor entity when the counter reaches the value 100:
+
+```csharp
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
+{
+    int currentValue = ctx.GetState<int>();
+
+    switch (ctx.OperationName.ToLowerInvariant())
+    {
+   case "add":
+        var amount = ctx.GetInput<int>();
+        currentValue += amount;
+        if (currentValue >= 100 && (currentValue - amount) < 100)
+        {
+            ctx.SignalEntity(new EntityId("MonitorEntity", ""), "coupon-earned", ctx.EntityKey);
+        }
+       break;
+   case "reset":
+       currentValue = 0;
+       break;
+   case "get":
+       ctx.Return(currentValue);
+       break;
+    }
+
+    ctx.SetState(currentValue);
+}
+```
+
+<a name="via-interfaces"></a>
+## Accessing entities via interfaces
+
+Interfaces can optionally be used to type-check invocations on entities, using generated proxies. This is particularly useful for class-based entities, as it allows the compiler to cross-check the signature of an operation invocation agains the actual implementation of it. 
+
+To use this feature, the entity type must implement an entity interface. For example:
+
+```csharp
+public interface ICounter
+{
+    void Add(int amount);
+    void Reset();
+    Task<int> Get();
+}
+
+public class Counter : ICounter
+{
+    ...
+}
+```
+
+### Using entity interfaces in clients
+
+Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. For example:
+
+```csharp
+[FunctionName("UserDeleteAvailable")]
+public static async Task AddValueClient(
+    [QueueTrigger("my-queue")] string message,
+    [DurableClient] IDurableEntityClient client)
+{
+    var target = new EntityId(nameof(Counter), "myCounter");
+    int amount = int.Parse(message);
+    await client.SignalEntityAsync<ICounter>(target, proxy => proxy.Add(amount));
+}
+```
+
+In this example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
+
+> [!NOTE]
+> The `SignalEntityAsync` APIs represent one-way operations. If an entity interfaces returns `Task<T>`, the value of the `T` parameter will always be null or `default`.
+
+In particular, for the counter example, it does not make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
+
+### Using entity interfaces in orchestrations
+
+To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
+
+```csharp
+[FunctionName("CounterOrchestration")]
+public static async Task Run(
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
+{
+    var entityId = new EntityId(nameof(Counter), "myCounter");
+    var proxy = context.CreateEntityProxy<ICounter>(entityId);
+
+    // Wait-for-response call to the entity which returns a value
+    int currentValue = await proxy.Get();
+
+    if (currentValue < 10)
+    {
+        // Fire-and-forget signal which updates the value
+        proxy.Add(1);
+    }
+}
+```
+
+Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. It is possible to change this default, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
+
+
+### Using entity interfaces in entities
+
+The situation for entities is analogous to the previous two. For example, we can modify the counter entity example so it sends a "CouponEarned" signal to some monitor entity when the counter reaches the value 100:
+
+```csharp
+    Entity.Current.SignalEntity<IMonitor>("", proxy => proxy.CouponEarned(Entity.Current.EntityKey));
+```
+
+assuming the monitor implements an interface like 
+```csharp
+interface IMonitor
+{
+    void CouponEarned(string CounterEntityKey)
+}
+
+```
+
+### Specifying the target entity
+
+When calling or signaling an entity using an interface, the first argument must specify the target entity. This can be done either by specifying the entity ID, or, in cases where there is just one class that implements the entity, just the entity key:
+
+```csharp
+context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
+context.SignalEntity<ICounter>("myCounter", ...);
+```
+
+If only the entity key is specified and a unique implementation cannot be found at runtime, `InvalidOperationException` is thrown. 
+
+### Rules for entity interfaces
+
+As with all interfaces in .NET, both of these are allowed:
+* an entity can implement multiple interfaces
+* an interface can be implemented by multiple entities
+
+This allows entities to serve multiple roles, and allows entity communication patterns to be implemented as reusable libraries.
+
+However, since each method in an entity interface must represent a valid entity operation, we do impose some rules:
+* Entity interfaces must only define methods.
+* Entity interface methods must not define more than one parameter.
+* Entity interface method parameters must be JSON-serializable objects or values.
+* Entity interface methods must return `void`, `Task`, or `Task<T>` where `T` is a JSON-serializable object or value.
+
+If any of these rules are violated, an `InvalidOperationException` will be thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message will explain which rule was broken.
+
+> [!NOTE]
+Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
+
+## Working with the class-based syntax
+
+The class-based model is similar to the programming model popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). In this model, an entity type is defined as a .NET class. Each method of the class is an operation that can be invoked by an external client. Unlike Orleans, however, .NET interfaces are optional. The previous *Counter* example did not use an interface, but it can still be invoked via other functions or via HTTP API calls.
+
+### Custom initialization on first access
+
+To construct an entity object in a special manner the very first time it is accessed, add a conditional before the `DispatchAsync`:
+
+```csharp
+[FunctionName(nameof(Counter))]
+public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+{
+    if (!ctx.HasState)
+    {
+        ctx.SetState(...);
+    }
+    ctx.DispatchAsync<Counter>();
+}
+```
 ### Dependency injection in entity classes (.NET)
 
 Entity classes support [Azure Functions Dependency Injection](../functions-dotnet-dependency-injection.md). The following example demonstrates how to register an `IHttpClientFactory` service into a class-based entity.
@@ -178,6 +410,7 @@ The following snippet demonstrates how to incorporate the injected service into 
 ```csharp
 public class HttpEntity
 {
+    [JsonIgnore]
     private readonly HttpClient client;
 
     public class HttpEntity(IHttpClientFactory factory)
