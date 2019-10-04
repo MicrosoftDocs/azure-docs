@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure SQL Data Warehouse  # < 60 chars
-summary: Learn how to use Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing. Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
+summary: Learn how to use Azure SQL Data Warehouse, which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
 
 metadata:
   title: Azure SQL Data Warehouse  # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -31,10 +31,18 @@ landingContent:
         links:
           - text: SQL Data Warehouse - MPP architecture
             url: massively-parallel-processing-mpp-architecture.md
-      - linkListType: quickstart
+          - text: Tips and best practices for your data warehouse 
+            url: cheat-sheet.md
+
+  # Card
+  - title: Getting started
+    linkLists:
+      - linkListType: deploy
         links:
           - text: Create a SQL Data Warehouse
             url: create-data-warehouse-portal.md
+  #         # - text: linktext2
+  #         #   url: file2.md
 
   # Card (optional)
   - title: Load Data
