@@ -31,7 +31,7 @@ This article describes how to use the continuous data export feature in Azure Io
 
 If you don't have an existing Storage to export to, follow these steps:
 
-1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-quickstart-create-account).
+1. Create a [new storage account in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](https://aka.ms/blobdocscreatestorageaccount) or [Azure Data Lake Storage v2 storage accounts](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
 
     > [!Note] 
     > If you choose to export data to an ADLS v2 storage account, you must choose **Account Kind** as **BlobStorage**. 
@@ -57,7 +57,7 @@ Now that you have a Storage destination to export data to, follow these steps to
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data/export_new2.png)
+    ![Create new continuous data export](media/howto-export-data/export-new2.png)
 
 4. In the drop-down list box, select your **Storage Account namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -74,7 +74,7 @@ Now that you have a Storage destination to export data to, follow these steps to
         - Copy either the key1 Connection string or the key2 Connection string
  
 6. Choose a Container from the drop-down list box. If you don't have a container, go to your Storage account in the Azure portal:
-    - Under **Blob service**, select **Blobs**. Click **+ Container** and give your container a name. Choose a public access level for your data (any will work with Continuous data export). Learn more from [Azure Storage docs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+    - Under **Blob service**, select **Blobs**. Click **+ Container** and give your container a name. Choose a public access level for your data (any will work with Continuous data export). Learn more from [Azure Storage docs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
 7. Choose the **Data format** you prefer: JSON or [Apache Avro](https://avro.apache.org/docs/current/index.html) format.
 
@@ -94,7 +94,7 @@ Measurements, devices, and device templates data are exported to your storage ac
 - Devices: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 - Device templates: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 
-You can browse the exported files in the Azure Portal by navigating to the file and choosing the **Edit blob** tab.
+You can browse the exported files in the Azure portal by navigating to the file and choosing the **Edit blob** tab.
 
 ## Data format 
 
@@ -103,7 +103,7 @@ You can browse the exported files in the Azure Portal by navigating to the file 
 The exported measurements data has all the new messages received by IoT Central from all devices during that time. The exported files use the same format as the message files exported by [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) to Blob storage.
 
 > [!NOTE]
-> Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See [IoT Hub documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) for an example.
+> Ensure that your devices are sending messages that have `contentType: application/JSON` and `contentEncoding:utf-8` (or `utf-16`, `utf-32`). See [IoT Hub documentation](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) for an example.
 
 > [!NOTE]
 > The devices that send the measurements are represented by device IDs (see the following sections). To get the names of the devices, export the device snapshots. Correlate each message record by using the **connectionDeviceId** that matches the **deviceId** of the device record.

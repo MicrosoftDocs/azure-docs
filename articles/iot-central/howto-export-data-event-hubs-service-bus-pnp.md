@@ -65,7 +65,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export_new2.png)
+    ![Create new continuous data export](media/howto-export-data-pnp/export-new2.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace/Service Bus namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -75,16 +75,13 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export_eh.png)
+    ![Create new cde Event Hub](media/howto-export-data-pnp/export-eh.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
         - Under **Settings**, select **Shared Access Policies**
         - Choose the default **RootManageSharedAccessKey** or create a new one
         - Copy either the primary or secondary connection string
- 
-    > [!NOTE] 
-    > Make sure you ar
 
 6. Choose a Event hub/Queue or Topic from the drop-down list box.
 
