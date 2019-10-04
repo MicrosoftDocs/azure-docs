@@ -21,7 +21,7 @@ These limitations may cause throttling of client application requests in both St
 
 ## Throttling in Azure Service Bus Standard tier
 
-The Azure Service Bus Standard tier operates as a multi-tenant setup with a pay-as-you-go pricing model. Here multiple namespaces in the same region share the allocated resources. Standard tier is the recommended choice for developer, testing, and QA environments along with low throughput production systems.
+The Azure Service Bus Standard tier operates as a multi-tenant setup with a pay-as-you-go pricing model. Here multiple namespaces in the same cluster share the allocated resources. Standard tier is the recommended choice for developer, testing, and QA environments along with low throughput production systems.
 
 In the past, we've had coarse throttling limits strictly dependent on resource utilization. However, there is an opportunity to refine this and provide predictable throttling behavior to all namespaces that are sharing these resources.
 
@@ -98,7 +98,7 @@ There are various ways to identifying throttling in Azure Service Bus Premium -
 
 ### How can I avoid being throttled ?
 
-Since the Service Bus Premium namespace already has dedicated resources, you can reduce the possibility of getting throttled by scaling up the number of Messaging Units allocated to your namespace in the event of a spike in the workload.
+Since the Service Bus Premium namespace already has dedicated resources, you can reduce the possibility of getting throttled by scaling up the number of Messaging Units allocated to your namespace in the event (or anticipation) of a spike in the workload.
 
 Scaling up/down can be achieved by creating [runbooks](../automation/automation-create-alert-triggered-runbook.md) that can be triggered by changes in the above metrics.
 
