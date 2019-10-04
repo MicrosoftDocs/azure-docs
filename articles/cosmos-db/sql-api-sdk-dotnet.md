@@ -41,6 +41,14 @@ ms.author: sngun
 > [!NOTE]
 > If you are using .NET Framework, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
+### <a name="2.7.0"/>2.7.0
+
+* Added support for arrays and objects in order by queries
+* Handle effective partition key collisions
+* Added LINQ support for multiple OrderBy operators with ThenBy operator
+* Custom serialization settings are now applied to all upsert and replace operations
+* Fixed AysncCache deadlock issue so that it will work with a single-threaded task scheduler
+
 ### <a name="2.6.0"/>2.6.0
 
 * Added PortReusePolicy to ConnectionPolicy
@@ -386,6 +394,7 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |September 23, 2019 |--- |
 | [2.6.0](#2.6.0) |August 30, 2019 |--- |
 | [2.5.1](#2.5.1) |July  02, 2019 |--- |
 | [2.4.1](#2.4.1) |June  20, 2019 |--- |

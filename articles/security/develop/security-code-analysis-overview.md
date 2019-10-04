@@ -68,7 +68,7 @@ Passwords and other secrets stored in source code are a significant problem. Cre
 
 ### Microsoft Security Risk Detection
 
-Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate onboarding process. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
+Microsoft Security Risk Detection (MSRD) is a cloud-based service for fuzz testing. It identifies exploitable security bugs in software. This service requires a separate subscription and activation. For more information, see the [MSRD Developer Center](https://docs.microsoft.com/security-risk-detection/).
 
 ### Roslyn Analyzers
 

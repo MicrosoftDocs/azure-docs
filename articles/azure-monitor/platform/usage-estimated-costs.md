@@ -13,12 +13,9 @@ ms.subservice: ""
 # Monitoring usage and estimated costs in Azure Monitor
 
 > [!NOTE]
-> This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
-> - [Manage cost by controlling data volume and retention in Log Analytics](manage-cost-storage.md) describes how to control your costs by changing your data retention period.
-> - [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
-> - [Manage pricing and data volume in Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> This article, describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. Related articles for specific components of Azure Monitor include:
+> - [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
+> - [Manage usage and costs for Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
 
 In the Monitor hub of the Azure portal, the **Usage and estimated costs** page explains the usage of core monitoring features such as [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/), and [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). For customers on the pricing plans available before April 2018, this also includes Log Analytics usage purchased through the Insights and Analytics offer.
 
@@ -36,9 +33,11 @@ Here’s another similar usage and cost summary. This example shows a subscripti
 
 ![Usage and estimated costs portal screenshot - April 2018 pricing](./media/usage-estimated-costs/003.png)
 
-## New pricing model
+## Pricing model
 
-In April 2018, a [new monitoring pricing model was released](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  This features cloud-friendly, consumption-based pricing. You only pay for what you use, without node-based commitments. Details of the new pricing model are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+In April 2018, a [new monitoring pricing model was released](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  This features cloud-friendly, consumption-based pricing ("Pay-As-You-Go"). You only pay for what you use, without node-based commitments. Details of the new pricing model are available for [alerting, metrics, notifications](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) and [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+
+In addition to the Pay-As-You-Go model, in September 2019, we added Capacity Reservations for Log Analytics which enable you to save as much as 25% compared to the Pay-As-You-Go price. The capacity reservation pricing enables you to buy a reservation starting at 100 GB/day. Any usage above the reservation level will be billed at the Pay-As-You-Go rate. [Learn more](https://azure.microsoft.com/pricing/details/monitor/) about Capacity Reservation pricing.
 
 For customers onboarding to Log Analytics or Application Insights after April 2, 2018, the new pricing model is the only option. For customers who already use these services, moving to the new pricing model is optional.
 
@@ -107,4 +106,3 @@ As noted above, the is no longer a requirement to move all monitoring resources 
 
 Automating this change is documented for Application Insights using [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) with ``-PricingPlan "Basic"`` 
 and Log Analytics using [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) with ``-sku "PerGB2018"``. 
-

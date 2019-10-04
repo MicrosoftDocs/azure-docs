@@ -6,7 +6,7 @@ services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
 ---
 # How to integrate the common alert schema with Logic Apps
