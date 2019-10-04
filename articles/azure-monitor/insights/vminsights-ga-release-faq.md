@@ -17,7 +17,7 @@ ms.author: magoedte
 
 We recently announced on the [Azure Update](https://azure.microsoft.com/blog/) blog some planned changes that will be occurring in October and November 2019. More details about these changes are covered in this General Availability FAQ.
 
-# Updates for Azure Monitor for VMs
+## Updates for Azure Monitor for VMs
 
 We are releasing a new version of Azure Monitor for VMs in November. Customers enabling Azure Monitors for VMs after this release automatically receive the new version, but existing customers already using Azure Monitor for VMs are prompted to upgrade.  This FAQ and our documentation offers guidance to perform a bulk upgrade if you have large deployments across multiple workspaces.
 
@@ -84,7 +84,7 @@ No, the two solutions share the map data sets that we store in `VMComputer` (for
 
 We expect to release the update for Azure Monitor for VMs in mid-November. As we get closer to the release date we'll post updates here and present notifications in the Azure portal when you navigate to Azure Monitor.
 
-# Health feature to enter limited public preview
+## Health feature to enter limited public preview
 
 We have received a lot of great feedback from customers about our VM Health feature set.  There is a lot of interest around this feature and excitement over its potential for supporting monitoring workflows. We are planning to make a series of changes to add functionality and address the feedback we have received. To minimize impact of these changes to new customers, we are moving this feature into a limited public preview.
 
