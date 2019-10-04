@@ -1,16 +1,18 @@
 ---
-title: Azure SQL virtual machine VM connection for search indexing - Azure Search
-description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Search.
-author: HeidiSteen
+title: Azure SQL virtual machine VM connection for search indexing
+titleSuffix: Azure Cognitive Search
+description: Enable encrypted connections and configure the firewall to allow connections to SQL Server on an Azure virtual machine (VM) from an indexer on Azure Cognitive Search.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 02/04/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Configure a connection from an Azure Search indexer to SQL Server on an Azure VM
+
+# Configure a connection from an Azure Cognitive Search indexer to SQL Server on an Azure VM
+
 As noted in [Connecting Azure SQL Database to Azure Search using indexers](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq), creating indexers against **SQL Server on Azure VMs** (or **SQL Azure VMs** for short) is supported by Azure Search, but there are a few security-related prerequisites to take care of first. 
 
 Connections from Azure Search to SQL Server on a VM is a public internet connection. All of the security measures you would normally follow for these connections apply here as well:

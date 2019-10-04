@@ -1,17 +1,17 @@
 ---
-title: Index large data set using built-in indexers - Azure Search
-description: Learn strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
-services: search
-author: HeidiSteen
+title: Index large data set using built-in indexers
+titleSuffix: Azure Cognitive Search
+description: Strategies for large data indexing or computationally intensive indexing through batch mode, resourcing, and techniques for scheduled, parallel, and distributed indexing.
+
 manager: nitinme
-
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/19/2019
+author: HeidiSteen
 ms.author: heidist
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to index large data sets in Azure Search
+
+# How to index large data sets in Azure Cognitive Search
 
 As data volumes grow or processing needs change, you might find that simple or default indexing strategies are no longer practical. For Azure Search, there are several approaches for accommodating larger data sets, ranging from how you structure a data upload request, to using a source-specific indexer for scheduled and distributed workloads.
 

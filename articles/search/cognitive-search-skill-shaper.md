@@ -1,19 +1,17 @@
 ---
-title: Shaper cognitive search skill - Azure Search
-description: Extract metadata and structured information from unstructured data and shape it as a complex type in an Azure Search enrichment pipeline.
-services: search
+title: Shaper cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract metadata and structured information from unstructured data and shape it as a complex type in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-#	Shaper cognitive skill
+# Shaper cognitive skill
 
 The **Shaper** skill consolidates several inputs into a [complex type](search-howto-complex-data-types.md) that can be referenced later in the enrichment pipeline. The **Shaper** skill allows you to essentially create a structure, define the name of the members of that structure, and assign values to each member. Examples of consolidated fields useful in search scenarios include combining a first and last name into a single structure, city and state into a single structure, or name and birthdate into a single structure to establish unique identity.
 

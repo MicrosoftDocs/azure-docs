@@ -1,18 +1,17 @@
 ---
-title: Entity Recognition cognitive search skill - Azure Search
-description: Extract different types of entities from text in an Azure Search cognitive search pipeline.
-services: search
+title: Entity Recognition cognitive skill
+titleSuffix: Azure Cognitive Search
+description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-#	 Entity Recognition cognitive skill
+#	Entity Recognition cognitive skill
 
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 

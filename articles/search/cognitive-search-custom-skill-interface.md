@@ -1,16 +1,17 @@
 ---
-title: Interface definition for custom skills in cognitive search - Azure Search
-description: Custom data extraction interface for web-api custom skill in cognitive search pipeline in Azure Search.
+title: Interface definition for custom skills
+titleSuffix: Azure Cognitive Search
+description: Custom data extraction interface for web-api custom skill in cognitive search pipeline in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to add a custom skill to a cognitive search pipeline
+# How to add a custom skill to a Cognitive Search pipeline
 
 A [cognitive search indexing pipeline](cognitive-search-concept-intro.md) in Azure Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in a cognitive search pipeline. 
 

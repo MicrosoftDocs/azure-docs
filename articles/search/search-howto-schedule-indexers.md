@@ -1,18 +1,18 @@
 ---
-title: How to schedule indexers - Azure Search
-description: Schedule Azure Search indexers to index content periodically or at specific times.
+title: How to schedule indexers
+titleSuffix: Azure Cognitive Search
+description: Schedule Azure Cognitive Search indexers to index content periodically or at specific times.
 
-ms.date: 05/31/2019
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: 
+ms.service: cognitive-search
 ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to schedule indexers for Azure Search
+# How to schedule indexers in Azure Cognitive Search
+
 An indexer normally runs once, immediately after it is created. You can run it again on demand using the portal, the REST API, or the .NET SDK. You can also configure an indexer to run periodically on a schedule.
 
 Some situations where indexer scheduling is useful:

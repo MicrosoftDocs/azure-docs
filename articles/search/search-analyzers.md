@@ -1,17 +1,17 @@
 ---
-title: Analyzers for linguistic and text processing - Azure Search
+title: Analyzers for linguistic and text processing
+titleSuffix: Azure Cognitive Search
 description: Assign analyzers to searchable text fields in an index to replace default standard Lucene with custom, predefined or language-specific alternatives.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: heidist
-manager: nitinme
-author: HeidiSteen
 
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Analyzers for text processing in Azure Search
+# Analyzers for text processing in Azure Cognitive Search
 
 An *analyzer* is a component of the [full text search engine](search-lucene-query-architecture.md) responsible for processing text in query strings and indexed documents. Different analyzers manipulate text in different ways depending on the scenario. Language analyzers process text using linguistic rules in order to improve search quality, while other analyzers perform more basic tasks like converting characters to lower case, for example. 
 

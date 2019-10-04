@@ -1,17 +1,16 @@
 ---
-title: Troubleshooting tips for cognitive search - Azure Search
-description: Tips and troubleshooting for setting up cognitive search pipelines in Azure Search.
-services: search
+title: Troubleshooting tips for AI enrichment
+titleSuffix: Azure Cognitive Search
+description: Tips and troubleshooting for setting up cognitive search pipelines in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 02/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Troubleshooting tips for cognitive search
+# Troubleshooting tips for AI enrichment in Cognitive Search
 
 This article contains a list of tips and tricks to keep you moving as you get started with cognitive search capabilities in Azure Search. 
 

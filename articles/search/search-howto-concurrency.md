@@ -1,16 +1,16 @@
 ---
-title: How to manage concurrent writes to resources - Azure Search
-description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Search indexes, indexers, data sources.
-author: HeidiSteen
+title: How to manage concurrent writes to resources
+titleSuffix: Azure Cognitive Search
+description: Use optimistic concurrency to avoid mid-air collisions on updates or deletes to Azure Cognitive Search indexes, indexers, data sources.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/21/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to manage concurrency in Azure Search
+# How to manage concurrency in Azure Cognitive Search
 
 When managing Azure Search resources such as indexes and data sources, it's important to update resources safely, especially if resources are accessed concurrently by different components of your application. When two clients concurrently update a resource without coordination, race conditions are possible. To prevent this, Azure Search offers an *optimistic concurrency model*. There are no locks on a resource. Instead, there is an ETag for every resource that identifies the resource version so that you can craft requests that avoid accidental overwrites.
 

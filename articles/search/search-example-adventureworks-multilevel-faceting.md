@@ -1,16 +1,17 @@
 ---
-title: 'Example: Multi-level facets - Azure Search'
+title: 'Example: Multi-level facets'
+titleSuffix: Azure Cognitive Search
 description: Learn how to build faceting structures for multi-level taxonomies, creating a nested navigation structure that you can include on application pages.
+
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-
 ---
-# Example: Multi-level facets in Azure Search
+
+# Example: Multi-level facets in Azure Cognitive Search
 
 Azure Search schemas do not explicitly support multi-level taxonomy categories, but you can approximate them by manipulating content prior to indexing and then applying some special handling to the results. 
 

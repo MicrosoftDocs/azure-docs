@@ -1,14 +1,14 @@
 ---
-title: 'REST Tutorial: Build an AI enrichment pipeline using cognitive search - Azure Search'
-description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Search REST APIs. 
+title: 'REST Tutorial: Build an AI enrichment pipeline to extract text and structure from JSON blobs'
+titleSuffix: Azure Cognitive Search
+description: Step through an example of text extraction and natural language processing over content in JSON blobs using Postman and the Azure Cognitive Search REST APIs. 
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 08/23/2019
 ms.author: luisca
-#Customer intent: As a developer, I want an introduction to the core APIs.
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Add structure to "unstructured content" with cognitive search

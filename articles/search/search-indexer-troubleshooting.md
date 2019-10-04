@@ -1,16 +1,17 @@
 ---
-title: Troubleshoot common search indexer issues - Azure Search
-description: Fix errors and common problems with indexers in Azure Search, including data source connection, firewall, and missing documents.
-author: mgottein
+title: Troubleshoot common search indexer issues
+titleSuffix: Azure Cognitive Search
+description: Fix errors and common problems with indexers in Azure Cognitive Search, including data source connection, firewall, and missing documents.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: mgottein
 ms.author: magottei
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Troubleshooting common indexer issues in Azure Search
+# Troubleshooting common indexer issues in Azure Cognitive Search
 
 Indexers can run into a number of issues when indexing data into Azure Search. The main categories of failure include:
 

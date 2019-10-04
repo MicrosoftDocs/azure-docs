@@ -1,16 +1,16 @@
 ---
-title: Cognitive search documentation resources - Azure Search
-description: An annotated list of articles, tutorials, samples, and blog posts related to cognitive search workloads in Azure Search.
-services: search
+title: Documentation links for AI enrichment
+titleSuffix: Azure Cognitive Search
+description: An annotated list of articles, tutorials, samples, and blog posts related to AI enrichment workloads in Azure Cognitive Search.
+
 manager: nitinme
 author: HeidiSteen
-
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
 ---
-# Documentation resources for cognitive search workloads
+# Documentation resources for AI enrichment in Cognitive Search
 
 Cognitive search, now generally available, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 

@@ -1,16 +1,17 @@
 ---
-title: Introduction to knowledge store (preview) - Azure Search
-description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
-manager: nitinme
-author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/02/2019
-ms.author: heidist
+title: Introduction to knowledge store (preview)
+titleSuffix: Azure Cognitive Search
+description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
 
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# What is knowledge store in Azure Search?
+
+# What is knowledge store in Azure Cognitive Search?
 
 > [!Note]
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.

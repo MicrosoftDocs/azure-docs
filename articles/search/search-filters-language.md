@@ -1,18 +1,17 @@
 ---
-title: Language filters for multi-lingual content in a search index - Azure Search
-description: Filter criteria to support multi language search, scoping query execution to language-specific fields.
-author: HeidiSteen
+title: Language filters for multi-lingual content in a search index
+titleSuffix: Azure Cognitive Search
+description: Filter criteria to support multi-language search, scoping query execution to language-specific fields.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 10/23/2017
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to filter by language in Azure Search 
+# How to filter by language in Azure Cognitive Search 
 
 A key requirement in a multilingual search application is the ability to search over and retrieve results in the user's own language. In Azure Search, one way to meet the language requirements of a multilingual app is to create a series of fields dedicated to storing strings in a specific language, and then constrain full text search to just those fields at query time.
 

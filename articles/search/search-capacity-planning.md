@@ -1,17 +1,18 @@
 ---
-title:  Scale partitions and replicas for query and indexing - Azure Search
-description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
-author: HeidiSteen
+title:  Scale up partitions and replicas to add capacity for query and index workloads
+titleSuffix: Azure Cognitive Search
+description: Adjust partition and replica computer resources in Azure Cognitive Search, where each resource is priced in billable search units.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 07/01/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Scale partitions and replicas for query and indexing workloads in Azure Search
+# Scale up partitions and replicas to add capacity for query and index workloads in Azure Cognitive Search
+
 After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage.
 
 Resource configuration is available when you set up a service at the [Basic tier](https://aka.ms/azuresearchbasic) or one of the [Standard or Storage Optimized tiers](search-limits-quotas-capacity.md). For services at these tiers, capacity is purchased in increments of *search units* (SUs) where each partition and replica counts as one SU. 

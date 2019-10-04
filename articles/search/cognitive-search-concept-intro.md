@@ -1,15 +1,16 @@
 ---
-title: Introduction to cognitive search and AI enrichment - Azure Search
-description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms.
+title: Introduction to cognitive search and AI enrichment
+titleSuffix: Azure Cognitive Search
+description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Cognitive Search indexing using cognitive skills and AI algorithms.
+
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/15/2019
 ms.author: heidist
+ms.service: cognitive-search
+ms.topic: overview
+ms.date: 11/04/2019
 ---
-# What is "cognitive search" in Azure Search?
+# What is AI enrichment Azure Cognitive Search?
 
 Cognitive search is an AI feature in Azure Search, used to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index. Extraction and enrichment are implemented through *cognitive skills* attached to an indexing pipeline. AI enrichments are supported in the following ways: 
 

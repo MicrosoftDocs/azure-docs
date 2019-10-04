@@ -1,16 +1,17 @@
 ---
-title: Create a skillset in a cognitive search pipeline - Azure Search
-description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Search.
+title: Create a skillset in an enrichment pipeline
+titleSuffix: Azure Cognitive Search
+description: Define data extraction, natural language processing, or image analysis steps to enrich and extract structured information from your data for use in Azure Cognitive Search.
+
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to create a skillset in an enrichment pipeline
+# How to create a skillset in a Cognitive Search enrichment pipeline
 
 Cognitive search extracts and enriches data to make it searchable in Azure Search. We call extraction and enrichment steps *cognitive skills*, combined into a *skillset* referenced during indexing. A skillset can use [built-in skills](cognitive-search-predefined-skills.md) or custom skills (see [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md) for more information).
 

@@ -1,16 +1,17 @@
 ---
-title: Use Search explorer tool for querying data in Azure portal - Azure Search
-description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
+title: Use Search explorer tool for querying data in Azure portal
+titleSuffix: Azure Cognitive Search
+description: Search explorer is built into the Azure portal, useful for exploring content and validating queries in Azure Cognitive Search. Enter strings for term or phrase search, or fully qualified search expressions with advanced syntax.
+
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/20/2019
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Use Search explorer in the Azure portal for querying documents in Azure Search 
+
+# Use Search explorer in the Azure portal for querying documents in Azure Cognitive Search 
 
 This article shows you how to query an existing Azure Search index using **Search explorer** in the Azure portal. You can start Search explorer from the command bar to submit simple or full Lucene query expressions to any existing index in your service. 
 

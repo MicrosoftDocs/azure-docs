@@ -1,17 +1,17 @@
 ---
-title: Add full text search to Azure Blob Storage - Azure Search
-description: Crawl text content in Azure Blob storage for Azure Search indexing, in code using the HTTP REST API.
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein 
+title: Add full text search to Azure Blob Storage
+titleSuffix: Azure Cognitive Search
+description: Crawl unstructured text in Azure Blob storage for Azure Cognitive Search indexing using the HTTP REST API.
+
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Searching Blob storage with Azure Search
+# Searching Blob storage with Azure Cognitive Search
 
 Searching across the variety of content types stored in Azure Blob storage can be a difficult problem to solve. However, you can index and search the content of your Blobs in just a few clicks by using Azure Search. Searching over Blob storage requires provisioning an Azure Search service. The various service limits and pricing tiers of Azure Search can be found on the [pricing page](https://aka.ms/azspricing).
 

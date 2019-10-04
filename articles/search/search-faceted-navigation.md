@@ -1,16 +1,17 @@
 ---
-title: How to implement faceted navigation in a category hierarchy - Azure Search
-description: Add facet navigation to applications that integrate with Azure Search, a cloud hosted search service on Microsoft Azure.
-author: HeidiSteen
+title: How to implement faceted navigation in a category hierarchy
+titleSuffix: Azure Cognitive Search
+description: Add facet navigation to applications that integrate with Azure Cognitive Search, a cloud hosted search service on Microsoft Azure.
+
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to implement faceted navigation in Azure Search
+# How to implement faceted navigation in Azure Cognitive Search
+
 Faceted navigation is a filtering mechanism that provides self-directed drilldown navigation in search applications. The term 'faceted navigation' may be unfamiliar, but you've probably used it before. As the following example shows, faceted navigation is nothing more than the categories used to filter results.
 
  ![Azure Search Job Portal Demo](media/search-faceted-navigation/azure-search-faceting-example.png "Azure Search Job Portal Demo")

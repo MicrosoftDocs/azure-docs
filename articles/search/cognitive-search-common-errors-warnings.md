@@ -1,18 +1,17 @@
 ---
-title: Common Errors and Warnings - Azure Search
-description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
-services: search
-manager: heidist
-author: amotley
+title: Common Errors and Warnings
+titleSuffix: Azure Cognitive Search
+description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
 
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
+manager: nitinme
+author: amotley
 ms.author: abmotley
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# Common errors and warnings of the AI enrichment pipeline in Azure Search
+# Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search
 
 This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
 

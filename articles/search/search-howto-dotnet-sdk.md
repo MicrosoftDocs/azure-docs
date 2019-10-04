@@ -1,17 +1,17 @@
 ---
-title: How to use Azure Search from a .NET Application - Azure Search
-description: Learn how to use Azure Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
-author: brjohnstmsft
-manager: nitinme
-services: search
-ms.service: search
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 06/19/2019
-ms.author: brjohnst
+title: How to use Azure Cognitive Search from a .NET Application
+titleSuffix: Azure Cognitive Search
+description: Learn how to use Azure Cognitive Search in a .NET application using C# and the .NET SDK. Code-based tasks include connect to the service, index content, and query an index.
 
+manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.devlang: dotnet
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to use Azure Search from a .NET Application
+# How to use Azure Cognitive Search from a .NET Application
 
 This article is a walkthrough to get you up and running with the [Azure Search .NET SDK](https://aka.ms/search-sdk). You can use the .NET SDK to implement a rich search experience in your application using Azure Search.
 

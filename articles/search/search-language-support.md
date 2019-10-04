@@ -1,17 +1,17 @@
 ---
-title: Multi-language indexing for non-English search queries - Azure Search
-description: Azure Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft.
-author: yahnoosh
-manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 08/08/2019
-ms.author: jlembicz
+title: Multi-language indexing for non-English search queries
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search supports 56 languages, leveraging language analyzers from Lucene and Natural Language Processing technology from Microsoft.
 
+manager: nitinme
+author: yahnoosh
+ms.author: jlembicz
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
 
-# How to create an index for multiple languages in Azure Search
+# How to create an index for multiple languages in Azure Cognitive Search
 
 Indexes can include fields containing content from multiple languages, for example, creating individual fields for language-specific strings. For best results during indexing and querying, assign a language analyzer that provides the appropriate linguistic rules. 
 

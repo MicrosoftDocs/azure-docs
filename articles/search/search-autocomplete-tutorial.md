@@ -1,17 +1,18 @@
 ---
-title: 'Add suggestions and autocomplete in a search box - Azure Search'
-description: Enable typeahead query actions in Azure Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
+title: Add suggestions and autocomplete in a search box
+titleSuffix: Azure Cognitive Search
+description: Enable typeahead query actions in Azure Cognitive Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
+
 manager: nitinme
 author: mrcarter8
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: mcarter
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
 #Customer intent: As a developer, I want to understand autocomplete implementation, benefits, and tradeoffs.
 ---
 
-# Add suggestions or autocomplete to your Azure Search application
+# Add suggestions or autocomplete to your Azure Cognitive Search application
 
 In this article, learn how to use [suggestions](https://docs.microsoft.com/rest/api/searchservice/suggestions) and [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) to build a powerful search box that supports search-as-you-type behaviors.
 

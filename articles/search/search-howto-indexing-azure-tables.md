@@ -1,19 +1,19 @@
 ---
-title: Index content from Azure Table storage for full text search - Azure Search
-description: Learn how to index data stored in Azure Table storage with an Azure Search indexer.
+title: Index content from Azure Table storage for full text search
+titleSuffix: Azure Cognitive Search
+description: Learn how to index data stored in Azure Table storage with an Azure Cognitive Search indexer.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
 
-# Index Azure Table storage with Azure Search
+# How to index tables from Azure Table storage with Azure Cognitive Search
+
 This article shows how to use Azure Search to index data stored in Azure Table storage.
 
 ## Set up Azure Table storage indexing
