@@ -18,7 +18,7 @@ In this article, you use the REST API interface to ingest, index, and apply AI e
 
 After you create the knowledge store, you can learn about how to access the knowledge store by using [Storage Explorer](knowledge-store-view-storage-explorer.md) or [Power BI](knowledge-store-connect-power-bi.md).
 
-## 1 - Create services
+## Create services
 
 Create the following services:
 
@@ -28,7 +28,7 @@ Create the following services:
 
 - Recommended: Get the [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool that's capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs. We use Postman in this article. Also, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
 
-## 2 - Store the data
+## Store the data
 
 Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Search indexer and fed through the AI enrichment pipeline.
 
@@ -48,7 +48,7 @@ Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by
 
     ![Create the blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the blob container")
 
-## 3 - Configure Postman
+## Configure Postman
 
 Install and set up Postman.
 
@@ -100,7 +100,7 @@ The [source code](https://github.com/Azure-Samples/azure-search-postman-samples/
 > orange text, as with `{{admin-key}}` in the preceding screenshot. If the variable is misspelled, it appears in red text.
 >
 
-## 4 - Create an Azure Search index
+## Create an Azure Search index
 
 Create an Azure Search index to represent the data that you're interested in searching, filtering, and applying enhancements to. Create the index by issuing a PUT request to `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman replaces symbols that are enclosed in double braces (such as `{{search-service-name}}`, `{{index-name}}`, and `{{api-version}}`) with the values that you set in [step 3](#3---configure-postman). If you use a different tool to issue your REST commands, you must substitute those variables yourself.
 
@@ -143,7 +143,7 @@ This index definition is a combination of data that you'd like to present to the
 
 Select **Send** to issue the PUT request. You should see the status `201 - Created`. If you see a different status, in the **Body** pane, look for a JSON response that contains an error message. 
 
-## 5 - Create the datasource
+## Create the datasource
 
 Next, connect Azure Search to the hotel data you stored in [step 2](#2---store-the-data). To create the datasource, send a POST request to `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. You must set the `api-key` and `Content-Type` headers as discussed earlier. 
 
@@ -161,7 +161,7 @@ In Postman, go to the **Create Datasource** request, and then to the **Body** pa
 
 Select **Send** to issue the POST request. 
 
-## 6 - Create the skillset 
+## Create the skillset 
 
 The next step is to specify the skillset, which specifies both the enhancements to be applied and the knowledge store where the results will be stored. In Postman, select the **Create the Skillset** tab. This request sends a PUT to `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Set the `api-key` and `Content-type` headers as you did earlier. 
 
@@ -297,7 +297,7 @@ To generate the skillset, select the **Send** button in Postman to PUT the reque
 }
 ```
 
-## 7 - Create the Indexer
+## Create the indexer
 
 The final step is to create the indexer. The indexer reads the data and activates the skillset. In Postman, select the **Create Indexer** request, and then review the body. The definition of the indexer refers to several other resources that you already created: the datasource, the index, and the skillset. 
 
@@ -334,7 +334,7 @@ After you set the `api-key` and `Content-type` headers and confirm that the body
 }
 ```
 
-## 8 - Run the indexer 
+## Run the indexer 
 
 In the Azure portal, go to the Search service's **Overview** page. Select the **Indexers** tab, and then select **hotels-reviews-ixr**. If the indexer hasn't already run, select **Run**. The indexing task might raise some warnings related to language recognition. The data includes some reviews that are written in languages that aren't yet supported by the cognitive skills. 
 
