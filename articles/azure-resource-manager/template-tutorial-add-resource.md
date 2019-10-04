@@ -13,7 +13,7 @@ ms.author: jgao
 
 # Tutorial: Add a resource to your Resource Manager template
 
-In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about 9 minutes to complete this tutorial.
+In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about **9 minutes** to complete this tutorial.
 
 ## Prerequisites
 

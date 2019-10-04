@@ -15,7 +15,7 @@ ms.author: jgao
 
 # Tutorial: Create and deploy your first Azure Resource Manager template
 
-This tutorial introduces you to Resource Manager templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about 12 minutes to complete this tutorial, but the actual time will vary based on how many tools you need to install.
+This tutorial introduces you to Resource Manager templates. It shows you how to create a starter template and deploy it to Azure. You'll learn about the structure of the template and the tools you'll need for working with templates. It takes about **12 minutes** to complete this tutorial, but the actual time will vary based on how many tools you need to install.
 
 This tutorial is the first of a series. As you progress through the series, you modify the starting template step-by-step until you've explored all of the core parts of a Resource Manager template. These elements are the building blocks for much more complex templates. We hope by the end of the series you're confident creating your own templates and ready to automate your deployments with templates.
 
