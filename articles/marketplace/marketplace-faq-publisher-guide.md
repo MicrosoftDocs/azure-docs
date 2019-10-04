@@ -376,9 +376,9 @@ For more information, see [Deleting an offer](./cloud-partner-portal/manage-offe
     > [!NOTE]
     > Apps disappear from an existing listing after 90 days.
 
-*Power BI Apps:*
+**Why aren’t my changes reflected in the offer?**
 
-Contact: [Anjana Sompur (Slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+Changes made within Partner Center are only updated in the system and store fronts once you have republished the offer. Please make sure that you have submitted the offer for publication after any modifications.
 
 ### Benefits and Go-To-Market (GTM) Resources
 
@@ -458,6 +458,16 @@ Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF
 **What is the difference between Free Tier and Free Software Trial?**
 
 A Free Tier subscription offering is perpetually free.  A Free Software Trial (Try It Now) offering is a paid subscription, only free for a limited period of time.
+
+**What is the process to validate the end to end purchase and provisioning flow?**
+
+During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer’s configuration.
+
+To complete a purchase at a very low price, Microsoft suggests publishing a private Plan to yourself set at a price you can accept as the cost of testing. Zero is supported but will not reflect the full experience like a paid subscription.
+
+**Will Microsoft provide a refund outside standard policies?**
+
+Yes, upon your request via support ticket, Microsoft will process credits to your customer if you deem it appropriate.
 
 ## Next steps
 
