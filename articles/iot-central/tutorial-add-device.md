@@ -15,13 +15,15 @@ manager: peterpr
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application.  
-**You do not need your own external device to complete this tutorial. The "real device" will be built as a coded application running in the command-line environment.*
+This tutorial shows you how to add and configure a real device to your Microsoft Azure IoT Central application. 
+_*You do not need your own external device to complete this tutorial. The "real device" will be built as a coded application running in the command-line environment._ 
 
 This tutorial is made up of two parts:
 
 * First, as an operator, you learn how to add and configure a real device in your Azure IoT Central application. At the end of this part, you retrieve a connection string to use in the second part.
 * Then, as a device developer, you learn about the code in your real device. You add the connection string from the first part to the sample code.
+
+
 
 In this tutorial, you learn how to:
 
