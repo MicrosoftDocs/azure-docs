@@ -128,12 +128,12 @@ Let's see this behavior in action with a practical example. Assume we have a log
 At each interval below, the Azure alerts system evaluates the condition for the *Contoso-Log-Alert*.
 
 
-| Time    | Num of log entries containing 500 result code returned by log search query | Log condition evalution | Result 
+| Time    | Num of records returned by log search query | Log condition evalution | Result 
 | ------- | ----------| ----------| ------- 
-| 1:05 PM | 0 records | FALSE | 0 < 1 so alert does not fire. No actions called.
-| 1:10 PM | 2 records | TRUE  | 2 > 1 so alert fires and action groups called. Alert state ACTIVE.
-| 1:15 PM | 5 records | TRUE  | 5 > 1 so alert fires and action groups called. Alert state ACTIVE.
-| 1:20 PM | 0 records | FALSE | 0 < 1 so alert does not fire. No actions called. Alert state left ACTIVE.
+| 1:05 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called.
+| 1:10 PM | 2 records | 2 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
+| 1:15 PM | 5 records | 5 > 0 so TRUE  | Alert fires and action groups called. Alert state ACTIVE.
+| 1:20 PM | 0 records | 0 is not > 0 so FALSE |  Alert does not fire. No actions called. Alert state left ACTIVE.
 
 Using the previous case as an example:
 
