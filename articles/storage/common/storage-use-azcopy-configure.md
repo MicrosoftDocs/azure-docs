@@ -51,7 +51,7 @@ Use the following command to run a performance benchmark test.
 | **Syntax** | `azcopy bench 'https://<storage-account-name>.blob.core.windows.net/<container-name>` |
 | **Example** | `azcopy bench 'https://mystorageaccount.blob.core.windows.net/mycontainer/myBlobDirectory/'` |
 
-This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, and then deleted from memory after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
+This command runs a performance benchmark by uploading test data to a specified destination. The test data is generated in memory, uploaded to the destination, then deleted from the destination after the test is complete. You can specify how many files to generate and what size you'd like them to be by using optional command parameters.
 
 To view detailed help guidance for this command, type `azcopy bench -h` and then press the ENTER key.
 
@@ -65,7 +65,7 @@ azcopy cap-mbps 10
 
 Throughput can decrease when transferring small files. You can you can increase throughput by setting the `AZCOPY_CONCURRENCY_VALUE` environment variable. This variable specifies the number of concurrent requests that can occur.  
 
-If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `1000`, but you can manually set this value higher or lower. 
+If your computer has fewer than 5 CPUs, then the value of this variable is set to `32`. Otherwise, the default value is equal to 16 multiplied by the number of CPUs. The maximum default value of this variable is `3000`, but you can manually set this value higher or lower. 
 
 | Operating system | Command  |
 |--------|-----------|
@@ -73,7 +73,9 @@ If your computer has fewer than 5 CPUs, then the value of this variable is set t
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-Use the `azcopy env` to check the current value of this variable.  If the value is blank, then the `AZCOPY_CONCURRENCY_VALUE` variable is set to the default value of `300`.
+Use the `azcopy env` to check the current value of this variable. If the value is blank, then you can read which value is being used by looking at the beginning of any AzCopy log file. The selected value, and the reason it was selected, are reported there.
+
+Before you set this variable, we recommend that you run a benchmark test. The benchmark test process will report the recommended concurrency value. Alternatively, if your network conditions and payloads vary, set this variable to the word `AUTO` instead of to a particular number. That will cause AzCopy to always run the same automatic tuning process that it uses in benchmark tests.
 
 ### Optimize memory use
 

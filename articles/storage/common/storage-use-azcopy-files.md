@@ -23,7 +23,7 @@ You can use the [azcopy make](storage-ref-azcopy-make.md) command to create a fi
 | **Syntax** | `azcopy make 'https://<storage-account-name>.file.core.windows.net/<file-share-name>?<SAS-token>'` |
 | **Example** | `azcopy make 'https://mystorageaccount.file.core.windows.net/myfileshare?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-For detailed reference docs see [azcopy make](storage-ref-azcopy-make.md).
+For detailed reference docs, see [azcopy make](storage-ref-azcopy-make.md).
 
 ## Upload files
 
@@ -49,7 +49,7 @@ For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
 | **Syntax** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>'` |
 | **Example** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-You can also upload a file by using a wildcard symbol (*) anywhere in the file name. For example: `'C:\myDirectory\*.txt'`
+You can also upload a file by using a wildcard symbol (*) anywhere in the file path or file name. For example: `'C:\myDirectory\*.txt'`, or `C:\my*\*.txt`.
 
 ### Upload specific files
 
@@ -57,7 +57,7 @@ You can specify complete file names, or use partial names with wildcard characte
 
 #### Specify complete file names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolin (`;`).
+Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual file names by using a semicolon (`;`).
 
 |    |     |
 |--------|-----------|
@@ -192,7 +192,7 @@ This section contains the following examples:
 > * Copy a file share to another storage account
 > * Copy all file shares, directories, and files to another storage account
 
-For detailed reference docs see [azcopy copy](storage-ref-azcopy-copy.md).
+For detailed reference docs, see [azcopy copy](storage-ref-azcopy-copy.md).
 
 ### Copy a file to another storage account
 
@@ -233,7 +233,7 @@ The [sync](storage-ref-azcopy-sync.md) command compares file names and last modi
 
 If you set the `--delete-destination` flag to `true` AzCopy deletes files without providing a prompt. If you want a prompt to appear before AzCopy deletes a file, set the `--delete-destination` flag to `prompt`.
 
-For detailed reference docs see [azcopy sync](storage-ref-azcopy-sync.md).
+For detailed reference docs, see [azcopy sync](storage-ref-azcopy-sync.md).
 
 ### Update a file share with changes to a local file system
 
