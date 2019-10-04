@@ -42,7 +42,7 @@ The diagram shows the following components of a workspace:
 You can interact with your workspace in the following ways:
 
 + On the web:
-    + [Azure Machine Learning studio ](https://ml.azure.com) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
+    + [Azure Machine Learning studio ](https://ml.azure.com) 
     + [Azure Machine Learning designer](ui-concept-visual-interface.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
