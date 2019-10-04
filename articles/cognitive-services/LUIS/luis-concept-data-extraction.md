@@ -27,7 +27,7 @@ LUIS provides the data from the published [endpoint](luis-glossary.md#endpoint).
 
 #### [V3 prediction endpoint request](#tab/V3)
 
-`https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
+`https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/<appID>/slots/<slot-type>/predict?subscription-key=<subscription-key>&verbose=true&timezoneOffset=0&query=book 2 tickets to paris`
 
 Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 

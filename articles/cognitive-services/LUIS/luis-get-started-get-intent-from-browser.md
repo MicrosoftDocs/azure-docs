@@ -44,7 +44,7 @@ In order to query a public app, you need:
     The format of the V3 URL for a **GET** endpoint (by slots) request is:
     
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
+    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}
     `
     
     * * *
@@ -144,7 +144,7 @@ In order to query a public app, you need:
     Add `show-all-intents=true` to the end of the querystring to **show all intents**:
 
     `
-    https://westus.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
+    https://westus.api.cognitive.microsoft.com/luis/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key={your-key}&show-all-intents=true
     `
 
     ```JSON
