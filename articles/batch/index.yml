@@ -36,10 +36,6 @@ landingContent:
             url: quick-run-dotnet.md
           - text: Python API
             url: quick-run-python.md
-      - linkListType: how-to-guide 
-        links:
-            - text: Manage a Batch account
-              url: batch-account-create-portal.md  
       - linkListType: concept
         links:
             - text: Developer features
@@ -72,6 +68,8 @@ landingContent:
           url: batch-custom-images.md
         - text: Run tasks concurrently 
           url: batch-parallel-node-tasks.md
+        - text: Using application packages
+          url: batch-application-packages.md
       - linkListType: concept
         links:
           - text: Supported VM sizes
