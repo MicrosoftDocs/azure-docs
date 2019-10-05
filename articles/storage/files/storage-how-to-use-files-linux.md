@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/29/2018
+ms.date: 10/05/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -12,53 +12,46 @@ ms.subservice: files
 # Use Azure Files with Linux
 [Azure Files](storage-files-introduction.md) is Microsoft's easy to use cloud file system. Azure file shares can be mounted in Linux distributions using the [SMB kernel client](https://wiki.samba.org/index.php/LinuxCIFS). This article shows two ways to mount an Azure file share: on-demand with the `mount` command and on-boot by creating an entry in `/etc/fstab`.
 
-> [!NOTE]  
-> In order to mount an Azure file share outside of the Azure region it is hosted in, such as on-premises or in a different Azure region, the OS must support the encryption functionality of SMB 3.0.
+The recommended way to mount an Azure file share on Linux is using SMB 3.0. By default, Azure Files requires encryption in transit, which is only supported by SMB 3.0. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, there is little reason to use it since most popular, recently released Linux distributions support SMB 3.0:  
 
-## Prerequisites for mounting an Azure file share with Linux
-<a id="smb-client-reqs"></a>
-
-* **An existing Azure storage account and file share**: In order to complete this article, you need to have a storage account and file share. If you haven't already created one, see one of our quickstarts on the subject: [Create file shares - CLI](storage-how-to-use-files-cli.md).
-
-* **Your storage account name and key** You will need the storage account name and key in order to complete this article. If you created one using the CLI quickstart you should already have them, otherwise, consult the CLI quickstart that was linked earlier, in order to learn how to retrieve your storage account key.
-
-* **Pick a Linux distribution to suit your mounting needs.**  
-      Azure Files can be mounted either via SMB 2.1 and SMB 3.0. For connections coming from clients on-premises or in other Azure regions, you must use SMB 3.0; Azure Files will reject SMB 2.1 (or SMB 3.0 without encryption). If you're accessing the Azure file share from a VM within the same Azure region, you may access your file share using SMB 2.1, if and only if, *secure transfer required* is disabled for the storage account hosting the Azure file share. We always recommend requiring secure transfer and using only SMB 3.0 with encryption.
-
-    SMB 3.0 encryption support was introduced in Linux kernel version 4.11 and has been backported to older kernel versions for popular Linux distributions. At the time of this document's publication, the following distributions from the Azure gallery support mounting option specified in the table headers. 
-
-* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
-
-### Minimum recommended versions with corresponding mount capabilities (SMB version 2.1 vs SMB version 3.0)
-|   | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
+| | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
 | --- | :---: | :---: |
-| Ubuntu Server | 14.04+ | 16.04+ |
-| RHEL | 7+ | 7.5+ |
+| Ubuntu | 14.04+ | 16.04+ |
+| Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 10 |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12 | 12 SP3+ |
+| SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
-If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
+If you're using a Linux distribution not listed in the above table, you can check to see if your Linux distribution supports SMB 3.0 with encryption by checking the Linux kernel version. SMB 3.0 with encryption was added to Linux kernel version 4.11. The `uname` command will return the version of the Linux kernel in use:
 
 ```bash
 uname -r
 ```
 
-* <a id="install-cifs-utils"></a>**The cifs-utils package is installed.**  
+## Prerequisites for mounting an Azure file share with Linux
+<a id="smb-client-reqs"></a>
+
+* <a id="install-cifs-utils"></a>**Ensure the cifs-utils package is installed.**  
     The cifs-utils package can be installed using the package manager on the Linux distribution of your choice. 
 
-    On **Ubuntu** and **Debian-based** distributions, use the `apt-get` package manager:
+    On **Ubuntu** and **Debian-based** distributions, use the `apt` package manager:
 
     ```bash
     sudo apt update
     sudo apt install cifs-utils
     ```
 
-    On **RHEL** and **CentOS**, use the `yum` package manager:
+    On **Fedora**, **Red Hat Enterprise Linux 8+**, and **CentOS 8 +**, use the `dnf` package manager:
 
     ```bash
-    sudo yum install cifs-utils
+    sudo dnf install cifs-utils
+    ```
+
+    On older versions of **Red Hed Enteprise Linux** and **CentOS**, use the `dnf` package manager:
+
+    ```bash
+    sudo yum install cifs-utils 
     ```
 
     On **openSUSE**, use the `zypper` package manager:
@@ -69,10 +62,7 @@ uname -r
 
     On other distributions, use the appropriate package manager or [compile from source](https://wiki.samba.org/index.php/LinuxCIFS_utils#Download)
 
-* **Decide on the directory/file permissions of the mounted share**: In the examples below, the permission `0777` is used to give read, write, and execute permissions to all users. You can replace it with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod) as desired, though this will mean potentially restricting access. If you do use other permissions, you should consider also using uid and gid in order to retain access for local users and groups of your choice.
-
-> [!NOTE]
-> If you do not explicitly assign directory and file permission with dir_mode and file_mode, they will default to 0755.
+* **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
 
 * **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. Replace **<your-resource-group>** and **<your-storage-account>**
     ```bash
@@ -114,7 +104,7 @@ You can mount the same Azure file share to multiple mount points if desired.
     sudo mkdir -p $mntPath
     ```
 
-1. **Use the mount command to mount the Azure file share**. If you like, you can change the directory and file permissions of your mounted share.
+1. **Use the mount command to mount the Azure file share**. In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia. 
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -128,7 +118,7 @@ You can mount the same Azure file share to multiple mount points if desired.
         --resource-group $resourceGroup \
         --query "[0].value" | tr -d '"')
 
-    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccount,password=$storageAccountKey,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccount,password=$storageAccountKey,serverino
     ```
 
     > [!Note]  
@@ -176,7 +166,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **Use the following command to append the following line to `/etc/fstab`**: Remember to replace **<storage_account_name>**, **<share_name>**, **<smb_version>**, and **<mount_point>** with the appropriate information for your environment. If your Linux distribution supports SMB 3.0 with encryption (see [Understand SMB client requirements](#smb-client-reqs) for more information), use **3.0** for **<smb_version>**. For Linux distributions that do not support SMB 3.0 with encryption, use **2.1** for **<smb_version>**. An Azure file share can only be mounted outside of an Azure region (including on-premises or in a different Azure region) with SMB 3.0.
+1. **Use the following command to append the following line to `/etc/fstab`**: In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -186,7 +176,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShare
 
     if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
-        echo "$smbPath $mntPath cifs nofail,vers=3.0,credentials=$smbCredentialFile,dir_mode=0777,file_mode=0777,serverino" | sudo tee -a /etc/fstab > /dev/null
+        echo "$smbPath $mntPath cifs nofail,vers=3.0,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
     else
         echo "/etc/fstab was not modified to avoid conflicting entries as this Azure file share was already present. You may want to double check /etc/fstab to ensure the configuration is as desired."
     fi
@@ -213,7 +203,7 @@ Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy
 | CentOS 7 | No | 
 | CentOS 8+ | Yes |
 | Red Hat Enterprise Linux 6.x-7.x | No |
-| Red Hat Enterprise Linux 8.x | Yes |
+| Red Hat Enterprise Linux 8+ | Yes |
 | openSUSE Leap 15.0 | No |
 | openSUSE Leap 15.1+ | Yes |
 | openSUSE Tumbleweed | Yes |
