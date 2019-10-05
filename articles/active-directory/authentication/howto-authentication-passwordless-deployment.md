@@ -143,7 +143,7 @@ You might be using the Microsoft Authenticator App as a convenient MFA option. I
 
 It turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign into any platform or browser. Users sign in by getting a notification to their phone, matching a number displayed on the screen to the one on their phone and then using their biometric data or PIN to confirm. [See details on how the Microsoft Authenticator app works](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless).
 
-![passwordless sign in screen](media/howto-plan-passwordless/passwordless-dp-sign-in.png)
+![passwordless sign in screen](media/howto-authentication-passwordless-deployment/passwordless-dp-sign-in.png)
 
 Users must download the Microsoft Authenticator app. and follow the directions to enable phone sign in.
 
@@ -288,7 +288,7 @@ Rolling back requires the administrator to sign in to the Azure Active Directory
 
 Users that have already registered FIDO2 security devices will be prompted to use the security device at their next sign in, and will then see the following error:
 
-![choose a different way to sign in](media/howto-plan-passwordless/passwordless-choose-sign-in.png)
+![choose a different way to sign in](media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
 ## Deploy passwordless authentication
 
