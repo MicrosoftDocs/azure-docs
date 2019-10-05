@@ -20,7 +20,6 @@ Azure CycleCloud makes it easy to create High Performance Computing (HPC) cluste
 
 [//]: # (might want to convert this to a table with mini screenshots similar to App Insights overview)
 * **Manage compute resources**: manage virtual machines and scale sets to provide a flexible set of compute resources that can meet your dynamic workload requirements
-* **Manage data**: synchronize data files between cloud and on-premise storage, schedule data transfers, monitor transfers and manage data usage.
 * **Orchestrate compute workloads**: monitor job load, manage job submissions and job requirements.
 * **Auto scale resources**: automatically adjust cluster size and components based upon job load, availability, and time requirements
 * **Create reports**: create reports on a number of metrics including cost, usage, and performance.
