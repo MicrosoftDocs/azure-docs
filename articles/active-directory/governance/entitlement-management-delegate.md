@@ -43,7 +43,7 @@ To understand how you might delegate access governance in entitlement management
 
 As the IT administrator, Hana has contacts in each department -- Mamta in Marketing, Mark in Finance, and Joe in Legal who are responsible for their department's resources and business critical content.
 
-With entitlement management, you can delegate access governance to these department managers because they're the ones who know who needs access and to which resources. This ensures the right people are managing access for their departments, without IT involvement.
+With entitlement management, you can delegate access governance to these department managers because they're the ones who know who needs access and to which resources. This ensures the right people are managing access for their departments.
 
 Here is one way that Hana could delegate access governance to the marketing, finance, and legal departments.
 
@@ -57,11 +57,11 @@ Here is one way that Hana could delegate access governance to the marketing, fin
 
 1. Mamta creates a **Marketing** catalog, which is a container of resources.
 
-1. Mamta adds the resources her marketing department owns to the catalog.
+1. Mamta adds the resources that her marketing department owns to this catalog.
 
-1. Mamta can add any catalog owners that she wants to be a co-owner for that catalog. This helps share the catalog management tasks.
+1. Mamta can add additional people from her department as catalog owners of this catalog. This helps share the catalog management responsibilities.
 
-1. Mamta can further delegate to project managers the creation and management of access packages in the Marketing catalog by assigning the access package manager role. An access package is a bundle of resources for a team or project that users can request.
+1. Mamta can further delegate the creation and management of access packages in the Marketing catalog to project managers in the Marketing department, by assigning them to the access package manager role. An access package manager can create and manage access packages. An access package is a bundle of resources for a team or project that users can request, and the access to this is governed by policies.
 
 The following diagram shows catalogs with resources for the marketing, finance, and legal departments. Using these catalogs, project managers can create access packages for their teams or projects.
 
@@ -78,7 +78,7 @@ After delegation, the marketing department might have roles similar to the follo
 
 ## As an IT administrator, delegate to department manager
 
-To delegate to department managers so that they can create their own catalogs, you add users to the catalog creator role. You can add individual users, or for convenience can add a group, whose members are then able to create catalogs.
+To delegate to department managers so that they can create their own catalogs, you need to add users to the catalog creator role. You can add individual users, or you can add a group, whose members are then able to create catalogs.
 
 Follow these steps to assign a user to the catalog creator role.
 
@@ -108,7 +108,7 @@ Follow these steps to assign a user to the catalog creator role.
 
 ## As a department manager, add additional catalog owners
 
-Whoever creates a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management tasks. 
+The user that created a catalog becomes the first catalog owner. To delegate management of a catalog, you add users to the catalog owner role. This helps share the catalog management responsibilities. 
 
 Follow these steps to assign a user to the catalog owner role:
 
