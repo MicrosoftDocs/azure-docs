@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Types of models in Language Understanding
 
-Language understand provides several types of models. Some models can be used in more than one way. 
+Language understanding provides several types of models. Some models can be used in more than one way. 
 
 ## Types of models
 
@@ -23,10 +23,12 @@ Language Understanding has several types of models:
 
 |Name|Purpose|Definition|
 |--|--|--|
-|Intent|Classify primary purpose of user's utterance.|Model that groups example user utterances with same intent.|
-|Entities|Extracts data from inside a user utterance.|Model that identifies the type of data.|
-|Constraints|Extracts data from inside a user utterance.|A model that doesn't require machine-learning to extract information. These models include a regular expression entity, a list entity, or a prebuilt entity.|
-|Descriptors|Boost relevance so classification or extraction is successful.|Models such as entities or phrase lists.|
+|Intent|Classify primary purpose of user's utterance.|Model that categorizes groups of example utterances that have a common action.|
+|Entities|Extracts data from inside a user utterance.|Model that identifies a span of tokens.|
+|Constraints|Extracts data from inside a user utterance. Bounds the extraction of a child entity (subcomponent) by a non-machine-learned-entity (matching entity).|Rule that constrains the firing of a child entity extraction model by a non-machine learned entity (regular expression entity, list entity, prebuilt entity).A model that doesn't require machine-learning to extract information. These models include a regular expression entity, a list entity, or a prebuilt entity.|
+|Descriptors|Boost relevance so classification or extraction is successful by signaling to the machine-learned model.|Models such as entities or phrase lists. Features such as intents, entities, or phrase list.|
+|Feature|Boost relevance.| In machine learning, a feature is a distinguishing trait or attribute of data that your system observes and learns through. In Language Understanding (LUIS), a feature describes and explains what is significant about your intents and entities.|
+|Token|Identify entity for extraction.|Set of words|
 
 ## Single intent utterances
 

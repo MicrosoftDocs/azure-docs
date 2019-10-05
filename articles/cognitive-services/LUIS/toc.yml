@@ -123,6 +123,8 @@
       displayName: import
     - name: Types of models
       href: luis-concept-model.md
+    - name: Features
+      href: luis-concept-feature.md
     - name: Prediction score
       href: luis-concept-prediction-score.md
     - name: Intents
@@ -136,8 +138,6 @@
       href: luis-concept-utterance.md
     - name: Prebuilt models
       href: luis-concept-prebuilt-model.md
-    - name: Phrase lists
-      href: luis-concept-feature.md
     - name: Patterns
       href: luis-concept-patterns.md
       displayName: roles
