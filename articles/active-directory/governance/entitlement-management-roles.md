@@ -94,5 +94,6 @@ To determine the least privileged role for a task, you can also reference [Admin
 
 ## Next steps
 
-- [Add approvers](entitlement-management-access-package-edit.md#policy-request)
+- [Delegate access governance to department managers](entitlement-management-delegate.md)
 - [Add resources to a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Add approvers](entitlement-management-access-package-edit.md#policy-request)
