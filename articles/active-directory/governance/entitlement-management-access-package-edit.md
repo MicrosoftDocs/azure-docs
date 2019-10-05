@@ -365,5 +365,4 @@ In entitlement management, Azure AD will process bulk changes for assignment and
 
 ## Next steps
 
-- [Delegate access governance to department managers](entitlement-management-delegate.md)
 - [Request process and email notifications](entitlement-management-process.md)

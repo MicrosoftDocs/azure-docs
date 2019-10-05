@@ -124,5 +124,3 @@ On the **Review + create** tab, you can review your settings and check for any v
 ## Next steps
 
 - [Edit and manage an existing access package](entitlement-management-access-package-edit.md)
-- [Delegate access governance to department managers](entitlement-management-delegate.md)
-- [Create and manage a catalog](entitlement-management-catalog-create.md)
