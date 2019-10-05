@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2018
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ---
 
 # Quickstart: Create a Linux virtual machine with the Azure CLI
