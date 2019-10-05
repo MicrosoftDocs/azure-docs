@@ -11,9 +11,9 @@ ms.author: helohr
 ---
 # Storage options for FSLogix profile containers
 
-Windows Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V Virtual Hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
+Azure offers multiple storage solutions that you can use to store your FSLogix profile container. This article compares storage solutions Azure Storage offers for Windows Virtual Desktop FSLogix profile container user profiles.
 
-Azure offers multiple storage solutions that you can use to store your FSLogix profile container. 
+Windows Virtual Desktop offers FSLogix profile containers as the recommended user profile solution. FSLogix is designed to roam profiles in remote computing environments, such as Windows Virtual Desktop. At sign in, this container is dynamically attached to the computing environment using natively supported Virtual Hard Disk (VHD) and Hyper-V virtual hard disk (VHDX). The user profile is immediately available and appears in the system exactly like a native user profile.
 
 ## Comparing Azure storage options
 
@@ -37,8 +37,12 @@ Azure management details
 
 |Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
-|Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, [on-prem (ExpressRoute)](./azure-netapp-files/azure-netapp-files/azure-netapp-files-network-topologies#hybrid-environments) (https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies#hybrid-environments)||
+|Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, [on-prem (ExpressRoute)](./azure-netapp-files/azure-netapp-files/azure-netapp-files-network-topologies#hybrid-environments) ||
 |Azure Active Directory integration||||
 |Backup||||
 |Security compliance||||
 
+
+
+
+|
