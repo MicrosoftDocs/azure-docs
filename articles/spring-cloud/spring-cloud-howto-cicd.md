@@ -7,7 +7,7 @@ manager: jeconnoc
 editor: ''
 
 ms.service: spring-cloud
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: v-vasuke
 
