@@ -62,7 +62,7 @@ Follow these steps if you want to allow any user in the world to request access 
 1. In the **Users who can request access** section, select **Any user**.
 
     > [!NOTE]
-    > You should only use this option for specific scenarios such as allowing any user to submit a bid for work.
+    > You should only use this option for specific scenarios. For example, this option is useful for a request-for-proposal (RFP) when you do not know the users or organizations in advance.
 
 1. Skip down to the [Policy: Expiration](#policy-expiration) section.
 
