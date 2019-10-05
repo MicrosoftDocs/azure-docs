@@ -35,11 +35,9 @@ ms.subservice: files
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 9+<sup>*</sup> |
+| Debian | 8+ | 10 |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-<sup>*</sup>Usage of a backported kernel might be required. You can install it with `sudo apt-get install linux-image-cloud-amd64`.
 
 If your Linux distribution is not listed here, you can check to see the Linux kernel version with the following command:
 
@@ -202,11 +200,35 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 ## Securing your Linux distribution
 In order to mount an Azure file share on Linux, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
-Starting with Linux kernel 4.18, the SMB kernel module, which is called `cifs` (for legacy reasons), exposes a new module parameter (often referred to as *parm* by various external documenation), called `disable_legacy_dialects`. You can see this parameter with the following command:
+Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels which they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
+
+| Distribution | Can disable SMB 1 |
+|--------------|-------------------|
+| Ubuntu 14.04-16.04 | No |
+| Ubuntu 18.04 | Yes |
+| Ubuntu 19.04+ | Yes |
+| Debian 8-9 | No |
+| Debian 10+ | Yes |
+| Fedora 29+ | Yes |
+| CentOS 7 | No | 
+| CentOS 8+ | Yes |
+| Red Hat Enterprise Linux 6.x-7.x | No |
+| Red Hat Enterprise Linux 8.x | Yes |
+| openSUSE Leap 15.0 | No |
+| openSUSE Leap 15.1+ | Yes |
+| openSUSE Tumbleweed | Yes |
+| SUSE Linux Enterprise 11.x-12.x | No |
+| SUSE Linux Enterprise 15 | No |
+| SUSE Linux Enterprise 15.1 | No |
+
+You can check to see if your linux distribution supports the `disable_legacy_dialects` module parameter via the following command.
 
 ```bash
-modinfo -p cifs | grep disable_legacy_dialects
+sudo modinfo -p cifs | grep disable_legacy_dialects
 ```
+
+> [!Note]  
+> Not all distributions have modinfo in the command path (you can view this via `echo $PATH`, so you may need to run `whereis modinfo` to find where the command is installed).
 
 This command should output the following message:
 
@@ -244,11 +266,18 @@ Finally, you can check the SMB module has been loaded with the parameter by look
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-### Disabling SMB 1 on Ubuntu and Debian-based distributions
+To persistently disable SMB 1 on Ubuntu and Debian-based distributions, you must create a new file (if you don't already have custom options for other modules) called `/etc/modprobe.d/local.conf` with the setting. You can do this with the following command:
 
-### Disable SMB 1 on Fedora and CentOS
+```bash
+echo "options cifs disable_legacy_dialects=Y" | sudo tee -a /etc/modprobe.d/local.conf > /dev/null
+```
 
-### Disable SMB 1 on openSUSE and SUSE Linux Enterprise Server 
+You can verify that this has worked by loading the SMB module:
+
+```bash
+sudo modprobe cifs
+cat /sys/module/cifs/parameters/disable_legacy_dialects
+```
 
 ## Feedback
 Linux users, we want to hear from you!
@@ -256,7 +285,6 @@ Linux users, we want to hear from you!
 The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## Next steps
-
 See these links for more information about Azure Files:
 
 * [Planning for an Azure Files deployment](storage-files-planning.md)
