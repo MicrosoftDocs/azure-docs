@@ -5,7 +5,7 @@ author:  jpconnock
 
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 9/27/2019
+ms.date: 10/05/2019
 ms.author: jeconnoc
 ---
 # Discover and register your Spring Cloud services
@@ -16,7 +16,7 @@ Service Discovery is a key requirement for a microservice-based architecture.  C
 
 Before your application can manage service registration and discovery using Spring Cloud Registry, several dependencies must be included in the application's *pom.xml* file.
 
-To begin, we add a snapshot repository to the *repository* section of your *pom.xml*
+To begin, add a snapshot repository to the *repository* section of your *pom.xml*
 
 ```xml
     <repositories>
