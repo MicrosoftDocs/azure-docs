@@ -15,7 +15,7 @@ initiatives. The policy assignment can determine the values of parameters for th
 resources at assignment time, making it possible to reuse policy definitions that address the same
 resource properties with different needs for compliance.
 
-You use JSON to create a policy assignment. The policy definition contains elements for:
+You use JSON to create a policy assignment. The policy assignment contains elements for:
 
 - display name
 - description
