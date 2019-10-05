@@ -90,7 +90,7 @@ Follow these steps to assign a user to the catalog creator role.
 
 1. Click **Edit**.
 
-    ![Settings to manage the lifecycle of external users](./media/entitlement-management-shared/settings-external-users.png)
+    ![Settings to add catalog creators](./media/entitlement-management-delegate/settings-delegate.png)
 
 1. In the **Delegate entitlement management** section, click **Add catalog creators** to select the users or groups that you want to delegate this entitlement management role to.
 
