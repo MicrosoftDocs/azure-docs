@@ -15,8 +15,6 @@ initiatives. The policy assignment can determine the values of parameters for th
 resources at assignment time, making it possible to reuse policy definitions that address the same
 resource properties with different needs for compliance.
 
-The schema used by Azure Policy can be found here: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
 You use JSON to create a policy assignment. The policy definition contains elements for:
 
 - display name
