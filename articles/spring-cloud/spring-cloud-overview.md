@@ -14,7 +14,7 @@ Azure Spring Cloud makes it easy to deploy Spring Boot-based microservice applic
 
 As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other Azure services including storage, databases, monitoring, and more.
 
-To get started, complete the Spring Cloud quickstart using the [Azure CLI](spring-cloud-launch-app-cli.md), the [Azure portal](spring-cloud-launch-app-portal.md), or [Maven](spring-cloud-launch-app-maven.md).
+To get started, complete the Spring Cloud quickstart using the [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), the [Azure portal](spring-cloud-quickstart-launch-app-portal.md), or [Maven](spring-cloud-quickstart-launch-app-maven.md).
 
 ## Application Configuration
 
