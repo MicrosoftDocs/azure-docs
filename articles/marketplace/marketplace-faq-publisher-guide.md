@@ -459,6 +459,16 @@ Transactions can be conducted in the following 17 currencies: AUD, BRL, CAD, CHF
 
 A Free Tier subscription offering is perpetually free.  A Free Software Trial (Try It Now) offering is a paid subscription, only free for a limited period of time.
 
+**What is the process to validate the end to end purchase and provisioning flow?**
+
+During the publishing process, you will be provided with access to a preview of your offer. Access is restricted to users that you specified in the Preview tab, and this is a live offer that is not visible to anyone else. You can purchase this and test the process; however, you will be charged the full amount according to your offer’s configuration.
+
+To complete a purchase at a very low price, Microsoft suggests publishing a private Plan to yourself set at a price you can accept as the cost of testing. Zero is supported but will not reflect the full experience like a paid subscription.
+
+**Will Microsoft provide a refund outside standard policies?**
+
+Yes, upon your request via support ticket, Microsoft will process credits to your customer if you deem it appropriate.
+
 ## Next steps
 
 Visit the [Azure Marketplace and AppSource Publisher guide](/azure/marketplace/marketplace-publishers-guide) page.
